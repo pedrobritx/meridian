@@ -1,0 +1,37 @@
+/* Components read semantic tokens. A product theme remaps these roles. */
+.md-button,.icon-button {font:500 12px/20px var(--md-font-label);border-radius:var(--md-radius-sm);min-height:var(--md-size-control);padding:10px 18px;display:inline-flex;align-items:center;justify-content:center;gap:var(--md-spacing-2);border:1px solid transparent;background:var(--md-color-action-primary);color:var(--md-color-action-on-primary);text-decoration:none;cursor:pointer;transition:background var(--md-motion-button) var(--md-ease)}
+.md-button:hover:not(:disabled),.md-button[data-state="hover"]{background:var(--md-color-action-hover)}
+.md-button.secondary{color:var(--md-color-action-secondary);background:var(--md-color-bg-surface);border-color:var(--md-color-border-control)}
+.md-button.secondary:hover:not(:disabled){background:var(--md-color-bg-sunken)}
+.md-button.ghost{background:transparent;color:var(--md-color-text-primary);border-color:transparent}
+.md-button.ghost:hover{background:var(--md-color-bg-sunken)}
+.md-button.danger{background:var(--md-color-action-destructive);color:var(--md-color-action-on-destructive)}
+.md-button:disabled{background:var(--md-color-bg-sunken);color:var(--md-color-text-muted);border-color:var(--md-color-border-subtle);cursor:not-allowed}
+.md-button[data-state="focus"]{outline:2px solid var(--md-color-focus-ring);outline-offset:3px}
+.icon-button{background:transparent;color:var(--md-color-text-primary);padding:8px;width:44px;border-color:var(--md-color-border-control)}
+.button-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.md-card{background:var(--md-color-bg-surface);border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-md);padding:var(--md-spacing-6)}
+.md-field{display:grid;gap:8px;font:400 18px/28px var(--md-font-body)}
+.md-field>span:first-child,.field-label{font:500 12px/20px var(--md-font-label)}
+.md-input,.md-select,.md-textarea{width:100%;min-height:44px;border:1px solid var(--md-color-border-control);border-radius:var(--md-radius-sm);background:var(--md-color-bg-sunken);color:var(--md-color-text-primary);padding:10px 12px;font:400 18px/24px var(--md-font-body)}
+.md-input::placeholder{color:var(--md-color-text-muted)}
+.md-input:disabled{opacity:.7;cursor:not-allowed}
+.md-input[aria-invalid="true"]{border:2px solid var(--md-color-status-error)}
+.helper{font-size:16px;color:var(--md-color-text-secondary)}
+.error{color:var(--md-color-status-error);font-size:16px}
+.md-check{display:flex;gap:12px;align-items:center;min-height:44px;font-size:18px}
+.md-check input{width:20px;height:20px;accent-color:var(--md-color-action-primary)}
+.md-badge{display:inline-flex;gap:6px;align-items:center;border:1px solid currentColor;border-radius:var(--md-radius-full);padding:3px 10px;font:500 11px/20px var(--md-font-label);color:var(--md-color-status-info)}
+.md-badge.success{color:var(--md-color-status-success)}.md-badge.warning{color:var(--md-color-status-warning)}.md-badge.error{color:var(--md-color-status-error)}
+.md-alert{display:flex;gap:12px;padding:16px;border-left:3px solid var(--md-color-status-info);background:var(--md-color-bg-sunken);border-radius:0 6px 6px 0;font-size:18px;color:var(--md-color-text-primary)}
+.md-alert svg{flex-shrink:0;color:var(--md-color-status-info)}
+.md-tabs{display:flex;gap:4px;border-bottom:1px solid var(--md-color-border-subtle);margin-bottom:20px;overflow-x:auto}
+.md-tabs button{font:500 12px/20px var(--md-font-label);padding:12px 16px;min-height:44px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--md-color-text-secondary);cursor:pointer;white-space:nowrap}
+.md-tabs [aria-selected="true"]{color:var(--md-color-action-primary);border-bottom-color:var(--md-color-action-primary)}
+.md-link{color:var(--md-color-action-primary);text-underline-offset:4px}
+.md-glass{background:var(--md-color-bg-surface);border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-lg);padding:24px}
+@supports (backdrop-filter:blur(24px)){.md-glass{background:color-mix(in srgb,var(--md-color-bg-surface) 90%,transparent);backdrop-filter:blur(var(--md-blur-standard))}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.md-glass{background:var(--md-color-bg-surface);backdrop-filter:none}}
+@media (forced-colors:active){.md-button,.md-card,.md-input,.md-badge,.md-glass{border:1px solid ButtonText}.md-tabs [aria-selected="true"]{border-color:Highlight}}
+:focus-visible{outline:2px solid var(--md-color-focus-ring);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}

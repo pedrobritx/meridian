@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+export const cssName = name => `--md-${name.replaceAll('/', '-')}`;
+const tokens=JSON.parse(await readFile(new URL('../tokens/meridian.json',import.meta.url),'utf8'));
+const declarations=(entries)=>entries.map(([k,v])=>`  ${cssName(k)}: ${v};`).join('\n');
+const primitives=declarations(Object.entries(tokens.primitives).map(([k,v])=>['palette/'+k,v]));
+const dimensions=declarations(Object.entries(tokens.dimensions).map(([k,v])=>[k,`${v}px`]));
+const typography=declarations(tokens.typography.flatMap(s=>{const key=s.name.toLowerCase().replaceAll('/','-');return [['typography/'+key+'/size',s.size+'px'],['typography/'+key+'/line-height',s.lineHeight+'px']]}));
+const motion=declarations(Object.entries(tokens.motion).map(([k,v])=>['motion/'+k,`${v}ms`]));
+const mode=i=>declarations(Object.entries(tokens.colors).map(([k,v])=>['color/'+k,`var(${cssName('palette/'+v[i])})`]));
+await writeFile(new URL('../styles/tokens.css',import.meta.url),`/* Generated from tokens/meridian.json. Run npm run build after token edits. */\n:root {\n${primitives}\n${dimensions}\n${typography}\n${motion}\n  --md-ease: ${tokens.easing};\n  --md-font-display: 'Fraunces', Georgia, serif;\n  --md-font-body: 'Newsreader', Georgia, serif;\n  --md-font-label: 'JetBrains Mono', Menlo, monospace;\n${mode(0)}\n  color-scheme: light;\n}\n:root[data-theme="dusk"], [data-environment="dusk"] {\n${mode(1)}\n  color-scheme: dark;\n}\n[data-environment="dawn"] {\n${mode(0)}\n  color-scheme: light;\n}\n`);

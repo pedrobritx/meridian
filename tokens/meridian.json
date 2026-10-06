@@ -1,0 +1,34 @@
+{
+ "version":"0.1.0",
+ "theme":"Dawn / Dusk reference",
+ "primitives":{
+  "bone":"#F9F1E7","almond":"#F2DFC7","sand":"#E7CBA9","parchment":"#EADDC8","forest":"#3F5A3D","forest-deep":"#2C422B","moss":"#6E7C4F","wood":"#8C6542","terracotta":"#B86E4A","clay":"#C7885E","stone":"#A89F94","slate":"#7B7268","burgundy":"#7A2D3A","garnet":"#943D4A","space":"#0E1726","twilight":"#18253B","midnight":"#273653","ocean":"#3A7397","sea":"#2D5B7A","abyss":"#20465F","tide":"#4F8FB3","indigo":"#4B5C9A","purple":"#5E5A8D","violet":"#7670B3","stone-gray":"#6D717A","granite":"#4D5561",
+  "paper-raised":"#FCF7F0","ink":"#2B241D","ink-soft":"#62584D","ink-muted":"#695E52","night-text":"#E7E4DF","night-soft":"#B8BFC9","night-muted":"#A6AFBE","tide-lit":"#90BED8","tide-hover":"#B0D0E2","sea-green":"#98C3A4","amber-clay":"#E8B88A","garnet-lit":"#EDADB6","sky":"#2D6585","warning-ink":"#854629","success-ink":"#465638","control-day":"#887C70","control-night":"#8791A1","border-day":"#D1C2AE","border-night":"#46536A"
+ },
+ "colors":{
+  "bg/page":["bone","space"],"bg/sunken":["parchment","space"],"bg/surface":["paper-raised","twilight"],"bg/overlay":["paper-raised","midnight"],
+  "text/primary":["ink","night-text"],"text/secondary":["ink-soft","night-soft"],"text/muted":["ink-muted","night-muted"],
+  "border/subtle":["border-day","border-night"],"border/control":["control-day","control-night"],"focus/ring":["forest","tide-lit"],
+  "action/primary":["forest","tide-lit"],"action/hover":["forest-deep","tide-hover"],"action/on-primary":["paper-raised","space"],
+  "action/secondary":["warning-ink","tide-lit"],"action/destructive":["burgundy","garnet-lit"],"action/on-destructive":["paper-raised","space"],
+  "status/success":["success-ink","sea-green"],"status/warning":["warning-ink","amber-clay"],"status/error":["burgundy","garnet-lit"],"status/info":["sky","tide-lit"]
+ },
+ "dimensions":{
+  "spacing/1":4,"spacing/2":8,"spacing/3":12,"spacing/4":16,"spacing/6":24,"spacing/8":32,"spacing/12":48,"spacing/16":64,"spacing/24":96,
+  "radius/sm":6,"radius/md":12,"radius/lg":20,"radius/full":999,
+  "size/control":44,"size/icon":24,"layout/reading":680,"layout/content":1200,"layout/sidebar":244,
+  "blur/subtle":12,"blur/standard":24,"blur/liquid":40
+ },
+ "typography":[
+  {"name":"Display","family":"Fraunces","style":"Regular","size":64,"lineHeight":72},
+  {"name":"Heading/Large","family":"Fraunces","style":"Regular","size":40,"lineHeight":48},
+  {"name":"Heading/Medium","family":"Fraunces","style":"Regular","size":28,"lineHeight":36},
+  {"name":"Heading/Small","family":"Fraunces","style":"Regular","size":22,"lineHeight":30},
+  {"name":"Body/Large","family":"Newsreader","style":"Regular","size":22,"lineHeight":32},
+  {"name":"Body/Default","family":"Newsreader","style":"Regular","size":18,"lineHeight":28},
+  {"name":"Label","family":"JetBrains Mono","style":"Medium","size":12,"lineHeight":20},
+  {"name":"Code","family":"JetBrains Mono","style":"Regular","size":13,"lineHeight":22}
+ ],
+ "motion":{"hover":120,"button":180,"card":220,"navigation":280,"modal":320},
+ "easing":"cubic-bezier(0.22, 1, 0.36, 1)"
+}
