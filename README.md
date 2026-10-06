@@ -2,7 +2,7 @@
 
 A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. BSDL remains its philosophical foundation; Meridian is the interface method, and BSF concerns the software-building process.
 
-**Web reference 0.1** — [Live reference](https://pedrobritx.github.io/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
+**Web reference 0.1** — [Live reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
 
 The reference includes six views: Overview, Foundations, Components, Symbols, Page patterns, and Product adaptations. Dawn and Dusk are a paired reference theme. Products can retain different palettes, typography and material choices through semantic remapping.
 
@@ -27,7 +27,7 @@ The development and preview base is `/meridian/`, matching GitHub Pages. `npm ru
 
 ## Design in Figma
 
-The file contains six pages, four named variable collections, eight text styles, three glass styles, twelve vector symbol components and nine core component families. Use component instances, select Dawn/Dusk through the Colour collection, and edit properties rather than detaching instances. [Library inventory and source mapping](docs/figma-library.json).
+Published to the **Projects** team library. The file contains six pages, four named variable collections, eight text styles, three glass styles, twelve vector symbol components and nine core component families. Use component instances, select Dawn/Dusk through the Colour collection, and edit properties rather than detaching instances. [Library inventory and source mapping](docs/figma-library.json).
 
 Figma is the editable design representation; GitHub stores implementation, versioned tokens and acceptance evidence. Synchronisation is explicit: token changes require updating Figma values/bindings and running the checks, then publishing the library update. This release does not install a background synchroniser. Code Connect availability depends on the Figma plan; the source mapping is kept in the repository regardless.
 
