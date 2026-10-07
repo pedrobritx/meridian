@@ -1,0 +1,617 @@
+{
+  "version": "0.4",
+  "method": "Native Figma instance variant round trips and structural reaction validation; not browser presentation playback",
+  "tests": [
+    {
+      "test": "segment round trip",
+      "selected": "Overview",
+      "bold": ["Overview"],
+      "pass": true
+    },
+    {
+      "test": "segment round trip",
+      "selected": "Materials",
+      "bold": ["Materials"],
+      "pass": true
+    },
+    {
+      "test": "segment round trip",
+      "selected": "Motion",
+      "bold": ["Motion"],
+      "pass": true
+    },
+    {
+      "test": "segment round trip",
+      "selected": "Overview",
+      "bold": ["Overview"],
+      "pass": true
+    },
+    {
+      "test": "row label round trip",
+      "State": "Default",
+      "text": "Water permit renewal",
+      "pass": true
+    },
+    {
+      "test": "row label round trip",
+      "State": "Hover",
+      "text": "Water permit renewal",
+      "pass": true
+    },
+    {
+      "test": "row label round trip",
+      "State": "Active",
+      "text": "Water permit renewal",
+      "pass": true
+    },
+    {
+      "test": "row label round trip",
+      "State": "Default",
+      "text": "Water permit renewal",
+      "pass": true
+    }
+  ],
+  "pages": [
+    {
+      "page": "3:208",
+      "name": "02 · Components",
+      "transitions": 48,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [
+        {
+          "id": "23:332",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "23:339",
+          "selected": "Materials",
+          "bold": ["Materials"]
+        },
+        {
+          "id": "23:346",
+          "selected": "Motion",
+          "bold": ["Motion"]
+        }
+      ],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "5:193",
+          "name": "Components / Review",
+          "width": 1280,
+          "height": 2422
+        },
+        {
+          "id": "46:222",
+          "name": "Existing assets / 0.3 additions",
+          "width": 1104,
+          "height": 536
+        }
+      ]
+    },
+    {
+      "page": "43:37",
+      "name": "06 · Controls",
+      "transitions": 164,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "43:38",
+          "name": "Icon button / States",
+          "width": 1104,
+          "height": 638
+        },
+        {
+          "id": "43:128",
+          "name": "Link / States",
+          "width": 1104,
+          "height": 656
+        },
+        {
+          "id": "43:190",
+          "name": "Button group / States",
+          "width": 1104,
+          "height": 768
+        },
+        {
+          "id": "44:464",
+          "name": "Text area / States",
+          "width": 1104,
+          "height": 1214
+        },
+        {
+          "id": "44:565",
+          "name": "Select / States",
+          "width": 1104,
+          "height": 1102
+        },
+        {
+          "id": "44:719",
+          "name": "Checkbox / States",
+          "width": 1104,
+          "height": 944
+        },
+        {
+          "id": "44:811",
+          "name": "Radio / States",
+          "width": 1104,
+          "height": 944
+        },
+        {
+          "id": "44:903",
+          "name": "Switch / States",
+          "width": 1104,
+          "height": 944
+        },
+        {
+          "id": "44:1006",
+          "name": "Date picker / States",
+          "width": 1104,
+          "height": 1482
+        },
+        {
+          "id": "44:1183",
+          "name": "Slider / States",
+          "width": 1104,
+          "height": 1086
+        }
+      ]
+    },
+    {
+      "page": "44:1299",
+      "name": "07 · Navigation & data",
+      "transitions": 120,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "44:1300",
+          "name": "Header / States",
+          "width": 1104,
+          "height": 806
+        },
+        {
+          "id": "44:1495",
+          "name": "Sidebar / States",
+          "width": 1104,
+          "height": 1254
+        },
+        {
+          "id": "44:1780",
+          "name": "Breadcrumbs / States",
+          "width": 1104,
+          "height": 790
+        },
+        {
+          "id": "44:1855",
+          "name": "Tabs / States",
+          "width": 1104,
+          "height": 766
+        },
+        {
+          "id": "45:1155",
+          "name": "Pagination / States",
+          "width": 1104,
+          "height": 894
+        },
+        {
+          "id": "45:1380",
+          "name": "Stepper / States",
+          "width": 1104,
+          "height": 902
+        },
+        {
+          "id": "45:1470",
+          "name": "Data table / States",
+          "width": 1104,
+          "height": 1628
+        },
+        {
+          "id": "45:1628",
+          "name": "Card / States",
+          "width": 1104,
+          "height": 1108
+        },
+        {
+          "id": "45:1748",
+          "name": "Badge / Tag / States",
+          "width": 1104,
+          "height": 446
+        },
+        {
+          "id": "45:1797",
+          "name": "Avatar / States",
+          "width": 1104,
+          "height": 482
+        },
+        {
+          "id": "45:1839",
+          "name": "Accordion / States",
+          "width": 1104,
+          "height": 736
+        },
+        {
+          "id": "45:1961",
+          "name": "Tooltip / States",
+          "width": 1104,
+          "height": 468
+        },
+        {
+          "id": "45:1990",
+          "name": "List / States",
+          "width": 1104,
+          "height": 1182
+        }
+      ]
+    },
+    {
+      "page": "45:2262",
+      "name": "08 · Feedback",
+      "transitions": 78,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "45:2263",
+          "name": "Dialog / States",
+          "width": 1104,
+          "height": 1134
+        },
+        {
+          "id": "45:2443",
+          "name": "Toast / States",
+          "width": 1104,
+          "height": 686
+        },
+        {
+          "id": "45:2543",
+          "name": "Banner / States",
+          "width": 1104,
+          "height": 836
+        },
+        {
+          "id": "45:2654",
+          "name": "Progress bar / States",
+          "width": 1104,
+          "height": 632
+        },
+        {
+          "id": "45:2713",
+          "name": "Spinner / States",
+          "width": 1104,
+          "height": 442
+        },
+        {
+          "id": "45:2748",
+          "name": "Skeleton / States",
+          "width": 1104,
+          "height": 550
+        }
+      ]
+    },
+    {
+      "page": "3:210",
+      "name": "04 · Page patterns",
+      "transitions": 119,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [
+        {
+          "id": "24:85",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "24:95",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "24:102",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "24:109",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "24:116",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        },
+        {
+          "id": "24:123",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        }
+      ],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "8:280",
+          "name": "Patterns / Review",
+          "width": 1440,
+          "height": 2922
+        },
+        {
+          "id": "58:134",
+          "name": "Meridian 0.3 / Flow / Validation and recovery",
+          "width": 1376,
+          "height": 894
+        },
+        {
+          "id": "58:188",
+          "name": "Meridian 0.3 / Flow / Global failure, 404 and first-use empty",
+          "width": 1376,
+          "height": 894
+        },
+        {
+          "id": "58:239",
+          "name": "Prototype / Let’s save your preferences.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "58:246",
+          "name": "Prototype / One thing needs attention.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "58:253",
+          "name": "Prototype / Your preferences are saved.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "58:259",
+          "name": "Prototype / Your library couldn’t load.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "58:266",
+          "name": "Prototype / This page has wandered.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "58:273",
+          "name": "Prototype / A place for your first note.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:240",
+          "name": "Meridian 0.3 / Flow / Search and filtering",
+          "width": 1376,
+          "height": 894
+        },
+        {
+          "id": "60:318",
+          "name": "Meridian 0.3 / Flow / A multi-step form",
+          "width": 1376,
+          "height": 894
+        },
+        {
+          "id": "60:369",
+          "name": "Meridian 0.3 / Flow / Welcome, confirmation and a safe exit",
+          "width": 1376,
+          "height": 894
+        },
+        {
+          "id": "60:414",
+          "name": "Prototype / Find a little clarity.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:424",
+          "name": "Prototype / Narrow the view.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:434",
+          "name": "Prototype / No notes match “ocean”.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:443",
+          "name": "Prototype / Your details",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:452",
+          "name": "Prototype / A rhythm for you.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:460",
+          "name": "Prototype / Ready when you are.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:468",
+          "name": "Prototype / Make yourself at home.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:475",
+          "name": "Prototype / You’re ready to begin.",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "60:482",
+          "name": "Prototype / Delete this note?",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "65:416",
+          "name": "Prototype / Explore your library",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "90:390",
+          "name": "Prototype / Write a note",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "90:412",
+          "name": "Prototype / Note saved",
+          "width": 400,
+          "height": 720
+        },
+        {
+          "id": "90:425",
+          "name": "Prototype / Note deleted",
+          "width": 400,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "page": "91:34",
+      "name": "10 · Meridian Grass",
+      "transitions": 27,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [
+        {
+          "id": "91:148",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        }
+      ],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "91:35",
+          "name": "Grass / Dawn / Workspace",
+          "width": 1120,
+          "height": 686
+        },
+        {
+          "id": "91:81",
+          "name": "Grass / Dusk / Workspace",
+          "width": 1120,
+          "height": 686
+        },
+        {
+          "id": "91:123",
+          "name": "Grass / Dawn / Detail",
+          "width": 1120,
+          "height": 272
+        },
+        {
+          "id": "91:135",
+          "name": "Grass / Dusk / Detail",
+          "width": 1120,
+          "height": 272
+        },
+        {
+          "id": "91:145",
+          "name": "Grass / Interaction lab",
+          "width": 1120,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "page": "91:2692",
+      "name": "11 · Meridian Paper",
+      "transitions": 27,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [
+        {
+          "id": "91:2800",
+          "selected": "Overview",
+          "bold": ["Overview"]
+        }
+      ],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "91:2693",
+          "name": "Paper / Dawn / Workspace",
+          "width": 1120,
+          "height": 686
+        },
+        {
+          "id": "91:2735",
+          "name": "Paper / Dusk / Workspace",
+          "width": 1120,
+          "height": 686
+        },
+        {
+          "id": "91:2777",
+          "name": "Paper / Dawn / Detail",
+          "width": 1120,
+          "height": 272
+        },
+        {
+          "id": "91:2787",
+          "name": "Paper / Dusk / Detail",
+          "width": 1120,
+          "height": 272
+        },
+        {
+          "id": "91:2797",
+          "name": "Paper / Interaction lab",
+          "width": 1120,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "page": "92:34",
+      "name": "09 · Meridian profiles",
+      "transitions": 0,
+      "invalidDestinations": [],
+      "overflow": [],
+      "segments": [],
+      "missingFlowDestinations": [],
+      "frames": [
+        {
+          "id": "92:35",
+          "name": "Meridian / Core + profiles",
+          "width": 1200,
+          "height": 928
+        },
+        {
+          "id": "92:51",
+          "name": "Profile configuration / designer guide",
+          "width": 1200,
+          "height": 914
+        },
+        {
+          "id": "92:66",
+          "name": "Interaction contract / regression checklist",
+          "width": 1200,
+          "height": 830
+        }
+      ]
+    }
+  ]
+}

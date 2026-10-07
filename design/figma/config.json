@@ -1,0 +1,30 @@
+{
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "repository": "pedrobritx/meridian",
+  "baseBranch": "main",
+  "syncBranch": "design/figma-sync",
+  "frames": {
+    "start": "7:2",
+    "foundations": "48:57",
+    "components": "5:193",
+    "patterns": "60:318",
+    "adoption": "49:159",
+    "accessibility": "48:263",
+    "controls": "44:719",
+    "navigation": "45:1470",
+    "feedback": "45:2263",
+    "audit": "49:105",
+    "governance": "61:37",
+    "profiles": "92:35",
+    "grass": "91:35",
+    "paper": "91:2693",
+    "paper-dark": "91:2735",
+    "interaction-lab": "91:2797"
+  },
+  "themeModes": [
+    "Dawn",
+    "Dusk",
+    "PaperDawn",
+    "PaperDusk"
+  ]
+}

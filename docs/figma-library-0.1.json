@@ -1,0 +1,172 @@
+{
+  "version": "0.1.0",
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "fileUrl": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian",
+  "pages": [
+    {
+      "name": "00 \u00b7 Start",
+      "id": "0:1"
+    },
+    {
+      "name": "01 \u00b7 Foundations",
+      "id": "3:207"
+    },
+    {
+      "name": "02 \u00b7 Components",
+      "id": "3:208"
+    },
+    {
+      "name": "03 \u00b7 Symbols",
+      "id": "3:209"
+    },
+    {
+      "name": "04 \u00b7 Page patterns",
+      "id": "3:210"
+    },
+    {
+      "name": "05 \u00b7 Adoption",
+      "id": "3:211"
+    }
+  ],
+  "collections": [
+    {
+      "name": "Meridian / Primitives",
+      "id": "VariableCollectionId:3:90",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "3:5"
+        }
+      ]
+    },
+    {
+      "name": "Meridian / Colour",
+      "id": "VariableCollectionId:3:91",
+      "modes": [
+        {
+          "name": "Dawn",
+          "modeId": "3:6"
+        },
+        {
+          "name": "Dusk",
+          "modeId": "3:7"
+        }
+      ]
+    },
+    {
+      "name": "Meridian / Layout",
+      "id": "VariableCollectionId:3:92",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "3:8"
+        }
+      ]
+    },
+    {
+      "name": "Meridian / Typography",
+      "id": "VariableCollectionId:3:93",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "3:9"
+        }
+      ]
+    }
+  ],
+  "variableCount": 102,
+  "textStyles": [
+    {
+      "name": "Meridian/Display",
+      "id": "S:8a8c8328bf9125fcef66bc70e11aa897961255bc,",
+      "family": "Fraunces"
+    },
+    {
+      "name": "Meridian/Heading/Large",
+      "id": "S:cd497532890a9e0009f842c9280eb45bf8e29596,",
+      "family": "Fraunces"
+    },
+    {
+      "name": "Meridian/Heading/Medium",
+      "id": "S:7194b288b1c48dbb58baae6cd6ffee650c1ef5c1,",
+      "family": "Fraunces"
+    },
+    {
+      "name": "Meridian/Heading/Small",
+      "id": "S:5f7819cda422a8931fed3a5f5da40cf667c0a830,",
+      "family": "Fraunces"
+    },
+    {
+      "name": "Meridian/Body/Large",
+      "id": "S:9ad8bdbabee8c0d708c7894bb5b8df995819a73c,",
+      "family": "Newsreader"
+    },
+    {
+      "name": "Meridian/Body/Default",
+      "id": "S:973034b7c6db5edc0a60fa003c93e60b24b71246,",
+      "family": "Newsreader"
+    },
+    {
+      "name": "Meridian/Label",
+      "id": "S:625c1f244448622c82cc6761cda4fc67a300e7b0,",
+      "family": "JetBrains Mono"
+    },
+    {
+      "name": "Meridian/Code",
+      "id": "S:56c54c4a831782c18ecb4e7eb632d9c6f00c27ef,",
+      "family": "JetBrains Mono"
+    }
+  ],
+  "effectStyles": [
+    {
+      "name": "Meridian/Glass/Subtle",
+      "id": "S:5bcb849103fc2c19bf5b6577a0371bb5455387b6,"
+    },
+    {
+      "name": "Meridian/Glass/Standard",
+      "id": "S:f551f13a8179de53533a545fe959ce1ed2e99d1b,"
+    },
+    {
+      "name": "Meridian/Glass/Liquid",
+      "id": "S:9d3416d55a8ebc8c2cd1bb7020c13d09ed912edc,"
+    }
+  ],
+  "symbols": {
+    "meridian": "4:2",
+    "compass": "4:7",
+    "sun": "4:11",
+    "moon": "4:15",
+    "arrow": "4:18",
+    "check": "4:21",
+    "warning": "4:24",
+    "info": "4:27",
+    "close": "4:31",
+    "book": "4:34",
+    "layers": "4:37",
+    "leaf": "4:40"
+  },
+  "components": {
+    "Button": "5:22",
+    "Field": "5:108",
+    "Choice": "5:133",
+    "Badge": "5:151",
+    "Card": "5:171",
+    "Alert": "5:177",
+    "Navigation": "5:183",
+    "Tab": "5:185",
+    "Dialog": "5:187"
+  },
+  "variantCounts": {
+    "Button": 20,
+    "Field": 5,
+    "Choice": 4,
+    "Badge": 4
+  },
+  "implementation": {
+    "styles": "styles/components.css",
+    "recipes": "docs/components.md",
+    "interactions": "src/main.js",
+    "tokens": "tokens/meridian.json"
+  },
+  "codeConnect": "Not published; current team uses a student plan. Repository source mapping is available."
+}

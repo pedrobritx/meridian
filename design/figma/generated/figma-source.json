@@ -1,0 +1,6272 @@
+{
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "version": "0.4",
+  "collections": [
+    {
+      "id": "VariableCollectionId:3:90",
+      "name": "Meridian / Primitives",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "3:5"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:3:94",
+          "name": "palette/bone",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9764705896377563,
+              "g": 0.9450980424880981,
+              "b": 0.9058823585510254,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-bone)"
+        },
+        {
+          "id": "VariableID:3:95",
+          "name": "palette/almond",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9490196108818054,
+              "g": 0.8745098114013672,
+              "b": 0.7803921699523926,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-almond)"
+        },
+        {
+          "id": "VariableID:3:96",
+          "name": "palette/sand",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9058823585510254,
+              "g": 0.7960784435272217,
+              "b": 0.6627451181411743,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-sand)"
+        },
+        {
+          "id": "VariableID:3:97",
+          "name": "palette/parchment",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9176470637321472,
+              "g": 0.8666666746139526,
+              "b": 0.7843137383460999,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-parchment)"
+        },
+        {
+          "id": "VariableID:3:98",
+          "name": "palette/forest",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.24705882370471954,
+              "g": 0.3529411852359772,
+              "b": 0.239215686917305,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-forest)"
+        },
+        {
+          "id": "VariableID:3:99",
+          "name": "palette/forest-deep",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.1725490242242813,
+              "g": 0.25882354378700256,
+              "b": 0.16862745583057404,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-forest-deep)"
+        },
+        {
+          "id": "VariableID:3:100",
+          "name": "palette/moss",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4313725531101227,
+              "g": 0.48627451062202454,
+              "b": 0.30980393290519714,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-moss)"
+        },
+        {
+          "id": "VariableID:3:101",
+          "name": "palette/wood",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5490196347236633,
+              "g": 0.3960784375667572,
+              "b": 0.25882354378700256,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-wood)"
+        },
+        {
+          "id": "VariableID:3:102",
+          "name": "palette/terracotta",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7215686440467834,
+              "g": 0.4313725531101227,
+              "b": 0.29019609093666077,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-terracotta)"
+        },
+        {
+          "id": "VariableID:3:103",
+          "name": "palette/clay",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7803921699523926,
+              "g": 0.5333333611488342,
+              "b": 0.3686274588108063,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-clay)"
+        },
+        {
+          "id": "VariableID:3:104",
+          "name": "palette/stone",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.658823549747467,
+              "g": 0.6235294342041016,
+              "b": 0.5803921818733215,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-stone)"
+        },
+        {
+          "id": "VariableID:3:105",
+          "name": "palette/slate",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.48235294222831726,
+              "g": 0.4470588266849518,
+              "b": 0.40784314274787903,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-slate)"
+        },
+        {
+          "id": "VariableID:3:106",
+          "name": "palette/burgundy",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.47843137383461,
+              "g": 0.1764705926179886,
+              "b": 0.22745098173618317,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-burgundy)"
+        },
+        {
+          "id": "VariableID:3:107",
+          "name": "palette/garnet",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5803921818733215,
+              "g": 0.239215686917305,
+              "b": 0.29019609093666077,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-garnet)"
+        },
+        {
+          "id": "VariableID:3:108",
+          "name": "palette/space",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.054901961237192154,
+              "g": 0.09019608050584793,
+              "b": 0.14901961386203766,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-space)"
+        },
+        {
+          "id": "VariableID:3:109",
+          "name": "palette/twilight",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.0941176488995552,
+              "g": 0.14509804546833038,
+              "b": 0.23137255012989044,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-twilight)"
+        },
+        {
+          "id": "VariableID:3:110",
+          "name": "palette/midnight",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.15294118225574493,
+              "g": 0.21176470816135406,
+              "b": 0.32549020648002625,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-midnight)"
+        },
+        {
+          "id": "VariableID:3:111",
+          "name": "palette/ocean",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.22745098173618317,
+              "g": 0.45098039507865906,
+              "b": 0.5921568870544434,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-ocean)"
+        },
+        {
+          "id": "VariableID:3:112",
+          "name": "palette/sea",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.1764705926179886,
+              "g": 0.35686275362968445,
+              "b": 0.47843137383461,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-sea)"
+        },
+        {
+          "id": "VariableID:3:113",
+          "name": "palette/abyss",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.125490203499794,
+              "g": 0.27450981736183167,
+              "b": 0.37254902720451355,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-abyss)"
+        },
+        {
+          "id": "VariableID:3:114",
+          "name": "palette/tide",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.30980393290519714,
+              "g": 0.5607843399047852,
+              "b": 0.7019608020782471,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-tide)"
+        },
+        {
+          "id": "VariableID:3:115",
+          "name": "palette/indigo",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.29411765933036804,
+              "g": 0.3607843220233917,
+              "b": 0.6039215922355652,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-indigo)"
+        },
+        {
+          "id": "VariableID:3:116",
+          "name": "palette/purple",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.3686274588108063,
+              "g": 0.3529411852359772,
+              "b": 0.5529412031173706,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-purple)"
+        },
+        {
+          "id": "VariableID:3:117",
+          "name": "palette/violet",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4627451002597809,
+              "g": 0.43921568989753723,
+              "b": 0.7019608020782471,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-violet)"
+        },
+        {
+          "id": "VariableID:3:118",
+          "name": "palette/stone-gray",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4274509847164154,
+              "g": 0.4431372582912445,
+              "b": 0.47843137383461,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-stone-gray)"
+        },
+        {
+          "id": "VariableID:3:119",
+          "name": "palette/granite",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.3019607961177826,
+              "g": 0.3333333432674408,
+              "b": 0.3803921639919281,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-granite)"
+        },
+        {
+          "id": "VariableID:3:120",
+          "name": "palette/paper-raised",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9686274528503418,
+              "b": 0.9411764740943909,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-paper-raised)"
+        },
+        {
+          "id": "VariableID:3:121",
+          "name": "palette/ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.16862745583057404,
+              "g": 0.1411764770746231,
+              "b": 0.11372549086809158,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-ink)"
+        },
+        {
+          "id": "VariableID:3:122",
+          "name": "palette/ink-soft",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.3843137323856354,
+              "g": 0.3450980484485626,
+              "b": 0.3019607961177826,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-ink-soft)"
+        },
+        {
+          "id": "VariableID:3:123",
+          "name": "palette/ink-muted",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4117647111415863,
+              "g": 0.3686274588108063,
+              "b": 0.32156863808631897,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-ink-muted)"
+        },
+        {
+          "id": "VariableID:3:124",
+          "name": "palette/night-text",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9058823585510254,
+              "g": 0.8941176533699036,
+              "b": 0.8745098114013672,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-text)"
+        },
+        {
+          "id": "VariableID:3:125",
+          "name": "palette/night-soft",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7215686440467834,
+              "g": 0.7490196228027344,
+              "b": 0.7882353067398071,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-soft)"
+        },
+        {
+          "id": "VariableID:3:126",
+          "name": "palette/night-muted",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6431372761726379,
+              "g": 0.729411780834198,
+              "b": 0.6980392336845398,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-muted)"
+        },
+        {
+          "id": "VariableID:3:127",
+          "name": "palette/tide-lit",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5647059082984924,
+              "g": 0.7450980544090271,
+              "b": 0.8470588326454163,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-tide-lit)"
+        },
+        {
+          "id": "VariableID:3:128",
+          "name": "palette/tide-hover",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6901960968971252,
+              "g": 0.8156862854957581,
+              "b": 0.886274516582489,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-tide-hover)"
+        },
+        {
+          "id": "VariableID:3:129",
+          "name": "palette/sea-green",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5960784554481506,
+              "g": 0.7647058963775635,
+              "b": 0.6431372761726379,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-sea-green)"
+        },
+        {
+          "id": "VariableID:3:130",
+          "name": "palette/amber-clay",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.7215686440467834,
+              "b": 0.5411764979362488,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-amber-clay)"
+        },
+        {
+          "id": "VariableID:3:131",
+          "name": "palette/garnet-lit",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.929411768913269,
+              "g": 0.6784313917160034,
+              "b": 0.7137255072593689,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-garnet-lit)"
+        },
+        {
+          "id": "VariableID:3:132",
+          "name": "palette/sky",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.1764705926179886,
+              "g": 0.3960784375667572,
+              "b": 0.5215686559677124,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-sky)"
+        },
+        {
+          "id": "VariableID:3:133",
+          "name": "palette/warning-ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5215686559677124,
+              "g": 0.27450981736183167,
+              "b": 0.16078431904315948,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-warning-ink)"
+        },
+        {
+          "id": "VariableID:3:134",
+          "name": "palette/success-ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.27450981736183167,
+              "g": 0.33725491166114807,
+              "b": 0.21960784494876862,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-success-ink)"
+        },
+        {
+          "id": "VariableID:3:135",
+          "name": "palette/control-day",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5333333611488342,
+              "g": 0.48627451062202454,
+              "b": 0.43921568989753723,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-control-day)"
+        },
+        {
+          "id": "VariableID:3:136",
+          "name": "palette/control-night",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.529411792755127,
+              "g": 0.5686274766921997,
+              "b": 0.6313725709915161,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-control-night)"
+        },
+        {
+          "id": "VariableID:3:137",
+          "name": "palette/border-day",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8196078538894653,
+              "g": 0.7607843279838562,
+              "b": 0.6823529601097107,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-border-day)"
+        },
+        {
+          "id": "VariableID:3:138",
+          "name": "palette/border-night",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.27450981736183167,
+              "g": 0.32549020648002625,
+              "b": 0.4156862795352936,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-border-night)"
+        },
+        {
+          "id": "VariableID:20:22",
+          "name": "palette/chalk",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.95686274766922,
+              "g": 0.9647058844566345,
+              "b": 0.9490196108818054,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-chalk)"
+        },
+        {
+          "id": "VariableID:20:23",
+          "name": "palette/porcelain",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9921568632125854,
+              "b": 0.9764705896377563,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-porcelain)"
+        },
+        {
+          "id": "VariableID:20:24",
+          "name": "palette/dew",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8941176533699036,
+              "g": 0.9254902005195618,
+              "b": 0.9019607901573181,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-dew)"
+        },
+        {
+          "id": "VariableID:20:25",
+          "name": "palette/pine",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.13725490868091583,
+              "g": 0.364705890417099,
+              "b": 0.3137255012989044,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-pine)"
+        },
+        {
+          "id": "VariableID:20:26",
+          "name": "palette/pine-deep",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.09019608050584793,
+              "g": 0.2823529541492462,
+              "b": 0.24313725531101227,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-pine-deep)"
+        },
+        {
+          "id": "VariableID:20:27",
+          "name": "palette/graphite",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.10980392247438431,
+              "g": 0.1882352977991104,
+              "b": 0.1725490242242813,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-graphite)"
+        },
+        {
+          "id": "VariableID:20:28",
+          "name": "palette/soft-ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.250980406999588,
+              "g": 0.35686275362968445,
+              "b": 0.32549020648002625,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-soft-ink)"
+        },
+        {
+          "id": "VariableID:20:29",
+          "name": "palette/muted-ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.32156863808631897,
+              "g": 0.4156862795352936,
+              "b": 0.38823530077934265,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-muted-ink)"
+        },
+        {
+          "id": "VariableID:20:30",
+          "name": "palette/night-ground",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.12156862765550613,
+              "b": 0.14901961386203766,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-ground)"
+        },
+        {
+          "id": "VariableID:20:31",
+          "name": "palette/night-surface",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.10196078568696976,
+              "g": 0.1882352977991104,
+              "b": 0.21960784494876862,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-surface)"
+        },
+        {
+          "id": "VariableID:20:32",
+          "name": "palette/night-overlay",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.15294118225574493,
+              "g": 0.2666666805744171,
+              "b": 0.2980392277240753,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-overlay)"
+        },
+        {
+          "id": "VariableID:20:33",
+          "name": "palette/night-well",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.0784313753247261,
+              "g": 0.1568627506494522,
+              "b": 0.1882352977991104,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-well)"
+        },
+        {
+          "id": "VariableID:20:34",
+          "name": "palette/mint",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6470588445663452,
+              "g": 0.8666666746139526,
+              "b": 0.7921568751335144,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-mint)"
+        },
+        {
+          "id": "VariableID:20:35",
+          "name": "palette/mint-lit",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7607843279838562,
+              "g": 0.9215686321258545,
+              "b": 0.8666666746139526,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-mint-lit)"
+        },
+        {
+          "id": "VariableID:20:36",
+          "name": "palette/night-ink",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9215686321258545,
+              "g": 0.95686274766922,
+              "b": 0.9333333373069763,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-ink)"
+        },
+        {
+          "id": "VariableID:20:37",
+          "name": "palette/night-secondary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7411764860153198,
+              "g": 0.8078431487083435,
+              "b": 0.7843137383460999,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-night-secondary)"
+        },
+        {
+          "id": "VariableID:20:38",
+          "name": "palette/edge-day",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7254902124404907,
+              "g": 0.8039215803146362,
+              "b": 0.7647058963775635,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-edge-day)"
+        },
+        {
+          "id": "VariableID:20:39",
+          "name": "palette/edge-night",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.30588236451148987,
+              "g": 0.4274509847164154,
+              "b": 0.43921568989753723,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-edge-night)"
+        },
+        {
+          "id": "VariableID:20:40",
+          "name": "palette/glass-day",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9921568632125854,
+              "b": 0.9764705896377563,
+              "a": 0.7200000286102295
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-glass-day)"
+        },
+        {
+          "id": "VariableID:20:41",
+          "name": "palette/glass-night",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.16078431904315948,
+              "g": 0.27843138575553894,
+              "b": 0.30980393290519714,
+              "a": 0.8199999928474426
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-glass-night)"
+        },
+        {
+          "id": "VariableID:20:42",
+          "name": "palette/glint-day",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9921568632125854,
+              "b": 0.9764705896377563,
+              "a": 0.9200000166893005
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-glint-day)"
+        },
+        {
+          "id": "VariableID:20:43",
+          "name": "palette/glint-night",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.729411780834198,
+              "g": 0.9019607901573181,
+              "b": 0.8470588326454163,
+              "a": 0.3400000035762787
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-glint-night)"
+        },
+        {
+          "id": "VariableID:42:39",
+          "name": "primitive/number/4",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 4
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-4)"
+        },
+        {
+          "id": "VariableID:42:40",
+          "name": "primitive/number/8",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 8
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-8)"
+        },
+        {
+          "id": "VariableID:42:41",
+          "name": "primitive/number/12",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 12
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-12)"
+        },
+        {
+          "id": "VariableID:42:42",
+          "name": "primitive/number/16",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 16
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-16)"
+        },
+        {
+          "id": "VariableID:42:43",
+          "name": "primitive/number/24",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 24
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-24)"
+        },
+        {
+          "id": "VariableID:42:44",
+          "name": "primitive/number/32",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 32
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-32)"
+        },
+        {
+          "id": "VariableID:42:45",
+          "name": "primitive/number/48",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 48
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-48)"
+        },
+        {
+          "id": "VariableID:42:46",
+          "name": "primitive/number/64",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 64
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-64)"
+        },
+        {
+          "id": "VariableID:42:47",
+          "name": "primitive/number/96",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 96
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-96)"
+        },
+        {
+          "id": "VariableID:42:48",
+          "name": "primitive/number/999",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 999
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-999)"
+        },
+        {
+          "id": "VariableID:42:49",
+          "name": "primitive/number/680",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 680
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-680)"
+        },
+        {
+          "id": "VariableID:42:50",
+          "name": "primitive/number/1200",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 1200
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-1200)"
+        },
+        {
+          "id": "VariableID:42:51",
+          "name": "primitive/number/244",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 244
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-244)"
+        },
+        {
+          "id": "VariableID:42:52",
+          "name": "primitive/number/20",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 20
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-20)"
+        },
+        {
+          "id": "VariableID:42:53",
+          "name": "primitive/number/72",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 72
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-72)"
+        },
+        {
+          "id": "VariableID:42:54",
+          "name": "primitive/number/40",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 40
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-40)"
+        },
+        {
+          "id": "VariableID:42:55",
+          "name": "primitive/number/28",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 28
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-28)"
+        },
+        {
+          "id": "VariableID:42:56",
+          "name": "primitive/number/36",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 36
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-36)"
+        },
+        {
+          "id": "VariableID:42:57",
+          "name": "primitive/number/22",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 22
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-22)"
+        },
+        {
+          "id": "VariableID:42:58",
+          "name": "primitive/number/30",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 30
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-30)"
+        },
+        {
+          "id": "VariableID:42:59",
+          "name": "primitive/number/26",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 26
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-26)"
+        },
+        {
+          "id": "VariableID:42:60",
+          "name": "primitive/number/14",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 14
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-14)"
+        },
+        {
+          "id": "VariableID:42:61",
+          "name": "primitive/number/13",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 13
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-13)"
+        },
+        {
+          "id": "VariableID:42:62",
+          "name": "primitive/number/0",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 0
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-0)"
+        },
+        {
+          "id": "VariableID:42:64",
+          "name": "primitive/number/2",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 2
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-2)"
+        },
+        {
+          "id": "VariableID:42:70",
+          "name": "primitive/number/1",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 1
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-1)"
+        },
+        {
+          "id": "VariableID:42:74",
+          "name": "primitive/number/3",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 3
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-3)"
+        },
+        {
+          "id": "VariableID:42:79",
+          "name": "primitive/number/768",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 768
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-768)"
+        },
+        {
+          "id": "VariableID:42:81",
+          "name": "primitive/number/1024",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 1024
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-1024)"
+        },
+        {
+          "id": "VariableID:42:83",
+          "name": "primitive/number/1440",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 1440
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-1440)"
+        },
+        {
+          "id": "VariableID:42:94",
+          "name": "primitive/number/0-48",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 0.47999998927116394
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-0-48)"
+        },
+        {
+          "id": "VariableID:42:96",
+          "name": "primitive/number/0-8",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 0.800000011920929
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-0-8)"
+        },
+        {
+          "id": "VariableID:42:98",
+          "name": "primitive/number/80",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 80
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-80)"
+        },
+        {
+          "id": "VariableID:42:100",
+          "name": "primitive/number/140",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 140
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-140)"
+        },
+        {
+          "id": "VariableID:42:102",
+          "name": "primitive/number/220",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 220
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-220)"
+        },
+        {
+          "id": "VariableID:42:104",
+          "name": "primitive/number/320",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 320
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-320)"
+        },
+        {
+          "id": "VariableID:42:107",
+          "name": "primitive/number/0-98",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 0.9800000190734863
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-0-98)"
+        },
+        {
+          "id": "VariableID:42:110",
+          "name": "primitive/motion/easing/settle",
+          "type": "STRING",
+          "values": {
+            "3:5": "cubic-bezier(0.2, 0.8, 0.2, 1)"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-motion-easing-settle)"
+        },
+        {
+          "id": "VariableID:42:112",
+          "name": "primitive/motion/easing/enter",
+          "type": "STRING",
+          "values": {
+            "3:5": "cubic-bezier(0.16, 1, 0.3, 1)"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-motion-easing-enter)"
+        },
+        {
+          "id": "VariableID:42:114",
+          "name": "primitive/motion/easing/exit",
+          "type": "STRING",
+          "values": {
+            "3:5": "cubic-bezier(0.4, 0, 1, 1)"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-motion-easing-exit)"
+        },
+        {
+          "id": "VariableID:42:117",
+          "name": "primitive/number/10",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 10
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-10)"
+        },
+        {
+          "id": "VariableID:42:122",
+          "name": "primitive/number/50",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 50
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-50)"
+        },
+        {
+          "id": "VariableID:42:124",
+          "name": "primitive/number/60",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 60
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-60)"
+        },
+        {
+          "id": "VariableID:42:126",
+          "name": "primitive/number/70",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 70
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-70)"
+        },
+        {
+          "id": "VariableID:42:136",
+          "name": "primitive/number/400",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 400
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-400)"
+        },
+        {
+          "id": "VariableID:42:138",
+          "name": "primitive/font/fraunces",
+          "type": "STRING",
+          "values": {
+            "3:5": "Fraunces"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-font-fraunces)"
+        },
+        {
+          "id": "VariableID:42:143",
+          "name": "primitive/number/700",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 700
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-700)"
+        },
+        {
+          "id": "VariableID:42:145",
+          "name": "primitive/font/manrope",
+          "type": "STRING",
+          "values": {
+            "3:5": "Manrope"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-font-manrope)"
+        },
+        {
+          "id": "VariableID:42:155",
+          "name": "primitive/number/600",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 600
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-600)"
+        },
+        {
+          "id": "VariableID:42:159",
+          "name": "primitive/number/18",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 18
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-18)"
+        },
+        {
+          "id": "VariableID:42:172",
+          "name": "primitive/number/500",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 500
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-number-500)"
+        },
+        {
+          "id": "VariableID:42:189",
+          "name": "primitive/font/newsreader",
+          "type": "STRING",
+          "values": {
+            "3:5": "Newsreader"
+          },
+          "scopes": [],
+          "code": "var(--meridian-primitive-font-newsreader)"
+        },
+        {
+          "id": "VariableID:42:203",
+          "name": "palette/color-status-success-bg-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8941176533699036,
+              "g": 0.9254902005195618,
+              "b": 0.9019607901573181,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-success-bg-0)"
+        },
+        {
+          "id": "VariableID:42:204",
+          "name": "palette/color-status-success-bg-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.0941176488995552,
+              "g": 0.21568627655506134,
+              "b": 0.1725490242242813,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-success-bg-1)"
+        },
+        {
+          "id": "VariableID:42:206",
+          "name": "palette/color-status-warning-bg-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9607843160629272,
+              "g": 0.9137254953384399,
+              "b": 0.8666666746139526,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-warning-bg-0)"
+        },
+        {
+          "id": "VariableID:42:207",
+          "name": "palette/color-status-warning-bg-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.23529411852359772,
+              "g": 0.1882352977991104,
+              "b": 0.14901961386203766,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-warning-bg-1)"
+        },
+        {
+          "id": "VariableID:42:209",
+          "name": "palette/color-status-error-bg-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.95686274766922,
+              "g": 0.9019607901573181,
+              "b": 0.9098039269447327,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-error-bg-0)"
+        },
+        {
+          "id": "VariableID:42:210",
+          "name": "palette/color-status-error-bg-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.2549019753932953,
+              "g": 0.16862745583057404,
+              "b": 0.2078431397676468,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-error-bg-1)"
+        },
+        {
+          "id": "VariableID:42:212",
+          "name": "palette/color-status-info-bg-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9019607901573181,
+              "g": 0.9333333373069763,
+              "b": 0.9490196108818054,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-info-bg-0)"
+        },
+        {
+          "id": "VariableID:42:213",
+          "name": "palette/color-status-info-bg-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.125490203499794,
+              "g": 0.2235294133424759,
+              "b": 0.26274511218070984,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-status-info-bg-1)"
+        },
+        {
+          "id": "VariableID:42:215",
+          "name": "palette/color-link-visited-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.3686274588108063,
+              "g": 0.3529411852359772,
+              "b": 0.5529412031173706,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-link-visited-0)"
+        },
+        {
+          "id": "VariableID:42:216",
+          "name": "palette/color-link-visited-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7686274647712708,
+              "g": 0.7411764860153198,
+              "b": 0.8941176533699036,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-color-link-visited-1)"
+        },
+        {
+          "id": "VariableID:42:218",
+          "name": "palette/shadow-0",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.12156862765550613,
+              "b": 0.14901961386203766,
+              "a": 0.14000000059604645
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-shadow-0)"
+        },
+        {
+          "id": "VariableID:42:219",
+          "name": "palette/shadow-1",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.12156862765550613,
+              "b": 0.14901961386203766,
+              "a": 0.3199999928474426
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-palette-shadow-1)"
+        },
+        {
+          "id": "VariableID:83:37",
+          "name": "paper/dawn/bg/page",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9490196108818054,
+              "g": 0.9215686321258545,
+              "b": 0.8666666746139526,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-bg-page)"
+        },
+        {
+          "id": "VariableID:83:38",
+          "name": "paper/dawn/bg/sunken",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.8745098114013672,
+              "b": 0.7960784435272217,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-bg-sunken)"
+        },
+        {
+          "id": "VariableID:83:39",
+          "name": "paper/dawn/bg/surface",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9725490212440491,
+              "g": 0.9529411792755127,
+              "b": 0.9098039269447327,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-bg-surface)"
+        },
+        {
+          "id": "VariableID:83:40",
+          "name": "paper/dawn/bg/overlay",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9764705896377563,
+              "b": 0.9490196108818054,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-bg-overlay)"
+        },
+        {
+          "id": "VariableID:83:41",
+          "name": "paper/dawn/text/primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.10196078568696976,
+              "g": 0.08627451211214066,
+              "b": 0.07058823853731155,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-text-primary)"
+        },
+        {
+          "id": "VariableID:83:42",
+          "name": "paper/dawn/text/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.239215686917305,
+              "g": 0.20392157137393951,
+              "b": 0.1725490242242813,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-text-secondary)"
+        },
+        {
+          "id": "VariableID:83:43",
+          "name": "paper/dawn/text/muted",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.41960784792900085,
+              "g": 0.37254902720451355,
+              "b": 0.32156863808631897,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-text-muted)"
+        },
+        {
+          "id": "VariableID:83:44",
+          "name": "paper/dawn/border/subtle",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7803921699523926,
+              "g": 0.7215686440467834,
+              "b": 0.6039215922355652,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-border-subtle)"
+        },
+        {
+          "id": "VariableID:83:45",
+          "name": "paper/dawn/border/control",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5333333611488342,
+              "g": 0.46666666865348816,
+              "b": 0.364705890417099,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-border-control)"
+        },
+        {
+          "id": "VariableID:83:46",
+          "name": "paper/dawn/focus/ring",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4470588266849518,
+              "g": 0.18431372940540314,
+              "b": 0.21568627655506134,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-focus-ring)"
+        },
+        {
+          "id": "VariableID:83:47",
+          "name": "paper/dawn/action/primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4470588266849518,
+              "g": 0.18431372940540314,
+              "b": 0.21568627655506134,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-primary)"
+        },
+        {
+          "id": "VariableID:83:48",
+          "name": "paper/dawn/action/hover",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.30980393290519714,
+              "g": 0.10196078568696976,
+              "b": 0.12156862765550613,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-hover)"
+        },
+        {
+          "id": "VariableID:83:49",
+          "name": "paper/dawn/action/on-primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9764705896377563,
+              "b": 0.9490196108818054,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-on-primary)"
+        },
+        {
+          "id": "VariableID:83:50",
+          "name": "paper/dawn/action/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4470588266849518,
+              "g": 0.18431372940540314,
+              "b": 0.21568627655506134,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-secondary)"
+        },
+        {
+          "id": "VariableID:83:51",
+          "name": "paper/dawn/action/destructive",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6117647290229797,
+              "g": 0.23137255012989044,
+              "b": 0.20392157137393951,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-destructive)"
+        },
+        {
+          "id": "VariableID:83:52",
+          "name": "paper/dawn/action/on-destructive",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9764705896377563,
+              "b": 0.9490196108818054,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-on-destructive)"
+        },
+        {
+          "id": "VariableID:83:53",
+          "name": "paper/dawn/status/success",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.24705882370471954,
+              "g": 0.41960784792900085,
+              "b": 0.29019609093666077,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-success)"
+        },
+        {
+          "id": "VariableID:83:54",
+          "name": "paper/dawn/status/warning",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4627451002597809,
+              "g": 0.3176470696926117,
+              "b": 0.11764705926179886,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-warning)"
+        },
+        {
+          "id": "VariableID:83:55",
+          "name": "paper/dawn/status/error",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6117647290229797,
+              "g": 0.23137255012989044,
+              "b": 0.20392157137393951,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-error)"
+        },
+        {
+          "id": "VariableID:83:56",
+          "name": "paper/dawn/status/info",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.21176470816135406,
+              "g": 0.364705890417099,
+              "b": 0.4470588266849518,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-info)"
+        },
+        {
+          "id": "VariableID:83:57",
+          "name": "paper/dawn/material/glass",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9764705896377563,
+              "b": 0.9490196108818054,
+              "a": 0.8999999761581421
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-material-glass)"
+        },
+        {
+          "id": "VariableID:83:58",
+          "name": "paper/dawn/material/edge",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9882352948188782,
+              "g": 0.9764705896377563,
+              "b": 0.9490196108818054,
+              "a": 0.9200000166893005
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-material-edge)"
+        },
+        {
+          "id": "VariableID:83:59",
+          "name": "paper/dawn/action/active",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.30980393290519714,
+              "g": 0.10196078568696976,
+              "b": 0.12156862765550613,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-action-active)"
+        },
+        {
+          "id": "VariableID:83:60",
+          "name": "paper/dawn/bg/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.8745098114013672,
+              "b": 0.7960784435272217,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-bg-disabled)"
+        },
+        {
+          "id": "VariableID:83:61",
+          "name": "paper/dawn/text/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.41960784792900085,
+              "g": 0.37254902720451355,
+              "b": 0.32156863808631897,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-text-disabled)"
+        },
+        {
+          "id": "VariableID:83:62",
+          "name": "paper/dawn/link/default",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.4470588266849518,
+              "g": 0.18431372940540314,
+              "b": 0.21568627655506134,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-link-default)"
+        },
+        {
+          "id": "VariableID:83:63",
+          "name": "paper/dawn/link/hover",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.30980393290519714,
+              "g": 0.10196078568696976,
+              "b": 0.12156862765550613,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-link-hover)"
+        },
+        {
+          "id": "VariableID:83:64",
+          "name": "paper/dawn/status/success-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8901960849761963,
+              "g": 0.929411768913269,
+              "b": 0.8941176533699036,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-success-bg)"
+        },
+        {
+          "id": "VariableID:83:65",
+          "name": "paper/dawn/status/warning-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9372549057006836,
+              "g": 0.8980392217636108,
+              "b": 0.8078431487083435,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-warning-bg)"
+        },
+        {
+          "id": "VariableID:83:66",
+          "name": "paper/dawn/status/error-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9607843160629272,
+              "g": 0.886274516582489,
+              "b": 0.8705882430076599,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-error-bg)"
+        },
+        {
+          "id": "VariableID:83:67",
+          "name": "paper/dawn/status/info-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8980392217636108,
+              "g": 0.929411768913269,
+              "b": 0.9411764740943909,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-status-info-bg)"
+        },
+        {
+          "id": "VariableID:83:68",
+          "name": "paper/dawn/link/visited",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.40784314274787903,
+              "g": 0.29019609093666077,
+              "b": 0.4470588266849518,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-link-visited)"
+        },
+        {
+          "id": "VariableID:83:69",
+          "name": "paper/dawn/elevation/shadow",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.09019608050584793,
+              "g": 0.07450980693101883,
+              "b": 0.05882352963089943,
+              "a": 0.14000000059604645
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dawn-elevation-shadow)"
+        },
+        {
+          "id": "VariableID:83:70",
+          "name": "paper/dusk/bg/page",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.09019608050584793,
+              "g": 0.07450980693101883,
+              "b": 0.05882352963089943,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-bg-page)"
+        },
+        {
+          "id": "VariableID:83:71",
+          "name": "paper/dusk/bg/sunken",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.05098039284348488,
+              "b": 0.03921568766236305,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-bg-sunken)"
+        },
+        {
+          "id": "VariableID:83:72",
+          "name": "paper/dusk/bg/surface",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.13333334028720856,
+              "g": 0.10980392247438431,
+              "b": 0.08627451211214066,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-bg-surface)"
+        },
+        {
+          "id": "VariableID:83:73",
+          "name": "paper/dusk/bg/overlay",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.16862745583057404,
+              "g": 0.1411764770746231,
+              "b": 0.10980392247438431,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-bg-overlay)"
+        },
+        {
+          "id": "VariableID:83:74",
+          "name": "paper/dusk/text/primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9725490212440491,
+              "g": 0.9529411792755127,
+              "b": 0.9098039269447327,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-text-primary)"
+        },
+        {
+          "id": "VariableID:83:75",
+          "name": "paper/dusk/text/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8627451062202454,
+              "g": 0.8156862854957581,
+              "b": 0.7215686440467834,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-text-secondary)"
+        },
+        {
+          "id": "VariableID:83:76",
+          "name": "paper/dusk/text/muted",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7450980544090271,
+              "g": 0.6901960968971252,
+              "b": 0.6039215922355652,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-text-muted)"
+        },
+        {
+          "id": "VariableID:83:77",
+          "name": "paper/dusk/border/subtle",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.29019609093666077,
+              "g": 0.250980406999588,
+              "b": 0.21960784494876862,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-border-subtle)"
+        },
+        {
+          "id": "VariableID:83:78",
+          "name": "paper/dusk/border/control",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6431372761726379,
+              "g": 0.5843137502670288,
+              "b": 0.4901960790157318,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-border-control)"
+        },
+        {
+          "id": "VariableID:83:79",
+          "name": "paper/dusk/focus/ring",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8313725590705872,
+              "g": 0.5686274766921997,
+              "b": 0.6078431606292725,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-focus-ring)"
+        },
+        {
+          "id": "VariableID:83:80",
+          "name": "paper/dusk/action/primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8313725590705872,
+              "g": 0.5686274766921997,
+              "b": 0.6078431606292725,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-primary)"
+        },
+        {
+          "id": "VariableID:83:81",
+          "name": "paper/dusk/action/hover",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.6470588445663452,
+              "b": 0.6745098233222961,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-hover)"
+        },
+        {
+          "id": "VariableID:83:82",
+          "name": "paper/dusk/action/on-primary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.09019608050584793,
+              "g": 0.07450980693101883,
+              "b": 0.05882352963089943,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-on-primary)"
+        },
+        {
+          "id": "VariableID:83:83",
+          "name": "paper/dusk/action/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8313725590705872,
+              "g": 0.5686274766921997,
+              "b": 0.6078431606292725,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-secondary)"
+        },
+        {
+          "id": "VariableID:83:84",
+          "name": "paper/dusk/action/destructive",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8901960849761963,
+              "g": 0.6117647290229797,
+              "b": 0.5647059082984924,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-destructive)"
+        },
+        {
+          "id": "VariableID:83:85",
+          "name": "paper/dusk/action/on-destructive",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.09019608050584793,
+              "g": 0.07450980693101883,
+              "b": 0.05882352963089943,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-on-destructive)"
+        },
+        {
+          "id": "VariableID:83:86",
+          "name": "paper/dusk/status/success",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.5607843399047852,
+              "g": 0.7803921699523926,
+              "b": 0.6039215922355652,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-success)"
+        },
+        {
+          "id": "VariableID:83:87",
+          "name": "paper/dusk/status/warning",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8313725590705872,
+              "g": 0.7058823704719543,
+              "b": 0.47843137383461,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-warning)"
+        },
+        {
+          "id": "VariableID:83:88",
+          "name": "paper/dusk/status/error",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8901960849761963,
+              "g": 0.6117647290229797,
+              "b": 0.5647059082984924,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-error)"
+        },
+        {
+          "id": "VariableID:83:89",
+          "name": "paper/dusk/status/info",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.6352941393852234,
+              "g": 0.7764706015586853,
+              "b": 0.8470588326454163,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-info)"
+        },
+        {
+          "id": "VariableID:83:90",
+          "name": "paper/dusk/material/glass",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.16862745583057404,
+              "g": 0.1411764770746231,
+              "b": 0.10980392247438431,
+              "a": 0.8799999952316284
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-material-glass)"
+        },
+        {
+          "id": "VariableID:83:91",
+          "name": "paper/dusk/material/edge",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8627451062202454,
+              "g": 0.8156862854957581,
+              "b": 0.7215686440467834,
+              "a": 0.4000000059604645
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-material-edge)"
+        },
+        {
+          "id": "VariableID:83:92",
+          "name": "paper/dusk/action/active",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.6470588445663452,
+              "b": 0.6745098233222961,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-action-active)"
+        },
+        {
+          "id": "VariableID:83:93",
+          "name": "paper/dusk/bg/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.05098039284348488,
+              "b": 0.03921568766236305,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-bg-disabled)"
+        },
+        {
+          "id": "VariableID:83:94",
+          "name": "paper/dusk/text/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7450980544090271,
+              "g": 0.6901960968971252,
+              "b": 0.6039215922355652,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-text-disabled)"
+        },
+        {
+          "id": "VariableID:83:95",
+          "name": "paper/dusk/link/default",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.8313725590705872,
+              "g": 0.5686274766921997,
+              "b": 0.6078431606292725,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-link-default)"
+        },
+        {
+          "id": "VariableID:83:96",
+          "name": "paper/dusk/link/hover",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.9098039269447327,
+              "g": 0.6470588445663452,
+              "b": 0.6745098233222961,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-link-hover)"
+        },
+        {
+          "id": "VariableID:83:97",
+          "name": "paper/dusk/status/success-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.11764705926179886,
+              "g": 0.20000000298023224,
+              "b": 0.1411764770746231,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-success-bg)"
+        },
+        {
+          "id": "VariableID:83:98",
+          "name": "paper/dusk/status/warning-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.18039216101169586,
+              "g": 0.14509804546833038,
+              "b": 0.09803921729326248,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-warning-bg)"
+        },
+        {
+          "id": "VariableID:83:99",
+          "name": "paper/dusk/status/error-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.22745098173618317,
+              "g": 0.1411764770746231,
+              "b": 0.12156862765550613,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-error-bg)"
+        },
+        {
+          "id": "VariableID:83:100",
+          "name": "paper/dusk/status/info-bg",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.11372549086809158,
+              "g": 0.1882352977991104,
+              "b": 0.21960784494876862,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-status-info-bg)"
+        },
+        {
+          "id": "VariableID:83:101",
+          "name": "paper/dusk/link/visited",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.7764706015586853,
+              "g": 0.6745098233222961,
+              "b": 0.8235294222831726,
+              "a": 1
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-link-visited)"
+        },
+        {
+          "id": "VariableID:83:102",
+          "name": "paper/dusk/elevation/shadow",
+          "type": "COLOR",
+          "values": {
+            "3:5": {
+              "r": 0.062745101749897,
+              "g": 0.05098039284348488,
+              "b": 0.03921568766236305,
+              "a": 0.3199999928474426
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-dusk-elevation-shadow)"
+        },
+        {
+          "id": "VariableID:83:103",
+          "name": "number/24",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 24
+          },
+          "scopes": [],
+          "code": "var(--meridian-number-24)"
+        },
+        {
+          "id": "VariableID:83:104",
+          "name": "number/14",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 14
+          },
+          "scopes": [],
+          "code": "var(--meridian-number-14)"
+        },
+        {
+          "id": "VariableID:83:105",
+          "name": "paper/radius/large",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 24
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-radius-large)"
+        },
+        {
+          "id": "VariableID:83:106",
+          "name": "paper/motion/settle",
+          "type": "STRING",
+          "values": {
+            "3:5": "cubic-bezier(0.22, 1, 0.36, 1)"
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-motion-settle)"
+        },
+        {
+          "id": "VariableID:83:107",
+          "name": "paper/motion/press",
+          "type": "FLOAT",
+          "values": {
+            "3:5": 0.9900000095367432
+          },
+          "scopes": [],
+          "code": "var(--meridian-paper-motion-press)"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:3:91",
+      "name": "Meridian / Colour",
+      "modes": [
+        {
+          "name": "Dawn",
+          "modeId": "3:6"
+        },
+        {
+          "name": "Dusk",
+          "modeId": "3:7"
+        },
+        {
+          "name": "PaperDawn",
+          "modeId": "83:0"
+        },
+        {
+          "name": "PaperDusk",
+          "modeId": "83:1"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:3:139",
+          "name": "color/bg/page",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:22"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:30"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:37"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:70"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-bg-page)"
+        },
+        {
+          "id": "VariableID:3:140",
+          "name": "color/bg/sunken",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:24"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:33"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:38"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:71"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-bg-sunken)"
+        },
+        {
+          "id": "VariableID:3:141",
+          "name": "color/bg/surface",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:23"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:31"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:39"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:72"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-bg-surface)"
+        },
+        {
+          "id": "VariableID:3:142",
+          "name": "color/bg/overlay",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:23"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:32"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:40"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:73"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-bg-overlay)"
+        },
+        {
+          "id": "VariableID:3:143",
+          "name": "color/text/primary",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:27"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:36"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:41"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:74"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-text-primary)"
+        },
+        {
+          "id": "VariableID:3:144",
+          "name": "color/text/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:28"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:37"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:42"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:75"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-text-secondary)"
+        },
+        {
+          "id": "VariableID:3:145",
+          "name": "color/text/muted",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:29"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:126"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:43"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:76"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-text-muted)"
+        },
+        {
+          "id": "VariableID:3:146",
+          "name": "color/border/subtle",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:38"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:39"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:44"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:77"
+            }
+          },
+          "scopes": ["STROKE_COLOR"],
+          "code": "var(--meridian-color-border-subtle)"
+        },
+        {
+          "id": "VariableID:3:147",
+          "name": "color/border/control",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:29"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:126"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:45"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:78"
+            }
+          },
+          "scopes": ["STROKE_COLOR"],
+          "code": "var(--meridian-color-border-control)"
+        },
+        {
+          "id": "VariableID:3:148",
+          "name": "color/focus/ring",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:25"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:34"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:46"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:79"
+            }
+          },
+          "scopes": ["STROKE_COLOR"],
+          "code": "var(--meridian-color-focus-ring)"
+        },
+        {
+          "id": "VariableID:3:149",
+          "name": "color/action/primary",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:25"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:34"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:47"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:80"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL"],
+          "code": "var(--meridian-color-action-primary)"
+        },
+        {
+          "id": "VariableID:3:150",
+          "name": "color/action/hover",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:26"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:35"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:48"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:81"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL"],
+          "code": "var(--meridian-color-action-hover)"
+        },
+        {
+          "id": "VariableID:3:151",
+          "name": "color/action/on-primary",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:23"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:30"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:49"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:82"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-action-on-primary)"
+        },
+        {
+          "id": "VariableID:3:152",
+          "name": "color/action/secondary",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:25"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:34"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:50"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:83"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL"],
+          "code": "var(--meridian-color-action-secondary)"
+        },
+        {
+          "id": "VariableID:3:153",
+          "name": "color/action/destructive",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:106"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:131"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:51"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:84"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-action-destructive)"
+        },
+        {
+          "id": "VariableID:3:154",
+          "name": "color/action/on-destructive",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:120"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:108"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:52"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:85"
+            }
+          },
+          "scopes": ["SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-action-on-destructive)"
+        },
+        {
+          "id": "VariableID:3:155",
+          "name": "color/status/success",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:134"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:129"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:53"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:86"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-status-success)"
+        },
+        {
+          "id": "VariableID:3:156",
+          "name": "color/status/warning",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:133"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:130"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:54"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:87"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-status-warning)"
+        },
+        {
+          "id": "VariableID:3:157",
+          "name": "color/status/error",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:106"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:131"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:55"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:88"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-status-error)"
+        },
+        {
+          "id": "VariableID:3:158",
+          "name": "color/status/info",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:132"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:127"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:56"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:89"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"],
+          "code": "var(--meridian-color-status-info)"
+        },
+        {
+          "id": "VariableID:20:44",
+          "name": "color/material/glass",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:40"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:41"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:57"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:90"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-material-glass)"
+        },
+        {
+          "id": "VariableID:20:45",
+          "name": "color/material/edge",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:42"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:20:43"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:58"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:91"
+            }
+          },
+          "scopes": ["STROKE_COLOR"],
+          "code": "var(--meridian-color-material-edge)"
+        },
+        {
+          "id": "VariableID:42:197",
+          "name": "color/action/active",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:150"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:150"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:59"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:92"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL"],
+          "code": "var(--meridian-color-action-active)"
+        },
+        {
+          "id": "VariableID:42:198",
+          "name": "color/bg/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:140"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:140"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:60"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:93"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-bg-disabled)"
+        },
+        {
+          "id": "VariableID:42:199",
+          "name": "color/text/disabled",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:145"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:145"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:61"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:94"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-text-disabled)"
+        },
+        {
+          "id": "VariableID:42:200",
+          "name": "color/link/default",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:149"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:149"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:62"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:95"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-link-default)"
+        },
+        {
+          "id": "VariableID:42:201",
+          "name": "color/link/hover",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:150"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3:150"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:63"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:96"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-link-hover)"
+        },
+        {
+          "id": "VariableID:42:202",
+          "name": "color/status/success-bg",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:203"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:204"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:64"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:97"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-status-success-bg)"
+        },
+        {
+          "id": "VariableID:42:205",
+          "name": "color/status/warning-bg",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:206"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:207"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:65"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:98"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-status-warning-bg)"
+        },
+        {
+          "id": "VariableID:42:208",
+          "name": "color/status/error-bg",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:209"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:210"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:66"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:99"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-status-error-bg)"
+        },
+        {
+          "id": "VariableID:42:211",
+          "name": "color/status/info-bg",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:212"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:213"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:67"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:100"
+            }
+          },
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "code": "var(--meridian-color-status-info-bg)"
+        },
+        {
+          "id": "VariableID:42:214",
+          "name": "color/link/visited",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:215"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:216"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:68"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:101"
+            }
+          },
+          "scopes": ["TEXT_FILL"],
+          "code": "var(--meridian-color-link-visited)"
+        },
+        {
+          "id": "VariableID:42:217",
+          "name": "color/elevation/shadow",
+          "type": "COLOR",
+          "values": {
+            "3:6": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:218"
+            },
+            "3:7": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:219"
+            },
+            "83:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:69"
+            },
+            "83:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:102"
+            }
+          },
+          "scopes": ["EFFECT_COLOR"],
+          "code": "var(--meridian-color-elevation-shadow)"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:3:92",
+      "name": "Meridian / Layout",
+      "modes": [
+        {
+          "name": "Grass",
+          "modeId": "3:8"
+        },
+        {
+          "name": "Paper",
+          "modeId": "83:2"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:3:159",
+          "name": "spacing/1",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-1)"
+        },
+        {
+          "id": "VariableID:3:160",
+          "name": "spacing/2",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:40"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:40"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-2)"
+        },
+        {
+          "id": "VariableID:3:161",
+          "name": "spacing/3",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-3)"
+        },
+        {
+          "id": "VariableID:3:162",
+          "name": "spacing/4",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-4)"
+        },
+        {
+          "id": "VariableID:3:163",
+          "name": "spacing/6",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-6)"
+        },
+        {
+          "id": "VariableID:3:164",
+          "name": "spacing/8",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-8)"
+        },
+        {
+          "id": "VariableID:3:165",
+          "name": "spacing/12",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-12)"
+        },
+        {
+          "id": "VariableID:3:166",
+          "name": "spacing/16",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:46"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:46"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-16)"
+        },
+        {
+          "id": "VariableID:3:167",
+          "name": "spacing/24",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:47"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:47"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-24)"
+        },
+        {
+          "id": "VariableID:3:168",
+          "name": "radius/sm",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:103"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:104"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-sm)"
+        },
+        {
+          "id": "VariableID:3:169",
+          "name": "radius/md",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:103"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:103"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-md)"
+        },
+        {
+          "id": "VariableID:3:170",
+          "name": "radius/lg",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:105"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-lg)"
+        },
+        {
+          "id": "VariableID:3:171",
+          "name": "radius/full",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:48"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:48"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-full)"
+        },
+        {
+          "id": "VariableID:3:172",
+          "name": "size/control",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-size-control)"
+        },
+        {
+          "id": "VariableID:3:173",
+          "name": "size/icon",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-size-icon)"
+        },
+        {
+          "id": "VariableID:3:174",
+          "name": "layout/reading",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:49"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:49"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-layout-reading)"
+        },
+        {
+          "id": "VariableID:3:175",
+          "name": "layout/content",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:50"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:50"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-layout-content)"
+        },
+        {
+          "id": "VariableID:3:176",
+          "name": "layout/sidebar",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:51"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:51"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-layout-sidebar)"
+        },
+        {
+          "id": "VariableID:3:177",
+          "name": "blur/subtle",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-blur-subtle)"
+        },
+        {
+          "id": "VariableID:3:178",
+          "name": "blur/standard",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-blur-standard)"
+        },
+        {
+          "id": "VariableID:3:179",
+          "name": "blur/liquid",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-blur-liquid)"
+        },
+        {
+          "id": "VariableID:42:63",
+          "name": "spacing/0",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-0)"
+        },
+        {
+          "id": "VariableID:42:65",
+          "name": "spacing/half",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-half)"
+        },
+        {
+          "id": "VariableID:42:66",
+          "name": "spacing/5",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-5)"
+        },
+        {
+          "id": "VariableID:42:67",
+          "name": "spacing/10",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-spacing-10)"
+        },
+        {
+          "id": "VariableID:42:68",
+          "name": "radius/none",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-none)"
+        },
+        {
+          "id": "VariableID:42:69",
+          "name": "radius/xs",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            }
+          },
+          "scopes": ["CORNER_RADIUS"],
+          "code": "var(--meridian-radius-xs)"
+        },
+        {
+          "id": "VariableID:42:71",
+          "name": "stroke/default",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:70"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:70"
+            }
+          },
+          "scopes": ["STROKE_FLOAT"],
+          "code": "var(--meridian-stroke-default)"
+        },
+        {
+          "id": "VariableID:42:72",
+          "name": "stroke/emphasis",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            }
+          },
+          "scopes": ["STROKE_FLOAT"],
+          "code": "var(--meridian-stroke-emphasis)"
+        },
+        {
+          "id": "VariableID:42:73",
+          "name": "focus/width",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            }
+          },
+          "scopes": ["STROKE_FLOAT"],
+          "code": "var(--meridian-focus-width)"
+        },
+        {
+          "id": "VariableID:42:75",
+          "name": "focus/offset",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:74"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:74"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-focus-offset)"
+        },
+        {
+          "id": "VariableID:42:76",
+          "name": "size/touch-min",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-size-touch-min)"
+        },
+        {
+          "id": "VariableID:42:77",
+          "name": "size/icon-small",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-size-icon-small)"
+        },
+        {
+          "id": "VariableID:42:78",
+          "name": "size/icon-medium",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["WIDTH_HEIGHT"],
+          "code": "var(--meridian-size-icon-medium)"
+        },
+        {
+          "id": "VariableID:42:80",
+          "name": "breakpoint/tablet",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:79"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:79"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-breakpoint-tablet)"
+        },
+        {
+          "id": "VariableID:42:82",
+          "name": "breakpoint/desktop",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:81"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:81"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-breakpoint-desktop)"
+        },
+        {
+          "id": "VariableID:42:84",
+          "name": "breakpoint/wide",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:83"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:83"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-breakpoint-wide)"
+        },
+        {
+          "id": "VariableID:42:85",
+          "name": "grid/mobile/columns",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-grid-mobile-columns)"
+        },
+        {
+          "id": "VariableID:42:86",
+          "name": "grid/tablet/columns",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:40"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:40"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-grid-tablet-columns)"
+        },
+        {
+          "id": "VariableID:42:87",
+          "name": "grid/desktop/columns",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-grid-desktop-columns)"
+        },
+        {
+          "id": "VariableID:42:88",
+          "name": "grid/mobile/gutter",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-mobile-gutter)"
+        },
+        {
+          "id": "VariableID:42:89",
+          "name": "grid/tablet/gutter",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-tablet-gutter)"
+        },
+        {
+          "id": "VariableID:42:90",
+          "name": "grid/desktop/gutter",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-desktop-gutter)"
+        },
+        {
+          "id": "VariableID:42:91",
+          "name": "grid/mobile/margin",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-mobile-margin)"
+        },
+        {
+          "id": "VariableID:42:92",
+          "name": "grid/tablet/margin",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-tablet-margin)"
+        },
+        {
+          "id": "VariableID:42:93",
+          "name": "grid/desktop/margin",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["GAP"],
+          "code": "var(--meridian-grid-desktop-margin)"
+        },
+        {
+          "id": "VariableID:42:95",
+          "name": "opacity/disabled",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["OPACITY"],
+          "code": "var(--meridian-opacity-disabled)"
+        },
+        {
+          "id": "VariableID:42:97",
+          "name": "shape/smoothing",
+          "type": "FLOAT",
+          "values": {
+            "3:8": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:96"
+            },
+            "83:2": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:96"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-shape-smoothing)"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:3:93",
+      "name": "Meridian / Typography",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "3:9"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:3:180",
+          "name": "typography/display/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:46"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-display-size)"
+        },
+        {
+          "id": "VariableID:3:181",
+          "name": "typography/display/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:53"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-display-line-height)"
+        },
+        {
+          "id": "VariableID:3:182",
+          "name": "typography/heading-large/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-heading-large-size)"
+        },
+        {
+          "id": "VariableID:3:183",
+          "name": "typography/heading-large/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-heading-large-line-height)"
+        },
+        {
+          "id": "VariableID:3:184",
+          "name": "typography/heading-medium/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:55"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-heading-medium-size)"
+        },
+        {
+          "id": "VariableID:3:185",
+          "name": "typography/heading-medium/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:56"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-heading-medium-line-height)"
+        },
+        {
+          "id": "VariableID:3:186",
+          "name": "typography/heading-small/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:57"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-heading-small-size)"
+        },
+        {
+          "id": "VariableID:3:187",
+          "name": "typography/heading-small/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:58"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-heading-small-line-height)"
+        },
+        {
+          "id": "VariableID:3:188",
+          "name": "typography/body-large/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-body-large-size)"
+        },
+        {
+          "id": "VariableID:3:189",
+          "name": "typography/body-large/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:58"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-body-large-line-height)"
+        },
+        {
+          "id": "VariableID:3:190",
+          "name": "typography/body-default/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-body-default-size)"
+        },
+        {
+          "id": "VariableID:3:191",
+          "name": "typography/body-default/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:59"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-body-default-line-height)"
+        },
+        {
+          "id": "VariableID:3:192",
+          "name": "typography/label/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:60"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-label-size)"
+        },
+        {
+          "id": "VariableID:3:193",
+          "name": "typography/label/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-label-line-height)"
+        },
+        {
+          "id": "VariableID:3:194",
+          "name": "typography/code/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:61"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-code-size)"
+        },
+        {
+          "id": "VariableID:3:195",
+          "name": "typography/code/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:57"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-code-line-height)"
+        },
+        {
+          "id": "VariableID:42:134",
+          "name": "typography/h1/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h1-size)"
+        },
+        {
+          "id": "VariableID:42:135",
+          "name": "typography/h1/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:45"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h1-line-height)"
+        },
+        {
+          "id": "VariableID:42:137",
+          "name": "typography/h1/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:136"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h1-weight)"
+        },
+        {
+          "id": "VariableID:42:139",
+          "name": "typography/h1/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:138"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h1-family)"
+        },
+        {
+          "id": "VariableID:42:141",
+          "name": "typography/h2/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:55"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h2-size)"
+        },
+        {
+          "id": "VariableID:42:142",
+          "name": "typography/h2/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:56"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h2-line-height)"
+        },
+        {
+          "id": "VariableID:42:144",
+          "name": "typography/h2/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:143"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h2-weight)"
+        },
+        {
+          "id": "VariableID:42:146",
+          "name": "typography/h2/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h2-family)"
+        },
+        {
+          "id": "VariableID:42:148",
+          "name": "typography/h3/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:57"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h3-size)"
+        },
+        {
+          "id": "VariableID:42:149",
+          "name": "typography/h3/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:58"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h3-line-height)"
+        },
+        {
+          "id": "VariableID:42:150",
+          "name": "typography/h3/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:143"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h3-weight)"
+        },
+        {
+          "id": "VariableID:42:151",
+          "name": "typography/h3/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h3-family)"
+        },
+        {
+          "id": "VariableID:42:153",
+          "name": "typography/h4/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h4-size)"
+        },
+        {
+          "id": "VariableID:42:154",
+          "name": "typography/h4/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:55"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h4-line-height)"
+        },
+        {
+          "id": "VariableID:42:156",
+          "name": "typography/h4/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:155"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h4-weight)"
+        },
+        {
+          "id": "VariableID:42:157",
+          "name": "typography/h4/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h4-family)"
+        },
+        {
+          "id": "VariableID:42:160",
+          "name": "typography/h5/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:159"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h5-size)"
+        },
+        {
+          "id": "VariableID:42:161",
+          "name": "typography/h5/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:59"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h5-line-height)"
+        },
+        {
+          "id": "VariableID:42:162",
+          "name": "typography/h5/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:155"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h5-weight)"
+        },
+        {
+          "id": "VariableID:42:163",
+          "name": "typography/h5/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h5-family)"
+        },
+        {
+          "id": "VariableID:42:165",
+          "name": "typography/h6/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:42"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h6-size)"
+        },
+        {
+          "id": "VariableID:42:166",
+          "name": "typography/h6/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h6-line-height)"
+        },
+        {
+          "id": "VariableID:42:167",
+          "name": "typography/h6/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:155"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h6-weight)"
+        },
+        {
+          "id": "VariableID:42:168",
+          "name": "typography/h6/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h6-family)"
+        },
+        {
+          "id": "VariableID:42:170",
+          "name": "typography/subtitle/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:159"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-subtitle-size)"
+        },
+        {
+          "id": "VariableID:42:171",
+          "name": "typography/subtitle/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:55"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-subtitle-line-height)"
+        },
+        {
+          "id": "VariableID:42:173",
+          "name": "typography/subtitle/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:172"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-subtitle-weight)"
+        },
+        {
+          "id": "VariableID:42:174",
+          "name": "typography/subtitle/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-subtitle-family)"
+        },
+        {
+          "id": "VariableID:42:176",
+          "name": "typography/button/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:60"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-button-size)"
+        },
+        {
+          "id": "VariableID:42:177",
+          "name": "typography/button/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-button-line-height)"
+        },
+        {
+          "id": "VariableID:42:178",
+          "name": "typography/button/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:155"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-button-weight)"
+        },
+        {
+          "id": "VariableID:42:179",
+          "name": "typography/button/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-button-family)"
+        },
+        {
+          "id": "VariableID:42:181",
+          "name": "typography/caption/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-caption-size)"
+        },
+        {
+          "id": "VariableID:42:182",
+          "name": "typography/caption/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:159"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-caption-line-height)"
+        },
+        {
+          "id": "VariableID:42:183",
+          "name": "typography/caption/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:136"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-caption-weight)"
+        },
+        {
+          "id": "VariableID:42:184",
+          "name": "typography/caption/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:145"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-caption-family)"
+        },
+        {
+          "id": "VariableID:42:186",
+          "name": "typography/reading/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-reading-size)"
+        },
+        {
+          "id": "VariableID:42:187",
+          "name": "typography/reading/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-reading-line-height)"
+        },
+        {
+          "id": "VariableID:42:188",
+          "name": "typography/reading/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:136"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-reading-weight)"
+        },
+        {
+          "id": "VariableID:42:190",
+          "name": "typography/reading/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:189"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-reading-family)"
+        },
+        {
+          "id": "VariableID:42:192",
+          "name": "typography/h1-mobile/size",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["FONT_SIZE"],
+          "code": "var(--meridian-typography-h1-mobile-size)"
+        },
+        {
+          "id": "VariableID:42:193",
+          "name": "typography/h1-mobile/line-height",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            }
+          },
+          "scopes": ["LINE_HEIGHT"],
+          "code": "var(--meridian-typography-h1-mobile-line-height)"
+        },
+        {
+          "id": "VariableID:42:194",
+          "name": "typography/h1-mobile/weight",
+          "type": "FLOAT",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:136"
+            }
+          },
+          "scopes": ["FONT_WEIGHT"],
+          "code": "var(--meridian-typography-h1-mobile-weight)"
+        },
+        {
+          "id": "VariableID:42:195",
+          "name": "typography/h1-mobile/family",
+          "type": "STRING",
+          "values": {
+            "3:9": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:138"
+            }
+          },
+          "scopes": ["FONT_FAMILY"],
+          "code": "var(--meridian-typography-h1-mobile-family)"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:42:37",
+      "name": "Meridian / Motion",
+      "modes": [
+        {
+          "name": "Grass",
+          "modeId": "42:0"
+        },
+        {
+          "name": "Paper",
+          "modeId": "83:3"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:42:99",
+          "name": "motion/duration/contact",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:98"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:98"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-duration-contact)"
+        },
+        {
+          "id": "VariableID:42:101",
+          "name": "motion/duration/hover",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:100"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:100"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-duration-hover)"
+        },
+        {
+          "id": "VariableID:42:103",
+          "name": "motion/duration/release",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:102"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:102"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-duration-release)"
+        },
+        {
+          "id": "VariableID:42:105",
+          "name": "motion/duration/overlay",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:104"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:104"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-duration-overlay)"
+        },
+        {
+          "id": "VariableID:42:106",
+          "name": "motion/duration/reduced",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-duration-reduced)"
+        },
+        {
+          "id": "VariableID:42:108",
+          "name": "motion/scale/pressed",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:107"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:107"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-scale-pressed)"
+        },
+        {
+          "id": "VariableID:42:109",
+          "name": "motion/translate/hover",
+          "type": "FLOAT",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:64"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-translate-hover)"
+        },
+        {
+          "id": "VariableID:42:111",
+          "name": "motion/easing/settle",
+          "type": "STRING",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:110"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:83:106"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-easing-settle)"
+        },
+        {
+          "id": "VariableID:42:113",
+          "name": "motion/easing/enter",
+          "type": "STRING",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:112"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:112"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-easing-enter)"
+        },
+        {
+          "id": "VariableID:42:115",
+          "name": "motion/easing/exit",
+          "type": "STRING",
+          "values": {
+            "42:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:114"
+            },
+            "83:3": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:114"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-motion-easing-exit)"
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:42:38",
+      "name": "Meridian / Elevation",
+      "modes": [
+        {
+          "name": "Value",
+          "modeId": "42:1"
+        }
+      ],
+      "variables": [
+        {
+          "id": "VariableID:42:116",
+          "name": "z/base",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:62"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-base)"
+        },
+        {
+          "id": "VariableID:42:118",
+          "name": "z/raised",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:117"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-raised)"
+        },
+        {
+          "id": "VariableID:42:119",
+          "name": "z/sticky",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:52"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-sticky)"
+        },
+        {
+          "id": "VariableID:42:120",
+          "name": "z/dropdown",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:58"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-dropdown)"
+        },
+        {
+          "id": "VariableID:42:121",
+          "name": "z/scrim",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:54"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-scrim)"
+        },
+        {
+          "id": "VariableID:42:123",
+          "name": "z/dialog",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:122"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-dialog)"
+        },
+        {
+          "id": "VariableID:42:125",
+          "name": "z/toast",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:124"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-toast)"
+        },
+        {
+          "id": "VariableID:42:127",
+          "name": "z/tooltip",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:126"
+            }
+          },
+          "scopes": [],
+          "code": "var(--meridian-z-tooltip)"
+        },
+        {
+          "id": "VariableID:42:128",
+          "name": "elevation/raised/y",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:39"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-raised-y)"
+        },
+        {
+          "id": "VariableID:42:129",
+          "name": "elevation/raised/blur",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-raised-blur)"
+        },
+        {
+          "id": "VariableID:42:130",
+          "name": "elevation/floating/y",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:41"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-floating-y)"
+        },
+        {
+          "id": "VariableID:42:131",
+          "name": "elevation/floating/blur",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:44"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-floating-blur)"
+        },
+        {
+          "id": "VariableID:42:132",
+          "name": "elevation/overlay/y",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:43"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-overlay-y)"
+        },
+        {
+          "id": "VariableID:42:133",
+          "name": "elevation/overlay/blur",
+          "type": "FLOAT",
+          "values": {
+            "42:1": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:46"
+            }
+          },
+          "scopes": ["EFFECT_FLOAT"],
+          "code": "var(--meridian-elevation-overlay-blur)"
+        }
+      ]
+    }
+  ],
+  "textStyles": [
+    {
+      "id": "S:8a8c8328bf9125fcef66bc70e11aa897961255bc,",
+      "name": "Meridian/Display",
+      "fontName": {
+        "family": "Fraunces",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "WONK": 1,
+          "SOFT": 0
+        }
+      },
+      "fontSize": 64,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 72
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:cd497532890a9e0009f842c9280eb45bf8e29596,",
+      "name": "Meridian/Heading/Large",
+      "fontName": {
+        "family": "Fraunces",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "WONK": 1,
+          "SOFT": 0
+        }
+      },
+      "fontSize": 40,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 48
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:7194b288b1c48dbb58baae6cd6ffee650c1ef5c1,",
+      "name": "Meridian/Heading/Medium",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 28,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 36
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:5f7819cda422a8931fed3a5f5da40cf667c0a830,",
+      "name": "Meridian/Heading/Small",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 22,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 30
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:9ad8bdbabee8c0d708c7894bb5b8df995819a73c,",
+      "name": "Meridian/Body/Large",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 30
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:973034b7c6db5edc0a60fa003c93e60b24b71246,",
+      "name": "Meridian/Body/Default",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 26
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:625c1f244448622c82cc6761cda4fc67a300e7b0,",
+      "name": "Meridian/Label",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      },
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:56c54c4a831782c18ecb4e7eb632d9c6f00c27ef,",
+      "name": "Meridian/Code",
+      "fontName": {
+        "family": "JetBrains Mono",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 22
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:bf67a4cb58da5ba381ef6fc66e10688a9fbeb33d,",
+      "name": "Meridian/H1",
+      "fontName": {
+        "family": "Fraunces",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "WONK": 1,
+          "SOFT": 0
+        }
+      },
+      "fontSize": 40,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 48
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:a7a72d21353a901f5df5868e11e7733cc540bddf,",
+      "name": "Meridian/H2",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 28,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 36
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:9ca4276204525ae09e7c69b54ef2a884e0d13fe2,",
+      "name": "Meridian/H3",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 22,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 30
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:93b9201c1464d9eda91e875542b1dbf61a36ab32,",
+      "name": "Meridian/H4",
+      "fontName": {
+        "family": "Manrope",
+        "style": "SemiBold",
+        "variationSettings": {
+          "wght": 600
+        }
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:37fbb6d91daffaf566b96c28b0f81cb964d31412,",
+      "name": "Meridian/H5",
+      "fontName": {
+        "family": "Manrope",
+        "style": "SemiBold",
+        "variationSettings": {
+          "wght": 600
+        }
+      },
+      "fontSize": 18,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 26
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:df95a811f4e669938c61b6e18b6527c0202851ec,",
+      "name": "Meridian/H6",
+      "fontName": {
+        "family": "Manrope",
+        "style": "SemiBold",
+        "variationSettings": {
+          "wght": 600
+        }
+      },
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:b506e97e95f3f1239063284eee875b4ddc784edf,",
+      "name": "Meridian/Subtitle",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      },
+      "fontSize": 18,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:85904cccbe0489d200d9e11e6acb3312b3353099,",
+      "name": "Meridian/Button",
+      "fontName": {
+        "family": "Manrope",
+        "style": "SemiBold",
+        "variationSettings": {
+          "wght": 600
+        }
+      },
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:ed54fd744b72a026cf69a2620aa3b143df963fdc,",
+      "name": "Meridian/Caption",
+      "fontName": {
+        "family": "Manrope",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 18
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:11c63a2faeccb216c8f5d5fd3511c50af71aa1bf,",
+      "name": "Meridian/Reading",
+      "fontName": {
+        "family": "Newsreader",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 32
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    },
+    {
+      "id": "S:0c0e67125403e644dafc5ec5e4b10c6906a65fd7,",
+      "name": "Meridian/H1-Mobile",
+      "fontName": {
+        "family": "Fraunces",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "WONK": 1,
+          "SOFT": 0
+        }
+      },
+      "fontSize": 32,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 40
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      }
+    }
+  ],
+  "effectStyles": [
+    {
+      "id": "S:5bcb849103fc2c19bf5b6577a0371bb5455387b6,",
+      "name": "Meridian/Glass/Subtle",
+      "effects": [
+        {
+          "type": "BACKGROUND_BLUR",
+          "visible": true,
+          "radius": 12,
+          "boundVariables": {},
+          "blurType": "NORMAL"
+        },
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 32,
+          "boundVariables": {},
+          "color": {
+            "r": 0.03999999910593033,
+            "g": 0.15000000596046448,
+            "b": 0.11999999731779099,
+            "a": 0.10000000149011612
+          },
+          "offset": {
+            "x": 0,
+            "y": 12
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        },
+        {
+          "type": "INNER_SHADOW",
+          "visible": true,
+          "radius": 1,
+          "boundVariables": {},
+          "color": {
+            "r": 0.9700000286102295,
+            "g": 1,
+            "b": 0.9800000190734863,
+            "a": 0.4000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 1
+          },
+          "spread": 0,
+          "blendMode": "NORMAL"
+        }
+      ]
+    },
+    {
+      "id": "S:f551f13a8179de53533a545fe959ce1ed2e99d1b,",
+      "name": "Meridian/Glass/Standard",
+      "effects": [
+        {
+          "type": "BACKGROUND_BLUR",
+          "visible": true,
+          "radius": 20,
+          "boundVariables": {},
+          "blurType": "NORMAL"
+        },
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 32,
+          "boundVariables": {},
+          "color": {
+            "r": 0.03999999910593033,
+            "g": 0.15000000596046448,
+            "b": 0.11999999731779099,
+            "a": 0.10000000149011612
+          },
+          "offset": {
+            "x": 0,
+            "y": 12
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        },
+        {
+          "type": "INNER_SHADOW",
+          "visible": true,
+          "radius": 1,
+          "boundVariables": {},
+          "color": {
+            "r": 0.9700000286102295,
+            "g": 1,
+            "b": 0.9800000190734863,
+            "a": 0.4000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 1
+          },
+          "spread": 0,
+          "blendMode": "NORMAL"
+        }
+      ]
+    },
+    {
+      "id": "S:9d3416d55a8ebc8c2cd1bb7020c13d09ed912edc,",
+      "name": "Meridian/Glass/Liquid",
+      "effects": [
+        {
+          "type": "BACKGROUND_BLUR",
+          "visible": true,
+          "radius": 32,
+          "boundVariables": {},
+          "blurType": "NORMAL"
+        },
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 32,
+          "boundVariables": {},
+          "color": {
+            "r": 0.03999999910593033,
+            "g": 0.15000000596046448,
+            "b": 0.11999999731779099,
+            "a": 0.10000000149011612
+          },
+          "offset": {
+            "x": 0,
+            "y": 12
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        },
+        {
+          "type": "INNER_SHADOW",
+          "visible": true,
+          "radius": 1,
+          "boundVariables": {},
+          "color": {
+            "r": 0.9700000286102295,
+            "g": 1,
+            "b": 0.9800000190734863,
+            "a": 0.4000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 1
+          },
+          "spread": 0,
+          "blendMode": "NORMAL"
+        }
+      ]
+    },
+    {
+      "id": "S:8617a9a8eaa21896e0fc20ba43181f03c915ebe6,",
+      "name": "Meridian/Elevation/Raised",
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 12,
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:217"
+            },
+            "radius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:129"
+            },
+            "offsetY": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:128"
+            }
+          },
+          "color": {
+            "r": 0.06300000101327896,
+            "g": 0.12200000137090683,
+            "b": 0.14900000393390656,
+            "a": 0.14000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 4
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        }
+      ]
+    },
+    {
+      "id": "S:e564ce29be379bc35f729e0d79ed5dba4e0d165c,",
+      "name": "Meridian/Elevation/Floating",
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 32,
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:217"
+            },
+            "radius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:131"
+            },
+            "offsetY": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:130"
+            }
+          },
+          "color": {
+            "r": 0.06300000101327896,
+            "g": 0.12200000137090683,
+            "b": 0.14900000393390656,
+            "a": 0.14000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 12
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        }
+      ]
+    },
+    {
+      "id": "S:b8fc207236cbc565832de259db0de99bd78ca486,",
+      "name": "Meridian/Elevation/Overlay",
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "radius": 64,
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:217"
+            },
+            "radius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:133"
+            },
+            "offsetY": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:42:132"
+            }
+          },
+          "color": {
+            "r": 0.06300000101327896,
+            "g": 0.12200000137090683,
+            "b": 0.14900000393390656,
+            "a": 0.14000000059604645
+          },
+          "offset": {
+            "x": 0,
+            "y": 24
+          },
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": true
+        }
+      ]
+    }
+  ]
+}
