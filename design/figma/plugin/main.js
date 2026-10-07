@@ -58,8 +58,15 @@ figma.ui.onmessage = async (message) => {
       const n = await figma.getNodeByIdAsync(field.nodeId);
       if (n?.type !== "TEXT") throw Error("Missing shared text");
       if (n.characters !== field.value) {
-        for (const part of n.getStyledTextSegments(["fontName"]))
+        const segments = n.getStyledTextSegments(["fontName"]);
+        if (!segments.length) segments.push({ fontName: n.fontName });
+        for (const part of segments) {
+          if (!part.fontName || part.fontName === figma.mixed)
+            throw Error(
+              "Resolve the missing/mixed font before importing shared text.",
+            );
           await figma.loadFontAsync(part.fontName);
+        }
         texts.push({ n, old: n.characters, value: field.value });
       }
     }

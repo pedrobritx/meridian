@@ -101,6 +101,7 @@ test("actual plugin imports mapped text and primitive values, rejects stale comp
         f.nodeId,
         {
           type: "TEXT",
+          fontName: { family: "Manrope", style: "Regular" },
           get characters() {
             return characters;
           },
@@ -110,7 +111,9 @@ test("actual plugin imports mapped text and primitive values, rejects stale comp
             characters = value;
           },
           getStyledTextSegments() {
-            return [{ fontName: { family: "Manrope", style: "Regular" } }];
+            return characters.length
+              ? [{ fontName: { family: "Manrope", style: "Regular" } }]
+              : [];
           },
         },
       ];
@@ -173,6 +176,21 @@ test("actual plugin imports mapped text and primitive values, rejects stale comp
   assert.equal(
     signature({ tokens: result.tokens, content: result.content }),
     signature(candidate),
+  );
+  nodes[content.fields.heroTitle.nodeId].characters = "";
+  await figma.ui.onmessage({ type: "export" });
+  await figma.ui.onmessage({
+    type: "import",
+    bundle: candidate,
+    expectedLocalSignature: signature({
+      tokens: result.tokens,
+      content: result.content,
+    }),
+  });
+  assert.equal(
+    result.type,
+    "imported",
+    "an empty mapped layer can be refilled after loading its font",
   );
   const aliasesBefore = source.collections.flatMap((c) =>
     c.variables.flatMap((v) =>

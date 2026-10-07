@@ -4,7 +4,7 @@ Executed locally on 7 October 2026:
 
 - `npm test`: 43 passing checks for the canonical four-mode contract, generated CSS, contrast, native alias resolution/import, rollback, mapped text, plugin UI, conflict protection, webhook handling and sync CLI orchestration.
 - `npm run build`: production static build succeeds. It regenerates both CSS consumers and the importable Figma plugin; Manrope, Fraunces, Newsreader and JetBrains Mono are self-hosted.
-- Browser checks: all seven routes passed axe A/AA checks and horizontal-overflow checks in Grass/Paper × light/dark at desktop and 390px mobile widths. Keyboard tabs, native dialog, local form validation, persistence and reduced motion passed. Selected-only bold and row-only rounded hover passed in a subsequent focused run after correcting the test selector (16 scenarios total).
+- Browser checks: all seven routes passed axe A/AA checks and horizontal-overflow checks in Grass/Paper × light/dark at desktop and 390px mobile widths. Keyboard tabs, native dialog, local form validation, persistence and reduced motion passed. Selected-only bold and row-only rounded hover passed. The final full browser run passed all 16 scenarios.
 - Browser runs used the environment's `/usr/bin/chromium` through `PLAYWRIGHT_CHROMIUM_EXECUTABLE`; downloading Playwright's bundled browser was blocked. CI installs its bundled Chromium normally.
 - Desktop Grass and mobile Paper overview screenshots were reviewed visually.
 
