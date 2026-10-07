@@ -11,7 +11,7 @@ Load `styles/tokens.css` and `styles/components.css`. The live Components view s
 | Card | `.md-card` around a section/article with a heading. | Solid surface. Native links/buttons hold the actions; avoid a clickable container around other controls. |
 | Alert | `.md-alert`. | Contextual information is visible text. Choose role=status/alert only when live announcements are appropriate. |
 | Navigation item | Native anchor, current destination marked aria-current=page. | Persistent focus, clear current-state treatment. The sidebar provides the reference example. |
-| Tab | `.md-tabs`, tablist/tab/tabpanel semantics. | Selected state, roving tabindex, Left/Right/Home/End; see src/main.js. |
+| Tab | `.md-tabs`, tablist/tab/tabpanel semantics. | Only the selected label is bold (700); other labels remain 500. Selected surface, roving tabindex, Left/Right/Home/End; see src/main.js. |
 | Dialog | Native dialog, accessible title, showModal(). | Escape, focus containment/restoration; see index.html and src/main.js. |
 
 ## Button
@@ -42,3 +42,7 @@ On validation failure, show the error, set aria-invalid=true and focus the first
 ## Product integration
 
 Use the recipes as the native contract when wrapping them in React, Vue or another framework. Preserve the semantic roles and keyboard behaviour. The Figma source map is documented in figma-library.json; a native Code Connect publication is not claimed on the current student plan.
+
+## Profiles and list feedback
+
+Set `data-meridian="grass"` or `"paper"` and `data-theme="light"` or `"dark"` on every independently themed boundary. Default button/surface/list contours use `radius/md` (24px); Paper fields use `radius/sm` (14px). Each `.md-list-row` owns its hover/press surface and uses the matching text role. Hover does not persist as selection. Press scales follow the profile tokens, and reduced motion removes spatial movement.

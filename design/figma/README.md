@@ -1,4 +1,4 @@
-# Meridian → Meridian GitHub
+# Meridian ↔ GitHub → website
 
 Source: [Meridian Figma](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn).
 Destination: **[pedrobritx/meridian](https://github.com/pedrobritx/meridian)**.
@@ -9,11 +9,13 @@ File/repository allowlists and review-frame IDs are in `config.json`. Lexis is a
 | Change | Trigger | Review output |
 | --- | --- | --- |
 | Layers, text, layout, component properties and prototype metadata | Save a **named version**; scheduled check every six hours, manual workflow, or optional webhook | Version-specific layer diff, PNG review previews, handoff issue and one accumulating draft PR |
-| Native semantic variables | Development plugin → **Publish for review** | Validated Grass/Paper light/dark `tokens.json` and reproducible `meridian.css` in the same draft PR |
+| Native semantic variables and ten mapped text layers | Plugin → **Publish Figma for review**, or live mode while open | Validated four-mode tokens, mapped copy, CSS and a draft PR |
+| GitHub tokens and mapped text on `main` | Plugin → **Apply GitHub values**, or live mode while open | Updates native primitive cells through aliases and editable text layers |
+| Shared contract and runtime source on GitHub | Merge into `main` | Validate, build and deploy GitHub Pages |
 
-Autosaves are ignored. This is not an every-keystroke mirror, and a named version does not automatically export native variables on Education plans. The Variables REST API requires a different plan; the explicit plugin path avoids that requirement. Exports never merge themselves or generate application code.
+Autosaves are ignored. This is not an every-keystroke mirror, and a named version does not automatically export native variables on Education plans. The Variables REST API requires a different plan; the development plugin avoids that requirement. Live mode is session-based, not a server-side Figma writer. Exports never merge themselves or generate arbitrary application code.
 
-Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.4 library export; `meridian.css` uses scoped `--meridian-*` variables. The existing website's `tokens/meridian.json` and `styles/tokens.css` are the 0.1 implementation, not automatically rewritten by this bridge. Adopt library changes into the runtime through a separate reviewed change.
+Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.4 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core / Grass / Paper page. Changing either contract on `main` updates the next website build. Archive `tokens/legacy-0.1.json` is not consumed.
 
 ## Activate
 
@@ -42,14 +44,20 @@ node scripts/figma/register-webhook.mjs
 
 Registration is idempotent and prints only webhook ID/status. The receiver authenticates the passcode, rejects unrelated files, ignores autosaves, and forwards only a named version ID to **pedrobritx/meridian**. The six-hour polling check remains a backup.
 
-## Publish native tokens
+## Activate two-way contract synchronization
 
-In Figma desktop, import `plugin/manifest.json` through **Plugins → Development → Import plugin from manifest**. Open the configured Meridian file and run **Meridian → GitHub**. Reimport the manifest from this repository if an older Lexis-targeted development plugin was installed.
+After this update reaches `main`, download the repository and import `plugin/manifest.json` in Figma desktop through **Plugins → Development → Import plugin from manifest**. Run **Meridian ↔ GitHub** in the configured file. Reimport the manifest to replace an older plugin.
 
-- **Download JSON** resolves all 165 semantic tokens in each of the four modes without credentials.
-- **Publish for review** needs a fine-grained GitHub token restricted to **meridian** with Contents write. Enter it only in the plugin password field. It goes directly to GitHub, is cleared on submit, and is never stored.
+1. Enter a fine-grained GitHub token restricted to **pedrobritx/meridian**, with **Contents: Read and write**. This is separate from the repository's `FIGMA_ACCESS_TOKEN` secret. The plugin password field clears after reading; the credential remains only in session memory until Disconnect or closing the plugin.
+2. Choose **Compare**. If both sides match, the plugin establishes a baseline. If they differ on first use, explicitly choose **Apply GitHub values** or **Publish Figma for review**.
+3. Optionally enable **Live while this plugin is open**. Every 30 seconds, a GitHub-only change is imported; a Figma-only change is published once for review. Closing the plugin stops live synchronization. Wait for the export PR to merge before the website or GitHub baseline advances.
+4. If both sides changed since the baseline, live mode stops. Compare and choose a version explicitly; no automatic overwrite occurs. A publication whose GitHub baseline is stale is rejected by the workflow.
 
-The plugin does not change the canvas. Missing profile modes, wrong files, invalid values and malformed exports are rejected. The initial checked-in export was compared read-only with the live Figma variables; zero differences were found across 660 mode/token values. This capture does not prove automatic delivery.
+Imports preserve aliases, bindings and instances. Variables sharing a primitive must be edited together in the resolved JSON; incompatible values are rejected instead of flattening bindings. Imports require the existing semantic names and mapped node IDs. New tokens or deleted/replaced mapped layers need an intentional library/mapping update and a plugin rebuild. Import failures roll back applied variable and text changes.
+
+Edit **`design/figma/generated/tokens.json`** and **`site/content.json`**, then run `npm run build`. Do not edit generated CSS or plugin bundles. `generated/content-baseline.json` records mutually published text and must not be advanced by a GitHub-only wording edit. Values are validated and shared text is escaped before HTML rendering.
+
+Arbitrary layout, prototype, new component, HTML and JavaScript changes do not round-trip. Named versions still produce visual handoff diffs/previews for those changes. The existing old named version lacks the current profile text nodes: save a **new named version of 0.4** before testing the named-version path.
 
 ## Confirm end to end
 
@@ -57,8 +65,9 @@ The plugin does not change the canvas. Missing profile modes, wrong files, inval
 2. For immediate delivery, confirm that the registered webhook reports ACTIVE and its delivery succeeds. Find the GitHub run with event **repository_dispatch**. A manual run tests the workflow but does not prove webhook activation; a scheduled run proves polling only.
 3. Verify the run finishes successfully and its generated `snapshot.json` names the same Figma file key and version ID. Compare `changes.json` and the rendered review frames with that named version.
 4. Confirm both the issue and draft PR are in **pedrobritx/meridian**, with head branch `design/figma-sync` and base `main`.
-5. Publish a changed token through the plugin. Confirm `tokens.json` and `meridian.css` show the intended change across the correct profile modes. Publish unchanged tokens again; it should not create another commit or issue.
-6. Repeat delivery of the same named version. It should reuse the existing review work; an older delayed version must not rewind it.
+5. Publish a changed token or mapped text through the plugin. Confirm `tokens.json` and `meridian.css` show the intended change across the correct profile modes. Publish an unchanged contract again; it should not create another commit or issue.
+6. Change a mapped text on GitHub, merge it into `main`, then Compare/Apply or observe live mode. Confirm the Figma text and website match. Edit both sides independently and confirm live mode pauses.
+7. Repeat delivery of the same named version. It should reuse the existing review work; an older delayed version must not rewind it.
 
 Generated exports are review artifacts until merged. The workflow's `GITHUB_TOKEN` does not trigger other PR Actions automatically; if required checks are absent on a bot PR, close and reopen it using your account before merging.
 
@@ -72,4 +81,4 @@ Tests execute the actual export/sync code with mocked HTTP and native provenance
 
 `generated/figma-source.json` is a separately captured native alias/style provenance snapshot. Token-only publication does not refresh it. [Profile configuration](../meridian/profiles.md) and [product adoption](../meridian/integration.md) explain the design/runtime boundaries.
 
-Pending bot exports are the baseline before merge; after merge, the baseline persists on `main`. If PR creation fails after an export commit, rerun to recover the existing draft PR. To disable delivery, deactivate the webhook and disable this repository's workflow.
+Pending bot exports are checked for duplicate delivery. The plugin compares against `main`; unmerged review changes are not yet website releases. If `main` advances independently while an export is pending, the workflow stops and requires the pending PR to be resolved before further exports. If PR creation fails after an export commit, rerun to recover the existing draft PR. To disable delivery, deactivate the webhook and disable this repository's workflow.

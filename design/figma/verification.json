@@ -2,9 +2,7 @@
   "checkedAt": "2026-10-07T21:13:09.047Z",
   "figmaFileKey": "aJ2f6aYX9KBucAdPsCmkXn",
   "repository": "pedrobritx/meridian",
-  "mainAtAudit": "caa634a227f3ed3fa7ff5c2d8176c8f8a038910b",
-  "mainAtAuditStatus": "0.1 reference; current Figma 0.4 tokens/inventory and synchronization workflow absent",
-  "proposedBranch": "codex/figma-meridian-sync",
+  "proposedBranch": "codex/meridian-live-contract",
   "currentNativeComparison": {
     "counts": {
       "Dawn": 165,
@@ -13,26 +11,37 @@
       "PaperDusk": 165
     },
     "differenceCount": 0,
-    "numericTolerance": 1e-7,
+    "numericTolerance": 1e-07,
     "method": "Live native alias/mode resolution compared with the token bundle copied into this PR"
   },
   "automaticDelivery": {
-    "status": "activation_pending",
+    "status": "named-version-delivery-verified; live round-trip activation pending",
     "requiredGitHubSecret": "FIGMA_ACCESS_TOKEN",
-    "actionsPRCreationPermissionVerified": false,
+    "actionsPRCreationPermissionVerified": true,
     "webhookHosted": false,
     "webhookRegistered": false,
-    "realNamedVersionDelivered": false,
-    "nativeTokensRequireExplicitPluginPublication": true
+    "realNamedVersionDelivered": true,
+    "nativeTokensRequireExplicitPluginPublication": false,
+    "liveRequiresOpenPlugin": true,
+    "mergedExportPR": "https://github.com/pedrobritx/meridian/pull/3",
+    "exportedVersionId": "2407090129280841743",
+    "exportedVersionNote": "Historical named version; save a new 0.4 version for the current layers."
   },
   "runtime": {
-    "version": "0.1",
-    "source": "tokens/meridian.json",
-    "importsNewLibrary": false
+    "version": "0.4",
+    "source": "design/figma/generated/tokens.json",
+    "sharedCopy": "site/content.json",
+    "importsNewLibrary": true,
+    "release": "proposed; website changes require merge and Pages deployment"
   },
   "limits": [
-    "The PR brings the library artifacts into the correct repository; main is not updated until review and merge.",
-    "Existing Lexis-targeted automation is not evidence of synchronization with Meridian.",
-    "No credentials, deployment or repository settings changed."
-  ]
+    "Live contract round-trip is locally tested with mocked APIs; a real live plugin session has not been activated.",
+    "Named versions export layouts and prototypes as handoff artifacts, not executable website layouts.",
+    "GitHub cannot update native Figma through this plan when the plugin is closed."
+  ],
+  "previousAudit": {
+    "main": "caa634a227f3ed3fa7ff5c2d8176c8f8a038910b",
+    "status": "0.1 reference; current Figma 0.4 tokens/inventory and synchronization workflow absent"
+  },
+  "implementationBase": "ac99e72"
 }

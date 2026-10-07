@@ -1,3 +1,7 @@
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-500.css';
+import '@fontsource/manrope/latin-600.css';
+import '@fontsource/manrope/latin-700.css';
 import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/fraunces/latin-400-italic.css';
 import '@fontsource/newsreader/latin-400.css';
@@ -15,10 +19,16 @@ const media=matchMedia('(prefers-color-scheme: dark)');
 const picker=document.querySelector('#theme');
 let preference='system';
 try{const saved=localStorage.getItem('meridian-environment');if(['system','dawn','dusk'].includes(saved))preference=saved;}catch{/* Theme remains usable when storage is blocked. */}
-function applyTheme(){document.documentElement.dataset.theme=preference==='system'?(media.matches?'dusk':'dawn'):preference;picker.value=preference;}
+function applyTheme(){document.documentElement.dataset.theme=(preference==='system'?media.matches:preference==='dusk')?'dark':'light';picker.value=preference;}
 picker.addEventListener('change',()=>{preference=picker.value;applyTheme();try{localStorage.setItem('meridian-environment',preference);}catch{/* Persisting preference is optional. */}});
 media.addEventListener('change',()=>{if(preference==='system')applyTheme();});
 applyTheme();
+const profilePicker=document.querySelector('#profile');
+let profile='grass';
+try{const saved=localStorage.getItem('meridian-profile');if(['grass','paper'].includes(saved))profile=saved;}catch{}
+function applyProfile(){document.documentElement.dataset.meridian=profile;profilePicker.value=profile;}
+profilePicker.addEventListener('change',()=>{profile=profilePicker.value;applyProfile();try{localStorage.setItem('meridian-profile',profile);}catch{}});
+applyProfile();
 document.querySelector('#brand-mark').innerHTML=icon('meridian',38);
 function announce(message){announcement.textContent='';requestAnimationFrame(()=>{announcement.textContent=message;});}
 function activateTab(tab){const group=tab.closest('[role="tablist"]');for(const item of group.querySelectorAll('[role="tab"]')){const selected=item===tab;item.setAttribute('aria-selected',String(selected));item.tabIndex=selected?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!selected;}}
@@ -26,6 +36,7 @@ function render(focus=false){const key=location.hash.slice(1);const page=Object.
 window.addEventListener('hashchange',()=>{if(location.hash==='#content'){content.focus();return;}render(true);});
 render();
 content.addEventListener('click',async event=>{const target=event.target.closest('button');if(!target)return;
+ if(target.hasAttribute('data-list-item'))announce(target.dataset.listItem+' selected. This example does not store information.');
  if(target.hasAttribute('data-demo'))announce(target.dataset.demo);
  if(target.hasAttribute('data-open-dialog'))document.querySelector('#example-dialog').showModal();
  if(target.matches('[role="tab"]'))activateTab(target);

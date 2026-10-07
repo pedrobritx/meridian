@@ -38,6 +38,8 @@ Lexis stores colours as HSL channel triplets for Tailwind alpha composition. Mer
 
 ## Activation and verification
 
-Follow [the bridge activation guide](../figma/README.md#activate). GitHub needs the Figma secret and permission for Actions to create PRs; immediate webhook delivery needs the Vercel passcode and repository-dispatch token. Do not paste credentials into chat. Confirm a named version produces one issue and one draft PR, then republish unchanged tokens to verify no duplicate commit. The current task does not claim the live connection is active.
+Follow [the bridge activation guide](../figma/README.md#activate). GitHub needs the Figma secret and permission for Actions to create PRs; immediate webhook delivery needs the Vercel passcode and repository-dispatch token. Do not paste credentials into chat. Confirm a named version produces one issue and one draft PR, then republish unchanged tokens to verify no duplicate commit. Named-version delivery to Meridian was verified through export PR #3. The session-based two-way plugin requires activation; see the current bridge guide.
 
 Code Connect can map Figma components to implementation examples when plan/access permits. It does not automatically turn layouts into working application code, and no false mapping is provided for a component that has not been implemented.
+
+The Meridian reference website builds from the reviewed `design/figma/generated/tokens.json` and mapped `site/content.json`. Its plugin can import GitHub values into native aliases and mapped text while open; arbitrary application layouts/code and prototype reaction timing remain implementation work.

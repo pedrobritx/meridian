@@ -1,11 +1,15 @@
-# Validation — 0.1.0
+# Validation — website 0.4
 
-Executed locally on 6 October 2026:
+Executed locally on 7 October 2026:
 
-- `npm test`: 5 passing checks for both-mode completeness, semantic text/action/status contrast (4.5:1), control/focus contrast (3:1).
-- `npm run build`: production static build succeeds; fonts and scripts are served from the same origin.
-- `npm run test:browser`: 10 passing Chromium scenarios across desktop and a 390px mobile viewport. Every view is audited in both environments using axe WCAG A/AA tags, and checked for horizontal document overflow and runtime errors.
-- Behaviour checks: keyboard tabs (arrows/Home/End), native dialog Escape and focus restoration, required-field error/focus and local validation feedback, theme persistence/system changes, reduced motion.
-- Figma: aliases, targeted scopes, code syntax and style families inspected; editable layers and component instances verified; screenshots of all six review pages checked. Construction issues found in initial layout were repaired.
+- `npm test`: 43 passing checks for the canonical four-mode contract, generated CSS, contrast, native alias resolution/import, rollback, mapped text, plugin UI, conflict protection, webhook handling and sync CLI orchestration.
+- `npm run build`: production static build succeeds. It regenerates both CSS consumers and the importable Figma plugin; Manrope, Fraunces, Newsreader and JetBrains Mono are self-hosted.
+- Browser checks: all seven routes passed axe A/AA checks and horizontal-overflow checks in Grass/Paper × light/dark at desktop and 390px mobile widths. Keyboard tabs, native dialog, local form validation, persistence and reduced motion passed. Selected-only bold and row-only rounded hover passed. The final full browser run passed all 16 scenarios.
+- Browser runs used the environment's `/usr/bin/chromium` through `PLAYWRIGHT_CHROMIUM_EXECUTABLE`; downloading Playwright's bundled browser was blocked. CI installs its bundled Chromium normally.
+- Desktop Grass and mobile Paper overview screenshots were reviewed visually.
 
-Limits: the mobile run emulates an iPhone-sized viewport in Chromium; it is not a native iOS Safari run. Human screen-reader testing, native Safari/Firefox, zoom and forced-colour usability in those browsers have not been completed. Contrast results apply to solid reference surfaces; actual glass backgrounds need contextual verification. No health, circadian or visual-fatigue benefit is claimed.
+The plugin UI and native mutation paths were executed with mocked HTTP/native APIs, not a real live plugin session. The earlier named-version export succeeded and was merged in PR #3, but that old named version is not the current 0.4 canvas. Save a new named version and activate the updated plugin to verify the current round trip end to end.
+
+Automated checks are not full WCAG certification. Native Safari/Firefox, human screen-reader checks, and contextual contrast over arbitrary glass imagery remain unverified. Layouts, application code and prototype reaction timing are not reversible through design tokens.
+
+Historical 0.1 verification covered its paired Dawn/Dusk reference, six routes and ten browser scenarios on 6 October 2026. It is superseded by the current contract above.
