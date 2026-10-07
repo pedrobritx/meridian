@@ -1,0 +1,42 @@
+name: Figma Design Sync
+
+on:
+  repository_dispatch:
+    types: [figma-version, figma-tokens]
+  workflow_dispatch:
+    inputs:
+      version_id:
+        description: 'Named Figma version ID (blank selects latest named version)'
+        required: false
+        type: string
+  schedule:
+    # Backup delivery for named versions; quietly does nothing when unchanged.
+    - cron: '23 */6 * * *'
+
+concurrency:
+  group: meridian-figma-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  sync:
+    if: github.repository == 'pedrobritx/meridian' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - name: Export approved design and open review work
+        run: node scripts/figma/sync.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}

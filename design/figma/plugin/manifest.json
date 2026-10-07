@@ -1,0 +1,13 @@
+{
+  "name": "Meridian → GitHub",
+  "id": "meridian-github-local",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["https://api.github.com"],
+    "reasoning": "Publish explicitly approved Meridian variable exports to the Meridian GitHub workflow."
+  }
+}

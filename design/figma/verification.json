@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-07T21:13:09.047Z",
+  "figmaFileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "repository": "pedrobritx/meridian",
+  "mainAtAudit": "caa634a227f3ed3fa7ff5c2d8176c8f8a038910b",
+  "mainAtAuditStatus": "0.1 reference; current Figma 0.4 tokens/inventory and synchronization workflow absent",
+  "proposedBranch": "codex/figma-meridian-sync",
+  "currentNativeComparison": {
+    "counts": {
+      "Dawn": 165,
+      "Dusk": 165,
+      "PaperDawn": 165,
+      "PaperDusk": 165
+    },
+    "differenceCount": 0,
+    "numericTolerance": 1e-7,
+    "method": "Live native alias/mode resolution compared with the token bundle copied into this PR"
+  },
+  "automaticDelivery": {
+    "status": "activation_pending",
+    "requiredGitHubSecret": "FIGMA_ACCESS_TOKEN",
+    "actionsPRCreationPermissionVerified": false,
+    "webhookHosted": false,
+    "webhookRegistered": false,
+    "realNamedVersionDelivered": false,
+    "nativeTokensRequireExplicitPluginPublication": true
+  },
+  "runtime": {
+    "version": "0.1",
+    "source": "tokens/meridian.json",
+    "importsNewLibrary": false
+  },
+  "limits": [
+    "The PR brings the library artifacts into the correct repository; main is not updated until review and merge.",
+    "Existing Lexis-targeted automation is not evidence of synchronization with Meridian.",
+    "No credentials, deployment or repository settings changed."
+  ]
+}
