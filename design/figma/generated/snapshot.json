@@ -1,0 +1,4632 @@
+{
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "versionId": "2407090129280841743",
+  "createdAt": "2026-10-06T04:17:56Z",
+  "nodes": {
+    "0:0": {
+      "name": "Document",
+      "type": "DOCUMENT",
+      "hash": "bc6077c2c7764471b183f46f0704bfffbed8751043c36ba82cfb3d51e15daf35"
+    },
+    "0:1": {
+      "name": "00 · Start",
+      "type": "CANVAS",
+      "hash": "dbd945e959e2aff31b3ed59915614543b92b63959dd800c9006616560de23e9a"
+    },
+    "7:2": {
+      "name": "Start / Review",
+      "type": "FRAME",
+      "hash": "082c85318ea53693cb0a44fbe8d91fe37bf483145d3f9a63d07a55c5a15cce6c"
+    },
+    "7:3": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "2a8245f0cca25da4374b1ceb3d7eaf823f2afe4d60c990106d942ab98ba30439"
+    },
+    "7:4": {
+      "name": "A human rhythm for software.",
+      "type": "TEXT",
+      "hash": "08d9d71c7e3faec70fc32b87c55e7e0542e05dc3b31876a60f425ab0988fc80a"
+    },
+    "7:5": {
+      "name": "Meridian is a humanist interface method:",
+      "type": "TEXT",
+      "hash": "f6215d0a0f653c76567651fc75efab138d8b60f943319edd30368c873ead5887"
+    },
+    "7:6": {
+      "name": "Identity",
+      "type": "FRAME",
+      "hash": "a29e7190bf98312de68d72b0b32102970ef895f21d19c16d912bb42c3a6b1ef2"
+    },
+    "7:7": {
+      "name": "Icon/meridian",
+      "type": "INSTANCE",
+      "hash": "20a449f3f9e0210ceb08cf4f186e50970a943a316b9b97a264d3059a02d1f578"
+    },
+    "I7:7;4:3": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "78c48fba7b3da4e97d3b0720cc3236e75cc4523818b7b5313110db591dee1f83"
+    },
+    "I7:7;4:4": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "008aa39366afe2c0090f614e075613f19c71ef9dc6b31e3b0fcc14371a42cc3e"
+    },
+    "I7:7;4:5": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "987b65fc61eb6b6b54d7490952762df183eb0a7f22bd06bdff4d8ad04371a4f3"
+    },
+    "I7:7;4:6": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "3fb3bcb10da867ccc1a5d38524e34119f17999c413eceba37aa20b5483825ff4"
+    },
+    "7:12": {
+      "name": "Introduction",
+      "type": "FRAME",
+      "hash": "ad1e6236f7c1d45b9021b7474320dbca8d101213cbf60c2fc64e6af069435eb7"
+    },
+    "7:13": {
+      "name": "Useful before impressive.",
+      "type": "TEXT",
+      "hash": "70400318b823a5854b5ee4b1ff9198bc4c3330fd9650bbed31fa492854ad55fa"
+    },
+    "7:14": {
+      "name": "The same world. A different light. Dawn ",
+      "type": "TEXT",
+      "hash": "5d79499abe0cda2a83fab3ad17314e9385de2ce88221841a60751c726467e858"
+    },
+    "7:15": {
+      "name": "Environments",
+      "type": "FRAME",
+      "hash": "83e718db5e57e3bb50955de879fae7354f6e9396aa701059509f03ed5c096e13"
+    },
+    "7:16": {
+      "name": "Dawn",
+      "type": "FRAME",
+      "hash": "b371d6716fd70074325bac036700dc6fcd4d61bd238704d68ce975ee4641369c"
+    },
+    "7:17": {
+      "name": "EARTH / MORNING",
+      "type": "TEXT",
+      "hash": "6af1e9b58aba0dfe004d9a9391e53adc912b14f984f83075f2ce2d3e2ec1f232"
+    },
+    "7:18": {
+      "name": "Dawn",
+      "type": "TEXT",
+      "hash": "bbda7e0dbf3bbbfa6fbe45d81b11aff32bcd4c7e7075cd93e04fb64398f6d651"
+    },
+    "7:19": {
+      "name": "Warm paper. Forest accents. The quiet cl",
+      "type": "TEXT",
+      "hash": "92966a51aa42191d01f80fefbd5050ae1416c50823f30e6e18aae9c116d499c6"
+    },
+    "7:20": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "7a5839866214e3ab73bebaa2c90b549b13019770fb4fd232625ea24e3234f155"
+    },
+    "I7:20;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "b1452c6ba06f039c15305cd6715789f381d8c23398c74313776561271f554265"
+    },
+    "I7:20;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "1c387c06be706cf2f53bb16a582581bd19a00490832cdd47ba8d666f2a755b66"
+    },
+    "I7:20;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "a2ba04f0347229bff6a81490bc901940197ed879e5126ff4ef4d6c56ce78828e"
+    },
+    "I7:20;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "f927b90bda1eeb7c353ee4d065f9a8030457099f30efb7159ace3f3ec41e7499"
+    },
+    "I7:20;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "49a2a321d4f1e72be102280b078806f4327457cf2a58c75c838932940ce9ea43"
+    },
+    "I7:20;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "bda8316407c1eedbb54ee19fa011745f48db159cd9345f48f256e4c26eefe8e5"
+    },
+    "I7:20;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "2570a29d8df7c113e837487b0a6a39a547e4e05b9c43eb2ea0e5c4762506609c"
+    },
+    "7:28": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "8510e32466d60d6283f59664d25022c9b59ed9f241d7d5356c4b5b8bba027d98"
+    },
+    "I7:28;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "4c0a3c167916ca128feb54109d71dbe33fee5168d40b650ed78aa106a69fcb46"
+    },
+    "I7:28;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "851227f95ac13c1f36645199cb29fcd4006b4e49a1eba923e823ffa221b4061e"
+    },
+    "I7:28;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "ef4e6358732450c67b09c82f37f336d1827b4f53d3d86c6c96ed7a2df51766fd"
+    },
+    "I7:28;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "b2214a21a7f64b98f6cd3e73693650e1a39cca836acb38f38ab234263c98d367"
+    },
+    "7:35": {
+      "name": "Dusk",
+      "type": "FRAME",
+      "hash": "03e06194517ee600856c0bd304bcd40b83301bc283decc0ac40cdfb5ace9603e"
+    },
+    "7:36": {
+      "name": "WATER / EVENING",
+      "type": "TEXT",
+      "hash": "76c57b5489b68a8c5a4187ec9c2bf4382c16d0d8c9ee5f4c0fd87fe9e09919d2"
+    },
+    "7:37": {
+      "name": "Dusk",
+      "type": "TEXT",
+      "hash": "34d547033c8ef65f588adcd013b1dbb2c1d03696b93e85349866f3cf6ac6bbe2"
+    },
+    "7:38": {
+      "name": "Ocean atmosphere. Lit surfaces. Room for",
+      "type": "TEXT",
+      "hash": "d25091db87778d5567fe80cb52a558b1f0ee6cc0efacd896675d3f8030e5a505"
+    },
+    "7:39": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "010b6331499de96eb0763f146f46b9a57dffb6b2cfa6ffc91417b31369f71500"
+    },
+    "I7:39;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "e4713f9cff460b7d7bad5d85d65efa31ab0b6bbe18d34a980f3dcd519673ff98"
+    },
+    "I7:39;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "2722bbcb2c5d135b574d85699590bcf60833568a0fba1e88461dcdc73a64ebe5"
+    },
+    "I7:39;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "87c19cebc88abf7470f0cb9b3c3aa87771646673ddfd862f132a5ef0a81fee47"
+    },
+    "I7:39;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "f927c6e375b7deb9f65dbbe7b79362125fe246d93b8321d6294d88990f16ac90"
+    },
+    "I7:39;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "eb0a713c214e5941e0ded5a7c6bd9c5d9d60c156acab32232632ea0615550767"
+    },
+    "I7:39;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f4cd87d7d99b5b4a4f56fac16169ae01fc39b87547eb284482c74ee3eba30393"
+    },
+    "I7:39;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "71c18b8f0ee8f2f839a06d316db292ed3f7aed88e73431cb839742def392d4c7"
+    },
+    "7:45": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "43d517d8f866af55eb42b0d19df533b967faf0047c97468865ea68c08203e98f"
+    },
+    "I7:45;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "efae81703c977d6e1498931bbdcfe47785f81d515b260e186b5ceee0310b46c1"
+    },
+    "I7:45;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "278ab5ce30df1c3a16a3bf89314ee0ba0c3609532f090a81c909b3aa07f12e05"
+    },
+    "I7:45;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "4cb84e6f4bee5a79fa29f7d09c46f87d6f051d3132be01879005c26652c09569"
+    },
+    "I7:45;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "70ae956ee70d982062bc3dfbcba40ff29c549ba38e1c3cdb690efa5d266e4c7a"
+    },
+    "7:50": {
+      "name": "The library",
+      "type": "TEXT",
+      "hash": "974e3f7a73fcb3d862bf9f1d2b98555ac45db3bcb18ac6f3bfa8ed10b1184a87"
+    },
+    "7:51": {
+      "name": "Library index",
+      "type": "FRAME",
+      "hash": "794840bebc6bb3e80a716175739a48ac5ee1729fcaabc4e2409d0353771e3adf"
+    },
+    "7:52": {
+      "name": "Foundations",
+      "type": "FRAME",
+      "hash": "26513c40970b097637f06498d0386da55c63aa803e3e0faae3b7a6c06833f0dc"
+    },
+    "7:53": {
+      "name": "Foundations",
+      "type": "TEXT",
+      "hash": "15058dd55493caeb77c41d98073141066fef11ee0aeffbab428e7c259db98fca"
+    },
+    "7:54": {
+      "name": "Colour modes, typography, spacing, shape",
+      "type": "TEXT",
+      "hash": "fc041a1e372adf9bd9926479058eb72002db1efda3c41bd487544236484505cc"
+    },
+    "7:55": {
+      "name": "Components",
+      "type": "FRAME",
+      "hash": "012908f6d9ca10ba24fc5db77f2c02fac7029a9cedae24ee2ec903395896049e"
+    },
+    "7:56": {
+      "name": "Components",
+      "type": "TEXT",
+      "hash": "3f4bc2ab24fe5a50dcdf270675bb53f0ce18e8bba23d29ba4437876248f158e9"
+    },
+    "7:57": {
+      "name": "Nine core families, editable properties ",
+      "type": "TEXT",
+      "hash": "7ed69c9298b512647f82e3eaa817235b567f5afd558b671a885781d77cd6d1fb"
+    },
+    "7:58": {
+      "name": "Patterns & adoption",
+      "type": "FRAME",
+      "hash": "9139c2cc45823d3cdb9cf6bd95982e2e91523340e80d8cabec2f36ec2e6b3105"
+    },
+    "7:59": {
+      "name": "Patterns & adoption",
+      "type": "TEXT",
+      "hash": "06f34ca9fb81505ec2a058516b955b2605caffee4bae4f96552d0d7bce110295"
+    },
+    "7:60": {
+      "name": "Responsive examples and boundaries for p",
+      "type": "TEXT",
+      "hash": "bdf706f14fb8b3a8a61c447cd7012a5f4628c5c51a1e1112a3cd3b98d7226777"
+    },
+    "7:61": {
+      "name": "BSDL supplies the philosophical foundati",
+      "type": "TEXT",
+      "hash": "05c611063cc0eddeb6f493302f6daa939bc621cf06b656b02d9d67cccdb9db66"
+    },
+    "3:207": {
+      "name": "01 · Foundations",
+      "type": "CANVAS",
+      "hash": "fc34dc8cd90fd021b798d7ef42e91c781aa4fc72d6e1b1b1cea65b597dc5ab97"
+    },
+    "8:22": {
+      "name": "Foundations / Review",
+      "type": "FRAME",
+      "hash": "bcfd431e351c2ef3986ca234eba80040212f725a5e857f2c4c217fef642f1f2c"
+    },
+    "8:23": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "2a8245f0cca25da4374b1ceb3d7eaf823f2afe4d60c990106d942ab98ba30439"
+    },
+    "8:24": {
+      "name": "Foundations, with meaning.",
+      "type": "TEXT",
+      "hash": "578d66fcbea8c5460cec797e131d80decc64d5c3127fa8e2522c9ef20ce6b973"
+    },
+    "8:25": {
+      "name": "Primitive → semantic → product. Original",
+      "type": "TEXT",
+      "hash": "bcf8c12f9d33d543932961626d9bcd97362c4acd6e981b244dcceb43e06a776d"
+    },
+    "8:26": {
+      "name": "01 / Source palette",
+      "type": "TEXT",
+      "hash": "948ff0296fb1de30344e9ddcc744455643b339bc9c4f058f448223541efa52a8"
+    },
+    "8:27": {
+      "name": "Palette row",
+      "type": "FRAME",
+      "hash": "c96de8e372fd783057b7a044ba9cd74d9f887b8608d4c6ee049fa99ce4c62120"
+    },
+    "8:28": {
+      "name": "bone",
+      "type": "FRAME",
+      "hash": "7e0b23a1e65d44727a5dcea8a2332f944101805736f0521e65816fd4de5b5d60"
+    },
+    "8:29": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "68fc937ebaa40f623bbd2c05003ec60cd9451311965d97414d8d456c68ccc82d"
+    },
+    "8:30": {
+      "name": "bone",
+      "type": "TEXT",
+      "hash": "c26c9bcb37764e915af0a7cd9a97d619462e4e305eebe37917e71a212a003e90"
+    },
+    "8:31": {
+      "name": "#F9F1E7",
+      "type": "TEXT",
+      "hash": "75039479d8420c3d20d3ee83bfbeb7f337c4ba893d745c97f755dfbcbbebc7fd"
+    },
+    "8:32": {
+      "name": "almond",
+      "type": "FRAME",
+      "hash": "550874f001bfa7b24c27870e015ed92cbf84392f55a9ae801599b3f67d5e8f88"
+    },
+    "8:33": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "b8297d602bbdd50ff3347d11e593397074c1a4b00ff3942f334a5b7a8f5afea5"
+    },
+    "8:34": {
+      "name": "almond",
+      "type": "TEXT",
+      "hash": "b7e233b4dd3468e3b6550e4d65b9d8893a43eea266e5a6d6746bc2eeb1487d31"
+    },
+    "8:35": {
+      "name": "#F2DFC7",
+      "type": "TEXT",
+      "hash": "d13cd7ef6fe580fc551069dfbc7b6c68852e16b5d374fbff69b49df889e8801c"
+    },
+    "8:36": {
+      "name": "sand",
+      "type": "FRAME",
+      "hash": "31e66bbe9d4d1335b913dc2e49aa0cb1574ff6e8c659f4ed7d8a842cc83bd4a0"
+    },
+    "8:37": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "36cc3b1000908fb731fd8df802ebd4b4db6fb3efadbfffe59224673a8867a7e5"
+    },
+    "8:38": {
+      "name": "sand",
+      "type": "TEXT",
+      "hash": "5eb59bdbc004585557a4e8e6adce2c6b63739914399fd04a1121110112a7b06e"
+    },
+    "8:39": {
+      "name": "#E7CBA9",
+      "type": "TEXT",
+      "hash": "beb376edf46c4195642a126df681b72159fa0b3e8e2ece49b40f78bb4566fac0"
+    },
+    "8:40": {
+      "name": "parchment",
+      "type": "FRAME",
+      "hash": "53848745bce6a019a0eb5c9bec2dc8725e54fc6ad3fcd104459afc192e0938e0"
+    },
+    "8:41": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "157fedb8953f6b15da35784c276dd595244f90869fdb2b3040b065fcc5d6a9de"
+    },
+    "8:42": {
+      "name": "parchment",
+      "type": "TEXT",
+      "hash": "e9f4ec7e0db58e380eb63e88d96bdee003e0d63b0eff8e4a57fd80401f054afa"
+    },
+    "8:43": {
+      "name": "#EADDC8",
+      "type": "TEXT",
+      "hash": "8a04af2f86644839d60428d31914b8d49969033ca01ba82bcac965fd1b8194aa"
+    },
+    "8:44": {
+      "name": "Palette row",
+      "type": "FRAME",
+      "hash": "2acb5923b249aae49d02c625cfe88ed7a4a92eed50365b4ef4c63c626637060c"
+    },
+    "8:45": {
+      "name": "forest",
+      "type": "FRAME",
+      "hash": "5f6bed34e297594ab765531418696afc4dab542515401be5347a4be48c04cd86"
+    },
+    "8:46": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "07e1036bc18bcfb17e1a5f15826a7691a4f2e16030cd49ba50cbe649c97f107e"
+    },
+    "8:47": {
+      "name": "forest",
+      "type": "TEXT",
+      "hash": "7e1eae2acebd38d1d216914850ac88cc03cbf0c097c6eaf2e23036dc03165cd9"
+    },
+    "8:48": {
+      "name": "#3F5A3D",
+      "type": "TEXT",
+      "hash": "4aeeff74574956f13bdded25bfdb4339ca4b43eb04151604bd557604f4ce62fb"
+    },
+    "8:49": {
+      "name": "moss",
+      "type": "FRAME",
+      "hash": "3ed1b0a97a9fbfc6da7361f0c5b1def00dace1046319a28e035f9fb6a36920ea"
+    },
+    "8:50": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "16381b383cd0048b2e89fd99c9411ac4598e59f8c29961a3eb968539e5494c19"
+    },
+    "8:51": {
+      "name": "moss",
+      "type": "TEXT",
+      "hash": "8411cc75558e15eb841228c432ca84a91788d02e64d08cb7a871e0408b228778"
+    },
+    "8:52": {
+      "name": "#6E7C4F",
+      "type": "TEXT",
+      "hash": "6c22f4e25c3dbcf8fbccf3ef8c8b189b3aedf7621f5c254a20d98ce2ad7a4e00"
+    },
+    "8:53": {
+      "name": "terracotta",
+      "type": "FRAME",
+      "hash": "0328c300e76917f171491fb04698a6380bc93c9847e9284d0e32419bc18f69b7"
+    },
+    "8:54": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "d3df18c128369539475df681e2334c583e3dcc910211749689e58bb43007c9f7"
+    },
+    "8:55": {
+      "name": "terracotta",
+      "type": "TEXT",
+      "hash": "3b3c099792544c1ef5d3a0e11ebe9677c344da6fd341cdffc869091237da5a28"
+    },
+    "8:56": {
+      "name": "#B86E4A",
+      "type": "TEXT",
+      "hash": "acb009f9de4cfbd8bb052decc8a6d152f153e34555d038a682588f366467aafa"
+    },
+    "8:57": {
+      "name": "burgundy",
+      "type": "FRAME",
+      "hash": "614a6f767a65e574107a0f8794c0cd618dd31825e75de3ccfda02ed892baab02"
+    },
+    "8:58": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "e0537d138e4d09dd68229b79312ea3e334de683e0ea2dbd1324e6712df7e3a1d"
+    },
+    "8:59": {
+      "name": "burgundy",
+      "type": "TEXT",
+      "hash": "0734b8a8dcd6ea803d1ba18ea55a183f8db3f54a0b0f4d51ea1afbd6b73a7d81"
+    },
+    "8:60": {
+      "name": "#7A2D3A",
+      "type": "TEXT",
+      "hash": "7f00aa6e379673c58f3585d279c4c384ab0f150829e08935e465f8041bef9ac9"
+    },
+    "8:61": {
+      "name": "Palette row",
+      "type": "FRAME",
+      "hash": "0745123c1dad8bf6aba0dda269cf2334ac9412b3776ee51406efd3af96be6a26"
+    },
+    "8:62": {
+      "name": "space",
+      "type": "FRAME",
+      "hash": "14a7d10d04e7f0a86b9b298622ec1e3047d16aa18421104d193b0b6961dc0e53"
+    },
+    "8:63": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "6db958ebe4f386993b3bb4ee81a80ad3af29675bfd4cf077c9e81222c35a1fd5"
+    },
+    "8:64": {
+      "name": "space",
+      "type": "TEXT",
+      "hash": "d9983a0303f136890a8f0752ce9f4ba1668aebb8c710c48feeb446e620099e76"
+    },
+    "8:65": {
+      "name": "#0E1726",
+      "type": "TEXT",
+      "hash": "c4cc952b488e1e9ae42cf316d54cb07d8a764aaf9ee4b78e1a5d8197ace2d9f0"
+    },
+    "8:66": {
+      "name": "twilight",
+      "type": "FRAME",
+      "hash": "54218d16bb2844937d3526a0d5c5701cf4127694fcb1a15dcb376885f4268a74"
+    },
+    "8:67": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "c5f2f204487c74edc4d513e6d0fb9cc854d8c6f81400cff8497f2bc6cdb07b4a"
+    },
+    "8:68": {
+      "name": "twilight",
+      "type": "TEXT",
+      "hash": "9b97a40b096564310e6d9d5aebdc4863991aa55dd924043eec5eeea3e44a8d91"
+    },
+    "8:69": {
+      "name": "#18253B",
+      "type": "TEXT",
+      "hash": "a9c2372b74b73315954ced9c89f4ab75de1d0bd5b8092b8cdc0f63f7ccc17ac0"
+    },
+    "8:70": {
+      "name": "midnight",
+      "type": "FRAME",
+      "hash": "b9655fcc1b380c15220b46fd0a63724fa8f24d1ced40d7951fc49d59c77f533b"
+    },
+    "8:71": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "4efa2ee11590a48978c459a2bd124e55e27b23acd9b1894fde545e1d2604b676"
+    },
+    "8:72": {
+      "name": "midnight",
+      "type": "TEXT",
+      "hash": "fc48a8b5833bb55678be5b3f5c38bf62941b4e881358615fb2a3079aebc9677c"
+    },
+    "8:73": {
+      "name": "#273653",
+      "type": "TEXT",
+      "hash": "71519e69cd2bfb980d96b19278f9ff88c9aefedc2095a22fe0dc1bdbc967632c"
+    },
+    "8:74": {
+      "name": "ocean",
+      "type": "FRAME",
+      "hash": "6ff033bb2243f68a40adad6dd44f77b3776558214eb0851714652c5323f49cc7"
+    },
+    "8:75": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "53df5b4a47cc482245aaa68ad3f3c85d688fe3d91c1d62b365f1204a28ccd359"
+    },
+    "8:76": {
+      "name": "ocean",
+      "type": "TEXT",
+      "hash": "0aa551b8072ddf04526bb229e0b3e14902c4f63bd36062030c9461fc15709b23"
+    },
+    "8:77": {
+      "name": "#3A7397",
+      "type": "TEXT",
+      "hash": "ab2db10e4e71caa715a78de36d324ab91b0a9ab3fc7c7b38e3c8de98f527ebcc"
+    },
+    "8:78": {
+      "name": "Palette row",
+      "type": "FRAME",
+      "hash": "a997bc937de203b618d98e8ffe3ab92828b7c15093224bd03939be458050a83e"
+    },
+    "8:79": {
+      "name": "tide",
+      "type": "FRAME",
+      "hash": "835da9330add2f76eea7531ad444816d51f2cb870c45aed2ad5b28e625370715"
+    },
+    "8:80": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "e836a7487a67988e862223a88b3bde48a4443e21742cd129b692f78485f24012"
+    },
+    "8:81": {
+      "name": "tide",
+      "type": "TEXT",
+      "hash": "1bd64d2044bcb0a2f0ef2469788dc28e9e802fc926bc0aecf72f02b0a5c7b10b"
+    },
+    "8:82": {
+      "name": "#4F8FB3",
+      "type": "TEXT",
+      "hash": "392dbbce0c9d2e14e7b4a73ee91a324dbb1ba501aebf49778871357d9b1a849d"
+    },
+    "8:83": {
+      "name": "purple",
+      "type": "FRAME",
+      "hash": "d59dcdbb66758af2590ee6460131c9a8936e507b52e86206e512e92ea1fe30e5"
+    },
+    "8:84": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "4f28d7c13601e0301caaf4ceb0318427251e2d1596c2c43a08ebffd79ece72a3"
+    },
+    "8:85": {
+      "name": "purple",
+      "type": "TEXT",
+      "hash": "a28e5233e6e8c2d3333d0c390e3f9683c5e55b27bcddf7079fbceb442b66b8b6"
+    },
+    "8:86": {
+      "name": "#5E5A8D",
+      "type": "TEXT",
+      "hash": "229d41c2d562b77cb0e0f2cdce40a7e04aead99266dbc9229df4495e8ec5dbd3"
+    },
+    "8:87": {
+      "name": "tide-lit",
+      "type": "FRAME",
+      "hash": "0aae125e7ca04af32ec8bd82de83d7c85f21d4a8e78fbbf6a98da64de9808565"
+    },
+    "8:88": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "8449b60213d77c7bbc5cf238e26f2ebd1153092c78ee55a209b3f4900e5ad53b"
+    },
+    "8:89": {
+      "name": "tide-lit",
+      "type": "TEXT",
+      "hash": "02182836888325f09e6aa6ed55bf518aee1042776716ea9e8c4823fa7fa23b66"
+    },
+    "8:90": {
+      "name": "#90BED8",
+      "type": "TEXT",
+      "hash": "643e6bf0d75bdf22a406b476f50e1d92cafe5942459ce588d5a08171341ce431"
+    },
+    "8:91": {
+      "name": "garnet-lit",
+      "type": "FRAME",
+      "hash": "9fe184d22b5047e71b9bbbeb949dc7308ae9983a12dd9c08cd105e5909054e54"
+    },
+    "8:92": {
+      "name": "Rectangle",
+      "type": "RECTANGLE",
+      "hash": "b97555ed457580ddc9781d906e257920073bc51fb73ecf5067a6f0cadeb2478c"
+    },
+    "8:93": {
+      "name": "garnet-lit",
+      "type": "TEXT",
+      "hash": "1674070ce10be01b3286261bc95d8d675ab72ab2c04d481427239ff1845906b2"
+    },
+    "8:94": {
+      "name": "#EDADB6",
+      "type": "TEXT",
+      "hash": "6c650f7128167a10169160c90b984948540c376c49df27a181d673747b2b34ce"
+    },
+    "8:95": {
+      "name": "02 / Semantic roles, in both environment",
+      "type": "TEXT",
+      "hash": "6691e4cd9941ee317debbe8a3f9a73c14323b741e0f936ae2a64822f4071a81d"
+    },
+    "8:96": {
+      "name": "Role environments",
+      "type": "FRAME",
+      "hash": "9f05dced20a0d0447953225be622fb4fafb62dc8fa3e2bd521709206a1324a9d"
+    },
+    "8:97": {
+      "name": "Dawn",
+      "type": "FRAME",
+      "hash": "9bccad509239973088324cfef57b8314c40e8dc4f9075ddab983a0cc6f930672"
+    },
+    "8:98": {
+      "name": "Dawn",
+      "type": "TEXT",
+      "hash": "3b963e6f5b5f2cf2520ed71119bd0c6eaac587b1336f2df0614ec36ee31e8818"
+    },
+    "8:99": {
+      "name": "color/text/primary",
+      "type": "TEXT",
+      "hash": "e3c5c33a1abd9ab1781d78ccceabc0335761a3ac82b3da549bea027982e40e1c"
+    },
+    "8:100": {
+      "name": "color/text/secondary",
+      "type": "TEXT",
+      "hash": "f92005c35130d2cbd2dfb4134670a5dbb5f644b0b0fcf87ee8ed147f9f15d0f3"
+    },
+    "8:101": {
+      "name": "color/text/muted",
+      "type": "TEXT",
+      "hash": "fc0b902520674e15cff46f1150de3d53c2d27ed482e8643335202bf2eba478f4"
+    },
+    "8:102": {
+      "name": "color/action/primary",
+      "type": "TEXT",
+      "hash": "b1a3394b6148fd90fc66e7859c856a86bae96ad80cc9036e94e8ef91edd97911"
+    },
+    "8:103": {
+      "name": "color/status/success",
+      "type": "TEXT",
+      "hash": "c6f08d2075263c02f131b31da07296a96abfe27dce5f28ab736279c9b96a57d9"
+    },
+    "8:104": {
+      "name": "color/status/warning",
+      "type": "TEXT",
+      "hash": "f51b1b2e42a030366fda6384e67f39a148d9ee8ed71ddb69fd29ecd3ae3d4265"
+    },
+    "8:105": {
+      "name": "color/status/error",
+      "type": "TEXT",
+      "hash": "0039977cf1e717d715ed2c721018143d0601471e8ca093ef282b96e93df2371a"
+    },
+    "8:106": {
+      "name": "color/status/info",
+      "type": "TEXT",
+      "hash": "97ad82a098c0e4d187801924beb93926a69e9814776ab0c1add0d29b95b9933f"
+    },
+    "8:107": {
+      "name": "Dusk",
+      "type": "FRAME",
+      "hash": "00d5e95bed9ae8b8fc40a4f2bb9ae2527a71d7b385dae946ef1b5c276d153671"
+    },
+    "8:108": {
+      "name": "Dusk",
+      "type": "TEXT",
+      "hash": "53c6118446eb5fedab4347fe3268e4d7aa1e7eb9423333ef0ec97e255535e8e6"
+    },
+    "8:109": {
+      "name": "color/text/primary",
+      "type": "TEXT",
+      "hash": "aac0ac4c7503d02a7bcbd59e079cca7d388b912f6133a0fdfbe987648c135160"
+    },
+    "8:110": {
+      "name": "color/text/secondary",
+      "type": "TEXT",
+      "hash": "fec0c89f73b998b089cb5fd8dae371721c670aff6d4a2d6fa6c06abd8e6e16e5"
+    },
+    "8:111": {
+      "name": "color/text/muted",
+      "type": "TEXT",
+      "hash": "28e782f7d8f6df64fece9a55ce44778f881ce4092b6fb389e2a2dc5d2b9fbbfa"
+    },
+    "8:112": {
+      "name": "color/action/primary",
+      "type": "TEXT",
+      "hash": "24089a69c3e9cd9b417a63d9784ff6eb76294a95e85f923b06ebb33648f90ce5"
+    },
+    "8:113": {
+      "name": "color/status/success",
+      "type": "TEXT",
+      "hash": "caad49ff56aca76a270de1fe23819c8610ad2fa48dc27b24d28a9727a8ef484c"
+    },
+    "8:114": {
+      "name": "color/status/warning",
+      "type": "TEXT",
+      "hash": "e1fde7d36df30c394b267e3e6627c8d2811c221e04bb6cd80252780d0d50fd0d"
+    },
+    "8:115": {
+      "name": "color/status/error",
+      "type": "TEXT",
+      "hash": "49d069c6350dda7c822ea41325ed012dba740002fb76434692b00c1d6ec6851a"
+    },
+    "8:116": {
+      "name": "color/status/info",
+      "type": "TEXT",
+      "hash": "236b65d63e162dce8dd673010bad120da0e1c8b577d57af6576096fdda3bc134"
+    },
+    "8:117": {
+      "name": "03 / Typography",
+      "type": "TEXT",
+      "hash": "696e1fda1161e9abcf5568f83b00e5a5537701e65ea55407299a61e7c932636d"
+    },
+    "8:118": {
+      "name": "Display / Fraunces / 64–72",
+      "type": "TEXT",
+      "hash": "874f693fb79cd9e32d3878a6b677a6aad51bd368d5d8f03ed677077cb20a6f8b"
+    },
+    "8:119": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "4c830be510487460aabfa18a6ddeda27fe245c5d9e59fccdecaf11240133c908"
+    },
+    "8:120": {
+      "name": "Heading/Large / Fraunces / 40–48",
+      "type": "TEXT",
+      "hash": "dccc39ec2d6f934736edd9411e08b8554317d75f040c4ff370b62ad47acc952e"
+    },
+    "8:121": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "ea552f455debc64402dd6881adb0af3be4d64a364d8ca16d03ea29ea94cf6783"
+    },
+    "8:122": {
+      "name": "Heading/Medium / Fraunces / 28–36",
+      "type": "TEXT",
+      "hash": "1edc55769bff10e091ad8e4161aa371d589279ef2dc69a5b32f9066bceb8f5cd"
+    },
+    "8:123": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "8d6c57fbe71e310806507f117c8afef62a0c8b4c2f19189b6ac8d7ee50472882"
+    },
+    "8:124": {
+      "name": "Heading/Small / Fraunces / 22–30",
+      "type": "TEXT",
+      "hash": "2c88e9261f796848bc95e5950c0777762a4f1b6f3d0c546a8df8e7a9d0acf699"
+    },
+    "8:125": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "79a5d4bc59fe927b427cb5f9b769e6ccc11e5671c21b385f00e9dbd6c7723ef4"
+    },
+    "8:126": {
+      "name": "Body/Large / Newsreader / 22–32",
+      "type": "TEXT",
+      "hash": "81223ca47d4fe01fa87bf359c4b006067c570652a2ec462d59df9d0872e4ddfc"
+    },
+    "8:127": {
+      "name": "Good interfaces leave room for thought.",
+      "type": "TEXT",
+      "hash": "21b5b4af3eea82710812dfd7cffa01034d2a007c49ba1c72fff3e929bbf0c0fc"
+    },
+    "8:128": {
+      "name": "Body/Default / Newsreader / 18–28",
+      "type": "TEXT",
+      "hash": "7fc6d5952bc4a98f689da22cf520f5bbe8f0bafdc99f73831b9de16b9ef18e76"
+    },
+    "8:129": {
+      "name": "Good interfaces leave room for thought.",
+      "type": "TEXT",
+      "hash": "7ed4148251b3960df1199835ceb7cb63742e6002bcb995b7669a3cce84de0ee3"
+    },
+    "8:130": {
+      "name": "Label / JetBrains Mono / 12–20",
+      "type": "TEXT",
+      "hash": "355fea105447d70a6c13c9d55152f7973193ad41022ef45c5ce7395d7aaee762"
+    },
+    "8:131": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "8ddd8f8dc0fb365e6956278208440e12fcb4e63952a1db882222809ffe7ff7ab"
+    },
+    "8:132": {
+      "name": "Code / JetBrains Mono / 13–22",
+      "type": "TEXT",
+      "hash": "8817cdf9dc9e3367aad8b69c4dfdea170d9d1a56468818f96345d96f43ac831e"
+    },
+    "8:133": {
+      "name": "A little more human.",
+      "type": "TEXT",
+      "hash": "4e8546fb8eb8f428f4192a897f950c187967476de24bc929f139d112f53f6a52"
+    },
+    "8:134": {
+      "name": "04 / Space, shape, material and motion",
+      "type": "TEXT",
+      "hash": "d19d6d3dd14ca26b4227300bd139f9e266948a3f48bca3fc48a4122357c14ac9"
+    },
+    "8:135": {
+      "name": "Spacing: 4 · 8 · 12 · 16 · 24 · 32 · 48 ",
+      "type": "TEXT",
+      "hash": "732fe239b08ac13e05eed7954bb0c668344390fda977f21becb3cced2965fdea"
+    },
+    "8:136": {
+      "name": "Blur: 12 · 24 · 40px. Glass is optional ",
+      "type": "TEXT",
+      "hash": "388fa1d36acda1abd7f3e571e12beade0532e00c471f02bf0fb14de839d03009"
+    },
+    "8:137": {
+      "name": "Motion: hover 120ms · button 180ms · car",
+      "type": "TEXT",
+      "hash": "177dccd89f50104c1f32d7ccdaaf69f9c988cb22d66262e365828278e9068f49"
+    },
+    "3:208": {
+      "name": "02 · Components",
+      "type": "CANVAS",
+      "hash": "c44c0b8a378b609ee527d6389c59085c96dd09cfe215bfe20ab22c293e21f993"
+    },
+    "5:22": {
+      "name": "Button",
+      "type": "COMPONENT_SET",
+      "hash": "3d5d9eca8b585ce92f53566f82bdcb85a29d143612e74a494e38964f2444f876"
+    },
+    "5:2": {
+      "name": "Style=Primary, State=Default",
+      "type": "COMPONENT",
+      "hash": "6353d8cc4b7d327d03de226197a1217d06589aafc4384cd51d0dbca6101bbd4a"
+    },
+    "5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "b3a11dd1b1daf34ba128a55b01f9b398bc14eb8f6f9bc45fa4b697d9cdd7fbac"
+    },
+    "5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "203b578a5836b52962ff7cbd7d887f777adbede17d92e1625601f1339f1ba7c3"
+    },
+    "I5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9ab6e3d7869239aea6dc9739068715e02b60ce1a16ab2349c38238add2a61897"
+    },
+    "I5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8d80571033cf612a96156c263dfa87faaf1067ab34230a90cfc7a13103897d9b"
+    },
+    "5:3": {
+      "name": "Style=Primary, State=Hover",
+      "type": "COMPONENT",
+      "hash": "755b8e3d85087b9d47b200db4d9138d1e69374c3262c062714271d48270c3e07"
+    },
+    "5:27": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "6c617758bcd60055654b38f4de2718f0ae38db26533aa936650a7245d662b527"
+    },
+    "5:28": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "c2781f4026d87421f1a6939c2ea51d719c02c9b6b70fde819fa89f0dc8b2e403"
+    },
+    "I5:28;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "589aab4bbf0b89a8c2e225bb6456ed48898ac36824422293158fa2dddf8487ec"
+    },
+    "I5:28;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "126edcda1123221c89a92be66e8f0eec4ed6f3f7f6ca362554a512b8dba0ec36"
+    },
+    "5:4": {
+      "name": "Style=Primary, State=Focus",
+      "type": "COMPONENT",
+      "hash": "771d41c9870b6caba53a6e0537e1eda9ecce086f3de67c6da3f6816669859b43"
+    },
+    "5:31": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "c8ac4e4d0311417e1737bcfd72ebbb1545446c326e0fc733a7134d6ea4b540f0"
+    },
+    "5:32": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "8621f5119f77572890670b4c99c226d75cb3bc1921b62b750dd7e754178e2a07"
+    },
+    "I5:32;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "6de1a850c381c4d6b3b3c4f9cd2235ab1ded2d572aab06b11b1cdfe54d041fda"
+    },
+    "I5:32;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "1102b50424a020ee134856bd921428b574da60ceb208a41da2f008e8a2fbc72e"
+    },
+    "11:144": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "80df7d7eca46642c70e41b71e7689e8d5f04e35e175186d550a6215f75dbd242"
+    },
+    "5:5": {
+      "name": "Style=Primary, State=Disabled",
+      "type": "COMPONENT",
+      "hash": "2fca79135a840b22247b93db37ed66643dd6939c8c7d97cb34bc79885bf8b2c2"
+    },
+    "5:35": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "bb0ea0ed3c9cf07d79dad4e096d04a2d74c0b65d868a6cb7e273f02a66adb443"
+    },
+    "5:36": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b929a3ee8a67276a8be0f0ecac9d9f1c0ad4af089632d151af8f1520178b53a4"
+    },
+    "I5:36;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "d9b2860b7c9c10e112ee0fdee2602c4850164dd1d6143aba49a6b00aea75b923"
+    },
+    "I5:36;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "97391165a50a08df5476ae424f4e2042339df7c35d1e068f80de9f7386b8dc33"
+    },
+    "5:6": {
+      "name": "Style=Primary, State=Loading",
+      "type": "COMPONENT",
+      "hash": "68706afb0a3ad8d942df06d0dda7afbac9d7d617072e73db9ab9023f72e34481"
+    },
+    "8:256": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "05550bec013fa3db3ace721f2459b2fe2251d117f02b6a24498f716981c3d949"
+    },
+    "5:39": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "2386793454f8017a38761ad5afb78cddb1c675308a16f58d579e3e79afdaf8bc"
+    },
+    "5:40": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "2655738ce4e119747e3e5c4e94f44b3ed707ae9115857395db37f38bd431419f"
+    },
+    "I5:40;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "49e5bca0705343ce4d287241f7b0f9005d251026a5f6bfbf3c3c91ee5d018d45"
+    },
+    "I5:40;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "5dabf5f00183bf57dbb66492bddd20e5179293b52d2242f0dfbdadc40f19b4ac"
+    },
+    "5:7": {
+      "name": "Style=Secondary, State=Default",
+      "type": "COMPONENT",
+      "hash": "19c7d8aa45dd0748e211bc768fc08c64baef82db0d251b63b52efd202161c01f"
+    },
+    "5:43": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "137ccc3cf0b85ce380162e0c0c26feed1e1568b89d7016816c1dfe98020102de"
+    },
+    "5:44": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "8f0293a48e2ac296699f625237e4025e24973c8e5bc5c0c114a7a531102e29fd"
+    },
+    "I5:44;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9acc49119fdd669242908ca3f3cb0832d2361baad8ec7d3cadfb1b035b9d4bba"
+    },
+    "I5:44;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f5086220ca8b71a8cff2932e47e1d0bacdeec75cf499ce5e26a9643481928d16"
+    },
+    "5:8": {
+      "name": "Style=Secondary, State=Hover",
+      "type": "COMPONENT",
+      "hash": "93c8d1e7d3758b01395e74b888e8e13f8ceb101f3887b537009e323f982feae7"
+    },
+    "5:47": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "5987e5f851956b07e8cb36d5fbf5d7ed24a5c80f13fc418266c93bf9b69bee03"
+    },
+    "5:48": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "5f461dc1874dc265e188b60d2c696ad17fcffb2e42c1ffcdf605a3880c650550"
+    },
+    "I5:48;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3c77ef9f73163ee6b55febd4859c0bbca67f909f6dec57978d6f962883db3622"
+    },
+    "I5:48;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8f06371a1256ed0820730d4ed056a1bf2a11015ee323ed1d7f115f004e41c363"
+    },
+    "5:9": {
+      "name": "Style=Secondary, State=Focus",
+      "type": "COMPONENT",
+      "hash": "bdd0851c2954f29c9b266ca20a97d31b63980c379279442f3fb6917026bae661"
+    },
+    "5:51": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "abdcb2ec638de54c4c9e4f6a5884d139ebdd2107d94d175404b8e21457f6ec2f"
+    },
+    "5:52": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "e4aea57d1e1f009466ba9e38859e9939630c73e34c18a801fae2676adbada8c0"
+    },
+    "I5:52;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "761b086a348ac7283755660c50150065b17bb56e3a454923a2aac5faddf84cd8"
+    },
+    "I5:52;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "cd299b8904d32d667be499e0666440ef648449e55318d0143c873a1d13c11e66"
+    },
+    "11:145": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "a5d312387236cee9b3286bde9289939870a2b49f2cb33ac192b8d33f34ca9ea8"
+    },
+    "5:10": {
+      "name": "Style=Secondary, State=Disabled",
+      "type": "COMPONENT",
+      "hash": "5cbc0be197ec445fa1af3a4326083e48691cdfca89a84448aa3fae5c71cc1186"
+    },
+    "5:55": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "dcec0d43a1d5ba61c0e2f39b661aefe99816d2df3d2c1b9d8f6f5d9a1d59c51e"
+    },
+    "5:56": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "02a3ff29d65ed1bc6ca3d74d9f347501637710ce352e50282b8d1cdfc36f94b9"
+    },
+    "I5:56;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "65b2208919a7506f6e3b0c4c1e0236a5b0421e783c54863d923834a018202361"
+    },
+    "I5:56;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8cc513893c85255d552c454ece527c021415cf8a9ec7635ca8d0aa7e6130c3ef"
+    },
+    "5:11": {
+      "name": "Style=Secondary, State=Loading",
+      "type": "COMPONENT",
+      "hash": "a0674b8372ab92b60f509a3555afed419af2efdd4de2f431fbcdecd50a2c1590"
+    },
+    "8:257": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "2aa83340ae948d68f1db0428818be757b23426654e0d367a6daf08548401d98b"
+    },
+    "5:59": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "3cf369d5c812be18f5ce0fb8553c1eac57b68f68e96884c570c2bd7c3f65f572"
+    },
+    "5:60": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "a68af4e15c45cdfa4e2cce240a990b854eccfa72eafa7b900f8c14c1a5e85d3e"
+    },
+    "I5:60;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "a92fdb05a9eb1863b26250d9b71f7750fb155561adb725aa03a3ce6e7d412e7a"
+    },
+    "I5:60;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "493daf2e5abb638821e87b6ecd16568c77f07ba942976e7dc8dc02be12eac62d"
+    },
+    "5:12": {
+      "name": "Style=Quiet, State=Default",
+      "type": "COMPONENT",
+      "hash": "91ce8d0d2b6648d2c53d1bb325990ceaa17d89b0a6e31339ea1caa4d1cf04259"
+    },
+    "5:63": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "10c3864da91017a190015901dc1b0dc6cbae051101012afe5328b4ced28d157c"
+    },
+    "5:64": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "2ee5d82bf93823dd441fe52440ea3a9435d087bd6efeb0ea49ace3019ba2a9a4"
+    },
+    "I5:64;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f5929af9042d362f30d3e1a1b7f12b017832ffddc69d4b8413dda02bd8f8926a"
+    },
+    "I5:64;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "6a23386125d113403ea00aaee9ceecd12dcf1e2611ccc7c853bde16cc81896ea"
+    },
+    "5:13": {
+      "name": "Style=Quiet, State=Hover",
+      "type": "COMPONENT",
+      "hash": "ce72afa40cd7a5e177ff3db1d1cd465770d6183dd40533c5b041a2d7c928c10f"
+    },
+    "5:67": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "91574118969948af6d2e4e8685f5fde48dbaeb4e74d5dcc6329eb19e945afaae"
+    },
+    "5:68": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "565d3420f97e9970952d16a816c6ce81d759a891f90ed8b99901613575cd5209"
+    },
+    "I5:68;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "8666c05051e17652f0b4ae8de168924fa56520976914cd216c68cbb910824460"
+    },
+    "I5:68;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "4a5ac06188aff254d6ef3ecf73ade37c6ed8bd6a629cc8b2444cb542f72147fa"
+    },
+    "5:14": {
+      "name": "Style=Quiet, State=Focus",
+      "type": "COMPONENT",
+      "hash": "0035a837e9c5e7c9387d70d0f3aa921f40bf5e154259a204030785993fc9f89e"
+    },
+    "5:71": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "06abf7a66e960bccb1097d2127329c5565bd1c56bd0ed8a559d7fe0eada6f5a9"
+    },
+    "5:72": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "26e349b66f7a2424a01ff197623b823a9b07b3fe53c9e541f679c34e3a04c7d7"
+    },
+    "I5:72;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9018a502d41af7bf7fbf2e8a84a2103fb0d8750b12d6eb943882a93e23743f6c"
+    },
+    "I5:72;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "043b204bde15720ed1a45038b6470d164d5c33a51f67003a51622e116f41f535"
+    },
+    "11:146": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "7184f1bca8d5c25b2a4ce9262090d6f82a4527f6b597a2537c61994434ac929d"
+    },
+    "5:15": {
+      "name": "Style=Quiet, State=Disabled",
+      "type": "COMPONENT",
+      "hash": "5cd42b30b9724ef6f8f34b3deddde862f18763242804b8488c2284758b2bfbb0"
+    },
+    "5:75": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "0daa2bb8e79d42ac060861b54e437361dbc99619f4fc32c596dfe30456c015f1"
+    },
+    "5:76": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b924e0c10204a2ee0b2af890b3a5fe23763a9963cb3699a8ae8f92b1e176d1b0"
+    },
+    "I5:76;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "8721cdbd569faa8f1cb6a03af32404044e818f43f7b783e7a9faa98849fd0351"
+    },
+    "I5:76;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "603c1097a946b858b8a92cb800febfd7ca2fca1cd83ed469394a72741bf2283f"
+    },
+    "5:16": {
+      "name": "Style=Quiet, State=Loading",
+      "type": "COMPONENT",
+      "hash": "54dfc46e2714f1a123af456de36f336ee97c5b4b3a998530afe307a6a1ee3654"
+    },
+    "8:258": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "344821175e8eaa9a7f802de661ad4e3e3bf8434d95f7131f25a0a3057f984181"
+    },
+    "5:79": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "4bb5466167f6ba45cf95e3f5750db7d0258a2a449776acf2c1d62096fdfb86ea"
+    },
+    "5:80": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "f555f718f68e63df56ed492857047df984fe66bedb7c4c97188eae01f1fb9bd8"
+    },
+    "I5:80;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "2ebf702616a5db445c7423fd033765c81f60097435ff452a86f56fc23825a42e"
+    },
+    "I5:80;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "7a7f77912ee666663e332e716e4ed4b5be6bec281e9260d333843ac1f743dd94"
+    },
+    "5:17": {
+      "name": "Style=Destructive, State=Default",
+      "type": "COMPONENT",
+      "hash": "a5faba7f2b78f2ac616eff4c1ca56232c77bcd150b6f40056142d712a3ac8e22"
+    },
+    "5:83": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "b5eac2d49a942c5e1f98f524bbecc6328fc9007fd38968edc1be65cef97f6a4b"
+    },
+    "5:84": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "09a5e9487a8a9eca504730683f46ed0e8f260ff0d69df078741f30c042cb40b5"
+    },
+    "I5:84;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "6703416d37f678dfe23d95b2ad10c0c3c20c390e3092ec6f166ec66cd5c80040"
+    },
+    "I5:84;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "d2e3ea62c8c56ced659c27123786a999fdd6a064af638353d9c238fef4e53616"
+    },
+    "5:18": {
+      "name": "Style=Destructive, State=Hover",
+      "type": "COMPONENT",
+      "hash": "a4c3173b0d242f86c7a9346ecab27e1d15759837db793116bdb07df523c1b3f0"
+    },
+    "5:87": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "81a2000f12bb0e53b443fa10c13997c4564d4775bb26fd7dff5e924cee634b39"
+    },
+    "5:88": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "062bdd6122427e667825dc7905fa386a8eb8243d4841d13d65a92230ea96c7e0"
+    },
+    "I5:88;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "dcb43ebd6194475bfb67ffd77628f4aef7f493a46d7e377ac1744e3a6747a08f"
+    },
+    "I5:88;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "a9b0858532f02da1de0521c774aaa308ae522fc1f9e987d52f036fae87562edc"
+    },
+    "5:19": {
+      "name": "Style=Destructive, State=Focus",
+      "type": "COMPONENT",
+      "hash": "18131c8da77a512ff9682ddda62b5f4192c4c4eb682ad60733b7df521343f344"
+    },
+    "5:91": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "84242650ff28878f742d3ce37a3e9bf04ebf77c70a68fa9044926084a8fc2ef8"
+    },
+    "5:92": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "ff00eadc2db6d945939019e3c5e9d2f81c960cef8130d9e61739d8de64a7dd6d"
+    },
+    "I5:92;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "25d1aa19bd5148a81f2e21763d4f4e5f162ce64d01886961ce376a20e87a44c6"
+    },
+    "I5:92;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "bdcd98202ff6b6e1de5dc0235ca131313beef61506485308fca307ed1b74a265"
+    },
+    "11:147": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "57435a9d1fa8e4d24fde4df1fdd6f0bd2dd51d86d1c08a22ac00fafef09c301f"
+    },
+    "5:20": {
+      "name": "Style=Destructive, State=Disabled",
+      "type": "COMPONENT",
+      "hash": "c340625a564201e62d77f6a4af884c4fb80d93d6e38385bba75be3b55162c3e1"
+    },
+    "5:95": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "a3928f8a85fd2eb13d875dc0ef91e193a4571430c8f3a1d509892e99c1f743b0"
+    },
+    "5:96": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "27e134c49d75155e12fc8d9c409d5c6344c069a934b7347fc3e76bd6cc1ac509"
+    },
+    "I5:96;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f92889815aa4d26165c1f9bc05a555c040e0d571b428d10ed8dedee5533984fd"
+    },
+    "I5:96;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "d8bd696a8662511be578929ea28ea2834fb7703759baf862f7e86afd89bd89de"
+    },
+    "5:21": {
+      "name": "Style=Destructive, State=Loading",
+      "type": "COMPONENT",
+      "hash": "07bcb9279473da6b1504cf7d2b3b8958ef23a988b08ae1ee734acbe78d8f55ba"
+    },
+    "8:259": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "d80c42635f314da673e93083f575c456bf1c451c800d98d9c20100b071576c4b"
+    },
+    "5:99": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "21f7f0fce15db78f776511722d39f8aefaf2b323fd59a573f5d974f390fe5902"
+    },
+    "5:100": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "ca903da851dccbbe8ee3f498c6c748a625fe6ab6fb4d83bc38fff95adc0b7b1d"
+    },
+    "I5:100;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "4098b32528badc289b1dc6ee3b077863a4514da156406b59a8536f427ac6206c"
+    },
+    "I5:100;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "ce2997c92b52646f78f57a12e8a4ab5d344e9ce89f11a93aaeb3b7782ba4f77a"
+    },
+    "5:108": {
+      "name": "Field",
+      "type": "COMPONENT_SET",
+      "hash": "2b060dc5a46604e2bfc4f7a2225c7a5f9dbbcad1a41e9223f933631b8053e26e"
+    },
+    "5:103": {
+      "name": "State=Default",
+      "type": "COMPONENT",
+      "hash": "deb7b647fb5cc586fe79be4361634251bf6e883a0fa017cdda683865780e02bb"
+    },
+    "5:109": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "4a9baf36a26129e7bc4abb90a6b4aa3eb9d89e871b3c43fb1fbe05cd58bf44ef"
+    },
+    "5:110": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "bd580b4908c963189075fd4a4b67ca503626c8dfcb15fb7d8e897567e47a0d90"
+    },
+    "5:111": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "eac560d1782dba76d755d86c29094168aaf1987f4e757e9abe1c7eb1728a1699"
+    },
+    "5:112": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "a007c0c7435d2b156928c5215cda4c4f3f048301b80c9400a90c93e9be0a2c91"
+    },
+    "5:104": {
+      "name": "State=Focus",
+      "type": "COMPONENT",
+      "hash": "595458670ff1a80dab22701afe26f7508493b2d0d54aa3efab7f90cd87d2e88c"
+    },
+    "5:113": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "e2f516855faa7f298fbcc7332f2cdc7d79fcbe970c815741f19ee0509ee83b3e"
+    },
+    "5:114": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "efadb6d79ce4c6f2db80b62d4fabd1fa19f0a21b308615cc950866c88d99b344"
+    },
+    "5:115": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "1e55580b3172adb6d5e62547cacf5d8f0d3923b8c7a3d855fd8be595f7e8cd00"
+    },
+    "5:116": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "687880f4ebcb4d5eb85c351ef120065d5fc3496fb877d39087fd50dd58e66de2"
+    },
+    "5:105": {
+      "name": "State=Error",
+      "type": "COMPONENT",
+      "hash": "ae6e16885ab4cc08c0d2aa1a3be69b362b0db5364905051d1c6b86b792eca887"
+    },
+    "5:117": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "631381b01a3cc619228a91a7f7516b702a224715deb1373d836f794946e59dac"
+    },
+    "5:118": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "8d9a4a62b1eca7a7a15f19493da5e4b553e7ca929fc5b6fffa92a74b7b25819d"
+    },
+    "5:119": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "8c4e81ea28c82908db4f784a65e95f69b43ac512e118061f1b0e2f6bea05e624"
+    },
+    "5:120": {
+      "name": "Enter a complete project name.",
+      "type": "TEXT",
+      "hash": "3c4bfa3a9a9ca519ae62d8a6cdee7fd19582b50b5036fc06148ec0ce339fc680"
+    },
+    "5:106": {
+      "name": "State=Disabled",
+      "type": "COMPONENT",
+      "hash": "70ad05e393dad2ac756562d2b841e6f92e72603028b6e2bb0bbe040dc3171dd5"
+    },
+    "5:121": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "bacbb28490be8ca7d769dbae8d288244cf83a9f09bb5124b1e0331914ad4d19f"
+    },
+    "5:122": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "ac0101436f21ae4521934aa7573c0072aa67578b0d3457860af9068da35a03e2"
+    },
+    "5:123": {
+      "name": "Unavailable",
+      "type": "TEXT",
+      "hash": "1bacdf7da1667a536b2c1887c5be98b6949f3b596ae13edf750a129b0c4161ef"
+    },
+    "5:124": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "b171931e680be8ea7c9ce03990769bcb6457e6ecb384e304bfe2486e52056b14"
+    },
+    "5:107": {
+      "name": "State=Readonly",
+      "type": "COMPONENT",
+      "hash": "2d29d08eb910060f49854fb6834d81743785b7eb0e387cdef1947913b3734d21"
+    },
+    "5:125": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "34ca9175776e0b407efd34cfe5a7298f79320e7446c5680d1cdd56c5734dcbc3"
+    },
+    "5:126": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "258bf1f94f6807591ca0a91d2181e9abafb2f9765185f132b37c6f6ebbd6987a"
+    },
+    "5:127": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "af3b09515b4c2703638e3edad631c65fd3b8f10a3aa86983054ec8563385f4fb"
+    },
+    "5:128": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "13fdfe05b2110b551565146ace1cb48001f02cfae851f3cf1cab5ad85d449baa"
+    },
+    "5:133": {
+      "name": "Choice",
+      "type": "COMPONENT_SET",
+      "hash": "f98525b5d382f5f702b84967a8f3355fa3f305e76ca94ff6d80a748bb067afb8"
+    },
+    "5:129": {
+      "name": "Kind=Checkbox, Selected=False",
+      "type": "COMPONENT",
+      "hash": "ca2a5b34dd25e2a9be7bd9cb5df45c822a7a546d9e8c786ef21d6eb2836dc0fb"
+    },
+    "5:134": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "6a2d0562ede83a407a64772c2e2771bfa1484930fbfae4123b6bc2daebc53167"
+    },
+    "5:135": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "45585a33577a464f074d9aff159e6921c668f2c3255de8b2c08b9a6ef3ccc177"
+    },
+    "5:130": {
+      "name": "Kind=Checkbox, Selected=True",
+      "type": "COMPONENT",
+      "hash": "572b0762b39886501bd4bf0c4afc72d31ed9ab90f4ccb93efdbf81154c154288"
+    },
+    "5:136": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "f8f3ceb1fb9e403d7a65a38a65bdc458c82564148a5fc6643fa4f8cf699d29cf"
+    },
+    "5:137": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "2ec15c34467637dfe104ecc7d5433426cf7188f7215760816e74337c8d255bb7"
+    },
+    "I5:137;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "a367ca348c94497b997b2c8a9a05989ee7eb81aedd3c7e4ebdb7b771df14c3fc"
+    },
+    "I5:137;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "17f33f8f0f3b94bf782b144ea0372067287725fe35649bc4a7951d524a03ca72"
+    },
+    "5:140": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "3405ff1800524f42da6844097271a003c6f51a66ec2abb385241d03939dd9157"
+    },
+    "5:131": {
+      "name": "Kind=Switch, Selected=False",
+      "type": "COMPONENT",
+      "hash": "8de193ffb5eec809eb2239bcc53ef1a3e122c7471d4ee0cb5a6646059ccbbdae"
+    },
+    "5:141": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "83a1ac8c433045769aaee8767309cdf87472c289f6cb9dc4fadb5368fc919f59"
+    },
+    "5:142": {
+      "name": "Ellipse",
+      "type": "ELLIPSE",
+      "hash": "e62f5ff987b5d7f0f91f056ce9dc84595b9bb4ddcf246e8473b6b18457c3c91b"
+    },
+    "5:143": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "1f28ba8abeac0816bf0c7f77e08f90180598814641810eca9a4538b220fcecc3"
+    },
+    "5:132": {
+      "name": "Kind=Switch, Selected=True",
+      "type": "COMPONENT",
+      "hash": "c4e978e5d017f590c51092001749a906ee8a2da790aff5aab46d38df8b996b75"
+    },
+    "5:144": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "a8d6e00d06004081ad4aff0da195ea1504fb482aa70da587bcf9e9ba5c77b3c7"
+    },
+    "5:145": {
+      "name": "Ellipse",
+      "type": "ELLIPSE",
+      "hash": "6dda7b40edbff2ec66ae5b0ddbad62dd6ffd3bcff22d0fe9cfa87dd9dc44890b"
+    },
+    "5:146": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "086f157254f70303ea328fe2aa8709a522be6bb2743689c4269ee83ecc2ebdfe"
+    },
+    "5:151": {
+      "name": "Badge",
+      "type": "COMPONENT_SET",
+      "hash": "08538cc3080e6425a78470d5d81fc33ff16543f5628844ab61b5e2050bba2508"
+    },
+    "5:147": {
+      "name": "Intent=Success",
+      "type": "COMPONENT",
+      "hash": "40d729d39a39af7bcdcd4dca5300061227c6b81e6a79f2c4c6a510f292dc89a3"
+    },
+    "5:152": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "1e3d078006ec78207385fe00e23abc7ad51e14b8ebed6261158e69f108e6b9f4"
+    },
+    "I5:152;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "517d838550ce75c00c81f295644db647fbb67dedd14a73bd13ea9f509cfd34a7"
+    },
+    "I5:152;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "193289adc03f3d92bdf8b11a94816c6ad228407321be4cdbfc036d652429cdda"
+    },
+    "5:155": {
+      "name": "Saved",
+      "type": "TEXT",
+      "hash": "b1894e08c1301ef47ad9293bc1b71659c73d977219d9ee12f606de636bcaac18"
+    },
+    "5:148": {
+      "name": "Intent=Warning",
+      "type": "COMPONENT",
+      "hash": "06d8e642558e8e0bc4b12f78da9f55db37972782f0945c5e9c3fa251cb9affa9"
+    },
+    "5:156": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "8ee2f054db8e2146093301df2106418b617383c39a4bc0736167ac4b40be7ab8"
+    },
+    "I5:156;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "01a19db6c0b67dccd9e0457406b96b607254002a484c839b7196cc8f614d9de0"
+    },
+    "I5:156;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "acbe91f725b9c206b1a0c8df5c2c72eaf02a130e219f2c3bf74424248c6ade8f"
+    },
+    "I5:156;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "0fa9617751d8c80d56aad485080b7134b2545c62b9f4c4d89d61f57e78b13196"
+    },
+    "5:160": {
+      "name": "Needs review",
+      "type": "TEXT",
+      "hash": "ae1c1f5b624a1e04881d870215660d5cac4ff6a90f5b3b8d544e3a1cd951d0c7"
+    },
+    "5:149": {
+      "name": "Intent=Error",
+      "type": "COMPONENT",
+      "hash": "8737d2e758e26f681f04254d7df1dd9aff4e68af0848354299ddacfede923a2a"
+    },
+    "5:161": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "b7128de4eae57a29c5ca0ea1e78fe1a38d5bc98c6f7e5564bf5536c263a4ea1a"
+    },
+    "I5:161;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "b3ec63403e21e0877e223b3c299a41e48869e81d0e4b85c351810c38463dce0a"
+    },
+    "I5:161;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "44ed17ce8f7b72ba78684566a45768a48badd3d2f31a5990de3f8576d88c9077"
+    },
+    "I5:161;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "e209fa331a945609a0d4a08a4eaf6b83e4da0ae77c63fee5693b2c779f53615d"
+    },
+    "5:165": {
+      "name": "Failed",
+      "type": "TEXT",
+      "hash": "67e5f73efaf3584f0d641bf9f77307f9008ac2616d6ef5a5543d265878d35e31"
+    },
+    "5:150": {
+      "name": "Intent=Info",
+      "type": "COMPONENT",
+      "hash": "00de30afdfe01ae9bcbe01326576e7120d751a7eeec84d06be0b0dc89891a3d9"
+    },
+    "5:166": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "46691089471f9ecef8dc02b4aa3f872f84ff6a4d914da56f9bbad90a24dd81ab"
+    },
+    "I5:166;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f23db1a305a5675b0a00a7ac52039f7d8bb45fa3bb2e34b1c6c38cc0628bbda2"
+    },
+    "I5:166;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "64fd5af1476008e653c087d41020d94aac26484ef6c1d4227c93931fc8204a8d"
+    },
+    "I5:166;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "4bf1a31b54027ab1c34d31c5670685080b98e3b8d23c7f196a2d2f9c60e44685"
+    },
+    "5:170": {
+      "name": "Information",
+      "type": "TEXT",
+      "hash": "057794893799c0cc469878b5140cf6d567743a9bf32640e02316bc5ff7e3b5bc"
+    },
+    "5:171": {
+      "name": "Card",
+      "type": "COMPONENT",
+      "hash": "a46688c36397867bbcf3763ce7951b29995bb6a7851ff87ad8407b73d5b46172"
+    },
+    "5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "9aad39828172786f2132147d108c2d83abe87f78b4f9e26934021d15e85953ad"
+    },
+    "5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "21a85f66307ea49236caf4144fdb9386e7fc843be42f0d737b167fc559af76ad"
+    },
+    "5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "5adc8186f9a488af3653c7c5f0ab747f1f87b657cde58953c30fe38fdd66897a"
+    },
+    "I5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "12a9ceb12196e5dce6552c27c4a80d274a9320fa6dff854dfeba3945e756209c"
+    },
+    "I5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "88f546de5a9a8939204daf928a702e18aaa7d89a987681e225a529c36c7acb2b"
+    },
+    "I5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "2faa701d7f0de61f13cb3ca692a25086f8ea82a432c5bf67ad9d5d3059c4a9c4"
+    },
+    "I5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "4ec9048e85c5bec339a3dd9e4eb272d457fe19b0dd166db76d47f8890bc6139a"
+    },
+    "5:177": {
+      "name": "Alert",
+      "type": "COMPONENT",
+      "hash": "62081c73796292717d47f856cab8706cc27ba38e31bfbcfd4147b6cb4d51152b"
+    },
+    "5:178": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "c9bca9a27037bffa147a706bb11865657a815745ba4ffceb2cae895a8197d0ff"
+    },
+    "I5:178;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3af8661d826e2e276d4a64ac148eb8a103974401be71d6864e2b9404ff93b508"
+    },
+    "I5:178;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "fb0606a49a3c8fee6dd91584adfd043737a49d1aa2df5e9355e01a0c5ee0bee9"
+    },
+    "I5:178;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "05aff2f2ac8c37165b9c51b30044efaa168e66da120fec280c304257e9ca7024"
+    },
+    "5:182": {
+      "name": "No information is sent or stored in this",
+      "type": "TEXT",
+      "hash": "525458ba59d3b22bc1b3bf711e089e64e884ef677cd75f447d472b83a80134a9"
+    },
+    "5:183": {
+      "name": "Navigation item",
+      "type": "COMPONENT",
+      "hash": "4d59ad17f08579b251d33cd4246cf0e5523c17e10feb2e1e5ecd0f367695e16b"
+    },
+    "5:184": {
+      "name": "Foundations",
+      "type": "TEXT",
+      "hash": "e6e8ae171e122e6f4b8311d5c3f45a7432d7f0591c989dc35771018d722d09cd"
+    },
+    "5:185": {
+      "name": "Tab",
+      "type": "COMPONENT",
+      "hash": "18ac1ea25d4fb4439078cdb0daede6f7ede606f7b26bfef71c6e59088b5e5876"
+    },
+    "5:186": {
+      "name": "Purpose",
+      "type": "TEXT",
+      "hash": "3d9cf398e560a9d87745dd3cefc157ba33fcdf1e53d4601d203e20ff3a9bb3c7"
+    },
+    "5:187": {
+      "name": "Dialog",
+      "type": "COMPONENT",
+      "hash": "620ae6c01d2d00f09c277b21723bfd4737234b8a3287862872262d7e087b4a5c"
+    },
+    "5:188": {
+      "name": "Keep your place.",
+      "type": "TEXT",
+      "hash": "e3796df0ec73de547c73ac8bf1e8238488837c7c0774286a3f45f92c23752c07"
+    },
+    "5:189": {
+      "name": "Use a native dialog. Escape closes it; f",
+      "type": "TEXT",
+      "hash": "ed4bf67481ffd6f98e3dd1305f4d027c73f64b290bd1a26501c6eaf34587d601"
+    },
+    "5:190": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "d16878703b3f9e13880691ff503ad5864c3c79fa281a3131238d3951b55a3632"
+    },
+    "I5:190;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "36bddb51039e5165f2c0354c6a142fa178c0f8cac9ece4a1f39d906ed4326935"
+    },
+    "I5:190;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "edb06bf34a3dd5489b942fea4bcd0ead6aa7a3ce80bb50734a6166efa9e22360"
+    },
+    "I5:190;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "8a78aa4e57843448ac12640083e5e3f5c0e3704af064cf1ae1d44326e410fb0d"
+    },
+    "I5:190;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9623c18a41b968e3a90053d6eaf8ddc736f3ec10bc4d1beccb2dc902f62ac24c"
+    },
+    "5:193": {
+      "name": "Components / Review",
+      "type": "FRAME",
+      "hash": "36572cc593bc6fb8cfe4366933c38df5f81f04868c9d0bb8be28f92e52597959"
+    },
+    "5:194": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "5a3068841c5c3959b97c399ef3c9cfcb8f3cbda98745accde59e9f4667c30152"
+    },
+    "5:195": {
+      "name": "Familiar, by design.",
+      "type": "TEXT",
+      "hash": "ce70e9008f111cd93ee27389ddadaca57efdf63d111f4f0505a3b366455ed776"
+    },
+    "5:196": {
+      "name": "Semantic bindings, editable properties a",
+      "type": "TEXT",
+      "hash": "1f826da7971a06fe6b3cb08df93a4c8313532d81e5536e939e6df557c1dc9590"
+    },
+    "5:197": {
+      "name": "Primary button",
+      "type": "TEXT",
+      "hash": "56103d19f65c07b5019c8d1b5144dc7ca501debeb59397cb07e8a44cdb16b56c"
+    },
+    "5:198": {
+      "name": "Primary states",
+      "type": "FRAME",
+      "hash": "d31dc905a16d1864cd223c5be45b7c7e424f64fd28dcc1598525aec1737ec12e"
+    },
+    "5:199": {
+      "name": "Default",
+      "type": "FRAME",
+      "hash": "5a4f48b36267401bf15203fdaa5d3275e2574764c5085550b0d8f7e7be38f50d"
+    },
+    "5:200": {
+      "name": "Default",
+      "type": "TEXT",
+      "hash": "a45b2c7844c19b6f7aeb7752cefe32a82239b4b7e4e4e18da983f6aff174ff4b"
+    },
+    "5:201": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "fc960fa835a98ae2b81e8afcd68f6eeb2fe2c3f0975d03697e2a802c86a166a9"
+    },
+    "I5:201;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "e196258d9c6f279c8018b0e573a552f2419e0d7d318c9dacb08c32563ce89809"
+    },
+    "I5:201;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "2eceb2c3ccaac9e2c8fcdbd8afab7c5643ab2f4e6d07dafadd8f9e28840e6593"
+    },
+    "I5:201;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "b1e8f732a33f18aa433ad193facc0c978bd6554e9a7585d05594d5e60d2b60bc"
+    },
+    "I5:201;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "6b2a434894d177c77d2f604381f377bbb9c5e86fbf03e1c47f69f6bcc859f073"
+    },
+    "5:204": {
+      "name": "Hover",
+      "type": "FRAME",
+      "hash": "a707d45224c881a1ff479b94d040cd612b533e682e65ad3af231b440d5db8cff"
+    },
+    "5:205": {
+      "name": "Hover",
+      "type": "TEXT",
+      "hash": "79dffae8cc8d8ced9bead58b3f8beab4d58240c8aecbc03352c0dd0308d76f17"
+    },
+    "5:206": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "40d7890dc39fedc3098d05983fd9b4490b9cb96ea2eeacc31fd035ec4250fc77"
+    },
+    "I5:206;5:27": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "a87b8208d1983d91640a117df771a93b27c6076301d7da748c1aee3b64d27aeb"
+    },
+    "I5:206;5:28": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "512084a1c81d6f07d73d637bd5924a9ef4606a66f01d4aa817593c80e81ac295"
+    },
+    "I5:206;5:28;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "4ca9aef015d29636b29bd9ea46d47cff63b942f6eae8a47b31f0d6cdc5ca6b2e"
+    },
+    "I5:206;5:28;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "bb67b39602398c4ecc9c757b1dc0858eb4a04de8ed5dec0b392e5e17129708b4"
+    },
+    "5:209": {
+      "name": "Focus",
+      "type": "FRAME",
+      "hash": "ba30b7894d4ad1ca51987ed854c5bf50a184355cdce8cdfee1d2a59abd990799"
+    },
+    "5:210": {
+      "name": "Focus",
+      "type": "TEXT",
+      "hash": "1eadf6227c1757701979b2ace9d33192c0a66d9e2da9861096a73efab7c1adbe"
+    },
+    "5:211": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "ea93b4cd465cedd0cdf7d9def96af56a5fab2dce696a1bb42292a3dc0599b36d"
+    },
+    "I5:211;5:31": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "f078da7b148d62cb022236371fa0e693054d36819f673078d9070107f00c5853"
+    },
+    "I5:211;5:32": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b386d7a25b8d3cde6e7f9860ace6338f6b3989da0d36f1deba5adde031c34db7"
+    },
+    "I5:211;5:32;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9116beedfa1c969dab3158febf6ecd687c807c5f40960c018502edc51bbf106b"
+    },
+    "I5:211;5:32;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "3391369170879dd7704f0985660acfb21dcf62fac793760852f6344453266f19"
+    },
+    "I5:211;11:144": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "828f46735ea43b7c67c3bb9d5e094f16d12f42b4bc8089434b883c5809875ce8"
+    },
+    "5:214": {
+      "name": "Disabled",
+      "type": "FRAME",
+      "hash": "d2eaa8b864983ff407ae3afe80cbb2876b0bdcb663f080eb562a32f288c88e07"
+    },
+    "5:215": {
+      "name": "Disabled",
+      "type": "TEXT",
+      "hash": "024f18e70d159ebc260819efb13af700dd78ee5f8a8865112d889c12ceb5be4f"
+    },
+    "5:216": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "bbfd9f6664cefa8922b34f136551e20e25f3883fc2dde438f12c81742d740d05"
+    },
+    "I5:216;5:35": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "d17f5425277a181296e85abc6d9f5d2dbe2ae658e870341427af5cf72a7fdbd0"
+    },
+    "I5:216;5:36": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "391c62ca02477a6376fd2f094921d4c172919ea55b1f0a9e1148a6c35af9afe8"
+    },
+    "I5:216;5:36;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f4f1a461962b7b6f96e9dc18272203690cd4b3c247308218543e4ad7c513c71a"
+    },
+    "I5:216;5:36;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "bba8c0b3061a7ff2154f986eabbc9b3ae83c6184194f57b099ab9071cbac5895"
+    },
+    "5:219": {
+      "name": "Loading",
+      "type": "FRAME",
+      "hash": "869174f685a1dc5ac40d41bcfba872c90a177d8c39bacf393eec77e556973eca"
+    },
+    "5:220": {
+      "name": "Loading",
+      "type": "TEXT",
+      "hash": "4b8b259b40049e0eb90682eb176f75509f69cf6badc84e02e9dbbb115d88e0d0"
+    },
+    "5:221": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "b59dc729be3fca043b7574837a9bd272bcf0d0cb2605c38b4c4779b30b327960"
+    },
+    "I5:221;8:256": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "2267a043a0a0e06cb611624ab5ba4ef07d8cda3d4bb2fa9b16163af0ec3cc062"
+    },
+    "I5:221;5:39": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "10015129e3b10294127c8cf8ec2269ee02e65727686d6f2252a07f58698cb78f"
+    },
+    "I5:221;5:40": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "e681ae72c4bdc113020049c77abb4d1a250969f6f8658455ebecb7761bb577ee"
+    },
+    "I5:221;5:40;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "c4f21a3e97f3e6e79799ec456b1103ecbecb7c336da25eafb622a45515a7398b"
+    },
+    "I5:221;5:40;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "6b022c3f78846b56407fd00e516fca6a34503d14a0e7aa402d552779ed5ee268"
+    },
+    "5:224": {
+      "name": "Secondary button",
+      "type": "TEXT",
+      "hash": "4e1ee255bad1f3132d1b7f3bcaf242218fb2d87650f0ab9ec281db171b72a057"
+    },
+    "5:225": {
+      "name": "Secondary states",
+      "type": "FRAME",
+      "hash": "db7d33de801772418af051fb3d353d97b2117d0c637864226fe60471b4a5585b"
+    },
+    "5:226": {
+      "name": "Default",
+      "type": "FRAME",
+      "hash": "32356535c5a4f68490b1594280c8ad39f448894e1a4abd0ee798697f0359358d"
+    },
+    "5:227": {
+      "name": "Default",
+      "type": "TEXT",
+      "hash": "fb4fe027bcd6fbc4b2207622d4b5a956b8886de0d039774ae85959c0fb0dc997"
+    },
+    "5:228": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "4f1346680e8a3c1109f4a5fa400e37718f73b4bb8e2362466431ca892505b4e6"
+    },
+    "I5:228;5:43": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "386daa5751a2220ef46d727ebd06ffeb1cd325f3e0cb932d20dcefb30f4ca99e"
+    },
+    "I5:228;5:44": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "7748c56912a9962abe21ac260937fdcd93b7c9e188baf3e73404f05c675c04c3"
+    },
+    "I5:228;5:44;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "5651eebe675833d766879514ae97a5ef309b72f7cb96fa56fd7b99f4dc6b8440"
+    },
+    "I5:228;5:44;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9b9b74cb23b2ba753b0c9a8b041893b3d8320ee1062e4cfe2fa6c80ffa441721"
+    },
+    "5:231": {
+      "name": "Hover",
+      "type": "FRAME",
+      "hash": "b3f8e19f4b1899312826fda3c8526aee89eeb0ec0851756689a895874300354f"
+    },
+    "5:232": {
+      "name": "Hover",
+      "type": "TEXT",
+      "hash": "2b74676599eabd1ad48f2ad38d759461412c80c43d97d732b36993b894d4796a"
+    },
+    "5:233": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "2a4cad5d89de0055826b4f00165ae051f7983cab3bcf18d457e3616e09b23ead"
+    },
+    "I5:233;5:47": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "e1493d06aff149038444226cc23a94ac1f7eef6461d1c4c090c568477b75af4a"
+    },
+    "I5:233;5:48": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "315579d111edd3b73c831466c796486c2e29994dfd57de9dac1da365346a4621"
+    },
+    "I5:233;5:48;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "df22e5faec0c42244def5a51446389ce5c0644fa1133bd735b2d1bd6f42a78b6"
+    },
+    "I5:233;5:48;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9509367c6b7fd58a22063d0d0468a88a20d8e1c29d2510ad3aec29411a31b266"
+    },
+    "5:236": {
+      "name": "Focus",
+      "type": "FRAME",
+      "hash": "c7f413a816c47222624e3f1b257cb8a5cef3c32521effaec53fb3802545509df"
+    },
+    "5:237": {
+      "name": "Focus",
+      "type": "TEXT",
+      "hash": "d56c9e9edc6420f6cbceafd4481aea62db236bfde382057c4fb56c382ef92365"
+    },
+    "5:238": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "a3891dd5a03e2ad5654c8037560271bd227ad06e34a261bf0c4333a714ad75c4"
+    },
+    "I5:238;5:51": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "d31ef8ce2e9fcfcca6b619b320e9598ff8df436e41f4e95bdbb0509bcac8be6c"
+    },
+    "I5:238;5:52": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "9a9052c4594e540ed5223a16f1e35691c2f7aab014dd64488f4c8ed4af8a0690"
+    },
+    "I5:238;5:52;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "112c9b4d98c273f81ea1e08c3da2c81b19b32cf2c4dd01fd75f06006e73f9d43"
+    },
+    "I5:238;5:52;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "b170db386feb8e109c01deae950ca05abd87aaa8c37c2685b6c4517f7896bbd0"
+    },
+    "I5:238;11:145": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "b9038bba3c07bc706b41047695971e99ec527862c8c2f81060dbfe32ca5fc43b"
+    },
+    "5:241": {
+      "name": "Disabled",
+      "type": "FRAME",
+      "hash": "723412fd6f1d3d7fdfae5ec948eedaeecf5ff266f8e453ac10bb5c8edf4b794c"
+    },
+    "5:242": {
+      "name": "Disabled",
+      "type": "TEXT",
+      "hash": "191aa6df10df0ef7f37062e796385432d82b04740ad5118904ef17a71902ef83"
+    },
+    "5:243": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "1de76439f0d19a1612bb4ff7f7b0a97ffa6fc7808b10e255ec49163713b9fed0"
+    },
+    "I5:243;5:55": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "864c6e059028efff87c961ae7099a6815c6af203ce2d9272e7c740c21285a376"
+    },
+    "I5:243;5:56": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "63236027cb1f61e48cfe82a2ecef43847fdfc74a53eeb59e6fd787843f5561dc"
+    },
+    "I5:243;5:56;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "955c96724cc2d7757efeecbe54bce4b53b2bae55bfd3f9f9baa8c9b9935a8907"
+    },
+    "I5:243;5:56;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "5569733b86a6f428a12732c4b9794885b31badd0e020a0ddb53b0f3e8cca6946"
+    },
+    "5:246": {
+      "name": "Loading",
+      "type": "FRAME",
+      "hash": "c3bdd7eeacf112bc2c5d09ea71f1ad9109d374c83739c5b207bac4344a531244"
+    },
+    "5:247": {
+      "name": "Loading",
+      "type": "TEXT",
+      "hash": "ffb82563068312b5d7bd0cd1c53d39ed447d074560a83ec582c1faf6f76e1df8"
+    },
+    "5:248": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "8e7385b437ea47a993e4fdd093e255ab020715d8e57e0558ff99d89cdda48769"
+    },
+    "I5:248;8:257": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "dbf2ed2cb77e2df21c3b2fb85c98d36f9dbacd9eec063bcf583faf916afa4141"
+    },
+    "I5:248;5:59": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "cbb04722d601edbc184f5b264eec46553ad57a80d9666b28c4733c8f4278ca10"
+    },
+    "I5:248;5:60": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "3b98ea0adb48eb5f1faa16ab96a698988f6e09923e26efd3c337cd2a74b70264"
+    },
+    "I5:248;5:60;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "854f21cb7486c6589045c567b526a810c9a3510385ebead37e83dae468db956c"
+    },
+    "I5:248;5:60;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "451a6eefda0099043b3d70e118fe53ef72dd0348a24558e7e9db4c9acc2ba4bd"
+    },
+    "5:251": {
+      "name": "Quiet button",
+      "type": "TEXT",
+      "hash": "ac49774044a7d14585d9147b93027f2bd1e0c4a5f32a60469eee9cbc0e920b03"
+    },
+    "5:252": {
+      "name": "Quiet states",
+      "type": "FRAME",
+      "hash": "afb4bfd406fc9dec1faedf664bfd9a64c586936dc26534cc9ad7f56f430b320d"
+    },
+    "5:253": {
+      "name": "Default",
+      "type": "FRAME",
+      "hash": "c3ff6ba895a083abd312f954e8e34441e99533de7b71f5fad14fa839e018eda2"
+    },
+    "5:254": {
+      "name": "Default",
+      "type": "TEXT",
+      "hash": "f4f7ba25731831d4667484bed4b964c740112cb1563ed9ea06940171db0be1c6"
+    },
+    "5:255": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "eb29bf1a7e6d53adba98bb914234ab4b8695baf3bb42b820406b057ab787ba42"
+    },
+    "I5:255;5:63": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "5a91881eaf10d0205731efb292b06e82f3c7dfcbdded1b1fb6f1e9f4be99a84d"
+    },
+    "I5:255;5:64": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "7ad7a9dd375c9d04000f3d6dfa0a8c44dc862efa92d52228f0eec48ef62661db"
+    },
+    "I5:255;5:64;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9495a0e1b1930d8468ed22a9b31c0c012140d15f96564612e4685054049025c4"
+    },
+    "I5:255;5:64;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "7c8cd5f56bddbdfa4f22edab5f6c07644b1f56cd254d08fed72581e09deb578c"
+    },
+    "5:258": {
+      "name": "Hover",
+      "type": "FRAME",
+      "hash": "15c64397cf17b484bb162a15da8e8030a49bf6653083544c5e5ca5c1732c698f"
+    },
+    "5:259": {
+      "name": "Hover",
+      "type": "TEXT",
+      "hash": "266bca653a7658a902f8affee73ec48d629df259d4f51bc3d40a590ad2d18b13"
+    },
+    "5:260": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "d9cbd042cc0a22b2564253fbf68086f38b7bc72527952fc0d91ecb515c44e9a4"
+    },
+    "I5:260;5:67": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "c562ca09e18ee6323aae6babf5b2cf03ec834dded4973c91bb54e0983ab8d30b"
+    },
+    "I5:260;5:68": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b847419328094f89723432c42f582d308d6fce7b31e67a125f211450dd77cf33"
+    },
+    "I5:260;5:68;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "88721f87f08461f7c50ce2717adda98bb38f75d03205b164cc772e7d09001c05"
+    },
+    "I5:260;5:68;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "2d732b70ce17ddbe1bb7637ef73998c7fdae4c6192f267125274a17361ba7404"
+    },
+    "5:263": {
+      "name": "Focus",
+      "type": "FRAME",
+      "hash": "36c224237fdbc53c9c831e7b898340b49297835daacebfc6338ed6bf8b3f7d8d"
+    },
+    "5:264": {
+      "name": "Focus",
+      "type": "TEXT",
+      "hash": "84e2ea242c7719bbe8f1bb9df59d26768d6671149df96834fc828a097eb5089c"
+    },
+    "5:265": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "08090ee08598b032e5eb241315f5a3350801a593f00c23565b392336ded5bc02"
+    },
+    "I5:265;5:71": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "fb6da3708813ae6aafbbd720eab03312e91a44902c411790b3a893673ab7b084"
+    },
+    "I5:265;5:72": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "4f916c5f9aa21260eb2ac382c69bb90788c09fbc4e7243e193686bda7c3090f4"
+    },
+    "I5:265;5:72;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "feabfbfcb1620ad39232f6a63538b1e792983aa0232a95f0ed79795958e49c42"
+    },
+    "I5:265;5:72;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8694bdb0a6ee7e1ea8b518bde287e2d44ca1852b5091ddf8958f2f0d93ab28a0"
+    },
+    "I5:265;11:146": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "70d917ea5e3dd24afd87df5b75cbc715a04781c8ff20f90e079cd8486ec526c8"
+    },
+    "5:268": {
+      "name": "Disabled",
+      "type": "FRAME",
+      "hash": "3607d51ff4b1dc004f7838a1a12c53bc2516bb9ed958f850df7db1d5f61b3638"
+    },
+    "5:269": {
+      "name": "Disabled",
+      "type": "TEXT",
+      "hash": "a23964638640149cd7d5bedc300e9fdbdb8596797c5dc9826ce4b8639f3b98d3"
+    },
+    "5:270": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "5fd2981acf6884556a80c5f946043d9009647ae1e9f8f4e34ff941055a9ab8d1"
+    },
+    "I5:270;5:75": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "0be9952c513a91b2143ccd7d75916928da02a9a796f12b67d7b99eac21246314"
+    },
+    "I5:270;5:76": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "c9e47a26184a9fb408d19477e2d9fb94c25bee8b47cfc023c3d70294c9717fe7"
+    },
+    "I5:270;5:76;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "0431574a1391e1844ae57f775e6d96bf59b29a46fd7570d067f0cd2b3515bc39"
+    },
+    "I5:270;5:76;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "ffae2fa8a21128bc8cc1738484aaf51ee62b716ea4ffc971042863f2dc15f0e9"
+    },
+    "5:273": {
+      "name": "Loading",
+      "type": "FRAME",
+      "hash": "13d1836612014b739730a3d2d6fe1f64251802f18cca7d9190d357d4b217f413"
+    },
+    "5:274": {
+      "name": "Loading",
+      "type": "TEXT",
+      "hash": "6683c8dd2f94483c79e3b8eb4e20756f5b6592bdbd3407f65fd96bc0ea236dfd"
+    },
+    "5:275": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "378a98efd2353b3054e329527ec79fa511735ef9554c1752c4c78450e7956ceb"
+    },
+    "I5:275;8:258": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "b3bd72c8965b74e8d4f5187b11943572a5d926d9f402b403ba5799c7d377b67e"
+    },
+    "I5:275;5:79": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "5f5ba4a0cbc8bf7399f9379c713585188e37b045d76003f596dd2d71fe78d24b"
+    },
+    "I5:275;5:80": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "f4660c42e09bd5a1f11cfc29a144d0ff5751879180571f356a0b1690f18d5005"
+    },
+    "I5:275;5:80;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "c231b16aac703ddd8421c85aeb044e99f698e94ce7de66c86a5f9622d4f5dab7"
+    },
+    "I5:275;5:80;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "5c0b4c4d098491e38dddb4a42f8d2abf34b4ff283142db8766c46c1c8242d61d"
+    },
+    "5:278": {
+      "name": "Destructive button",
+      "type": "TEXT",
+      "hash": "427e7bbed7ad76afa31cd7800cb00571394d71beaef23d5deda309738a5d8fe0"
+    },
+    "5:279": {
+      "name": "Destructive states",
+      "type": "FRAME",
+      "hash": "843cf871ecf0d33adf704dae1981895ac604f7c25762b05483a4262d433ab5c7"
+    },
+    "5:280": {
+      "name": "Default",
+      "type": "FRAME",
+      "hash": "1a626fd144e3d2c9b74c66bfd231b94e74fa3bcfd20457b1db25cb8c04eb1190"
+    },
+    "5:281": {
+      "name": "Default",
+      "type": "TEXT",
+      "hash": "317d376a6131b823d5720f855951b29dcecf9265aadb390e71635037e2a4f15b"
+    },
+    "5:282": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "127986df9fb163c7682a2445e1584624de69d663b87e7958b23c8d7ad8dd78e2"
+    },
+    "I5:282;5:83": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "bfe36c4be0c01d5ea7b68892e365ea52b6df1c51370ca50f1ecbdd67a15aeb83"
+    },
+    "I5:282;5:84": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "f886f8749dc119f17b01e329d8939ca08897c9ce5d68e21f9ffa963d95ca149d"
+    },
+    "I5:282;5:84;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "a8d91727d690092becf47da6cb5385d54e45cf1d66280951454cb8c662166ddf"
+    },
+    "I5:282;5:84;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "fade71cc5b80e451693d0fa76b72031b91b27bf59b038dd8887340915af3e5f4"
+    },
+    "5:285": {
+      "name": "Hover",
+      "type": "FRAME",
+      "hash": "84785e55129450ed7cf346288cd06e5a097d0b5f5d14f57a63d54454f94b0cbe"
+    },
+    "5:286": {
+      "name": "Hover",
+      "type": "TEXT",
+      "hash": "264d48c343e25cbdb880b9cc18ac8ba5872e4d048b187fc78cd120a73de0ce19"
+    },
+    "5:287": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "afbe992020f83f1e0d5772d5e9e5613c87edce05f39093df48b48a962ebe726b"
+    },
+    "I5:287;5:87": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "36a0a71190d28faf81e836dabe983de3f903ec5e55f42778d8e01d332ce8c205"
+    },
+    "I5:287;5:88": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "d2a4d557e2c72cbd3b461c6ee6f03dce9026dc320ea913b8ee58072287db44ad"
+    },
+    "I5:287;5:88;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "e90f6e95db62c27c35bf18517d0b30e20451a25919a852a69617f760605fc023"
+    },
+    "I5:287;5:88;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9033b275494972c2230467ca3fd1499117fdb871ebb2699e3081559fc05a369d"
+    },
+    "5:290": {
+      "name": "Focus",
+      "type": "FRAME",
+      "hash": "a24c46268bdceadba6b9106c9976329a93634410bbef05d5c8648787f92def2b"
+    },
+    "5:291": {
+      "name": "Focus",
+      "type": "TEXT",
+      "hash": "b42348a8a6fb4a56472195649db9192b96082e325750318ced779d0018302556"
+    },
+    "5:292": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "65d496123141e4f500cee57ffffc5d5965a4664e281c74801d9bea0a49ad3f85"
+    },
+    "I5:292;5:91": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "596fd6fca185e8c2707c228c55ab76e82c7a7c770e83b82da72e0b259936ecbd"
+    },
+    "I5:292;5:92": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "847578bf2852142fc98d6042afaacb2d922a153471f69e61a3b6b7dd0c7cece1"
+    },
+    "I5:292;5:92;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "8ef4d44aa28748c1feea9b4cbb53cc30b161ed6813cd1ecc089f67a0d9aa48de"
+    },
+    "I5:292;5:92;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "de61cd87ec2b38c2ef0f8e8b1ef0ef699aae19b433702c2a3b7c2ed723b004de"
+    },
+    "I5:292;11:147": {
+      "name": "Focus ring",
+      "type": "RECTANGLE",
+      "hash": "d7fb46ff4959b30a6f08484289970e28d56a66a2945c76eeacbb89ca495a89d9"
+    },
+    "5:295": {
+      "name": "Disabled",
+      "type": "FRAME",
+      "hash": "327a0476eed6b33696b3505c4f85900b333bd0372ff9509449ea06da5219e3e4"
+    },
+    "5:296": {
+      "name": "Disabled",
+      "type": "TEXT",
+      "hash": "cc3ab9f31cfd31586f6519af1c8ef28857acf1075859c8f23e488fcab2361a66"
+    },
+    "5:297": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "aa7bbabbc5294ee9b7b0e490e7a7867e86b9e29a36e771edef3d0a11f1a61481"
+    },
+    "I5:297;5:95": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "1df72ec59e6d3f93859eb83a9c2e17c4c693a238e5f696dcba91183650a6cf1b"
+    },
+    "I5:297;5:96": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "dc261522282728f53f5f326b4e58b949f30cb2e4d9a7254307166c9c36369c00"
+    },
+    "I5:297;5:96;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "a71619ece3a1bf8cb95a20cd067a20cf955e171f51379d2e524a8e82954fc19e"
+    },
+    "I5:297;5:96;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "c9e56de104a91996ab474828ca88a7619de282bc573836fb7672b932fa5eda06"
+    },
+    "5:300": {
+      "name": "Loading",
+      "type": "FRAME",
+      "hash": "83186410b85e7d6e19df684a34e308099a5242a5fff2a2ace80ce9e5bd457201"
+    },
+    "5:301": {
+      "name": "Loading",
+      "type": "TEXT",
+      "hash": "df1c2bcca65bcb3d78e7d575e6435897535d8916ebfcac6c1e5408152080d90f"
+    },
+    "5:302": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "01f5a5a8a352d7b37c3e3aa1432ac060dec9f1e311223f2538eb7a86e40e3b53"
+    },
+    "I5:302;8:259": {
+      "name": "Loading indicator",
+      "type": "ELLIPSE",
+      "hash": "821bf6e52e642cc00a066a3916f4739bcee0f53aad5ffe8d6d8ca67bbe459721"
+    },
+    "I5:302;5:99": {
+      "name": "Saving…",
+      "type": "TEXT",
+      "hash": "7815428559eac7a1c0c585fadf59f309f2df436422d8cfc0b7a9aacf30ed055b"
+    },
+    "I5:302;5:100": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "44b507ef24074e16ef513eae51c255bc8fabc9e5bc3031b2d7c5a9288929ce0c"
+    },
+    "I5:302;5:100;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3bc431b304ca88deb27126ca19648e76f747fc64739cd5770c4483cf7f895159"
+    },
+    "I5:302;5:100;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "dad950a61c0751d31dde532dd17c92dd6e66c2de7d6dfe7e2aeafe928d4bfde1"
+    },
+    "5:305": {
+      "name": "Fields",
+      "type": "TEXT",
+      "hash": "4d911d2d44742e4adcf3c4d408e802415300947e47ad0f87a300e0ddda9831c6"
+    },
+    "5:306": {
+      "name": "Field states",
+      "type": "FRAME",
+      "hash": "59e243db3105f7bf81b71b0a36a1f6a910bb4417ebe67123016ae656f029dc2c"
+    },
+    "5:307": {
+      "name": "Default",
+      "type": "FRAME",
+      "hash": "49e5661536c192066dcebe5114b2d481508952162f2457f8c1bb156415ba3aa5"
+    },
+    "5:308": {
+      "name": "Default",
+      "type": "TEXT",
+      "hash": "aabbb94094afadfefa1970de981f84a054541905d8d8880acfecf271a96b4bf2"
+    },
+    "5:309": {
+      "name": "Field",
+      "type": "INSTANCE",
+      "hash": "69b2807d0b921a570aa382f27ab6571e537aafc9e85729bd1fe918d5911fdad4"
+    },
+    "I5:309;5:109": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "4cb045d477eea74c4bf4ac8470bae47b4363c4ce22531557150d3f5dcdf59a51"
+    },
+    "I5:309;5:110": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "bc8203f533f05ad7ee34a4e3b44153e6a8a2f883d134222e90df50dda28d8aec"
+    },
+    "I5:309;5:111": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "aaea96cebcfd7f5de6ebcedfdc9950a5aefd1f48da2d7a7349ebded139a8d488"
+    },
+    "I5:309;5:112": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "96d448b18cbcd3c6e046beb8b80ce05cff5949b3e9d9c2e84afb14c272e54aff"
+    },
+    "5:314": {
+      "name": "Focus",
+      "type": "FRAME",
+      "hash": "7c95ab7612aa3fb05315681fb0ef7b9b2b580cf4234d180b9f55c713a83da966"
+    },
+    "5:315": {
+      "name": "Focus",
+      "type": "TEXT",
+      "hash": "de2d409763a82e51936460a2e7a0e83446b089e8aceee3d2864dbea4d81a2b65"
+    },
+    "5:316": {
+      "name": "Field",
+      "type": "INSTANCE",
+      "hash": "bd169f9b29df2ed15d4a3196eaa163bd2fb4a09552c4bf972db97fe6e05cecc9"
+    },
+    "I5:316;5:113": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "a751d4adb4cf401b7b00c65c7ba003d3ebed9d6bf2f3b98dd0de314aab35b085"
+    },
+    "I5:316;5:114": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "f77c9760e546b55d96a9cfdbc6cba142970901c41fbd782acd0a54cbcfdb9043"
+    },
+    "I5:316;5:115": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "36ac8f16d5ea49bab1114c0f132508572773b1efa7da2c9f9642c9fcfe9c391f"
+    },
+    "I5:316;5:116": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "d94fc3eadb9de7bb824aabac5d8c9e2c7e7942bc0bc2d8f6a2cf23456fe749c7"
+    },
+    "5:321": {
+      "name": "Error",
+      "type": "FRAME",
+      "hash": "560a27a2a408ace6f2fc0f74f96664d4eb9203996f514e7c0b96e17e463905ed"
+    },
+    "5:322": {
+      "name": "Error",
+      "type": "TEXT",
+      "hash": "ec554dbeed87907f1874d78f5bc5ab09f34757df901fa44f500885fa7307e84a"
+    },
+    "5:323": {
+      "name": "Field",
+      "type": "INSTANCE",
+      "hash": "4bfcb18c7c9d3661907b453e3e57b2c7e261160b80d4ef94051053e8324c49cf"
+    },
+    "I5:323;5:117": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "8de22f90a13f3951d8de6fab1fdd8a032a19cfa2b97482f524aad7a8e084cdb1"
+    },
+    "I5:323;5:118": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "a285e59c9b3ba60eff07344391b6ca4fb32bf2a87d13c60404cf169e430d1225"
+    },
+    "I5:323;5:119": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "24ac1dad35708abb8f67be71bb150d3f33eb965fa55ed148bf2edca3bdb5e135"
+    },
+    "I5:323;5:120": {
+      "name": "Enter a complete project name.",
+      "type": "TEXT",
+      "hash": "ea732a60443a8092b9af5633224eedf41b26becf97edab43f492180b4e230d76"
+    },
+    "5:328": {
+      "name": "Choices & status",
+      "type": "TEXT",
+      "hash": "75daf6a055d300a53e337e855f11ae68b4ed8244435b8441890b075c73f053a6"
+    },
+    "5:329": {
+      "name": "Choices and badges",
+      "type": "FRAME",
+      "hash": "5ff91b2eb273941591ddfc845e65dfec1f7c7637f3fa5476d8e171d4812d9d1e"
+    },
+    "5:330": {
+      "name": "Choice",
+      "type": "INSTANCE",
+      "hash": "5d20dd2d337c3e9c03988d392bae8814d09e5b10df0ed2a26bf0e40960574bc2"
+    },
+    "I5:330;5:134": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "ab9dc06857bee9dfc21db20b29181f4992c0b26cb19fbd65d1e03b9e3844b88b"
+    },
+    "I5:330;5:135": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "f5dbe7d82b8e995c4364af39f50ed268e042fc65e1c2485153ae3a1cfbed5f70"
+    },
+    "5:333": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "7889e1e2be64c18d2a72219824aee9c879a592f50dac97fe194055f6133a9317"
+    },
+    "I5:333;5:152": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "32b882d62c4db57876b02dbf99c170a3b588c96264a9d2bcd91b62a02583f81a"
+    },
+    "I5:333;5:152;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "ea1fd2b213f4f1dd6ed6d4c3d00d4e6d5d87a6481f270c9b463c2d45fadbd90b"
+    },
+    "I5:333;5:152;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "3e36dfcb19b885c4cbbd73e92fc6075258aed8d8decc17bfd16a1a9de2a04662"
+    },
+    "I5:333;5:155": {
+      "name": "Saved",
+      "type": "TEXT",
+      "hash": "3e80b6e71005d9a5d343d4e802718809022f0e28f96d267bc2e5473b76283496"
+    },
+    "5:338": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "eeb8170678f0d7174f8294f75316343bea843e3c7fe87c81d3f1889bd1d0c36d"
+    },
+    "I5:338;5:156": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "a9b2769c568cd36a4e0eb97ccf04bc1ea047bac7c3ebc0e9c7aff834bb2b9eb9"
+    },
+    "I5:338;5:156;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3afb93e9f5dec026c7c2e916747fddf06db71a2b81f2f84f47f8334c7dadadb6"
+    },
+    "I5:338;5:156;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "70dc8774d0200c6115476c569efbcec6d03e64d054c564955c1dfcba940dd404"
+    },
+    "I5:338;5:156;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "360e6a7edb4d470ce2c3be3a70bb1d8fd1540f6879751047a5ed83da8436a0d0"
+    },
+    "I5:338;5:160": {
+      "name": "Needs review",
+      "type": "TEXT",
+      "hash": "3a817010934551895d4d4cb8b3ae4b9cce1c43223806e07af400f47e21f5cbb4"
+    },
+    "5:344": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "e656eabbb3c5f092d2add7071e67867ee2ebd4c3bc7914229cddf5207e95c150"
+    },
+    "I5:344;5:161": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "b0d4b4e7408cca1164480193d1e40430143df5e323785dcc20ec5202ace199ae"
+    },
+    "I5:344;5:161;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "92b08731b9f7bf7fdd39c810385324fb7c40dba8a1346ffe1e3f829d14264384"
+    },
+    "I5:344;5:161;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "49b2bf22d0ecd6c651cba1e2f0e10207d6ff62919d88c4353e597585afe4be96"
+    },
+    "I5:344;5:161;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "3652a9d0f2f025ca34c088563046f3cac47c645d1acdd1c7b385d6fb478183f6"
+    },
+    "I5:344;5:165": {
+      "name": "Failed",
+      "type": "TEXT",
+      "hash": "4ac3c29e61a12d216b69af7b409f3c1b217df0e7f0f0acb0382aa5ddc9562ea0"
+    },
+    "5:350": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "f7db46e19f25e213f79ba1c5c9f4a6370efbc1c341ce6f1c1c5de3d9904ee870"
+    },
+    "I5:350;5:166": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "3ac9a94c3d41b8f9389b83c1ed2d58f70234ff920fd460a8808e2d3901ba64f0"
+    },
+    "I5:350;5:166;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "0828c67524b71414983d927ebc735c8a2df0663fb66d4a2ff0581578498e9427"
+    },
+    "I5:350;5:166;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "51246047a0dad01e6c17ccf07f8b735d2caca972b3e787be6f52fd2d2053722b"
+    },
+    "I5:350;5:166;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "0b52a404c6f7d505bb4d9032edf434f50ec1ad922d303af2b493682ea05d7acd"
+    },
+    "I5:350;5:170": {
+      "name": "Information",
+      "type": "TEXT",
+      "hash": "86d05a4a6334815449b4f485b87ccfe12e02a4cd3dd8c920230b4d771cad8320"
+    },
+    "5:356": {
+      "name": "Containers & navigation",
+      "type": "TEXT",
+      "hash": "c433aac653373e90c97bd1b70abf777b983167a47ccb8c903c7f551fa8425fd5"
+    },
+    "5:357": {
+      "name": "Containers",
+      "type": "FRAME",
+      "hash": "28d0defea91eac550d15e9bf0486ff3e1db92a538f5d11390d6af1d9d7ae4a2f"
+    },
+    "5:358": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "0225062693eb7ea0f269f758d9cf0429e79db2666dab0554ac1f675c8f05da0e"
+    },
+    "I5:358;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "30105f936a17e9a3e28e90feaeb01bb937114127976078fd60bf65373ee15346"
+    },
+    "I5:358;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "6e3d9b4aeba82e12169b6d85645d1cee8eed9127a3a38e96da8b1e2cfe41b41e"
+    },
+    "I5:358;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "1c5bc8129f3bb79455338a8d133d916b4a89cf95c0a509af916a68a1513d41c9"
+    },
+    "I5:358;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "19dcdc7c8e066b1be9961595781f2e4441966394e3a3e89ea61508778389e712"
+    },
+    "I5:358;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "2fdc015ea7a92ad2d8387b4b385833e24547bc697fbfe3180e1a6aa54f3daac5"
+    },
+    "I5:358;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "365e9307af440ff6547ca8c6e1e4fc52ea7c9dbef7f21f7f6f405bded1693c9d"
+    },
+    "I5:358;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "50b57be516c2a3b0cde985f6cb62b51c73a34c621468ad6fa309b969514c3557"
+    },
+    "5:364": {
+      "name": "Dialog",
+      "type": "INSTANCE",
+      "hash": "fe679290ce7bfcf0cda8045a0a210cd62cb1977478de7bd102235f629063d1bb"
+    },
+    "I5:364;5:188": {
+      "name": "Keep your place.",
+      "type": "TEXT",
+      "hash": "fa14567eedd00b7f8e0f0ff0054856fdc43e18311c55c3f7c2d7dddfb4137c91"
+    },
+    "I5:364;5:189": {
+      "name": "Use a native dialog. Escape closes it; f",
+      "type": "TEXT",
+      "hash": "fdc79a7b2ccec3dbb83e01cd4fce92c3032ae51664e03aba375b76fa1023e6ed"
+    },
+    "I5:364;5:190": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "ab3ad428991f8904e8486f9bf0228affa581d20a5a04e169b7c8176ef6183a05"
+    },
+    "I5:364;5:190;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "31047f81e17fe96558746662ff1cf767e09b298d8ed5c71cd54c5ea9e8e7c400"
+    },
+    "I5:364;5:190;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b2923783ef24cd8222aa8639261577f4a7d3c2a25c2d4f71d56d781e45e98dd4"
+    },
+    "I5:364;5:190;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "29345323506887648673d099ac2275339453f6d2299c9a2e1cb67522b8067b02"
+    },
+    "I5:364;5:190;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f0c65b172991f1be67861da9343d081436c9f677cb5d9b854e137b41beba0bac"
+    },
+    "5:370": {
+      "name": "Navigation controls",
+      "type": "FRAME",
+      "hash": "890d6398206a41e2624a5340e4314916fbbfeb48836de95fec2c77a2b250adc2"
+    },
+    "5:371": {
+      "name": "Navigation item",
+      "type": "INSTANCE",
+      "hash": "d8381b4160c84b0cc49548dab51e5c82b7b6b765a5dc6f19074a23559e01186f"
+    },
+    "I5:371;5:184": {
+      "name": "Foundations",
+      "type": "TEXT",
+      "hash": "b9e9cade59db39f7067b767dbdd5c92bbc837655991aefa0d22631b5ea27cc08"
+    },
+    "5:373": {
+      "name": "Tab",
+      "type": "INSTANCE",
+      "hash": "7b1b186d7d8dcea30a5a8985ea7a6d937715db016296b9157892bd713ba6c90b"
+    },
+    "I5:373;5:186": {
+      "name": "Purpose",
+      "type": "TEXT",
+      "hash": "e65bf826d282c36579ea94b2997b26ff5391e50fc14721a26d271be85b86b547"
+    },
+    "5:375": {
+      "name": "Alert",
+      "type": "INSTANCE",
+      "hash": "b728d724714ef6208b63ef43430632a4c88fc55c3b11f53d7a8cdf6b59d6eb1f"
+    },
+    "I5:375;5:178": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "4a539a434e7293d22ec82188b217f7792b2e86e72dc2e30fa42c002c14898602"
+    },
+    "I5:375;5:178;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "75a8ae2fedb16311e16b01718482dc4f47a43c6414a09c9c08a3c32d9fbf33e6"
+    },
+    "I5:375;5:178;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "ecc860cf8d9b6fb25172d85bfd36503d4e7d8905df50690cc241cf1aae557796"
+    },
+    "I5:375;5:178;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "bed18c165157a6396b02f0eabe112ead59edda00e7ea778e51cebec1a721dd3d"
+    },
+    "I5:375;5:182": {
+      "name": "No information is sent or stored in this",
+      "type": "TEXT",
+      "hash": "3dc1e45b55b7ddd2c47f9e22a8ed65b4f051d7868f2d0285e09df8b3a9563b6f"
+    },
+    "5:381": {
+      "name": "Dusk parity",
+      "type": "FRAME",
+      "hash": "75db4bde300490b4c896acde33cc2da204745debe221df07e9c93d5989cb1057"
+    },
+    "5:382": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "d27655bbc8a42d0dc66ba15fafb053bc295bfba7baa92b9331b1a20318960ec4"
+    },
+    "I5:382;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "22911eea20e1432feefd77217328775cd662c6c53020a22e61099a65b64bb487"
+    },
+    "I5:382;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "417ffa9d4b08401467d4f9b61b153b7d24f42a1a282cf26288dd619073b917de"
+    },
+    "I5:382;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "571bf5e8673dc2e052ed7d2875c1205c8276e7fa4babc7bca2207361c34aa4e3"
+    },
+    "I5:382;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "f47d0e0e1bd30e863ea618c3aed0495942b4fcae618afca4cdd0d1c184aa54cb"
+    },
+    "I5:382;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "6b36940ec1639f7146212d06165cc14074cb8de5e3cb8affb2357c1bf2041f95"
+    },
+    "I5:382;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "e3497f84a7234bbae865844cec192e8c5ac514a352112f8d30788192491332d9"
+    },
+    "I5:382;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "ac0cda2e8fc495abd0a5704dbac986a99f831a5484ffb0bde46114847ee9eea9"
+    },
+    "5:388": {
+      "name": "Dialog",
+      "type": "INSTANCE",
+      "hash": "81b219b1cb8253db5d21fa6b4da2dc6457519e4c1fd919fdfcfff0d386406bab"
+    },
+    "I5:388;5:188": {
+      "name": "Keep your place.",
+      "type": "TEXT",
+      "hash": "ea4510c96fa12cddcbf66ad46cfee47f4f84e69d1fb670b394aae3657eef2770"
+    },
+    "I5:388;5:189": {
+      "name": "Use a native dialog. Escape closes it; f",
+      "type": "TEXT",
+      "hash": "a83dc094b4d73e04eec6148a884d3f462b03616a813d0619302fc4c1ab34d195"
+    },
+    "I5:388;5:190": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "8d19175d9442df7f034d3c7361934ce38609868ee30d2c07379d264f6745061b"
+    },
+    "I5:388;5:190;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "b3305e80febd65a24419012fc2bd9cca1f05bc971135075f4f21cde2da6ca79b"
+    },
+    "I5:388;5:190;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "e44edc3e3dbc5828416e3854f0a4d56fff701ab505fbeeb561a2a133856b6790"
+    },
+    "I5:388;5:190;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "70397588b3cd4255ca5259102c4663db0ed5ae65b14b17adf26fc28819d00f70"
+    },
+    "I5:388;5:190;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "2bfb19511ad6eb0e7536ebc16de81023bb13cfe282299d4b42e6161bea922d35"
+    },
+    "3:209": {
+      "name": "03 · Symbols",
+      "type": "CANVAS",
+      "hash": "0f1487c581317ef20d76afe5d49c4069f28abd0c3f46fa91febc7c6a56d727ce"
+    },
+    "4:2": {
+      "name": "Icon/meridian",
+      "type": "COMPONENT",
+      "hash": "733ac3b1caddfec93a1f8eb69b008e823d004b453e6df700fbd7d9fc6320d166"
+    },
+    "4:3": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "bde887f37a88fe73e1d5d1ba53475061021f2c0ff147c9cc3422b3e9d2e11fa5"
+    },
+    "4:4": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "e22d2aebdae676c1ecbde359e93210ae6ebd0df1f9c1731687355aed27f8eb9a"
+    },
+    "4:5": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "643042aa525a72a3538e937230ce76c5745b3dec43dba855d7f1df32626a6f4e"
+    },
+    "4:6": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9d02a27afd5641c91c9699608fa3f3c44b651175e38f5c7d7525cf67d6d95d1f"
+    },
+    "4:7": {
+      "name": "Icon/compass",
+      "type": "COMPONENT",
+      "hash": "e9f8bc157189b4ff1f7c6ba8fddf9f247bf89aee797f648b516bfadca40cebf6"
+    },
+    "4:8": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "7aea922fe9767a711bade0a6e5d365f4e71f3984b4f9e38ab49d8ff3d0a07344"
+    },
+    "4:9": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "de9b72a38bb063157b0a1768c2626cf7dfe6cf01c49eb08399611c7d7a378009"
+    },
+    "4:10": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "cd94caf79e0fcbcec9c9e1d6bf9c83163be575dfa019d5fdf7b537c81fe662e4"
+    },
+    "4:11": {
+      "name": "Icon/sun",
+      "type": "COMPONENT",
+      "hash": "3004457ed99a4ade70c6df3c5d00acd61903b760239bb25ee0e11612940bbd31"
+    },
+    "4:12": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "a4ecb7d303a3fb995374bd6e8d87c273c9a81e690f88ff6d0731e4ca3f4d1db5"
+    },
+    "4:13": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "e42bde7da21153aec3e4793d0dcbe9ff55c178ed8d69b8a13e333dbd2217b4ac"
+    },
+    "4:14": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "ef9d3c6d9df8f36564b9f7c8d15dca4206ff8458416eaa74ef65f3055e7969db"
+    },
+    "4:15": {
+      "name": "Icon/moon",
+      "type": "COMPONENT",
+      "hash": "c680c347c8822a8d62d13ea9706f9f4e5344607cc10c4c71e35f0b1fb6c00186"
+    },
+    "4:16": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "5aba17399d2dcb43215c5aaa43a95125960803058892bd55bf56f5150fdb2fa1"
+    },
+    "4:17": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "b975743ed8abad63f245f00e89a570b9e8e912339ddace258e5f12de7f5fed72"
+    },
+    "4:18": {
+      "name": "Icon/arrow",
+      "type": "COMPONENT",
+      "hash": "3278498fdb183bad021362248fa143807a4f97bdeb43a15ffe96f6da2e0059d2"
+    },
+    "4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "149c7d6005d6962717b91c7239dd8806a4222ffedfbd307dafb3a11e0e87327a"
+    },
+    "4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "470192b4591f4bacb6ee6be8d064e4b1657700f7c9eba214b935a723ca2f5371"
+    },
+    "4:21": {
+      "name": "Icon/check",
+      "type": "COMPONENT",
+      "hash": "f0d1c004058de7b8810f586d546752d0ca738126cada9a521cde5ca0c48870f3"
+    },
+    "4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "92d4eb7d15d0107a54e5e24195c29d54de1e04756d587544d8b7ef243a47d0a5"
+    },
+    "4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "82d043ac00277bc556123eac42e3b4ee4c9c6bc82ddd4e75f0359401d4661450"
+    },
+    "4:24": {
+      "name": "Icon/warning",
+      "type": "COMPONENT",
+      "hash": "e57a85ae22e0781399a87106c57b14fe31efc8369293820c1f3b83a22d9e6271"
+    },
+    "4:25": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "30974c14a2a3201711615c582769a5e93fda605a8be9d647565bb5d6a3a21805"
+    },
+    "4:26": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f724767fd42aa59bd5eb90e5ecfaaa6dd785423959e2f5cfa63422c1ce896a89"
+    },
+    "4:27": {
+      "name": "Icon/info",
+      "type": "COMPONENT",
+      "hash": "b0f86ba50a3eac1242e1a35b94446862d32ca23c53f7711fa0494a98ef1607c0"
+    },
+    "4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "e199f9f43db6d92ae9320fb19b7c8bd3f4884033fa5ebb99c1dd03186e352267"
+    },
+    "4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "3c7da45d45b38bbb0eaf718d53f6773c24ce041be181aaa986609c72242558f1"
+    },
+    "4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "7374a6e9a131f8ac85e09a46ba930b57cb0df49694e15d3185b025e7ffcaf06b"
+    },
+    "4:31": {
+      "name": "Icon/close",
+      "type": "COMPONENT",
+      "hash": "23779df24725314284a120a7ea33bad3d7d587eb176d2ddd8e6ec0ff10c0f6e6"
+    },
+    "4:32": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "d073b910e4a5ee2ec46cff52fda491fa68f0faae93ecd1e21d3610c368ae949d"
+    },
+    "4:33": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "202368b5692ce0e3359e752800ce706bbd9b681dbe2943e3e7ffa09949124c2e"
+    },
+    "4:34": {
+      "name": "Icon/book",
+      "type": "COMPONENT",
+      "hash": "f62379e21c5bb5d867fd8da90ac196a015a1f0d80979f48ab6f62eb65b78e10b"
+    },
+    "4:35": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "03e1acaf3e6e640399be1dd5fe2bbd05a5d66eca3e473777af34784139e593fe"
+    },
+    "4:36": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8a9a26cc3bcabc8e409e24fe85b361675a8c5b5d6648764d59fb0d429c759a00"
+    },
+    "4:37": {
+      "name": "Icon/layers",
+      "type": "COMPONENT",
+      "hash": "d5847166a7b3f0c2dcca34d01693df5ad2136d85d5d726a2a03ff74a5a65c7aa"
+    },
+    "4:38": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3bd0a7886386b955e1ea0d4a257b3ff628c244a426ccf9e42552486a22b2ff02"
+    },
+    "4:39": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "448d341245a7afef503fba9c755f33b209b6e7a5b5cec863100de4a215bb7c60"
+    },
+    "4:40": {
+      "name": "Icon/leaf",
+      "type": "COMPONENT",
+      "hash": "416275774b727717fae1e1ac6337c4420b2a33fa32cb46ebca02190c31240d5e"
+    },
+    "4:41": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "578cda293532033852db31cc9eaa94a2c8efed1903b8e9b3f87dfc63ad4fa92f"
+    },
+    "4:42": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "da895ed86fde6eb4972515fde52c8bfbd5ad3036c1fd93def046169d4b8377e7"
+    },
+    "4:43": {
+      "name": "Symbols / Review",
+      "type": "FRAME",
+      "hash": "46fc58e65f4904c8c56eedc623c73b3ee5df38ea786e8c9c9a32d268df5330b9"
+    },
+    "4:44": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "645e014d747221d29edec7da115f596ec6555babfd2e0b6a6fd29d916651a7ab"
+    },
+    "4:45": {
+      "name": "A quiet sense of direction.",
+      "type": "TEXT",
+      "hash": "3dae6adb753f8cd8d5a7cc606262ef613242e2316eeef7ab94e0a5a75e0feab5"
+    },
+    "4:46": {
+      "name": "Cartography, natural cycles and navigati",
+      "type": "TEXT",
+      "hash": "bc2e81eb98e12ef86e9f92136bff77b6db2abe914008d3afd4bb0527b397135d"
+    },
+    "4:47": {
+      "name": "The Meridian mark",
+      "type": "FRAME",
+      "hash": "e66a1387711cdf40a25e57796d9a64e28df643233dd7ea515aee6d6ff93edd78"
+    },
+    "4:48": {
+      "name": "Icon/meridian",
+      "type": "INSTANCE",
+      "hash": "ce36ca51de0ab139b1cfb5683a2e414a5c39490970ee6d7bc3fe4184ee4815a2"
+    },
+    "I4:48;4:3": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "eb213af8dda409dd5c447b5bdce8635b8dd2fba5101117b478a00d0db177c5b2"
+    },
+    "I4:48;4:4": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "7c3cc66b8072da48fdb8215e2f83a0b551f4f266b67c4c94d15c5cc75e5e0534"
+    },
+    "I4:48;4:5": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "2cd960c24045ca93e6fca96db51b378c19f9e9ec3f9b2b9e1d1dc2534a433423"
+    },
+    "I4:48;4:6": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "63d60c9205ff837cc15db0f748621efa865ae1752a1fc84a70107e4aa1533cde"
+    },
+    "4:53": {
+      "name": "Mark guidance",
+      "type": "FRAME",
+      "hash": "2b3ce1f92c580ace98d515c1fb64a633fadfbe8d9c3cb07ffa890dabc6f44d68"
+    },
+    "4:54": {
+      "name": "The Meridian mark",
+      "type": "TEXT",
+      "hash": "f6b234a81efae832aedeb3b45778c28c5236244c5311bcacdf681c02829c9565"
+    },
+    "4:55": {
+      "name": "A globe, a meridian and an equator: cont",
+      "type": "TEXT",
+      "hash": "c357099c4095c3c1c7f4a9381426db3985b288a58c39fa0d0ae6be5a29f890f9"
+    },
+    "4:56": {
+      "name": "Symbol row",
+      "type": "FRAME",
+      "hash": "83030a296312beeaece3bfdba9d88f01c202ec94ee46b34226230b8b0a81bb21"
+    },
+    "4:57": {
+      "name": "Symbol / meridian",
+      "type": "FRAME",
+      "hash": "802264fe77988c171a64dde29ad08ad4e94f4fc2f539463716e00c49e88dba7a"
+    },
+    "4:58": {
+      "name": "Icon/meridian",
+      "type": "INSTANCE",
+      "hash": "e4b780d3d7f7b4b7aa6fa19951716dc9d40d847a1a5a93dff2a7c023b2e9e17e"
+    },
+    "I4:58;4:3": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "61858cb3495a55be48f9a94483223731bb753bad84c3bdccc9548a1aad06778c"
+    },
+    "I4:58;4:4": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "af904a8130b329f411f710497563ea8f628a8418b3a822d6d35a55247f8afc32"
+    },
+    "I4:58;4:5": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "15df0f78a8737a9c65bd38a346ec09230c2833305889e8eb8af67c6640c388ee"
+    },
+    "I4:58;4:6": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "31f6babbe1f3f7e3f2b9e26a2830ee9cff18cc58c4289acbd4b4860a21051cb9"
+    },
+    "4:63": {
+      "name": "meridian",
+      "type": "TEXT",
+      "hash": "2cf4577976ac6167729dece60d73d9d6c17b54350350d6793b1b34e6d03f21de"
+    },
+    "4:64": {
+      "name": "Symbol / compass",
+      "type": "FRAME",
+      "hash": "2a4a5c6fa5b4b140921698769d126d30ce9328de91e318ab7a5afc1622b99dd4"
+    },
+    "4:65": {
+      "name": "Icon/compass",
+      "type": "INSTANCE",
+      "hash": "27b33cdd9be26cddddc9483edc7b4c7cb111b88d069cdfafeb07db1a8d877012"
+    },
+    "I4:65;4:8": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "871a5722cb4a4a986ee0e8f0a0754b2ac6deaa6123a29f23eec039b86263aab1"
+    },
+    "I4:65;4:9": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "c7ee66909011c82ac9b6177d2f0c3d3aa9b2805ed8f484e616f8805c892cb86b"
+    },
+    "I4:65;4:10": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "45950410a07b18e6443e10faa05a426ea59d925c90f6e3f87aa8956f7b3207fa"
+    },
+    "4:69": {
+      "name": "compass",
+      "type": "TEXT",
+      "hash": "ec637ab1e03d12f00f235a489b2bc1a256c413a7dbf9818c5721d8c5c412c069"
+    },
+    "4:70": {
+      "name": "Symbol / sun",
+      "type": "FRAME",
+      "hash": "35dd47594230822de6e32bf18f9c5efa67732bcf625255509b2bdc7279e9f523"
+    },
+    "4:71": {
+      "name": "Icon/sun",
+      "type": "INSTANCE",
+      "hash": "993a3e9f42151017c6f9afe77fb21cef81dbaf43b025eb2ca935b774ec18d8bf"
+    },
+    "I4:71;4:12": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "aa3182e1bb85cc8ff8999bc0b35324218d82784ad00bb750cbb453255f430e3d"
+    },
+    "I4:71;4:13": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "77a18910b81d9a044a5c543e890ee79646aa6634ae9c9f30517cc089b5c187d5"
+    },
+    "I4:71;4:14": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8d107cf98cf8817a6d18bfe417782809e5670a402e4fdb73a24582771ce5d57e"
+    },
+    "4:75": {
+      "name": "sun",
+      "type": "TEXT",
+      "hash": "edccf97969ebfb6f044011c8349097b2597f8b50191d2afd1084c1ba39be8493"
+    },
+    "4:76": {
+      "name": "Symbol / moon",
+      "type": "FRAME",
+      "hash": "8d970bdd1414ad0708fd87b2281a842dbfedf7d3689a518a07b23d3291e9bd78"
+    },
+    "4:77": {
+      "name": "Icon/moon",
+      "type": "INSTANCE",
+      "hash": "1f8ac28770bb50791a2d1b057f7e81dde3ee4c0767b81bf5e284354b2858af37"
+    },
+    "I4:77;4:16": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "ca8ad63ece2e36bc9603e6c434f26ad78fd9df47bc75101a668b4010e621d39f"
+    },
+    "I4:77;4:17": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "b6311791db7ee8860ff2a9ffe58737a17dbacd647b9c8c2eba2c30af3dcee581"
+    },
+    "4:80": {
+      "name": "moon",
+      "type": "TEXT",
+      "hash": "f272a9f5f2138c82a0bb6588e805c6d06674f1dac6f085546b5882df61817cf5"
+    },
+    "4:81": {
+      "name": "Symbol row",
+      "type": "FRAME",
+      "hash": "37be238607ae428c4e75ea5b65ad1628ede7a675c29f88fb4a7fae12b5575767"
+    },
+    "4:82": {
+      "name": "Symbol / arrow",
+      "type": "FRAME",
+      "hash": "31faf0472e81e2ab3fad8b3cdb06c79dc8b7872f75c6aa22a0c5cb0715188dcf"
+    },
+    "4:83": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "aa70fe43f367099ec5cdd47bd01718da10328e58196bf0cfdb116632ef6a4577"
+    },
+    "I4:83;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "1bb8a7ae65e4f58a24f649ac94bfb147c1c3f7dccadc7534933fe5939b11f0c9"
+    },
+    "I4:83;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "d3fb8dcbe133753164825e1c25b8849bd931babe48623f1e0d3fbdc85584ce87"
+    },
+    "4:86": {
+      "name": "arrow",
+      "type": "TEXT",
+      "hash": "a2c343d54237b8fb1d0e7841ea759d00bb809277f3f8382cd27e31875db4f745"
+    },
+    "4:87": {
+      "name": "Symbol / check",
+      "type": "FRAME",
+      "hash": "c39a067259c40e900f2c1a2fb3c644f411db98e967364dd60269902fd4973db4"
+    },
+    "4:88": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "386909fba5ce7ddfba6a7f85874cf5e34effabed5787e9c00f37455991db8d81"
+    },
+    "I4:88;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "36963e704658222f324c51a9d39da6f3beeaadf4d63a2a7f7d52b4839df70b8e"
+    },
+    "I4:88;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9e47c7af7a114d74837cf4715a265c06ad20ec3f8ebd49038b137125a2466de8"
+    },
+    "4:91": {
+      "name": "check",
+      "type": "TEXT",
+      "hash": "dc94375bf41740be7c0226c1e89f1ff822a13df13f226d49751daa0b4c4a72d2"
+    },
+    "4:92": {
+      "name": "Symbol / warning",
+      "type": "FRAME",
+      "hash": "fd36607394451e33ee1ad6bcf4646066501cd70fc708e789e7e3b4117f5fd79c"
+    },
+    "4:93": {
+      "name": "Icon/warning",
+      "type": "INSTANCE",
+      "hash": "5bbf5bf20f09128b4bf91d3bcc28e9c73c2e247520dd2f2fdf2ab20d9f133dc0"
+    },
+    "I4:93;4:25": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "82e0e1cdfe4c45f64a7afd503257b22b72c349c861b94bcd418e8473bdfe88b9"
+    },
+    "I4:93;4:26": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "1705e0de02d18c27eedd01adf9d901e36f32eb8e571929d3829f30977580548c"
+    },
+    "4:96": {
+      "name": "warning",
+      "type": "TEXT",
+      "hash": "6b2859cd0e17a947359b5fe43985309ddd6cbdeec6441526b7d84a553bc2dc72"
+    },
+    "4:97": {
+      "name": "Symbol / info",
+      "type": "FRAME",
+      "hash": "8f0ab78beb77af7dc28c3f61d2096caeae5b619596332acb72750e755bf6b9f5"
+    },
+    "4:98": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "8abb0d16b08152139835e6bd89e240c2b64b0f29011ef3bef61b2b36fc607ed0"
+    },
+    "I4:98;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "5b804faac40127f2b062d648154ba6408df96b8ba642ffb14a6225accec0fcc4"
+    },
+    "I4:98;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "78f986b03791e562f3da844cc466f2389e70155de660218f719608b155090b58"
+    },
+    "I4:98;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "67b178e8f091c93010422c4ffc56ec31586ac540cb7da4409a377419c60f337b"
+    },
+    "4:102": {
+      "name": "info",
+      "type": "TEXT",
+      "hash": "90aad4255533fa4b8710a4661aa99673c8057a87d695f5c3cb7262905baa2f50"
+    },
+    "4:103": {
+      "name": "Symbol row",
+      "type": "FRAME",
+      "hash": "6e342a466cb4b66ef2a2874ef38ca94b6e4ba9a6594bd77159c205ca5a16edbd"
+    },
+    "4:104": {
+      "name": "Symbol / close",
+      "type": "FRAME",
+      "hash": "581ab878bebcee048f54e5a7ee268949bcd97fdeee97b9f8b0b907226d2bcfa9"
+    },
+    "4:105": {
+      "name": "Icon/close",
+      "type": "INSTANCE",
+      "hash": "d865b20819fa8ae5689fb2318fd30fd8446c6faa76d91fe27d52f74b8be89eb9"
+    },
+    "I4:105;4:32": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "b6e79e3994a96e31710e81a62f9eafae8cca969ef3104fe7ed55863b33bd17b5"
+    },
+    "I4:105;4:33": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "d2a213e5a042878005109033058cd43b80517ce44db75c7a261f052da22ce12d"
+    },
+    "4:108": {
+      "name": "close",
+      "type": "TEXT",
+      "hash": "ff5e71c659abc22cb6f6a34a3650dddd28b076c9304654fbaca707dd6bac1224"
+    },
+    "4:109": {
+      "name": "Symbol / book",
+      "type": "FRAME",
+      "hash": "3a5e7cc8dc1bfe58ca1220b77277a85d1b96ed7ce943a5839928f4f9f9161a8c"
+    },
+    "4:110": {
+      "name": "Icon/book",
+      "type": "INSTANCE",
+      "hash": "72210dde2e1f75ba8cce1cf91b13c4e0f6dfe5d0906a761efae39221e6c12677"
+    },
+    "I4:110;4:35": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "9dc96c39183cc953dea5627d89cb11408abb286450011c086765a36a2d1f3904"
+    },
+    "I4:110;4:36": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f67f2157689a2614edce0c509fb13fb155dbd9eacca8e4b6a6a4f0d388018906"
+    },
+    "4:113": {
+      "name": "book",
+      "type": "TEXT",
+      "hash": "9aa50b075ec30a1892f4ec620b84932f638b1011386c29f63dd6b57a827d7e1a"
+    },
+    "4:114": {
+      "name": "Symbol / layers",
+      "type": "FRAME",
+      "hash": "c61a6aa2760c166a40677f4357cb3bfe093d1775e94b6a3f901a9a077dc7c404"
+    },
+    "4:115": {
+      "name": "Icon/layers",
+      "type": "INSTANCE",
+      "hash": "7d4515fb9f09f2d787680a462ada2c462e3a782801e3ec6c9bfb6e441634130b"
+    },
+    "I4:115;4:38": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "f668623444feae00a2e0957312bd5cace0a79bd8b7f52f4bc30cc269a2d7f835"
+    },
+    "I4:115;4:39": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "1f746c60ebfdd741371e5ee6ad5de8cfa288d502f19f3d6c5e24683f185a4e48"
+    },
+    "4:118": {
+      "name": "layers",
+      "type": "TEXT",
+      "hash": "12aaefaed543d073f0f8edad9fb68232d879d91cae4116132b8f1c9a99e76a73"
+    },
+    "4:119": {
+      "name": "Symbol / leaf",
+      "type": "FRAME",
+      "hash": "3f0e02e165d4e12f52df53fd252b9b4c10d98537f40d280ce9b18580b32af9b2"
+    },
+    "4:120": {
+      "name": "Icon/leaf",
+      "type": "INSTANCE",
+      "hash": "5c8d54bf2b3fa5ace81e37cac8ec9b369c943107145381b648982910125535af"
+    },
+    "I4:120;4:41": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "52b7472d0d0f0d933a75f353fe4977f68ec32a0f64cac2a08861c75137b1e94a"
+    },
+    "I4:120;4:42": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "b91660a34f89a4e8987bdac6c48d2d9e9e4cd69d4be23cd17b149ce6d37182ad"
+    },
+    "4:123": {
+      "name": "leaf",
+      "type": "TEXT",
+      "hash": "86eaf08b73dab6c6caae47b1fbe6c900eacce145a2041ba99cb11b83ef96eb5b"
+    },
+    "4:124": {
+      "name": "Use a 24px symbol in a minimum 44px cont",
+      "type": "TEXT",
+      "hash": "797333983e07ea30233cc354d152539eb7ed05fd4e2362dd9a384a8bdb1d4724"
+    },
+    "3:210": {
+      "name": "04 · Page patterns",
+      "type": "CANVAS",
+      "hash": "df2b872d32a3a356a0a1a8036d0578c8363679fceebecc0c94cf83842c27d4af"
+    },
+    "8:280": {
+      "name": "Patterns / Review",
+      "type": "FRAME",
+      "hash": "84b36820584a00ccdd01b0b245539fc190f746de51c44844c4592a528ce4c31d"
+    },
+    "8:281": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "2a8245f0cca25da4374b1ceb3d7eaf823f2afe4d60c990106d942ab98ba30439"
+    },
+    "8:282": {
+      "name": "A system comes to life.",
+      "type": "TEXT",
+      "hash": "0b7b1280a025cdf5823e21127a91eeb26f0a0eea8fbf70219d8127961d0b09ed"
+    },
+    "8:283": {
+      "name": "Three editable reference patterns. Dawn ",
+      "type": "TEXT",
+      "hash": "b09cd8bf644e835cc87374fe28eec2759b0fa2246f5dafb1787922186049c444"
+    },
+    "8:284": {
+      "name": "Reading",
+      "type": "TEXT",
+      "hash": "5860dcb6cb55cb538e0ea6ff5d047a8d4ac55642964d2cc1027dea0b23fbaa70"
+    },
+    "8:285": {
+      "name": "Reading / responsive pair",
+      "type": "FRAME",
+      "hash": "ede153bb348667c8b1b2e3a1513701a096bcb5b5db26073dd407ab0aad3b9940"
+    },
+    "8:286": {
+      "name": "Reading / Dawn / 900",
+      "type": "FRAME",
+      "hash": "9fece4ff79f30a0d9db557b5e0d773f8469079819254441db2ca63c34070d332"
+    },
+    "8:287": {
+      "name": "READING / DAWN",
+      "type": "TEXT",
+      "hash": "05c186b6db16f1189e7bb01e341fa72af686c52c270493fb0602e267576de577"
+    },
+    "8:288": {
+      "name": "Icon/book",
+      "type": "INSTANCE",
+      "hash": "a013297201431300496e28f5ae23b3675fa8807fd27e574305682c4e27627186"
+    },
+    "I8:288;4:35": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "cdc7f70b0e1f303e533b7b3fec78a2ac80d52d77dc5fb56080da59a7b76a2ff5"
+    },
+    "I8:288;4:36": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "58f9a40a98436d38e70afd027b7c2ef4746831e447392caede8d329c339c58d2"
+    },
+    "8:291": {
+      "name": "Leave room for understanding.",
+      "type": "TEXT",
+      "hash": "df4f29dffcac7b6a1d1e838bed2c886f2a634cd1f9855b905582a352db8e86fb"
+    },
+    "8:292": {
+      "name": "DESIGN NOTES · 4 MIN READ",
+      "type": "TEXT",
+      "hash": "7dd79fc27801280ac68b01ec5da989e700bda74306a1247ee1da1418ab830eb9"
+    },
+    "8:293": {
+      "name": "A familiar interface gives people a plac",
+      "type": "TEXT",
+      "hash": "8cc2a82527617e46f6d2bea1bbe2f9babc6731eed9a6f17024de15c909fd404d"
+    },
+    "8:294": {
+      "name": "Materials should explain what an interfa",
+      "type": "TEXT",
+      "hash": "06eadb568d32eea3970360dc266f60f19decbea65d203372855599bdbd995de3"
+    },
+    "8:295": {
+      "name": "Build a clear reading rhythm. Keep contr",
+      "type": "TEXT",
+      "hash": "6f534fb55f3d1276edf6a3fd46e623c971574b143b86b5921b4ec9986d7991bc"
+    },
+    "8:296": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "536e40e54e7ea6732ea9e5bf34d41640e02e3e0f3c4f462e6c0c4b06c32bf33c"
+    },
+    "I8:296;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "5904ddc565a661464ec8464c9358007d20afcce591f84234bfe29480bd9c1704"
+    },
+    "I8:296;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "d02897dca2aced3412980725e9dc50a7186f1245a40d4f38b9f49129643f7915"
+    },
+    "I8:296;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "804ddccfe5ae4ac2690082f8746d7475729ad380678de0aac1d23be712dde4e9"
+    },
+    "I8:296;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "fc7d4d1f6b789938de7e38b0c6a8532541499c3d3f8249b070317dc7212c6e42"
+    },
+    "8:303": {
+      "name": "Reading / Dusk / 390",
+      "type": "FRAME",
+      "hash": "89d12c9223052556eda925c3e55b3a464ce3a1926d12f502aee5a7b684bc4a01"
+    },
+    "8:304": {
+      "name": "READING / DUSK",
+      "type": "TEXT",
+      "hash": "5ba5ec4aa6f8c099853e75dfc69f5588580f57bfa4b063517337ce4fc165550a"
+    },
+    "8:305": {
+      "name": "Icon/book",
+      "type": "INSTANCE",
+      "hash": "49e6cdfb1743948253f897d8eadfe25791889677a026b0c98d75674687f98813"
+    },
+    "I8:305;4:35": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "92c448c6a229e616a5f59fcd252ec781332ca4dcb5ba7068349f84fec972fb07"
+    },
+    "I8:305;4:36": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "32e8d3c5ae89c7d34cd4021e533337d87ebe4e6b5a63d1f3d75c5524683a7f3b"
+    },
+    "8:308": {
+      "name": "Leave room for understanding.",
+      "type": "TEXT",
+      "hash": "8cac9d127c59dead8622cb5bab6eb00df17d5e75ff4ad4eb85b0ecc8bd0f2389"
+    },
+    "8:309": {
+      "name": "DESIGN NOTES · 4 MIN READ",
+      "type": "TEXT",
+      "hash": "77b523fcbc7b26deeb0a7890937b18b53b566d8ddfe9cd92e0a6ef6b1ddb2817"
+    },
+    "8:310": {
+      "name": "A familiar interface gives people a plac",
+      "type": "TEXT",
+      "hash": "d2451b06207ced8e5d6ce201a1f3744e3355c85dff4839a4fd4640ed291f6d4c"
+    },
+    "8:311": {
+      "name": "Materials should explain what an interfa",
+      "type": "TEXT",
+      "hash": "2757f1b315c72e45d4e60aef7163a20be5365e4b1a88a4ba8ed4a2c145ab5178"
+    },
+    "8:312": {
+      "name": "Build a clear reading rhythm. Keep contr",
+      "type": "TEXT",
+      "hash": "c526ce7add2a9bd9569ec5c8a950ca01b295f0af3a76eb2d20a0391537aa59e7"
+    },
+    "8:313": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "139e568d1443b4cab85bfe25d3a4891d461ba452be3cb5c60f26b6016c6df265"
+    },
+    "I8:313;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "75c0cd7063dec4dd1b623a2f48e0a85834681ebb0cc6f30deff15a4a5db1e425"
+    },
+    "I8:313;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "4e88cb09bba692f911a15ff5572fd6cad4a311783f7275dbd74a819e56a944de"
+    },
+    "I8:313;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "da1f2ad80d861306c1e1d7ee681806096e446e099e3548edc896c58584e3a371"
+    },
+    "I8:313;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "86993c20309be2c1c9212e6d48af2461152a6fe28562f6f8dc7f24e66082f4c0"
+    },
+    "8:318": {
+      "name": "Preferences",
+      "type": "TEXT",
+      "hash": "d5365f960230dbd0884bae3e8ca083dc6603c8c33e045c6e8e409ff6755c4efb"
+    },
+    "8:319": {
+      "name": "Preferences / responsive pair",
+      "type": "FRAME",
+      "hash": "f5a216a1fc1a490aa9ef84df2ee9e9c162b7ead90f63c1a7158e038699df2e2e"
+    },
+    "8:320": {
+      "name": "Preferences / Dawn / 900",
+      "type": "FRAME",
+      "hash": "4784b2eaa4e5b4ad781bfc8d50f3ce7da53108cdb39ffd2d122da2a44ef3b9e1"
+    },
+    "8:321": {
+      "name": "PREFERENCES / DAWN",
+      "type": "TEXT",
+      "hash": "19649da2e9abddcf19ad0902dece49c85324962d155252dc26d66e6dc8422872"
+    },
+    "8:322": {
+      "name": "Make yourself at home.",
+      "type": "TEXT",
+      "hash": "4ecd0bf0e432f8e9f3ccb7df390c3358257019e0332cb02450a1cdd2e13f7fb1"
+    },
+    "8:323": {
+      "name": "Demonstration only. No personal informat",
+      "type": "TEXT",
+      "hash": "733220826dbf8ce83494e6a0af8e9bf5d3f19ccf95520f4674a0075cf08be34d"
+    },
+    "8:324": {
+      "name": "Field",
+      "type": "INSTANCE",
+      "hash": "123efec57e5e6f05e61c935f5582e3f336ce683f895726552ba1668ef5e595f5"
+    },
+    "I8:324;5:109": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "fe0ca37246b96f853788b67902797e36de25f0be1729e9c6531478a6d0dd0968"
+    },
+    "I8:324;5:110": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "db4e3b95aea09bbf4630637ff4b1da9991ead6703d7869a5e352583ead54f1a8"
+    },
+    "I8:324;5:111": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "fb472b33a7a8535b998571e3042cea176b3b6e8d14b50f493dfe3ca016a3cd0c"
+    },
+    "I8:324;5:112": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "3650f28a56ea294ac74110b4297ccfb53a0ed600bc21189c2394b05e49601af9"
+    },
+    "8:329": {
+      "name": "Choice",
+      "type": "INSTANCE",
+      "hash": "9eb45f5ab42fe850b0edf8e61c3b149d665ed199ea8c8c159e5828e67478ee06"
+    },
+    "I8:329;5:136": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "1a38a02921498674590a67d2ac8d0bd3cdb5f69bd6a9eac3122c71b82a6b4ff0"
+    },
+    "I8:329;5:137": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "54dbc3ccc0fd072fdd6d769551ed6be79c1307df9b67ce5803d56ef4c03f1f9c"
+    },
+    "I8:329;5:137;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "06ddcd455b9ab6bfd71bed0464c6ca5a13776b2344dafa514b742ae2cd3213b4"
+    },
+    "I8:329;5:137;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f08d858d1b7115f23b257d9ace14d4126d9a3e64f02b228b13825e1b25082218"
+    },
+    "I8:329;5:140": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "52e8ea9c6c521aef4f49f5c9101d3bba25c60f4d93408a704b74a16aeca17d1d"
+    },
+    "8:335": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "e330daef0b48b3f25c799c157b34c338cd773f28dc6e3cd4079fc3f392f42fe8"
+    },
+    "I8:335;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "2efb2cc17ac5416eeeaf3bfce1652a8052f92ef60b4f5f8ca3f682a76ce57337"
+    },
+    "I8:335;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "7b9b3f89989da08686405a54b26ca3816e213fb20f6c4a615298f51a1a71ff72"
+    },
+    "I8:335;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "31a24639eebe8ba9b7cc7dddce19b25bdb7b55968e181278e42f7f7a5ff9134f"
+    },
+    "I8:335;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "35fe7075908bc0168634fd444ca596543b1f60b81ca9de385a0da1fb3787f079"
+    },
+    "8:340": {
+      "name": "Successful feedback distinguishes valida",
+      "type": "TEXT",
+      "hash": "a205156db45df11efa024a2dbb53493f06068efcae36aa704d80cdfbf68e5b07"
+    },
+    "8:341": {
+      "name": "Preferences / Dusk / 390",
+      "type": "FRAME",
+      "hash": "0ee10e41dba7e2a530c5b744ccf17069f8b0d904937b4b661de3f0001372b572"
+    },
+    "8:342": {
+      "name": "PREFERENCES / DUSK",
+      "type": "TEXT",
+      "hash": "1cc5f25d94990700e0b727bf857cbd429e14a333e8be2ff634ecae9d209f909c"
+    },
+    "8:343": {
+      "name": "Make yourself at home.",
+      "type": "TEXT",
+      "hash": "27bdf5c8fc2594de66d6510140bcb0f43e6902fbad34c737fb49e9082583f451"
+    },
+    "8:344": {
+      "name": "Demonstration only. No personal informat",
+      "type": "TEXT",
+      "hash": "685958c92388c33eb1e1fbe57c42c52b4d312a2280a4385b28174731a95185a0"
+    },
+    "8:345": {
+      "name": "Field",
+      "type": "INSTANCE",
+      "hash": "a2a8e27248fdfdc5aeda696f9c3a445cbe7b944fd880bf4bbfc41045c7d2bd04"
+    },
+    "I8:345;5:109": {
+      "name": "Project name",
+      "type": "TEXT",
+      "hash": "d7b039cead4e122c527bb7b936afbc5f4ab772516cb528ffe2de153f83c0ac13"
+    },
+    "I8:345;5:110": {
+      "name": "Input well",
+      "type": "FRAME",
+      "hash": "09cf865aee4c160f0ae043dcc34d733b23c50762e2bf1196e2c74f6450fabe56"
+    },
+    "I8:345;5:111": {
+      "name": "Meridian library",
+      "type": "TEXT",
+      "hash": "93bff3bb92fad8858fbf2b4bccc9e004307463c54ab5646d39b557b0a9f2de4e"
+    },
+    "I8:345;5:112": {
+      "name": "Use a name people recognise.",
+      "type": "TEXT",
+      "hash": "fe780340751afa3a0e718b1eacbc9703882ee7fbd1a7a2c0d8ae75e39cf22390"
+    },
+    "8:350": {
+      "name": "Choice",
+      "type": "INSTANCE",
+      "hash": "8839adae3f7ee2492e615bb065f8d5a0e569d93db9890b69add458e4e05981e7"
+    },
+    "I8:350;5:136": {
+      "name": "Control",
+      "type": "FRAME",
+      "hash": "e5916c1cf798d097f61f129fcdd60696902dd1c2de8da8513b5f7ae3bae280cf"
+    },
+    "I8:350;5:137": {
+      "name": "Icon/check",
+      "type": "INSTANCE",
+      "hash": "36a3c918c2290aa59d85fdf6ac567f710eb228862bc86d618a282af05456522e"
+    },
+    "I8:350;5:137;4:22": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "cc55ad6ba102b81ec65a2c34b77bb60c487dcbec39730b2375b7060d809e52b1"
+    },
+    "I8:350;5:137;4:23": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "47960a63eaded762c05af491016a38c45bb15acd61d12469781018792684a99d"
+    },
+    "I8:350;5:140": {
+      "name": "Keep my reading place",
+      "type": "TEXT",
+      "hash": "10f5196f7e4d8fd2d36c28ab1bcf37fed9f75a6137056b6a0d79de8c52a4dbb5"
+    },
+    "8:356": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "ab3dbd3d809034c4dd28355bbd20e5c1687e9db017e77f540ba1dd2b627aa10a"
+    },
+    "I8:356;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "33d9b58ec0122b7f398d141d0a07358c570020bd024459da48b3d5463949af8b"
+    },
+    "I8:356;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "40dafe3646c555831c22f93457781a7a1d2f99bf9ac96676a350cffb23387be5"
+    },
+    "I8:356;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "1c9ea00b4cb54d7771cac94f3b969775e08d13cb43c0a25c47f751d05c36fcf3"
+    },
+    "I8:356;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "918d73c706d98ff1a38c4130781643fd0cdbce6b0e912a768eb71fc8f6998857"
+    },
+    "8:361": {
+      "name": "Successful feedback distinguishes valida",
+      "type": "TEXT",
+      "hash": "956119730bd2b048c68cb9e25b678feda168859522d7c18ea34afa8e5705082f"
+    },
+    "8:362": {
+      "name": "Workspace",
+      "type": "TEXT",
+      "hash": "a5a8642ced63e013d54bcebe2214ba261bf6acbb0b9ab1d92d224e9f53ccbc92"
+    },
+    "8:363": {
+      "name": "Workspace / responsive pair",
+      "type": "FRAME",
+      "hash": "2746640a1a8c7d892770cbe04f177f1e1a50632107e0360aaa99695b322b567b"
+    },
+    "8:364": {
+      "name": "Workspace / Dawn / 900",
+      "type": "FRAME",
+      "hash": "d9e0d564f4bff4fc4724e7daedd8fa9811b6b4e5b9ac1b244bd93acca6bde419"
+    },
+    "8:365": {
+      "name": "WORKSPACE / DAWN",
+      "type": "TEXT",
+      "hash": "460993493585b1273b545e4e1d12fff16dbd6be829acd0019e661234db93cd66"
+    },
+    "8:366": {
+      "name": "Navigation item",
+      "type": "INSTANCE",
+      "hash": "cd2656c20c9f6077351b05b36a08b4a2d3d6e762ad0276029a2d12db6bfa0a1b"
+    },
+    "I8:366;5:184": {
+      "name": "Foundations",
+      "type": "TEXT",
+      "hash": "abb896c4141313643c1220eec598e8b71aec81b42614ba7fba3b2cbe0031e4c7"
+    },
+    "8:368": {
+      "name": "Your next clear step.",
+      "type": "TEXT",
+      "hash": "77ae473b24f7399e7010d4a226970b84bbddb360fb11c58b4f2a78759f36985c"
+    },
+    "8:369": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "17a4f9ec2a710c590043df04f60b09b90d7352915a7c97d9e7762540e2afcd6a"
+    },
+    "I8:369;5:156": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "67f7de9966342c5a06dc9df861c6bcfc91a89eecfe7f9ec41ac6327f442baaa5"
+    },
+    "I8:369;5:156;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "52438ba2980f6bb204c95cf78b2a865a5a71648bbdb0c72d61c54bf36b1e08f0"
+    },
+    "I8:369;5:156;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "9992d54858281d3e3cf64ef7ff6a611c2e8056b674f4ad729fdc8453dcb3d619"
+    },
+    "I8:369;5:156;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "8098a703724d05a4d253a68b5b8e68012d65ff73d455595baa0c71d64882a473"
+    },
+    "I8:369;5:160": {
+      "name": "Needs review",
+      "type": "TEXT",
+      "hash": "ae4f0750ea45fc88d91eca6a6a83fc5d2f935bcbfe0a968322f654fc3687ae95"
+    },
+    "8:375": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "35cde6133d0485026ec8417559f1b5dc4449aa79bfdf977f577cfad70a305dc2"
+    },
+    "I8:375;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "9e6ac484163f2374e776771067de867ad6ea60d52a4200332c5dde9d5740dc15"
+    },
+    "I8:375;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "e6e14d3a92a435ca9b65da31b2e795e0122365081abdbc91ed66e44604af8688"
+    },
+    "I8:375;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "eea50699fa7e6962b483b73087ec6b7875456acaf642f0c06e9f4079bbea0164"
+    },
+    "I8:375;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "a4e2afbe14a257dd252eb02f8d08c4697d3e44fb7c0f8c730e687e875b757b5f"
+    },
+    "I8:375;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "943de960adb2e649fdc36e848fd9847c6972d23b4db4034833a945f2c6e830a6"
+    },
+    "I8:375;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "568e2550c178e6abc229f881b6b7e65c57f0975f3a0b6869cb15ba25e5d16581"
+    },
+    "I8:375;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "82349e461b8f45770012ac973bbeb3b47297d3a0dce161d0cc7d0ee356126786"
+    },
+    "8:385": {
+      "name": "Empty state",
+      "type": "FRAME",
+      "hash": "fd70dd3cc4f671abbf97c04fdd008f68d25e7f14584acee9ab38656baeba52c3"
+    },
+    "8:386": {
+      "name": "A place for what comes next.",
+      "type": "TEXT",
+      "hash": "fc8443858b12a354f947574ecc2f647a4235601ceb219695cc5b636030efa922"
+    },
+    "8:387": {
+      "name": "There are no other items here yet.",
+      "type": "TEXT",
+      "hash": "5a51c82d950837c90176564be0d6a58173e1d3f63705d42a27b802d1bac5d4d9"
+    },
+    "8:388": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "89e67ed1d0908b53ba23f76672b761816812354d259046ada1696561c9129512"
+    },
+    "I8:388;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "80afec16ba989111e4ed4a68701bdad201126f162f7607a259b7bcb18f3f4f7d"
+    },
+    "I8:388;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "4bdb0fbe8800f83423a56f49a03b6e5d88640329d6bc84fb4b8d0b3ea6646bbd"
+    },
+    "I8:388;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "26ce3d0b73fbd9eca0dfdd9326786c1577a8452d3988d85b15e0018bda3d8939"
+    },
+    "I8:388;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "f72e55895794598c9024dc237928764381cacf033c871e885e4572192f18d299"
+    },
+    "8:393": {
+      "name": "Workspace / Dusk / 390",
+      "type": "FRAME",
+      "hash": "751a3db8cf29fd0456133e64f5842f078cd180921e298fd6c6b0f14c8c0aa5fa"
+    },
+    "8:394": {
+      "name": "WORKSPACE / DUSK",
+      "type": "TEXT",
+      "hash": "13191563129491f70a5ac1952e6fb2b0edc16e4af99271ac109d917a091383f3"
+    },
+    "8:395": {
+      "name": "Navigation item",
+      "type": "INSTANCE",
+      "hash": "8ec8b84df4a482dc8d82a4db81e2c019f7956fc4e46b72c5954e11d3002c0fa8"
+    },
+    "I8:395;5:184": {
+      "name": "Foundations",
+      "type": "TEXT",
+      "hash": "fb39bf85293c75d94d52b527583b8ff3e9ca1b6bee701c718ad5f86364767282"
+    },
+    "8:397": {
+      "name": "Your next clear step.",
+      "type": "TEXT",
+      "hash": "b6182c55f2f08eeacb868ee7c75720734877ca48caad47430772b747d123c706"
+    },
+    "8:398": {
+      "name": "Badge",
+      "type": "INSTANCE",
+      "hash": "0f65bc074baf26ae8bc0b703c19d289b4a0196b084fd1b82f4eb3e744dc55b6c"
+    },
+    "I8:398;5:156": {
+      "name": "Icon/info",
+      "type": "INSTANCE",
+      "hash": "a80fdd9abebec33f9a763d7ca77bdc0b2d444eb6ab3a30b0234b470b57cc05c3"
+    },
+    "I8:398;5:156;4:28": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "7b0c077b00c9187e1b6ae13ec546988e983ae7e704165eb353727cc0824cd9be"
+    },
+    "I8:398;5:156;4:29": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "a57c3a296fd34b31cbf3d22a19c2bcb3f00f04979dfc7de93661cda7cb18dbd3"
+    },
+    "I8:398;5:156;4:30": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "411f1f1aa3360ecb67a41f86a57bca3c15048f8693278e784d9c9a06abb5b5aa"
+    },
+    "I8:398;5:160": {
+      "name": "Needs review",
+      "type": "TEXT",
+      "hash": "ccd934e9fe44a433d2d59fa9a7f9f71de8e782a04d84a0985781644a61925fbd"
+    },
+    "8:404": {
+      "name": "Card",
+      "type": "INSTANCE",
+      "hash": "e655136ff14bcdc4f5e5f0652476ff1ced016e748b06d9364c7b23457475682d"
+    },
+    "I8:404;5:172": {
+      "name": "Make the next step clear.",
+      "type": "TEXT",
+      "hash": "ce4c719f64c53dc7c42bf0b3b59e6aefcdefbdc38688f1fabf004cad8d1feba7"
+    },
+    "I8:404;5:173": {
+      "name": "Group related information, with a focuse",
+      "type": "TEXT",
+      "hash": "e76a7ecde801341cd139cb64ea53f78b207057d4702f5ebfe65f42ea99a0930f"
+    },
+    "I8:404;5:174": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "0ab2950101d354139e72c3ff02235a053c9a20123cee1a6b63b6d2ac4adeee6f"
+    },
+    "I8:404;5:174;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "b987d14c77de8768df05f2267139c7b75ee95bd9abf6193c63cb0128644dde4d"
+    },
+    "I8:404;5:174;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "7fbb03a140a868144248023034994561604f242f4072bec4d791ffacaaf1dede"
+    },
+    "I8:404;5:174;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "3a87012c17c01222cbe7803fb32f60520cb233865f1fb9daee1ad962f4f7b54f"
+    },
+    "I8:404;5:174;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "d1fd565b57e71b1fe2b5ff51ab15ee7d0817951d8fb0d1edfd2569ddaa1d6cf2"
+    },
+    "8:412": {
+      "name": "Empty state",
+      "type": "FRAME",
+      "hash": "0c2294eafd442efc0bd93d6ed7fbb3aba5e0baa753f4bf56487d98814dd45673"
+    },
+    "8:413": {
+      "name": "A place for what comes next.",
+      "type": "TEXT",
+      "hash": "d4855b50fea38697f1deaf7761c054aa1b927c6ddc30a616cee0f789435a7bac"
+    },
+    "8:414": {
+      "name": "There are no other items here yet.",
+      "type": "TEXT",
+      "hash": "95a0f656a3cfae1b45d79ffa10f5036cceeece2e83e881a11d7433afeaa707ab"
+    },
+    "8:415": {
+      "name": "Button",
+      "type": "INSTANCE",
+      "hash": "1c92653adcf2c3a0f276557ec7aedd00bcdda131b2b527e72a1ef85045b60b92"
+    },
+    "I8:415;5:23": {
+      "name": "Continue",
+      "type": "TEXT",
+      "hash": "ebb8a55229bb5df2f60b53eec77c3c4fd116421a80ee29289f409b2ed1ab25fc"
+    },
+    "I8:415;5:24": {
+      "name": "Icon/arrow",
+      "type": "INSTANCE",
+      "hash": "b98f06965e00f72cdeb3a7cb53254f1398bda6898b779ccd72a0706477eb9ae7"
+    },
+    "I8:415;5:24;4:19": {
+      "name": "Frame",
+      "type": "FRAME",
+      "hash": "b94005018952d05246964bd3ce6c51f3cc341c7cf5bf562c6c4367aef61b54a3"
+    },
+    "I8:415;5:24;4:20": {
+      "name": "Vector",
+      "type": "VECTOR",
+      "hash": "113cec4075f682733e72dcd20a6dd39711226bb9b156927af17f28dd957843f1"
+    },
+    "3:211": {
+      "name": "05 · Adoption",
+      "type": "CANVAS",
+      "hash": "2b29c30a331362a8fde12a5db81bfff0083965493790449ab3d775a20d43e472"
+    },
+    "8:420": {
+      "name": "Adoption / Review",
+      "type": "FRAME",
+      "hash": "6137eab176f7464413be760eab57f3daa21ff53cc3c8b8789e51ca0b5e046b3c"
+    },
+    "8:421": {
+      "name": "MERIDIAN / WEB LIBRARY 0.1",
+      "type": "TEXT",
+      "hash": "2a8245f0cca25da4374b1ceb3d7eaf823f2afe4d60c990106d942ab98ba30439"
+    },
+    "8:422": {
+      "name": "Shared roots. Different worlds.",
+      "type": "TEXT",
+      "hash": "5dcd87df47becf44dcff330c1fc3651880b54f38a5c990982135a4cb858a204e"
+    },
+    "8:423": {
+      "name": "A shared interface method, with room for",
+      "type": "TEXT",
+      "hash": "dd7f7749cd163997aa8893c04ade5d308a3636a7066309d2727b61fa4b48aaf2"
+    },
+    "8:424": {
+      "name": "Lexis",
+      "type": "FRAME",
+      "hash": "ae43fe80e8a6e083e77402ca4ca5ff700bfb0f77b12eb1f918f54cbd7f748590"
+    },
+    "8:425": {
+      "name": "Lexis",
+      "type": "TEXT",
+      "hash": "5a52771a4938da7988ed52001cfafff0bef51e2062c489cb7aa9cc494137a761"
+    },
+    "8:426": {
+      "name": "Paper, wine and gold. Fraunces / Newsrea",
+      "type": "TEXT",
+      "hash": "80fef98f0d673ef90a2ebbe3ca93039f192aca5244d7899ce3f79ad9d7d797da"
+    },
+    "8:427": {
+      "name": "Preserve its editorial identity, semanti",
+      "type": "TEXT",
+      "hash": "9f37925b7d55fdeb0cbfbc16f9e26111c0d5b19495e51ae8087d290aa12f5ef2"
+    },
+    "8:428": {
+      "name": "EFL Lesson Framework",
+      "type": "FRAME",
+      "hash": "2775246c50b7e7b021ea3f626b5caed0e07fc95e85ffa67369df65c432347ae3"
+    },
+    "8:429": {
+      "name": "EFL Lesson Framework",
+      "type": "TEXT",
+      "hash": "9c40e49bd314fd3f93ed2c99626b823c26b298e8670bc9e6f522744ab6f5def6"
+    },
+    "8:430": {
+      "name": "Paper, wine and gold. Existing fluid typ",
+      "type": "TEXT",
+      "hash": "9b0c4125eff79d8f9004498c91c7d22793afe64418f694e825e9572e797a9eae"
+    },
+    "8:431": {
+      "name": "Preserve lesson and print identity. Do n",
+      "type": "TEXT",
+      "hash": "e2d342890509325c4069bef24f07696f37f7e85137461a293ea83ad08fc37e08"
+    },
+    "8:432": {
+      "name": "VIA",
+      "type": "FRAME",
+      "hash": "354794081cd2ac697653ae982b68b1831a9dab2f47413c542b84236e9110bcc7"
+    },
+    "8:433": {
+      "name": "VIA",
+      "type": "TEXT",
+      "hash": "aa570014190c41b255c361a74b93678f3648d51b82c7cb6cda683d3b41276b28"
+    },
+    "8:434": {
+      "name": "Warm editorial identity with deep green.",
+      "type": "TEXT",
+      "hash": "f66ff6fd95e9d2100fba2694c76791732010582183578442ebd91414a1a44235"
+    },
+    "8:435": {
+      "name": "Its single-environment constraint is a p",
+      "type": "TEXT",
+      "hash": "ccac659b23aea8bdfa9f9b3499735203bb574524e340a84ab27c590962f14f1f"
+    },
+    "8:436": {
+      "name": "Ambientis / Terra",
+      "type": "FRAME",
+      "hash": "05b0eb5863a1aa3b138ed9b7de8a256549a13b953d058a940e734c2e0cc4e781"
+    },
+    "8:437": {
+      "name": "Ambientis / Terra",
+      "type": "TEXT",
+      "hash": "b5d071fbe5c4223c180f06ca7f3e5beeb688a3c1e62ff2aec525c8933c83878f"
+    },
+    "8:438": {
+      "name": "Mobile-first, guided work and clear evid",
+      "type": "TEXT",
+      "hash": "9954c3791cf3ad7888b4419a773152e809f17542819198bcd22e37dbdeff63ad"
+    },
+    "8:439": {
+      "name": "Terra is a future adaptation, not an app",
+      "type": "TEXT",
+      "hash": "3da9451ebe6a893d0c94d4380e3e34e8cd8b985471f4844acce62f2f4a2b46bd"
+    },
+    "8:440": {
+      "name": "Adopt gradually",
+      "type": "TEXT",
+      "hash": "750759df35f07fc8a7f7ca12494ab8a78e80472817e81bc6819785db7574279a"
+    },
+    "8:441": {
+      "name": "1 / Map product colours and typography t",
+      "type": "TEXT",
+      "hash": "16f981fd4f190eeef66bb8ff3f5bfb5cfca07f672639f2eb3ba50f71c243f61b"
+    },
+    "8:442": {
+      "name": "This release does not change any existin",
+      "type": "TEXT",
+      "hash": "b124d187aa9389fb084b463609456d873cf711a487e44c1a27e639c086553715"
+    }
+  }
+}
