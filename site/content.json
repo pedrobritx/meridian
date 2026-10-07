@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "fields": {
+    "heroTitle": {
+      "nodeId": "92:37",
+      "pageId": "92:34",
+      "value": "One language. Many natural expressions."
+    },
+    "heroDescription": {
+      "nodeId": "92:38",
+      "pageId": "92:34",
+      "value": "Meridian Core defines trustworthy behaviour. Grass and Paper adapt its material, colour, shape and rhythm to the purpose of each product. A profile is more than a palette."
+    },
+    "coreTitle": {
+      "nodeId": "92:40",
+      "pageId": "92:34",
+      "value": "Core / what stays consistent"
+    },
+    "coreDescription": {
+      "nodeId": "92:41",
+      "pageId": "92:34",
+      "value": "Semantic roles, accessible contrast, 48px targets, focus visibility, state meaning, truthful feedback and recoverable journeys. Shared components remain linked."
+    },
+    "grassTitle": {
+      "nodeId": "92:43",
+      "pageId": "92:34",
+      "value": "Grass / environmental compliance"
+    },
+    "grassDescription": {
+      "nodeId": "92:44",
+      "pageId": "92:34",
+      "value": "Pine and mint, soft 24px contours, calm responses and traceable evidence. Familiarity comes from stewardship, field records, permits and environmental responsibility. Green must not imply compliance without verified evidence."
+    },
+    "paperTitle": {
+      "nodeId": "92:46",
+      "pageId": "92:34",
+      "value": "Paper / Lexis learning"
+    },
+    "paperDescription": {
+      "nodeId": "92:47",
+      "pageId": "92:34",
+      "value": "Warm paper, wine ink, restrained gold, readable pages and notebook references. Familiarity comes from books, lessons, annotations and progress. 24px surfaces and list items; 14px compact input details preserve the editorial vocabulary."
+    },
+    "extendTitle": {
+      "nodeId": "92:49",
+      "pageId": "92:34",
+      "value": "Extend / a new Meridian"
+    },
+    "extendDescription": {
+      "nodeId": "92:50",
+      "pageId": "92:34",
+      "value": "Define the people, tasks and familiar materials first. Then add colour modes and profile shape/motion modes. Reuse semantic names and the shared components. Test all states in light and dark before publishing."
+    }
+  }
+}

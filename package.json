@@ -1,12 +1,12 @@
 {
   "name": "@pedrobritx/meridian",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "Meridian web foundations, Figma library and living reference",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/build-tokens.mjs && vite build --base=/meridian/",
+    "build": "node scripts/build-plugin.mjs && node scripts/build-tokens.mjs && vite build --base=/meridian/",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs scripts/figma/*.test.mjs",
     "test:browser": "playwright test",
@@ -14,12 +14,13 @@
   },
   "dependencies": {
     "@fontsource/fraunces": "^5.2.9",
-    "@fontsource/newsreader": "^5.2.8",
-    "@fontsource/jetbrains-mono": "^5.2.8"
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/newsreader": "^5.2.8"
   },
   "devDependencies": {
-    "vite": "^7.1.9",
+    "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.56.0",
-    "@axe-core/playwright": "^4.10.2"
+    "vite": "^7.1.9"
   }
 }

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font: 14px/1.5 system-ui;
+        margin: 24px;
+        color: #1c302c;
+        background: #f4f6f2;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      label {
+        display: block;
+        margin-top: 16px;
+      }
+      input[type="password"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #526a63;
+        border-radius: 24px;
+      }
+      button {
+        margin: 12px 4px 0 0;
+        padding: 12px 16px;
+        border: 1px solid #526a63;
+        border-radius: 24px;
+        background: #235d50;
+        color: #fcfdf9;
+      }
+      button:disabled {
+        background: #e4ece6;
+        color: #526a63;
+      }
+      button:focus-visible,
+      input:focus-visible {
+        outline: 2px solid #235d50;
+        outline-offset: 3px;
+      }
+      #status {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Meridian ↔ GitHub</h1>
+    <p>
+      Share Grass/Paper tokens and library copy with
+      <strong>pedrobritx/meridian</strong>. The published site follows main.
+    </p>
+    <label
+      >Session GitHub token · Contents write<input
+        id="token"
+        type="password"
+        autocomplete="off"
+        spellcheck="false"
+    /></label>
+    <p>The credential stays in this plugin session. Disconnect to clear it.</p>
+    <button id="compare">Compare</button
+    ><button id="import">Apply GitHub values</button
+    ><button id="publish">Publish Figma for review</button
+    ><button id="download">Download contract</button
+    ><label
+      ><input id="live" type="checkbox" /> Live sync while this plugin is
+      open</label
+    >
+    <p>
+      Checks every 30 seconds. Conflicting edits pause synchronization. Layouts
+      and application code need explicit implementation.
+    </p>
+    <button id="disconnect">Disconnect</button>
+    <p id="status" role="status" aria-live="polite">
+      Compare the current shared contract to begin.
+    </p>
+    <script>
+      /*SHARED_SCRIPT*/
+    </script>
+  </body>
+</html>

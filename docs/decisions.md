@@ -1,4 +1,4 @@
-# Decisions — web reference 0.1
+# Decisions — historical 0.1 and current 0.4
 
 ## Source hierarchy
 
@@ -17,3 +17,7 @@ Fraunces display, Newsreader reading and JetBrains Mono labels reflect the inspe
 ## Adaptation and versioning
 
 0.1.0 is the first implemented reference, not a claim that every planned design-system capability is complete. Native Apple libraries, product migrations, a complete icon catalogue, advanced component families and approved Terra tokens remain future work. Designs and runtime representations share names and values but are not pixel-identical captures; Figma uses editable layers and instances.
+
+## 0.4 shared contract
+
+The website now consumes the four-mode Core/Grass/Paper token export and mapped Figma library copy. This replaces the 0.1 palette as the current reference; the older choices above remain historical. The bridge preserves a review PR before Pages publication and offers session-based two-way variable/text synchronization. Layouts, code and prototype reactions are not reversible through tokens alone.

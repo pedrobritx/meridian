@@ -146,6 +146,6 @@
   "completeInventory": "../design/meridian/figma-manifest.json",
   "nativeProvenance": "../design/figma/generated/figma-source.json",
   "canonicalTokens": "../design/figma/generated/tokens.json",
-  "runtimeReference": "figma-library-0.1.json",
-  "note": "The 0.1 website remains a separate implementation; it does not import the 0.4 export automatically."
+  "runtimeReference": "design/figma/generated/tokens.json",
+  "note": "Website 0.4 consumes the four-mode token export and site/content.json. The plugin round-trips values and mapped copy; layout/code remain implementation work."
 }

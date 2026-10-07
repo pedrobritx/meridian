@@ -16,28 +16,29 @@
         display: block;
         margin-top: 16px;
       }
-      input {
-        box-sizing: border-box;
+      input[type="password"] {
         width: 100%;
+        box-sizing: border-box;
         padding: 10px;
         border: 1px solid #526a63;
-        border-radius: 10px;
+        border-radius: 24px;
       }
       button {
-        margin: 16px 8px 0 0;
+        margin: 12px 4px 0 0;
         padding: 12px 16px;
-        border: 0;
+        border: 1px solid #526a63;
         border-radius: 24px;
         background: #235d50;
         color: #fcfdf9;
+      }
+      button:disabled {
+        background: #e4ece6;
+        color: #526a63;
       }
       button:focus-visible,
       input:focus-visible {
         outline: 2px solid #235d50;
         outline-offset: 3px;
-      }
-      button:disabled {
-        opacity: 0.5;
       }
       #status {
         white-space: pre-wrap;
@@ -45,79 +46,615 @@
     </style>
   </head>
   <body>
-    <h1>Publish Meridian tokens</h1>
-    <p>Export Grass and Paper variables in light and dark to a draft PR in pedrobritx/meridian.</p>
-    <label for="token">GitHub token — Contents: write on meridian</label>
-    <input id="token" type="password" autocomplete="off" spellcheck="false" />
-    <button id="publish">Publish for review</button>
-    <button id="download">Download JSON</button>
-    <p id="status" role="status" aria-live="polite"></p>
+    <h1>Meridian ↔ GitHub</h1>
+    <p>
+      Share Grass/Paper tokens and library copy with
+      <strong>pedrobritx/meridian</strong>. The published site follows main.
+    </p>
+    <label
+      >Session GitHub token · Contents write<input
+        id="token"
+        type="password"
+        autocomplete="off"
+        spellcheck="false"
+    /></label>
+    <p>The credential stays in this plugin session. Disconnect to clear it.</p>
+    <button id="compare">Compare</button
+    ><button id="import">Apply GitHub values</button
+    ><button id="publish">Publish Figma for review</button
+    ><button id="download">Download contract</button
+    ><label
+      ><input id="live" type="checkbox" /> Live sync while this plugin is
+      open</label
+    >
+    <p>
+      Checks every 30 seconds. Conflicting edits pause synchronization. Layouts
+      and application code need explicit implementation.
+    </p>
+    <button id="disconnect">Disconnect</button>
+    <p id="status" role="status" aria-live="polite">
+      Compare the current shared contract to begin.
+    </p>
     <script>
-      const status = document.querySelector('#status')
-      const publish = document.querySelector('#publish')
-      const download = document.querySelector('#download')
-      let intent
-      function exportTokens(action) {
-        intent = action
-        publish.disabled = download.disabled = true
-        status.textContent = 'Resolving Grass and Paper variables…'
-        parent.postMessage({ pluginMessage: { type: 'export' } }, '*')
-      }
-      publish.onclick = () => {
-        if (!document.querySelector('#token').value.trim()) {
-          status.textContent =
-            'Enter a GitHub token for this repository. It is kept only in this window.'
-          return
+      /** Plugin export contract, independent of the Enterprise-only Variables REST API. */
+function validateTokens(bundle, config) {
+  if (bundle?.fileKey !== config.fileKey || bundle.schemaVersion !== 1) {
+    throw new Error(
+      "Token bundle does not match the configured Figma file/schema",
+    );
+  }
+  const entries = Object.entries(bundle.modes ?? {});
+  if (
+    entries.length !== config.themeModes.length ||
+    entries.some(([mode]) => !config.themeModes.includes(mode))
+  ) {
+    throw new Error("Token modes must exactly match configured profiles");
+  }
+  entries.sort(
+    ([a], [b]) => config.themeModes.indexOf(a) - config.themeModes.indexOf(b),
+  );
+  let keys;
+  for (const [, tokens] of entries) {
+    const names = Object.keys(tokens).sort();
+    if (names.length < 1 || names.length > 500)
+      throw new Error("Invalid token count");
+    if (keys && JSON.stringify(keys) !== JSON.stringify(names))
+      throw new Error("Theme token names differ");
+    keys = names;
+    const cssNames = new Set();
+    for (const [name, token] of Object.entries(tokens)) {
+      if (!/^[a-z][a-z0-9/-]{1,100}$/.test(name))
+        throw new Error("Unsafe token name");
+      const cssName = name.replaceAll("/", "-");
+      if (cssNames.has(cssName)) throw new Error("Colliding CSS token names");
+      cssNames.add(cssName);
+      if (token.type === "COLOR") {
+        for (const channel of ["r", "g", "b", "a"]) {
+          const number = token.value?.[channel];
+          if (!Number.isFinite(number) || number < 0 || number > 1)
+            throw new Error("Invalid colour");
         }
-        exportTokens('publish')
+      } else if (token.type === "FLOAT") {
+        if (
+          !Number.isFinite(token.value) ||
+          token.value < 0 ||
+          token.value > 10000
+        )
+          throw new Error("Invalid numeric token");
+        if (name.startsWith("opacity/") && token.value > 100)
+          throw new Error("Figma opacity must be a percentage from 0 to 100");
+      } else if (token.type === "STRING") {
+        const font =
+          /^typography\/[a-z0-9-]+\/family$/.test(name) &&
+          ["Manrope", "Fraunces", "Newsreader", "JetBrains Mono"].includes(
+            token.value,
+          );
+        const easing =
+          /^motion\/easing\/[a-z-]+$/.test(name) &&
+          typeof token.value === "string" &&
+          /^cubic-bezier\(\s*(?:0(?:\.\d+)?|1(?:\.0+)?)\s*,\s*(?:0(?:\.\d+)?|1(?:\.0+)?)\s*,\s*(?:0(?:\.\d+)?|1(?:\.0+)?)\s*,\s*(?:0(?:\.\d+)?|1(?:\.0+)?)\s*\)$/.test(
+            token.value,
+          );
+        if (!font && !easing)
+          throw new Error("Unsupported or unsafe string token");
+      } else throw new Error("Unsupported token type");
+    }
+  }
+  // Remove timestamps and any additional plugin input from committed data.
+  return {
+    schemaVersion: 1,
+    fileKey: config.fileKey,
+    modes: Object.fromEntries(
+      entries.map(([mode, tokens]) => [
+        mode,
+        Object.fromEntries(
+          Object.keys(tokens)
+            .sort()
+            .map((name) => [
+              name,
+              { type: tokens[name].type, value: tokens[name].value },
+            ]),
+        ),
+      ]),
+    ),
+  };
+}
+
+function tokenCss(bundle) {
+  const css = [
+    "/* Generated Meridian reference tokens. Reviewed adaptation into a product is required. */",
+  ];
+  for (const [mode, tokens] of Object.entries(bundle.modes)) {
+    const selectors = {
+      Dawn: ':root, [data-meridian="grass"]',
+      Dusk: '.dark:not([data-meridian]), [data-meridian="grass"][data-theme="dark"], [data-meridian="grass"].dark:not([data-theme="light"])',
+      PaperDawn: '[data-meridian="paper"]',
+      PaperDusk:
+        '[data-meridian="paper"][data-theme="dark"], [data-meridian="paper"].dark:not([data-theme="light"])',
+    };
+    if (!selectors[mode]) throw new Error("Unsupported CSS theme mode");
+    css.push(`${selectors[mode]} {`);
+    for (const [name, token] of Object.entries(tokens)) {
+      let value = token.value;
+      if (token.type === "COLOR") {
+        const { r, g, b, a } = value;
+        value = `rgb(${Math.round(r * 255)} ${Math.round(g * 255)} ${Math.round(b * 255)} / ${Number(a.toFixed(4))})`;
+      } else if (token.type === "STRING") {
+        value = name.endsWith("/family") ? JSON.stringify(value) : value;
+      } else {
+        value = Number(value.toFixed(4));
+        if (name.startsWith("opacity/"))
+          value = Number((value / 100).toFixed(4));
+        else if (name.startsWith("motion/duration/")) value = `${value}ms`;
+        else if (
+          /^(spacing|radius|size|layout|blur|stroke|focus|breakpoint|elevation)\//.test(
+            name,
+          ) ||
+          /^typography\/[^/]+\/(size|line-height|letter-spacing)$/.test(name) ||
+          /^grid\/[^/]+\/(gutter|margin)$/.test(name) ||
+          name.startsWith("motion/translate/")
+        )
+          value = `${value}px`;
       }
-      download.onclick = () => exportTokens('download')
-      onmessage = async (event) => {
-        const message = event.data.pluginMessage
-        if (!message) return
-        try {
-          if (message.type === 'error') throw new Error(message.message)
-          if (message.type !== 'tokens') return
-          if (intent === 'download') {
-            const url = URL.createObjectURL(
-              new Blob([JSON.stringify(message.tokens, null, 2)], { type: 'application/json' }),
+      css.push(`  --meridian-${name.replaceAll("/", "-")}: ${value};`);
+    }
+    css.push("}", "");
+  }
+  return css.join("\n");
+}
+
+const websiteAliases = `[data-meridian] {
+  --md-font-display: var(--md-typography-h1-family);
+  --md-font-body: var(--md-typography-button-family);
+  --md-font-reading: var(--md-typography-reading-family);
+  --md-font-label: var(--md-typography-button-family);
+  --md-motion-hover: var(--md-motion-duration-hover);
+  --md-motion-button: var(--md-motion-duration-release);
+  --md-ease: var(--md-motion-easing-settle);
+  color-scheme: light;
+}
+[data-meridian][data-theme="dark"] { color-scheme: dark; }
+`;
+
+function websiteCss(bundle) {
+  return (
+    "/* Generated from design/figma/generated/tokens.json; do not edit. */\n" +
+    tokenCss(bundle)
+      .split("\n")
+      .slice(1)
+      .join("\n")
+      .replaceAll("--meridian-", "--md-") +
+    "\n" +
+    websiteAliases
+  );
+}
+
+const modes = ["Dawn", "Dusk", "PaperDawn", "PaperDusk"];
+const fileKey = "aJ2f6aYX9KBucAdPsCmkXn";
+function validateContent(content, template) {
+  if (content?.schemaVersion !== 1 || content.fileKey !== fileKey)
+    throw Error("Wrong shared-content file/schema");
+  const names = Object.keys(template.fields).sort();
+  if (
+    JSON.stringify(Object.keys(content.fields ?? {}).sort()) !==
+    JSON.stringify(names)
+  )
+    throw Error("Shared-content fields differ");
+  const fields = {};
+  for (const name of names) {
+    const field = content.fields[name],
+      expected = template.fields[name];
+    if (
+      field.nodeId !== expected.nodeId ||
+      field.pageId !== expected.pageId ||
+      typeof field.value !== "string" ||
+      field.value.length > 4000
+    )
+      throw Error("Invalid shared-content field: " + name);
+    fields[name] = {
+      nodeId: field.nodeId,
+      pageId: field.pageId,
+      value: field.value,
+    };
+  }
+  return { schemaVersion: 1, fileKey, fields };
+}
+function extractContent(document, template) {
+  const byId = {};
+  const visit = (n) => {
+    byId[n.id] = n;
+    for (const child of n.children ?? []) visit(child);
+  };
+  visit(document);
+  const fields = {};
+  for (const [name, field] of Object.entries(template.fields)) {
+    const n = byId[field.nodeId];
+    if (n?.type !== "TEXT")
+      throw Error(
+        "Named version lacks current shared content: " +
+          name +
+          ". Save a new version of the current library.",
+      );
+    fields[name] = { ...field, value: n.characters };
+  }
+  return validateContent({ schemaVersion: 1, fileKey, fields }, template);
+}
+function signature(value) {
+  const normal = (v) =>
+    typeof v === "number"
+      ? Number(v.toFixed(6))
+      : Array.isArray(v)
+        ? v.map(normal)
+        : v && typeof v === "object"
+          ? Object.fromEntries(
+              Object.keys(v)
+                .sort()
+                .map((k) => [k, normal(v[k])]),
             )
-            const link = document.createElement('a')
-            link.href = url
-            link.download = 'meridian-tokens.json'
-            link.click()
-            URL.revokeObjectURL(url)
-            status.textContent = 'Downloaded the current token export.'
-          } else {
-            const tokenInput = document.querySelector('#token')
-            const token = tokenInput.value.trim()
-            tokenInput.value = ''
-            const result = await fetch('https://api.github.com/repos/pedrobritx/meridian/dispatches', {
-              method: 'POST',
-              headers: {
-                Authorization: `Bearer ${token}`,
-                Accept: 'application/vnd.github+json',
-                'Content-Type': 'application/json',
-                'X-GitHub-Api-Version': '2022-11-28',
-              },
-              body: JSON.stringify({
-                event_type: 'figma-tokens',
-                client_payload: { file_key: message.tokens.fileKey, tokens: message.tokens },
-              }),
-            })
-            if (!result.ok)
-              throw new Error(
-                `GitHub rejected the publish request (${result.status}). Check token access and the installed workflow.`,
-              )
-            status.textContent =
-              'Published. GitHub Actions will open or update the draft export PR. Check the Figma Design Sync workflow for its result.'
-          }
-        } catch (error) {
-          status.textContent = error.message
-        } finally {
-          publish.disabled = download.disabled = false
-        }
-      }
+          : v;
+  return JSON.stringify(normal(value));
+}
+function syncDirection(base, local, remote) {
+  const l = signature(local),
+    r = signature(remote);
+  if (l === r) return "equal";
+  if (!base) return "choose";
+  const b = signature(base);
+  if (l === b) return "import";
+  if (r === b) return "publish";
+  return "conflict";
+}
+function captureNativeTokens(collections, variables) {
+  const cs = Object.fromEntries(collections.map((c) => [c.id, c])),
+    vs = Object.fromEntries(variables.map((v) => [v.id, v]));
+  const resolve = (v, theme, seen = new Set()) => {
+    if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
+    seen.add(v.id);
+    const c = cs[v.variableCollectionId];
+    let m =
+      c.modes.find((m) => m.name === theme) ||
+      c.modes.find(
+        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
+      );
+    if (
+      !m &&
+      c.modes.length === 1 &&
+      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
+        c.name,
+      )
+    )
+      m = c.modes[0];
+    if (!m) throw Error("Missing profile mode in " + c.name);
+    const value = v.valuesByMode[m.modeId];
+    return value?.type === "VARIABLE_ALIAS"
+      ? resolve(vs[value.id], theme, seen)
+      : value;
+  };
+  const semantic = variables.filter(
+    (v) =>
+      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
+      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
+      ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType),
+  );
+  return validateTokens(
+    {
+      schemaVersion: 1,
+      fileKey,
+      modes: Object.fromEntries(
+        modes.map((theme) => [
+          theme,
+          Object.fromEntries(
+            semantic.map((v) => [
+              v.name,
+              { type: v.resolvedType, value: resolve(v, theme) },
+            ]),
+          ),
+        ]),
+      ),
+    },
+    { fileKey, themeModes: modes },
+  );
+}
+function planTokenImport(bundle, collections, variables) {
+  const candidate = validateTokens(bundle, { fileKey, themeModes: modes });
+  const cs = Object.fromEntries(collections.map((c) => [c.id, c])),
+    vs = Object.fromEntries(variables.map((v) => [v.id, v]));
+  const semantic = variables.filter(
+    (v) =>
+      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
+      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
+      ["FLOAT", "COLOR", "STRING"].includes(v.resolvedType),
+  );
+  const localNames = semantic.map((v) => v.name).sort();
+  if (
+    JSON.stringify(localNames) !==
+    JSON.stringify(Object.keys(candidate.modes.Dawn).sort())
+  )
+    throw Error(
+      "Import requires the same semantic token names; new tokens need a library update",
+    );
+  const terminal = (v, theme, seen = new Set()) => {
+    if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
+    seen.add(v.id);
+    const c = cs[v.variableCollectionId];
+    let m =
+      c.modes.find((m) => m.name === theme) ||
+      c.modes.find(
+        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
+      );
+    if (
+      !m &&
+      c.modes.length === 1 &&
+      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
+        c.name,
+      )
+    )
+      m = c.modes[0];
+    if (!m) throw Error("Missing profile mode: " + c.name);
+    const current = v.valuesByMode[m.modeId];
+    return current?.type === "VARIABLE_ALIAS"
+      ? terminal(vs[current.id], theme, seen)
+      : { id: v.id, modeId: m.modeId, type: v.resolvedType, current };
+  };
+  const cells = new Map();
+  for (const theme of modes)
+    for (const v of semantic) {
+      const token = candidate.modes[theme][v.name];
+      if (token.type !== v.resolvedType)
+        throw Error("Token type differs: " + v.name);
+      const cell = terminal(v, theme);
+      const key = cell.id + "@" + cell.modeId;
+      if (cell.type !== token.type) throw Error("Alias type differs");
+      const previous = cells.get(key);
+      if (previous && signature(previous.value) !== signature(token.value))
+        throw Error(
+          "Shared alias has conflicting values: " +
+            v.name +
+            ". Update all roles sharing this primitive together.",
+        );
+      cells.set(key, { ...cell, value: token.value });
+    }
+  return [...cells.values()].filter(
+    (c) => signature(c.current) !== signature(c.value),
+  );
+}
+
+const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"}}};
+const repo = "https://api.github.com/repos/pedrobritx/meridian";
+const status = document.querySelector("#status"),
+  tokenInput = document.querySelector("#token"),
+  live = document.querySelector("#live");
+let sessionToken = "",
+  base = null,
+  lastPublished = "",
+  pending = null,
+  busy = false;
+const tell = (text) => {
+  status.textContent = text;
+};
+function credentials() {
+  if (tokenInput.value.trim()) {
+    sessionToken = tokenInput.value.trim();
+    tokenInput.value = "";
+  }
+  return sessionToken;
+}
+function rpc(type, data = {}) {
+  return new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => {
+      pending = null;
+      reject(Error("Figma did not respond. Reopen the plugin."));
+    }, 30000);
+    pending = { resolve, reject, timeout };
+    parent.postMessage({ pluginMessage: { type, ...data } }, "*");
+  });
+}
+onmessage = (event) => {
+  const m = event.data.pluginMessage;
+  if (!m || !pending) return;
+  const p = pending;
+  pending = null;
+  clearTimeout(p.timeout);
+  m.type === "error" ? p.reject(Error(m.message)) : p.resolve(m);
+};
+async function remote() {
+  const headers = {
+    Accept: "application/vnd.github+json",
+    ...(credentials() ? { Authorization: "Bearer " + sessionToken } : {}),
+  };
+  const ref = await fetch(repo + "/git/ref/heads/main", {
+    headers,
+    cache: "no-store",
+  });
+  if (!ref.ok)
+    throw Error("GitHub reference read failed (" + ref.status + ").");
+  const sha = (await ref.json()).object.sha;
+  const get = async (path) => {
+    const response = await fetch(
+      repo + "/contents/" + path + "?ref=" + encodeURIComponent(sha),
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+          ...(credentials() ? { Authorization: "Bearer " + sessionToken } : {}),
+        },
+      },
+    );
+    if (!response.ok)
+      throw Error(
+        "GitHub read failed (" +
+          response.status +
+          "). Check access to Meridian.",
+      );
+    const file = await response.json();
+    return JSON.parse(
+      new TextDecoder().decode(
+        Uint8Array.from(atob(file.content.replaceAll("\n", "")), (c) =>
+          c.charCodeAt(0),
+        ),
+      ),
+    );
+  };
+  const [tokens, content] = await Promise.all([
+    get("design/figma/generated/tokens.json"),
+    get("site/content.json"),
+  ]);
+  return {
+    tokens: validateTokens(tokens, { fileKey, themeModes: modes }),
+    content: validateContent(content, contentTemplate),
+  };
+}
+async function digest(value) {
+  const bytes = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(JSON.stringify(signature(value))),
+  );
+  return Array.from(new Uint8Array(bytes), (b) =>
+    b.toString(16).padStart(2, "0"),
+  ).join("");
+}
+async function publish(local, currentRemote) {
+  if (!credentials())
+    throw Error("Enter a GitHub token with Contents write on meridian.");
+  const response = await fetch(repo + "/dispatches", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + sessionToken,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      event_type: "figma-tokens",
+      client_payload: {
+        file_key: fileKey,
+        tokens: local.tokens,
+        content: local.content,
+        base_hash: await digest(currentRemote),
+      },
+    }),
+  });
+  if (!response.ok)
+    throw Error("GitHub publish failed (" + response.status + ").");
+  lastPublished = signature(local);
+  tell(
+    "Published for review. The site updates when the export PR reaches main. Check Figma Design Sync for its result.",
+  );
+}
+async function compare(action = "compare") {
+  const currentRemote = await remote(),
+    capture = await rpc("export"),
+    local = { tokens: capture.tokens, content: capture.content },
+    direction = syncDirection(base, local, currentRemote);
+  if (action === "import" || (action === "watch" && direction === "import")) {
+    if (action === "watch" && signature(local) !== signature(base))
+      throw Error("Local edits changed. Import paused.");
+    const result = await rpc("import", {
+      bundle: currentRemote,
+      expectedLocalSignature: signature(local),
+    });
+    const applied = { tokens: result.tokens, content: result.content };
+    if (signature(applied) !== signature(currentRemote))
+      throw Error("Imported values differ. Compare again.");
+    base = currentRemote;
+    lastPublished = "";
+    tell(
+      "GitHub values applied to Figma. Aliases and editable layers retained.",
+    );
+    return;
+  }
+  if (action === "publish" || (action === "watch" && direction === "publish")) {
+    if (action === "watch" && lastPublished === signature(local)) return;
+    await publish(local, currentRemote);
+    if (!base) base = currentRemote;
+    return;
+  }
+  if (direction === "equal") {
+    base = currentRemote;
+    lastPublished = "";
+    tell("Figma and GitHub match. The site builds from these values.");
+    return;
+  }
+  if (direction === "conflict") {
+    live.checked = false;
+    tell(
+      "Both Figma and GitHub changed. Live sync paused. Review the two versions before explicitly choosing import or publish.",
+    );
+    return;
+  }
+  if (direction === "choose") {
+    live.checked = false;
+    tell(
+      "Figma and GitHub differ. Choose Apply GitHub values or Publish Figma for review to establish the baseline.",
+    );
+    return;
+  }
+  tell(
+    direction === "import"
+      ? "GitHub changed. Apply its values to Figma."
+      : "Figma changed. Publish its values for review.",
+  );
+}
+async function run(fn) {
+  if (busy) return;
+  busy = true;
+  document.querySelectorAll("button").forEach((b) => (b.disabled = true));
+  try {
+    await fn();
+  } catch (error) {
+    live.checked = false;
+    tell(error.message);
+  } finally {
+    busy = false;
+    document.querySelectorAll("button").forEach((b) => (b.disabled = false));
+  }
+}
+document.querySelector("#compare").onclick = () => run(() => compare());
+document.querySelector("#import").onclick = () => run(() => compare("import"));
+document.querySelector("#publish").onclick = () =>
+  run(() => compare("publish"));
+document.querySelector("#download").onclick = () =>
+  run(async () => {
+    const capture = await rpc("export"),
+      url = URL.createObjectURL(
+        new Blob(
+          [
+            JSON.stringify(
+              { tokens: capture.tokens, content: capture.content },
+              null,
+              2,
+            ),
+          ],
+          { type: "application/json" },
+        ),
+      ),
+      a = document.createElement("a");
+    a.href = url;
+    a.download = "meridian-contract.json";
+    a.click();
+    URL.revokeObjectURL(url);
+    tell("Shared contract downloaded.");
+  });
+document.querySelector("#disconnect").onclick = () => {
+  sessionToken = "";
+  tokenInput.value = "";
+  base = null;
+  lastPublished = "";
+  live.checked = false;
+  tell("Disconnected. No credential was stored.");
+};
+live.onchange = () => {
+  if (live.checked)
+    run(async () => {
+      if (!credentials())
+        throw Error(
+          "Live sync requires a session GitHub token to avoid anonymous API limits.",
+        );
+      await compare("watch");
+    });
+};
+setInterval(() => {
+  if (live.checked && !busy) run(() => compare("watch"));
+}, 30000);
+
     </script>
   </body>
 </html>

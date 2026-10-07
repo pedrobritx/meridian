@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'scripts/figma/**'
+      - 'scripts/build-plugin.mjs'
+      - 'site/**'
       - 'design/figma/**'
       - 'design/meridian/**'
       - 'integrations/figma/**'
@@ -13,6 +15,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/figma/**'
+      - 'scripts/build-plugin.mjs'
+      - 'site/**'
       - 'design/figma/**'
       - 'design/meridian/**'
       - 'integrations/figma/**'
@@ -33,4 +37,6 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
+      - run: node scripts/build-plugin.mjs
+      - run: git diff --exit-code -- design/figma/plugin/code.js design/figma/plugin/ui.html
       - run: node --test scripts/figma/*.test.mjs
