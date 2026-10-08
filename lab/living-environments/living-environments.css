@@ -1,0 +1,118 @@
+/* Meridian Lab 0.6 — Living Environments (LM-H07)
+ * Experimental-only local roles. Never modifies generated token output.
+ * Product identity governs action colour; environment supplies atmosphere.
+ */
+:root{
+  --le-bg:#F0F4EE;--le-surface:#FFFFFF;--le-text:#203C31;--le-muted:#466455;
+  --le-border:#A9C4B1;--le-action:#205D47;--le-on-action:#FFFFFF;
+  --le-sun:#DEEBD4;--le-mid:#ADCDB4;--le-deep:#668E72;--le-atmosphere:#DDE9DB
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.le{margin:0;min-width:320px;background:var(--le-bg);color:var(--le-text);font:400 16px/1.55 Manrope,system-ui,sans-serif;transition:background .25s ease,color .25s ease}
+.le button,.le select,.le input{font:inherit}
+.le button{cursor:pointer}
+.le a{color:inherit}
+.le :focus-visible{outline:3px solid var(--le-action);outline-offset:4px}
+.le-skip{position:absolute;top:-100px;left:12px;z-index:100;padding:12px;background:var(--le-surface)}
+.le-skip:focus{top:12px}
+.le-topbar,.le-main,.le-footer{width:min(1340px,calc(100% - 56px));margin-inline:auto}
+.le-topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:94px;border-bottom:1px solid var(--le-border)}
+.le-logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;font-size:17px}
+.le-logo small{display:block;font-size:9px;letter-spacing:.18em;font-weight:600}
+.le-symbol{height:45px;width:45px;display:grid;place-items:center;font:400 26px Fraunces,Georgia,serif;color:#fff;background:#205D47;border-radius:16px 8px}
+.le-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:20px;font-size:12px}
+.le-nav a{text-underline-offset:4px}.le-nav [aria-current]{font-weight:700;color:var(--le-action)}
+.le-main{padding:59px 0 80px}
+.le-eyebrow,.le-overline,.le-mini-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--le-action)}
+.le-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.le-mark{display:inline-block;background:var(--le-action);width:8px;height:8px;border-radius:50%}
+.le-dot-separator{opacity:.5}
+.le-tag{border-radius:999px;padding:6px 13px;font-size:10px;letter-spacing:.06em;background:var(--le-atmosphere);border:1px solid var(--le-border);color:var(--le-text)}
+.le-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:25px 0 35px}
+.le h1,.le h2,.le h3,.le p{margin-top:0}
+.le h1{font:400 clamp(3.5rem,7vw,6.8rem)/1.04 Fraunces,Georgia,serif;letter-spacing:-.05em;margin:0 0 18px}
+.le h1 em{font-weight:400;color:var(--le-action)}
+.le-hero p{font-size:18px;color:var(--le-muted);max-width:780px;line-height:1.7;margin:0}
+.le-hero-art{position:relative;isolation:isolate;flex:0 0 190px;height:160px;align-self:center}
+.le-planet{position:absolute;border-radius:50%}
+.le-planet-a{width:136px;height:136px;top:15px;left:22px;background:radial-gradient(circle at 25% 20%,var(--le-sun),var(--le-mid) 56%,var(--le-deep));box-shadow:0 20px 40px #00000012}
+.le-planet-b{width:62px;height:62px;top:5px;right:5px;background:var(--le-atmosphere);border:1px solid var(--le-border)}
+.le-planet-c{width:29px;height:29px;right:9px;bottom:8px;background:var(--le-action);opacity:.8}
+.le-control-panel{border:1px solid var(--le-border);background:var(--le-surface);border-radius:26px;padding:27px 30px}
+.le-panel-heading,.le-stage-top,.le-compare-header{display:flex;align-items:end;justify-content:space-between;gap:20px}
+.le-panel-heading h2,.le-stage-top h2,.le-compare-header h2{font:400 38px/1.18 Fraunces,Georgia,serif;letter-spacing:-.02em;margin:0}
+.le-panel-heading>p,.le-compare-header>p{font-size:13px;color:var(--le-muted);max-width:375px;margin:0}
+.le-overline{margin-bottom:9px}
+.le-form-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(150px,.75fr);gap:15px;align-items:end;margin-top:27px}
+.le-field{display:grid;gap:9px;font-size:12px;font-weight:700}
+.le select{width:100%;height:50px;border-radius:14px;padding:0 36px 0 14px;border:1px solid var(--le-border);background:var(--le-bg);color:var(--le-text);min-width:0;font-size:13px;cursor:pointer}
+.le-check{min-height:50px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;font-weight:700;padding:5px}
+.le-check input{width:20px;height:20px;accent-color:var(--le-action)}
+.le-check-note{width:100%;font-size:11px;color:var(--le-muted);font-weight:500;margin-left:30px;margin-top:-8px}
+.le-small,.le-preference,.le-contrast-metrics{font-size:12px;color:var(--le-muted);margin:18px 0 0}
+.le-preference{margin-top:8px}.le-contrast-metrics{font-weight:700}
+.le-stage-section{margin-top:60px}
+.le-stage-top{margin-bottom:23px}
+.le-scene-label{font-size:12px;border-radius:999px;padding:8px 16px;background:var(--le-surface);border:1px solid var(--le-border);font-weight:700;white-space:nowrap}
+.le-stage{min-height:585px;position:relative;isolation:isolate;border:1px solid var(--le-border);border-radius:30px;overflow:hidden;background:var(--le-atmosphere)}
+.le-landscape,.le-landscape-layer,.le-landscape-glow{position:absolute;pointer-events:none}
+.le-landscape{inset:0;background:radial-gradient(circle at 18% 16%,var(--le-sun),transparent 48%),linear-gradient(140deg,var(--le-sun),var(--le-atmosphere) 48%,var(--le-mid));overflow:hidden}
+.le-landscape-layer{display:block;border-radius:50%;filter:blur(12px);transform:rotate(-16deg)}
+.layer-one{width:60%;height:60%;left:-14%;bottom:-23%;background:var(--le-mid);opacity:.75}
+.layer-two{width:65%;height:75%;right:-18%;top:-27%;background:var(--le-deep);opacity:.48}
+.layer-three{width:38%;height:50%;right:13%;bottom:-29%;background:var(--le-sun);opacity:.62}
+.le-landscape-glow{left:45%;top:10%;width:120px;height:120px;border-radius:50%;background:var(--le-sun);filter:blur(28px);opacity:.8}
+.le-stage-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(250px,.65fr);gap:30px;align-items:center;min-height:585px;padding:45px}
+.le-specimen,.le-information{border:1px solid var(--le-border);background:var(--le-surface);border-radius:26px;box-shadow:0 14px 40px #071a1620}
+.le-specimen{padding:37px;max-width:720px}
+[data-material=glass] .le-specimen,[data-material=glass] .le-information{background:color-mix(in srgb,var(--le-surface) 94%,transparent);backdrop-filter:blur(20px)}
+.le-specimen-top{display:flex;align-items:center;gap:17px}
+.le-brand-mark{height:63px;width:63px;flex:none;display:grid;place-items:center;border-radius:19px 10px;background:var(--le-action);color:var(--le-on-action)}
+.le-brand-glyph{font:400 29px Fraunces,Georgia,serif}
+.le-specimen-eyebrow{display:block;font-size:10px;color:var(--le-muted);letter-spacing:.13em;font-weight:700;margin-bottom:3px}
+.le-specimen h3{font-size:25px;letter-spacing:-.03em;line-height:1.2;margin:0;font-weight:700}
+.le-specimen>p{font-size:14px;color:var(--le-muted);margin:23px 0;line-height:1.75}
+.le-choice-group{margin:0;padding:0;border:0;display:flex;flex-wrap:wrap;gap:9px}
+.le-choice-group legend{font-size:13px;font-weight:700;margin-bottom:11px}
+.le-choice-group label{display:flex;align-items:center;gap:9px;min-height:48px;padding:10px 13px;border:1px solid var(--le-border);border-radius:14px;color:var(--le-text);font-size:13px;cursor:pointer}
+.le-choice-group label:has(input:checked){border-color:var(--le-action);background:var(--le-atmosphere);font-weight:700}
+.le-choice-group input{accent-color:var(--le-action);width:18px;height:18px}
+.le-cta-row{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 14px}
+.le-primary,.le-secondary{min-height:48px;border-radius:14px;padding:11px 18px;border:1px solid var(--le-action);font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:24px}
+.le-primary{color:var(--le-on-action);background:var(--le-action)}.le-secondary{color:var(--le-text);background:var(--le-surface)}
+.le-task-status{font-size:12px!important;min-height:20px;margin:0!important}
+.le-information{padding:30px;align-self:center}
+.le-information .le-mini-label{display:block;margin-bottom:6px}
+.le-information strong{display:block;font-size:18px;line-height:1.35;margin-bottom:12px}
+.le-information p,.le-information span:last-child{font-size:13px;line-height:1.8;color:var(--le-muted)}
+.le-information p{margin-bottom:22px}
+.le-information span:last-child{display:block}
+.le-comparison{margin-top:58px}
+.le-compare-header{margin-bottom:22px}
+.le-palette-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}
+.le-palette-card{min-width:0;background:var(--le-surface);border:1px solid var(--le-border);border-radius:18px;display:grid;grid-template-columns:1fr auto;gap:6px;text-align:left;padding:11px;color:var(--le-text);transition:transform .15s}
+.le-palette-card:hover{transform:translateY(-3px)}
+.le-palette-card[aria-pressed=true]{outline:3px solid var(--le-action);outline-offset:2px}
+.le-swatch{grid-column:1/-1;height:105px;border-radius:12px;background:radial-gradient(circle at 15% 15%,var(--swatch-a),transparent 52%),linear-gradient(145deg,var(--swatch-b),var(--swatch-c));margin-bottom:8px}
+.le-palette-label{font-weight:700;font-size:14px}
+.le-selected-marker{color:var(--le-action);font-weight:700}
+.le-palette-caption{grid-column:1/-1;font-size:11px;color:var(--le-muted);min-height:65px}
+.le-contract{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;border-radius:25px;border:1px solid var(--le-border);background:var(--le-surface);padding:35px;margin-top:40px}
+.le-contract h2{font:400 30px Fraunces,Georgia,serif;margin:10px 0}
+.le-contract p{font-size:13px;color:var(--le-muted);max-width:540px;margin:10px 0 15px}
+.le-contract a{font-weight:700;font-size:13px;text-underline-offset:4px}
+.le-footer{border-top:1px solid var(--le-border);padding:25px 0 45px;display:flex;justify-content:space-between;gap:20px;font-size:11px;letter-spacing:.07em;color:var(--le-muted)}
+@media(max-width:1120px){.le-form-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.le-palette-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.le-stage-inner{grid-template-columns:1fr;align-items:start}.le-information{max-width:none}.le-stage{min-height:0}}
+@media(max-width:720px){.le-topbar,.le-main,.le-footer{width:calc(100% - 32px)}.le-topbar{min-height:74px}.le-nav{gap:9px}.le-nav a{font-size:11px}.le-nav a:first-child{display:none}.le-main{padding-top:37px}.le-hero-art{display:none}.le-hero{padding:26px 0}.le h1{font-size:clamp(3.1rem,13vw,5rem)}.le-hero p{font-size:16px}.le-panel-heading,.le-stage-top,.le-compare-header{display:block}.le-panel-heading h2,.le-stage-top h2,.le-compare-header h2{font-size:32px}.le-panel-heading>p,.le-compare-header>p{margin-top:12px}.le-control-panel{padding:22px}.le-form-controls{grid-template-columns:1fr}.le-check-note{width:auto;margin:0}.le-stage-inner{padding:18px;gap:17px}.le-specimen{padding:23px}.le-specimen-top{align-items:flex-start}.le-specimen h3{font-size:21px}.le-stage-section,.le-comparison{margin-top:43px}.le-scene-label{display:inline-flex;margin-top:14px}.le-palette-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.le-contract{grid-template-columns:1fr;gap:14px;padding:24px}.le-footer{display:block}.le-footer span{display:block;margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;transform:none!important}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){[data-material=glass] .le-specimen,[data-material=glass] .le-information{background:var(--le-surface);backdrop-filter:none!important}}
+@media(forced-colors:active){
+  .le-landscape,.le-hero-art{display:none}
+  .le-control-panel,.le-stage,.le-specimen,.le-information,.le-contract,.le-palette-card,.le-tag,.le-choice-group label{background:Canvas!important;color:CanvasText!important;border:1px solid CanvasText}
+  .le-primary,.le-secondary,.le-brand-mark{background:ButtonFace!important;color:ButtonText!important;border:1px solid ButtonText}
+  [data-material=glass] .le-specimen,[data-material=glass] .le-information{backdrop-filter:none!important}
+  .le-choice-group label:has(input:checked){outline:2px solid Highlight}
+  .le-palette-card[aria-pressed=true]{outline:2px solid Highlight}
+  .le-swatch{border:1px solid CanvasText}
+}
