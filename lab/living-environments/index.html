@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-meridian="core" data-theme="light" data-environment="forest" data-material="opaque">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meridian Lab 0.6 experimental Living Environments: compare six natural environments across light and dark appearances and independent product identity.">
+  <meta name="theme-color" content="#F2F4EE">
+  <title>Living Environments — Meridian Lab 0.6</title>
+</head>
+<body class="le">
+  <a href="#living-environments" class="le-skip">Skip to laboratory</a>
+  <header class="le-topbar">
+    <a href="../../" class="le-logo" aria-label="Meridian design system home"><span class="le-symbol" aria-hidden="true">M</span><span>Meridian <small>DESIGN LANGUAGE</small></span></a>
+    <nav aria-label="Lab prototypes" class="le-nav">
+      <a href="../living-controls/">Living Controls</a>
+      <a href="../living-workspace/">Living Workspace</a>
+      <span aria-current="page">Living Environments</span>
+    </nav>
+  </header>
+
+  <main id="living-environments" class="le-main">
+    <div class="le-eyebrow"><span class="le-mark" aria-hidden="true"></span> MERIDIAN LAB <span class="le-dot-separator" aria-hidden="true">/</span> EXPERIMENT LM-H07 <span class="le-tag">0.6 EXPERIMENTAL</span></div>
+    <div class="le-hero"><div><h1>Living <em>Environments.</em></h1><p>Six natural landscapes. Two appearances. Independent product identities. One consistent language of interaction.</p></div><div class="le-hero-art" aria-hidden="true"><div class="le-planet le-planet-a"></div><div class="le-planet le-planet-b"></div><div class="le-planet le-planet-c"></div></div></div>
+
+    <section class="le-control-panel" aria-labelledby="controls-title">
+      <div class="le-panel-heading"><div><p class="le-overline">01 / PARAMETERS</p><h2 id="controls-title">Change the context.</h2></div><p>Compare the same task across environment, appearance and branding. No essential content changes.</p></div>
+      <div class="le-form-controls">
+        <label class="le-field">Natural environment
+          <select id="environment" aria-describedby="environment-help">
+            <option value="forest">Forest</option><option value="ocean">Ocean</option><option value="desert">Desert</option><option value="alpine">Alpine</option><option value="storm">Storm</option><option value="celestial">Celestial</option>
+          </select>
+        </label>
+        <label class="le-field">Appearance
+          <select id="appearance">
+            <option value="system">Follow system</option><option value="light">Dawn / light</option><option value="dark">Dusk / dark</option>
+          </select>
+        </label>
+        <label class="le-field">Product identity
+          <select id="identity">
+            <option value="environment">Environment-led (reference)</option><option value="wine">Independent wine brand</option><option value="ink">Independent ink brand</option>
+          </select>
+        </label>
+        <label class="le-check"><input id="glass" type="checkbox"> Glass surface <span class="le-check-note">Optional enhancement</span></label>
+      </div>
+      <p id="environment-help" class="le-small">These are experimental visual families, not approved production themes or medical comfort interventions.</p>
+      <p class="le-preference" id="preference-status" role="status">Respecting your device appearance and accessibility preferences.</p>
+      <p id="contrast-metrics" class="le-contrast-metrics" aria-label="Opaque surface and action contrast">Contrast diagnostics available when the experiment loads.</p>
+      <noscript><p class="le-small">JavaScript is disabled. The static Forest specimen remains readable; experimental theme switching is unavailable.</p></noscript>
+    </section>
+
+    <section class="le-stage-section" aria-labelledby="specimen-title">
+      <div class="le-stage-top"><div><p class="le-overline">02 / SAME INTERFACE, DIFFERENT CONTEXTS</p><h2 id="specimen-title">The living specimen.</h2></div><span id="environment-label" class="le-scene-label">Forest / Dawn</span></div>
+      <div class="le-stage">
+        <div class="le-landscape" aria-hidden="true"><span class="le-landscape-layer layer-one"></span><span class="le-landscape-layer layer-two"></span><span class="le-landscape-layer layer-three"></span><span class="le-landscape-glow"></span></div>
+        <div class="le-stage-inner">
+          <div class="le-specimen">
+            <div class="le-specimen-top"><div class="le-brand-mark" aria-hidden="true"><span class="le-brand-glyph">M</span></div><div><span class="le-specimen-eyebrow">A REUSABLE DIGITAL INTERACTION</span><h3 id="specimen-heading">Find your next direction.</h3></div></div>
+            <p id="specimen-description">Choose a destination and confirm. Information hierarchy, interaction meaning and focus behaviour remain constant across all themes.</p>
+            <fieldset class="le-choice-group"><legend>Choose a destination</legend>
+              <label><input type="radio" name="destination" value="Discover" checked><span>Discover</span></label>
+              <label><input type="radio" name="destination" value="Create"><span>Create</span></label>
+              <label><input type="radio" name="destination" value="Reflect"><span>Reflect</span></label>
+            </fieldset>
+            <div class="le-cta-row"><button type="button" id="confirm-action" class="le-primary">Confirm selection <span aria-hidden="true">↗</span></button><button type="button" id="reset-action" class="le-secondary">Reset choice</button></div>
+            <p id="task-status" role="status" aria-live="polite" class="le-task-status">Ready to explore. No information will be stored.</p>
+          </div>
+          <aside class="le-information" aria-label="Experiment specimen notes">
+            <span class="le-mini-label">CONSTANTS</span><strong>Same task, same semantics.</strong>
+            <p>Native radio selection, 48-pixel minimum control targets, visible focus and actionable buttons stay invariant.</p>
+            <span class="le-mini-label">VARIABLES</span><p>Palette, material atmosphere, light/dark appearance and independent brand accent.</p>
+            <span class="le-mini-label">ENVIRONMENT</span><span id="environment-description">Organic foliage and muted woodland light.</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="le-comparison" aria-labelledby="palette-title"><div class="le-compare-header"><div><p class="le-overline">03 / ENVIRONMENT CATALOGUE</p><h2 id="palette-title">A spectrum, not a skin.</h2></div><p>Choose an environment. The visual identities remain optional and independent of the task.</p></div>
+      <div class="le-palette-grid" id="palette-grid" aria-label="Six environment previews"></div>
+    </section>
+
+    <section class="le-contract" aria-label="Scientific and accessibility boundaries">
+      <div><span class="le-mini-label">RESEARCH QUESTION / LM-H07</span><h2>Does familiarity travel?</h2><p>Natural colour and material treatments may influence preferences differently across tasks, audiences and cultures. This Lab does not claim universal cognitive, physiological or circadian benefits.</p></div>
+      <div><span class="le-mini-label">RELEASE GATES</span><p>WCAG contrast on composited surfaces · forced colours · reduced transparency · keyboard and touch · product-owned branding · comparison against conventional controls.</p><a href="https://github.com/pedrobritx/meridian/issues/11">Study and implementation issue ↗</a></div>
+    </section>
+  </main>
+  <footer class="le-footer"><span>MERIDIAN LAB / 0.6 — NOT STABLE DESIGN</span><span>Designing with nature. Testing with people.</span></footer>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

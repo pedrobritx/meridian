@@ -1,4 +1,4 @@
-# Meridian Lab — charter (planned for 0.6)
+# Meridian Lab — experimental charter
 
 Meridian Lab is an explicitly experimental design environment for testing material and motion ideas before they enter the stable Meridian component system.
 
@@ -23,9 +23,16 @@ Meridian Lab is an explicitly experimental design environment for testing materi
 - LM-04 Gravity/inertia and spatial continuity
 - LM-05 Viscosity/morphing
 - LM-06 Atmospheric glass/refraction
+- LM-07 Natural environments, appearance and independent product identity (LM-H07)
 
 The first three prototypes are **Living Controls**, **Living Workspace** and **Living Environments**.
 
 See the [0.6 milestone plan](../docs/roadmap/0.6-living-matter.md), [research hypotheses](../research/hypotheses/living-matter.md) and [ADR-0001](../docs/adr/0001-meridian-next-prototype-first.md).
 
-**Current state:** Charter only; no prototypes or implementation code added in Phase 0.
+## Interactive prototypes
+
+- [Living Controls](./living-controls/) — LM-01, LM-02 and LM-03.
+- [Living Workspace](./living-workspace/) — LM-04, LM-05 and LM-06.
+- [Living Environments](./living-environments/) — LM-H07, six optional natural palette families × two independent appearances × optional product identities.
+
+See the [experiment registry](./experiments.json). All demos are exploratory and remain outside stable Meridian Core; research/promotion gates are not complete.
