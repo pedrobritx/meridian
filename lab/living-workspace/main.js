@@ -4,6 +4,7 @@ import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/fraunces/latin-400-italic.css';
 import '../../styles/tokens.css';
 import './workspace.css';
+import {stepAttraction,anchorOffset} from '../physics/attraction.mjs';
 
 const $ = selector => document.querySelector(selector);
 const expressive=$('#expressive'), opaque=$('#opaque'),panel=$('#workspace-panel'),opener=$('#open-panel'),closer=$('#close-panel'),range=$('#surface-width'),surface=$('#surface'),result=$('#result');
@@ -59,3 +60,76 @@ function resizeSurface(){
 }
 range.addEventListener('input',resizeSurface);
 $('#reset').addEventListener('click',()=>{range.value=60;resizeSurface();result.textContent='Workspace surface reset to 60%.';});
+
+
+// LM-04: opt-in gravitational attraction metaphor with actual inertia and damping.
+// State is always native radio state. The travelling mass is decorative/aria-hidden.
+const gravityTrack=$('#gravity-track');
+const gravityMass=$('#gravity-mass');
+const gravityStatus=$('#gravity-status');
+const gravityRadioGroup=$('#gravity-anchors');
+const gravityOptions=[...gravityRadioGroup.querySelectorAll('input[name="gravity-anchor"]')];
+let gravityState={position:0,velocity:0};
+let gravityTarget=0;
+let gravityFrame=0;
+let gravityTimestamp=0;
+
+function selectedAnchor(){
+  return gravityRadioGroup.querySelector('input[name="gravity-anchor"]:checked')?.value??'center';
+}
+function visualGravityEnabled(){
+  return document.documentElement.dataset.labMotion==='expressive';
+}
+function showMass(){
+  gravityTrack.style.setProperty('--gravity-position',gravityState.position.toFixed(2)+'px');
+}
+function haltGravity(){
+  if(gravityFrame)cancelAnimationFrame(gravityFrame);
+  gravityFrame=0;
+  gravityTimestamp=0;
+}
+function placeGravityImmediately(){
+  haltGravity();
+  gravityState={position:gravityTarget,velocity:0};
+  showMass();
+  gravityTrack.dataset.physicsState='settled';
+}
+function gravityTick(timestamp){
+  gravityFrame=0;
+  if(!visualGravityEnabled()){placeGravityImmediately();return;}
+  const dt=gravityTimestamp?(timestamp-gravityTimestamp)/1000:1/60;
+  gravityTimestamp=timestamp;
+  const next=stepAttraction(gravityState,gravityTarget,dt);
+  gravityState={position:next.position,velocity:next.velocity};
+  showMass();
+  gravityTrack.dataset.physicsState=next.settled?'settled':'moving';
+  if(!next.settled)gravityFrame=requestAnimationFrame(gravityTick);
+}
+function updateGravityAnchor(){
+  const anchor=selectedAnchor();
+  gravityTrack.style.setProperty('--gravity-travel',anchorOffset('east',gravityTrack.clientWidth)+'px');
+  gravityTarget=anchorOffset(anchor,gravityTrack.clientWidth);
+  gravityTrack.dataset.targetAnchor=anchor;
+  gravityStatus.textContent='LM-04: '+anchor[0].toUpperCase()+anchor.slice(1)+' anchor selected. Selection completed immediately.';
+  if(!visualGravityEnabled())placeGravityImmediately();
+  else if(!gravityFrame)gravityFrame=requestAnimationFrame(gravityTick);
+}
+gravityTrack.dataset.physicsReady='true';
+gravityRadioGroup.addEventListener('change',event=>{
+  if(event.target.matches('input[name="gravity-anchor"]'))updateGravityAnchor();
+});
+for(const setting of [expressive,opaque])setting.addEventListener('change',()=>{
+  if(!visualGravityEnabled())placeGravityImmediately();
+});
+for(const media of [motion,forced])media.addEventListener('change',()=>{
+  if(!visualGravityEnabled())placeGravityImmediately();
+});
+window.addEventListener('resize',()=>{
+  // Layout changes invalidate the previous pixel offset; snap to the preserved native choice.
+  gravityTrack.style.setProperty('--gravity-travel',anchorOffset('east',gravityTrack.clientWidth)+'px');
+  gravityTarget=anchorOffset(selectedAnchor(),gravityTrack.clientWidth);
+  placeGravityImmediately();
+});
+gravityTarget=anchorOffset(selectedAnchor(),gravityTrack.clientWidth);
+gravityTrack.style.setProperty('--gravity-travel',anchorOffset('east',gravityTrack.clientWidth)+'px');
+placeGravityImmediately();
