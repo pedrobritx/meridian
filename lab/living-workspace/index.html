@@ -38,6 +38,29 @@
   <p id="result" role="status" aria-live="polite">Ready. Every action has a non-drag alternative.</p>
  </section>
  </div>
+ <section class="gravity-lab" aria-labelledby="gravity-title">
+    <div class="gravity-copy">
+      <p class="eyebrow">03 / LM-04 — GRAVITY &amp; INERTIA</p>
+      <h2 id="gravity-title">A small world with momentum.</h2>
+      <p>Choose a fixed attraction anchor. A decorative mass accelerates toward it, overshoots and settles. The anchor selection is a native radio control, so physical movement never gates interaction.</p>
+      <fieldset class="gravity-anchors" id="gravity-anchors">
+        <legend>Attraction anchor</legend>
+        <label><input type="radio" name="gravity-anchor" value="west"><span>West</span></label>
+        <label><input type="radio" name="gravity-anchor" value="center" checked><span>Center</span></label>
+        <label><input type="radio" name="gravity-anchor" value="east"><span>East</span></label>
+      </fieldset>
+      <p class="gravity-help">Use arrow keys to change anchor. With reduced motion the position changes immediately.</p>
+      <p id="gravity-status" role="status" aria-live="polite">Center anchor selected. No physical movement requested.</p>
+    </div>
+    <div class="gravity-track" id="gravity-track" aria-hidden="true">
+      <span class="gravity-guide"></span>
+      <span class="gravity-anchor-mark gravity-anchor-west"></span>
+      <span class="gravity-anchor-mark gravity-anchor-center"></span>
+      <span class="gravity-anchor-mark gravity-anchor-east"></span>
+      <span class="gravity-mass" id="gravity-mass"></span>
+      <span class="gravity-track-label">ATTRACTION FIELD / VISUAL ONLY</span>
+    </div>
+  </section>
  <section class="notes" aria-label="Research notes">
   <div><strong>LM-04 · Spatial continuity</strong><p>Compare stable panel placement and focus restoration, with and without motion.</p></div>
   <div><strong>LM-05 · Viscosity</strong><p>Native range input provides precision without requiring dragging the surface itself.</p></div>
