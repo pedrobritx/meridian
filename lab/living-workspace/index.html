@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-meridian="core" data-theme="light">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Meridian experimental Living Workspace: spatial continuity, viscosity and accessible glass."><title>Living Workspace — Meridian Lab</title></head>
+<body>
+<a class="skip" href="#workspace">Skip to workspace</a>
+<header class="header"><a href="../../">← Meridian 0.5</a><span>MERIDIAN LAB / 0.6</span><a href="../living-controls/">Living Controls →</a></header>
+<main id="workspace">
+ <p class="eyebrow">LM-04 · LM-05 · LM-06 / WORKSPACE EXPERIMENT</p>
+ <h1>Living <em>Workspace.</em></h1>
+ <p class="intro">Explore spatial continuity, material resistance and atmospheric glass. The actions and focus order are reliable even when expressive effects are disabled.</p>
+ <section class="settings" aria-label="Experiment settings">
+ <label><input type="checkbox" id="expressive" checked> Expressive effects</label>
+ <label><input type="checkbox" id="opaque"> Opaque surfaces</label>
+ <span id="settings-status" role="status">Preferences will be applied automatically.</span>
+ </section>
+ <div class="columns">
+ <section class="canvas" aria-label="Workspace canvas">
+  <div class="ambient orb-a" aria-hidden="true"></div><div class="ambient orb-b" aria-hidden="true"></div>
+  <div class="toolbar"><span>CANVAS / TEST WORKSPACE</span><button id="open-panel" type="button" aria-controls="workspace-panel" aria-expanded="false">Open panel +</button></div>
+  <div class="canvas-message"><span class="eyebrow">01 / SPATIAL CONTINUITY</span><h2>Space should explain, not distract.</h2><p>Open the floating panel, then switch views. The panel retains keyboard focus and navigation order.</p></div>
+  <aside id="workspace-panel" class="panel" aria-label="Floating workspace panel" hidden>
+    <div class="panel-head"><strong>Material inspector</strong><button type="button" id="close-panel" aria-label="Close panel">×</button></div>
+    <div class="panel-tabs" role="tablist" aria-label="Workspace view">
+      <button role="tab" id="tab-material" aria-controls="panel-material" aria-selected="true" tabindex="0">Material</button>
+      <button role="tab" id="tab-motion" aria-controls="panel-motion" aria-selected="false" tabindex="-1">Motion</button>
+    </div>
+    <div id="panel-material" role="tabpanel" aria-labelledby="tab-material" tabindex="0"><strong>LM-06 / Atmospheric glass</strong><p>A semi-transparent layer over a complex visual scene. An opaque fallback stays available.</p></div>
+    <div id="panel-motion" role="tabpanel" aria-labelledby="tab-motion" tabindex="0" hidden><strong>LM-04 / Spatial continuity</strong><p>Navigation has a consistent origin and destination without moving essential text.</p></div>
+  </aside>
+ </section>
+ <section class="controls" aria-label="Workspace manipulation study">
+  <p class="eyebrow">02 / LM-05 — VISCOSITY</p><h2>Resisting, not obstructing.</h2>
+  <p>Change the surface width using native controls. A soft material response follows; the content remains readable.</p>
+  <label for="surface-width">Surface width <output id="surface-value" for="surface-width">60%</output></label>
+  <input id="surface-width" type="range" min="35" max="100" step="5" value="60">
+  <div class="surface-stage"><div class="surface" id="surface"><span>Living surface</span><small>Visual transformation only</small></div></div>
+  <button type="button" id="reset">Reset experiment</button>
+  <p id="result" role="status" aria-live="polite">Ready. Every action has a non-drag alternative.</p>
+ </section>
+ </div>
+ <section class="notes" aria-label="Research notes">
+  <div><strong>LM-04 · Spatial continuity</strong><p>Compare stable panel placement and focus restoration, with and without motion.</p></div>
+  <div><strong>LM-05 · Viscosity</strong><p>Native range input provides precision without requiring dragging the surface itself.</p></div>
+  <div><strong>LM-06 · Glass</strong><p>Test with opaque fallback, reduced transparency and complex backgrounds before promotion.</p></div>
+ </section>
+</main><footer><span>EXPERIMENTAL · NOT PRODUCTION-VALIDATED</span><a href="https://github.com/pedrobritx/meridian/issues/10">GitHub research issue #10 ↗</a></footer>
+<script type="module" src="./main.js"></script></body></html>
