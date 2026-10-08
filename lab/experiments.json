@@ -1,0 +1,13 @@
+{
+  "version": "0.6.0-experimental",
+  "status": "exploratory",
+  "stablePromotion": false,
+  "experiments": [
+    {"id":"LM-01","name":"Magnetic attraction","prototype":"living-controls","hypothesis":"LM-H01","status":"implemented-experimental","comparison":"Conventional native button","accessibility":"Stable hit target; keyboard and touch activation; reduced-motion override"},
+    {"id":"LM-02","name":"Liquid merging and separation","prototype":"living-controls","hypothesis":"LM-H02","status":"implemented-selection-only","comparison":"Native radio choices","accessibility":"Native fieldset/radio; indicator decorative; no-JS selected background"},
+    {"id":"LM-03","name":"Elastic contact","prototype":"living-controls","hypothesis":"LM-H03","status":"implemented-experimental","comparison":"Conventional native button","accessibility":"Immediate activation; reduced-motion override"},
+    {"id":"LM-04","name":"Gravity and inertia","prototype":"living-workspace","hypothesis":"LM-H04","status":"planned","comparison":"Static spatial navigation","accessibility":"Non-motion orientation and focus restoration required"},
+    {"id":"LM-05","name":"Viscosity and morphing","prototype":"living-workspace","hypothesis":"LM-H05","status":"planned","comparison":"Direct layout change","accessibility":"Non-drag alternative required"},
+    {"id":"LM-06","name":"Atmospheric glass","prototype":"living-workspace","hypothesis":"LM-H06","status":"planned","comparison":"Opaque layered surface","accessibility":"Contrast and reduced-transparency alternatives required"}
+  ]
+}
