@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-meridian="core" data-theme="light" data-lab-motion="expressive">
+<html lang="en" data-meridian="core" data-theme="light" data-lab-motion="quiet">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +39,7 @@
     </section>
     <p class="lm-preference-note" id="preference-note" role="status">Effects follow your system's reduced-motion preference.</p>
 
+    <noscript><p class="lm-preference-note">JavaScript is unavailable. Native controls and selection remain functional; experimental feedback is disabled.</p></noscript>
     <section aria-labelledby="compare-title" class="lm-experiments">
       <div class="lm-section-head"><div><p class="lm-overline">01 / INTERACTION STUDIES</p><h2 id="compare-title">Feel the difference.</h2></div><p>Activate each control. The action completes immediately, with or without motion.</p></div>
       <div class="lm-grid">
@@ -101,6 +102,7 @@
         <p class="lm-overline">EXPERIMENT LOG</p>
         <h2>What changed?</h2>
         <p role="status" aria-live="polite" aria-atomic="true" id="experiment-status" class="lm-live-status">No interactions yet. Try a control to begin.</p>
+        <p class="lm-local-metric">Local measurement: <output id="lab-frame-metric">No pointer frames observed</output></p>
         <div class="lm-contract">
           <span class="lm-contract-dot" aria-hidden="true"></span>
           <span>These are hypotheses, not validated improvements.</span>
