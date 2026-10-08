@@ -126,3 +126,13 @@ magnetic.addEventListener('click', () => {
 elastic.addEventListener('click', () => {
   status.textContent = 'LM-03: elastic action completed immediately, independent of the rebound.';
 });
+
+
+// LM-02: native radios also control two decorative physical masses which fuse visually.
+// In reduced-motion / forced-colour mode the same state change is immediate and accessible.
+document.querySelector('.lm-fusion-controls').addEventListener('change', event => {
+  if (!(event.target instanceof HTMLInputElement) || event.target.name !== 'fusion') return;
+  status.textContent = event.target.value === 'merged'
+    ? 'LM-02: visual masses joined. Two native choices remain independently accessible.'
+    : 'LM-02: the joined visual mass has separated into two objects.';
+});
