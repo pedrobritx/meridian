@@ -59,3 +59,30 @@ test('radio group supports keyboard selection without motion', async ({page})=>{
   await expect(page.getByRole('radio',{name:'Glass'})).toBeChecked();
   await expect(page.locator('#experiment-status')).toContainText('Glass selected');
 });
+
+test('native controls remain functional without JavaScript', async ({browser}) => {
+  const context = await browser.newContext({javaScriptEnabled:false});
+  const page = await context.newPage();
+  await page.goto('http://127.0.0.1:4173/meridian/lab/living-controls/');
+  await expect(page.getByRole('button',{name:'Explore attraction'})).toBeVisible();
+  await page.getByRole('button',{name:'Explore attraction'}).click();
+  const glass=page.getByRole('radio',{name:'Glass'});
+  await glass.check();
+  await expect(glass).toBeChecked();
+  await expect(page.locator('html')).toHaveAttribute('data-lab-motion','quiet');
+  await expect(page.locator('noscript')).toContainText('Native controls and selection remain functional');
+  await context.close();
+});
+
+test('local measurement stays descriptive and private', async ({page},testInfo) => {
+  await page.goto('lab/living-controls/');
+  const metric=page.locator('#lab-frame-metric');
+  await expect(metric).toContainText('No pointer frames observed');
+  if (testInfo.project.name === 'desktop') {
+    await page.getByRole('button',{name:'Explore attraction'}).hover();
+    await page.mouse.move(525,415);
+    await expect(metric).toContainText('samples');
+    await expect(metric).toContainText('mean scheduling delay');
+  }
+  expect(await page.evaluate(()=>localStorage.length)).toBe(0);
+});
