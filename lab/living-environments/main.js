@@ -46,6 +46,8 @@ function applyEnvironment(){
   for(const [cssRole,key] of semanticRoles)root.style.setProperty(cssRole,palette[key]);
   const accent=getAccent(profile,mode);
   root.style.setProperty('--le-action',accent);
+  // Focus must remain visible over both light and dark surfaces, regardless of product accent.
+  root.style.setProperty('--le-focus',mode==='dark'?'#FFE2A8':accent);
   root.style.setProperty('--le-brand-ink',palette.onAction);
   root.dataset.theme=mode;
   root.dataset.environment=id;
