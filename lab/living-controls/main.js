@@ -17,6 +17,9 @@ const magnetic = document.querySelector('#magnetic-action');
 const elastic = document.querySelector('#elastic-action');
 const surfaceChoices = document.querySelector('#surface-choices');
 const indicator = document.querySelector('#selection-indicator');
+const frameMetric = document.querySelector('#lab-frame-metric');
+let frameSamples = 0;
+let elapsedFrameMs = 0;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const forcedColors = window.matchMedia('(forced-colors: active)');
 
@@ -60,7 +63,14 @@ magnetic.addEventListener('pointermove', event => {
   const x = Math.max(-1, Math.min(1, (event.clientX - box.left - box.width / 2) / (box.width / 2)));
   const y = Math.max(-1, Math.min(1, (event.clientY - box.top - box.height / 2) / (box.height / 2)));
   cancelAnimationFrame(scheduledFrame);
+  const scheduledAt = performance.now();
   scheduledFrame = requestAnimationFrame(() => {
+    // Local descriptive measurement only: scheduler delay is not an end-to-end input latency metric.
+    if (frameMetric && frameSamples < 200) {
+      frameSamples += 1;
+      elapsedFrameMs += performance.now() - scheduledAt;
+      frameMetric.textContent = `${frameSamples} samples · ${(elapsedFrameMs / frameSamples).toFixed(1)} ms mean scheduling delay (this device only)`;
+    }
     magnetic.style.setProperty('--lm-magnet-x', (x * 10 * strength).toFixed(1) + 'px');
     magnetic.style.setProperty('--lm-magnet-y', (y * 8 * strength).toFixed(1) + 'px');
   });
