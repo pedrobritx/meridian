@@ -79,8 +79,10 @@ test('local measurement stays descriptive and private', async ({page},testInfo) 
   const metric=page.locator('#lab-frame-metric');
   await expect(metric).toContainText('No pointer frames observed');
   if (testInfo.project.name === 'desktop') {
-    await page.getByRole('button',{name:'Explore attraction'}).hover();
-    await page.mouse.move(525,415);
+    const button=page.getByRole('button',{name:'Explore attraction'});
+    await button.hover();
+    const b=await button.boundingBox();
+    await page.mouse.move(b.x+b.width*0.55,b.y+b.height*0.55);
     await expect(metric).toContainText('samples');
     await expect(metric).toContainText('mean scheduling delay');
   }
