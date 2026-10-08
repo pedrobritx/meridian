@@ -8,11 +8,24 @@ import '@fontsource/newsreader/latin-400.css';
 import '@fontsource/newsreader/latin-400-italic.css';
 import '@fontsource/jetbrains-mono/latin-400.css';
 import '@fontsource/jetbrains-mono/latin-500.css';
+import '@fontsource/jetbrains-mono/latin-600.css';
+import '@fontsource/geist/latin-400.css';
+import '@fontsource/geist/latin-500.css';
+import '@fontsource/geist/latin-600.css';
+import '@fontsource/geist/latin-700.css';
+import '@fontsource/geist-mono/latin-400.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-600.css';
 import '../styles/tokens.css';
 import '../styles/components.css';
 import '../styles/reference.css';
 import {pages} from './pages.js';
 import {icon} from './icons.js';
+import {profiles} from '../scripts/figma/token-contract.mjs';
 const content=document.querySelector('#content');
 const announcement=document.querySelector('#announcement');
 const media=matchMedia('(prefers-color-scheme: dark)');
@@ -24,8 +37,8 @@ picker.addEventListener('change',()=>{preference=picker.value;applyTheme();try{l
 media.addEventListener('change',()=>{if(preference==='system')applyTheme();});
 applyTheme();
 const profilePicker=document.querySelector('#profile');
-let profile='grass';
-try{const saved=localStorage.getItem('meridian-profile');if(['grass','paper'].includes(saved))profile=saved;}catch{}
+let profile='core';
+try{const saved=localStorage.getItem('meridian-profile');if(profiles.some(p=>p.id===saved))profile=saved;}catch{}
 function applyProfile(){document.documentElement.dataset.meridian=profile;profilePicker.value=profile;}
 profilePicker.addEventListener('change',()=>{profile=profilePicker.value;applyProfile();try{localStorage.setItem('meridian-profile',profile);}catch{}});
 applyProfile();

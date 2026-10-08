@@ -73,7 +73,9 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
           }),
         };
       }
+      if (url.endsWith('/git/blobs')) return {ok:true,json:async()=>({sha:'a'.repeat(40)})};
       assert.ok(url.endsWith("/dispatches"));
+      assert.ok(Buffer.byteLength(options.body)<65535,'dispatch stays below the GitHub payload limit');
       return { ok: true, status: 204 };
     },
     TextDecoder,
@@ -113,9 +115,11 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
   assert.equal(event.event_type, "figma-tokens");
   assert.equal(event.client_payload.base_hash, hash(signature(baseline)));
   assert.equal(
-    event.client_payload.content.fields.heroTitle.value,
+    JSON.parse(JSON.parse(calls.find(c=>c.url.endsWith('/git/blobs')).options.body).content).content.fields.heroTitle.value,
     "Figma changed shared copy",
   );
+  assert.equal(event.client_payload.bundle_blob_sha,'a'.repeat(40));
+  assert.equal(event.client_payload.tokens,undefined);
   remote.content.fields.heroTitle.value = "Concurrent GitHub change";
   await runInContext('run(()=>compare("watch"))', context);
   assert.equal(elements.live.checked, false);

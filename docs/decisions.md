@@ -21,3 +21,7 @@ Fraunces display, Newsreader reading and JetBrains Mono labels reflect the inspe
 ## 0.4 shared contract
 
 The website now consumes the four-mode Core/Grass/Paper token export and mapped Figma library copy. This replaces the 0.1 palette as the current reference; the older choices above remain historical. The bridge preserves a review PR before Pages publication and offers session-based two-way variable/text synchronization. Layouts, code and prototype reactions are not reversible through tokens alone.
+
+## 0.5 — Repository-informed themes, 8 October 2026
+
+Inspect the five project repositories before choosing their profiles. Preserve Verbalis cyan CAT semantics, NotUX selection/guide and author-ink separation, Lexis editorial Paper, Framio stone/brass curation, and Ambientis evidence-first Terra intent. Core gains a neutral grayscale palette. Figma’s ten-mode limit requires complementary colour collections; original IDs remain intact. The 168-role export supports twelve appearances. Native glass is optional with at least 96% protective tint; opaque fallbacks are immediate under reduced transparency. Publish the enlarged contract as an immutable Git blob referenced by a small dispatch payload. See adoption and validation for current evidence.

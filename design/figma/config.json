@@ -19,12 +19,23 @@
     "grass": "91:35",
     "paper": "91:2693",
     "paper-dark": "91:2735",
-    "interaction-lab": "91:2797"
+    "interaction-lab": "91:2797",
+    "theme-comparison": "138:34",
+    "glass-buttons": "139:206",
+    "project-themes": "162:58"
   },
   "themeModes": [
     "Dawn",
     "Dusk",
     "PaperDawn",
-    "PaperDusk"
+    "PaperDusk",
+    "CoreDawn",
+    "CoreDusk",
+    "ParallelDawn",
+    "ParallelDusk",
+    "CanvasDawn",
+    "CanvasDusk",
+    "GalleryDawn",
+    "GalleryDusk"
   ]
 }

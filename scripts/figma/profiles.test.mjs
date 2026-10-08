@@ -2,19 +2,21 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { tokenCss, validateTokens } from './lib.mjs'
+import { profiles } from './token-contract.mjs'
 
 const read = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url)))
 const config = await read('../../design/figma/config.json')
 const bundle = await read('../../design/figma/generated/tokens.json')
 
-test('both profiles resolve shape, motion and distinct foreground/background roles', () => {
-  assert.deepEqual(Object.keys(validateTokens(bundle, config).modes), [
-    'Dawn',
-    'Dusk',
-    'PaperDawn',
-    'PaperDusk',
-  ])
-  for (const mode of config.themeModes) assert.equal(bundle.modes[mode]['radius/md'].value, 24)
+test('six profiles resolve purpose-specific shape, typography and semantic roles', () => {
+  assert.deepEqual(Object.keys(validateTokens(bundle, config).modes), profiles.flatMap(p => [p.light,p.dark]))
+  const contours = { grass:24, paper:24, core:16, parallel:12, canvas:16, gallery:12 }
+  for (const p of profiles) for (const mode of [p.light,p.dark]) assert.equal(bundle.modes[mode]['radius/md'].value, contours[p.id])
+  assert.equal(bundle.modes.ParallelDawn['typography/button/family'].value,'Geist')
+  assert.equal(bundle.modes.CanvasDawn['typography/button/family'].value,'Inter')
+  assert.equal(bundle.modes.GalleryDawn['typography/h1/family'].value,'Cormorant Garamond')
+  assert.equal(bundle.modes.PaperDawn['typography/reading/family'].value,'Newsreader')
+  assert.equal(bundle.modes.PaperDawn['typography/button/family'].value,'JetBrains Mono')
   assert.equal(bundle.modes.Dawn['radius/sm'].value, 24)
   assert.equal(bundle.modes.PaperDawn['radius/sm'].value, 14)
   assert.ok(Math.abs(bundle.modes.PaperDusk['motion/scale/pressed'].value - 0.99) < 1e-6)

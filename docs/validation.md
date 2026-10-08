@@ -1,15 +1,15 @@
-# Validation — website 0.4
+# Validation — Meridian 0.5
 
-Executed locally on 7 October 2026:
+Executed locally on 8 October 2026:
 
-- `npm test`: 43 passing checks for the canonical four-mode contract, generated CSS, contrast, native alias resolution/import, rollback, mapped text, plugin UI, conflict protection, webhook handling and sync CLI orchestration.
-- `npm run build`: production static build succeeds. It regenerates both CSS consumers and the importable Figma plugin; Manrope, Fraunces, Newsreader and JetBrains Mono are self-hosted.
-- Browser checks: all seven routes passed axe A/AA checks and horizontal-overflow checks in Grass/Paper × light/dark at desktop and 390px mobile widths. Keyboard tabs, native dialog, local form validation, persistence and reduced motion passed. Selected-only bold and row-only rounded hover passed. The final full browser run passed all 16 scenarios.
-- Browser runs used the environment's `/usr/bin/chromium` through `PLAYWRIGHT_CHROMIUM_EXECUTABLE`; downloading Playwright's bundled browser was blocked. CI installs its bundled Chromium normally.
-- Desktop Grass and mobile Paper overview screenshots were reviewed visually.
+- `npm test`: 46 passing checks for twelve-mode parity, exact native snapshot equality, generated CSS, alias-preserving imports, opaque/composited contrast, immutable-blob publication, stale-main/conflict protection, mapped text, rollback and sync orchestration.
+- `npm run build`: production build succeeds and regenerates both CSS consumers and the importable plugin. Eight font families and their unchanged licences are self-hosted.
+- Browser coverage: all seven routes in six profiles × light/dark passed axe A/AA and horizontal-overflow checks at desktop and 390px mobile widths. The full route/keyboard run passed 32 scenarios. After the immediate opaque-fallback fix, the two new glass keyboard/reduced-transparency/forced-colour scenarios passed a targeted rerun. Tabs, dialog focus, local form validation, persistence, row-owned hover and reduced motion are covered.
+- `node scripts/build-contrast-report.mjs`: 864 passing pairs. Minimum text contrast is 4.6836:1; minimum control/focus contrast is 3.0024:1. Checks include supported solid surfaces and glass composites over those surfaces plus black/white extremes.
+- Figma: five editable project specimens in light/dark, 168 editable text layers and 40 linked instances on the project board; no child overflow. Button sets have 48px targets and valid internal state destinations. Final native screenshots were reviewed; six screenshot artifacts are saved in `design/meridian/previews/`.
 
-The plugin UI and native mutation paths were executed with mocked HTTP/native APIs, not a real live plugin session. The earlier named-version export succeeded and was merged in PR #3, but that old named version is not the current 0.4 canvas. Save a new named version and activate the updated plugin to verify the current round trip end to end.
+Chromium used `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium`. Native tokens and mapped copy were read from the current live Figma file. The content baseline matches the saved Figma and GitHub source. Layout/component edits persisted through use_figma. The editing API cannot create a named Figma history version; this is a saved current-file update.
 
-Automated checks are not full WCAG certification. Native Safari/Firefox, human screen-reader checks, and contextual contrast over arbitrary glass imagery remain unverified. Layouts, application code and prototype reaction timing are not reversible through design tokens.
+The development plugin mutation and publication paths were exercised with mocked native/HTTP APIs. The immutable-blob transport preserves the complete 136KB contract within GitHub’s dispatch limit. An installed plugin session and a new named-version export are separate integration checks; no claim is made that a webhook is active or the review branch is deployed.
 
-Historical 0.1 verification covered its paired Dawn/Dusk reference, six routes and ten browser scenarios on 6 October 2026. It is superseded by the current contract above.
+Native refraction over arbitrary imagery, human screen-reader checks and Safari/Firefox remain contextual adoption checks. Automated checks are not full WCAG certification. Ambientis Grass/Terra is a proposal based on its documented foundation, not an approved production palette or compliance stamp.

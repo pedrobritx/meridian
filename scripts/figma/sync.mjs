@@ -133,7 +133,16 @@ let bundle;
 let publishedContent;
 
 if (event.action === "figma-tokens") {
-  bundle = validateTokens(payload.tokens, config);
+  let publication = payload;
+  if (payload.bundle_blob_sha) {
+    if (!/^[a-f0-9]{40}$/.test(payload.bundle_blob_sha)) throw Error("Invalid contract blob SHA");
+    const blob = await gh(`/git/blobs/${payload.bundle_blob_sha}`);
+    if (blob.encoding !== "base64") throw Error("Unsupported contract blob encoding");
+    const bytes = Buffer.from(blob.content.replaceAll("\n", ""), "base64");
+    if (bytes.length > 2 * 1024 * 1024) throw Error("Contract blob exceeds the supported size");
+    publication = JSON.parse(bytes.toString("utf8"));
+  }
+  bundle = validateTokens(publication.tokens, config);
   for (const mode of config.themeModes) {
     const current = mainBundle.tokens.modes[mode],
       candidate = bundle.modes[mode];
@@ -148,7 +157,7 @@ if (event.action === "figma-tokens") {
         "Token names/types changed. Review an intentional library schema update before synchronising values.",
       );
   }
-  publishedContent = validateContent(payload.content, contentTemplate);
+  publishedContent = validateContent(publication.content, contentTemplate);
   if (!payload.base_hash || payload.base_hash !== mainHash)
     throw new Error(
       "GitHub changed since the plugin comparison. Compare again before publishing; no files were overwritten.",

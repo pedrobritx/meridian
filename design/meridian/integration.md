@@ -5,7 +5,7 @@ The canonical target is **pedrobritx/meridian**. Figma file `aJ2f6aYX9KBucAdPsCm
 ## Source and flow
 
 1. Figma native primitives/semantic aliases are the reference library decisions. Code syntax points to `--meridian-*`.
-2. The included development plugin resolves Grass/Paper light/dark variables and sends a deliberately published token bundle to GitHub. On Education plans this avoids the Enterprise Variables REST API.
+2. The included development plugin resolves all six profiles in light/dark appearances and sends a deliberately published token bundle to GitHub. On Education plans this avoids the Enterprise Variables REST API.
 3. The workflow validates names/types/units/theme parity, generates reference JSON/CSS and opens or updates a draft PR. Named versions separately export layer diffs and review previews, with a handoff issue.
 4. Designers and developers review semantic changes together. Product implementation maps those roles to its approved theme; merge does not silently recolour the app.
 

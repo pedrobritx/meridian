@@ -9,13 +9,13 @@ File/repository allowlists and review-frame IDs are in `config.json`. Lexis is a
 | Change | Trigger | Review output |
 | --- | --- | --- |
 | Layers, text, layout, component properties and prototype metadata | Save a **named version**; scheduled check every six hours, manual workflow, or optional webhook | Version-specific layer diff, PNG review previews, handoff issue and one accumulating draft PR |
-| Native semantic variables and ten mapped text layers | Plugin → **Publish Figma for review**, or live mode while open | Validated four-mode tokens, mapped copy, CSS and a draft PR |
+| Native semantic variables and ten mapped text layers | Plugin → **Publish Figma for review**, or live mode while open | Validated twelve-mode tokens, mapped copy, CSS and a draft PR; the full contract is stored as an immutable Git blob and dispatched by SHA |
 | GitHub tokens and mapped text on `main` | Plugin → **Apply GitHub values**, or live mode while open | Updates native primitive cells through aliases and editable text layers |
 | Shared contract and runtime source on GitHub | Merge into `main` | Validate, build and deploy GitHub Pages |
 
 Autosaves are ignored. This is not an every-keystroke mirror, and a named version does not automatically export native variables on Education plans. The Variables REST API requires a different plan; the development plugin avoids that requirement. Live mode is session-based, not a server-side Figma writer. Exports never merge themselves or generate arbitrary application code.
 
-Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.4 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core / Grass / Paper page. Changing either contract on `main` updates the next website build. Archive `tokens/legacy-0.1.json` is not consumed.
+Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core and themes page. Changing either contract on `main` updates the next website build. Archive `tokens/legacy-0.1.json` is not consumed.
 
 ## Activate
 
@@ -24,7 +24,7 @@ Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.4 libr
 1. Merge the bridge PR into **Meridian's `main`**. Repository-dispatch and scheduled workflows must exist on the default branch.
 2. In [Meridian Actions settings](https://github.com/pedrobritx/meridian/settings/actions), enable **Allow GitHub Actions to create and approve pull requests**.
 3. Create a Figma personal access token with `file_content:read` and `file_versions:read`. Store it as **FIGMA_ACCESS_TOKEN** in [Meridian Actions secrets](https://github.com/pedrobritx/meridian/settings/secrets/actions). Renew it before expiry. Do not send credentials in chat.
-4. Save a named version such as **Meridian 0.4 · Grass + Paper sync verification**.
+4. Save a named version such as **Meridian 0.5 · Purposeful profiles verification**.
 5. Run [Figma Design Sync](https://github.com/pedrobritx/meridian/actions/workflows/figma-sync.yml) manually with a blank version ID, or wait for the scheduled check. It should create a handoff issue and a draft PR on `design/figma-sync` in **Meridian**.
 
 Missing credentials and API failures fail the run; test-suite success alone does not establish live synchronization.

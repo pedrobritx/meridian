@@ -1,56 +1,56 @@
 {
-  "version": "0.4",
+  "version": "0.5",
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
   "fileUrl": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian",
   "repository": "pedrobritx/meridian",
   "pages": [
     {
       "id": "0:1",
-      "name": "00 \u00b7 Meridian \u00b7 Start"
+      "name": "00 · Meridian · Start"
     },
     {
       "id": "3:207",
-      "name": "01 \u00b7 Foundations"
+      "name": "01 · Foundations"
     },
     {
       "id": "3:208",
-      "name": "02 \u00b7 Components"
+      "name": "02 · Components"
     },
     {
       "id": "3:209",
-      "name": "03 \u00b7 Symbols"
+      "name": "03 · Symbols"
     },
     {
       "id": "3:210",
-      "name": "04 \u00b7 Page patterns"
+      "name": "04 · Page patterns"
     },
     {
       "id": "3:211",
-      "name": "05 \u00b7 Adoption"
+      "name": "05 · Adoption"
     },
     {
       "id": "43:37",
-      "name": "06 \u00b7 Controls"
+      "name": "06 · Controls"
     },
     {
       "id": "44:1299",
-      "name": "07 \u00b7 Navigation & data"
+      "name": "07 · Navigation & data"
     },
     {
       "id": "45:2262",
-      "name": "08 \u00b7 Feedback"
+      "name": "08 · Feedback"
     },
     {
       "id": "92:34",
-      "name": "09 \u00b7 Meridian profiles"
+      "name": "09 · Meridian Core & themes"
     },
     {
       "id": "91:34",
-      "name": "10 \u00b7 Meridian Grass"
+      "name": "10 · Meridian Grass"
     },
     {
       "id": "91:2692",
-      "name": "11 \u00b7 Meridian Paper"
+      "name": "11 · Meridian Paper"
     }
   ],
   "collections": [
@@ -69,20 +69,28 @@
       "name": "Meridian / Colour",
       "modes": [
         {
-          "name": "Dawn",
+          "name": "Grass / Dawn",
           "modeId": "3:6"
         },
         {
-          "name": "Dusk",
+          "name": "Grass / Dusk",
           "modeId": "3:7"
         },
         {
-          "name": "PaperDawn",
+          "name": "Paper / Dawn",
           "modeId": "83:0"
         },
         {
-          "name": "PaperDusk",
+          "name": "Paper / Dusk",
           "modeId": "83:1"
+        },
+        {
+          "name": "Core / Dawn",
+          "modeId": "133:0"
+        },
+        {
+          "name": "Core / Dusk",
+          "modeId": "133:1"
         }
       ]
     },
@@ -97,6 +105,22 @@
         {
           "name": "Paper",
           "modeId": "83:2"
+        },
+        {
+          "name": "Core",
+          "modeId": "133:2"
+        },
+        {
+          "name": "Parallel",
+          "modeId": "159:2"
+        },
+        {
+          "name": "Canvas",
+          "modeId": "159:6"
+        },
+        {
+          "name": "Gallery",
+          "modeId": "159:10"
         }
       ]
     },
@@ -107,6 +131,30 @@
         {
           "name": "Value",
           "modeId": "3:9"
+        },
+        {
+          "name": "Core",
+          "modeId": "159:12"
+        },
+        {
+          "name": "Grass",
+          "modeId": "159:13"
+        },
+        {
+          "name": "Paper",
+          "modeId": "159:14"
+        },
+        {
+          "name": "Parallel",
+          "modeId": "159:15"
+        },
+        {
+          "name": "Canvas",
+          "modeId": "159:16"
+        },
+        {
+          "name": "Gallery",
+          "modeId": "159:17"
         }
       ]
     },
@@ -121,6 +169,22 @@
         {
           "name": "Paper",
           "modeId": "83:3"
+        },
+        {
+          "name": "Core",
+          "modeId": "133:3"
+        },
+        {
+          "name": "Parallel",
+          "modeId": "159:3"
+        },
+        {
+          "name": "Canvas",
+          "modeId": "159:7"
+        },
+        {
+          "name": "Gallery",
+          "modeId": "159:11"
         }
       ]
     },
@@ -133,19 +197,57 @@
           "modeId": "42:1"
         }
       ]
+    },
+    {
+      "id": "VariableCollectionId:159:34",
+      "name": "Meridian / Project Colour",
+      "modes": [
+        {
+          "name": "Parallel / Dawn",
+          "modeId": "159:0"
+        },
+        {
+          "name": "Parallel / Dusk",
+          "modeId": "159:1"
+        },
+        {
+          "name": "Canvas / Dawn",
+          "modeId": "159:4"
+        },
+        {
+          "name": "Canvas / Dusk",
+          "modeId": "159:5"
+        },
+        {
+          "name": "Gallery / Dawn",
+          "modeId": "159:8"
+        },
+        {
+          "name": "Gallery / Dusk",
+          "modeId": "159:9"
+        }
+      ]
     }
   ],
-  "variableCount": 367,
-  "semanticTokensPerMode": 165,
+  "variableCount": 698,
+  "semanticTokensPerMode": 168,
   "modes": [
     "Dawn",
     "Dusk",
     "PaperDawn",
-    "PaperDusk"
+    "PaperDusk",
+    "CoreDawn",
+    "CoreDusk",
+    "ParallelDawn",
+    "ParallelDusk",
+    "CanvasDawn",
+    "CanvasDusk",
+    "GalleryDawn",
+    "GalleryDusk"
   ],
   "completeInventory": "../design/meridian/figma-manifest.json",
   "nativeProvenance": "../design/figma/generated/figma-source.json",
   "canonicalTokens": "../design/figma/generated/tokens.json",
   "runtimeReference": "design/figma/generated/tokens.json",
-  "note": "Website 0.4 consumes the four-mode token export and site/content.json. The plugin round-trips values and mapped copy; layout/code remain implementation work."
+  "note": "Website 0.5 and the plugin consume twelve appearances from two complementary native colour collections. Shared mapped copy was read from the current live Figma file. Layout and prototype metadata are recorded in the manifest."
 }

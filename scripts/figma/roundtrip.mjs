@@ -1,6 +1,23 @@
-import { validateTokens } from "./token-contract.mjs";
-export const modes = ["Dawn", "Dusk", "PaperDawn", "PaperDusk"];
+import { validateTokens, profiles, profileForMode } from "./token-contract.mjs";
+export const modes = profiles.flatMap(p => [p.light, p.dark]);
 export const fileKey = "aJ2f6aYX9KBucAdPsCmkXn";
+export function modeForCollection(collection, theme) {
+  const profile = profileForMode(theme);
+  const match = collection.modes.find(m => m.name === profile.nativeName || m.name === theme)
+    || collection.modes.find(m => m.name === profile.name);
+  if (match) return match;
+  if (collection.modes.length === 1 && !["Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout", "Meridian / Motion"].includes(collection.name)) return collection.modes[0];
+  throw Error("Missing profile mode in " + collection.name);
+}
+function semanticForMode(variables, collections, theme) {
+  const colour = profileForMode(theme).projectColour ? "Meridian / Project Colour" : "Meridian / Colour";
+  return variables.filter(v => {
+    const name = collections[v.variableCollectionId]?.name;
+    return name?.startsWith("Meridian /") && name !== "Meridian / Primitives"
+      && (!name.endsWith("Colour") || name === colour)
+      && ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType);
+  });
+}
 export function validateContent(content, template) {
   if (content?.schemaVersion !== 1 || content.fileKey !== fileKey)
     throw Error("Wrong shared-content file/schema");
@@ -81,31 +98,12 @@ export function captureNativeTokens(collections, variables) {
     if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
     seen.add(v.id);
     const c = cs[v.variableCollectionId];
-    let m =
-      c.modes.find((m) => m.name === theme) ||
-      c.modes.find(
-        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
-      );
-    if (
-      !m &&
-      c.modes.length === 1 &&
-      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
-        c.name,
-      )
-    )
-      m = c.modes[0];
-    if (!m) throw Error("Missing profile mode in " + c.name);
+    const m = modeForCollection(c, theme);
     const value = v.valuesByMode[m.modeId];
     return value?.type === "VARIABLE_ALIAS"
       ? resolve(vs[value.id], theme, seen)
       : value;
   };
-  const semantic = variables.filter(
-    (v) =>
-      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
-      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
-      ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType),
-  );
   return validateTokens(
     {
       schemaVersion: 1,
@@ -114,7 +112,7 @@ export function captureNativeTokens(collections, variables) {
         modes.map((theme) => [
           theme,
           Object.fromEntries(
-            semantic.map((v) => [
+            semanticForMode(variables, cs, theme).map((v) => [
               v.name,
               { type: v.resolvedType, value: resolve(v, theme) },
             ]),
@@ -129,13 +127,7 @@ export function planTokenImport(bundle, collections, variables) {
   const candidate = validateTokens(bundle, { fileKey, themeModes: modes });
   const cs = Object.fromEntries(collections.map((c) => [c.id, c])),
     vs = Object.fromEntries(variables.map((v) => [v.id, v]));
-  const semantic = variables.filter(
-    (v) =>
-      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
-      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
-      ["FLOAT", "COLOR", "STRING"].includes(v.resolvedType),
-  );
-  const localNames = semantic.map((v) => v.name).sort();
+  const localNames = semanticForMode(variables, cs, modes[0]).map(v => v.name).sort();
   if (
     JSON.stringify(localNames) !==
     JSON.stringify(Object.keys(candidate.modes.Dawn).sort())
@@ -147,20 +139,7 @@ export function planTokenImport(bundle, collections, variables) {
     if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
     seen.add(v.id);
     const c = cs[v.variableCollectionId];
-    let m =
-      c.modes.find((m) => m.name === theme) ||
-      c.modes.find(
-        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
-      );
-    if (
-      !m &&
-      c.modes.length === 1 &&
-      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
-        c.name,
-      )
-    )
-      m = c.modes[0];
-    if (!m) throw Error("Missing profile mode: " + c.name);
+    const m = modeForCollection(c, theme);
     const current = v.valuesByMode[m.modeId];
     return current?.type === "VARIABLE_ALIAS"
       ? terminal(vs[current.id], theme, seen)
@@ -168,7 +147,7 @@ export function planTokenImport(bundle, collections, variables) {
   };
   const cells = new Map();
   for (const theme of modes)
-    for (const v of semantic) {
+    for (const v of semanticForMode(variables, cs, theme)) {
       const token = candidate.modes[theme][v.name];
       if (token.type !== v.resolvedType)
         throw Error("Token type differs: " + v.name);

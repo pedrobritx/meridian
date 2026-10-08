@@ -67,7 +67,7 @@ test("actual plugin resolves native aliases and exports the complete semantic sn
     validateTokens(expected, config),
   );
   const colour = source.collections.find((c) => c.name === "Meridian / Colour");
-  colour.modes = colour.modes.filter((m) => m.name !== "PaperDusk");
+  colour.modes = colour.modes.filter((m) => m.name !== "Paper / Dusk");
   await figma.ui.onmessage({ type: "export" });
   assert.equal(result.type, "error");
   assert.match(result.message, /Missing profile mode/);

@@ -93,6 +93,20 @@ async function digest(value) {
 async function publish(local, currentRemote) {
   if (!credentials())
     throw Error("Enter a GitHub token with Contents write on meridian.");
+  // Twelve appearances exceed repository_dispatch's 64KiB client payload limit.
+  // Store the complete contract as an immutable Git blob, then dispatch its SHA.
+  const blob = await fetch(repo + "/git/blobs", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + sessionToken,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ content: JSON.stringify(local), encoding: "utf-8" }),
+  });
+  if (!blob.ok) throw Error("GitHub contract upload failed (" + blob.status + ").");
+  const blobSha = (await blob.json()).sha;
+  if (!/^[a-f0-9]{40}$/.test(blobSha)) throw Error("GitHub returned an invalid contract reference.");
   const response = await fetch(repo + "/dispatches", {
     method: "POST",
     headers: {
@@ -104,8 +118,7 @@ async function publish(local, currentRemote) {
       event_type: "figma-tokens",
       client_payload: {
         file_key: fileKey,
-        tokens: local.tokens,
-        content: local.content,
+        bundle_blob_sha: blobSha,
         base_hash: await digest(currentRemote),
       },
     }),

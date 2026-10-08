@@ -2,11 +2,17 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { tokenCss, validateTokens } from './lib.mjs'
+import { captureNativeTokens } from './roundtrip.mjs'
 
 const read = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url)))
 const config = await read('../../design/figma/config.json')
 const bundle = await read('../../design/figma/generated/tokens.json')
 const source = await read('../../design/figma/generated/figma-source.json')
+
+test('canonical tokens exactly match the captured native Figma aliases and modes', () => {
+  const variables = source.collections.flatMap(c => c.variables.map(v => ({...v,variableCollectionId:c.id,resolvedType:v.type,valuesByMode:v.values})))
+  assert.deepEqual(captureNativeTokens(source.collections,variables),bundle)
+})
 
 test('committed CSS is reproducible from the validated token snapshot', async () => {
   assert.equal(
@@ -69,4 +75,21 @@ test('opaque reference text, action, status, focus and control pairs meet AA thr
       const ratio = (high + 0.05) / (low + 0.05)
       assert.ok(ratio >= min, `${theme}: ${fg} on ${bg} = ${ratio.toFixed(2)}:1; needs ${min}:1`)
     }
+})
+
+test('protective glass labels and boundaries survive the tested surfaces and black/white extremes', () => {
+  for (const [theme,tokens] of Object.entries(bundle.modes)) {
+    const backgrounds = ['page','surface','sunken','overlay'].map(bg=>tokens['color/bg/'+bg].value)
+    backgrounds.push({r:0,g:0,b:0,a:1},{r:1,g:1,b:1,a:1})
+    for (const name of ['color/button/glass','color/button/glass-hover']) for (const background of backgrounds) {
+      const tint=tokens[name].value
+      assert.ok(tint.a >= .96 - 1e-6, `${theme}: protective tint (Figma float precision)`)
+      const composite=Object.fromEntries(['r','g','b'].map(c=>[c,tint[c]*tint.a+background[c]*(1-tint.a)]))
+      for (const [role,min] of [['color/action/secondary',4.5],['color/border/control',3],['color/focus/ring',3]]) {
+        const foreground=tokens[role].value
+        const ratio=(Math.max(luminance(foreground),luminance(composite))+.05)/(Math.min(luminance(foreground),luminance(composite))+.05)
+        assert.ok(ratio>=min,`${theme}: ${role} on ${name} = ${ratio.toFixed(2)}:1`)
+      }
+    }
+  }
 })

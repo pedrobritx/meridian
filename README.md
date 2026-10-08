@@ -2,13 +2,13 @@
 
 A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. BSDL remains its philosophical foundation; Meridian is the interface method, and BSF concerns the software-building process.
 
-**Figma library 0.4 · Web reference 0.4** — [Live reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
+**Figma library 0.5 · Web reference 0.5** — [Live reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
 
-The reference includes seven views: Overview, Grass & Paper, Foundations, Components, Symbols, Page patterns, and Product adaptations. Grass and Paper each provide light and dark environments. Products can retain different palettes, typography and material choices through semantic remapping.
+The reference includes seven views: Overview, Theme profiles, Foundations, Components, Symbols, Page patterns, and Product adaptations. Core, Grass, Paper, Parallel, Canvas and Gallery each provide light and dark appearances. Products can retain different palettes, typography and material choices through semantic remapping.
 
 ## Use the foundations
 
-Load `styles/tokens.css` followed by `styles/components.css`. Use the native HTML recipes in [docs/components.md](docs/components.md). Components use semantic `--md-color-*` roles, not raw pigments. Product themes override those roles. `design/figma/generated/tokens.json` is the canonical four-mode token source; `styles/tokens.css` is generated and committed for direct adoption.
+Load `styles/tokens.css` followed by `styles/components.css`. Use the native HTML recipes in [docs/components.md](docs/components.md). Components use semantic `--md-color-*` roles, not raw pigments. Product themes override those roles. `design/figma/generated/tokens.json` is the canonical twelve-mode token source; `styles/tokens.css` is generated and committed for direct adoption.
 
 This is a reference library, not a published npm package or an automatic migration for existing products. The site uses semantic HTML, CSS and small JavaScript modules. Vite builds the static site; there is no framework runtime, backend, analytics or external font request. Profile and environment preferences are stored locally.
 
@@ -23,11 +23,11 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-The development and preview base is `/meridian/`, matching GitHub Pages. `npm run build` regenerates the plugin, CSS tokens and `dist/`. Edit the canonical JSON and `site/content.json` instead of generated outputs. Browser checks cover every view in all four profile/environment combinations at desktop and mobile widths, native dialog focus, tabs, local form validation, theme persistence and reduced motion.
+The development and preview base is `/meridian/`, matching GitHub Pages. `npm run build` regenerates the plugin, CSS tokens and `dist/`. Edit the canonical JSON and `site/content.json` instead of generated outputs. Browser checks cover every view in all twelve profile/environment combinations at desktop and mobile widths, native dialog focus, tabs, local form validation, theme persistence and reduced motion.
 
 ## Design in Figma
 
-The native library is now **Meridian Core + Grass + Paper**, with four colour modes, profile-specific shape/motion modes, 165 semantic tokens per colour mode and a 24px default surface radius. The current [system handbook](design/meridian/README.md), [profile guide](design/meridian/profiles.md), [native inventory](docs/figma-library.json) and [resolved token export](design/figma/generated/tokens.json) record this contract. The website builds directly from that token export. Ten editable Figma text layers share `site/content.json` with the website. The original 0.1 source map and tokens are historical records, archived in `docs/figma-library-0.1.json` and `tokens/legacy-0.1.json`.
+The native library contains **Core + Grass + Paper + Parallel + Canvas + Gallery**, with twelve resolved colour modes, profile-specific layout/motion/typography and 168 semantic roles per appearance. Core is neutral, Grass is green and Paper is sand/wine. The [profile guide](design/meridian/profiles.md), [project-purpose mapping](docs/adoption.md), [native inventory](docs/figma-library.json) and [token export](design/figma/generated/tokens.json) record the same contract. Ten editable Figma text layers share `site/content.json` with the website. Historical 0.1 source files remain archived.
 
 ## Figma ↔ Meridian GitHub → website
 
@@ -42,7 +42,7 @@ GitHub Pages serves the static website. It cannot receive webhooks. Polling need
 
 ## Product adaptations
 
-[Adoption and provenance](docs/adoption.md) documents the existing Lexis, EFL Lesson Framework and VIA identities. Ambientis Terra remains a planned adaptation with exact tokens pending. None of those repositories is changed by this release.
+[Adoption and provenance](docs/adoption.md) records repository-informed themes for Verbalis (CAT), NotUX (whiteboard), Lexis (ESL), Framio (online museum) and Ambientis (environmental compliance). Ambientis Grass/Terra remains a proposed mapping because its repository is a documented foundation. The shared library and reference implementation are maintained here; product application migrations require their own implementation changes.
 
 ## Validation and limits
 

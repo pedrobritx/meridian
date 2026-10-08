@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { validateTokens } from "../scripts/figma/lib.mjs";
 
-test("website CSS consumes the complete current Figma contract in all four modes", async () => {
+test("website CSS consumes the complete current Figma contract in all twelve modes", async () => {
   const root = new URL("../", import.meta.url),
     read = (path) => readFile(new URL(path, root), "utf8");
   const bundle = validateTokens(
