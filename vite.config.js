@@ -9,7 +9,8 @@ export default defineConfig({
       input:{
         main:fileURLToPath(new URL('./index.html',import.meta.url)),
         livingControls:fileURLToPath(new URL('./lab/living-controls/index.html',import.meta.url)),
-        livingWorkspace:fileURLToPath(new URL('./lab/living-workspace/index.html',import.meta.url))
+        livingWorkspace:fileURLToPath(new URL('./lab/living-workspace/index.html',import.meta.url)),
+        livingEnvironments:fileURLToPath(new URL('./lab/living-environments/index.html',import.meta.url))
       }
     }
   }
