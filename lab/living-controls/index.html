@@ -110,8 +110,35 @@
         <a href="https://github.com/pedrobritx/meridian/issues/9" class="lm-research-link">View research and implementation issue ↗</a>
       </div>
     </section>
+
+    <section class="lm-fusion-card" aria-labelledby="fusion-title">
+      <div class="lm-fusion-copy">
+        <div class="lm-card-head"><span class="lm-index">LM-02 / H02 · EXPERIMENT B</span><span class="lm-status lm-status-active">EXPLORATORY</span></div>
+        <h2 id="fusion-title">Liquid merging &amp; separation.</h2>
+        <p>Two separate visual objects attract, connect and separate. Their controls never become one inaccessible target: the material response is decorative and native radio state remains authoritative.</p>
+        <fieldset class="lm-fusion-controls">
+          <legend>Visual relationship</legend>
+          <label><input type="radio" name="fusion" value="separated" checked><span>Separated</span></label>
+          <label><input type="radio" name="fusion" value="merged"><span>Merged</span></label>
+        </fieldset>
+        <p class="lm-hint">Use the radio controls or arrow keys. Switching state works without animation.</p>
+      </div>
+      <div class="lm-fusion-scene" aria-hidden="true">
+        <svg class="lm-fusion-filter" width="0" height="0" focusable="false" aria-hidden="true">
+          <defs><filter id="lm-goo" x="-45%" y="-65%" width="190%" height="230%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo"/>
+          </filter></defs>
+        </svg>
+        <div class="lm-fusion-shapes">
+          <span class="lm-fusion-drop lm-fusion-drop-left"></span>
+          <span class="lm-fusion-drop lm-fusion-drop-right"></span>
+        </div>
+        <span class="lm-fusion-caption">Two objects · one temporary physical relationship</span>
+      </div>
+    </section>
   </main>
-  <footer class="lm-footer"><span>MERIDIAN / LAB · 0.6 LIVING MATTER</span><span>Independent experimental prototypes · BSDL boundaries apply</span></footer>
+  <footer class="lm-footer"<span>MERIDIAN / LAB · 0.6 LIVING MATTER</span><span>Independent experimental prototypes · BSDL boundaries apply</span></footer>
   <script type="module" src="./main.js"></script>
 </body>
 </html>

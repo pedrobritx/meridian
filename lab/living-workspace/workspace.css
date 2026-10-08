@@ -10,3 +10,31 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important;transform:none!important}}
 @media(prefers-reduced-transparency:reduce),(prefers-contrast:more){.panel{background:var(--paper);backdrop-filter:none}}
 @media(forced-colors:active){.panel,.canvas,.controls,.surface,.surface-stage{forced-color-adjust:auto;background:Canvas;color:CanvasText;border:1px solid CanvasText;backdrop-filter:none}.toolbar button,.controls button{background:ButtonFace;color:ButtonText;border:1px solid ButtonText}.ambient{display:none}}
+
+
+/* LM-04: bounded inertial attractor. Native radio controls own selection;
+   the visible mass and anchor marks are aria-hidden and cannot capture input. */
+.gravity-lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.85fr);align-items:center;gap:28px;margin-top:24px;padding:31px;border:1px solid var(--line);border-radius:25px;background:var(--paper)}
+.gravity-copy h2{font:400 35px/1.18 Fraunces,Georgia,serif;margin:3px 0 12px}
+.gravity-copy>p:not(.eyebrow){font-size:14px;color:var(--muted);max-width:660px}
+.gravity-anchors{display:flex;flex-wrap:wrap;gap:10px;border:0;margin:22px 0 10px;padding:0}
+.gravity-anchors legend{font-size:13px;font-weight:700;margin-bottom:9px}
+.gravity-anchors label{display:flex;gap:9px;align-items:center;min-height:48px;padding:11px 15px;background:#EDF3ED;border:1px solid #AEC9B4;border-radius:14px;cursor:pointer;font-size:13px}
+.gravity-anchors label:has(input:checked){background:#D8E9DA;border-color:#427C58;font-weight:700}
+.gravity-anchors input{width:18px;height:18px;accent-color:#225F50}
+.gravity-help{font-size:12px!important}
+.gravity-track{--gravity-travel:115px;position:relative;isolation:isolate;min-width:0;min-height:220px;border-radius:20px;background:radial-gradient(circle at 50% 48%,#D5EADA,#EBF0E8 72%);overflow:hidden;pointer-events:none}
+.gravity-guide{position:absolute;left:calc(50% - var(--gravity-travel));width:calc(var(--gravity-travel)*2);top:calc(50% - 14px);border-top:2px dashed #8CB9A0}
+.gravity-anchor-mark{position:absolute;top:calc(50% - 21px);height:15px;width:15px;border-radius:50%;border:2px solid #60967D;background:#E4EFE5;transform:translateX(-50%)}
+.gravity-anchor-west{left:calc(50% - var(--gravity-travel))}
+.gravity-anchor-center{left:50%}
+.gravity-anchor-east{left:calc(50% + var(--gravity-travel))}
+.gravity-mass{position:absolute;left:calc(50% - 34px);top:calc(50% - 50px);height:68px;width:68px;border-radius:44% 56% 56% 44%;background:radial-gradient(circle at 30% 24%,#C5EBDC,#569D80 63%,#205C49);box-shadow:0 15px 30px #24533e28;transform:translate3d(0,0,0);will-change:transform}
+.gravity-lab:has(input[value="west"]:checked) .gravity-mass{transform:translate3d(calc(-1*var(--gravity-travel)),0,0)}
+.gravity-lab:has(input[value="east"]:checked) .gravity-mass{transform:translate3d(var(--gravity-travel),0,0)}
+.gravity-lab [data-physics-ready="true"] .gravity-mass{transform:translate3d(var(--gravity-position,0px),0,0)}
+.gravity-track-label{position:absolute;bottom:19px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.1em;color:#547564;font-weight:700}
+#gravity-status{font-size:13px!important;padding:11px 14px;background:#ECF4EB;border:1px solid #D2E2D1;border-radius:12px;margin:14px 0 0}
+@media(max-width:850px){.gravity-lab{grid-template-columns:1fr}.gravity-track{min-height:180px}}
+@media(max-width:550px){.gravity-lab{padding:22px}.gravity-copy h2{font-size:30px}.gravity-track{--gravity-travel:97px}}
+@media(forced-colors:active){.gravity-lab,.gravity-track,.gravity-anchors label,#gravity-status{background:Canvas!important;border:1px solid CanvasText!important;color:CanvasText!important}.gravity-mass{background:Highlight;box-shadow:none}.gravity-anchors label:has(input:checked){outline:2px solid Highlight}.gravity-guide,.gravity-anchor-mark{border-color:CanvasText}.gravity-track-label{color:CanvasText}}

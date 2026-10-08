@@ -17,9 +17,9 @@
       "name": "Liquid merging and separation",
       "prototype": "living-controls",
       "hypothesis": "LM-H02",
-      "status": "implemented-selection-only",
-      "comparison": "Native radio choices",
-      "accessibility": "Native fieldset/radio; indicator decorative; no-JS selected background"
+      "status": "implemented-experimental",
+      "comparison": "Native radio selection; explicit separate/merged decorative fluid blobs",
+      "accessibility": "Independently accessible native radios; no merged hitboxes; reduced motion / forced colours retain state"
     },
     {
       "id": "LM-03",
@@ -36,8 +36,8 @@
       "prototype": "living-workspace",
       "hypothesis": "LM-H04",
       "status": "implemented-experimental",
-      "comparison": "Static spatial navigation",
-      "accessibility": "Non-motion orientation and focus restoration required"
+      "comparison": "Native spatial anchor selection with bounded damped attraction versus quiet, instantaneous position",
+      "accessibility": "Native keyboard/touch radio anchors; immediate state update; no moving hit targets; reduced-motion snap"
     },
     {
       "id": "LM-05",

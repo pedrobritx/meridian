@@ -128,3 +128,31 @@ body.lm { margin:0; background:var(--md-color-bg-page); color:var(--lm-ink); fon
   .lm-status-active,.lm-switch-track { background:ButtonFace; color:ButtonText; }
   .lm-switch-track:after{background:ButtonText;}
 }
+
+
+/* LM-02 / explicit material fusion. Visual blobs are entirely decorative.
+   Native radios outside this scene own state and remain accessible. */
+.lm-fusion-card {
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.82fr);
+  gap:30px;align-items:center;margin-top:22px;padding:32px;
+  border:1px solid var(--lm-border);border-radius:25px;background:var(--lm-cream);
+}
+.lm-fusion-card h2{font:400 34px/1.18 Fraunces,Georgia,serif;margin:20px 0 12px}
+.lm-fusion-copy>p{color:var(--lm-muted);font-size:14px;max-width:640px}
+.lm-fusion-controls{border:0;padding:0;margin:22px 0 0;display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.lm-fusion-controls legend{font-weight:700;font-size:13px;margin-bottom:10px}
+.lm-fusion-controls label{display:flex;gap:10px;align-items:center;min-height:48px;padding:11px 15px;border:1px solid var(--lm-border);border-radius:15px;font-size:13px;cursor:pointer}
+.lm-fusion-controls label:has(input:checked){background:#DCE9DF;border-color:#638C77;font-weight:700}
+.lm-fusion-controls input{width:18px;height:18px;accent-color:var(--lm-green)}
+.lm-fusion-scene{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:247px;background:#DFEBE1;border-radius:20px;overflow:hidden;isolation:isolate}
+.lm-fusion-filter{position:absolute;pointer-events:none}
+.lm-fusion-shapes{display:flex;align-items:center;justify-content:center;gap:74px;min-height:155px;filter:url(#lm-goo);pointer-events:none}
+.lm-fusion-drop{display:block;flex:0 0 auto;width:83px;height:83px;border-radius:50%;background:linear-gradient(130deg,#9BD0BC,#347C67);transition:transform 520ms cubic-bezier(.16,1.2,.3,1);will-change:transform}
+.lm-fusion-drop-right{background:linear-gradient(140deg,#7BADA1,#246F65)}
+.lm-fusion-card:has(input[value="merged"]:checked) .lm-fusion-drop-left{transform:translateX(51px)}
+.lm-fusion-card:has(input[value="merged"]:checked) .lm-fusion-drop-right{transform:translateX(-51px)}
+.lm-fusion-caption{font-size:12px;color:#315B48;text-align:center;max-width:280px;padding:0 15px 14px}
+[data-lab-motion="quiet"] .lm-fusion-drop{transition:none!important}
+@media(max-width:760px){.lm-fusion-card{grid-template-columns:1fr;padding:23px}.lm-fusion-scene{min-height:205px}}
+@media(prefers-reduced-motion:reduce){.lm-fusion-drop{transition:none!important}}
+@media(forced-colors:active){.lm-fusion-card,.lm-fusion-scene,.lm-fusion-controls label{background:Canvas;color:CanvasText;border:1px solid ButtonText}.lm-fusion-shapes{display:none}.lm-fusion-controls label:has(input:checked){outline:2px solid Highlight}.lm-fusion-caption{color:CanvasText}}
