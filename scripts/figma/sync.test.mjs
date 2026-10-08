@@ -13,13 +13,14 @@ import { signature } from "./roundtrip.mjs";
 
 // Run the actual CLI with mocked HTTP, rather than mirroring its orchestration.
 async function installMock() {
-  const { writeFileSync } = await import("node:fs");
+  const { writeFileSync, readFileSync } = await import("node:fs");
   const config = JSON.parse(process.env.MOCK_CONFIG);
   const scenario = process.env.MOCK_SCENARIO;
   const content = JSON.parse(process.env.MOCK_CONTENT),
-    canonical = JSON.parse(process.env.MOCK_TOKENS);
+    canonical = JSON.parse(readFileSync(process.env.MOCK_TOKENS_FILE, "utf8"));
   const mainContent = structuredClone(content),
     versionContent = structuredClone(content);
+  const publication = JSON.parse(readFileSync(process.env.MOCK_PUBLICATION_FILE, "utf8"));
   if (["github-ahead", "conflict"].includes(scenario))
     mainContent.fields.heroTitle.value = "GitHub edited this text";
   if (scenario === "conflict")
@@ -80,6 +81,7 @@ async function installMock() {
       });
     if (url.startsWith("https://cdn.figma.com/"))
       return new Response(new Uint8Array([137, 80, 78, 71]));
+    if (path.endsWith('/git/blobs/'+'a'.repeat(40))) return response({encoding:'base64',content:Buffer.from(JSON.stringify(publication)).toString('base64')});
     if (path.endsWith("/git/ref/heads/main"))
       return response({ object: { sha: "main-sha" } });
     if (path.endsWith("/git/ref/heads/design/figma-sync"))
@@ -195,7 +197,7 @@ async function installMock() {
   };
 }
 
-function run(action, scenario = "new", tokens) {
+function run(action, scenario = "new", tokens, blobPublication = false) {
   const dir = mkdtempSync(join(tmpdir(), "figma-bridge-"));
   const callsFile = join(dir, "calls.json");
   const eventFile = join(dir, "event.json");
@@ -207,7 +209,7 @@ function run(action, scenario = "new", tokens) {
       client_payload: {
         file_key: config.fileKey,
         version_id: "v2",
-        tokens,
+        ...(blobPublication ? {bundle_blob_sha:'a'.repeat(40)} : {tokens}),
         content: sharedContent,
         base_hash:
           scenario === "stale"
@@ -216,6 +218,8 @@ function run(action, scenario = "new", tokens) {
       },
     }),
   );
+  writeFileSync(join(dir, "tokens.json"), JSON.stringify(canonical));
+  writeFileSync(join(dir, "publication.json"), JSON.stringify({tokens,content:sharedContent}));
   writeFileSync(mockFile, `await (${installMock.toString()})()`);
   try {
     execFileSync(
@@ -235,7 +239,8 @@ function run(action, scenario = "new", tokens) {
           MOCK_SCENARIO: scenario,
           MOCK_CONFIG: JSON.stringify(config),
           MOCK_CONTENT: JSON.stringify(sharedContent),
-          MOCK_TOKENS: JSON.stringify(canonical),
+          MOCK_TOKENS_FILE: join(dir, "tokens.json"),
+          MOCK_PUBLICATION_FILE: join(dir, "publication.json"),
           MOCK_CALLS: callsFile,
         },
         encoding: "utf8",
@@ -318,6 +323,16 @@ test("plugin publication generates CSS without the Figma REST API", () => {
     tree.tree.find((entry) => entry.path.endsWith("meridian.css")).content,
     /142ms/,
   );
+});
+
+test('large plugin publications resolve an immutable blob while retaining validation and stale-main protection', () => {
+  const bundle=structuredClone(canonical);
+  for (const mode of Object.values(bundle.modes)) mode['motion/duration/hover'].value=143;
+  const calls=run('figma-tokens','new',bundle,true);
+  assert.ok(calls.some(c=>c.url.endsWith('/git/blobs/'+'a'.repeat(40))));
+  const tree=calls.find(c=>c.url.endsWith('/git/trees')&&c.method==='POST').body;
+  assert.match(tree.tree.find(e=>e.path.endsWith('meridian.css')).content,/143ms/);
+  assert.throws(()=>run('figma-tokens','stale',canonical,true),/GitHub changed since the plugin comparison/);
 });
 
 test("every export request targets Meridian rather than a product repository", () => {

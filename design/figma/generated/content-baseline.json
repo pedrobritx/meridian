@@ -20,7 +20,7 @@
     "coreDescription": {
       "nodeId": "92:41",
       "pageId": "92:34",
-      "value": "Semantic roles, accessible contrast, 48px targets, focus visibility, state meaning, truthful feedback and recoverable journeys. Shared components remain linked."
+      "value": "Core is the neutral baseline: shared semantic roles, accessible states, 48px targets and optional glass with an opaque fallback. Grass, Paper, Parallel, Canvas and Gallery map the same behaviour to their product purpose."
     },
     "grassTitle": {
       "nodeId": "92:43",
@@ -50,7 +50,7 @@
     "extendDescription": {
       "nodeId": "92:50",
       "pageId": "92:34",
-      "value": "Define the people, tasks and familiar materials first. Then add colour modes and profile shape/motion modes. Reuse semantic names and the shared components. Test all states in light and dark before publishing."
+      "value": "Use repository workflows and existing branding to choose colours, typography, symbols and materials. Verbalis uses Parallel; NotUX uses Canvas; Lexis uses Paper; Framio uses Gallery; Ambientis proposes Grass/Terra."
     }
   }
 }

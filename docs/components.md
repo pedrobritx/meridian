@@ -46,3 +46,7 @@ Use the recipes as the native contract when wrapping them in React, Vue or anoth
 ## Profiles and list feedback
 
 Set `data-meridian="grass"` or `"paper"` and `data-theme="light"` or `"dark"` on every independently themed boundary. Default button/surface/list contours use `radius/md` (24px); Paper fields use `radius/sm` (14px). Each `.md-list-row` owns its hover/press surface and uses the matching text role. Hover does not persist as selection. Press scales follow the profile tokens, and reduced motion removes spatial movement.
+
+## Optional glass actions
+
+Use `md-button glass` for protected peripheral chrome or `md-button opaque` for the solid alternative. Labels and boundaries use semantic text/control roles. A 96% tint and restrained blur keep the tested pairs readable. Native Figma glass additionally supports refraction. Keep editing cells, lessons, artwork and evidence surfaces opaque. Reduced transparency, increased contrast and forced colours switch immediately to a solid surface; keyboard activation remains native. Compare all seven states in the reference Components view.

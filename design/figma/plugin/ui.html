@@ -77,6 +77,21 @@
     </p>
     <script>
       /** Plugin export contract, independent of the Enterprise-only Variables REST API. */
+const profiles = [
+  { id: "grass", name: "Grass", light: "Dawn", dark: "Dusk" },
+  { id: "paper", name: "Paper", light: "PaperDawn", dark: "PaperDusk" },
+  { id: "core", name: "Core", light: "CoreDawn", dark: "CoreDusk" },
+  { id: "parallel", name: "Parallel", light: "ParallelDawn", dark: "ParallelDusk", projectColour: true },
+  { id: "canvas", name: "Canvas", light: "CanvasDawn", dark: "CanvasDusk", projectColour: true },
+  { id: "gallery", name: "Gallery", light: "GalleryDawn", dark: "GalleryDusk", projectColour: true },
+];
+
+function profileForMode(mode) {
+  const profile = profiles.find(p => p.light === mode || p.dark === mode);
+  if (!profile) throw Error("Unsupported CSS theme mode");
+  return { ...profile, nativeName: profile.name + " / " + (profile.light === mode ? "Dawn" : "Dusk") };
+}
+
 function validateTokens(bundle, config) {
   if (bundle?.fileKey !== config.fileKey || bundle.schemaVersion !== 1) {
     throw new Error(
@@ -126,7 +141,7 @@ function validateTokens(bundle, config) {
       } else if (token.type === "STRING") {
         const font =
           /^typography\/[a-z0-9-]+\/family$/.test(name) &&
-          ["Manrope", "Fraunces", "Newsreader", "JetBrains Mono"].includes(
+          ["Manrope", "Fraunces", "Newsreader", "JetBrains Mono", "Geist", "Geist Mono", "Inter", "Cormorant Garamond"].includes(
             token.value,
           );
         const easing =
@@ -165,15 +180,13 @@ function tokenCss(bundle) {
     "/* Generated Meridian reference tokens. Reviewed adaptation into a product is required. */",
   ];
   for (const [mode, tokens] of Object.entries(bundle.modes)) {
-    const selectors = {
-      Dawn: ':root, [data-meridian="grass"]',
-      Dusk: '.dark:not([data-meridian]), [data-meridian="grass"][data-theme="dark"], [data-meridian="grass"].dark:not([data-theme="light"])',
-      PaperDawn: '[data-meridian="paper"]',
-      PaperDusk:
-        '[data-meridian="paper"][data-theme="dark"], [data-meridian="paper"].dark:not([data-theme="light"])',
-    };
-    if (!selectors[mode]) throw new Error("Unsupported CSS theme mode");
-    css.push(`${selectors[mode]} {`);
+    const profile = profileForMode(mode);
+    const selector = `[data-meridian="${profile.id}"]`;
+    const light = profile.light === mode;
+    const selectors = light
+      ? (profile.id === "grass" ? ":root, " : "") + selector
+      : (profile.id === "grass" ? ".dark:not([data-meridian]), " : "") + `${selector}[data-theme="dark"], ${selector}.dark:not([data-theme="light"])`;
+    css.push(`${selectors} {`);
     for (const [name, token] of Object.entries(tokens)) {
       let value = token.value;
       if (token.type === "COLOR") {
@@ -205,9 +218,10 @@ function tokenCss(bundle) {
 
 const websiteAliases = `[data-meridian] {
   --md-font-display: var(--md-typography-h1-family);
-  --md-font-body: var(--md-typography-button-family);
+  --md-font-body: var(--md-typography-reading-family);
   --md-font-reading: var(--md-typography-reading-family);
   --md-font-label: var(--md-typography-button-family);
+  --md-font-code: var(--md-typography-code-family);
   --md-motion-hover: var(--md-motion-duration-hover);
   --md-motion-button: var(--md-motion-duration-release);
   --md-ease: var(--md-motion-easing-settle);
@@ -229,8 +243,25 @@ function websiteCss(bundle) {
   );
 }
 
-const modes = ["Dawn", "Dusk", "PaperDawn", "PaperDusk"];
+const modes = profiles.flatMap(p => [p.light, p.dark]);
 const fileKey = "aJ2f6aYX9KBucAdPsCmkXn";
+function modeForCollection(collection, theme) {
+  const profile = profileForMode(theme);
+  const match = collection.modes.find(m => m.name === profile.nativeName || m.name === theme)
+    || collection.modes.find(m => m.name === profile.name);
+  if (match) return match;
+  if (collection.modes.length === 1 && !["Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout", "Meridian / Motion"].includes(collection.name)) return collection.modes[0];
+  throw Error("Missing profile mode in " + collection.name);
+}
+function semanticForMode(variables, collections, theme) {
+  const colour = profileForMode(theme).projectColour ? "Meridian / Project Colour" : "Meridian / Colour";
+  return variables.filter(v => {
+    const name = collections[v.variableCollectionId]?.name;
+    return name?.startsWith("Meridian /") && name !== "Meridian / Primitives"
+      && (!name.endsWith("Colour") || name === colour)
+      && ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType);
+  });
+}
 function validateContent(content, template) {
   if (content?.schemaVersion !== 1 || content.fileKey !== fileKey)
     throw Error("Wrong shared-content file/schema");
@@ -311,31 +342,12 @@ function captureNativeTokens(collections, variables) {
     if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
     seen.add(v.id);
     const c = cs[v.variableCollectionId];
-    let m =
-      c.modes.find((m) => m.name === theme) ||
-      c.modes.find(
-        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
-      );
-    if (
-      !m &&
-      c.modes.length === 1 &&
-      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
-        c.name,
-      )
-    )
-      m = c.modes[0];
-    if (!m) throw Error("Missing profile mode in " + c.name);
+    const m = modeForCollection(c, theme);
     const value = v.valuesByMode[m.modeId];
     return value?.type === "VARIABLE_ALIAS"
       ? resolve(vs[value.id], theme, seen)
       : value;
   };
-  const semantic = variables.filter(
-    (v) =>
-      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
-      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
-      ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType),
-  );
   return validateTokens(
     {
       schemaVersion: 1,
@@ -344,7 +356,7 @@ function captureNativeTokens(collections, variables) {
         modes.map((theme) => [
           theme,
           Object.fromEntries(
-            semantic.map((v) => [
+            semanticForMode(variables, cs, theme).map((v) => [
               v.name,
               { type: v.resolvedType, value: resolve(v, theme) },
             ]),
@@ -359,13 +371,7 @@ function planTokenImport(bundle, collections, variables) {
   const candidate = validateTokens(bundle, { fileKey, themeModes: modes });
   const cs = Object.fromEntries(collections.map((c) => [c.id, c])),
     vs = Object.fromEntries(variables.map((v) => [v.id, v]));
-  const semantic = variables.filter(
-    (v) =>
-      cs[v.variableCollectionId]?.name.startsWith("Meridian /") &&
-      cs[v.variableCollectionId]?.name !== "Meridian / Primitives" &&
-      ["FLOAT", "COLOR", "STRING"].includes(v.resolvedType),
-  );
-  const localNames = semantic.map((v) => v.name).sort();
+  const localNames = semanticForMode(variables, cs, modes[0]).map(v => v.name).sort();
   if (
     JSON.stringify(localNames) !==
     JSON.stringify(Object.keys(candidate.modes.Dawn).sort())
@@ -377,20 +383,7 @@ function planTokenImport(bundle, collections, variables) {
     if (!v || seen.has(v.id)) throw Error("Missing or cyclic alias");
     seen.add(v.id);
     const c = cs[v.variableCollectionId];
-    let m =
-      c.modes.find((m) => m.name === theme) ||
-      c.modes.find(
-        (m) => m.name === (theme.startsWith("Paper") ? "Paper" : "Grass"),
-      );
-    if (
-      !m &&
-      c.modes.length === 1 &&
-      !["Meridian / Colour", "Meridian / Layout", "Meridian / Motion"].includes(
-        c.name,
-      )
-    )
-      m = c.modes[0];
-    if (!m) throw Error("Missing profile mode: " + c.name);
+    const m = modeForCollection(c, theme);
     const current = v.valuesByMode[m.modeId];
     return current?.type === "VARIABLE_ALIAS"
       ? terminal(vs[current.id], theme, seen)
@@ -398,7 +391,7 @@ function planTokenImport(bundle, collections, variables) {
   };
   const cells = new Map();
   for (const theme of modes)
-    for (const v of semantic) {
+    for (const v of semanticForMode(variables, cs, theme)) {
       const token = candidate.modes[theme][v.name];
       if (token.type !== v.resolvedType)
         throw Error("Token type differs: " + v.name);
@@ -515,6 +508,20 @@ async function digest(value) {
 async function publish(local, currentRemote) {
   if (!credentials())
     throw Error("Enter a GitHub token with Contents write on meridian.");
+  // Twelve appearances exceed repository_dispatch's 64KiB client payload limit.
+  // Store the complete contract as an immutable Git blob, then dispatch its SHA.
+  const blob = await fetch(repo + "/git/blobs", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + sessionToken,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ content: JSON.stringify(local), encoding: "utf-8" }),
+  });
+  if (!blob.ok) throw Error("GitHub contract upload failed (" + blob.status + ").");
+  const blobSha = (await blob.json()).sha;
+  if (!/^[a-f0-9]{40}$/.test(blobSha)) throw Error("GitHub returned an invalid contract reference.");
   const response = await fetch(repo + "/dispatches", {
     method: "POST",
     headers: {
@@ -526,8 +533,7 @@ async function publish(local, currentRemote) {
       event_type: "figma-tokens",
       client_payload: {
         file_key: fileKey,
-        tokens: local.tokens,
-        content: local.content,
+        bundle_blob_sha: blobSha,
         base_hash: await digest(currentRemote),
       },
     }),

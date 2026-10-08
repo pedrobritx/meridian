@@ -9,7 +9,7 @@ const routes = [
   "patterns",
   "adoption",
 ];
-for (const profile of ["grass", "paper"])
+for (const profile of ["core", "grass", "paper", "parallel", "canvas", "gallery"])
   for (const environment of ["dawn", "dusk"])
     test(`${profile}/${environment}: all pages render without overflow or axe AA violations`, async ({
       page,
@@ -85,8 +85,8 @@ test("theme persists, system preference follows the device, and reduced motion s
   expect(
     await page
       .locator(".spinner")
-      .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("none");
+      .evaluateAll((els) => els.every(el=>getComputedStyle(el).animationName === "none")),
+  ).toBe(true);
   await page.getByLabel("Environment", { exact: true }).selectOption("dawn");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -126,4 +126,19 @@ test("only the selected segment is bold and list hover belongs to one rounded ro
   await page.getByLabel("Profile", { exact: true }).selectOption("paper");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-meridian", "paper");
+});
+
+test("glass buttons support keyboard activation and solid preference fallbacks", async ({page}) => {
+  await page.goto('#components');
+  const glass=page.locator('button.md-button.glass').first();
+  await glass.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#announcement')).toContainText('Button option selected');
+  const session=await page.context().newCDPSession(page);
+  await session.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-transparency',value:'reduce'}]});
+  expect(await glass.evaluate(el=>getComputedStyle(el).backdropFilter)).toBe('none');
+  const opaque=page.locator('button.md-button.opaque').first();
+  expect(await glass.evaluate(el=>getComputedStyle(el).backgroundColor)).toBe(await opaque.evaluate(el=>getComputedStyle(el).backgroundColor));
+  await page.emulateMedia({forcedColors:'active'});
+  expect(await glass.evaluate(el=>getComputedStyle(el).backdropFilter)).toBe('none');
 });

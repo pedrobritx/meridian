@@ -1,176 +1,400 @@
 [
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Icon button",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
-    "use": "Use for a familiar repeated action with a visible tooltip and accessible name. Do not use an unfamiliar symbol as the only explanation. 48 \u00d7 48 target; Active = press; Error = retry action with nearby persistent explanation."
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
+    "use": "Use for a familiar repeated action with a visible tooltip and accessible name. Do not use an unfamiliar symbol as the only explanation. 48 × 48 target; Active = press; Error = retry action with nearby persistent explanation."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Link",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error", "Visited"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error",
+      "Visited"
+    ],
     "use": "Use for navigation. Underline prose links; retain a visited colour. Do not use links to submit forms. Active = press; disabled removes navigation and explains why; loading preserves the label; errors provide a retry destination."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Button group",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for related actions, with one primary action and a quiet escape. Do not group unrelated destinations. Focus and loading belong to the affected child; keep Cancel usable during cancellable work. Wrap vertically on narrow screens."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Text area",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for multi-line notes; visible label, minimum 112px well and resize support. Do not use for a short structured value. Active = editing; loading = async validation without clearing text. Error text names the correction and remains associated."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Select",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for one choice from a known list. Prefer native select for simple forms; use a combobox for long searchable lists. Active = open list; Enter/Space opens, arrows move, Escape closes and restores focus. Do not hide the label in a placeholder."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Checkbox",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for independent choices. Active = press; Selected = Off / On / Mixed; mixed selection needs an indeterminate mark. Space toggles; label is clickable. Loading only for immediate persistence; ordinary form checkboxes do not load. Do not use for mutually exclusive options."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Radio",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for one of a small visible set. Active = press; Selected = Off / On; arrows move and select within a labelled group, Tab enters once. Loading applies only to async options. Error belongs to the group. Do not use one radio as a boolean switch."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Switch",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for an immediately applied on/off preference. Active = press; Selected = Off / On; thumb position and text convey state. Space toggles. On failure restore the prior value and show retry guidance. Use checkbox when changes wait for Submit."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Date picker",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for a calendar date with typed-entry fallback and visible format DD / MM / YYYY. Active = calendar open. Arrows move day, Home/End week, Page Up/Down month; Escape closes. Announce locale and disabled-date reasons. Do not use for duration."
   },
   {
-    "group": "06 \u00b7 Controls",
+    "group": "06 · Controls",
     "name": "Slider",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for a bounded approximate value with a visible current value and numeric alternative. Active = drag. Arrows step, Home/End reach bounds. Loading = apply in progress; Error retains the last valid value. Do not require dragging for precision."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Header",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use one global header with stable navigation and a skip link in code. States apply to a child control; Active = current destination or expanded menu. Keep navigation available during page loading and contextual errors. Collapse into a labelled menu on mobile."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Sidebar",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for a stable set of peer destinations in a workspace. States apply to the affected item. Mark current with aria-current=page. On mobile use a dismissible drawer with focus return. Do not combine unrelated global and local navigation without headings."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Breadcrumbs",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for location within a real hierarchy. Current page is text, ancestors are links; separators are decorative. States belong to an ancestor link; loading/error must not erase the trail. Do not use as a linear task stepper."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Tabs",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for peer panels in the same context. Active = selected panel; arrow/Home/End move focus, Enter activates when loading is slow. Use tablist/tab/tabpanel relationships. Loading/error belongs to the panel, not an empty tab bar. Use links for routes."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Pagination",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for bounded result sets with total count and current page. Active = selected page. Disable previous/next only at bounds; preserve current rows during loading and retry errors. Reset to page one when filters change. Do not rely on tiny page-number targets."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Stepper",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for three or more named stages. Active = current stage, check = completed. Only completed stages may become links. Loading belongs to progression; Error marks the affected stage and focuses its summary. Do not imply future stages are already complete."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Data table",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for comparing structured records. Sort headers are buttons with aria-sort; Active = ascending sort. Row controls receive focus/disabled states. Provide caption, header scope and pagination; preserve headers while loading. Error has retry. On mobile scroll the table region, not the page."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Card",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for one coherent content unit with a heading and an explicit action. Hover/focus/active belong to that action unless the entire card is one link. Use solid reading surfaces. Loading preserves footprint; Error explains retry. Do not nest links inside a clickable card."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Badge / Tag",
-    "states": ["Default", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for short status metadata with text plus a symbol. A static badge has no hover, focus, active or disabled state; interactive filter chips are buttons. Loading means the status is pending; Error is a labelled failed status. Do not use colour alone."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Avatar",
-    "states": ["Default", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for identity; show initials when an image is missing or fails. Static avatars have no hover, focus, active or disabled state. Put them inside an accessible button only when opening a profile action. Avoid redundant alt text next to the same visible name."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Accordion",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for optional related details. Active = expanded; Enter/Space toggles a button with aria-expanded and aria-controls. Loading/error stays inside the panel with retry. Do not hide required instructions or validation errors inside a collapsed panel."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "Tooltip",
-    "states": ["Default", "Hover", "Focus"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus"
+    ],
     "use": "Use for brief supplemental text shown on hover and keyboard focus. Default specimen depicts its content; at rest it is hidden. Escape dismisses; remains hoverable and persistent. Active, disabled, loading and error are N/A. Never place actions or essential instructions in a tooltip."
   },
   {
-    "group": "07 \u00b7 Navigation & data",
+    "group": "07 · Navigation & data",
     "name": "List",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use semantic list markup for related items. States apply to interactive rows or child actions; static text has no interaction states. Active = temporary row press; selection is a separate product concern. Loading retains structure; Error gives retry. Use a table when column comparison is the primary task."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Dialog",
-    "states": ["Default", "Hover", "Focus", "Active", "Disabled", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for a focused decision that requires interruption. Hover/focus/active/disabled apply to child actions. Label the dialog, contain focus, Escape closes, return focus to opener. Loading prevents duplicate submission; Error stays inside with preserved data. Avoid stacked dialogs."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Toast",
-    "states": ["Default", "Hover", "Focus", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for non-critical confirmation with optional Undo. Hover/focus pauses dismissal; actions receive focus. Active/disabled belong to a child action, not the message. Errors needing action stay until resolved. Announce once with role=status; do not put required instructions only in a toast."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Banner",
-    "states": ["Default", "Hover", "Focus", "Loading", "Error"],
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Loading",
+      "Error"
+    ],
     "use": "Use for persistent contextual information or recovery. Hover/focus apply to its action; active/disabled use the child button states. Error explains what happened and how to recover. Do not interrupt a whole page for a field-only error."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Progress bar",
-    "states": ["Default", "Loading", "Error", "Complete"],
+    "states": [
+      "Default",
+      "Loading",
+      "Error",
+      "Complete"
+    ],
     "use": "Use determinate progress only when the total is known. Default shows 60%; Loading may be indeterminate; Complete is 100%. Expose value, min/max and label; error stops progress and offers retry. Hover, focus, active and disabled are N/A for the indicator."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Spinner",
-    "states": ["Default", "Loading", "Reduced motion"],
+    "states": [
+      "Default",
+      "Loading",
+      "Reduced motion"
+    ],
     "use": "Use for short indeterminate waits after 300ms, with a useful text label. Default/Loading represent activity; reduced motion uses a static indicator and text. Hover/focus/active/disabled/error are N/A; replace with a persistent error and retry when work fails."
   },
   {
-    "group": "08 \u00b7 Feedback",
+    "group": "08 · Feedback",
     "name": "Skeleton",
-    "states": ["Default", "Loading", "Reduced motion"],
+    "states": [
+      "Default",
+      "Loading",
+      "Reduced motion"
+    ],
     "use": "Use only when the shape of incoming content is known. Default/Loading reserve that space; reduced motion has no shimmer. Hide decorative blocks from assistive technology and label the busy region. Hover/focus/active/disabled/error are N/A; replace with an error or empty state."
+  },
+  {
+    "group": "02 · Components",
+    "name": "Button / Glass",
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Pressed",
+      "Disabled",
+      "Loading",
+      "Error"
+    ],
+    "materials": [
+      "Glass",
+      "Opaque"
+    ],
+    "use": "48px targets. Native glass has no colour dispersion and at least 96% protective tint. Use solid loading/disabled/error surfaces and Opaque for reduced transparency, forced colours or untested backgrounds. Button / Project Glass binds the same contract to the complementary project colour collection. Labels use shared profile family/weight; focus is 3px with a 3px gap."
   }
 ]

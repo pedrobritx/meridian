@@ -1,4 +1,19 @@
 /** Plugin export contract, independent of the Enterprise-only Variables REST API. */
+export const profiles = [
+  { id: "grass", name: "Grass", light: "Dawn", dark: "Dusk" },
+  { id: "paper", name: "Paper", light: "PaperDawn", dark: "PaperDusk" },
+  { id: "core", name: "Core", light: "CoreDawn", dark: "CoreDusk" },
+  { id: "parallel", name: "Parallel", light: "ParallelDawn", dark: "ParallelDusk", projectColour: true },
+  { id: "canvas", name: "Canvas", light: "CanvasDawn", dark: "CanvasDusk", projectColour: true },
+  { id: "gallery", name: "Gallery", light: "GalleryDawn", dark: "GalleryDusk", projectColour: true },
+];
+
+export function profileForMode(mode) {
+  const profile = profiles.find(p => p.light === mode || p.dark === mode);
+  if (!profile) throw Error("Unsupported CSS theme mode");
+  return { ...profile, nativeName: profile.name + " / " + (profile.light === mode ? "Dawn" : "Dusk") };
+}
+
 export function validateTokens(bundle, config) {
   if (bundle?.fileKey !== config.fileKey || bundle.schemaVersion !== 1) {
     throw new Error(
@@ -48,7 +63,7 @@ export function validateTokens(bundle, config) {
       } else if (token.type === "STRING") {
         const font =
           /^typography\/[a-z0-9-]+\/family$/.test(name) &&
-          ["Manrope", "Fraunces", "Newsreader", "JetBrains Mono"].includes(
+          ["Manrope", "Fraunces", "Newsreader", "JetBrains Mono", "Geist", "Geist Mono", "Inter", "Cormorant Garamond"].includes(
             token.value,
           );
         const easing =
@@ -87,15 +102,13 @@ export function tokenCss(bundle) {
     "/* Generated Meridian reference tokens. Reviewed adaptation into a product is required. */",
   ];
   for (const [mode, tokens] of Object.entries(bundle.modes)) {
-    const selectors = {
-      Dawn: ':root, [data-meridian="grass"]',
-      Dusk: '.dark:not([data-meridian]), [data-meridian="grass"][data-theme="dark"], [data-meridian="grass"].dark:not([data-theme="light"])',
-      PaperDawn: '[data-meridian="paper"]',
-      PaperDusk:
-        '[data-meridian="paper"][data-theme="dark"], [data-meridian="paper"].dark:not([data-theme="light"])',
-    };
-    if (!selectors[mode]) throw new Error("Unsupported CSS theme mode");
-    css.push(`${selectors[mode]} {`);
+    const profile = profileForMode(mode);
+    const selector = `[data-meridian="${profile.id}"]`;
+    const light = profile.light === mode;
+    const selectors = light
+      ? (profile.id === "grass" ? ":root, " : "") + selector
+      : (profile.id === "grass" ? ".dark:not([data-meridian]), " : "") + `${selector}[data-theme="dark"], ${selector}.dark:not([data-theme="light"])`;
+    css.push(`${selectors} {`);
     for (const [name, token] of Object.entries(tokens)) {
       let value = token.value;
       if (token.type === "COLOR") {
@@ -127,9 +140,10 @@ export function tokenCss(bundle) {
 
 const websiteAliases = `[data-meridian] {
   --md-font-display: var(--md-typography-h1-family);
-  --md-font-body: var(--md-typography-button-family);
+  --md-font-body: var(--md-typography-reading-family);
   --md-font-reading: var(--md-typography-reading-family);
   --md-font-label: var(--md-typography-button-family);
+  --md-font-code: var(--md-typography-code-family);
   --md-motion-hover: var(--md-motion-duration-hover);
   --md-motion-button: var(--md-motion-duration-release);
   --md-ease: var(--md-motion-easing-settle);

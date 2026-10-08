@@ -1,6 +1,6 @@
-# Meridian 0.4 — Core, Grass and Paper
+# Meridian 0.5 — Purposeful project profiles
 
-Meridian is a humanist material method: familiar controls, clear hierarchy, natural light and a response to intentional contact. Grass is the environmental-compliance profile; Paper is the learning/editorial profile for Lexis. Both have light and dark modes and share linked components.
+Meridian is a humanist material method: familiar controls, clear hierarchy, natural light and a response to intentional contact. Grass is the environmental-compliance profile; Paper is the learning/editorial profile for Lexis. Core, Grass, Paper, Parallel, Canvas and Gallery have light and dark appearances and a shared interaction contract. Parallel supports CAT workflows, Canvas supports teaching whiteboards, and Gallery supports museum curation.
 
 This release completes the **design specification and editable Figma library** against the master checklist. It is not a claim that every component is implemented in production or that a Figma prototype proves accessibility compliance.
 

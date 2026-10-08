@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5 — 8 October 2026 · Purposeful profiles
+
+- Add neutral Core, green Grass and sand/wine Paper organisation, plus repository-informed Parallel (Verbalis CAT), Canvas (NotUX whiteboard) and Gallery (Framio museum). Retain Lexis’s editorial identity; document Ambientis Grass/Terra as a proposal.
+- Export twelve appearances with profile typography, code/terminology font roles, shape and motion. Split native colour collections at Figma’s ten-mode limit while retaining existing mode IDs and aliases.
+- Add native liquid-glass and opaque seven-state buttons, functional project symbols and five editable project specimens with Start navigation. Implement protective glass, preference fallbacks and keyboard behaviour in the reference site.
+- Save native provenance, mapped Figma copy, generated CSS/plugin bundles and contrast evidence together in Meridian.
+
 ## Unreleased — website 0.4 and two-way shared contract
 
 - Replace the website's separate 0.1 token source with the canonical four-mode Core/Grass/Paper library, profile controls and shared Figma copy.

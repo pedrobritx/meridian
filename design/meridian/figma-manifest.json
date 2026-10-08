@@ -1,6 +1,6 @@
 {
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
-  "version": "0.4",
+  "version": "0.5",
   "pages": [
     {
       "id": "0:1",
@@ -12,7 +12,7 @@
           "x": 80,
           "y": 80,
           "width": 1440,
-          "height": 1902,
+          "height": 2424,
           "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2"
         }
       ],
@@ -100,6 +100,15 @@
           "width": 1104,
           "height": 536,
           "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=46-222"
+        },
+        {
+          "id": "139:206",
+          "name": "Glass buttons / Six base appearances",
+          "x": 4776,
+          "y": 440,
+          "width": 1600,
+          "height": 2890,
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=139-206"
         }
       ],
       "sets": [
@@ -109,115 +118,255 @@
           "variants": [
             {
               "id": "5:2",
-              "name": "Style=Primary, State=Default"
+              "name": "Style=Primary, State=Default",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:3",
-              "name": "Style=Primary, State=Hover"
+              "name": "Style=Primary, State=Hover",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:4",
-              "name": "Style=Primary, State=Focus"
+              "name": "Style=Primary, State=Focus",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:5",
-              "name": "Style=Primary, State=Disabled"
+              "name": "Style=Primary, State=Disabled",
+              "width": 111,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:6",
-              "name": "Style=Primary, State=Loading"
+              "name": "Style=Primary, State=Loading",
+              "width": 133,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:7",
-              "name": "Style=Secondary, State=Default"
+              "name": "Style=Secondary, State=Default",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:8",
-              "name": "Style=Secondary, State=Hover"
+              "name": "Style=Secondary, State=Hover",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:9",
-              "name": "Style=Secondary, State=Focus"
+              "name": "Style=Secondary, State=Focus",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:10",
-              "name": "Style=Secondary, State=Disabled"
+              "name": "Style=Secondary, State=Disabled",
+              "width": 113,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:11",
-              "name": "Style=Secondary, State=Loading"
+              "name": "Style=Secondary, State=Loading",
+              "width": 135,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:12",
-              "name": "Style=Quiet, State=Default"
+              "name": "Style=Quiet, State=Default",
+              "width": 111,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:13",
-              "name": "Style=Quiet, State=Hover"
+              "name": "Style=Quiet, State=Hover",
+              "width": 111,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:14",
-              "name": "Style=Quiet, State=Focus"
+              "name": "Style=Quiet, State=Focus",
+              "width": 113,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:15",
-              "name": "Style=Quiet, State=Disabled"
+              "name": "Style=Quiet, State=Disabled",
+              "width": 111,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:16",
-              "name": "Style=Quiet, State=Loading"
+              "name": "Style=Quiet, State=Loading",
+              "width": 133,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:17",
-              "name": "Style=Destructive, State=Default"
+              "name": "Style=Destructive, State=Default",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:18",
-              "name": "Style=Destructive, State=Hover"
+              "name": "Style=Destructive, State=Hover",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:19",
-              "name": "Style=Destructive, State=Focus"
+              "name": "Style=Destructive, State=Focus",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "5:20",
-              "name": "Style=Destructive, State=Disabled"
+              "name": "Style=Destructive, State=Disabled",
+              "width": 111,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "5:21",
-              "name": "Style=Destructive, State=Loading"
+              "name": "Style=Destructive, State=Loading",
+              "width": 133,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "21:171",
-              "name": "Style=Primary, State=Pressed"
+              "name": "Style=Primary, State=Pressed",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "21:177",
-              "name": "Style=Secondary, State=Pressed"
+              "name": "Style=Secondary, State=Pressed",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "21:183",
-              "name": "Style=Quiet, State=Pressed"
+              "name": "Style=Quiet, State=Pressed",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "21:189",
-              "name": "Style=Destructive, State=Pressed"
+              "name": "Style=Destructive, State=Pressed",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "46:195",
-              "name": "Style=Primary, State=Error"
+              "name": "Style=Primary, State=Error",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "46:198",
-              "name": "Style=Secondary, State=Error"
+              "name": "Style=Secondary, State=Error",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             },
             {
               "id": "46:201",
-              "name": "Style=Quiet, State=Error"
+              "name": "Style=Quiet, State=Error",
+              "width": 113,
+              "height": 48,
+              "effects": []
             },
             {
               "id": "46:204",
-              "name": "Style=Destructive, State=Error"
+              "name": "Style=Destructive, State=Error",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
             }
           ],
           "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-22"
@@ -325,6 +474,314 @@
             }
           ],
           "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=23-323"
+        },
+        {
+          "id": "135:237",
+          "name": "Button / Glass",
+          "variants": [
+            {
+              "id": "135:207",
+              "name": "Material=Glass, State=Default",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "135:209",
+              "name": "Material=Glass, State=Hover",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "135:211",
+              "name": "Material=Glass, State=Focus",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "135:214",
+              "name": "Material=Glass, State=Pressed",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "135:216",
+              "name": "Material=Glass, State=Disabled",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:218",
+              "name": "Material=Glass, State=Loading",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:220",
+              "name": "Material=Glass, State=Error",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:222",
+              "name": "Material=Opaque, State=Default",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:224",
+              "name": "Material=Opaque, State=Hover",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:226",
+              "name": "Material=Opaque, State=Focus",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:229",
+              "name": "Material=Opaque, State=Pressed",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:231",
+              "name": "Material=Opaque, State=Disabled",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:233",
+              "name": "Material=Opaque, State=Loading",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "135:235",
+              "name": "Material=Opaque, State=Error",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            }
+          ],
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=135-237"
+        },
+        {
+          "id": "160:333",
+          "name": "Button / Project Glass",
+          "variants": [
+            {
+              "id": "160:303",
+              "name": "Material=Glass, State=Default",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "160:305",
+              "name": "Material=Glass, State=Hover",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "160:307",
+              "name": "Material=Glass, State=Focus",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "160:310",
+              "name": "Material=Glass, State=Pressed",
+              "width": 176,
+              "height": 48,
+              "effects": [
+                "GLASS",
+                "DROP_SHADOW"
+              ]
+            },
+            {
+              "id": "160:312",
+              "name": "Material=Glass, State=Disabled",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:314",
+              "name": "Material=Glass, State=Loading",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:316",
+              "name": "Material=Glass, State=Error",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:318",
+              "name": "Material=Opaque, State=Default",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:320",
+              "name": "Material=Opaque, State=Hover",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:322",
+              "name": "Material=Opaque, State=Focus",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:325",
+              "name": "Material=Opaque, State=Pressed",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:327",
+              "name": "Material=Opaque, State=Disabled",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:329",
+              "name": "Material=Opaque, State=Loading",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:331",
+              "name": "Material=Opaque, State=Error",
+              "width": 176,
+              "height": 48,
+              "effects": []
+            }
+          ],
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=160-333"
+        },
+        {
+          "id": "160:357",
+          "name": "Button / Project",
+          "variants": [
+            {
+              "id": "160:334",
+              "name": "Style=Primary, State=Default",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
+            },
+            {
+              "id": "160:337",
+              "name": "Style=Primary, State=Hover",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
+            },
+            {
+              "id": "160:340",
+              "name": "Style=Primary, State=Focus",
+              "width": 113,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
+            },
+            {
+              "id": "160:344",
+              "name": "Style=Primary, State=Disabled",
+              "width": 111,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:347",
+              "name": "Style=Primary, State=Loading",
+              "width": 133,
+              "height": 48,
+              "effects": []
+            },
+            {
+              "id": "160:351",
+              "name": "Style=Primary, State=Pressed",
+              "width": 111,
+              "height": 48,
+              "effects": [
+                "INNER_SHADOW"
+              ]
+            },
+            {
+              "id": "160:354",
+              "name": "Style=Primary, State=Error",
+              "width": 115,
+              "height": 48,
+              "effects": [
+                "BACKGROUND_BLUR",
+                "DROP_SHADOW",
+                "INNER_SHADOW"
+              ]
+            }
+          ],
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=160-357"
         }
       ],
       "overflow": [],
@@ -1925,7 +2382,7 @@
     {
       "id": "92:34",
       "sets": [],
-      "name": "09 · Meridian profiles",
+      "name": "09 · Meridian Core & themes",
       "frames": [
         {
           "id": "92:35",
@@ -1947,6 +2404,24 @@
           "width": 1200,
           "height": 830,
           "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=92-66"
+        },
+        {
+          "id": "138:34",
+          "name": "Meridian / Core, Grass and Paper",
+          "x": 2760,
+          "y": 80,
+          "width": 1408,
+          "height": 2408,
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=138-34"
+        },
+        {
+          "id": "162:58",
+          "name": "Meridian / Repository-informed project themes",
+          "x": 4320,
+          "y": 80,
+          "width": 1408,
+          "height": 3335,
+          "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=162-58"
         }
       ],
       "overflow": [],
@@ -2077,5 +2552,738 @@
       "name": "Sort",
       "url": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=68-80"
     }
-  ]
+  ],
+  "projectThemes": {
+    "board": {
+      "id": "162:58",
+      "width": 1408,
+      "height": 3335,
+      "editableTexts": 168,
+      "linkedInstances": 40,
+      "overflow": []
+    },
+    "profiles": [
+      {
+        "project": "Verbalis",
+        "id": "162:65",
+        "name": "Parallel"
+      },
+      {
+        "project": "NotUX",
+        "id": "162:153",
+        "name": "Canvas"
+      },
+      {
+        "project": "Lexis",
+        "id": "162:241",
+        "name": "Paper"
+      },
+      {
+        "project": "Framio",
+        "id": "162:333",
+        "name": "Gallery"
+      },
+      {
+        "project": "Ambientis",
+        "id": "162:420",
+        "name": "Grass"
+      }
+    ],
+    "componentSets": [
+      {
+        "id": "5:22",
+        "name": "Button",
+        "count": 28,
+        "minHeight": 48,
+        "invalidTargets": [],
+        "variants": [
+          {
+            "id": "5:2",
+            "name": "Style=Primary, State=Default",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:3",
+            "name": "Style=Primary, State=Hover",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:4",
+            "name": "Style=Primary, State=Focus",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:5",
+            "name": "Style=Primary, State=Disabled",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:6",
+            "name": "Style=Primary, State=Loading",
+            "width": 133,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:7",
+            "name": "Style=Secondary, State=Default",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:8",
+            "name": "Style=Secondary, State=Hover",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:9",
+            "name": "Style=Secondary, State=Focus",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:10",
+            "name": "Style=Secondary, State=Disabled",
+            "width": 113,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:11",
+            "name": "Style=Secondary, State=Loading",
+            "width": 135,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:12",
+            "name": "Style=Quiet, State=Default",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:13",
+            "name": "Style=Quiet, State=Hover",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:14",
+            "name": "Style=Quiet, State=Focus",
+            "width": 113,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:15",
+            "name": "Style=Quiet, State=Disabled",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:16",
+            "name": "Style=Quiet, State=Loading",
+            "width": 133,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:17",
+            "name": "Style=Destructive, State=Default",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:18",
+            "name": "Style=Destructive, State=Hover",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:19",
+            "name": "Style=Destructive, State=Focus",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "5:20",
+            "name": "Style=Destructive, State=Disabled",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "5:21",
+            "name": "Style=Destructive, State=Loading",
+            "width": 133,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "21:171",
+            "name": "Style=Primary, State=Pressed",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "21:177",
+            "name": "Style=Secondary, State=Pressed",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "21:183",
+            "name": "Style=Quiet, State=Pressed",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "21:189",
+            "name": "Style=Destructive, State=Pressed",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "46:195",
+            "name": "Style=Primary, State=Error",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "46:198",
+            "name": "Style=Secondary, State=Error",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "46:201",
+            "name": "Style=Quiet, State=Error",
+            "width": 113,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "46:204",
+            "name": "Style=Destructive, State=Error",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          }
+        ],
+        "sampleLabel": [
+          {
+            "id": "5:23",
+            "styleId": "S:ba886bea0dfa38c662f2b708d4c7cf23a3a8260a,",
+            "bound": {
+              "fills": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3:151"
+                }
+              ],
+              "fontFamily": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:179"
+                }
+              ],
+              "fontWeight": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:178"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "135:237",
+        "name": "Button / Glass",
+        "count": 14,
+        "minHeight": 48,
+        "invalidTargets": [],
+        "variants": [
+          {
+            "id": "135:207",
+            "name": "Material=Glass, State=Default",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "135:209",
+            "name": "Material=Glass, State=Hover",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "135:211",
+            "name": "Material=Glass, State=Focus",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "135:214",
+            "name": "Material=Glass, State=Pressed",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "135:216",
+            "name": "Material=Glass, State=Disabled",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:218",
+            "name": "Material=Glass, State=Loading",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:220",
+            "name": "Material=Glass, State=Error",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:222",
+            "name": "Material=Opaque, State=Default",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:224",
+            "name": "Material=Opaque, State=Hover",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:226",
+            "name": "Material=Opaque, State=Focus",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:229",
+            "name": "Material=Opaque, State=Pressed",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:231",
+            "name": "Material=Opaque, State=Disabled",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:233",
+            "name": "Material=Opaque, State=Loading",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "135:235",
+            "name": "Material=Opaque, State=Error",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          }
+        ],
+        "sampleLabel": [
+          {
+            "id": "135:208",
+            "styleId": "S:ba886bea0dfa38c662f2b708d4c7cf23a3a8260a,",
+            "bound": {
+              "fills": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3:152"
+                }
+              ],
+              "fontFamily": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:179"
+                }
+              ],
+              "fontWeight": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:178"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "160:333",
+        "name": "Button / Project Glass",
+        "count": 14,
+        "minHeight": 48,
+        "invalidTargets": [],
+        "variants": [
+          {
+            "id": "160:303",
+            "name": "Material=Glass, State=Default",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "160:305",
+            "name": "Material=Glass, State=Hover",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "160:307",
+            "name": "Material=Glass, State=Focus",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "160:310",
+            "name": "Material=Glass, State=Pressed",
+            "width": 176,
+            "height": 48,
+            "effects": [
+              "GLASS",
+              "DROP_SHADOW"
+            ]
+          },
+          {
+            "id": "160:312",
+            "name": "Material=Glass, State=Disabled",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:314",
+            "name": "Material=Glass, State=Loading",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:316",
+            "name": "Material=Glass, State=Error",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:318",
+            "name": "Material=Opaque, State=Default",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:320",
+            "name": "Material=Opaque, State=Hover",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:322",
+            "name": "Material=Opaque, State=Focus",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:325",
+            "name": "Material=Opaque, State=Pressed",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:327",
+            "name": "Material=Opaque, State=Disabled",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:329",
+            "name": "Material=Opaque, State=Loading",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:331",
+            "name": "Material=Opaque, State=Error",
+            "width": 176,
+            "height": 48,
+            "effects": []
+          }
+        ],
+        "sampleLabel": [
+          {
+            "id": "160:304",
+            "styleId": "S:ba886bea0dfa38c662f2b708d4c7cf23a3a8260a,",
+            "bound": {
+              "fills": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:159:48"
+                }
+              ],
+              "fontFamily": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:179"
+                }
+              ],
+              "fontWeight": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:178"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "160:357",
+        "name": "Button / Project",
+        "count": 7,
+        "minHeight": 48,
+        "invalidTargets": [],
+        "variants": [
+          {
+            "id": "160:334",
+            "name": "Style=Primary, State=Default",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "160:337",
+            "name": "Style=Primary, State=Hover",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "160:340",
+            "name": "Style=Primary, State=Focus",
+            "width": 113,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "160:344",
+            "name": "Style=Primary, State=Disabled",
+            "width": 111,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:347",
+            "name": "Style=Primary, State=Loading",
+            "width": 133,
+            "height": 48,
+            "effects": []
+          },
+          {
+            "id": "160:351",
+            "name": "Style=Primary, State=Pressed",
+            "width": 111,
+            "height": 48,
+            "effects": [
+              "INNER_SHADOW"
+            ]
+          },
+          {
+            "id": "160:354",
+            "name": "Style=Primary, State=Error",
+            "width": 115,
+            "height": 48,
+            "effects": [
+              "BACKGROUND_BLUR",
+              "DROP_SHADOW",
+              "INNER_SHADOW"
+            ]
+          }
+        ],
+        "sampleLabel": [
+          {
+            "id": "160:335",
+            "styleId": "S:ba886bea0dfa38c662f2b708d4c7cf23a3a8260a,",
+            "bound": {
+              "fills": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:159:47"
+                }
+              ],
+              "fontFamily": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:179"
+                }
+              ],
+              "fontWeight": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:42:178"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "symbols": {
+      "segments": "161:73",
+      "pen": "161:77",
+      "frame": "161:81",
+      "evidence": "161:87",
+      "water": "161:91",
+      "reconcile": "161:95"
+    },
+    "colourCollectionLimit": 10,
+    "colourCollections": [
+      "VariableCollectionId:3:91",
+      "VariableCollectionId:159:34"
+    ],
+    "visualReview": "Passed after layout, label property and contrast fixes",
+    "nativeSave": "Current Figma file edits persisted through use_figma; no named-version API is available."
+  }
 }

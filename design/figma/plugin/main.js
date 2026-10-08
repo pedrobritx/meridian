@@ -43,7 +43,7 @@ figma.ui.onmessage = async (message) => {
     const familyWrites = writes.filter((w) =>
       local.variables
         .find((v) => v.id === w.id)
-        ?.scopes?.includes("FONT_FAMILY"),
+        ?.resolvedType === "STRING" && !String(w.value).startsWith("cubic-bezier("),
     );
     if (familyWrites.length) {
       const families = new Set(

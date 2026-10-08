@@ -1,6 +1,6 @@
 {
   "name": "@pedrobritx/meridian",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
   "description": "Meridian web foundations, Figma library and living reference",
@@ -13,7 +13,11 @@
     "test:figma": "node --test scripts/figma/*.test.mjs"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/geist": "^5.3.0",
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/manrope": "^5.3.0",
     "@fontsource/newsreader": "^5.2.8"
