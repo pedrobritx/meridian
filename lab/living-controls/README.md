@@ -50,3 +50,8 @@ This is an interactive visual experiment, not evidence that magnetic attraction 
 - Add documented motion intensity presets or measured spring parameters only after evaluation.
 - Implement Living Workspace and Living Environments in separate Lab milestones.
 - Do not promote effects to stable Meridian Design/React components without BSDL ethical, engineering and accessibility review.
+
+
+## LM-02 fusion experiment (additional to liquid selection)
+
+A second LM-02 specimen uses two purely decorative liquid masses. Native `Separated` / `Merged` radio choices control a true geometric join-and-separate animation; a blur/threshold SVG filter suggests fluid continuity. **No hitboxes, action meanings or DOM controls merge.** Reduced motion removes transitions; forced colours suppresses the decorative mass while preserving meaningful native selection. This is a perception experiment, not a validated performance enhancement.
