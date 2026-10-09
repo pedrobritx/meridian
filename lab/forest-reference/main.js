@@ -230,7 +230,9 @@ function renderHistory() {
       button.setAttribute('aria-label',(updated.unread?'Mark as read: ':'Mark as unread: ')+updated.eventType);
       renderIndicators();
     });
-    li.addEventListener('focusin',()=>{
+    li.addEventListener('focusin',event=>{
+      // Focusing the explicit read/unread button must not pre-acknowledge its entry.
+      if(event.target!==li)return;
       if(isActive()&&history.open&&!record.explicitUnread) {
         const index=records.findIndex(r=>r.id===record.id);
         const next=acknowledgeHistory(records[index],{
