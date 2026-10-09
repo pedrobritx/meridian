@@ -70,8 +70,9 @@ export function canAcknowledgeHistory({
   essentialVisible=false,rapidScroll=false,substantialDisplacement=false,
   explicitUnread=false
 }={}) {
-  if(!active || !historyOpen || explicitUnread) return false;
+  if(!active || !historyOpen) return false;
   if(method==='explicit') return true;
+  if(explicitUnread) return false;
   if(method==='accessible-navigation') return true;
   return method==='visual' && essentialVisible && !rapidScroll &&
     !substantialDisplacement && meaningfulExposureMs>=EXPOSURE_MS;
