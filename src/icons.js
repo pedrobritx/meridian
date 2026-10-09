@@ -1,4 +1,4 @@
-import projectSymbols from '../design/meridian/project-symbols.json';
+import projectSymbols from '../design/meridian/project-symbols.json' with {type: 'json'};
 export const paths={
  ...projectSymbols,
  meridian:'<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M12 1v3m0 16v3"/>',
