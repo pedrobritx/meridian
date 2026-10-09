@@ -4,7 +4,7 @@
  * All creates are idempotent by component name; stable library masters untouched.
  */
 async function buildUniversalLab(figma, items) {
-  let page=figma.root.children.find(p=>p.name==='17 · Universal Components · Lab');
+  let page=figma.root.children.find(p=>p.id==='247:8'||p.name==='18 · Sources · Universal Masters'||p.name==='17 · Universal Components · Lab');
   const createdNodeIds=[],masterIds=[],skipped=[];
   if(!page){page=figma.createPage();page.name='17 · Universal Components · Lab';createdNodeIds.push(page.id);}
   await figma.setCurrentPageAsync(page);
