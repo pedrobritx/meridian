@@ -71,6 +71,14 @@
       Checks every 30 seconds. Conflicting edits pause synchronization. Layouts
       and application code need explicit implementation.
     </p>
+    <hr style="border:0;border-top:1px solid #b0c4b6;margin:20px 0"/>
+    <h2>Forest-first 0.6 · Lab sync</h2>
+    <p>Synchronise the experimental <strong>Forest Dawn/Dusk</strong> native colour modes and six named editable text layers from approved <code>main</code>. Stable 0.5 styles, components and tokens are protected.</p>
+    <button id="forest-compare">Compare Forest</button>
+    <button id="forest-import">Apply GitHub Forest</button>
+    <label><input id="forest-live" type="checkbox"/> Auto-apply Forest while this plugin is open</label>
+    <p>Every 30 seconds after a clean baseline. Local edits or conflicting updates pause automatically. Full webpage geometry still needs visual review; this is not unattended cloud Figma editing.</p>
+    <p id="forest-status" role="status" aria-live="polite">Compare Forest to establish a safe baseline.</p>
     <button id="disconnect">Disconnect</button>
     <p id="status" role="status" aria-live="polite">
       Compare the current shared contract to begin.
@@ -412,16 +420,95 @@ function planTokenImport(bundle, collections, variables) {
   );
 }
 
-const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"}}};
+/**
+ * Meridian 0.6 Lab-only GitHub -> Figma Forest contract.
+ * No stable Meridian 0.5 collection, component or token is writable here.
+ */
+const FOREST_ROLES = Object.freeze([
+  'page','surface','text','muted','border','action','onAction','focus',
+  'sunlight','canopy','earth','ambient'
+]);
+
+const sameKeys=(a,b)=>JSON.stringify(Object.keys(a).sort())===JSON.stringify(Object.keys(b).sort());
+const hexRe=/^#[0-9A-F]{6}$/;
+
+function validateForestContract(input,template) {
+  if(!input||input.schemaVersion!==1||input.fileKey!==template.fileKey||
+    input.pageId!==template.pageId||input.collectionName!==template.collectionName||
+    input.source!=='lab/forest-reference/forest-model.js')
+    throw Error('Forest contract file, page, collection or schema mismatch');
+  if(!sameKeys(input.modes||{}, {Dawn:1,Dusk:1}))
+    throw Error('Forest requires Dawn and Dusk modes only');
+  const modes={};
+  for(const mode of ['Dawn','Dusk']){
+    const palette=input.modes[mode];
+    if(!palette||!sameKeys(palette,Object.fromEntries(FOREST_ROLES.map(r=>[r,1]))))
+      throw Error('Forest palette roles differ: '+mode);
+    modes[mode]={};
+    for(const role of FOREST_ROLES){
+      const h=palette[role];
+      if(typeof h!=='string'||!hexRe.test(h.toUpperCase()))
+        throw Error('Invalid Forest colour: '+mode+'/'+role);
+      modes[mode][role]=h.toUpperCase();
+    }
+  }
+  if(!sameKeys(input.fields||{},template.fields||{}))
+    throw Error('Forest text field names differ');
+  const fields={};
+  for(const name of Object.keys(template.fields).sort()){
+    const field=input.fields[name],expected=template.fields[name];
+    if(field?.nodeId!==expected.nodeId||field.pageId!==template.pageId||
+      typeof field.value!=='string'||field.value.length>280||
+      /[\x00-\x08\x0B\x0E-\x1F]/.test(field.value))
+      throw Error('Forest text field not authorised: '+name);
+    fields[name]={nodeId:expected.nodeId,pageId:template.pageId,value:field.value};
+  }
+  return {schemaVersion:1,fileKey:template.fileKey,pageId:template.pageId,
+    collectionName:template.collectionName,source:input.source,modes,fields};
+}
+
+function hexToFigmaColor(hex) {
+  if(!hexRe.test(hex.toUpperCase()))throw Error('Invalid Forest hex');
+  return {r:parseInt(hex.slice(1,3),16)/255,
+    g:parseInt(hex.slice(3,5),16)/255,
+    b:parseInt(hex.slice(5,7),16)/255,a:1};
+}
+function figmaColorToHex(c) {
+  if(!c||['r','g','b'].some(k=>!Number.isFinite(c[k])||c[k]<0||c[k]>1)||
+    (c.a!==undefined && (!Number.isFinite(c.a)||c.a<.999)))
+    throw Error('Forest requires an opaque direct colour value');
+  return '#'+['r','g','b'].map(k=>Math.round(c[k]*255).toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+
+function planForestImport(remote,local,template) {
+  const target=validateForestContract(remote,template);
+  const now=validateForestContract(local,template);
+  const values=[],texts=[];
+  for(const mode of ['Dawn','Dusk'])
+    for(const role of FOREST_ROLES)
+      if(target.modes[mode][role]!==now.modes[mode][role])
+        values.push({mode,role,from:now.modes[mode][role],to:target.modes[mode][role]});
+  for(const name of Object.keys(target.fields))
+    if(target.fields[name].value!==now.fields[name].value)
+      texts.push({name,nodeId:target.fields[name].nodeId,
+        from:now.fields[name].value,to:target.fields[name].value});
+  return {values,texts};
+}
+
+const forestTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","pageId":"218:21","collectionName":"Meridian 0.6 Lab / Forest","source":"lab/forest-reference/forest-model.js","modes":{"Dawn":{"page":"#EDF1E6","surface":"#FCFDF8","text":"#243B2E","muted":"#435B49","border":"#94AB97","action":"#22583E","onAction":"#FFFFFF","focus":"#22583E","sunlight":"#E7E2B8","canopy":"#9CB8A1","earth":"#70886B","ambient":"#D6E4D0"},"Dusk":{"page":"#293B33","surface":"#354D40","text":"#F8F6E9","muted":"#E1E8D9","border":"#A6B7A4","action":"#F0D7A6","onAction":"#253A30","focus":"#FFE0A2","sunlight":"#C5A477","canopy":"#6E967D","earth":"#476C57","ambient":"#4B6556"}},"fields":{"dawnTitle":{"nodeId":"219:15","pageId":"218:21"},"dawnDescription":{"nodeId":"219:16","pageId":"218:21"},"dawnHistoryTitle":{"nodeId":"219:51","pageId":"218:21"},"duskTitle":{"nodeId":"219:70","pageId":"218:21"},"duskDescription":{"nodeId":"219:71","pageId":"218:21"},"duskHistoryTitle":{"nodeId":"219:106","pageId":"218:21"}}};
+const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"}}};
 const repo = "https://api.github.com/repos/pedrobritx/meridian";
 const status = document.querySelector("#status"),
   tokenInput = document.querySelector("#token"),
-  live = document.querySelector("#live");
+  live = document.querySelector("#live"),
+  forestLive = document.querySelector("#forest-live"),
+  forestStatus = document.querySelector("#forest-status");
 let sessionToken = "",
   base = null,
   lastPublished = "",
   pending = null,
-  busy = false;
+  busy = false,
+  forestBase = null;
 const tell = (text) => {
   status.textContent = text;
 };
@@ -645,6 +732,9 @@ document.querySelector("#disconnect").onclick = () => {
   base = null;
   lastPublished = "";
   live.checked = false;
+  forestLive.checked = false;
+  forestBase = null;
+  tellForest("Disconnected; Forest automatic sync stopped.");
   tell("Disconnected. No credential was stored.");
 };
 live.onchange = () => {
@@ -660,6 +750,73 @@ live.onchange = () => {
 setInterval(() => {
   if (live.checked && !busy) run(() => compare("watch"));
 }, 30000);
+
+/**
+ * Forest is independently versioned from Core tokens. It may be auto-applied
+ * only after the first confirmed clean baseline in the open plugin session.
+ * Figma editing and browser network access cease when the plugin closes.
+ */
+const tellForest=(message)=>{forestStatus.textContent=message;};
+async function remoteForest() {
+  const headers={Accept:'application/vnd.github+json',
+    ...(credentials()?{Authorization:'Bearer '+sessionToken}:{})};
+  const response=await fetch(repo+'/git/ref/heads/main',{headers,cache:'no-store'});
+  if(!response.ok)throw Error('Could not read Meridian main for Forest ('+response.status+').');
+  const sha=(await response.json()).object.sha;
+  const file=await fetch(repo+'/contents/design/figma/forest-lab.json?ref='+encodeURIComponent(sha),{headers});
+  if(!file.ok)throw Error('Could not read approved Forest contract ('+file.status+').');
+  const payload=await file.json();
+  const data=JSON.parse(new TextDecoder().decode(
+    Uint8Array.from(atob(payload.content.replaceAll('\n','')),(x)=>x.charCodeAt(0))
+  ));
+  return validateForestContract(data,forestTemplate);
+}
+async function compareForest(action='compare') {
+  const currentRemote=await remoteForest();
+  const currentLocal=(await rpc('exportForest')).forest;
+  const direction=syncDirection(forestBase,currentLocal,currentRemote);
+  if(action==='import'||(action==='watch'&&direction==='import')) {
+    if(action==='watch'&&signature(currentLocal)!==signature(forestBase))
+      throw Error('Figma Forest changed locally; automatic import stopped.');
+    const result=await rpc('importForest',{
+      forest:currentRemote,expectedLocalSignature:signature(currentLocal)
+    });
+    if(signature(result.forest)!==signature(currentRemote))
+      throw Error('Forest import failed verification.');
+    forestBase=currentRemote;
+    tellForest('Forest Lab matches GitHub main · '+result.variableCells+
+      ' variable cells and '+result.textNodes+' text nodes updated.');
+    return;
+  }
+  if(direction==='equal') {
+    forestBase=currentRemote;
+    tellForest('Forest Lab matches GitHub main. Automatic Lab updates can continue while open.');
+  }else if(direction==='choose') {
+    forestLive.checked=false;
+    tellForest('Forest Lab differs from GitHub. Compare and explicitly Apply Forest before enabling automatic sync.');
+  }else if(direction==='conflict') {
+    forestLive.checked=false;
+    tellForest('Forest Lab and GitHub both changed. Automatic sync paused; resolve differences before importing.');
+  }else if(direction==='publish') {
+    forestLive.checked=false;
+    tellForest('Figma Forest was edited. Automatic sync paused; document or review the change in GitHub.');
+  }else {
+    tellForest('GitHub Forest changed. Apply Forest values or enable safe auto-apply after a clean baseline.');
+  }
+}
+document.querySelector('#forest-compare').onclick=()=>run(()=>compareForest());
+document.querySelector('#forest-import').onclick=()=>run(()=>compareForest('import'));
+forestLive.onchange=()=>{
+  if(forestLive.checked)run(async()=>{
+    if(!credentials())throw Error('An in-session GitHub token is required for automatic Lab polling.');
+    await compareForest('watch');
+  });
+};
+setInterval(()=>{
+  if(forestLive.checked&&!busy)
+    run(async()=>{try{await compareForest('watch');}
+      catch(error){forestLive.checked=false;tellForest(error.message);}});
+},30000);
 
     </script>
   </body>
