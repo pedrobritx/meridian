@@ -8,7 +8,10 @@ test('Forest reference keeps native tasks and appearance choices independent',as
   await expect(page.locator('html')).toHaveAttribute('data-theme',/dawn|dusk/);
   await page.locator('#appearance').selectOption('dusk');
   await expect(page.locator('html')).toHaveAttribute('data-theme','dusk');
-  await page.getByLabel('Ambient illumination').fill('78');
+  await page.locator('#illumination').evaluate(input=>{
+    input.value='78';
+    input.dispatchEvent(new Event('input',{bubbles:true}));
+  });
   await expect(page.locator('#illumination-value')).toHaveText('78%');
   await page.getByLabel('Material character').selectOption('quiet');
   await expect(page.locator('html')).toHaveAttribute('data-atmosphere','quiet');
