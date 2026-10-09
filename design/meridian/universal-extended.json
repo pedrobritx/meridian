@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "status": "experimental",
+  "sourceOfTruth": "Figma original Start 7:2; stable source masters must not be replaced",
+  "items": [
+    {
+      "id": "carousel",
+      "name": "Carousel",
+      "group": "Navigation & workspace",
+      "anatomy": "Move between ordered panels with previous, next, current position, keyboard controls",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "carousel"
+    },
+    {
+      "id": "divider",
+      "name": "Divider",
+      "group": "Records & insight",
+      "anatomy": "Semantic separation; optional accessible section label",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "divider"
+    },
+    {
+      "id": "sheet",
+      "name": "Sheet / Bottom sheet",
+      "group": "Feedback & trust",
+      "anatomy": "Dialog semantics, dismiss, focus return, drag alternative",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "sheet"
+    },
+    {
+      "id": "menu-bar",
+      "name": "Menu bar",
+      "group": "Navigation & workspace",
+      "anatomy": "Top-level File/Edit/View menus and keyboard menubar navigation",
+      "projects": [
+        "NotUX",
+        "verbalis"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "menu-bar"
+    },
+    {
+      "id": "menu-list",
+      "name": "Menu list",
+      "group": "Navigation & workspace",
+      "anatomy": "Menuitem actions, grouping, separators and explicit selection",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "menu-list"
+    },
+    {
+      "id": "numeric-stepper",
+      "name": "Numeric stepper",
+      "group": "Inputs & selection",
+      "anatomy": "Increment, decrement, bounds, direct numeric input",
+      "projects": [
+        "ambientis",
+        "via"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "numeric-stepper"
+    },
+    {
+      "id": "token-field",
+      "name": "Token field",
+      "group": "Inputs & selection",
+      "anatomy": "Named tokens, keyboard removal, entry and suggestions",
+      "projects": [
+        "verbalis",
+        "lexis"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "token-field"
+    },
+    {
+      "id": "date-range",
+      "name": "Date range picker",
+      "group": "Inputs & selection",
+      "anatomy": "Start/end, time zone, month grid, validation",
+      "projects": [
+        "glassfolio",
+        "ambientis"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "date-range"
+    },
+    {
+      "id": "progress-ring",
+      "name": "Circular progress",
+      "group": "Feedback & trust",
+      "anatomy": "Accessible label, determinate/indeterminate, reduced motion",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "progress-ring"
+    },
+    {
+      "id": "collection-grid",
+      "name": "Collection grid",
+      "group": "Records & insight",
+      "anatomy": "Selectable collection tiles, multi-select and accessible grid",
+      "projects": [
+        "framio",
+        "NotUX"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "collection-grid"
+    },
+    {
+      "id": "column-view",
+      "name": "Column browser",
+      "group": "Navigation & workspace",
+      "anatomy": "Multi-column hierarchical navigation, scroll, depth",
+      "projects": [
+        "verbalis",
+        "NotUX"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "column-view"
+    },
+    {
+      "id": "scroll-view",
+      "name": "Scroll view",
+      "group": "Navigation & workspace",
+      "anatomy": "Scroll region, focus/keyboard, affordances, limits",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "scroll-view"
+    },
+    {
+      "id": "page-indicator",
+      "name": "Page indicator",
+      "group": "Navigation & workspace",
+      "anatomy": "Current/total, labelled navigation, touch targets",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "page-indicator"
+    },
+    {
+      "id": "image-well",
+      "name": "Image well",
+      "group": "Inputs & selection",
+      "anatomy": "Image upload, crop, remove, privacy, alternatives",
+      "projects": [
+        "framio",
+        "glassfolio"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "image-well"
+    },
+    {
+      "id": "split-button",
+      "name": "Split button",
+      "group": "Navigation & workspace",
+      "anatomy": "Primary action and attached dropdown; separate labels",
+      "projects": [
+        "verbalis",
+        "ambientis"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "split-button"
+    },
+    {
+      "id": "status-pill",
+      "name": "Status pill",
+      "group": "Feedback & trust",
+      "anatomy": "Icon, accessible status label, compact state",
+      "projects": [
+        "all"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental",
+      "nativePattern": "semantic state contract; application owns business operations",
+      "icon": "status-pill"
+    }
+  ]
+}

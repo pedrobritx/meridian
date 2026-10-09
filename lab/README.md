@@ -36,4 +36,6 @@ See the [0.6 milestone plan](../docs/roadmap/0.6-living-matter.md), [research hy
 - [Living Environments](./living-environments/) — LM-H07, six optional natural palette families × two independent appearances × optional product identities.
 - [Forest-first reference](./forest-reference/) — a cohesive experimental Dawn/Dusk vertical slice with accessible appearance settings, local simulated status/notification patterns, and explicit no-promotion gates.
 
+- [Universal Library](./universal-library/) — catalogued component/symbol specimens, now built with the ten new environment palettes (Forest, Desert, Aurora, Glacier, Embers in Dawn/Dusk). Native masters and source Figma pages are indexed in the [Figma reorganisation map](../design/meridian/figma-refactor-map.json).
+
 See the [experiment registry](./experiments.json). All demos are exploratory and remain outside stable Meridian Core; research/promotion gates are not complete.

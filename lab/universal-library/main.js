@@ -3,6 +3,7 @@ import '@fontsource/manrope/latin-600.css';
 import '@fontsource/manrope/latin-700.css';
 import '@fontsource/fraunces/latin-400.css';
 import '../../styles/tokens.css';
+import '../../styles/living-environments.css';
 import './universal.css';
 import {universalComponents,universalGroups,projectNames,componentsFor} from '../../src/universal/catalog.js';
 import universalSymbols from '../../design/meridian/universal-symbols.json';
@@ -335,8 +336,9 @@ function renderSymbols(){
 byId('symbol-filter').addEventListener('input',renderSymbols);
 const appearance=byId('appearance-mode');
 appearance.addEventListener('change',()=>{
-  const [theme,mode]=appearance.value.split(':');
-  document.documentElement.dataset.meridian=theme;
+  const [environment,mode]=appearance.value.split(':');
+  document.documentElement.dataset.meridian='grass';
+  document.documentElement.dataset.meridianEnvironment=environment;
   document.documentElement.dataset.theme=mode;
   byId('appearance-status').textContent=appearance.selectedOptions[0].textContent+' selected';
 });

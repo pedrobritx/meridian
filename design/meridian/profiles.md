@@ -1,4 +1,7 @@
-# Meridian profiles — 0.5
+# Meridian profiles — 0.5 (compatibility baseline)
+
+> **0.6 Living Environments:** [Forest, Desert, Aurora, Glacier, Embers](living-environments.json), each in Dawn and Dusk. Forest reproduces Grass exactly; Desert reproduces Paper exactly. The new Figma source is [Living Environments atlas](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=267-38). This document retains the original 0.5 naming and mode IDs while consumers migrate explicitly. See [reorganisation guide](../../docs/figma-reorganisation-2026-10-09.md).
+
 
 Core is the neutral baseline. Grass is green and Paper is sand/wine. Three additional profiles fit the confirmed project workflows.
 
