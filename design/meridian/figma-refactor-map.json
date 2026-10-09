@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "status": "review-required-experimental",
+  "figma": {
+    "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+    "baseUrl": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian",
+    "sourceStartNode": "7:2",
+    "sourceStartPage": "0:1",
+    "startPreserved": true
+  },
+  "compatibility": {
+    "legacyProfiles": {
+      "grass": "forest",
+      "paper": "desert"
+    },
+    "legacyTokenModeIdsPreserved": true,
+    "legacySelectorsPreserved": true,
+    "stableCoreIdsUnchanged": true,
+    "stableTokenExportModeNamesUnchanged": true
+  },
+  "environment": {
+    "pageId": "197:34",
+    "atlasNodeId": "267:38",
+    "collectionId": "VariableCollectionId:266:34",
+    "collectionName": "Meridian / Living Environments · 0.6",
+    "roleCount": 39,
+    "modes": [
+      "Forest / Dawn",
+      "Forest / Dusk",
+      "Desert / Dawn",
+      "Desert / Dusk",
+      "Aurora / Dawn",
+      "Aurora / Dusk",
+      "Glacier / Dawn",
+      "Glacier / Dusk",
+      "Embers / Dawn",
+      "Embers / Dusk"
+    ]
+  },
+  "universal": {
+    "masterPageId": "247:8",
+    "familyCount": 92,
+    "baseFamilyCount": 76,
+    "extendedFamilyCount": 16,
+    "icons": {
+      "sourcePage": "245:8",
+      "stylesPage": "274:34",
+      "families": 80,
+      "styles": [
+        "Outline",
+        "Filled",
+        "Colour",
+        "Duotone"
+      ]
+    },
+    "displayDefaults": "Forest Dawn",
+    "bindingCollection": "Meridian / Living Environments · 0.6",
+    "stableCoreMastersNotModified": true
+  },
+  "cataloguePages": [
+    {
+      "id": "276:34",
+      "category": "Actions & Buttons",
+      "nativeReferences": 10,
+      "atlas": "276:35"
+    },
+    {
+      "id": "270:34",
+      "category": "Inputs & Selection",
+      "families": 12,
+      "atlas": "270:35"
+    },
+    {
+      "id": "271:34",
+      "category": "Navigation & Overlays",
+      "families": 13,
+      "atlas": "271:35"
+    },
+    {
+      "id": "271:3159",
+      "category": "Data & Collections",
+      "families": 15,
+      "atlas": "271:3160"
+    },
+    {
+      "id": "271:3307",
+      "category": "Feedback & Progress",
+      "families": 12,
+      "atlas": "271:3308"
+    },
+    {
+      "id": "273:34",
+      "category": "Advanced Patterns",
+      "families": 16,
+      "atlas": "273:35"
+    },
+    {
+      "id": "271:3427",
+      "category": "Product Workflows",
+      "families": 24,
+      "atlas": "271:3428"
+    }
+  ],
+  "pages": [
+    [
+      "0:1",
+      "00 · Meridian · Start"
+    ],
+    [
+      "3:207",
+      "01 · Foundations · Tokens & Guidelines"
+    ],
+    [
+      "197:34",
+      "02 · Environments · Living Palettes"
+    ],
+    [
+      "276:34",
+      "03 · Components · Actions & Buttons"
+    ],
+    [
+      "270:34",
+      "04 · Components · Inputs & Selection"
+    ],
+    [
+      "271:34",
+      "05 · Components · Navigation & Overlays"
+    ],
+    [
+      "271:3159",
+      "06 · Components · Data & Collections"
+    ],
+    [
+      "271:3307",
+      "07 · Components · Feedback & Progress"
+    ],
+    [
+      "273:34",
+      "08 · Components · Advanced Patterns"
+    ],
+    [
+      "271:3427",
+      "09 · Patterns · Product Workflows"
+    ],
+    [
+      "274:34",
+      "10 · Icons · Semantic Styles"
+    ],
+    [
+      "3:210",
+      "11 · Patterns · Screens & Flows"
+    ],
+    [
+      "3:211",
+      "12 · Adoption · Governance & Usage"
+    ],
+    [
+      "3:208",
+      "13 · Sources · Core Component Masters"
+    ],
+    [
+      "43:37",
+      "14 · Sources · Input & Control Sets"
+    ],
+    [
+      "44:1299",
+      "15 · Sources · Navigation & Data Sets"
+    ],
+    [
+      "45:2262",
+      "16 · Sources · Feedback Sets"
+    ],
+    [
+      "3:209",
+      "17 · Sources · Original Symbols"
+    ],
+    [
+      "247:8",
+      "18 · Sources · Universal Masters"
+    ],
+    [
+      "245:8",
+      "19 · Sources · Universal Outline Icons"
+    ],
+    [
+      "92:34",
+      "20 · Profiles · Core & Theme Studies"
+    ],
+    [
+      "91:34",
+      "21 · Profiles · Forest (Grass compatibility)"
+    ],
+    [
+      "91:2692",
+      "22 · Profiles · Desert (Paper compatibility)"
+    ],
+    [
+      "182:34",
+      "90 · Research · Living Controls"
+    ],
+    [
+      "190:34",
+      "91 · Research · Living Workspace"
+    ],
+    [
+      "218:21",
+      "92 · Research · Forest Archive"
+    ]
+  ],
+  "validationNeeded": [
+    "Live Figma plugin publishing and named-version roundtrip",
+    "Manual screen-reader and keyboard study",
+    "Visual contrast over arbitrary composited media",
+    "Responsive and alternative input in products",
+    "Figma library publication of new 0.6 component sets",
+    "Independent evidence-based release decision #12"
+  ]
+}
