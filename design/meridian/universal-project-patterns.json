@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "translation-segment",
+      "name": "Translation segment",
+      "group": "Project-specific patterns",
+      "icon": "languages",
+      "projects": [
+        "verbalis"
+      ],
+      "anatomy": "Source, target, status and QA",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "tm-match",
+      "name": "Translation-memory match",
+      "group": "Project-specific patterns",
+      "icon": "scan-search",
+      "projects": [
+        "verbalis"
+      ],
+      "anatomy": "Match strength, target and insertion",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "term-entry",
+      "name": "Terminology entry",
+      "group": "Project-specific patterns",
+      "icon": "book-a",
+      "projects": [
+        "verbalis"
+      ],
+      "anatomy": "Term, language, preference and citation",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "review-diff",
+      "name": "Review difference",
+      "group": "Project-specific patterns",
+      "icon": "git-compare",
+      "projects": [
+        "verbalis",
+        "bsdl"
+      ],
+      "anatomy": "Before/after, approval and provenance",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "cefr-level",
+      "name": "CEFR descriptor",
+      "group": "Project-specific patterns",
+      "icon": "graduation-cap",
+      "projects": [
+        "lexis",
+        "Evalis",
+        "efl-lesson-framework"
+      ],
+      "anatomy": "Level, skill and descriptor",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "lesson-phase",
+      "name": "Lesson phase card",
+      "group": "Project-specific patterns",
+      "icon": "notebook-pen",
+      "projects": [
+        "lexis",
+        "efl-lesson-framework"
+      ],
+      "anatomy": "Objective, timing and task",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "quiz-choice",
+      "name": "Quiz item",
+      "group": "Project-specific patterns",
+      "icon": "list-checks",
+      "projects": [
+        "lexis",
+        "Evalis"
+      ],
+      "anatomy": "Stem, responses, feedback",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "rubric-row",
+      "name": "Rubric row",
+      "group": "Project-specific patterns",
+      "icon": "clipboard-check",
+      "projects": [
+        "lexis",
+        "Evalis"
+      ],
+      "anatomy": "Criterion, band, evidence",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "audio-transcript",
+      "name": "Audio / transcript",
+      "group": "Project-specific patterns",
+      "icon": "headphones",
+      "projects": [
+        "lexis",
+        "NotUX"
+      ],
+      "anatomy": "Play, elapsed, captions and transcript",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "whiteboard-tool",
+      "name": "Whiteboard tool",
+      "group": "Project-specific patterns",
+      "icon": "pen-tool",
+      "projects": [
+        "NotUX"
+      ],
+      "anatomy": "Selected tool, ink colour, canvas",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "artwork-card",
+      "name": "Artwork card",
+      "group": "Project-specific patterns",
+      "icon": "frame",
+      "projects": [
+        "framio"
+      ],
+      "anatomy": "Artist, museum and license",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "artwork-provenance",
+      "name": "Art provenance",
+      "group": "Project-specific patterns",
+      "icon": "landmark",
+      "projects": [
+        "framio"
+      ],
+      "anatomy": "Artist, museum and permission",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "evidence-record",
+      "name": "Evidence record",
+      "group": "Project-specific patterns",
+      "icon": "file-check",
+      "projects": [
+        "ambientis"
+      ],
+      "anatomy": "File, source, time and verification",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "waste-manifest",
+      "name": "Waste manifest",
+      "group": "Project-specific patterns",
+      "icon": "recycle",
+      "projects": [
+        "ambientis"
+      ],
+      "anatomy": "MTR, volume, CDF and compliance",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "permit-status",
+      "name": "Permit / outorga",
+      "group": "Project-specific patterns",
+      "icon": "badge-check",
+      "projects": [
+        "ambientis"
+      ],
+      "anatomy": "Scope, regulator, status and expiry",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "resident-notice",
+      "name": "Resident announcement",
+      "group": "Project-specific patterns",
+      "icon": "building-2",
+      "projects": [
+        "sqn411blocon"
+      ],
+      "anatomy": "Audience, period and read state",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "maintenance-ticket",
+      "name": "Maintenance issue",
+      "group": "Project-specific patterns",
+      "icon": "wrench",
+      "projects": [
+        "sqn411blocon"
+      ],
+      "anatomy": "Location, severity, vendor and state",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "impact-metric",
+      "name": "Impact metric",
+      "group": "Project-specific patterns",
+      "icon": "leaf",
+      "projects": [
+        "via"
+      ],
+      "anatomy": "Cost/time/CO₂, formula and source",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "scenario-compare",
+      "name": "Scenario comparison",
+      "group": "Project-specific patterns",
+      "icon": "route",
+      "projects": [
+        "via"
+      ],
+      "anatomy": "Alternative cases and provenance",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "media-tile",
+      "name": "Media artwork tile",
+      "group": "Project-specific patterns",
+      "icon": "film",
+      "projects": [
+        "libreca",
+        "spectra",
+        "framio"
+      ],
+      "anatomy": "Cover, title, format and progress",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "playback-control",
+      "name": "Playback control",
+      "group": "Project-specific patterns",
+      "icon": "play",
+      "projects": [
+        "libreca",
+        "spectra"
+      ],
+      "anatomy": "Play/pause, seek, captions and keyboard",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "booking-slot",
+      "name": "Booking slot",
+      "group": "Project-specific patterns",
+      "icon": "calendar-clock",
+      "projects": [
+        "glassfolio",
+        "lexis"
+      ],
+      "anatomy": "Timezone, availability and confirm",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "permission-matrix",
+      "name": "Permission matrix",
+      "group": "Project-specific patterns",
+      "icon": "lock-keyhole",
+      "projects": [
+        "safari-escolar",
+        "ambientis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Role, action, scope and permission",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    },
+    {
+      "id": "audit-entry",
+      "name": "Audit log entry",
+      "group": "Project-specific patterns",
+      "icon": "history",
+      "projects": [
+        "ambientis",
+        "sqn411blocon",
+        "verbalis"
+      ],
+      "anatomy": "Who, what, when, why and evidence",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "status": "experimental",
+      "note": "Domain-specific content belongs to the adopting application. Meridian owns only presentation and accessible interaction semantics."
+    }
+  ]
+}
