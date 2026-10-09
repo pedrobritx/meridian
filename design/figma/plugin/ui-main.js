@@ -1,12 +1,15 @@
 const repo = "https://api.github.com/repos/pedrobritx/meridian";
 const status = document.querySelector("#status"),
   tokenInput = document.querySelector("#token"),
-  live = document.querySelector("#live");
+  live = document.querySelector("#live"),
+  forestLive = document.querySelector("#forest-live"),
+  forestStatus = document.querySelector("#forest-status");
 let sessionToken = "",
   base = null,
   lastPublished = "",
   pending = null,
-  busy = false;
+  busy = false,
+  forestBase = null;
 const tell = (text) => {
   status.textContent = text;
 };
@@ -230,6 +233,9 @@ document.querySelector("#disconnect").onclick = () => {
   base = null;
   lastPublished = "";
   live.checked = false;
+  forestLive.checked = false;
+  forestBase = null;
+  tellForest("Disconnected; Forest automatic sync stopped.");
   tell("Disconnected. No credential was stored.");
 };
 live.onchange = () => {
@@ -245,3 +251,70 @@ live.onchange = () => {
 setInterval(() => {
   if (live.checked && !busy) run(() => compare("watch"));
 }, 30000);
+
+/**
+ * Forest is independently versioned from Core tokens. It may be auto-applied
+ * only after the first confirmed clean baseline in the open plugin session.
+ * Figma editing and browser network access cease when the plugin closes.
+ */
+const tellForest=(message)=>{forestStatus.textContent=message;};
+async function remoteForest() {
+  const headers={Accept:'application/vnd.github+json',
+    ...(credentials()?{Authorization:'Bearer '+sessionToken}:{})};
+  const response=await fetch(repo+'/git/ref/heads/main',{headers,cache:'no-store'});
+  if(!response.ok)throw Error('Could not read Meridian main for Forest ('+response.status+').');
+  const sha=(await response.json()).object.sha;
+  const file=await fetch(repo+'/contents/design/figma/forest-lab.json?ref='+encodeURIComponent(sha),{headers});
+  if(!file.ok)throw Error('Could not read approved Forest contract ('+file.status+').');
+  const payload=await file.json();
+  const data=JSON.parse(new TextDecoder().decode(
+    Uint8Array.from(atob(payload.content.replaceAll('\n','')),(x)=>x.charCodeAt(0))
+  ));
+  return validateForestContract(data,forestTemplate);
+}
+async function compareForest(action='compare') {
+  const currentRemote=await remoteForest();
+  const currentLocal=(await rpc('exportForest')).forest;
+  const direction=syncDirection(forestBase,currentLocal,currentRemote);
+  if(action==='import'||(action==='watch'&&direction==='import')) {
+    if(action==='watch'&&signature(currentLocal)!==signature(forestBase))
+      throw Error('Figma Forest changed locally; automatic import stopped.');
+    const result=await rpc('importForest',{
+      forest:currentRemote,expectedLocalSignature:signature(currentLocal)
+    });
+    if(signature(result.forest)!==signature(currentRemote))
+      throw Error('Forest import failed verification.');
+    forestBase=currentRemote;
+    tellForest('Forest Lab matches GitHub main · '+result.variableCells+
+      ' variable cells and '+result.textNodes+' text nodes updated.');
+    return;
+  }
+  if(direction==='equal') {
+    forestBase=currentRemote;
+    tellForest('Forest Lab matches GitHub main. Automatic Lab updates can continue while open.');
+  }else if(direction==='choose') {
+    forestLive.checked=false;
+    tellForest('Forest Lab differs from GitHub. Compare and explicitly Apply Forest before enabling automatic sync.');
+  }else if(direction==='conflict') {
+    forestLive.checked=false;
+    tellForest('Forest Lab and GitHub both changed. Automatic sync paused; resolve differences before importing.');
+  }else if(direction==='publish') {
+    forestLive.checked=false;
+    tellForest('Figma Forest was edited. Automatic sync paused; document or review the change in GitHub.');
+  }else {
+    tellForest('GitHub Forest changed. Apply Forest values or enable safe auto-apply after a clean baseline.');
+  }
+}
+document.querySelector('#forest-compare').onclick=()=>run(()=>compareForest());
+document.querySelector('#forest-import').onclick=()=>run(()=>compareForest('import'));
+forestLive.onchange=()=>{
+  if(forestLive.checked)run(async()=>{
+    if(!credentials())throw Error('An in-session GitHub token is required for automatic Lab polling.');
+    await compareForest('watch');
+  });
+};
+setInterval(()=>{
+  if(forestLive.checked&&!busy)
+    run(async()=>{try{await compareForest('watch');}
+      catch(error){forestLive.checked=false;tellForest(error.message);}});
+},30000);
