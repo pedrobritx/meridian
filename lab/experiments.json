@@ -64,7 +64,9 @@
       "hypothesis": "LM-H07",
       "status": "implemented-experimental",
       "comparison": "Environment-led reference and independent product brands; Dawn/Dusk",
-      "accessibility": "Native radios and controls; forced-colour/opaque fallbacks; AA opaque contrast validation"
+      "accessibility": "Native radios and controls; forced-colour/opaque fallbacks; AA opaque contrast validation",
+      "forestReference": "forest-reference",
+      "forestReferenceStatus": "experimental-reference-candidate; not stable"
     }
   ]
 }
