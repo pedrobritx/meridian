@@ -215,11 +215,12 @@ function renderHistory() {
     button.textContent=record.unread?'Mark as read':'Mark as unread';
     button.setAttribute('aria-label',(record.unread?'Mark as read: ':'Mark as unread: ')+record.eventType);
     button.addEventListener('click',()=>{
-      if(record.unread) {
+      const current=records.find(r=>r.id===record.id);
+      if(current.unread) {
         // Explicit acknowledgement is always available, even after Mark unread.
-        records[records.findIndex(r=>r.id===record.id)]={...record,unread:false,explicitUnread:false};
+        records[records.findIndex(r=>r.id===record.id)]={...current,unread:false,explicitUnread:false};
       } else {
-        records[records.findIndex(r=>r.id===record.id)]={...record,unread:true,explicitUnread:true};
+        records[records.findIndex(r=>r.id===record.id)]={...current,unread:true,explicitUnread:true};
       }
       clearExposure(record.id);
       const updated=records.find(r=>r.id===record.id);
