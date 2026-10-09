@@ -34,5 +34,6 @@ See the [0.6 milestone plan](../docs/roadmap/0.6-living-matter.md), [research hy
 - [Living Controls](./living-controls/) — LM-01, LM-02 and LM-03.
 - [Living Workspace](./living-workspace/) — LM-04, LM-05 and LM-06.
 - [Living Environments](./living-environments/) — LM-H07, six optional natural palette families × two independent appearances × optional product identities.
+- [Forest-first reference](./forest-reference/) — a cohesive experimental Dawn/Dusk vertical slice with accessible appearance settings, local simulated status/notification patterns, and explicit no-promotion gates.
 
 See the [experiment registry](./experiments.json). All demos are exploratory and remain outside stable Meridian Core; research/promotion gates are not complete.
