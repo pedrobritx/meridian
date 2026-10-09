@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" data-theme="dawn" data-material="opaque" data-motion="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Meridian Living Matter 0.6: experimental Forest Dawn and Dusk reference with accessibility-first material controls and a simulated notification centre.">
+  <meta name="theme-color" content="#EDF1E6">
+  <title>Forest · Living Matter 0.6 — Meridian Lab</title>
+</head>
+<body class="fr">
+  <a class="fr-skip" href="#main">Skip to Forest reference</a>
+  <header class="fr-header">
+    <a class="fr-logo" href="../../" aria-label="Meridian home"><span class="fr-monogram" aria-hidden="true">M</span><span>meridian<small>LIVING MATTER LAB</small></span></a>
+    <nav aria-label="Lab navigation"><a href="../living-environments/">Living Environments</a><a href="../living-controls/">Living Controls</a><a href="../living-workspace/">Living Workspace</a></nav>
+  </header>
+  <main id="main">
+    <section class="fr-intro" aria-labelledby="intro-title">
+      <div class="fr-intro-copy">
+        <p class="fr-kicker"><span aria-hidden="true" class="fr-dot"></span> FOREST / REFERENCE STUDY <span class="fr-label">0.6 · EXPERIMENTAL</span></p>
+        <h1 id="intro-title">A quieter kind <em>of depth.</em></h1>
+        <p>Forest is Meridian's first cohesive Living Matter candidate: daylight over paper and leaf, twilight over moss and timber, and an interface that remains legible without its atmosphere.</p>
+        <a href="#specimen" class="fr-text-link">Explore the reference <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="fr-art" aria-hidden="true">
+        <div class="fr-sun"></div><div class="fr-leaf fr-leaf-one"></div><div class="fr-leaf fr-leaf-two"></div><div class="fr-leaf fr-leaf-three"></div><div class="fr-terrain"></div>
+      </div>
+    </section>
+
+    <section class="fr-panel" aria-labelledby="controls-title">
+      <div class="fr-section-heading">
+        <div><p class="fr-overline">01 · YOUR ENVIRONMENT</p><h2 id="controls-title">Set the atmosphere.</h2></div>
+        <p>Appearance, light, texture and motion are separate choices. Accessibility preferences take priority.</p>
+      </div>
+      <div class="fr-settings">
+        <label>Appearance
+          <select id="appearance">
+            <option value="system">Follow system</option>
+            <option value="dawn">Forest Dawn</option>
+            <option value="dusk">Forest Dusk</option>
+          </select>
+        </label>
+        <label>Ambient illumination <output id="illumination-value" for="illumination">50%</output>
+          <input id="illumination" type="range" min="0" max="100" value="50" aria-describedby="illumination-help">
+        </label>
+        <label>Material character
+          <select id="atmosphere"><option value="layered">Layered / natural</option><option value="quiet">Quiet / minimal</option></select>
+        </label>
+        <label>Motion
+          <select id="motion"><option value="system">Follow system</option><option value="quiet">Quiet</option><option value="expressive">Expressive</option></select>
+        </label>
+      </div>
+      <div class="fr-setting-bottom">
+        <label class="fr-check"><input id="glass" type="checkbox"> Optional translucent surface</label>
+        <button id="reset-settings" type="button" class="fr-reset">Reset local settings</button>
+      </div>
+      <p id="illumination-help" class="fr-help">Illumination adjusts the decorative landscape only; text and interactive controls retain their semantic contrast.</p>
+      <p class="fr-help" id="accessibility-note">Accessibility preferences are respected.</p>
+    </section>
+
+    <section id="specimen" class="fr-specimen-section" aria-labelledby="specimen-title">
+      <div class="fr-section-heading fr-section-heading--spaced">
+        <div><p class="fr-overline">02 · REFERENCE COMPOSITION</p><h2 id="specimen-title">The living workspace.</h2></div>
+        <span class="fr-scene-name" id="scene-name">Forest Dawn</span>
+      </div>
+      <div class="fr-landscape">
+        <div class="fr-landscape-art" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="fr-workspace">
+          <section class="fr-surface fr-main-card" aria-labelledby="task-title">
+            <div class="fr-heading-row">
+              <span class="fr-app-symbol" aria-hidden="true">M</span>
+              <div><p class="fr-overline">REFERENCE APP · DEMONSTRATION ONLY</p><h3 id="task-title">Make room for a new idea.</h3></div>
+            </div>
+            <p class="fr-support">Choose a direction and confirm it. The same native controls remain available in Dawn, Dusk, quiet motion and high contrast.</p>
+            <fieldset class="fr-choices">
+              <legend>Choose a direction</legend>
+              <label><input type="radio" name="direction" value="Discover" checked><span>Discover</span></label>
+              <label><input type="radio" name="direction" value="Create"><span>Create</span></label>
+              <label><input type="radio" name="direction" value="Reflect"><span>Reflect</span></label>
+            </fieldset>
+            <div class="fr-actions"><button class="fr-primary" id="confirm" type="button">Confirm direction <span aria-hidden="true">↗</span></button><button class="fr-secondary" id="clear" type="button">Reset choice</button></div>
+            <p class="fr-feedback" id="task-feedback" role="status">Ready. This prototype stores no task data.</p>
+          </section>
+          <aside class="fr-surface fr-aside" aria-labelledby="workspace-status-title">
+            <p class="fr-overline">WORKSPACE HEALTH</p>
+            <div class="fr-status-heading"><span aria-hidden="true" class="fr-status-dot"></span><h3 id="workspace-status-title">All clear</h3></div>
+            <p id="workspace-status-copy">No action is currently required. Historical announcements may still be unread.</p>
+            <div class="fr-status-actions">
+              <button id="simulate-action" type="button" class="fr-secondary">Simulate issue</button>
+              <button id="resolve-action" type="button" class="fr-secondary" disabled aria-describedby="resolve-help">Resolve issue</button>
+            </div>
+            <p class="fr-help" id="resolve-help">Resolution becomes available when the simulated issue is present.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="fr-notifications" aria-labelledby="notifications-title">
+      <div class="fr-section-heading">
+        <div><p class="fr-overline">03 · COMPONENT CONTRACT STUDY</p><h2 id="notifications-title">Attention, not noise.</h2></div>
+        <p>Illustrative local event records. Meridian proposes the presentation contract; applications own events, permissions, sync and confirmation.</p>
+      </div>
+      <div class="fr-surface fr-notification-card">
+        <div class="fr-notification-heading">
+          <div><h3>Notification centre</h3><p>Pending actions are distinct from unread announcements.</p></div>
+          <div class="fr-counts" aria-label="Notification indicators">
+            <span id="unread-count">2 unread</span>
+            <span id="pending-count">0 pending actions</span>
+          </div>
+        </div>
+        <section aria-labelledby="actionable-title">
+          <h4 id="actionable-title">Requires attention</h4>
+          <p id="actionable-empty" class="fr-quiet">No pending actions. All clear.</p>
+          <div id="actionable-list"></div>
+        </section>
+        <details id="history" class="fr-history">
+          <summary>Announcement history <span id="history-count">(2 unread)</span></summary>
+          <p class="fr-help">Entries record source, event type and time. Reading status is independent of unresolved actions.</p>
+          <ol id="history-list" class="fr-history-list" aria-label="Recent announcement history"></ol>
+        </details>
+      </div>
+      <p class="fr-help">Visual encounter detection is experimental: an entry must remain meaningfully visible for 1 second. Deliberate unread choices need explicit acknowledgement. Background focus alone never counts as reading.</p>
+    </section>
+
+    <section class="fr-research" aria-labelledby="research-title">
+      <div><p class="fr-overline">RESEARCH BOUNDARY</p><h2 id="research-title">Not a promise. A prototype.</h2></div>
+      <p>LM-01–LM-07 remain Lab-only. Visual similarity to natural materials does not establish comfort, familiarity, superior performance or accessibility conformance. Participant tasks, screen-reader walkthroughs, complex-background contrast and named-device performance measurements must be completed before stable promotion.</p>
+      <a href="https://github.com/pedrobritx/meridian/issues/12">Evaluation and evidence gates ↗</a>
+    </section>
+  </main>
+  <footer class="fr-footer"><span>MERIDIAN · LIVING MATTER 0.6 · LAB ONLY</span><span>Forest first. Evidence before promotion.</span></footer>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
