@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "pageId": "218:21",
+  "collectionName": "Meridian 0.6 Lab / Forest",
+  "source": "lab/forest-reference/forest-model.js",
+  "modes": {
+    "Dawn": {
+      "page": "#EDF1E6",
+      "surface": "#FCFDF8",
+      "text": "#243B2E",
+      "muted": "#435B49",
+      "border": "#94AB97",
+      "action": "#22583E",
+      "onAction": "#FFFFFF",
+      "focus": "#22583E",
+      "sunlight": "#E7E2B8",
+      "canopy": "#9CB8A1",
+      "earth": "#70886B",
+      "ambient": "#D6E4D0"
+    },
+    "Dusk": {
+      "page": "#293B33",
+      "surface": "#354D40",
+      "text": "#F8F6E9",
+      "muted": "#E1E8D9",
+      "border": "#A6B7A4",
+      "action": "#F0D7A6",
+      "onAction": "#253A30",
+      "focus": "#FFE0A2",
+      "sunlight": "#C5A477",
+      "canopy": "#6E967D",
+      "earth": "#476C57",
+      "ambient": "#4B6556"
+    }
+  },
+  "fields": {
+    "dawnTitle": {
+      "nodeId": "219:15",
+      "pageId": "218:21",
+      "value": "A quieter kind of depth."
+    },
+    "dawnDescription": {
+      "nodeId": "219:16",
+      "pageId": "218:21",
+      "value": "Warm paper. Living foliage. Filtered morning light."
+    },
+    "dawnHistoryTitle": {
+      "nodeId": "219:51",
+      "pageId": "218:21",
+      "value": "Attention, not noise."
+    },
+    "duskTitle": {
+      "nodeId": "219:70",
+      "pageId": "218:21",
+      "value": "A quieter kind of depth."
+    },
+    "duskDescription": {
+      "nodeId": "219:71",
+      "pageId": "218:21",
+      "value": "Twilight moss. Warm stone. A softer evening horizon."
+    },
+    "duskHistoryTitle": {
+      "nodeId": "219:106",
+      "pageId": "218:21",
+      "value": "Attention, not noise."
+    }
+  }
+}
