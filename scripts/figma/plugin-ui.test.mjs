@@ -14,6 +14,8 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
       content: await read("../../site/content.json"),
     },
     local = structuredClone(remote),
+    forestRemote = await read("../../design/figma/forest-lab.json"),
+    forestLocal = structuredClone(forestRemote),
     context;
   const elements = Object.fromEntries(
     [
@@ -25,6 +27,10 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
       "publish",
       "download",
       "disconnect",
+      "forest-live",
+      "forest-status",
+      "forest-compare",
+      "forest-import",
     ].map((id) => [
       id,
       { value: "", checked: false, textContent: "", disabled: false },
@@ -35,14 +41,20 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
     document: {
       querySelector: (id) => elements[id.slice(1)],
       querySelectorAll: () =>
-        ["compare", "import", "publish", "download", "disconnect"].map(
+        ["compare", "import", "publish", "download", "disconnect", "forest-compare", "forest-import"].map(
           (id) => elements[id],
         ),
     },
     parent: {
       postMessage({ pluginMessage: m }) {
         let response;
-        if (m.type === "export") response = { type: "tokens", ...local };
+        if (m.type === "exportForest") response = {type:"forestSnapshot",forest:forestLocal};
+        else if (m.type === "importForest") {
+          assert.equal(m.expectedLocalSignature,signature(forestLocal));
+          forestLocal=structuredClone(m.forest);
+          response={type:"forestImported",forest:forestLocal,variableCells:1,textNodes:0};
+        }
+        else if (m.type === "export") response = { type: "tokens", ...local };
         else {
           assert.equal(m.expectedLocalSignature, signature(local));
           local = structuredClone(m.bundle);
@@ -67,7 +79,7 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
           json: async () => ({
             content: Buffer.from(
               JSON.stringify(
-                url.includes("tokens.json") ? remote.tokens : remote.content,
+                url.includes("forest-lab.json") ? forestRemote : url.includes("tokens.json") ? remote.tokens : remote.content,
               ),
             ).toString("base64"),
           }),
@@ -128,6 +140,17 @@ test("actual plugin UI pins GitHub reads, imports remote changes, dispatches loc
     local.content.fields.heroTitle.value,
     "Figma changed shared copy",
   );
+  await elements["forest-compare"].onclick();
+  assert.match(elements["forest-status"].textContent,/Forest Lab matches/);
+  forestRemote.modes.Dawn.page="#FFFFFF";
+  elements["forest-live"].checked=true;
+  await runInContext('run(()=>compareForest("watch"))',context);
+  assert.equal(forestLocal.modes.Dawn.page,"#FFFFFF");
+  forestLocal.fields.dawnDescription.value="Local divergent Forest";
+  forestRemote.fields.dawnDescription.value="Remote divergent Forest";
+  await runInContext('run(()=>compareForest("watch"))',context);
+  assert.equal(elements["forest-live"].checked,false);
+  assert.match(elements["forest-status"].textContent,/both changed/);
   elements.disconnect.onclick();
   assert.equal(runInContext("sessionToken", context), "");
 });
