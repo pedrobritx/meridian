@@ -335,7 +335,83 @@ function planTokenImport(bundle, collections, variables) {
   );
 }
 
-const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"}}};
+/**
+ * Meridian 0.6 Lab-only GitHub -> Figma Forest contract.
+ * No stable Meridian 0.5 collection, component or token is writable here.
+ */
+const FOREST_ROLES = Object.freeze([
+  'page','surface','text','muted','border','action','onAction','focus',
+  'sunlight','canopy','earth','ambient'
+]);
+
+const sameKeys=(a,b)=>JSON.stringify(Object.keys(a).sort())===JSON.stringify(Object.keys(b).sort());
+const hexRe=/^#[0-9A-F]{6}$/;
+
+function validateForestContract(input,template) {
+  if(!input||input.schemaVersion!==1||input.fileKey!==template.fileKey||
+    input.pageId!==template.pageId||input.collectionName!==template.collectionName||
+    input.source!=='lab/forest-reference/forest-model.js')
+    throw Error('Forest contract file, page, collection or schema mismatch');
+  if(!sameKeys(input.modes||{}, {Dawn:1,Dusk:1}))
+    throw Error('Forest requires Dawn and Dusk modes only');
+  const modes={};
+  for(const mode of ['Dawn','Dusk']){
+    const palette=input.modes[mode];
+    if(!palette||!sameKeys(palette,Object.fromEntries(FOREST_ROLES.map(r=>[r,1]))))
+      throw Error('Forest palette roles differ: '+mode);
+    modes[mode]={};
+    for(const role of FOREST_ROLES){
+      const h=palette[role];
+      if(typeof h!=='string'||!hexRe.test(h.toUpperCase()))
+        throw Error('Invalid Forest colour: '+mode+'/'+role);
+      modes[mode][role]=h.toUpperCase();
+    }
+  }
+  if(!sameKeys(input.fields||{},template.fields||{}))
+    throw Error('Forest text field names differ');
+  const fields={};
+  for(const name of Object.keys(template.fields).sort()){
+    const field=input.fields[name],expected=template.fields[name];
+    if(field?.nodeId!==expected.nodeId||field.pageId!==template.pageId||
+      typeof field.value!=='string'||field.value.length>280||
+      /[\x00-\x08\x0B\x0E-\x1F]/.test(field.value))
+      throw Error('Forest text field not authorised: '+name);
+    fields[name]={nodeId:expected.nodeId,pageId:template.pageId,value:field.value};
+  }
+  return {schemaVersion:1,fileKey:template.fileKey,pageId:template.pageId,
+    collectionName:template.collectionName,source:input.source,modes,fields};
+}
+
+function hexToFigmaColor(hex) {
+  if(!hexRe.test(hex.toUpperCase()))throw Error('Invalid Forest hex');
+  return {r:parseInt(hex.slice(1,3),16)/255,
+    g:parseInt(hex.slice(3,5),16)/255,
+    b:parseInt(hex.slice(5,7),16)/255,a:1};
+}
+function figmaColorToHex(c) {
+  if(!c||['r','g','b'].some(k=>!Number.isFinite(c[k])||c[k]<0||c[k]>1)||
+    (c.a!==undefined && (!Number.isFinite(c.a)||c.a<.999)))
+    throw Error('Forest requires an opaque direct colour value');
+  return '#'+['r','g','b'].map(k=>Math.round(c[k]*255).toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+
+function planForestImport(remote,local,template) {
+  const target=validateForestContract(remote,template);
+  const now=validateForestContract(local,template);
+  const values=[],texts=[];
+  for(const mode of ['Dawn','Dusk'])
+    for(const role of FOREST_ROLES)
+      if(target.modes[mode][role]!==now.modes[mode][role])
+        values.push({mode,role,from:now.modes[mode][role],to:target.modes[mode][role]});
+  for(const name of Object.keys(target.fields))
+    if(target.fields[name].value!==now.fields[name].value)
+      texts.push({name,nodeId:target.fields[name].nodeId,
+        from:now.fields[name].value,to:target.fields[name].value});
+  return {values,texts};
+}
+
+const forestTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","pageId":"218:21","collectionName":"Meridian 0.6 Lab / Forest","source":"lab/forest-reference/forest-model.js","modes":{"Dawn":{"page":"#EDF1E6","surface":"#FCFDF8","text":"#243B2E","muted":"#435B49","border":"#94AB97","action":"#22583E","onAction":"#FFFFFF","focus":"#22583E","sunlight":"#E7E2B8","canopy":"#9CB8A1","earth":"#70886B","ambient":"#D6E4D0"},"Dusk":{"page":"#293B33","surface":"#354D40","text":"#F8F6E9","muted":"#E1E8D9","border":"#A6B7A4","action":"#F0D7A6","onAction":"#253A30","focus":"#FFE0A2","sunlight":"#C5A477","canopy":"#6E967D","earth":"#476C57","ambient":"#4B6556"}},"fields":{"dawnTitle":{"nodeId":"219:15","pageId":"218:21"},"dawnDescription":{"nodeId":"219:16","pageId":"218:21"},"dawnHistoryTitle":{"nodeId":"219:51","pageId":"218:21"},"duskTitle":{"nodeId":"219:70","pageId":"218:21"},"duskDescription":{"nodeId":"219:71","pageId":"218:21"},"duskHistoryTitle":{"nodeId":"219:106","pageId":"218:21"}}};
+const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"}}};
 figma.showUI(__html__, { width: 480, height: 600 });
 async function capture() {
   if (figma.fileKey && figma.fileKey !== fileKey)
@@ -361,6 +437,10 @@ async function capture() {
 }
 figma.ui.onmessage = async (message) => {
   try {
+    if (message.type === 'exportForest' || message.type === 'importForest') {
+      await handleForestMessage(message);
+      return;
+    }
     const local = await capture();
     const bundle = { tokens: local.tokens, content: local.content };
     if (message.type === "export") {
@@ -445,3 +525,101 @@ figma.ui.onmessage = async (message) => {
     figma.ui.postMessage({ type: "error", message: error.message });
   }
 };
+
+/**
+ * Forest-only counterpart to the stable 0.5 token/copy bridge.
+ * No component creation, deletion, layout rewriting, or stable token editing.
+ */
+async function captureForest() {
+  if (figma.fileKey && figma.fileKey !== forestTemplate.fileKey)
+    throw Error('Wrong Figma file for Forest Lab');
+  const collections = await figma.variables.getLocalVariableCollectionsAsync();
+  const c = collections.find(x=>x.name===forestTemplate.collectionName);
+  if (!c) throw Error('Forest Lab collection missing. Open the prepared Forest design.');
+  const modeByName=Object.fromEntries(c.modes.map(m=>[m.name,m.modeId]));
+  if (!modeByName.Dawn || !modeByName.Dusk || c.modes.length!==2)
+    throw Error('Forest collection must have only Dawn and Dusk');
+  const variables = (await Promise.all(c.variableIds.map(id=>figma.variables.getVariableByIdAsync(id)))).filter(Boolean);
+  const byName=new Map(variables.map(v=>[v.name,v]));
+  if (variables.length!==FOREST_ROLES.length ||
+      FOREST_ROLES.some(name=>byName.get(name)?.resolvedType!=='COLOR'))
+    throw Error('Forest variable roles changed; manual mapping review required');
+  const modes={};
+  for (const mode of ['Dawn','Dusk']) {
+    modes[mode]={};
+    for (const role of FOREST_ROLES) {
+      const value=byName.get(role).valuesByMode[modeByName[mode]];
+      if (!value || value.type==='VARIABLE_ALIAS') throw Error('Forest direct palette expected: '+role);
+      modes[mode][role]=figmaColorToHex(value);
+    }
+  }
+  const fields={};
+  for (const [name,config] of Object.entries(forestTemplate.fields)) {
+    const node=await figma.getNodeByIdAsync(config.nodeId);
+    if (node?.type!=='TEXT') throw Error('Missing Forest text: '+name);
+    let parent=node;
+    while(parent && parent.type!=='PAGE') parent=parent.parent;
+    if(parent?.id!==forestTemplate.pageId)throw Error('Forest text moved to an unapproved page: '+name);
+    fields[name]={...config,pageId:forestTemplate.pageId,value:node.characters};
+  }
+  return {forest:validateForestContract({
+    schemaVersion:1,fileKey:forestTemplate.fileKey,pageId:forestTemplate.pageId,
+    collectionName:forestTemplate.collectionName,source:forestTemplate.source,modes,fields
+  },forestTemplate), collection:c, modeByName, byName};
+}
+
+async function handleForestMessage(message) {
+  try {
+    const local=await captureForest();
+    if(message.type==='exportForest') {
+      figma.ui.postMessage({type:'forestSnapshot',forest:local.forest});
+      return;
+    }
+    if(message.type!=='importForest') return;
+    if(signature(local.forest)!==message.expectedLocalSignature)
+      throw Error('Forest changed since compare; retry after review');
+    const candidate=validateForestContract(message.forest,forestTemplate);
+    const plan=planForestImport(candidate,local.forest,forestTemplate);
+    const textNodes=[];
+    for(const field of plan.texts) {
+      const node=await figma.getNodeByIdAsync(field.nodeId);
+      if(node?.type!=='TEXT')throw Error('Missing Forest edit target');
+      const segments=node.getStyledTextSegments(['fontName']);
+      if(!segments.length)segments.push({fontName:node.fontName});
+      for(const item of segments) {
+        if(!item.fontName || item.fontName===figma.mixed)
+          throw Error('Unresolved Forest font on '+field.name);
+        await figma.loadFontAsync(item.fontName);
+      }
+      textNodes.push({...field,node});
+    }
+    const rechecked=await captureForest();
+    if(signature(rechecked.forest)!==message.expectedLocalSignature)
+      throw Error('Forest changed during font preparation; no write made');
+    const changedValues=[], changedTexts=[];
+    try {
+      for(const cell of plan.values){
+        const variable=rechecked.byName.get(cell.role);
+        const mode=rechecked.modeByName[cell.mode];
+        variable.setValueForMode(mode,hexToFigmaColor(cell.to));
+        changedValues.push({...cell,variable,mode});
+      }
+      for(const field of textNodes){
+        field.node.characters=field.to;
+        changedTexts.push(field);
+      }
+    }catch(error){
+      for(const field of changedTexts.reverse())field.node.characters=field.from;
+      for(const cell of changedValues.reverse())
+        cell.variable.setValueForMode(cell.mode,hexToFigmaColor(cell.from));
+      throw error;
+    }
+    const verified=await captureForest();
+    if(signature(verified.forest)!==signature(candidate))
+      throw Error('Forest verification differs after import. Review Figma manually.');
+    figma.ui.postMessage({type:'forestImported',forest:verified.forest,
+      variableCells:plan.values.length,textNodes:plan.texts.length});
+  }catch(error){
+    figma.ui.postMessage({type:'error',message:error.message});
+  }
+}
