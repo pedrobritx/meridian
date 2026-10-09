@@ -10,7 +10,11 @@ The reference includes seven views: Overview, Theme profiles, Foundations, Compo
 
 Load `styles/tokens.css` followed by `styles/components.css`. Use the native HTML recipes in [docs/components.md](docs/components.md). Components use semantic `--md-color-*` roles, not raw pigments. Product themes override those roles. `design/figma/generated/tokens.json` is the canonical twelve-mode token source; `styles/tokens.css` is generated and committed for direct adoption.
 
-This is a reference library, not a published npm package or an automatic migration for existing products. The site uses semantic HTML, CSS and small JavaScript modules. Vite builds the static site; there is no framework runtime, backend, analytics or external font request. Profile and environment preferences are stored locally.
+This is a reference library, not a published npm package or an automatic migration for existing products.
+
+**Meridian 0.6 Living Matter stays experimental:** the [Forest-first Lab reference](lab/forest-reference/) explores Dawn/Dusk, independent ambient controls, accessible task semantics and illustrative notification contracts. Its [consolidated evaluation](research/decisions/2026-10-08-evaluation-12-consolidated.md) is a preference record, not a human study. Stable 0.5 tokens and consuming products are unchanged.
+
+ The site uses semantic HTML, CSS and small JavaScript modules. Vite builds the static site; there is no framework runtime, backend, analytics or external font request. Profile and environment preferences are stored locally.
 
 ## Work locally
 
