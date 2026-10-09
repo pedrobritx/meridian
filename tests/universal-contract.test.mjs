@@ -25,7 +25,7 @@ test('Meridian Figma structure preserves Start, 0.5 master collections and nativ
  assert.equal(snapshot.universal.familyCount,92);
  assert.equal(snapshot.universal.icons.families,80);
  assert.deepEqual(snapshot.universal.icons.styles,['Outline','Filled','Colour','Duotone']);
- assert.equal(snapshot.compatibility.legacyModeIDsPreserved,true);
+ assert.equal(snapshot.compatibility.legacyTokenModeIdsPreserved,true);
 });
 test('all 80 original symbols retain safe vector paths, with separate Figma four-style contract',()=>{
  assert.equal(icons.icons.length,80);
