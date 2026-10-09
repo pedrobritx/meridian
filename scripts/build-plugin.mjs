@@ -2,6 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
 const content = JSON.parse(await read("site/content.json"));
+const forest = JSON.parse(await read("design/figma/forest-lab.json"));
+const forestTemplate = {...forest, fields:Object.fromEntries(Object.entries(forest.fields).map(([key,field])=>[key,{nodeId:field.nodeId,pageId:field.pageId}]))};
 const contentTemplate = {
   ...content,
   fields: Object.fromEntries(
@@ -21,6 +23,8 @@ const code =
   pure(await read("scripts/figma/token-contract.mjs")) +
   "\n" +
   pure(await read("scripts/figma/roundtrip.mjs")) +
+  "\n" + pure(await read("scripts/figma/forest-contract.mjs")) +
+  "\nconst forestTemplate=" + JSON.stringify(forestTemplate) + ";\n" +
   "\nconst contentTemplate=" +
   JSON.stringify(contentTemplate) +
   ";\n" +
@@ -32,6 +36,8 @@ const shared =
   pure(await read("scripts/figma/token-contract.mjs")) +
   "\n" +
   pure(await read("scripts/figma/roundtrip.mjs")) +
+  "\n" + pure(await read("scripts/figma/forest-contract.mjs")) +
+  "\nconst forestTemplate=" + JSON.stringify(forestTemplate) + ";\n" +
   "\nconst contentTemplate=" +
   JSON.stringify(contentTemplate) +
   ";\n" +
