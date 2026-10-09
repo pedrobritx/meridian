@@ -11,11 +11,15 @@ The actual editable design is on [Figma page 15 · Lab · Forest-first 0.6](http
 
 ### Start × Forest — editable 0.6 comparison
 
-The [Start-inspired Forest Concept B](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=236-40) sits **beside the unchanged original Start frame** on Figma's Start page. It preserves the original composition, paired Dawn/Dusk atmosphere, linked stable Card/Button/Segmented Control components and Meridian symbol, while introducing the proposed Forest 0.6 palette, distinct unread/pending status indicators and a clearer two-column accessibility/interaction summary. This design is exploratory and should not be presented as a validated stable component.
+The [rejected Start-inspired Forest Concept B](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=236-40) has been moved to the experimental Forest archive. It is **not** on the Start page, and the original Start 7:2 remains the approved visual reference. It preserves the original composition, paired Dawn/Dusk atmosphere, linked stable Card/Button/Segmented Control components and Meridian symbol, while introducing the proposed Forest 0.6 palette, distinct unread/pending status indicators and a clearer two-column accessibility/interaction summary. This design is exploratory and should not be presented as a validated stable component.
 
 - **Colour-sync coverage:** Concept B's page and Dawn/Dusk surfaces, semantic text, accent and status specimens reference the **same native `Meridian 0.6 Lab / Forest` collection** as the original Forest Lab page. The allowlisted plugin synchronises those variable cells, so approved GitHub palette changes affect both Figma compositions while the plugin is active.
 - **Text/layout-sync limit:** Concept B's headings, position, geometry, illustrations and nested component instances are not among the six named `forest-lab.json` text mappings. Those elements remain editable directly in Figma and require explicit code/design review for parity. Changes are **not** automatically recreated from arbitrary HTML/CSS commits.
 - **Source-of-truth decision:** Keep both the existing Forest Lab page and Start-inspired Concept B until their suitability is compared. Do not overwrite the original Start design or promote either appearance until evidence, design selection and accessibility review justify it.
+
+### 0.6 Universal design reorganisation
+
+The new [Figma taxonomy](../../docs/figma-reorganisation-2026-10-09.md) groups existing source masters and 92 experimental families, provides eighty four-style SVG icon variant sets and defines ten environment modes. The environment source of truth is `design/meridian/living-environments.json` and `styles/living-environments.css`, not the old single-experiment Forest collection. Original Grass/Paper mode IDs stay intact for the bridge. The separate 0.6 collection is a design candidate, not a silent migration of existing 0.5 consumers.
 
 ### GitHub source contract
 
