@@ -5,7 +5,7 @@
  */
 async function buildIconVariants(figma, icons, offset=0) {
   const pageName='Symbols / Semantic styles · Outline Filled Colour Duotone';
-  let page=figma.root.children.find(p=>p.name===pageName);
+  let page=figma.root.children.find(p=>p.id==='274:34'||p.name===pageName||p.name==='10 · Icons · Semantic Styles');
   const createdNodeIds=[],mutatedNodeIds=[],createdSets=[],skipped=[];
   if(!page){page=figma.createPage();page.name=pageName;createdNodeIds.push(page.id);}
   await figma.setCurrentPageAsync(page);
