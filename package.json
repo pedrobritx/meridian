@@ -6,7 +6,7 @@
   "description": "Meridian web foundations, Figma library and living reference",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/build-plugin.mjs && node scripts/build-tokens.mjs && vite build --base=/meridian/",
+    "build": "node scripts/build-plugin.mjs && node scripts/build-tokens.mjs && node scripts/build-environments.mjs && vite build --base=/meridian/",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs scripts/figma/*.test.mjs",
     "test:browser": "playwright test",
