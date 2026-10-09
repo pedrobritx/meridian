@@ -4,6 +4,46 @@ Source: [Meridian Figma](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn).
 Destination: **[pedrobritx/meridian](https://github.com/pedrobritx/meridian)**.
 File/repository allowlists and review-frame IDs are in `config.json`. Lexis is a Paper consumer, not the publication destination.
 
+
+## Forest-first Living Matter 0.6 — GitHub → native Figma
+
+The actual editable design is on [Figma page 15 · Lab · Forest-first 0.6](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=218-21). Dawn and Dusk are real Figma frames with bound, independently scoped **Meridian 0.6 Lab / Forest** variables; 0.5 published foundations/components are intentionally unchanged.
+
+### Start × Forest — editable 0.6 comparison
+
+The [Start-inspired Forest Concept B](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=236-40) sits **beside the unchanged original Start frame** on Figma's Start page. It preserves the original composition, paired Dawn/Dusk atmosphere, linked stable Card/Button/Segmented Control components and Meridian symbol, while introducing the proposed Forest 0.6 palette, distinct unread/pending status indicators and a clearer two-column accessibility/interaction summary. This design is exploratory and should not be presented as a validated stable component.
+
+- **Colour-sync coverage:** Concept B's page and Dawn/Dusk surfaces, semantic text, accent and status specimens reference the **same native `Meridian 0.6 Lab / Forest` collection** as the original Forest Lab page. The allowlisted plugin synchronises those variable cells, so approved GitHub palette changes affect both Figma compositions while the plugin is active.
+- **Text/layout-sync limit:** Concept B's headings, position, geometry, illustrations and nested component instances are not among the six named `forest-lab.json` text mappings. Those elements remain editable directly in Figma and require explicit code/design review for parity. Changes are **not** automatically recreated from arbitrary HTML/CSS commits.
+- **Source-of-truth decision:** Keep both the existing Forest Lab page and Start-inspired Concept B until their suitability is compared. Do not overwrite the original Start design or promote either appearance until evidence, design selection and accessibility review justify it.
+
+### GitHub source contract
+
+- `lab/forest-reference/forest-model.js` owns the Forest Lab palette; the matching [machine-readable Figma mapping](forest-lab.json) records native variable collection, modes, exact editable text node IDs and values. `scripts/figma/forest-contract.test.mjs` **fails CI** if those values drift.
+- `scripts/figma/forest-contract.mjs` validates the strict allowlist (12 colour roles × 2 modes plus 6 editable text nodes) before any native write. Unknown roles, page IDs, replaced layers or unexpected modes fail safely.
+- The native plugin's Forest path never creates, deletes or rewrites existing stable 0.5 components, canonical semantic variables or layout nodes. It updates only the Forest collection values and six known text nodes after snapshot verification; write errors trigger rollback.
+- Lab layout/geometry changes require editable-frame review, not automatic REST/API re-creation.
+
+### Activate near-real-time sync while Figma is open
+
+1. Pull the latest `main`, run `npm run build` and import or reimport [plugin/manifest.json](plugin/manifest.json) via Figma desktop → Plugins → Development.
+2. Open the configured Meridian Figma file. In **Meridian ↔ GitHub**, enter a *session-only* fine-grained token for `pedrobritx/meridian` (Contents read; use Contents write only if using the existing Figma → GitHub publication flow).
+3. Under **Forest-first 0.6 · Lab sync**, click **Compare Forest**. On a mismatch, review the diff and explicitly click **Apply GitHub Forest** to establish the baseline.
+4. Enable **Auto-apply Forest while this plugin is open**. It checks GitHub `main` every 30 seconds and imports approved Forest changes only when the local snapshot still matches the previous baseline.
+5. If Figma and GitHub changed independently, polling **stops** instead of overwriting local design edits. Compare and reconcile deliberately.
+
+**Limit:** This is session-based, not a permanently running cloud writer. The GitHub Actions runner cannot use the standard Figma REST API to arbitrarily edit native page frames. The separate [Forest Lab Figma handoff workflow](../../.github/workflows/forest-figma-handoff.yml) runs when Lab sources change on `main` and creates/updates a review issue; it **does not** certify Figma is already updated. An unattended Figma canvas-write service would require a separately authorised, continuously available Figma editing runtime.
+
+### Validation
+
+```sh
+npm run test:figma
+npm test
+npm run build
+```
+
+A passing CI suite proves the contract and plugin logic against mocks, **not** a live plugin session. Verify a deliberate, harmless GitHub change reaches the Figma native variables and texts while the plugin remains open; confirm stable 0.5 variables and shared button instances are unchanged. The experiment and accessibility evaluation remain open under [#12](https://github.com/pedrobritx/meridian/issues/12).
+
 ## What synchronises
 
 | Change | Trigger | Review output |
