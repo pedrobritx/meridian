@@ -1,4 +1,4 @@
-import universalSymbols from '../../design/meridian/universal-symbols.json';
+import universalSymbols from '../../design/meridian/universal-symbols.json' with {type: "json"};
 import {paths as coreIcons} from '../icons.js';
 const universal=Object.fromEntries(universalSymbols.icons.map(({name,path})=>[name,path]));
 export const symbolPaths=Object.freeze({...coreIcons,...universal});
