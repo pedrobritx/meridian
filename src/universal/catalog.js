@@ -1,8 +1,9 @@
 import controls from '../../design/meridian/universal-core-a.json';
 import records from '../../design/meridian/universal-core-b.json';
 import projects from '../../design/meridian/universal-project-patterns.json';
+import extended from '../../design/meridian/universal-extended.json';
 export const universalComponents=Object.freeze([
-  ...controls.items,...records.items,...projects.items
+  ...controls.items,...records.items,...projects.items,...extended.items
 ]);
 export const universalGroups=Object.freeze([...new Set(universalComponents.map(item=>item.group))]);
 export const projectNames=Object.freeze([...new Set(universalComponents.flatMap(item=>item.projects).filter(x=>x!=='all'))].sort());
