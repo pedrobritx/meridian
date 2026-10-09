@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 1,
+  "style": {
+    "size": 24,
+    "strokeWidth": 1.7,
+    "strokeLinecap": "round",
+    "strokeLinejoin": "round",
+    "fill": "none"
+  },
+  "existingSymbolsAreReused": true,
+  "icons": [
+    {
+      "name": "home",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m3 10 9-7 9 7v11H3z\"/><path d=\"M9 21v-8h6v8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "layout-grid",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"3\" width=\"8\" height=\"8\" rx=\"1.5\"/><rect x=\"13\" y=\"3\" width=\"8\" height=\"8\" rx=\"1.5\"/><rect x=\"3\" y=\"13\" width=\"8\" height=\"8\" rx=\"1.5\"/><rect x=\"13\" y=\"13\" width=\"8\" height=\"8\" rx=\"1.5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "menu",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 6h16M4 12h16M4 18h16\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "plus",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 4v16M4 12h16\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "minus",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 12h16\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "pencil",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m4 20 4-.9L20 7l-3-3L5 16zM15 6l3 3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "trash",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 7h16m-13 0v13h10V7M9 7V4h6v3M10 11v6m4-6v6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "duplicate",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"2\"/><path d=\"M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "download",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "upload",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 17V5m-4 4 4-4 4 4M4 17v4h16v-4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "share",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"5\" cy=\"12\" r=\"2\"/><circle cx=\"19\" cy=\"5\" r=\"2\"/><circle cx=\"19\" cy=\"19\" r=\"2\"/><path d=\"m7 11 10-5M7 13l10 5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "external-link",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M13 5h7v7m0-7-10 10\"/><path d=\"M20 14v6H4V4h6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "link",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M9 15h6m-6-5 3-3a4 4 0 0 1 6 6l-3 3m-6-6-3 3a4 4 0 0 0 6 6l3-3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "arrow-left",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M20 12H4m6-6-6 6 6 6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "arrow-right",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 12h16m-6-6 6 6-6 6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "refresh",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M20 7V3l-3 3a8 8 0 1 0 3 7M4 17v4l3-3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "filter",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 5h18l-7 8v6l-4 2v-8Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "command",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M9 8V5a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v14a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "settings",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "ellipsis",
+      "category": "navigation",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"5\" cy=\"12\" r=\"1\"/><circle cx=\"12\" cy=\"12\" r=\"1\"/><circle cx=\"19\" cy=\"12\" r=\"1\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "file-text",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M5 3h10l4 4v14H5zM15 3v5h4M8 12h8M8 16h8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "folder",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 6h7l2 2h9v12H3z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "folder-open",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 8V5h7l2 3h9v3M2 19l3-8h17l-3 8Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "archive",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"5\" rx=\"1\"/><path d=\"M5 9v11h14V9M10 14h4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "bookmark",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M6 3h12v18l-6-4-6 4Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "calendar-days",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 3v4m10-4v4M3 10h18M7 14h2m3 0h2m3 0h1M7 18h2m3 0h2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "clock",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 6v6l4 2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "tag",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 4h9l9 9-8 8-10-10Z\"/><circle cx=\"8\" cy=\"8\" r=\"1\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "clipboard",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"18\" rx=\"2\"/><rect x=\"9\" y=\"2\" width=\"6\" height=\"5\" rx=\"1\"/><path d=\"M8 12h8m-8 4h8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "table",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18m-12 0v10m6-10v10\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "chart-bar",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 20V4m0 16h17M8 17v-6h3v6m3 0V7h3v10\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "chart-line",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 4v16h18M6 16l5-5 4 2 5-8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "history",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 8V3m0 5h5M4 8a9 9 0 1 1-1 6M12 7v5l4 2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "git-branch",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"6\" cy=\"4\" r=\"2\"/><circle cx=\"6\" cy=\"20\" r=\"2\"/><circle cx=\"18\" cy=\"7\" r=\"2\"/><path d=\"M6 6v12m0-6c0-5 12 1 12-3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "users",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 5a5 5 0 0 1 4 5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "user",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21v-2a8 8 0 0 1 16 0v2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "shield",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "lock",
+      "category": "data",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"5\" y=\"10\" width=\"14\" height=\"11\" rx=\"2\"/><path d=\"M8 10V7a4 4 0 0 1 8 0v3M12 14v3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "graduation-cap",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m2 9 10-5 10 5-10 5Zm4 2v5c4 3 8 3 12 0v-5M22 9v7\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "notebook-pen",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 3v18m4-10h5m-4 4 5-5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "headphones",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 13v-2a9 9 0 0 1 18 0v2M3 13h4v7H5a2 2 0 0 1-2-2Zm18 0h-4v7h2a2 2 0 0 0 2-2Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "mic",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"9\" y=\"3\" width=\"6\" height=\"12\" rx=\"3\"/><path d=\"M5 11a7 7 0 0 0 14 0M12 18v4m-4 0h8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "volume-2",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 10h4l5-4v12l-5-4H3Zm13-2a6 6 0 0 1 0 8m2-12a12 12 0 0 1 0 16\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "book-open",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 5c-3-2-6-3-10-2v16c4-1 7 0 10 2 3-2 6-3 10-2V3c-4-1-7 0-10 2Zm0 0v16\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "list-checks",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m3 6 2 2 3-4m2 3h11M3 13l2 2 3-4m2 3h11M3 20l2 2 3-4m2 3h11\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "target",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"1\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "pen-tool",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m12 3 8 8-8 8-8-8 8-8ZM12 7v8M7 11h10m-7 8-3 3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "shapes",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"3\" width=\"10\" height=\"10\" rx=\"1\"/><circle cx=\"17\" cy=\"17\" r=\"5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "award",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"8\" r=\"5\"/><path d=\"m8 12-2 10 6-3 6 3-2-10\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "languages",
+      "category": "learning",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M4 5h13M11 3v2m-5 4c1 4 4 6 9 7m-4-9c-1 4-4 8-8 10M13 21l4-11 4 11m-7-3h6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "recycle",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m9 3 3-1 3 5m-3-5-3 6M6 9l-3 5 3 5h5m-8-5 6 0m9-6 3 6-3 5h-5m8-5-5 0\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "droplets",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 3c-4 5-6 8-6 12a6 6 0 0 0 12 0c0-4-2-7-6-12ZM18 5c2 3 3 5 3 7\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "waves",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M2 8c3-3 5 3 8 0s5-3 8 0 4 0 4 0M2 16c3-3 5 3 8 0s5-3 8 0 4 0 4 0\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "landmark",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m2 9 10-6 10 6Zm2 3v7m5-7v7m6-7v7m5-7v7M2 21h20M3 11h18\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "building-2",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"4\" y=\"3\" width=\"12\" height=\"18\" rx=\"1\"/><path d=\"M16 10h5v11H4M8 7h1m3 0h1M8 11h1m3 0h1M8 15h1m3 0h1M9 21v-4h3v4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "house",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m3 10 9-7 9 7v11H3V10Zm6 11v-8h6v8\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "route",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"5\" cy=\"5\" r=\"2\"/><circle cx=\"19\" cy=\"19\" r=\"2\"/><path d=\"M5 7v3c0 4 14-1 14 4v3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "map-pin",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "bus",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"16\" rx=\"3\"/><path d=\"M4 11h16m-12 8v3m8-3v3M7 15h2m6 0h2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "car",
+      "category": "environment",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m5 7 2-4h10l2 4 2 3v8H3v-8Zm-2 3h18M7 14h2m6 0h2M5 18v3m14-3v3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "play",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m8 5 11 7-11 7Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "pause",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M7 5h4v14H7Zm7 0h4v14h-4Z\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "film",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M7 3v18m10-18v18M3 8h4m-4 8h4m10-8h4m-4 8h4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "music",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M9 19V6l11-3v13M9 9l11-3\"/><circle cx=\"6\" cy=\"19\" r=\"3\"/><circle cx=\"17\" cy=\"16\" r=\"3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "video",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"6\" width=\"13\" height=\"12\" rx=\"2\"/><path d=\"m16 10 5-3v10l-5-3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "image",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"9\" cy=\"9\" r=\"2\"/><path d=\"m4 18 6-6 4 4 3-3 4 4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "gamepad",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M7 8h10a5 5 0 0 1 5 4l-1 7c-1 3-4 2-6 0l-2-2h-2l-2 2c-2 2-5 3-6 0l-1-7a5 5 0 0 1 5-4ZM7 12v5m-3-2h6m7-2h.01M19 16h.01\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "monitor",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"2\" y=\"3\" width=\"20\" height=\"15\" rx=\"2\"/><path d=\"M12 18v4m-5 0h10\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "tv",
+      "category": "media",
+      "viewBox": "0 0 24 24",
+      "path": "<rect x=\"2\" y=\"6\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"m8 2 4 4 4-4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "circle-check",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m7 12 3 3 7-7\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "triangle-alert",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M12 3 22 21H2Zm0 7v5m0 3h.01\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "shield-check",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6Z\"/><path d=\"m8 12 3 3 5-6\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "cloud-off",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 3 21 21M8 7a7 7 0 0 1 11 7 4 4 0 0 1 0 7H8a6 6 0 0 1-5-9\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "cloud-upload",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M7 19a5 5 0 0 1-3-9 7 7 0 0 1 13-2 5 5 0 0 1 2 11M12 22V12m-4 4 4-4 4 4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "activity",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M2 12h4l3-7 5 14 3-7h5\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "bell",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 8-3 10h18c0-2-3-3-3-10M10 21h4\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "bell-ring",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 8-3 10h18c0-2-3-3-3-10M10 21h4M3 3l2 2m16-2-2 2\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "eye",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M2 12c3-5 7-8 10-8s7 3 10 8c-3 5-7 8-10 8s-7-3-10-8Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "eye-off",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<path d=\"M3 3 21 21M7 6c2-2 4-2 5-2 5 0 8 4 10 8l-3 4M5 8l-3 4c2 4 6 8 10 8l4-1\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    },
+    {
+      "name": "help-circle",
+      "category": "feedback",
+      "viewBox": "0 0 24 24",
+      "path": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9 9a3 3 0 1 1 5 3c-2 1-2 2-2 3m0 3h.01\"/>",
+      "strokeWidth": 1.7,
+      "license": "Meridian original drawing",
+      "usage": "Semantic icon; pair with accessible label unless decorative"
+    }
+  ]
+}

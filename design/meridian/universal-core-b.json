@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "data-table",
+      "name": "Data table",
+      "group": "Records & insight",
+      "icon": "table",
+      "projects": [
+        "ambientis",
+        "verbalis",
+        "sqn411blocon",
+        "Evalis"
+      ],
+      "anatomy": "Caption, sortable columns, actions",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "data-row",
+      "name": "Data row",
+      "group": "Records & insight",
+      "icon": "list",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Record title, metadata, actions",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "filter-bar",
+      "name": "Filter bar",
+      "group": "Records & insight",
+      "icon": "list-filter",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Active filters, clear, count",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "sort-picker",
+      "name": "Sort control",
+      "group": "Records & insight",
+      "icon": "arrow-down-up",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Criterion and direction",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "metric-card",
+      "name": "Metric card",
+      "group": "Records & insight",
+      "icon": "chart-no-axes-column",
+      "projects": [
+        "ambientis",
+        "via",
+        "Evalis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Label, value, source, unit",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "chart-panel",
+      "name": "Chart panel",
+      "group": "Records & insight",
+      "icon": "chart-line",
+      "projects": [
+        "via",
+        "Evalis",
+        "ambientis"
+      ],
+      "anatomy": "Figure, legend, data table",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "group": "Records & insight",
+      "icon": "git-branch",
+      "projects": [
+        "ambientis",
+        "verbalis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Events, date, author",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "activity-feed",
+      "name": "Activity feed",
+      "group": "Records & insight",
+      "icon": "activity",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Source, timestamp, read state",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "calendar-event",
+      "name": "Calendar event",
+      "group": "Records & insight",
+      "icon": "calendar-days",
+      "projects": [
+        "lexis",
+        "glassfolio",
+        "sqn411blocon"
+      ],
+      "anatomy": "Start, end, participants, status",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "kanban-card",
+      "name": "Kanban card",
+      "group": "Records & insight",
+      "icon": "columns-3",
+      "projects": [
+        "bsdl",
+        "sqn411blocon",
+        "lexis"
+      ],
+      "anatomy": "Title, priority, owner, status",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "tag-chip",
+      "name": "Filter chip",
+      "group": "Records & insight",
+      "icon": "tag",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Label, removal and selection",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar / group",
+      "group": "Records & insight",
+      "icon": "users",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Initials, image fallback, identity",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "file-preview",
+      "name": "File preview",
+      "group": "Records & insight",
+      "icon": "file-search",
+      "projects": [
+        "verbalis",
+        "ambientis",
+        "NotUX",
+        "glassfolio"
+      ],
+      "anatomy": "File type, protection and actions",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "source-citation",
+      "name": "Source citation",
+      "group": "Records & insight",
+      "icon": "quote",
+      "projects": [
+        "via",
+        "lexis",
+        "efl-lesson-framework",
+        "ambientis"
+      ],
+      "anatomy": "Source, date, provenance and link",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "empty-state",
+      "name": "Empty state",
+      "group": "Records & insight",
+      "icon": "inbox",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Message, explanation, next step",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "toast",
+      "name": "Toast / Undo",
+      "group": "Feedback & trust",
+      "icon": "bell",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Message, Undo, announcement policy",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "banner",
+      "name": "Status banner",
+      "group": "Feedback & trust",
+      "icon": "info",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Severity, message, action",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "status",
+      "name": "Status indicator",
+      "group": "Feedback & trust",
+      "icon": "circle-check",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Status, symbol, timestamp",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "progress",
+      "name": "Progress bar",
+      "group": "Feedback & trust",
+      "icon": "loader-circle",
+      "projects": [
+        "lexis",
+        "verbalis",
+        "ambientis"
+      ],
+      "anatomy": "Label, value, known total",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "group": "Feedback & trust",
+      "icon": "rectangle-ellipsis",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Stable loading footprint",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "error-retry",
+      "name": "Error / Retry",
+      "group": "Feedback & trust",
+      "icon": "triangle-alert",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Cause, remedy, retry",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "confirmation",
+      "name": "Confirmation dialog",
+      "group": "Feedback & trust",
+      "icon": "shield-alert",
+      "projects": [
+        "ambientis",
+        "verbalis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Consequences, confirm, safe exit",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "conflict",
+      "name": "Conflict resolver",
+      "group": "Feedback & trust",
+      "icon": "git-compare",
+      "projects": [
+        "verbalis",
+        "NotUX",
+        "sqn411blocon"
+      ],
+      "anatomy": "Local/remote values and intentional resolution",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "unsaved",
+      "name": "Unsaved changes",
+      "group": "Feedback & trust",
+      "icon": "save",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Dirty state, save/discard/cancel",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "offline",
+      "name": "Offline / Sync",
+      "group": "Feedback & trust",
+      "icon": "cloud-off",
+      "projects": [
+        "NotUX",
+        "verbalis",
+        "libreca"
+      ],
+      "anatomy": "Connection, last verified, pending sync",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy / Consent",
+      "group": "Feedback & trust",
+      "icon": "shield-check",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Scope, consent, revocation",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "notification-centre",
+      "name": "Notification centre",
+      "group": "Feedback & trust",
+      "icon": "bell-ring",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Actionable notices, history, unread/pending",
+      "states": [
+        "default",
+        "loading",
+        "error",
+        "resolved"
+      ],
+      "status": "experimental"
+    }
+  ]
+}

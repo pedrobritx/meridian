@@ -1,0 +1,533 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "search-field",
+      "name": "Search field",
+      "group": "Inputs & selection",
+      "icon": "search",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Label, query, clear, result count",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "combobox",
+      "name": "Combobox",
+      "group": "Inputs & selection",
+      "icon": "list-filter",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Label, search, options, selected result",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "multi-select",
+      "name": "Multi-select",
+      "group": "Inputs & selection",
+      "icon": "check-square",
+      "projects": [
+        "lexis",
+        "ambientis",
+        "verbalis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Selected chips, listbox and removal",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "text-area",
+      "name": "Text area",
+      "group": "Inputs & selection",
+      "icon": "file-text",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Visible label, help, count, error",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "radio-group",
+      "name": "Radio group",
+      "group": "Inputs & selection",
+      "icon": "circle-dot",
+      "projects": [
+        "lexis",
+        "Evalis",
+        "safari-escolar"
+      ],
+      "anatomy": "Legend, exclusive options, description",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "range-slider",
+      "name": "Range slider",
+      "group": "Inputs & selection",
+      "icon": "sliders-horizontal",
+      "projects": [
+        "via",
+        "NotUX",
+        "ambientis"
+      ],
+      "anatomy": "Label, value, numeric alternative",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "date-time",
+      "name": "Date / time input",
+      "group": "Inputs & selection",
+      "icon": "calendar-days",
+      "projects": [
+        "lexis",
+        "glassfolio",
+        "sqn411blocon"
+      ],
+      "anatomy": "Locale, timezone, calendar fallback",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "file-dropzone",
+      "name": "File uploader",
+      "group": "Inputs & selection",
+      "icon": "upload-cloud",
+      "projects": [
+        "verbalis",
+        "ambientis",
+        "NotUX",
+        "framio"
+      ],
+      "anatomy": "Select, drag target, privacy and progress",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "passkey",
+      "name": "Passkey / OTP",
+      "group": "Inputs & selection",
+      "icon": "fingerprint",
+      "projects": [
+        "lexis",
+        "verbalis",
+        "glassfolio"
+      ],
+      "anatomy": "Challenge, fallback and recovery",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "colour-picker",
+      "name": "Colour picker",
+      "group": "Inputs & selection",
+      "icon": "palette",
+      "projects": [
+        "NotUX",
+        "framio"
+      ],
+      "anatomy": "Hue, saturation, hex and numeric input",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "editor-toolbar",
+      "name": "Editor toolbar",
+      "group": "Inputs & selection",
+      "icon": "type",
+      "projects": [
+        "verbalis",
+        "NotUX",
+        "lexis"
+      ],
+      "anatomy": "Formatting groups and selection",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "editable-cell",
+      "name": "Editable data cell",
+      "group": "Inputs & selection",
+      "icon": "pencil",
+      "projects": [
+        "verbalis",
+        "ambientis",
+        "sqn411blocon"
+      ],
+      "anatomy": "Value, edit, commit and cancel",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "app-shell",
+      "name": "Application shell",
+      "group": "Navigation & workspace",
+      "icon": "panel-left",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Skip link, landmarks, navigation",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "command-menu",
+      "name": "Command palette",
+      "group": "Navigation & workspace",
+      "icon": "command",
+      "projects": [
+        "verbalis",
+        "NotUX",
+        "libreca"
+      ],
+      "anatomy": "Search, commands, shortcuts, close",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "sidebar-group",
+      "name": "Sidebar group",
+      "group": "Navigation & workspace",
+      "icon": "panel-left",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Heading, current destination, collapse",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "group": "Navigation & workspace",
+      "icon": "chevrons-right",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Ancestors and current page",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "tab-list",
+      "name": "Tab list",
+      "group": "Navigation & workspace",
+      "icon": "panels-top-left",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Tablist, selected tab, labelled panel",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "pagination",
+      "name": "Pagination",
+      "group": "Navigation & workspace",
+      "icon": "list-ordered",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Current page, total, previous / next",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "tree-view",
+      "name": "Folder tree",
+      "group": "Navigation & workspace",
+      "icon": "folder-tree",
+      "projects": [
+        "verbalis",
+        "NotUX",
+        "glassfolio",
+        "sqn411blocon"
+      ],
+      "anatomy": "Nested hierarchy and expand state",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "context-menu",
+      "name": "Context menu",
+      "group": "Navigation & workspace",
+      "icon": "ellipsis",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Trigger, grouped commands",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "popover",
+      "name": "Popover",
+      "group": "Navigation & workspace",
+      "icon": "message-square",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Disclosure, anchor, dismiss",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "drawer",
+      "name": "Drawer",
+      "group": "Navigation & workspace",
+      "icon": "panel-right",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Title, content, dismiss and focus return",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "toolbar",
+      "name": "Action toolbar",
+      "group": "Navigation & workspace",
+      "icon": "wrench",
+      "projects": [
+        "all"
+      ],
+      "anatomy": "Grouped actions and overflow",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "split-pane",
+      "name": "Resizable split view",
+      "group": "Navigation & workspace",
+      "icon": "columns-2",
+      "projects": [
+        "verbalis",
+        "NotUX",
+        "framio"
+      ],
+      "anatomy": "Panes and keyboard resizing",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    },
+    {
+      "id": "bottom-navigation",
+      "name": "Bottom navigation",
+      "group": "Navigation & workspace",
+      "icon": "smartphone",
+      "projects": [
+        "libreca",
+        "lexis",
+        "glassfolio"
+      ],
+      "anatomy": "3–5 labelled destinations",
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "status": "experimental"
+    }
+  ]
+}
