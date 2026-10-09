@@ -190,6 +190,7 @@ function updateHistoryEntry(id) {
   const record=records.find(r=>r.id===id),item=document.getElementById('history-'+id);
   if(!record||!item)return;
   item.dataset.unread=String(record.unread);
+  item.querySelector('.fr-history-essential strong').textContent=record.eventType+(record.unread?' · Unread':'');
   const button=item.querySelector('button');
   button.textContent=record.unread?'Mark as read':'Mark as unread';
   button.setAttribute('aria-label',(record.unread?'Mark as read: ':'Mark as unread: ')+record.eventType);
