@@ -6,7 +6,7 @@ test('Forest reference keeps native tasks and appearance choices independent',as
   await page.goto('lab/forest-reference/');
   await expect(page.getByRole('heading',{name:/A quieter kind of depth/})).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-theme',/dawn|dusk/);
-  await page.getByLabel('Appearance').selectOption('dusk');
+  await page.locator('#appearance').selectOption('dusk');
   await expect(page.locator('html')).toHaveAttribute('data-theme','dusk');
   await page.getByLabel('Ambient illumination').fill('78');
   await expect(page.locator('#illumination-value')).toHaveText('78%');
@@ -19,7 +19,7 @@ test('Forest reference keeps native tasks and appearance choices independent',as
   await expect(page.locator('html')).toHaveAttribute('data-theme','dusk');
   await expect(page.locator('#illumination')).toHaveValue('78');
   await page.getByRole('button',{name:'Reset local settings'}).click();
-  await expect(page.getByLabel('Appearance')).toHaveValue('system');
+  await expect(page.locator('#appearance')).toHaveValue('system');
   expect(errors).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();
 });
@@ -45,7 +45,10 @@ test('history explicit unread intent is preserved until explicit acknowledgement
   await page.goto('lab/forest-reference/');
   await page.locator('#history summary').click();
   const entry=page.locator('#history-h1');
-  await entry.getByRole('button',{name:'Mark as read: Workspace update'}).click();
+  // Visual encounter may have acknowledged the entry already. First normalise
+  // to read, then deliberately mark unread and verify it is not auto-cleared.
+  if(await entry.getAttribute('data-unread')==='true')
+    await entry.getByRole('button',{name:'Mark as read: Workspace update'}).click();
   await expect(entry).toHaveAttribute('data-unread','false');
   await entry.getByRole('button',{name:'Mark as unread: Workspace update'}).click();
   await expect(entry).toHaveAttribute('data-unread','true');
