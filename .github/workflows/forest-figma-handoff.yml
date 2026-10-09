@@ -1,0 +1,64 @@
+name: Forest Lab Figma handoff
+
+# The Figma editor cannot be written to by a GitHub Actions runner through the
+# standard Figma REST API. This workflow records a reviewable handoff whenever
+# the underlying Lab UI changes. The open Figma plugin handles the allowlisted
+# Forest palette/text values; layout changes require editable design review.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "lab/forest-reference/**"
+      - "design/figma/forest-lab.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  handoff:
+    if: github.repository == 'pedrobritx/meridian'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Reconcile Forest design handoff issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {owner,repo}=context.repo;
+            const title='[Figma] Review Forest Lab against GitHub main';
+            const commit=context.sha;
+            const body=[
+              '## Meridian 0.6 · Forest-first code → design handoff',
+              '',
+              'This automatically generated tracking item records the latest GitHub change.',
+              '**It does not claim the Figma canvas was updated.**',
+              '',
+              '- GitHub commit: [`'+commit.slice(0,12)+'`](https://github.com/'+owner+'/'+repo+'/commit/'+commit+')',
+              '- Editable Figma Lab: https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=218-21',
+              '- Canonical approved Lab contract: [design/figma/forest-lab.json](https://github.com/'+owner+'/'+repo+'/blob/main/design/figma/forest-lab.json)',
+              '- Protected baseline: Meridian 0.5 tokens/components must not be overwritten',
+              '',
+              '### Sync procedure',
+              '1. Open the Meridian Figma file and the development plugin **Meridian ↔ GitHub**.',
+              '2. Select **Compare Forest**, then **Apply GitHub Forest** to reconcile a reviewed mismatch.',
+              '3. Enable **Auto-apply Forest while this plugin is open** for 30-second polling after a clean baseline.',
+              '4. For geometry, new components, icons and motion: review and update the editable Forest Lab page; these are not part of automatic token/text sync.',
+              '5. Check both Dawn and Dusk, button instances, screenshot fidelity, contrast and visible native bindings.',
+              '6. Resolve this issue only after verifying the corresponding Figma changes. Do not infer completion from CI alone.',
+              '',
+              '### Automatic boundaries',
+              'GitHub Actions cannot silently edit native Figma frames; the plugin sync requires Figma to be open.',
+              'If the file was edited on both sides, the plugin stops for explicit reconciliation.',
+              ''
+            ].join('\n');
+            const all=await github.paginate(github.rest.issues.listForRepo,{owner,repo,state:'open',per_page:100});
+            const existing=all.find(x=>!x.pull_request&&x.title===title);
+            if(existing){
+              await github.rest.issues.update({owner,repo,issue_number:existing.number,body});
+              core.info('Updated handoff #'+existing.number);
+            }else{
+              const {data}=await github.rest.issues.create({owner,repo,title,body});
+              core.info('Created handoff #'+data.number);
+            }
