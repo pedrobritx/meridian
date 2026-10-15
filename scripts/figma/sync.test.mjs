@@ -235,7 +235,7 @@ function run(action, scenario = "new", tokens, blobPublication = false) {
           GITHUB_EVENT_PATH: eventFile,
           GITHUB_REPOSITORY: config.repository,
           GITHUB_TOKEN: "fake-github",
-          FIGMA_ACCESS_TOKEN: "fake-figma",
+          FIGMA_GITHUB_CONSTELLATION: "fake-figma",
           MOCK_SCENARIO: scenario,
           MOCK_CONFIG: JSON.stringify(config),
           MOCK_CONTENT: JSON.stringify(sharedContent),

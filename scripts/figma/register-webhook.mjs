@@ -4,11 +4,11 @@ import { api } from './lib.mjs'
 const config = JSON.parse(
   await readFile(new URL('../../design/figma/config.json', import.meta.url)),
 )
-const token = process.env.FIGMA_ACCESS_TOKEN
+const token = process.env.FIGMA_GITHUB_CONSTELLATION
 const passcode = process.env.FIGMA_WEBHOOK_PASSCODE
 const endpoint = process.env.FIGMA_WEBHOOK_URL
 if (!token || !passcode || !endpoint)
-  throw new Error('Set FIGMA_ACCESS_TOKEN, FIGMA_WEBHOOK_PASSCODE and FIGMA_WEBHOOK_URL locally')
+  throw new Error('Set FIGMA_GITHUB_CONSTELLATION, FIGMA_WEBHOOK_PASSCODE and FIGMA_WEBHOOK_URL locally')
 if (passcode.length < 32 || passcode.length > 100)
   throw new Error('Use a random passcode of 32–100 characters')
 const url = new URL(endpoint)
