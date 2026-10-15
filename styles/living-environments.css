@@ -40,6 +40,8 @@
   --md-env-highlight: rgb(124 171 154 / 1);
   --md-env-glow: rgb(233 235 197 / 1);
   --md-env-earth: rgb(83 110 96 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="forest"][data-theme="dark"] {
@@ -83,6 +85,98 @@
   --md-env-highlight: rgb(143 186 171 / 1);
   --md-env-glow: rgb(233 207 163 / 1);
   --md-env-earth: rgb(54 83 74 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="core"]:not([data-theme="dark"]) {
+  color-scheme: light;
+  --md-color-action-active: rgb(16 16 16 / 1);
+  --md-color-action-destructive: rgb(122 45 58 / 1);
+  --md-color-action-hover: rgb(23 23 23 / 1);
+  --md-color-action-on-destructive: rgb(252 247 240 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(48 48 48 / 1);
+  --md-color-action-secondary: rgb(48 48 48 / 1);
+  --md-color-bg-disabled: rgb(232 232 232 / 1);
+  --md-color-bg-overlay: rgb(255 255 255 / 1);
+  --md-color-bg-page: rgb(245 245 245 / 1);
+  --md-color-bg-sunken: rgb(232 232 232 / 1);
+  --md-color-bg-surface: rgb(255 255 255 / 1);
+  --md-color-border-control: rgb(115 115 115 / 1);
+  --md-color-border-subtle: rgb(200 200 200 / 1);
+  --md-color-button-glass: rgb(255 255 255 / 0.9608);
+  --md-color-button-glass-hover: rgb(232 232 232 / 0.9608);
+  --md-color-elevation-shadow: rgb(23 23 23 / 0.1412);
+  --md-color-focus-ring: rgb(48 48 48 / 1);
+  --md-color-link-default: rgb(48 48 48 / 1);
+  --md-color-link-hover: rgb(23 23 23 / 1);
+  --md-color-link-visited: rgb(94 90 141 / 1);
+  --md-color-material-edge: rgb(255 255 255 / 0.9216);
+  --md-color-material-glass: rgb(255 255 255 / 0.7216);
+  --md-color-status-error: rgb(122 45 58 / 1);
+  --md-color-status-error-bg: rgb(244 230 232 / 1);
+  --md-color-status-info: rgb(45 101 133 / 1);
+  --md-color-status-info-bg: rgb(230 238 242 / 1);
+  --md-color-status-success: rgb(70 86 56 / 1);
+  --md-color-status-success-bg: rgb(228 236 230 / 1);
+  --md-color-status-warning: rgb(133 70 41 / 1);
+  --md-color-status-warning-bg: rgb(245 233 221 / 1);
+  --md-color-text-disabled: rgb(96 96 96 / 1);
+  --md-color-text-muted: rgb(96 96 96 / 1);
+  --md-color-text-primary: rgb(32 32 32 / 1);
+  --md-color-text-secondary: rgb(72 72 72 / 1);
+  --md-env-atmosphere: rgb(233 236 237 / 1);
+  --md-env-highlight: rgb(214 221 223 / 1);
+  --md-env-glow: rgb(245 246 247 / 1);
+  --md-env-earth: rgb(120 133 140 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="core"][data-theme="dark"] {
+  color-scheme: dark;
+  --md-color-action-active: rgb(245 245 245 / 1);
+  --md-color-action-destructive: rgb(237 173 182 / 1);
+  --md-color-action-hover: rgb(255 255 255 / 1);
+  --md-color-action-on-destructive: rgb(14 23 38 / 1);
+  --md-color-action-on-primary: rgb(23 23 23 / 1);
+  --md-color-action-primary: rgb(224 224 224 / 1);
+  --md-color-action-secondary: rgb(224 224 224 / 1);
+  --md-color-bg-disabled: rgb(16 16 16 / 1);
+  --md-color-bg-overlay: rgb(48 48 48 / 1);
+  --md-color-bg-page: rgb(23 23 23 / 1);
+  --md-color-bg-sunken: rgb(16 16 16 / 1);
+  --md-color-bg-surface: rgb(36 36 36 / 1);
+  --md-color-border-control: rgb(170 170 170 / 1);
+  --md-color-border-subtle: rgb(85 85 85 / 1);
+  --md-color-button-glass: rgb(36 36 36 / 0.9608);
+  --md-color-button-glass-hover: rgb(48 48 48 / 0.9608);
+  --md-color-elevation-shadow: rgb(0 0 0 / 0.3216);
+  --md-color-focus-ring: rgb(224 224 224 / 1);
+  --md-color-link-default: rgb(224 224 224 / 1);
+  --md-color-link-hover: rgb(255 255 255 / 1);
+  --md-color-link-visited: rgb(196 189 228 / 1);
+  --md-color-material-edge: rgb(224 224 224 / 0.4000);
+  --md-color-material-glass: rgb(36 36 36 / 0.8196);
+  --md-color-status-error: rgb(237 173 182 / 1);
+  --md-color-status-error-bg: rgb(65 43 53 / 1);
+  --md-color-status-info: rgb(144 190 216 / 1);
+  --md-color-status-info-bg: rgb(32 57 67 / 1);
+  --md-color-status-success: rgb(152 195 164 / 1);
+  --md-color-status-success-bg: rgb(24 55 44 / 1);
+  --md-color-status-warning: rgb(232 184 138 / 1);
+  --md-color-status-warning-bg: rgb(60 48 38 / 1);
+  --md-color-text-disabled: rgb(176 176 176 / 1);
+  --md-color-text-muted: rgb(176 176 176 / 1);
+  --md-color-text-primary: rgb(245 245 245 / 1);
+  --md-color-text-secondary: rgb(209 209 209 / 1);
+  --md-env-atmosphere: rgb(34 40 45 / 1);
+  --md-env-highlight: rgb(80 96 107 / 1);
+  --md-env-glow: rgb(54 66 75 / 1);
+  --md-env-earth: rgb(23 29 33 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="desert"]:not([data-theme="dark"]) {
@@ -126,6 +220,8 @@
   --md-env-highlight: rgb(199 152 103 / 1);
   --md-env-glow: rgb(241 222 166 / 1);
   --md-env-earth: rgb(134 98 71 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="desert"][data-theme="dark"] {
@@ -169,30 +265,392 @@
   --md-env-highlight: rgb(214 161 121 / 1);
   --md-env-glow: rgb(213 173 125 / 1);
   --md-env-earth: rgb(70 53 40 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="ocean"]:not([data-theme="dark"]) {
+  color-scheme: light;
+  --md-color-action-active: rgb(16 68 86 / 1);
+  --md-color-action-destructive: rgb(122 45 58 / 1);
+  --md-color-action-hover: rgb(18 77 97 / 1);
+  --md-color-action-on-destructive: rgb(252 247 240 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(21 90 114 / 1);
+  --md-color-action-secondary: rgb(21 90 114 / 1);
+  --md-color-bg-disabled: rgb(221 234 237 / 1);
+  --md-color-bg-overlay: rgb(255 255 255 / 1);
+  --md-color-bg-page: rgb(236 245 245 / 1);
+  --md-color-bg-sunken: rgb(221 234 237 / 1);
+  --md-color-bg-surface: rgb(255 255 255 / 1);
+  --md-color-border-control: rgb(58 99 112 / 1);
+  --md-color-border-subtle: rgb(152 187 199 / 1);
+  --md-color-button-glass: rgb(255 255 255 / 0.9608);
+  --md-color-button-glass-hover: rgb(236 245 245 / 0.9608);
+  --md-color-elevation-shadow: rgb(71 127 155 / 0.1412);
+  --md-color-focus-ring: rgb(21 90 114 / 1);
+  --md-color-link-default: rgb(21 90 114 / 1);
+  --md-color-link-hover: rgb(18 77 97 / 1);
+  --md-color-link-visited: rgb(89 67 110 / 1);
+  --md-color-material-edge: rgb(255 255 255 / 0.9216);
+  --md-color-material-glass: rgb(255 255 255 / 0.7216);
+  --md-color-status-error: rgb(122 45 58 / 1);
+  --md-color-status-error-bg: rgb(244 230 232 / 1);
+  --md-color-status-info: rgb(45 101 133 / 1);
+  --md-color-status-info-bg: rgb(230 238 242 / 1);
+  --md-color-status-success: rgb(70 86 56 / 1);
+  --md-color-status-success-bg: rgb(228 236 230 / 1);
+  --md-color-status-warning: rgb(133 70 41 / 1);
+  --md-color-status-warning-bg: rgb(245 233 221 / 1);
+  --md-color-text-disabled: rgb(58 99 112 / 1);
+  --md-color-text-muted: rgb(58 99 112 / 1);
+  --md-color-text-primary: rgb(23 58 72 / 1);
+  --md-color-text-secondary: rgb(58 99 112 / 1);
+  --md-env-atmosphere: rgb(223 239 240 / 1);
+  --md-env-highlight: rgb(132 193 196 / 1);
+  --md-env-glow: rgb(198 235 233 / 1);
+  --md-env-earth: rgb(71 127 155 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="ocean"][data-theme="dark"] {
+  color-scheme: dark;
+  --md-color-action-active: rgb(16 68 86 / 1);
+  --md-color-action-destructive: rgb(237 173 182 / 1);
+  --md-color-action-hover: rgb(18 77 97 / 1);
+  --md-color-action-on-destructive: rgb(14 23 38 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(21 90 114 / 1);
+  --md-color-action-secondary: rgb(196 224 229 / 1);
+  --md-color-bg-disabled: rgb(14 31 42 / 1);
+  --md-color-bg-overlay: rgb(26 51 64 / 1);
+  --md-color-bg-page: rgb(14 31 42 / 1);
+  --md-color-bg-sunken: rgb(14 31 42 / 1);
+  --md-color-bg-surface: rgb(26 51 64 / 1);
+  --md-color-border-control: rgb(196 224 229 / 1);
+  --md-color-border-subtle: rgb(100 138 154 / 1);
+  --md-color-button-glass: rgb(26 51 64 / 0.9608);
+  --md-color-button-glass-hover: rgb(14 31 42 / 0.9608);
+  --md-color-elevation-shadow: rgb(18 44 64 / 0.3216);
+  --md-color-focus-ring: rgb(196 224 229 / 1);
+  --md-color-link-default: rgb(196 224 229 / 1);
+  --md-color-link-hover: rgb(240 249 249 / 1);
+  --md-color-link-visited: rgb(221 208 236 / 1);
+  --md-color-material-edge: rgb(26 51 64 / 0.9216);
+  --md-color-material-glass: rgb(26 51 64 / 0.8196);
+  --md-color-status-error: rgb(237 173 182 / 1);
+  --md-color-status-error-bg: rgb(65 43 53 / 1);
+  --md-color-status-info: rgb(144 190 216 / 1);
+  --md-color-status-info-bg: rgb(32 57 67 / 1);
+  --md-color-status-success: rgb(152 195 164 / 1);
+  --md-color-status-success-bg: rgb(24 55 44 / 1);
+  --md-color-status-warning: rgb(232 184 138 / 1);
+  --md-color-status-warning-bg: rgb(60 48 38 / 1);
+  --md-color-text-disabled: rgb(196 224 229 / 1);
+  --md-color-text-muted: rgb(196 224 229 / 1);
+  --md-color-text-primary: rgb(240 249 249 / 1);
+  --md-color-text-secondary: rgb(196 224 229 / 1);
+  --md-env-atmosphere: rgb(28 58 75 / 1);
+  --md-env-highlight: rgb(31 76 100 / 1);
+  --md-env-glow: rgb(50 104 117 / 1);
+  --md-env-earth: rgb(18 44 64 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="alpine"]:not([data-theme="dark"]) {
+  color-scheme: light;
+  --md-color-action-active: rgb(44 62 81 / 1);
+  --md-color-action-destructive: rgb(122 45 58 / 1);
+  --md-color-action-hover: rgb(49 71 92 / 1);
+  --md-color-action-on-destructive: rgb(252 247 240 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(58 83 108 / 1);
+  --md-color-action-secondary: rgb(58 83 108 / 1);
+  --md-color-bg-disabled: rgb(229 235 238 / 1);
+  --md-color-bg-overlay: rgb(255 255 255 / 1);
+  --md-color-bg-page: rgb(240 243 244 / 1);
+  --md-color-bg-sunken: rgb(229 235 238 / 1);
+  --md-color-bg-surface: rgb(255 255 255 / 1);
+  --md-color-border-control: rgb(83 103 122 / 1);
+  --md-color-border-subtle: rgb(175 190 204 / 1);
+  --md-color-button-glass: rgb(255 255 255 / 0.9608);
+  --md-color-button-glass-hover: rgb(240 243 244 / 0.9608);
+  --md-color-elevation-shadow: rgb(120 151 174 / 0.1412);
+  --md-color-focus-ring: rgb(58 83 108 / 1);
+  --md-color-link-default: rgb(58 83 108 / 1);
+  --md-color-link-hover: rgb(49 71 92 / 1);
+  --md-color-link-visited: rgb(89 67 110 / 1);
+  --md-color-material-edge: rgb(255 255 255 / 0.9216);
+  --md-color-material-glass: rgb(255 255 255 / 0.7216);
+  --md-color-status-error: rgb(122 45 58 / 1);
+  --md-color-status-error-bg: rgb(244 230 232 / 1);
+  --md-color-status-info: rgb(45 101 133 / 1);
+  --md-color-status-info-bg: rgb(230 238 242 / 1);
+  --md-color-status-success: rgb(70 86 56 / 1);
+  --md-color-status-success-bg: rgb(228 236 230 / 1);
+  --md-color-status-warning: rgb(133 70 41 / 1);
+  --md-color-status-warning-bg: rgb(245 233 221 / 1);
+  --md-color-text-disabled: rgb(83 103 122 / 1);
+  --md-color-text-muted: rgb(83 103 122 / 1);
+  --md-color-text-primary: rgb(40 58 76 / 1);
+  --md-color-text-secondary: rgb(83 103 122 / 1);
+  --md-env-atmosphere: rgb(231 238 240 / 1);
+  --md-env-highlight: rgb(172 202 212 / 1);
+  --md-env-glow: rgb(218 230 236 / 1);
+  --md-env-earth: rgb(120 151 174 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="alpine"][data-theme="dark"] {
+  color-scheme: dark;
+  --md-color-action-active: rgb(44 62 81 / 1);
+  --md-color-action-destructive: rgb(237 173 182 / 1);
+  --md-color-action-hover: rgb(49 71 92 / 1);
+  --md-color-action-on-destructive: rgb(14 23 38 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(58 83 108 / 1);
+  --md-color-action-secondary: rgb(205 218 229 / 1);
+  --md-color-bg-disabled: rgb(21 32 43 / 1);
+  --md-color-bg-overlay: rgb(39 53 67 / 1);
+  --md-color-bg-page: rgb(21 32 43 / 1);
+  --md-color-bg-sunken: rgb(21 32 43 / 1);
+  --md-color-bg-surface: rgb(39 53 67 / 1);
+  --md-color-border-control: rgb(205 218 229 / 1);
+  --md-color-border-subtle: rgb(135 152 169 / 1);
+  --md-color-button-glass: rgb(39 53 67 / 0.9608);
+  --md-color-button-glass-hover: rgb(21 32 43 / 0.9608);
+  --md-color-elevation-shadow: rgb(34 59 77 / 0.3216);
+  --md-color-focus-ring: rgb(205 218 229 / 1);
+  --md-color-link-default: rgb(205 218 229 / 1);
+  --md-color-link-hover: rgb(243 248 251 / 1);
+  --md-color-link-visited: rgb(221 208 236 / 1);
+  --md-color-material-edge: rgb(39 53 67 / 0.9216);
+  --md-color-material-glass: rgb(39 53 67 / 0.8196);
+  --md-color-status-error: rgb(237 173 182 / 1);
+  --md-color-status-error-bg: rgb(65 43 53 / 1);
+  --md-color-status-info: rgb(144 190 216 / 1);
+  --md-color-status-info-bg: rgb(32 57 67 / 1);
+  --md-color-status-success: rgb(152 195 164 / 1);
+  --md-color-status-success-bg: rgb(24 55 44 / 1);
+  --md-color-status-warning: rgb(232 184 138 / 1);
+  --md-color-status-warning-bg: rgb(60 48 38 / 1);
+  --md-color-text-disabled: rgb(205 218 229 / 1);
+  --md-color-text-muted: rgb(205 218 229 / 1);
+  --md-color-text-primary: rgb(243 248 251 / 1);
+  --md-color-text-secondary: rgb(205 218 229 / 1);
+  --md-env-atmosphere: rgb(49 66 80 / 1);
+  --md-env-highlight: rgb(54 79 97 / 1);
+  --md-env-glow: rgb(83 106 125 / 1);
+  --md-env-earth: rgb(34 59 77 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="storm"]:not([data-theme="dark"]) {
+  color-scheme: light;
+  --md-color-action-active: rgb(49 56 77 / 1);
+  --md-color-action-destructive: rgb(122 45 58 / 1);
+  --md-color-action-hover: rgb(55 64 87 / 1);
+  --md-color-action-on-destructive: rgb(252 247 240 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(65 75 102 / 1);
+  --md-color-action-secondary: rgb(65 75 102 / 1);
+  --md-color-bg-disabled: rgb(226 231 237 / 1);
+  --md-color-bg-overlay: rgb(255 255 255 / 1);
+  --md-color-bg-page: rgb(237 240 244 / 1);
+  --md-color-bg-sunken: rgb(226 231 237 / 1);
+  --md-color-bg-surface: rgb(255 255 255 / 1);
+  --md-color-border-control: rgb(83 94 116 / 1);
+  --md-color-border-subtle: rgb(167 177 194 / 1);
+  --md-color-button-glass: rgb(255 255 255 / 0.9608);
+  --md-color-button-glass-hover: rgb(237 240 244 / 0.9608);
+  --md-color-elevation-shadow: rgb(119 138 162 / 0.1412);
+  --md-color-focus-ring: rgb(65 75 102 / 1);
+  --md-color-link-default: rgb(65 75 102 / 1);
+  --md-color-link-hover: rgb(55 64 87 / 1);
+  --md-color-link-visited: rgb(89 67 110 / 1);
+  --md-color-material-edge: rgb(255 255 255 / 0.9216);
+  --md-color-material-glass: rgb(255 255 255 / 0.7216);
+  --md-color-status-error: rgb(122 45 58 / 1);
+  --md-color-status-error-bg: rgb(244 230 232 / 1);
+  --md-color-status-info: rgb(45 101 133 / 1);
+  --md-color-status-info-bg: rgb(230 238 242 / 1);
+  --md-color-status-success: rgb(70 86 56 / 1);
+  --md-color-status-success-bg: rgb(228 236 230 / 1);
+  --md-color-status-warning: rgb(133 70 41 / 1);
+  --md-color-status-warning-bg: rgb(245 233 221 / 1);
+  --md-color-text-disabled: rgb(83 94 116 / 1);
+  --md-color-text-muted: rgb(83 94 116 / 1);
+  --md-color-text-primary: rgb(41 47 66 / 1);
+  --md-color-text-secondary: rgb(83 94 116 / 1);
+  --md-env-atmosphere: rgb(226 232 237 / 1);
+  --md-env-highlight: rgb(173 184 203 / 1);
+  --md-env-glow: rgb(220 224 234 / 1);
+  --md-env-earth: rgb(119 138 162 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="storm"][data-theme="dark"] {
+  color-scheme: dark;
+  --md-color-action-active: rgb(49 56 77 / 1);
+  --md-color-action-destructive: rgb(237 173 182 / 1);
+  --md-color-action-hover: rgb(55 64 87 / 1);
+  --md-color-action-on-destructive: rgb(14 23 38 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(65 75 102 / 1);
+  --md-color-action-secondary: rgb(206 215 233 / 1);
+  --md-color-bg-disabled: rgb(21 26 38 / 1);
+  --md-color-bg-overlay: rgb(37 44 63 / 1);
+  --md-color-bg-page: rgb(21 26 38 / 1);
+  --md-color-bg-sunken: rgb(21 26 38 / 1);
+  --md-color-bg-surface: rgb(37 44 63 / 1);
+  --md-color-border-control: rgb(206 215 233 / 1);
+  --md-color-border-subtle: rgb(133 148 173 / 1);
+  --md-color-button-glass: rgb(37 44 63 / 0.9608);
+  --md-color-button-glass-hover: rgb(21 26 38 / 0.9608);
+  --md-color-elevation-shadow: rgb(40 55 78 / 0.3216);
+  --md-color-focus-ring: rgb(206 215 233 / 1);
+  --md-color-link-default: rgb(206 215 233 / 1);
+  --md-color-link-hover: rgb(244 246 253 / 1);
+  --md-color-link-visited: rgb(221 208 236 / 1);
+  --md-color-material-edge: rgb(37 44 63 / 0.9216);
+  --md-color-material-glass: rgb(37 44 63 / 0.8196);
+  --md-color-status-error: rgb(237 173 182 / 1);
+  --md-color-status-error-bg: rgb(65 43 53 / 1);
+  --md-color-status-info: rgb(144 190 216 / 1);
+  --md-color-status-info-bg: rgb(32 57 67 / 1);
+  --md-color-status-success: rgb(152 195 164 / 1);
+  --md-color-status-success-bg: rgb(24 55 44 / 1);
+  --md-color-status-warning: rgb(232 184 138 / 1);
+  --md-color-status-warning-bg: rgb(60 48 38 / 1);
+  --md-color-text-disabled: rgb(206 215 233 / 1);
+  --md-color-text-muted: rgb(206 215 233 / 1);
+  --md-color-text-primary: rgb(244 246 253 / 1);
+  --md-color-text-secondary: rgb(206 215 233 / 1);
+  --md-env-atmosphere: rgb(42 53 77 / 1);
+  --md-env-highlight: rgb(61 76 104 / 1);
+  --md-env-glow: rgb(88 101 126 / 1);
+  --md-env-earth: rgb(40 55 78 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="celestial"]:not([data-theme="dark"]) {
+  color-scheme: light;
+  --md-color-action-active: rgb(64 46 87 / 1);
+  --md-color-action-destructive: rgb(122 45 58 / 1);
+  --md-color-action-hover: rgb(72 52 99 / 1);
+  --md-color-action-on-destructive: rgb(252 247 240 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(85 61 116 / 1);
+  --md-color-action-secondary: rgb(85 61 116 / 1);
+  --md-color-bg-disabled: rgb(235 229 242 / 1);
+  --md-color-bg-overlay: rgb(255 255 255 / 1);
+  --md-color-bg-page: rgb(243 239 247 / 1);
+  --md-color-bg-sunken: rgb(235 229 242 / 1);
+  --md-color-bg-surface: rgb(255 255 255 / 1);
+  --md-color-border-control: rgb(105 86 119 / 1);
+  --md-color-border-subtle: rgb(185 168 198 / 1);
+  --md-color-button-glass: rgb(255 255 255 / 0.9608);
+  --md-color-button-glass-hover: rgb(243 239 247 / 0.9608);
+  --md-color-elevation-shadow: rgb(155 128 187 / 0.1412);
+  --md-color-focus-ring: rgb(85 61 116 / 1);
+  --md-color-link-default: rgb(85 61 116 / 1);
+  --md-color-link-hover: rgb(72 52 99 / 1);
+  --md-color-link-visited: rgb(89 67 110 / 1);
+  --md-color-material-edge: rgb(255 255 255 / 0.9216);
+  --md-color-material-glass: rgb(255 255 255 / 0.7216);
+  --md-color-status-error: rgb(122 45 58 / 1);
+  --md-color-status-error-bg: rgb(244 230 232 / 1);
+  --md-color-status-info: rgb(45 101 133 / 1);
+  --md-color-status-info-bg: rgb(230 238 242 / 1);
+  --md-color-status-success: rgb(70 86 56 / 1);
+  --md-color-status-success-bg: rgb(228 236 230 / 1);
+  --md-color-status-warning: rgb(133 70 41 / 1);
+  --md-color-status-warning-bg: rgb(245 233 221 / 1);
+  --md-color-text-disabled: rgb(105 86 119 / 1);
+  --md-color-text-muted: rgb(105 86 119 / 1);
+  --md-color-text-primary: rgb(52 40 66 / 1);
+  --md-color-text-secondary: rgb(105 86 119 / 1);
+  --md-env-atmosphere: rgb(238 231 244 / 1);
+  --md-env-highlight: rgb(199 179 219 / 1);
+  --md-env-glow: rgb(230 221 245 / 1);
+  --md-env-earth: rgb(155 128 187 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
+}
+
+[data-meridian][data-meridian-environment="celestial"][data-theme="dark"] {
+  color-scheme: dark;
+  --md-color-action-active: rgb(64 46 87 / 1);
+  --md-color-action-destructive: rgb(237 173 182 / 1);
+  --md-color-action-hover: rgb(72 52 99 / 1);
+  --md-color-action-on-destructive: rgb(14 23 38 / 1);
+  --md-color-action-on-primary: rgb(255 255 255 / 1);
+  --md-color-action-primary: rgb(85 61 116 / 1);
+  --md-color-action-secondary: rgb(223 210 237 / 1);
+  --md-color-bg-disabled: rgb(29 24 42 / 1);
+  --md-color-bg-overlay: rgb(46 38 64 / 1);
+  --md-color-bg-page: rgb(29 24 42 / 1);
+  --md-color-bg-sunken: rgb(29 24 42 / 1);
+  --md-color-bg-surface: rgb(46 38 64 / 1);
+  --md-color-border-control: rgb(223 210 237 / 1);
+  --md-color-border-subtle: rgb(147 129 172 / 1);
+  --md-color-button-glass: rgb(46 38 64 / 0.9608);
+  --md-color-button-glass-hover: rgb(29 24 42 / 0.9608);
+  --md-color-elevation-shadow: rgb(48 34 67 / 0.3216);
+  --md-color-focus-ring: rgb(223 210 237 / 1);
+  --md-color-link-default: rgb(223 210 237 / 1);
+  --md-color-link-hover: rgb(250 246 255 / 1);
+  --md-color-link-visited: rgb(221 208 236 / 1);
+  --md-color-material-edge: rgb(46 38 64 / 0.9216);
+  --md-color-material-glass: rgb(46 38 64 / 0.8196);
+  --md-color-status-error: rgb(237 173 182 / 1);
+  --md-color-status-error-bg: rgb(65 43 53 / 1);
+  --md-color-status-info: rgb(144 190 216 / 1);
+  --md-color-status-info-bg: rgb(32 57 67 / 1);
+  --md-color-status-success: rgb(152 195 164 / 1);
+  --md-color-status-success-bg: rgb(24 55 44 / 1);
+  --md-color-status-warning: rgb(232 184 138 / 1);
+  --md-color-status-warning-bg: rgb(60 48 38 / 1);
+  --md-color-text-disabled: rgb(223 210 237 / 1);
+  --md-color-text-muted: rgb(223 210 237 / 1);
+  --md-color-text-primary: rgb(250 246 255 / 1);
+  --md-color-text-secondary: rgb(223 210 237 / 1);
+  --md-env-atmosphere: rgb(55 39 77 / 1);
+  --md-env-highlight: rgb(66 51 89 / 1);
+  --md-env-glow: rgb(102 84 130 / 1);
+  --md-env-earth: rgb(48 34 67 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="aurora"]:not([data-theme="dark"]) {
   color-scheme: light;
-  --md-color-action-active: rgb(23 76 70 / 1);
+  --md-color-action-active: rgb(63 74 128 / 1);
   --md-color-action-destructive: rgb(122 45 58 / 1);
-  --md-color-action-hover: rgb(28 94 85 / 1);
+  --md-color-action-hover: rgb(71 84 134 / 1);
   --md-color-action-on-destructive: rgb(252 247 240 / 1);
   --md-color-action-on-primary: rgb(255 255 255 / 1);
-  --md-color-action-primary: rgb(57 121 107 / 1);
-  --md-color-action-secondary: rgb(36 79 74 / 1);
+  --md-color-action-primary: rgb(89 99 156 / 1);
+  --md-color-action-secondary: rgb(71 84 134 / 1);
   --md-color-bg-disabled: rgb(231 235 249 / 1);
   --md-color-bg-overlay: rgb(249 250 255 / 1);
   --md-color-bg-page: rgb(242 245 252 / 1);
-  --md-color-bg-sunken: rgb(231 235 249 / 1);
+  --md-color-bg-sunken: rgb(215 219 244 / 1);
   --md-color-bg-surface: rgb(255 255 255 / 1);
   --md-color-border-control: rgb(92 102 135 / 1);
   --md-color-border-subtle: rgb(190 203 227 / 1);
   --md-color-button-glass: rgb(255 255 255 / 0.9608);
   --md-color-button-glass-hover: rgb(249 250 255 / 0.9608);
   --md-color-elevation-shadow: rgb(26 35 49 / 0.1412);
-  --md-color-focus-ring: rgb(41 95 89 / 1);
-  --md-color-link-default: rgb(57 121 107 / 1);
-  --md-color-link-hover: rgb(28 94 85 / 1);
+  --md-color-focus-ring: rgb(89 99 156 / 1);
+  --md-color-link-default: rgb(89 99 156 / 1);
+  --md-color-link-hover: rgb(71 84 134 / 1);
   --md-color-link-visited: rgb(107 87 168 / 1);
   --md-color-material-edge: rgb(92 102 135 / 0.4784);
   --md-color-material-glass: rgb(255 255 255 / 0.9294);
@@ -209,33 +667,35 @@
   --md-color-text-primary: rgb(32 44 66 / 1);
   --md-color-text-secondary: rgb(70 81 106 / 1);
   --md-env-atmosphere: rgb(235 230 249 / 1);
-  --md-env-highlight: rgb(181 255 225 / 1);
+  --md-env-highlight: rgb(185 181 233 / 1);
   --md-env-glow: rgb(226 222 255 / 1);
   --md-env-earth: rgb(131 105 186 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="aurora"][data-theme="dark"] {
   color-scheme: dark;
-  --md-color-action-active: rgb(178 251 220 / 1);
+  --md-color-action-active: rgb(213 219 255 / 1);
   --md-color-action-destructive: rgb(237 173 182 / 1);
-  --md-color-action-hover: rgb(178 251 220 / 1);
+  --md-color-action-hover: rgb(213 219 255 / 1);
   --md-color-action-on-destructive: rgb(14 23 38 / 1);
   --md-color-action-on-primary: rgb(20 34 56 / 1);
-  --md-color-action-primary: rgb(144 238 198 / 1);
-  --md-color-action-secondary: rgb(144 238 198 / 1);
+  --md-color-action-primary: rgb(187 195 243 / 1);
+  --md-color-action-secondary: rgb(187 195 243 / 1);
   --md-color-bg-disabled: rgb(12 16 37 / 1);
   --md-color-bg-overlay: rgb(37 43 80 / 1);
   --md-color-bg-page: rgb(17 20 45 / 1);
-  --md-color-bg-sunken: rgb(12 16 37 / 1);
+  --md-color-bg-sunken: rgb(37 46 89 / 1);
   --md-color-bg-surface: rgb(27 33 64 / 1);
   --md-color-border-control: rgb(158 166 214 / 1);
   --md-color-border-subtle: rgb(82 94 145 / 1);
   --md-color-button-glass: rgb(27 33 64 / 0.9608);
   --md-color-button-glass-hover: rgb(37 43 80 / 0.9608);
   --md-color-elevation-shadow: rgb(9 13 35 / 0.3216);
-  --md-color-focus-ring: rgb(178 251 220 / 1);
-  --md-color-link-default: rgb(144 238 198 / 1);
-  --md-color-link-hover: rgb(178 251 220 / 1);
+  --md-color-focus-ring: rgb(213 219 255 / 1);
+  --md-color-link-default: rgb(187 195 243 / 1);
+  --md-color-link-hover: rgb(213 219 255 / 1);
   --md-color-link-visited: rgb(212 160 255 / 1);
   --md-color-material-edge: rgb(158 166 214 / 0.4784);
   --md-color-material-glass: rgb(27 33 64 / 0.9294);
@@ -252,9 +712,11 @@
   --md-color-text-primary: rgb(244 245 255 / 1);
   --md-color-text-secondary: rgb(211 215 242 / 1);
   --md-env-atmosphere: rgb(52 43 101 / 1);
-  --md-env-highlight: rgb(109 236 201 / 1);
-  --md-env-glow: rgb(184 88 179 / 1);
+  --md-env-highlight: rgb(111 79 150 / 1);
+  --md-env-glow: rgb(156 111 187 / 1);
   --md-env-earth: rgb(25 35 75 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="glacier"]:not([data-theme="dark"]) {
@@ -298,6 +760,8 @@
   --md-env-highlight: rgb(183 221 236 / 1);
   --md-env-glow: rgb(248 252 255 / 1);
   --md-env-earth: rgb(132 181 204 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="glacier"][data-theme="dark"] {
@@ -341,6 +805,8 @@
   --md-env-highlight: rgb(119 218 241 / 1);
   --md-env-glow: rgb(167 221 243 / 1);
   --md-env-earth: rgb(18 54 72 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="embers"]:not([data-theme="dark"]) {
@@ -384,6 +850,8 @@
   --md-env-highlight: rgb(241 182 140 / 1);
   --md-env-glow: rgb(247 233 210 / 1);
   --md-env-earth: rgb(174 106 80 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }
 
 [data-meridian][data-meridian-environment="embers"][data-theme="dark"] {
@@ -427,4 +895,6 @@
   --md-env-highlight: rgb(252 150 101 / 1);
   --md-env-glow: rgb(184 89 66 / 1);
   --md-env-earth: rgb(45 40 41 / 1);
+  --md-color-selection-background: var(--md-color-bg-sunken);
+  --md-color-selection-foreground: var(--md-color-text-primary);
 }

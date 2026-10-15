@@ -5,8 +5,13 @@ import '@fontsource/fraunces/latin-400.css';
 import '../../styles/tokens.css';
 import '../../styles/living-environments.css';
 import './universal.css';
-import {universalComponents,universalGroups,projectNames,componentsFor} from '../../src/universal/catalog.js';
-import universalSymbols from '../../design/meridian/universal-symbols.json';
+import '../../styles/liquid-glass.css';
+import {initLiquidGlass} from '../../src/universal/liquid-glass.js';
+import {markGlassSurfaces,mountGlassReference} from '../../src/universal/glass-reference.js';
+import {universalComponents,universalGroups,projectNames,componentsFor,componentContractSources} from '../../src/universal/catalog.js';
+import universalSymbols from '../../design/meridian/universal-symbols.json' with {type:'json'};
+import environments from '../../design/meridian/living-environments.json' with {type:'json'};
+import currentSystem from '../../design/meridian/figma-refactor-map.json' with {type:'json'};
 import {iconMarkup,symbolNames} from '../../src/universal/symbols.js';
 
 const byId=id=>document.getElementById(id);
@@ -29,6 +34,8 @@ const node=(tag,attrs={},...children)=>{
   return el;
 };
 const text=(tag,value,cls='')=>node(tag,{class:cls,text:value});
+const interactiveExamples=new Set(['search-field','combobox','multi-select','radio-group','text-area','range-slider','date-time','file-dropzone','passkey','colour-picker','editor-toolbar','editable-cell','tab-list','drawer','pagination','tree-view','context-menu','popover','toolbar','split-pane','progress','toast','confirmation','quiz-choice','scenario-compare','translation-segment','audio-transcript','playback-control']);
+const nativeSources={toolbar:currentSystem.material.nativeLibrary.toolbar,popover:currentSystem.material.nativeLibrary.popover,'context-menu':currentSystem.material.nativeLibrary.popover,sheet:currentSystem.material.nativeLibrary.sheet,'range-slider':currentSystem.material.nativeLibrary.slider,'tab-list':'44:1917'};
 function iconElement(name,size=20){
   const wrap=node('span',{class:'u-component-icon'});
   const fallback=symbolNames.includes(name)?name:'layers';
@@ -110,7 +117,7 @@ function commonDemo(item,area){
         area.append(color,chosen);break;
       }
       case 'editor-toolbar':{
-        const bar=node('div',{class:'u-row',role:'toolbar','aria-label':'Text formatting example'});
+        const bar=node('div',{class:'u-row md-glass-group',role:'toolbar','aria-label':'Text formatting example','data-liquid-glass':'toolbar'});
         for(const name of ['Bold','Italic','Underline']){
           const b=button(name,null);
           b.setAttribute('aria-pressed','false');
@@ -171,11 +178,41 @@ function commonDemo(item,area){
           node('li',{},node('a',{href:'#catalog'},'Files')),
           node('li',{'aria-current':'page'},'Current'))));break;
       }
-      case 'tree-view':
+      case 'tree-view':{
+        area.append(node('details',{},node('summary',{},'Folders'),text('p',item.anatomy,'u-subtle')));break;
+      }
       case 'context-menu':
       case 'popover':{
-        area.append(node('details',{},node('summary',{},item.id==='tree-view'?'Folders':item.id==='context-menu'?'More actions':'More information'),
-          text('p',item.anatomy,'u-subtle')));break;
+        const id='sample-glass-'+item.id;
+        const origin=node('div',{class:'md-glass-menu-origin'});
+        const trigger=button(item.id==='context-menu'?'More actions':'More information');
+        trigger.setAttribute('data-glass-menu-trigger',id);
+        trigger.setAttribute('aria-controls',id);trigger.setAttribute('aria-expanded','false');
+        trigger.setAttribute('aria-haspopup',item.id==='context-menu'?'menu':'dialog');
+        const menu=node('div',{id,hidden:true,'data-glass-menu':'','data-liquid-glass':'menu',role:item.id==='context-menu'?'menu':'dialog','aria-label':item.name+' example'});
+        if(item.id==='context-menu') {
+          for(const [label,glyph] of [['Save','bookmark'],['Copy','clipboard'],['Share','share']]) {
+            const action=button(label,()=>sampleStatus(area,label+' selected.'));
+            action.setAttribute('role','menuitem');action.setAttribute('data-glass-menu-close','');
+            action.prepend(iconElement(glyph,18));menu.append(action);
+          }
+        } else {
+          menu.append(text('p',item.anatomy,'u-subtle'));
+          const close=button('Close information');close.setAttribute('data-glass-menu-close','');menu.append(close);
+        }
+        origin.append(trigger,menu);area.append(origin);break;
+      }
+      case 'toolbar':{
+        const bar=node('div',{class:'md-glass-toolbar',role:'toolbar','aria-label':'Document toolbar example'});
+        for(const [groupName,actions] of [['History',[['Undo','arrow-left'],['Redo','arrow-right']]],['Document',[['Save','bookmark'],['Share','share']]]]) {
+          const group=node('div',{class:'md-glass-group',role:'group','aria-label':groupName,'data-liquid-glass':'toolbar'});
+          for(const [label,glyph] of actions) {
+            const action=button(label,()=>sampleStatus(area,label+' selected. Reference only; no document changed.'));
+            action.prepend(iconElement(glyph,18));group.append(action);
+          }
+          bar.append(group);
+        }
+        area.append(bar);break;
       }
       case 'command-menu':{
         area.append(formInput('search','Find a command'),text('p','Save · Search · Export','u-subtle'));break;
@@ -188,7 +225,11 @@ function commonDemo(item,area){
         const nav=node('nav',{'aria-label':item.name+' example'});
         const row=node('div',{class:'u-row'});
         for(const name of ['Overview','Workspace','More']){
-          const b=button(name,()=>sampleStatus(area,'Selected '+name+' in example.'),name==='Overview');
+          const b=button(name,()=>{
+            for(const sibling of row.querySelectorAll('button')) sibling.setAttribute('aria-pressed',String(sibling===b));
+            sampleStatus(area,'Selected '+name+' in example.');
+          },name==='Overview');
+          b.setAttribute('aria-pressed',String(name==='Overview'));
           row.append(b);
         }
         nav.append(row);area.append(nav);break;
@@ -302,9 +343,11 @@ function renderCard(item){
   header.append(iconElement(item.icon),node('div',{},text('div',item.group,'u-component-category'),text('h3',item.name)));
   const demo=node('div',{class:'u-specimen','aria-label':item.name+' illustrative example'});
   commonDemo(item,demo);
-  card.append(header,text('p',item.anatomy,'u-anatomy'),demo,
+  const readiness=node('p',{class:'u-readiness'},interactiveExamples.has(item.id)?'Interactive example · Experimental':'Anatomy preview · Experimental');
+  readiness.append(' · ',nativeSources[item.id]?node('a',{href:'https://www.figma.com/design/'+currentSystem.figma.fileKey+'/Meridian?node-id='+nativeSources[item.id].replace(':','-')},'Native source'):document.createTextNode('Native parity pending'));
+  card.append(header,readiness,text('p',item.anatomy,'u-anatomy'),demo,
     node('div',{class:'u-component-footer'},text('span',item.projects.join(' · '),'u-projects'),
-      node('a',{class:'u-contract',href:'https://github.com/pedrobritx/meridian/blob/main/design/meridian/universal-project-patterns.json'},'Specification ↗')));
+      node('a',{class:'u-contract',href:'https://github.com/pedrobritx/meridian/blob/main/'+componentContractSources[item.id]},'Specification ↗')));
   return card;
 }
 function renderCatalog(){
@@ -314,6 +357,8 @@ function renderCatalog(){
   byId('no-results').hidden=list.length!==0;
   byId('total-count').textContent=universalComponents.length+' component contracts';
   byId('filter-status').textContent=list.length+' of '+universalComponents.length+' components shown';
+  markGlassSurfaces(grid);
+  glassRuntime?.refresh();
 }
 for(const group of universalGroups)byId('group-filter').append(node('option',{value:group},group));
 for(const project of projectNames)byId('project-filter').append(node('option',{value:project},project));
@@ -335,6 +380,24 @@ function renderSymbols(){
 }
 byId('symbol-filter').addEventListener('input',renderSymbols);
 const appearance=byId('appearance-mode');
+appearance.replaceChildren(...environments.environments.flatMap(environment=>['Dawn','Dusk'].map(mode=>
+  node('option',{value:environment.id+':'+(mode==='Dusk'?'dark':'light')},environment.name+' · '+mode))));
+document.querySelector('.u-examples .u-section-heading > span').textContent='Ten environments · Dawn and Dusk';
+const previewCopy={core:['Space for every kind of work.','A neutral foundation with clear hierarchy.'],ocean:['A little room to breathe.','Tidal blues and refracted coastal light.'],alpine:['Clear air, quiet focus.','Mountain light and restrained natural surfaces.'],storm:['Focus through the weather.','Layered slate, atmospheric light and warm accents.'],celestial:['A wider field of thought.','Night-sky depth and luminous violet.']};
+for(const environment of environments.environments) {
+  if(document.querySelector('.u-theme[data-theme-kind="'+environment.id+'"]'))continue;
+  const [title,description]=previewCopy[environment.id];
+  const card=node('article',{class:'u-theme','data-meridian':'grass','data-meridian-environment':environment.id,'data-theme':'light','data-theme-kind':environment.id},
+    text('p',environment.name,'u-eyebrow'),text('h3',title),text('p',description));
+  document.querySelector('.u-theme-grid').append(card);
+}
+for(const card of document.querySelectorAll('.u-theme')) {
+  card.querySelector('.u-demobutton')?.remove();
+  const control=button('Explore '+card.dataset.themeKind+' →',()=>{
+    appearance.value=card.dataset.themeKind+':light';appearance.dispatchEvent(new Event('change'));
+  });
+  control.className='u-demobutton';card.append(control);
+}
 appearance.addEventListener('change',()=>{
   const [environment,mode]=appearance.value.split(':');
   document.documentElement.dataset.meridian='grass';
@@ -342,5 +405,11 @@ appearance.addEventListener('change',()=>{
   document.documentElement.dataset.theme=mode;
   byId('appearance-status').textContent=appearance.selectedOptions[0].textContent+' selected';
 });
+let glassRuntime;
+const glassHost=document.createElement('div');
+document.querySelector('.u-examples').after(glassHost);
+mountGlassReference(glassHost);
+markGlassSurfaces();
+glassRuntime=initLiquidGlass();
 renderCatalog();
 renderSymbols();

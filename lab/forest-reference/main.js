@@ -5,6 +5,9 @@ import '@fontsource/manrope/latin-700.css';
 import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/fraunces/latin-400-italic.css';
 import './forest.css';
+import '../../styles/liquid-glass.css';
+import {initLiquidGlass} from '../../src/universal/liquid-glass.js';
+import {markGlassSurfaces} from '../../src/universal/glass-reference.js';
 import {
   forestPalettes,resolveForestMode,deriveNotificationStatus,
   acknowledgeHistory,canAcknowledgeHistory,EXPOSURE_MS,INTERRUPTION_MS
@@ -57,6 +60,7 @@ function applyForest({persist=false}={}) {
   root.dataset.theme=mode;
   root.dataset.atmosphere=atmosphere.value;
   root.dataset.motion=effectiveMotion();
+  root.dataset.labMotion=effectiveMotion();
   root.dataset.material=effectiveMaterial();
   $('#scene-name').textContent='Forest '+(mode==='dusk'?'Dusk':'Dawn');
   $('#illumination-value').textContent=illumination.value+'%';
@@ -302,3 +306,6 @@ $('#resolve-action').addEventListener('click',()=>{
   if(record){record.state='resolved';record.unread=false;}
   renderIndicators();
 });
+
+markGlassSurfaces();
+initLiquidGlass();

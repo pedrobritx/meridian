@@ -6,6 +6,12 @@ import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/fraunces/latin-400-italic.css';
 import '../../styles/tokens.css';
 import './living-environments.css';
+import '../../styles/liquid-glass.css';
+import {initLiquidGlass} from '../../src/universal/liquid-glass.js';
+import {markGlassSurfaces} from '../../src/universal/glass-reference.js';
+
+markGlassSurfaces();
+initLiquidGlass();
 import {environments,identities,contrastRatio} from './environments.js';
 
 const $ = selector => document.querySelector(selector);

@@ -23,6 +23,9 @@ import '@fontsource/cormorant-garamond/latin-600.css';
 import '../styles/tokens.css';
 import '../styles/components.css';
 import '../styles/reference.css';
+import '../styles/liquid-glass.css';
+import {initLiquidGlass} from './universal/liquid-glass.js';
+import {markGlassSurfaces} from './universal/glass-reference.js';
 import {pages} from './pages.js';
 import {icon} from './icons.js';
 import {profiles} from '../scripts/figma/token-contract.mjs';
@@ -48,6 +51,9 @@ function activateTab(tab){const group=tab.closest('[role="tablist"]');for(const 
 function render(focus=false){const key=location.hash.slice(1);const page=Object.hasOwn(pages,key)?key:'overview';content.innerHTML=pages[page]();document.title=`${page==='overview'?'A human rhythm for software':page[0].toUpperCase()+page.slice(1)} — Meridian`;document.querySelector('#page-label').textContent=page.replace('adoption','Product adaptations').toUpperCase();for(const link of document.querySelectorAll('[data-page]')){if(link.dataset.page===page)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}if(focus){content.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
 window.addEventListener('hashchange',()=>{if(location.hash==='#content'){content.focus();return;}render(true);});
 render();
+markGlassSurfaces();
+const glassRuntime=initLiquidGlass();
+window.addEventListener('hashchange',()=>{markGlassSurfaces();glassRuntime.refresh();});
 content.addEventListener('click',async event=>{const target=event.target.closest('button');if(!target)return;
  if(target.hasAttribute('data-list-item'))announce(target.dataset.listItem+' selected. This example does not store information.');
  if(target.hasAttribute('data-demo'))announce(target.dataset.demo);

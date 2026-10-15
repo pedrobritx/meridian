@@ -5,6 +5,12 @@ import extended from '../../design/meridian/universal-extended.json' with {type:
 export const universalComponents=Object.freeze([
   ...controls.items,...records.items,...projects.items,...extended.items
 ]);
+export const componentContractSources=Object.freeze(Object.fromEntries([
+  ['design/meridian/universal-core-a.json',controls],
+  ['design/meridian/universal-core-b.json',records],
+  ['design/meridian/universal-project-patterns.json',projects],
+  ['design/meridian/universal-extended.json',extended]
+].flatMap(([path,collection])=>collection.items.map(item=>[item.id,path]))));
 export const universalGroups=Object.freeze([...new Set(universalComponents.map(item=>item.group))]);
 export const projectNames=Object.freeze([...new Set(universalComponents.flatMap(item=>item.projects).filter(x=>x!=='all'))].sort());
 export function componentsFor({search='',group='all',project='all'}={}) {

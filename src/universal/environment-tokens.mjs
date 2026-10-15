@@ -4,7 +4,7 @@
  * This is opt-in until a documented, accessible stable release.
  */
 export const APPEARANCES=Object.freeze(['Dawn','Dusk']);
-export const ENVIRONMENT_NAMES=Object.freeze(['Forest','Desert','Aurora','Glacier','Embers']);
+export const ENVIRONMENT_NAMES=Object.freeze(['Forest','Core','Desert','Ocean','Alpine','Storm','Celestial','Aurora','Glacier','Embers']);
 const color=/^#[0-9A-F]{6}(?:[0-9A-F]{2})?$/i;
 export function validateEnvironmentManifest(input){
  if(input?.schemaVersion!==1||!Array.isArray(input.environments)||
@@ -53,6 +53,9 @@ export function environmentCss(source){
    const role=name.startsWith('ambient/')?name.slice(8):name;
    lines.push('  '+prefix+role.replaceAll('/','-')+': '+hexToCss(value)+';');
   }
+  // Selection follows the environment palette without extending legacy colour roles.
+  lines.push('  --md-color-selection-background: var(--md-color-bg-sunken);');
+  lines.push('  --md-color-selection-foreground: var(--md-color-text-primary);');
   lines.push('}','');
  }
  return lines.join('\n');

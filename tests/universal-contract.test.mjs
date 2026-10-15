@@ -15,13 +15,18 @@ test('all 92 families have unique ids and are searchable across disciplines',()=
  assert.ok(componentsFor({project:'verbalis'}).some(x=>x.id==='translation-segment'));
  assert.ok(componentsFor({group:'Feedback & trust'}).some(x=>x.id==='progress-ring'));
 });
-test('Meridian Figma structure preserves Start, 0.5 master collections and native source IDs',()=>{
+test('current Meridian manifest distinguishes active native structure from the historical refactor',()=>{
  assert.equal(snapshot.figma.sourceStartNode,'7:2');
- assert.equal(snapshot.pages.length,26);
- assert.equal(new Set(snapshot.pages.map(x=>x[0])).size,26);
- assert.equal(snapshot.environment.collectionId,'VariableCollectionId:266:34');
+ assert.equal(snapshot.pages.length,6);
+ assert.equal(new Set(snapshot.pages.map(x=>x[0])).size,6);
+ assert.equal(snapshot.environment.collectionId,'VariableCollectionId:302:34');
  assert.equal(snapshot.environment.roleCount,39);
  assert.equal(snapshot.environment.modes.length,10);
+ assert.deepEqual(snapshot.environment.appearance.modes,['Dawn','Dusk']);
+ assert.equal(snapshot.environment.appearance.collectionId,'VariableCollectionId:302:35');
+ assert.equal(snapshot.previousOrganisation.pages.length,26);
+ assert.equal(snapshot.previousOrganisation.environment.collectionId,'VariableCollectionId:266:34');
+ assert.equal(snapshot.material.depth.selection,'Separate lens; frosting is retained');
  assert.equal(snapshot.universal.familyCount,92);
  assert.equal(snapshot.universal.icons.families,80);
  assert.deepEqual(snapshot.universal.icons.styles,['Outline','Filled','Colour','Duotone']);

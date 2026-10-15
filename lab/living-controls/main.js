@@ -6,6 +6,12 @@ import '@fontsource/fraunces/latin-400-italic.css';
 import '../../styles/tokens.css';
 import '../../styles/components.css';
 import './living-controls.css';
+import '../../styles/liquid-glass.css';
+import {initLiquidGlass} from '../../src/universal/liquid-glass.js';
+import {markGlassSurfaces} from '../../src/universal/glass-reference.js';
+
+markGlassSurfaces();
+initLiquidGlass();
 
 // Experimental visual enhancements. Native HTML performs every essential action.
 const effects = document.querySelector('#enable-effects');
