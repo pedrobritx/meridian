@@ -23,7 +23,7 @@ const contentTemplate = JSON.parse(
 );
 const event = JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH));
 const githubToken = process.env.GITHUB_TOKEN;
-const figmaToken = process.env.FIGMA_ACCESS_TOKEN;
+const figmaToken = process.env.FIGMA_GITHUB_CONSTELLATION;
 if (!githubToken) throw new Error("GITHUB_TOKEN is required");
 if (process.env.GITHUB_REPOSITORY !== config.repository)
   throw new Error("Repository mismatch");
@@ -189,7 +189,7 @@ if (event.action === "figma-tokens") {
 } else {
   if (!figmaToken)
     throw new Error(
-      "Set the FIGMA_ACCESS_TOKEN repository secret before enabling design sync",
+      "Set the FIGMA_GITHUB_CONSTELLATION repository secret before enabling design sync",
     );
   const requested = payload.version_id || event.inputs?.version_id;
   if (requested && !/^[\w-]{1,128}$/.test(requested))

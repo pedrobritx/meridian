@@ -16,7 +16,7 @@
   },
   "automaticDelivery": {
     "status": "named-version-delivery-verified; live round-trip activation pending",
-    "requiredGitHubSecret": "FIGMA_ACCESS_TOKEN",
+    "requiredGitHubSecret": "FIGMA_GITHUB_CONSTELLATION",
     "actionsPRCreationPermissionVerified": true,
     "webhookHosted": false,
     "webhookRegistered": false,
