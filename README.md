@@ -1,6 +1,6 @@
 # Meridian
 
-A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. BSDL remains its philosophical foundation; Meridian is the interface method, and BSF concerns the software-building process.
+A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. The Polaris Constitution (historically BSDL) remains its philosophical foundation; Meridian owns interface practice, Axis owns engineering capabilities and Sentinel owns security guidance. Each capability is independently usable; full Polaris governance is explicitly opt-in.
 
 **Figma library 0.5 · Web reference 0.5** — [Live reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
 
@@ -59,3 +59,5 @@ GitHub Pages serves the static website. It cannot receive webhooks. Polling need
 See [docs/validation.md](docs/validation.md). Contrast assertions apply to tested solid surfaces; translucent compositions need context-specific checks. Automated accessibility passes are not a claim of full WCAG certification. Human screen-reader and native Safari/Firefox checks remain part of product adoption.
 
 [Design decisions](docs/decisions.md) · [Contribution guide](CONTRIBUTING.md) · [Font and asset notices](THIRD_PARTY_NOTICES.md)
+
+[Designer capability](agents/designer.md) · [Migration provenance](migration/provenance.json)
