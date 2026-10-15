@@ -1,0 +1,19 @@
+{
+  "source_commit": "4881ea912345079efeaee5fbd0d287680fd5a06e",
+  "history_strategy": "snapshot with immutable original blob provenance; complete lineage retained in Polaris",
+  "records": [
+    {
+      "action": "move",
+      "source_repository": "pedrobritx/polaris",
+      "source_commit": "4881ea912345079efeaee5fbd0d287680fd5a06e",
+      "source_path": "agents/designer.md",
+      "source_blob": "fd1d0ce684486a0f690957fc4d1937b3daa584ee",
+      "destination_repository": "pedrobritx/meridian",
+      "destination_path": "agents/designer.md",
+      "destination_sha256": "94e5bd8f95358038d86b7d64606d2318b61c72d1ec0e43e67871694d82df8914",
+      "adaptation": "Reviewed governance/context/reference reconciliation; original bytes remain recoverable at source commit.",
+      "source_path_reused_for_governance_index": false
+    }
+  ],
+  "local_adapters": "Local validators, tests, essential policy templates and contributor entry points may be independently derived; no runtime cross-repository dependency."
+}
