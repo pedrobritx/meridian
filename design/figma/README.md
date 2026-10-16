@@ -59,7 +59,7 @@ A passing CI suite proves the contract and plugin logic against mocks, **not** a
 
 Autosaves are ignored. This is not an every-keystroke mirror, and a named version does not automatically export native variables on Education plans. The Variables REST API requires a different plan; the development plugin avoids that requirement. Live mode is session-based, not a server-side Figma writer. Exports never merge themselves or generate arbitrary application code.
 
-Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core and themes page. Changing either contract on `main` updates the next website build. Archive `tokens/legacy-0.1.json` is not consumed.
+Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core and themes page. Changing either contract on `main` updates the next website build. Historical 0.1 artifacts live under `archive/0.1/` and are not consumed.
 
 ## Activate
 
