@@ -140,7 +140,7 @@ No unresolved P0 or P1 is allowed for an affected experimental/beta release. No 
 
 **Gate C — 0.7/0.8/0.9:** progressively broaden high-risk coverage and tested platform/AT matrix; incorporate real consuming product pilots when available, and keep each product's release scope separate.
 
-**Gate D — stable 1.0:** relevant WCAG A/AA criteria evaluated without outstanding violations for the claimed scope, no P0/P1, documented remediations and regression tests, full supported platform claims grounded in tests, actual independent accessibility evaluation and scoped report, explicit ethical/BSDL promotion decision, and maintainer sign-off. **If independent evidence is absent, status remains BETA/RESEARCH PENDING—even with green CI.**
+**Gate D — stable 1.0:** relevant WCAG A/AA criteria evaluated without outstanding violations for the claimed scope, no P0/P1, documented remediations and regression tests, full supported platform claims grounded in tests, actual independent accessibility evaluation and scoped report, explicit ethical/Polaris promotion decision, and maintainer sign-off. **If independent evidence is absent, status remains BETA/RESEARCH PENDING—even with green CI.**
 
 ## 11. First execution sprint (tasks, not yet done)
 
@@ -149,7 +149,7 @@ No unresolved P0 or P1 is allowed for an affected experimental/beta release. No 
 3. **Core manual pass:** keyboard and real screen-reader tests for dialog/sheet, combobox/date picker, upload/validation, content editing and status announcements.
 4. **Environment pass:** Forest Dawn/Dusk plus high-contrast-risk Aurora Dusk, Glacier Dawn, Desert Dawn, Embers Dusk; all ten palette modes covered in token automation.
 5. **Three journeys:** run J-DOC, J-LEARN, J-EVIDENCE with synthetic data on any genuinely runnable reference/product demo; write actual observed results.
-6. **Triage and report:** open GitHub issues, record regressions/limitations, complete first milestone report, propose per-experiment `REJECT` / `REVISE` / `LAB ONLY` / `PROMOTION CANDIDATE` decision with BSDL review.
+6. **Triage and report:** open GitHub issues, record regressions/limitations, complete first milestone report, propose per-experiment `REJECT` / `REVISE` / `LAB ONLY` / `PROMOTION CANDIDATE` decision with Polaris review.
 
 The research protocol and issue #12 remain valid; this programme adds an operational *solo-first* evaluation layer without relabelling unperformed independent participant studies as completed.
 

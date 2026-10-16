@@ -1,0 +1,188 @@
+{
+  "base_commit": "18221586768b56c5fd0a6e8dca67f467804de5e5",
+  "scope": "Canonical product naming; immutable original Git objects and extraction provenance remain historical evidence. Source paths use reversible UTF-8 hex. This ledger excludes itself.",
+  "records": [
+    {
+      "action": "M",
+      "source_path_utf8_hex": "524541444d452e6d64",
+      "path": "README.md",
+      "before_sha256": "2003b9a6459b0342f0c956902829bc67089e0e98775da11821d8e1081ed50369",
+      "after_sha256": "c38a3611556518d328f70b3d69c8a287ab6f47c0db8dc8f591e06cc7229bcb81"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "64657369676e2f6669676d612f67656e6572617465642f6368616e6765732e6a736f6e",
+      "path": "design/figma/generated/changes.json",
+      "before_sha256": "c2127c6facb9f8d9b10f695e1337b4cbaa2d9ea92eadf579c2a665a507c21cba",
+      "after_sha256": "370889b634638e8e398dc01518590ecad499d4f3272f9b00c9cd3b822633924e"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "64657369676e2f6669676d612f67656e6572617465642f736e617073686f742e6a736f6e",
+      "path": "design/figma/generated/snapshot.json",
+      "before_sha256": "0ebbdcdec0f73311c49495b50fdbb6555dd4d25247aa2d2b4d09f62d43a8d631",
+      "after_sha256": "d3672c0721612c3a73745b6db1fac919baf379c9beb91c2ed2dc107cf02f277b"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "64657369676e2f6d6572696469616e2f756e6976657273616c2d636f72652d622e6a736f6e",
+      "path": "design/meridian/universal-core-b.json",
+      "before_sha256": "2e7ad123607f4b6ab85587cb2c361c3c2c30d6f00105b7eca9d65400bd43c531",
+      "after_sha256": "6ce3dd3f6230c99431ab4d8c0a5dd53b4b5d9b8985d48eca9e25b7e8e5afaa83"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "64657369676e2f6d6572696469616e2f756e6976657273616c2d70726f6a6563742d7061747465726e732e6a736f6e",
+      "path": "design/meridian/universal-project-patterns.json",
+      "before_sha256": "7c8fe8e85b9445c69ac64577bd7739c163d2bc82d5f9a55602dc6267c7782e61",
+      "after_sha256": "cdc90ae2accf70344be9c66fb2978191457ed9e110561e7519a471209b2dbbab"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "646f63732f6163636573736962696c6974792f6d6572696469616e2d302e362d6576616c756174696f6e2d706c616e2e6d64",
+      "path": "docs/accessibility/meridian-0.6-evaluation-plan.md",
+      "before_sha256": "d25aad00277d1bf3fe72096fe76bcfc5666c7056841257aa9656844fd14b445c",
+      "after_sha256": "4a0472507b1102cb8e37d311208b4321bed8ea17a88c9e421ea97fc6dbf430d1"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "646f63732f6164722f303030312d6d6572696469616e2d6e6578742d70726f746f747970652d66697273742e6d64",
+      "path": "docs/adr/0001-meridian-next-prototype-first.md",
+      "before_sha256": "af18cb9190b46d831522871ba16b0443496fd08850f71b6bc912cb26eeb4e5ff",
+      "after_sha256": "de926db1218a9ca4657b60a0d05af1a7f2b2ecb16812c038f81f28230f3396a2"
+    },
+    {
+      "action": "A",
+      "source_path_utf8_hex": null,
+      "path": "docs/migration/2026-10-15-canonical-identities.md",
+      "before_sha256": null,
+      "after_sha256": "daaaa2227336af02ed0e697d8b3d38642183f90b7d77a46f23ceb511e6b7bc60"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "646f63732f726f61646d61702f302e362d6c6976696e672d6d61747465722e6d64",
+      "path": "docs/roadmap/0.6-living-matter.md",
+      "before_sha256": "032650928bf158e8df455c7950f06ec9516fc84705fe91f2436c7488491982c6",
+      "after_sha256": "3c049a666914c84412bdf18733fb5fb1f09c7d644503e9540f3e375bd33fbe58"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "646f63732f726f61646d61702f70686173652d302d626173656c696e652d323032362d31302d30382e6d64",
+      "path": "docs/roadmap/phase-0-baseline-2026-10-08.md",
+      "before_sha256": "14de3437d50cdb94c62e14480ec97ebe8c19d9f4760f21381243e4c28c6b35e3",
+      "after_sha256": "621783227e0276c82b70149d9716fd9a5e887fc27052bbb69eff9be732408195"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f524541444d452e6d64",
+      "path": "lab/README.md",
+      "before_sha256": "7f58d23caf1ad276cef2b86233dbfc42a1d032c9f8721f3771996dd2ca60e57a",
+      "after_sha256": "5f6a9ae3938cbb93c26af08b635bbaefc7483ef75916137e4967187ca00a8ce8"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f666f726573742d7265666572656e63652f524541444d452e6d64",
+      "path": "lab/forest-reference/README.md",
+      "before_sha256": "8f0492a5f675fea6bb292976db27b1f31fdec053db9a8e576879bea4f3d1966e",
+      "after_sha256": "28fa896cf216b5bad49b650c9bcf80c6aaaff70c8fe748c919708deadde261b2"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f6c6976696e672d636f6e74726f6c732f524541444d452e6d64",
+      "path": "lab/living-controls/README.md",
+      "before_sha256": "9e20db05f37f84704a9a4876a81ece39a15b129d675b645288bcced6a127ed45",
+      "after_sha256": "89af5f32ec8fe06035b270194021e21cec1b66702f773cbffe6c8b031fcd4519"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f6c6976696e672d636f6e74726f6c732f696e6465782e68746d6c",
+      "path": "lab/living-controls/index.html",
+      "before_sha256": "b1fa9bee9dc5ee9d3bd2837673d88b9ed50f770697db22c2b9af8ab2573c480d",
+      "after_sha256": "104a49619bb227666456bf217e917f18b2994f9ede70ceaf8f31a14eb1dde077"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f6c6976696e672d656e7669726f6e6d656e74732f524541444d452e6d64",
+      "path": "lab/living-environments/README.md",
+      "before_sha256": "880fb6e61ead3073c9db4be46b90ab69434f4209bbda7733b1920dc3b92b0972",
+      "after_sha256": "b36fa763577a555622c7c0828b95fbc753c34a438d78d9d87fbbfdcd11c38151"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "6c61622f6c6976696e672d776f726b73706163652f524541444d452e6d64",
+      "path": "lab/living-workspace/README.md",
+      "before_sha256": "0bb9cb4741d4a8d0e87991507cc86dc50760ef78d3c7ee8ca6497e955d1763d6",
+      "after_sha256": "8342c4c53c387079071b9ec3cfa7e2bb8020b1a2b4f78661d67af54490436860"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f6465636973696f6e732f323032362d31302d30382d6576616c756174696f6e2d31322d636f6e736f6c6964617465642e6d64",
+      "path": "research/decisions/2026-10-08-evaluation-12-consolidated.md",
+      "before_sha256": "c9e398c87eda9fbae022ebbd4969a13747248b91311887e53979cef6efb5180f",
+      "after_sha256": "708dc15b68f66d77181fb2054187925bbfc9ce6b0661679493fe62d07fedb4e0"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f66696e64696e67732f323032362d31302d30382d6c6976696e672d6d61747465722d746563686e6963616c2d65766964656e63652e6d64",
+      "path": "research/findings/2026-10-08-living-matter-technical-evidence.md",
+      "before_sha256": "c560ae5b8f36fc8e355f4aaa2452ece9a7e169ec9afd0372b72cebf0ab947cd9",
+      "after_sha256": "24d077f7374e38217fc69870d2a55683464eabf2fff09bbb4a382ebabeee43d5"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f726571756972656d656e74732f666f726573742d66697273742d63726f737377616c6b2e6d64",
+      "path": "research/requirements/forest-first-crosswalk.md",
+      "before_sha256": "98fbc81703e4196365ae6804c17594f9e67be2d68b1b2ac1463a130d73c770a5",
+      "after_sha256": "c20436dc3f5f6c52b83cb1ee2960f1df85f8ebc6e6853cd81debc5cb1a4b50d2"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f737475646965732f6c6976696e672d6d61747465722d666f726d61746976652d70726f746f636f6c2e6d64",
+      "path": "research/studies/living-matter-formative-protocol.md",
+      "before_sha256": "2a9befe79631f8a3219ff2665daedb9b49b8cf4621ede68b829fe91ac869dedf",
+      "after_sha256": "df9595482b47749f72b181de7559857def4f1fc61c4d8f60ff35aca7d64ac23a"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f737475646965732f74656d706c617465732f6c6976696e672d6d61747465722d6f62736572766174696f6e2e6d64",
+      "path": "research/studies/templates/living-matter-observation.md",
+      "before_sha256": "2f21e826e9b14774a3d29264cb7f23d355283e8149bea87a3382bd3d3ca13280",
+      "after_sha256": "e1ab81640385646ed5dca6db556587812933be1999f561c46108302ea62c2cd1"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "72657365617263682f737475646965732f74656d706c617465732f6d6572696469616e2d6163636573736962696c6974792d72656c656173652d7265706f72742e6d64",
+      "path": "research/studies/templates/meridian-accessibility-release-report.md",
+      "before_sha256": "916ca0161dfe81aa737034c3ef9421a1056fff8de6e10bd2ab08b5a489f12bc2",
+      "after_sha256": "60945d7ea7f70e060a7fdb2e2ffeb20fc98e13171fa01cdbb7ad9a0fa75568fe"
+    },
+    {
+      "action": "M",
+      "source_path_utf8_hex": "736372697074732f6669676d612f6c69622e6d6a73",
+      "path": "scripts/figma/lib.mjs",
+      "before_sha256": "dfc27b9e88a14d8816b7942758ee341c85635d1dc300ef6ed9a055696f219191",
+      "after_sha256": "9a7da865baaa0f544d0f61d584c41a495d041f58e6f6a887b75fb16f5ca884ff"
+    },
+    {
+      "action": "A",
+      "source_path_utf8_hex": null,
+      "path": "scripts/figma/product-identities.mjs",
+      "before_sha256": null,
+      "after_sha256": "ebd8216d34febdc1b5d22707a90da1c41972d36c69e6483a7816e0eebf78d9d6"
+    },
+    {
+      "action": "A",
+      "source_path_utf8_hex": null,
+      "path": "scripts/figma/product-identities.test.mjs",
+      "before_sha256": null,
+      "after_sha256": "3aaddeca6b104b90e6f4ff268f330be0ff625e39506441c2d467e05024dc8335"
+    },
+    {
+      "action": "A",
+      "source_path_utf8_hex": null,
+      "path": "tests/product-identities.test.mjs",
+      "before_sha256": null,
+      "after_sha256": "9af0c01e12af6ea8d1586924ea8c2f3a2fcf56c7e02580200c5a12cbbb8973e2"
+    }
+  ]
+}

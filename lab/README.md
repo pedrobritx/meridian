@@ -7,7 +7,7 @@ Meridian Lab is an explicitly experimental design environment for testing materi
 1. Explore expressive, physically intelligible, playful interactions; compare with simpler alternatives.
 2. Keep the baseline Meridian 0.5 reference, Figma IDs and canonical design tokens intact.
 3. Never infer usability from aesthetics alone or present prototypes as proven HCI interventions.
-4. Respect BSDL ethical boundaries: accessibility, autonomy, inclusion, environmental responsibility and human oversight.
+4. Respect Polaris ethical boundaries: accessibility, autonomy, inclusion, environmental responsibility and human oversight.
 5. Require keyboard, touch and reduced-motion/opaque/forced-colour alternatives for relevant interactions.
 6. Use self-contained demos and versioned experiments; avoid premature global motion engine or React API.
 7. Link every experiment to a hypothesis, stated scope, test record and issue.

@@ -1,7 +1,7 @@
 # Meridian Living Matter — Participant observation worksheet
 
-**Template only — leave all fields unfilled until a real consent-based session.**  
-Study protocol: [Living Matter formative protocol](../living-matter-formative-protocol.md)  
+**Template only — leave all fields unfilled until a real consent-based session.**
+Study protocol: [Living Matter formative protocol](../living-matter-formative-protocol.md)
 Research owner: [Issue #12](https://github.com/pedrobritx/meridian/issues/12)
 
 ## Session administration
@@ -27,20 +27,20 @@ Do not store names, contact information, medical diagnoses, video/screen recordi
 
 Duplicate this block per hypothesis/condition. Do not fill missing measures with estimates.
 
-**Hypothesis ID:** LM-H__  
-**Task instructions:**  
-**Prototype condition (e.g. expressive / control):**  
-**Success definition established before task:**  
-**Start/stop criteria and device clock/tool:**  
-**Task completed?** Yes / No / Skipped  
-**Errors and recovery actions:**  
-**Completion time (if valid):**  
-**Observed hesitation, confusion or discomfort (verbatim descriptive):**  
-**User preference or perceived ease (ask separately from timing/error):**  
-**Relevant keyboard/touch/focus/AT behaviour:**  
-**Performance observations and methodology:**  
-**Reasons results may be confounded:**  
-**Participant quote — only if explicitly permitted:**  
+**Hypothesis ID:** LM-H__
+**Task instructions:**
+**Prototype condition (e.g. expressive / control):**
+**Success definition established before task:**
+**Start/stop criteria and device clock/tool:**
+**Task completed?** Yes / No / Skipped
+**Errors and recovery actions:**
+**Completion time (if valid):**
+**Observed hesitation, confusion or discomfort (verbatim descriptive):**
+**User preference or perceived ease (ask separately from timing/error):**
+**Relevant keyboard/touch/focus/AT behaviour:**
+**Performance observations and methodology:**
+**Reasons results may be confounded:**
+**Participant quote — only if explicitly permitted:**
 
 ## Explicit accessibility walkthrough
 
@@ -61,15 +61,15 @@ Each checked item needs supporting test conditions and evidence or should remain
 
 ## Summary, negative evidence and disposition
 
-- **Observed failures and user disagreement:** 
-- **Observed strengths and alternative explanations:** 
-- **Missing audiences, devices, or conditions:** 
-- **Data quality and limitations:** 
+- **Observed failures and user disagreement:**
+- **Observed strengths and alternative explanations:**
+- **Missing audiences, devices, or conditions:**
+- **Data quality and limitations:**
 - **Evidence status:** Speculative / Exploratory / Evidence-supported / Validated for scope
 - **Provisional decision:** Reject / Revise / Retain Lab / Candidate for Design
-- **Scope for any conclusions:** 
-- **Reviewer/BSDL ethics decision (if actually performed):** 
-- **Links to verified notes, CI run, source revision, issue and ADR:** 
+- **Scope for any conclusions:**
+- **Reviewer/Polaris ethics decision (if actually performed):**
+- **Links to verified notes, CI run, source revision, issue and ADR:**
 
 ### Publication gate
 

@@ -17,7 +17,7 @@
 | Release scope | **P** Forest-first reference | First Living Environment candidate is Forest with coherent Dawn/Dusk, representative controls/workspace and shared primitives. Other environment families remain experimental; Forest is not automatically promoted. |
 | Accessibility | **P** Demonstrated validation before stable release | Automated CI is necessary but not sufficient; human tasks and named-device/manual AT checks are gates. |
 | Configurability | **P** Strong defaults, constrained overrides | Accessible invariant contracts are not optional. Applications can supply business semantics/data and controlled appearance choices, not remove focus, keyboard alternatives or readability. |
-| Evaluation closure | **P** Evidence-backed closure | Preference interview may end, but GitHub #12 stays open until recorded human evidence, technical evaluations, BSDL review and explicit experiment-by-experiment dispositions. |
+| Evaluation closure | **P** Evidence-backed closure | Preference interview may end, but GitHub #12 stays open until recorded human evidence, technical evaluations, Polaris review and explicit experiment-by-experiment dispositions. |
 
 ## 2. Evidence ledger: what is known and what is not
 
@@ -35,7 +35,7 @@ As documented in [the 2026-10-08 technical evidence audit](https://github.com/pe
 - Automated checks cover aspects of native tasks, keyboard interaction, motion preferences, viewport configurations, semantics and automated accessibility checks; **they do not demonstrate full WCAG conformance or human usability**.
 - The documented green post-merge CI run is [#37809992919](https://github.com/pedrobritx/meridian/actions/runs/37809992919). Treat this as evidence for that run, not proof of current unexamined configurations.
 - The formative study protocol and observation worksheet exist but do not contain completed, consent-based study findings.
-- Issue #12 is **open**. Participant comparisons, real screen-reader/device testing, composited-glass contrast, representative input/frame measurements and independent BSDL decisions remain pending.
+- Issue #12 is **open**. Participant comparisons, real screen-reader/device testing, composited-glass contrast, representative input/frame measurements and independent Polaris decisions remain pending.
 
 **Evidence hierarchy:** CI/implementation evidence supports technical readiness to study; reported anecdotes generate hypotheses; interview preferences establish desired behaviour; **only appropriate test records support participant-outcome claims**.
 
@@ -157,7 +157,7 @@ Use conventional/effects-disabled comparisons and counterbalanced order when pra
 2. **Behaviour parity gate:** essential tasks work with motion and translucency disabled, with identical authoritative outcomes.
 3. **Clarity gate:** user/task evidence must not show unacceptable loss of recognisability, accuracy or understanding relative to control.
 4. **Performance gate:** representative measurements document frame and input responsiveness under declared conditions; unacceptable regressions block promotion.
-5. **Ethics/BSDL gate:** independent review of autonomy, accessibility, transparency, privacy, preference dominance and non-deceptive status; documented reject/revise/Lab-only/candidate decision per experiment.
+5. **Ethics/Polaris gate:** independent review of autonomy, accessibility, transparency, privacy, preference dominance and non-deceptive status; documented reject/revise/Lab-only/candidate decision per experiment.
 6. **Documentation gate:** negative cases, confounders, limited generalisability, data protection and reviewer decision are recorded. Green CI and this interview alone cannot satisfy closure.
 
 ## 9. Practical next steps — without implementing Meridian
@@ -170,7 +170,7 @@ Use conventional/effects-disabled comparisons and counterbalanced order when pra
 | 4 | Recruit/consent a suitably described formative sample; log anonymous task outcomes using the existing worksheet. | Participant observations, including failures and limitations | Pending |
 | 5 | Complete manual keyboard, screen-reader, contrast/glass, reduced-motion, scrolling and notification-state walkthroughs. | Reproducible device/browser/AT matrix | Pending |
 | 6 | Measure real end-to-end responsiveness and frame consistency on specified hardware; review any animation cost. | Named-hardware technical report | Pending |
-| 7 | Conduct separate BSDL/accessibility/ethics review for LM-01–LM-07 and Forest-first readiness. | Signed/reviewed disposition per experiment | Pending |
+| 7 | Conduct separate Polaris/accessibility/ethics review for LM-01–LM-07 and Forest-first readiness. | Signed/reviewed disposition per experiment | Pending |
 | 8 | Resolve findings, record no-auto-promotion decision, and **only then** assess whether #12 can close and which (if any) components become stable-release candidates. | Evidence-backed issue closure decision and release recommendation | Pending |
 
 ### End state / disposition
@@ -191,4 +191,4 @@ Use conventional/effects-disabled comparisons and counterbalanced order when pra
 - [Living Matter hypothesis registry](https://github.com/pedrobritx/meridian/blob/main/research/hypotheses/living-matter.md)
 - [Participant observation worksheet](https://github.com/pedrobritx/meridian/blob/main/research/studies/templates/living-matter-observation.md)
 - [ADR-0001: prototype-first](https://github.com/pedrobritx/meridian/blob/main/docs/adr/0001-meridian-next-prototype-first.md)
-- [BSDL constitutional framework](https://github.com/pedrobritx/bsdl/blob/main/bsdl/constitution/principles.md)
+- [Polaris constitutional framework](https://github.com/pedrobritx/polaris/blob/031f9b1e5da102f28523699bbafb0d70af89cfda/polaris/constitution/principles.md)

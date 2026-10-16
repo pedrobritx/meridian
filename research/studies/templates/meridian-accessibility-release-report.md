@@ -79,7 +79,7 @@ Research: [#12](https://github.com/pedrobritx/meridian/issues/12)
 - [ ] Automated tests/build/browser checks linked to exact commit.
 - [ ] Opaque and static alternatives proven for expressive material effects in tested scenarios.
 - [ ] **For stable only:** independent consented evaluation evidence and appropriate reviewer sign-off exist.
-- [ ] BSDL promotion decision recorded for affected LM experiments.
+- [ ] Polaris promotion decision recorded for affected LM experiments.
 
 **Proposed decision:** BLOCKED / EXPERIMENTAL / BETA-WITH-DISCLOSED-LIMITATIONS / BETA-ELIGIBLE / STABLE-CANDIDATE / STABLE-APPROVED
 
