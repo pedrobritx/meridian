@@ -1,6 +1,6 @@
 # Meridian
 
-A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. The Polaris Constitution (historically BSDL) remains its philosophical foundation; Meridian owns interface practice, Axis owns engineering capabilities and Sentinel owns security guidance. Each capability is independently usable; full Polaris governance is explicitly opt-in.
+A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. The Polaris Constitution remains its philosophical foundation; Meridian owns interface practice, Axis owns engineering capabilities and Sentinel owns security guidance. Each capability is independently usable; full Polaris governance is explicitly opt-in.
 
 **Figma library 0.5 · Web reference 0.5** — [Live reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
 

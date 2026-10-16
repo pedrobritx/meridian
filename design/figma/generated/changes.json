@@ -25632,9 +25632,10 @@
     },
     {
       "id": "7:61",
-      "name": "BSDL supplies the philosophical foundati",
+      "name": "Polaris supplies the philosophical foundati",
       "type": "TEXT",
-      "hash": "f92e093f4efb1de677d81e27cbc83f5418ca4d3c8107dd0ca8c4cbe907105472"
+      "hash": "f92e093f4efb1de677d81e27cbc83f5418ca4d3c8107dd0ca8c4cbe907105472",
+      "sourceNameUtf8Hex": "4253444c20737570706c69657320746865207068696c6f736f70686963616c20666f756e64617469"
     },
     {
       "id": "66:37",
@@ -28542,9 +28543,10 @@
     },
     {
       "id": "I271:3252;248:66",
-      "name": "Text / Record 001  ·  bsdl + sqn411blocon",
+      "name": "Text / Record 001  ·  polaris + sqn411blocon",
       "type": "TEXT",
-      "hash": "76c2567ae1739c6ea99e6aca59ae6547c602a405c78c91d4600e66d61bfcc6ce"
+      "hash": "76c2567ae1739c6ea99e6aca59ae6547c602a405c78c91d4600e66d61bfcc6ce",
+      "sourceNameUtf8Hex": "54657874202f205265636f7264203030312020c2b720206273646c202b2073716e343131626c6f636f6e"
     },
     {
       "id": "I271:3252;248:67",
@@ -30696,9 +30698,10 @@
     },
     {
       "id": "I271:3467;248:197",
-      "name": "Text / verbalis + bsdl · application owns authoritative data",
+      "name": "Text / verbalis + polaris · application owns authoritative data",
       "type": "TEXT",
-      "hash": "9ae05cd5f60fc948a7f0cd25a19d34a047da2839a2508d1c7cd2dec1b4e850c1"
+      "hash": "9ae05cd5f60fc948a7f0cd25a19d34a047da2839a2508d1c7cd2dec1b4e850c1",
+      "sourceNameUtf8Hex": "54657874202f2076657262616c6973202b206273646c20c2b7206170706c69636174696f6e206f776e7320617574686f72697461746976652064617461"
     },
     {
       "id": "271:3474",
@@ -47004,9 +47007,10 @@
     },
     {
       "id": "248:66",
-      "name": "Text / Record 001  ·  bsdl + sqn411blocon",
+      "name": "Text / Record 001  ·  polaris + sqn411blocon",
       "type": "TEXT",
-      "hash": "607f56fdaae5dbba5864326c088e42836ad82c0467bae185e2168df04a6cb475"
+      "hash": "607f56fdaae5dbba5864326c088e42836ad82c0467bae185e2168df04a6cb475",
+      "sourceNameUtf8Hex": "54657874202f205265636f7264203030312020c2b720206273646c202b2073716e343131626c6f636f6e"
     },
     {
       "id": "248:67",
@@ -47790,9 +47794,10 @@
     },
     {
       "id": "248:197",
-      "name": "Text / verbalis + bsdl · application owns authoritative data",
+      "name": "Text / verbalis + polaris · application owns authoritative data",
       "type": "TEXT",
-      "hash": "39cf32e795c279706e52266f7545546df56d505bed0a94cc6ab23b234c1e3e18"
+      "hash": "39cf32e795c279706e52266f7545546df56d505bed0a94cc6ab23b234c1e3e18",
+      "sourceNameUtf8Hex": "54657874202f2076657262616c6973202b206273646c20c2b7206170706c69636174696f6e206f776e7320617574686f72697461746976652064617461"
     },
     {
       "id": "248:198",
@@ -64469,5 +64474,6 @@
       "hash": "0e1b5cfb30d4cab8961c946865eef5e67340f309e6baa931623d55cd2ba4a074"
     }
   ],
-  "removed": []
+  "removed": [],
+  "nameNormalization": "canonical-product-identities-v1; sourceNameUtf8Hex preserves captured labels; hash and versionId describe the original source"
 }

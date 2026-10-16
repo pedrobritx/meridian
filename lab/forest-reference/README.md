@@ -45,4 +45,4 @@ Real consumers provide classification, authorised event source/type/timestamps, 
 
 Source decisions: [evaluation #12 consolidated](../../research/decisions/2026-10-08-evaluation-12-consolidated.md); [requirements-to-evidence crosswalk](../../research/requirements/forest-first-crosswalk.md); [formative protocol](../../research/studies/living-matter-formative-protocol.md).
 
-LM-01–LM-07 **remain Lab-only**. Do not close [evaluation #12](https://github.com/pedrobritx/meridian/issues/12) or promote Forest to stable Core/Design before actual consented human evidence, manual AT/accessibility review, named-hardware performance measurements, and explicit per-experiment BSDL disposition.
+LM-01–LM-07 **remain Lab-only**. Do not close [evaluation #12](https://github.com/pedrobritx/meridian/issues/12) or promote Forest to stable Core/Design before actual consented human evidence, manual AT/accessibility review, named-hardware performance measurements, and explicit per-experiment Polaris disposition.
