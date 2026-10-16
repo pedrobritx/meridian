@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 2026-10-16
+
+- Describe optional Constellation composition with a declarative discipline manifest.
+- Move unused 0.1 token/inventory snapshots into archive/0.1; preserve stable 0.5 and experimental 0.6 sources.
+- Correct malformed Lab footer markup, remove an empty CSS import and align JSON import attributes to eliminate existing build warnings.
+
+
 ## 0.5 — 8 October 2026 · Purposeful profiles
 
 - Add neutral Core, green Grass and sand/wine Paper organisation, plus repository-informed Parallel (Verbalis CAT), Canvas (NotUX whiteboard) and Gallery (Framio museum). Retain Lexis’s editorial identity; document Ambientis Grass/Terra as a proposal.
