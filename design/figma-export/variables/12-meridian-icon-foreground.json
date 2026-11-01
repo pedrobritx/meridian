@@ -1,0 +1,573 @@
+{
+ "_label": "EXISTING (read from Figma via Plugin API, read-only). valuesByMode = as returned by Figma (aliases kept as aliases). resolvedByMode = DERIVED by following aliases in this export; when an alias crosses into a multi-mode collection the result is keyed by that collection's mode name because the final value depends on the consumer's selected mode there.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "collection": {
+  "id": "VariableCollectionId:321:3894",
+  "name": "Meridian / Icon Foreground",
+  "key": "c3aa78d74fc1725eb6380b26657b7bd16878a912",
+  "defaultModeId": "321:0",
+  "hiddenFromPublishing": false,
+  "remote": false,
+  "modes": [
+   {
+    "modeId": "321:0",
+    "name": "Original"
+   },
+   {
+    "modeId": "321:1",
+    "name": "On primary"
+   },
+   {
+    "modeId": "321:2",
+    "name": "On destructive"
+   },
+   {
+    "modeId": "321:3",
+    "name": "Action"
+   },
+   {
+    "modeId": "321:4",
+    "name": "Disabled"
+   }
+  ]
+ },
+ "variableCount": 2,
+ "variables": [
+  {
+   "id": "VariableID:321:3895",
+   "name": "color/icon/action",
+   "resolvedType": "COLOR",
+   "scopes": [
+    "SHAPE_FILL",
+    "STROKE_COLOR"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--md-icon-action)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Original": {
+     "modeId": "321:0",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/link/default",
+      "id": "VariableID:302:73"
+     }
+    },
+    "On primary": {
+     "modeId": "321:1",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/action/on-primary",
+      "id": "VariableID:302:45"
+     }
+    },
+    "On destructive": {
+     "modeId": "321:2",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/action/on-destructive",
+      "id": "VariableID:302:43"
+     }
+    },
+    "Action": {
+     "modeId": "321:3",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/link/default",
+      "id": "VariableID:302:73"
+     }
+    },
+    "Disabled": {
+     "modeId": "321:4",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/text/disabled",
+      "id": "VariableID:302:99"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Original": {
+     "Forest": {
+      "Dawn": "#235d50",
+      "Dusk": "#a5ddca"
+     },
+     "Core": {
+      "Dawn": "#303030",
+      "Dusk": "#e0e0e0"
+     },
+     "Desert": {
+      "Dawn": "#722f37",
+      "Dusk": "#d4919b"
+     },
+     "Ocean": {
+      "Dawn": "#155a72",
+      "Dusk": "#c4e0e5"
+     },
+     "Alpine": {
+      "Dawn": "#3a536c",
+      "Dusk": "#cddae5"
+     },
+     "Storm": {
+      "Dawn": "#414b66",
+      "Dusk": "#ced7e9"
+     },
+     "Celestial": {
+      "Dawn": "#553d74",
+      "Dusk": "#dfd2ed"
+     },
+     "Aurora": {
+      "Dawn": "#59639c",
+      "Dusk": "#bbc3f3"
+     },
+     "Glacier": {
+      "Dawn": "#176b95",
+      "Dusk": "#8be7ff"
+     },
+     "Embers": {
+      "Dawn": "#94482e",
+      "Dusk": "#ffb78b"
+     }
+    },
+    "On primary": {
+     "Forest": {
+      "Dawn": "#fcfdf9",
+      "Dusk": "#101f26"
+     },
+     "Core": {
+      "Dawn": "#ffffff",
+      "Dusk": "#171717"
+     },
+     "Desert": {
+      "Dawn": "#fcf9f2",
+      "Dusk": "#17130f"
+     },
+     "Ocean": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Alpine": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Storm": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Celestial": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Aurora": {
+      "Dawn": "#ffffff",
+      "Dusk": "#142238"
+     },
+     "Glacier": {
+      "Dawn": "#ffffff",
+      "Dusk": "#122935"
+     },
+     "Embers": {
+      "Dawn": "#ffffff",
+      "Dusk": "#382620"
+     }
+    },
+    "On destructive": {
+     "Forest": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Core": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Desert": {
+      "Dawn": "#fcf9f2",
+      "Dusk": "#17130f"
+     },
+     "Ocean": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Alpine": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Storm": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Celestial": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Aurora": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Glacier": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Embers": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     }
+    },
+    "Action": {
+     "Forest": {
+      "Dawn": "#235d50",
+      "Dusk": "#a5ddca"
+     },
+     "Core": {
+      "Dawn": "#303030",
+      "Dusk": "#e0e0e0"
+     },
+     "Desert": {
+      "Dawn": "#722f37",
+      "Dusk": "#d4919b"
+     },
+     "Ocean": {
+      "Dawn": "#155a72",
+      "Dusk": "#c4e0e5"
+     },
+     "Alpine": {
+      "Dawn": "#3a536c",
+      "Dusk": "#cddae5"
+     },
+     "Storm": {
+      "Dawn": "#414b66",
+      "Dusk": "#ced7e9"
+     },
+     "Celestial": {
+      "Dawn": "#553d74",
+      "Dusk": "#dfd2ed"
+     },
+     "Aurora": {
+      "Dawn": "#59639c",
+      "Dusk": "#bbc3f3"
+     },
+     "Glacier": {
+      "Dawn": "#176b95",
+      "Dusk": "#8be7ff"
+     },
+     "Embers": {
+      "Dawn": "#94482e",
+      "Dusk": "#ffb78b"
+     }
+    },
+    "Disabled": {
+     "Forest": {
+      "Dawn": "#526a63",
+      "Dusk": "#a4bab2"
+     },
+     "Core": {
+      "Dawn": "#606060",
+      "Dusk": "#b0b0b0"
+     },
+     "Desert": {
+      "Dawn": "#6b5f52",
+      "Dusk": "#beb09a"
+     },
+     "Ocean": {
+      "Dawn": "#3a6370",
+      "Dusk": "#c4e0e5"
+     },
+     "Alpine": {
+      "Dawn": "#53677a",
+      "Dusk": "#cddae5"
+     },
+     "Storm": {
+      "Dawn": "#535e74",
+      "Dusk": "#ced7e9"
+     },
+     "Celestial": {
+      "Dawn": "#695677",
+      "Dusk": "#dfd2ed"
+     },
+     "Aurora": {
+      "Dawn": "#56617a",
+      "Dusk": "#b7c4e4"
+     },
+     "Glacier": {
+      "Dawn": "#526f80",
+      "Dusk": "#a8cddf"
+     },
+     "Embers": {
+      "Dawn": "#75625d",
+      "Dusk": "#cab5ac"
+     }
+    }
+   }
+  },
+  {
+   "id": "VariableID:321:3896",
+   "name": "color/icon/content",
+   "resolvedType": "COLOR",
+   "scopes": [
+    "SHAPE_FILL",
+    "STROKE_COLOR"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--md-icon-content)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Original": {
+     "modeId": "321:0",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/text/primary",
+      "id": "VariableID:302:103"
+     }
+    },
+    "On primary": {
+     "modeId": "321:1",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/action/on-primary",
+      "id": "VariableID:302:45"
+     }
+    },
+    "On destructive": {
+     "modeId": "321:2",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/action/on-destructive",
+      "id": "VariableID:302:43"
+     }
+    },
+    "Action": {
+     "modeId": "321:3",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/link/default",
+      "id": "VariableID:302:73"
+     }
+    },
+    "Disabled": {
+     "modeId": "321:4",
+     "alias": {
+      "collection": "Meridian / Environment",
+      "name": "color/text/disabled",
+      "id": "VariableID:302:99"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Original": {
+     "Forest": {
+      "Dawn": "#1c302c",
+      "Dusk": "#ebf4ee"
+     },
+     "Core": {
+      "Dawn": "#202020",
+      "Dusk": "#f5f5f5"
+     },
+     "Desert": {
+      "Dawn": "#1a1612",
+      "Dusk": "#f8f3e8"
+     },
+     "Ocean": {
+      "Dawn": "#173a48",
+      "Dusk": "#f0f9f9"
+     },
+     "Alpine": {
+      "Dawn": "#283a4c",
+      "Dusk": "#f3f8fb"
+     },
+     "Storm": {
+      "Dawn": "#292f42",
+      "Dusk": "#f4f6fd"
+     },
+     "Celestial": {
+      "Dawn": "#342842",
+      "Dusk": "#faf6ff"
+     },
+     "Aurora": {
+      "Dawn": "#202c42",
+      "Dusk": "#f4f5ff"
+     },
+     "Glacier": {
+      "Dawn": "#1b3144",
+      "Dusk": "#f3faff"
+     },
+     "Embers": {
+      "Dawn": "#352c2a",
+      "Dusk": "#fcf1e8"
+     }
+    },
+    "On primary": {
+     "Forest": {
+      "Dawn": "#fcfdf9",
+      "Dusk": "#101f26"
+     },
+     "Core": {
+      "Dawn": "#ffffff",
+      "Dusk": "#171717"
+     },
+     "Desert": {
+      "Dawn": "#fcf9f2",
+      "Dusk": "#17130f"
+     },
+     "Ocean": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Alpine": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Storm": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Celestial": {
+      "Dawn": "#ffffff",
+      "Dusk": "#ffffff"
+     },
+     "Aurora": {
+      "Dawn": "#ffffff",
+      "Dusk": "#142238"
+     },
+     "Glacier": {
+      "Dawn": "#ffffff",
+      "Dusk": "#122935"
+     },
+     "Embers": {
+      "Dawn": "#ffffff",
+      "Dusk": "#382620"
+     }
+    },
+    "On destructive": {
+     "Forest": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Core": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Desert": {
+      "Dawn": "#fcf9f2",
+      "Dusk": "#17130f"
+     },
+     "Ocean": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Alpine": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Storm": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Celestial": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Aurora": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Glacier": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     },
+     "Embers": {
+      "Dawn": "#fcf7f0",
+      "Dusk": "#0e1726"
+     }
+    },
+    "Action": {
+     "Forest": {
+      "Dawn": "#235d50",
+      "Dusk": "#a5ddca"
+     },
+     "Core": {
+      "Dawn": "#303030",
+      "Dusk": "#e0e0e0"
+     },
+     "Desert": {
+      "Dawn": "#722f37",
+      "Dusk": "#d4919b"
+     },
+     "Ocean": {
+      "Dawn": "#155a72",
+      "Dusk": "#c4e0e5"
+     },
+     "Alpine": {
+      "Dawn": "#3a536c",
+      "Dusk": "#cddae5"
+     },
+     "Storm": {
+      "Dawn": "#414b66",
+      "Dusk": "#ced7e9"
+     },
+     "Celestial": {
+      "Dawn": "#553d74",
+      "Dusk": "#dfd2ed"
+     },
+     "Aurora": {
+      "Dawn": "#59639c",
+      "Dusk": "#bbc3f3"
+     },
+     "Glacier": {
+      "Dawn": "#176b95",
+      "Dusk": "#8be7ff"
+     },
+     "Embers": {
+      "Dawn": "#94482e",
+      "Dusk": "#ffb78b"
+     }
+    },
+    "Disabled": {
+     "Forest": {
+      "Dawn": "#526a63",
+      "Dusk": "#a4bab2"
+     },
+     "Core": {
+      "Dawn": "#606060",
+      "Dusk": "#b0b0b0"
+     },
+     "Desert": {
+      "Dawn": "#6b5f52",
+      "Dusk": "#beb09a"
+     },
+     "Ocean": {
+      "Dawn": "#3a6370",
+      "Dusk": "#c4e0e5"
+     },
+     "Alpine": {
+      "Dawn": "#53677a",
+      "Dusk": "#cddae5"
+     },
+     "Storm": {
+      "Dawn": "#535e74",
+      "Dusk": "#ced7e9"
+     },
+     "Celestial": {
+      "Dawn": "#695677",
+      "Dusk": "#dfd2ed"
+     },
+     "Aurora": {
+      "Dawn": "#56617a",
+      "Dusk": "#b7c4e4"
+     },
+     "Glacier": {
+      "Dawn": "#526f80",
+      "Dusk": "#a8cddf"
+     },
+     "Embers": {
+      "Dawn": "#75625d",
+      "Dusk": "#cab5ac"
+     }
+    }
+   }
+  }
+ ]
+}

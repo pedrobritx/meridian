@@ -1,0 +1,3433 @@
+{
+ "_label": "EXISTING (read from Figma via Plugin API, read-only). valuesByMode = as returned by Figma (aliases kept as aliases). resolvedByMode = DERIVED by following aliases in this export; when an alias crosses into a multi-mode collection the result is keyed by that collection's mode name because the final value depends on the consumer's selected mode there.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "collection": {
+  "id": "VariableCollectionId:3:92",
+  "name": "Meridian / Layout",
+  "key": "e739255f4f115b6977da45ffe00955987403321a",
+  "defaultModeId": "3:8",
+  "hiddenFromPublishing": false,
+  "remote": false,
+  "modes": [
+   {
+    "modeId": "3:8",
+    "name": "Grass"
+   },
+   {
+    "modeId": "83:2",
+    "name": "Paper"
+   },
+   {
+    "modeId": "133:2",
+    "name": "Core"
+   },
+   {
+    "modeId": "159:2",
+    "name": "Parallel"
+   },
+   {
+    "modeId": "159:6",
+    "name": "Canvas"
+   },
+   {
+    "modeId": "159:10",
+    "name": "Gallery"
+   }
+  ]
+ },
+ "variableCount": 48,
+ "variables": [
+  {
+   "id": "VariableID:3:159",
+   "name": "spacing/1",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-1)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 4,
+    "Paper": 4,
+    "Core": 4,
+    "Parallel": 4,
+    "Canvas": 4,
+    "Gallery": 4
+   }
+  },
+  {
+   "id": "VariableID:3:160",
+   "name": "spacing/2",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-2)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 8,
+    "Paper": 8,
+    "Core": 8,
+    "Parallel": 8,
+    "Canvas": 8,
+    "Gallery": 8
+   }
+  },
+  {
+   "id": "VariableID:3:161",
+   "name": "spacing/3",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-3)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 12,
+    "Paper": 12,
+    "Core": 12,
+    "Parallel": 12,
+    "Canvas": 12,
+    "Gallery": 12
+   }
+  },
+  {
+   "id": "VariableID:3:162",
+   "name": "spacing/4",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-4)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 16,
+    "Paper": 16,
+    "Core": 16,
+    "Parallel": 16,
+    "Canvas": 16,
+    "Gallery": 16
+   }
+  },
+  {
+   "id": "VariableID:3:163",
+   "name": "spacing/6",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-6)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 24,
+    "Core": 24,
+    "Parallel": 24,
+    "Canvas": 24,
+    "Gallery": 24
+   }
+  },
+  {
+   "id": "VariableID:3:164",
+   "name": "spacing/8",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-8)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 32,
+    "Paper": 32,
+    "Core": 32,
+    "Parallel": 32,
+    "Canvas": 32,
+    "Gallery": 32
+   }
+  },
+  {
+   "id": "VariableID:3:165",
+   "name": "spacing/12",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-12)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 48,
+    "Paper": 48,
+    "Core": 48,
+    "Parallel": 48,
+    "Canvas": 48,
+    "Gallery": 48
+   }
+  },
+  {
+   "id": "VariableID:3:166",
+   "name": "spacing/16",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-16)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/64",
+      "id": "VariableID:42:46"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 64,
+    "Paper": 64,
+    "Core": 64,
+    "Parallel": 64,
+    "Canvas": 64,
+    "Gallery": 64
+   }
+  },
+  {
+   "id": "VariableID:3:167",
+   "name": "spacing/24",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-24)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/96",
+      "id": "VariableID:42:47"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 96,
+    "Paper": 96,
+    "Core": 96,
+    "Parallel": 96,
+    "Canvas": 96,
+    "Gallery": 96
+   }
+  },
+  {
+   "id": "VariableID:3:168",
+   "name": "radius/sm",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-sm)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/24",
+      "id": "VariableID:83:103"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/14",
+      "id": "VariableID:83:104"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/core/radius-sm",
+      "id": "VariableID:134:78"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/parallel/radius/sm",
+      "id": "VariableID:159:120"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/canvas/radius/sm",
+      "id": "VariableID:159:173"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/gallery/radius/sm",
+      "id": "VariableID:159:226"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 14,
+    "Core": 12,
+    "Parallel": 8,
+    "Canvas": 8,
+    "Gallery": 8
+   }
+  },
+  {
+   "id": "VariableID:3:169",
+   "name": "radius/md",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-md)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/24",
+      "id": "VariableID:83:103"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/24",
+      "id": "VariableID:83:103"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/core/radius-md",
+      "id": "VariableID:134:79"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/parallel/radius/md",
+      "id": "VariableID:159:121"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/canvas/radius/md",
+      "id": "VariableID:159:174"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/gallery/radius/md",
+      "id": "VariableID:159:227"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 24,
+    "Core": 16,
+    "Parallel": 12,
+    "Canvas": 16,
+    "Gallery": 12
+   }
+  },
+  {
+   "id": "VariableID:3:170",
+   "name": "radius/lg",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-lg)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "paper/radius/large",
+      "id": "VariableID:83:105"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "number/core/radius-lg",
+      "id": "VariableID:134:80"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/parallel/radius/lg",
+      "id": "VariableID:159:122"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/canvas/radius/lg",
+      "id": "VariableID:159:175"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "project/gallery/radius/lg",
+      "id": "VariableID:159:228"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 32,
+    "Paper": 24,
+    "Core": 24,
+    "Parallel": 16,
+    "Canvas": 18,
+    "Gallery": 16
+   }
+  },
+  {
+   "id": "VariableID:3:171",
+   "name": "radius/full",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-full)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/999",
+      "id": "VariableID:42:48"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 999,
+    "Paper": 999,
+    "Core": 999,
+    "Parallel": 999,
+    "Canvas": 999,
+    "Gallery": 999
+   }
+  },
+  {
+   "id": "VariableID:3:172",
+   "name": "size/control",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-size-control)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 48,
+    "Paper": 48,
+    "Core": 48,
+    "Parallel": 48,
+    "Canvas": 48,
+    "Gallery": 48
+   }
+  },
+  {
+   "id": "VariableID:3:173",
+   "name": "size/icon",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-size-icon)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 24,
+    "Core": 24,
+    "Parallel": 24,
+    "Canvas": 24,
+    "Gallery": 24
+   }
+  },
+  {
+   "id": "VariableID:3:174",
+   "name": "layout/reading",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-layout-reading)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/680",
+      "id": "VariableID:42:49"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 680,
+    "Paper": 680,
+    "Core": 680,
+    "Parallel": 680,
+    "Canvas": 680,
+    "Gallery": 680
+   }
+  },
+  {
+   "id": "VariableID:3:175",
+   "name": "layout/content",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-layout-content)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1200",
+      "id": "VariableID:42:50"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1200,
+    "Paper": 1200,
+    "Core": 1200,
+    "Parallel": 1200,
+    "Canvas": 1200,
+    "Gallery": 1200
+   }
+  },
+  {
+   "id": "VariableID:3:176",
+   "name": "layout/sidebar",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-layout-sidebar)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/244",
+      "id": "VariableID:42:51"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 244,
+    "Paper": 244,
+    "Core": 244,
+    "Parallel": 244,
+    "Canvas": 244,
+    "Gallery": 244
+   }
+  },
+  {
+   "id": "VariableID:3:177",
+   "name": "blur/subtle",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "EFFECT_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-blur-subtle)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 12,
+    "Paper": 12,
+    "Core": 12,
+    "Parallel": 12,
+    "Canvas": 12,
+    "Gallery": 12
+   }
+  },
+  {
+   "id": "VariableID:3:178",
+   "name": "blur/standard",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "EFFECT_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-blur-standard)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 20,
+    "Paper": 20,
+    "Core": 20,
+    "Parallel": 20,
+    "Canvas": 20,
+    "Gallery": 20
+   }
+  },
+  {
+   "id": "VariableID:3:179",
+   "name": "blur/liquid",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "EFFECT_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-blur-liquid)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 32,
+    "Paper": 32,
+    "Core": 32,
+    "Parallel": 32,
+    "Canvas": 32,
+    "Gallery": 32
+   }
+  },
+  {
+   "id": "VariableID:42:63",
+   "name": "spacing/0",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-0)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 0,
+    "Paper": 0,
+    "Core": 0,
+    "Parallel": 0,
+    "Canvas": 0,
+    "Gallery": 0
+   }
+  },
+  {
+   "id": "VariableID:42:65",
+   "name": "spacing/half",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-half)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 2,
+    "Paper": 2,
+    "Core": 2,
+    "Parallel": 2,
+    "Canvas": 2,
+    "Gallery": 2
+   }
+  },
+  {
+   "id": "VariableID:42:66",
+   "name": "spacing/5",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-5)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 20,
+    "Paper": 20,
+    "Core": 20,
+    "Parallel": 20,
+    "Canvas": 20,
+    "Gallery": 20
+   }
+  },
+  {
+   "id": "VariableID:42:67",
+   "name": "spacing/10",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-spacing-10)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/40",
+      "id": "VariableID:42:54"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 40,
+    "Paper": 40,
+    "Core": 40,
+    "Parallel": 40,
+    "Canvas": 40,
+    "Gallery": 40
+   }
+  },
+  {
+   "id": "VariableID:42:68",
+   "name": "radius/none",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-none)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0",
+      "id": "VariableID:42:62"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 0,
+    "Paper": 0,
+    "Core": 0,
+    "Parallel": 0,
+    "Canvas": 0,
+    "Gallery": 0
+   }
+  },
+  {
+   "id": "VariableID:42:69",
+   "name": "radius/xs",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "CORNER_RADIUS"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-radius-xs)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 4,
+    "Paper": 4,
+    "Core": 4,
+    "Parallel": 4,
+    "Canvas": 4,
+    "Gallery": 4
+   }
+  },
+  {
+   "id": "VariableID:42:71",
+   "name": "stroke/default",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "STROKE_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-stroke-default)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1",
+      "id": "VariableID:42:70"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1,
+    "Paper": 1,
+    "Core": 1,
+    "Parallel": 1,
+    "Canvas": 1,
+    "Gallery": 1
+   }
+  },
+  {
+   "id": "VariableID:42:72",
+   "name": "stroke/emphasis",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "STROKE_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-stroke-emphasis)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 2,
+    "Paper": 2,
+    "Core": 2,
+    "Parallel": 2,
+    "Canvas": 2,
+    "Gallery": 2
+   }
+  },
+  {
+   "id": "VariableID:42:73",
+   "name": "focus/width",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "STROKE_FLOAT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-focus-width)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/2",
+      "id": "VariableID:42:64"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 2,
+    "Paper": 2,
+    "Core": 2,
+    "Parallel": 2,
+    "Canvas": 2,
+    "Gallery": 2
+   }
+  },
+  {
+   "id": "VariableID:42:75",
+   "name": "focus/offset",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-focus-offset)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/3",
+      "id": "VariableID:42:74"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 3,
+    "Paper": 3,
+    "Core": 3,
+    "Parallel": 3,
+    "Canvas": 3,
+    "Gallery": 3
+   }
+  },
+  {
+   "id": "VariableID:42:76",
+   "name": "size/touch-min",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-size-touch-min)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 48,
+    "Paper": 48,
+    "Core": 48,
+    "Parallel": 48,
+    "Canvas": 48,
+    "Gallery": 48
+   }
+  },
+  {
+   "id": "VariableID:42:77",
+   "name": "size/icon-small",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-size-icon-small)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 16,
+    "Paper": 16,
+    "Core": 16,
+    "Parallel": 16,
+    "Canvas": 16,
+    "Gallery": 16
+   }
+  },
+  {
+   "id": "VariableID:42:78",
+   "name": "size/icon-medium",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "WIDTH_HEIGHT"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-size-icon-medium)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/20",
+      "id": "VariableID:42:52"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 20,
+    "Paper": 20,
+    "Core": 20,
+    "Parallel": 20,
+    "Canvas": 20,
+    "Gallery": 20
+   }
+  },
+  {
+   "id": "VariableID:42:80",
+   "name": "breakpoint/tablet",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-breakpoint-tablet)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/768",
+      "id": "VariableID:42:79"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 768,
+    "Paper": 768,
+    "Core": 768,
+    "Parallel": 768,
+    "Canvas": 768,
+    "Gallery": 768
+   }
+  },
+  {
+   "id": "VariableID:42:82",
+   "name": "breakpoint/desktop",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-breakpoint-desktop)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1024",
+      "id": "VariableID:42:81"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1024,
+    "Paper": 1024,
+    "Core": 1024,
+    "Parallel": 1024,
+    "Canvas": 1024,
+    "Gallery": 1024
+   }
+  },
+  {
+   "id": "VariableID:42:84",
+   "name": "breakpoint/wide",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-breakpoint-wide)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/1440",
+      "id": "VariableID:42:83"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1440,
+    "Paper": 1440,
+    "Core": 1440,
+    "Parallel": 1440,
+    "Canvas": 1440,
+    "Gallery": 1440
+   }
+  },
+  {
+   "id": "VariableID:42:85",
+   "name": "grid/mobile/columns",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-mobile-columns)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/4",
+      "id": "VariableID:42:39"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 4,
+    "Paper": 4,
+    "Core": 4,
+    "Parallel": 4,
+    "Canvas": 4,
+    "Gallery": 4
+   }
+  },
+  {
+   "id": "VariableID:42:86",
+   "name": "grid/tablet/columns",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-tablet-columns)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/8",
+      "id": "VariableID:42:40"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 8,
+    "Paper": 8,
+    "Core": 8,
+    "Parallel": 8,
+    "Canvas": 8,
+    "Gallery": 8
+   }
+  },
+  {
+   "id": "VariableID:42:87",
+   "name": "grid/desktop/columns",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-desktop-columns)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/12",
+      "id": "VariableID:42:41"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 12,
+    "Paper": 12,
+    "Core": 12,
+    "Parallel": 12,
+    "Canvas": 12,
+    "Gallery": 12
+   }
+  },
+  {
+   "id": "VariableID:42:88",
+   "name": "grid/mobile/gutter",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-mobile-gutter)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 16,
+    "Paper": 16,
+    "Core": 16,
+    "Parallel": 16,
+    "Canvas": 16,
+    "Gallery": 16
+   }
+  },
+  {
+   "id": "VariableID:42:89",
+   "name": "grid/tablet/gutter",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-tablet-gutter)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 24,
+    "Core": 24,
+    "Parallel": 24,
+    "Canvas": 24,
+    "Gallery": 24
+   }
+  },
+  {
+   "id": "VariableID:42:90",
+   "name": "grid/desktop/gutter",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-desktop-gutter)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/24",
+      "id": "VariableID:42:43"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 24,
+    "Paper": 24,
+    "Core": 24,
+    "Parallel": 24,
+    "Canvas": 24,
+    "Gallery": 24
+   }
+  },
+  {
+   "id": "VariableID:42:91",
+   "name": "grid/mobile/margin",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-mobile-margin)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/16",
+      "id": "VariableID:42:42"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 16,
+    "Paper": 16,
+    "Core": 16,
+    "Parallel": 16,
+    "Canvas": 16,
+    "Gallery": 16
+   }
+  },
+  {
+   "id": "VariableID:42:92",
+   "name": "grid/tablet/margin",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-tablet-margin)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/32",
+      "id": "VariableID:42:44"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 32,
+    "Paper": 32,
+    "Core": 32,
+    "Parallel": 32,
+    "Canvas": 32,
+    "Gallery": 32
+   }
+  },
+  {
+   "id": "VariableID:42:93",
+   "name": "grid/desktop/margin",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "GAP"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-grid-desktop-margin)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 48,
+    "Paper": 48,
+    "Core": 48,
+    "Parallel": 48,
+    "Canvas": 48,
+    "Gallery": 48
+   }
+  },
+  {
+   "id": "VariableID:42:95",
+   "name": "opacity/disabled",
+   "resolvedType": "FLOAT",
+   "scopes": [
+    "OPACITY"
+   ],
+   "codeSyntax": {
+    "WEB": "var(--meridian-opacity-disabled)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/48",
+      "id": "VariableID:42:45"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 48,
+    "Paper": 48,
+    "Core": 48,
+    "Parallel": 48,
+    "Canvas": 48,
+    "Gallery": 48
+   }
+  },
+  {
+   "id": "VariableID:42:97",
+   "name": "shape/smoothing",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-shape-smoothing)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "3:8",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    },
+    "Paper": {
+     "modeId": "83:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    },
+    "Core": {
+     "modeId": "133:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:2",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:6",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:10",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/number/0-8",
+      "id": "VariableID:42:96"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 0.800000011920929,
+    "Paper": 0.800000011920929,
+    "Core": 0.800000011920929,
+    "Parallel": 0.800000011920929,
+    "Canvas": 0.800000011920929,
+    "Gallery": 0.800000011920929
+   }
+  }
+ ]
+}
