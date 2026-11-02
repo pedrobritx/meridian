@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — 2026-11-01 · Figma drift reconciled (phase 1)
+
+- Export the current Figma file read-only into `design/figma-export/` with a diff against the repo, and record the 1.0 decisions in ADR-0002 and `docs/roadmap/1.0-library-and-site.md`.
+- Accept Figma's newer motion: hover 120 ms, release 380 ms, reduced 80 ms, pressed scale 0.985 and hover lift 1 px in every profile. Contact stays at 80 ms because Figma's 120 ms fails the immediate-contact check. Profiles no longer differ in press scale or hover lift.
+- Add the Core, Ocean, Alpine, Storm and Celestial environments from Figma, accept the lower glass alpha for Glacier and Embers, keep Desert equal to Paper and keep Aurora's palette (Figma's violet version fails Dawn link contrast on sunken).
+- Gate environments on the full contrast pair set: nine are candidates; Aurora is preview with its failure recorded. Add motion checks and a recorded provenance-override list.
+- Record the reconciliation, the plugin's current inability to read 0.6 collections and the Figma fixes still needed in `docs/migration/2026-11-01-phase-1-drift.md`.
+
 ## Unreleased — 2026-10-16
 
 - Describe optional Constellation composition with a declarative discipline manifest.
