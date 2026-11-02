@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Sync and links repaired (phase 2)
+
+- Fix the plugin's token capture, which failed on the 0.6 collections in the Figma file; capture now reads the 0.5 contract collections only and treats `motion/liquid/*` as internal. Reload the development plugin to use it.
+- Confirm read-only that Figma and `tokens.json` agree on 167 of 168 tokens; motion contact remains the deliberate hold (fix F1).
+- Keep the token provenance ledger exact automatically, in plugin publication PRs and after GitHub edits.
+- Check all 490 referenced Figma node IDs (15 missing, 117 archived), replace 12 archived preview frames, correct the site copy page ID, mark three historical manifests and enforce the link policy in tests and in every named-version export.
+
 ## Unreleased — 2026-11-01 · Figma drift reconciled (phase 1)
 
 - Export the current Figma file read-only into `design/figma-export/` with a diff against the repo, and record the 1.0 decisions in ADR-0002 and `docs/roadmap/1.0-library-and-site.md`.
