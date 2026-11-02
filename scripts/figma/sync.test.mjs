@@ -47,7 +47,7 @@ async function installMock() {
     if (url.includes("/files/") && url.endsWith("/versions"))
       return response({
         versions: [
-          { id: "v2", label: "Approved", created_at: "2026-10-06T12:00:00Z" },
+          { id: "v2", label: "Approved", description: "Feature: refine <b>buttons</b>\nIssue #43", created_at: "2026-10-06T12:00:00Z" },
         ],
       });
     if (url.includes("api.figma.com/v1/files/"))
@@ -358,6 +358,20 @@ test("named-version exports write one SVG per symbol variant and skip unsafe ren
   assert.equal(index.count, 1);
   assert.deepEqual(index.missing, ["449:3"]);
   assert.ok(calls.some((call) => call.url.includes("format=svg") && call.url.includes("version=v2")));
+});
+
+test("named-version exports record the version description as a changelog-ready note", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const note = tree.tree.find((entry) => entry.path.endsWith("release-note.md")).content;
+  assert.match(note, /^## Figma · Approved · 2026-10-06/);
+  assert.match(note, /Feature: refine  b buttons \/b \nIssue #43/);
+  assert.match(note, /Named version v2\./);
+  const changes = JSON.parse(tree.tree.find((entry) => entry.path.endsWith("changes.json")).content);
+  assert.match(changes.description, /Feature: refine/);
+  const pr = calls.find((call) => call.url.endsWith("/pulls") && call.method === "POST").body;
+  assert.match(pr.body, /Version notes: Feature: refine/);
+  assert.doesNotMatch(pr.body, /<b>/);
 });
 
 test("named-version exports refresh the Figma link status from the file document", () => {

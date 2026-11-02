@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Release notes from named versions (phase 6, second increment)
+
+- Turn each named Figma version's description into release notes: shown in the export issue and PR, stored in `changes.json`, and written as a changelog-ready `release-note.md`. `design/figma/README.md` gives a three-line description template.
+
 ## Unreleased — 2026-11-02 · Component pages (phase 5, second increment)
 
 - Give every Figma library component its own page on the website, with Overview, Specs and Guidelines tabs. Guidelines come from `design/meridian/components.json` where they exist (28 components) and say plainly when they have not been written yet.
