@@ -19,7 +19,10 @@ test('six profiles resolve purpose-specific shape, typography and semantic roles
   assert.equal(bundle.modes.PaperDawn['typography/button/family'].value,'JetBrains Mono')
   assert.equal(bundle.modes.Dawn['radius/sm'].value, 24)
   assert.equal(bundle.modes.PaperDawn['radius/sm'].value, 14)
-  assert.ok(Math.abs(bundle.modes.PaperDusk['motion/scale/pressed'].value - 0.99) < 1e-6)
+  // Since the 2026-11-01 drift reconciliation every profile shares Figma's liquid press scale
+  // (docs/migration/2026-11-01-phase-1-drift.md); profiles still differ in easing, shape and type.
+  for (const p of profiles) for (const mode of [p.light,p.dark])
+    assert.ok(Math.abs(bundle.modes[mode]['motion/scale/pressed'].value - 0.985) < 1e-6, mode)
   assert.notDeepEqual(
     bundle.modes.Dawn['color/action/primary'],
     bundle.modes.PaperDawn['color/action/primary'],

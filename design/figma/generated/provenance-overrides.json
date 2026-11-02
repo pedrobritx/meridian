@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Token values that intentionally differ from the native provenance capture in figma-source.json. Each entry must still differ from that capture; remove it once a fresh capture contains the value.",
+  "capture": "design/figma/generated/figma-source.json (captured 2026-10-08)",
+  "record": "docs/migration/2026-11-01-phase-1-drift.md",
+  "overrides": [
+    {
+      "token": "motion/duration/hover",
+      "modes": "all",
+      "value": 120,
+      "captured": "140",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:101 → motion/liquid/duration/feedback (VariableID:383:1849)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    },
+    {
+      "token": "motion/duration/release",
+      "modes": "all",
+      "value": 380,
+      "captured": "220",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:103 → motion/liquid/duration/settle (VariableID:383:1853)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    },
+    {
+      "token": "motion/duration/reduced",
+      "modes": "all",
+      "value": 80,
+      "captured": "0",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:106 → motion/liquid/duration/reduced (VariableID:383:1855)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    },
+    {
+      "token": "motion/scale/pressed",
+      "modes": "all",
+      "value": 0.9850000143051147,
+      "captured": "0.98 Grass, 0.99 Paper, 1 Core and project profiles",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:108 → motion/liquid/scale/pressed (VariableID:383:1863)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    },
+    {
+      "token": "motion/translate/hover",
+      "modes": "all",
+      "value": 1,
+      "captured": "2 Grass and Paper, 0 Core and project profiles",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:109 → motion/liquid/translate/hover (VariableID:383:1865)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    }
+  ]
+}

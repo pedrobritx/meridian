@@ -9,9 +9,22 @@ const config = await read('../../design/figma/config.json')
 const bundle = await read('../../design/figma/generated/tokens.json')
 const source = await read('../../design/figma/generated/figma-source.json')
 
-test('canonical tokens exactly match the captured native Figma aliases and modes', () => {
+const overrides = await read('../../design/figma/generated/provenance-overrides.json')
+
+test('canonical tokens match the captured native Figma aliases and modes, plus recorded overrides', () => {
   const variables = source.collections.flatMap(c => c.variables.map(v => ({...v,variableCollectionId:c.id,resolvedType:v.type,valuesByMode:v.values})))
-  assert.deepEqual(captureNativeTokens(source.collections,variables),bundle)
+  const captured = captureNativeTokens(source.collections,variables)
+  assert.equal(overrides.schemaVersion, 1)
+  for (const o of overrides.overrides) {
+    assert.equal(o.modes, 'all', o.token)
+    assert.ok(o.source && o.decision, 'Override needs a source and a decision: ' + o.token)
+    for (const mode of Object.values(captured.modes)) {
+      assert.ok(mode[o.token], 'Override targets an existing token: ' + o.token)
+      assert.notDeepEqual(mode[o.token].value, o.value, 'Stale override, remove it: ' + o.token)
+      mode[o.token] = { ...mode[o.token], value: o.value }
+    }
+  }
+  assert.deepEqual(captured,bundle)
 })
 
 test('committed CSS is reproducible from the validated token snapshot', async () => {
