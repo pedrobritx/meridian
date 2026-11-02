@@ -11,6 +11,8 @@ const routes = [
   "environments",
   "library",
   "changelog",
+  "component/5-22",
+  "component/510-2280",
 ];
 for (const profile of ["core", "grass", "paper", "parallel", "canvas", "gallery"])
   for (const environment of ["dawn", "dusk"])
@@ -144,4 +146,19 @@ test("glass buttons support keyboard activation and solid preference fallbacks",
   expect(await glass.evaluate(el=>getComputedStyle(el).backgroundColor)).toBe(await opaque.evaluate(el=>getComputedStyle(el).backgroundColor));
   await page.emulateMedia({forcedColors:'active'});
   expect(await glass.evaluate(el=>getComputedStyle(el).backdropFilter)).toBe('none');
+});
+
+test("component pages open from the Figma library and their tabs work by keyboard", async ({ page }) => {
+  await page.goto("#library");
+  await page.getByRole("link", { name: "Details for Button", exact: true }).click();
+  await expect(page.locator("main h1")).toHaveText("Button");
+  await expect(page.locator('nav [data-page="library"]')).toHaveAttribute("aria-current", "page");
+  await page.getByRole("tab", { name: "Overview" }).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tab", { name: "Specs" })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("rowheader", { name: "Style" })).toBeVisible();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tabpanel")).toContainText("Written guidance for this component has not been added yet.");
+  await page.goto("#component/999-1");
+  await expect(page.locator("main h1")).toHaveText("Component not found.");
 });

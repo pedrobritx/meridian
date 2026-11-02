@@ -32,3 +32,4 @@ code,.code-block{font-family:var(--md-font-code),monospace}
 .env-strip{display:grid;grid-template-columns:repeat(6,1fr);height:40px;border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-sm);overflow:hidden}
 .env-checks{margin:16px 0 0;padding-left:20px;color:var(--md-color-text-secondary)}
 .changelog h2{margin-top:40px}.changelog-list li{margin:8px 0}.changelog code{overflow-wrap:anywhere}
+.library-links{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 0}.component-shot{border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-md);margin:24px 0 16px}.component-shot img{max-height:420px}

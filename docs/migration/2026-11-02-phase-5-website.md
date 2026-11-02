@@ -25,6 +25,6 @@ The reorganisation map now records each component's group (`componentGroups`), s
 ## Not yet done (PROPOSED next increments)
 
 - **Philosophy pages:** these need your own writing, which I haven't attempted.
-- **Component pages with tabs** (Overview, Specs, Guidelines, Accessibility, Code): this needs written guidance per component.
+- **Component pages, Accessibility and Code tabs:** the second increment (`site/phase-5-component-pages`) adds a page per component at `#component/<node-id>` with Overview, Specs and Guidelines tabs. Guidelines reuse `design/meridian/components.json` for 28 components. Accessibility and Code tabs need written guidance per component.
 - **Website file in Figma:** waiting for phase 4.
 - **Status labels:** on the site, "Candidate" means eligible for stable; no component has had its Definition of ready review yet.

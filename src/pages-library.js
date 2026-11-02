@@ -5,6 +5,7 @@ import environments from '../design/meridian/living-environments.json';
 import changelog from '../CHANGELOG.md?raw';
 import {environmentContrastPairs} from './universal/environment-tokens.mjs';
 import {markdown} from './markdown.js';
+import recipes from '../design/meridian/components.json';
 
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const intro=(label,title,description)=>`<p class="eyebrow">${label}</p><h1>${title}</h1><p class="lede">${description}</p>`;
@@ -20,7 +21,7 @@ function componentCard(c){
 <div class="library-shot"><img src="${shot(c.screenshot)}" alt="${escape(c.name)}, as rendered in Figma" loading="lazy"></div>
 <div class="library-body"><h3 id="c-${c.id.replace(':','-')}">${escape(c.name)}</h3><p class="library-meta">${badge(c.status)} <span>${escape(c.kind)} · ${c.variants} ${c.variants===1?'variant':'variants'}</span></p>
 ${variants.length?`<p class="library-props"><strong>Variants</strong> ${variants.join('; ')}</p>`:''}${other.length?`<p class="library-props"><strong>Properties</strong> ${other.join(', ')}</p>`:''}
-<a class="md-link" href="${escape(c.figma)}">Open in Figma <span class="sr-only">(${escape(c.name)})</span>↗</a></div></article>`;
+<p class="library-links"><a class="md-link" href="#component/${c.id.replace(':','-')}">Details <span class="sr-only">for ${escape(c.name)}</span></a> <a class="md-link" href="${escape(c.figma)}">Open in Figma <span class="sr-only">(${escape(c.name)})</span>↗</a></p></div></article>`;
 }
 
 function contrastSummary(modes){
@@ -41,7 +42,24 @@ ${e.mood?`<p class="note">${escape(e.mood)}</p>`:''}<p class="library-meta">${es
 ${e.knownContrastFailures.length?`<p class="library-props"><strong>Known failure</strong> ${e.knownContrastFailures.map(escape).join('; ')}</p>`:''}</article>`;
 }
 
+const allComponents=library.groups.flatMap(g=>g.components.map(c=>({...c,group:g.name})));
+const tab=(id,label,selected)=>`<button role="tab" aria-selected="${selected}" id="tab-${id}" aria-controls="panel-${id}" tabindex="${selected?0:-1}">${label}</button>`;
+const panel=(id,html,selected)=>`<div role="tabpanel" id="panel-${id}" aria-labelledby="tab-${id}" tabindex="0"${selected?'':' hidden'}>${html}</div>`;
+function componentPage(arg=''){
+  const c=allComponents.find(x=>x.id===arg.replace('-',':'));
+  if(!c)return `${intro('FIGMA LIBRARY','Component not found.','This link does not match a component in the current library.')}<p><a class="md-link" href="#library">Back to the Figma library</a></p>`;
+  const recipe=recipes.find(r=>r.name===c.name);
+  const overview=`<div class="library-shot component-shot"><img src="${shot(c.screenshot)}" alt="${escape(c.name)}, as rendered in Figma"></div><p class="library-meta">${badge(c.status)} <span>${escape(c.group)} · ${escape(c.kind)} · ${c.variants} ${c.variants===1?'variant':'variants'}</span></p><p><a class="md-link" href="${escape(c.figma)}">Open ${escape(c.name)} in Figma ↗</a></p>`;
+  const specs=c.properties.length?`<div class="table-scroll"><table class="adoption-table"><caption class="sr-only">${escape(c.name)} properties</caption><thead><tr><th scope="col">Property</th><th scope="col">Kind</th><th scope="col">Options</th></tr></thead><tbody>${c.properties.map(p=>`<tr><th scope="row">${escape(p.name)}</th><td>${escape(p.kind)}</td><td>${p.options?p.options.map(escape).join(', '):'None'}</td></tr>`).join('')}</tbody></table></div>`:'<p>This component has no configurable properties.</p>';
+  const guidance=recipe?`<p>${escape(recipe.use)}</p><p class="library-props"><strong>States</strong> ${recipe.states.map(escape).join(', ')}</p><p class="note">From <code>design/meridian/components.json</code>.</p>`:'<p>Written guidance for this component has not been added yet.</p>';
+  return `${intro('FIGMA LIBRARY / '+escape(c.group.toUpperCase()),escape(c.name),c.status==='Preview'?'Preview: this component may still change.':'Candidate for stable, pending its Definition of ready review.')}
+<div class="md-tabs" role="tablist" aria-label="${escape(c.name)} documentation">${tab('overview','Overview',true)}${tab('specs','Specs',false)}${tab('guidelines','Guidelines',false)}</div>
+${panel('overview',overview,true)}${panel('specs',specs,false)}${panel('guidelines',guidance,false)}
+<p class="note">Accessibility and code tabs follow once each component has written guidance. <a class="md-link" href="#library">Back to the Figma library</a></p>`;
+}
+
 export const pages={
+ component:componentPage,
  library:()=>`${intro('FIGMA LIBRARY / 62 COMPONENTS','Everything in the library, <em>in one place.</em>','Every component and component set in the Meridian Figma file, grouped by purpose. Images are rendered by Figma; open any item to inspect its variants.')}
 <div class="md-alert"><span>${escape(library.statusRule)}</span></div>
 <p class="library-index">${library.groups.map(g=>`${escape(g.name)} · ${g.components.length}`).join(' &nbsp;/&nbsp; ')}</p>
