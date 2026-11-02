@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Symbol SVG export (phase 6, first increment)
+
+- Export one SVG per variant of every `Symbol / …` component set at each named Figma version, into `design/figma-export/icons/svg/`, with an index of anything Figma could not render. Unsafe SVG content is rejected.
+
 ## Unreleased — 2026-11-02 · Website pages from the library (phase 5, first increment)
 
 - Add Environments, Figma library and Changelog pages to the website, built from the committed Figma export, the environment manifest and this changelog. All ten environments show status and contrast; all 62 Figma components appear in seven purpose groups with their Figma render and a link into Figma.

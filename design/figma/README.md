@@ -130,3 +130,16 @@ Tests execute the actual export/sync code with mocked HTTP and native provenance
 `generated/figma-source.json` is a separately captured native alias/style provenance snapshot. Token-only publication does not refresh it. [Profile configuration](../meridian/profiles.md) and [product adoption](../meridian/integration.md) explain the design/runtime boundaries.
 
 Pending bot exports are checked for duplicate delivery. The plugin compares against `main`; unmerged review changes are not yet website releases. If `main` advances independently while an export is pending, the workflow stops and requires the pending PR to be resolved before further exports. If PR creation fails after an export commit, rerun to recover the existing draft PR. To disable delivery, deactivate the webhook and disable this repository's workflow.
+
+## What each named version now refreshes (2026-11-02)
+
+Saving a named version in Figma still produces the accumulating draft PR on `design/figma-sync`. That PR now also carries:
+
+- **`design/figma/links.json`:** the status of every Figma node ID the repo references. `tests/figma-links.test.mjs` fails the PR if a preview frame moves to an archive page, or if any referenced node disappears.
+- **`design/figma-export/icons/svg/<symbol>/<variant>.svg`:** one SVG per variant of every `Symbol / …` component set outside archive pages, rendered by Figma at that version. `index.json` lists the files and any variants Figma could not render. SVGs that contain scripts, event handlers or foreign objects are rejected.
+
+A plugin token publication also rewrites `generated/provenance-overrides.json`, the ledger of token values newer than the native capture in `generated/figma-source.json`. After a GitHub-side token edit, run:
+
+```
+node scripts/build-provenance-overrides.mjs "<source>" "<decision>"
+```
