@@ -1,0 +1,1387 @@
+{
+ "_label": "EXISTING (read from Figma, Components page 3:208). Top-level component sets and standalone components only; variant COMPONENT nodes inside sets are counted in nv.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "page": {
+  "id": "3:208",
+  "name": "Components",
+  "componentNodesIncludingVariants": 402
+ },
+ "count": 62,
+ "items": [
+  {
+   "id": "5:177",
+   "t": "COMP",
+   "name": "Alert",
+   "in": "Components Overview",
+   "props": {
+    "Message#5:93": {
+     "t": "TEXT",
+     "d": "No information is sent or stored in this example."
+    }
+   }
+  },
+  {
+   "id": "43:148",
+   "t": "SET",
+   "name": "Link",
+   "in": "Components Overview",
+   "nv": 8,
+   "props": {
+    "Label#43:16": {
+     "t": "TEXT",
+     "d": "Explore the foundations"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error",
+      "Visited"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "43:132"
+  },
+  {
+   "id": "272:287",
+   "t": "SET",
+   "name": "Universal / Scroll view",
+   "in": "Components Overview",
+   "nv": 2,
+   "props": {
+    "Label#272:44": {
+     "t": "TEXT",
+     "d": "Scroll view"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:274"
+  },
+  {
+   "id": "272:301",
+   "t": "SET",
+   "name": "Universal / Page indicator",
+   "in": "Components Overview",
+   "nv": 2,
+   "props": {
+    "Label#272:47": {
+     "t": "TEXT",
+     "d": "Page indicator"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:288"
+  },
+  {
+   "id": "272:329",
+   "t": "SET",
+   "name": "Universal / Image well",
+   "in": "Components Overview",
+   "nv": 4,
+   "props": {
+    "Label#272:52": {
+     "t": "TEXT",
+     "d": "Image well"
+    },
+    "State": {
+     "v": [
+      "Empty",
+      "Selected",
+      "Loading",
+      "Error"
+     ],
+     "d": "Empty"
+    }
+   },
+   "def": "272:302"
+  },
+  {
+   "id": "44:1383",
+   "t": "SET",
+   "name": "Header",
+   "in": "Bars",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1304"
+  },
+  {
+   "id": "45:2589",
+   "t": "SET",
+   "name": "Banner",
+   "in": "Bars",
+   "nv": 5,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2547"
+  },
+  {
+   "id": "272:95",
+   "t": "SET",
+   "name": "Universal / Menu bar",
+   "in": "Bars",
+   "nv": 2,
+   "props": {
+    "Label#272:11": {
+     "t": "TEXT",
+     "d": "Menu bar"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:82"
+  },
+  {
+   "id": "5:22",
+   "t": "SET",
+   "name": "Button",
+   "in": "All Buttons",
+   "nv": 28,
+   "props": {
+    "Label#5:0": {
+     "t": "TEXT",
+     "d": "Continue"
+    },
+    "Show icon#5:21": {
+     "t": "BOOLEAN",
+     "d": false
+    },
+    "Icon#5:42": {
+     "t": "INSTANCE_SWAP",
+     "d": "4:18"
+    },
+    "Style": {
+     "v": [
+      "Primary",
+      "Secondary",
+      "Quiet",
+      "Destructive"
+     ],
+     "d": "Primary"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Disabled",
+      "Loading",
+      "Pressed",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "5:2"
+  },
+  {
+   "id": "43:253",
+   "t": "SET",
+   "name": "Button group",
+   "in": "Button Groups",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "43:194"
+  },
+  {
+   "id": "43:71",
+   "t": "SET",
+   "name": "Icon button",
+   "in": "Icon Buttons",
+   "nv": 7,
+   "props": {
+    "Icon#43:7": {
+     "t": "INSTANCE_SWAP",
+     "d": "4:18"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "43:42"
+  },
+  {
+   "id": "44:846",
+   "t": "SET",
+   "name": "Radio",
+   "in": "Radio Button",
+   "nv": 14,
+   "props": {
+    "Selected": {
+     "v": [
+      "Off",
+      "On"
+     ],
+     "d": "Off"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:815"
+  },
+  {
+   "id": "23:323",
+   "t": "SET",
+   "name": "Segmented control",
+   "in": "Segment Buttons",
+   "nv": 3,
+   "props": {
+    "Selected": {
+     "v": [
+      "Overview",
+      "Materials",
+      "Motion"
+     ],
+     "d": "Overview"
+    }
+   },
+   "def": "23:302"
+  },
+  {
+   "id": "272:357",
+   "t": "SET",
+   "name": "Universal / Split button",
+   "in": "Split Buttons",
+   "nv": 4,
+   "props": {
+    "Label#272:57": {
+     "t": "TEXT",
+     "d": "Split button"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Disabled",
+      "Loading"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:330"
+  },
+  {
+   "id": "5:171",
+   "t": "COMP",
+   "name": "Card / Content",
+   "in": "Cards",
+   "props": {
+    "Title#5:91": {
+     "t": "TEXT",
+     "d": "Make the next step clear."
+    },
+    "Body#5:92": {
+     "t": "TEXT",
+     "d": "Group related information, with a focused action."
+    }
+   }
+  },
+  {
+   "id": "45:1676",
+   "t": "SET",
+   "name": "Card / Stateful",
+   "in": "Cards",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1632"
+  },
+  {
+   "id": "272:54",
+   "t": "SET",
+   "name": "Universal / Carousel",
+   "in": "Carousel",
+   "nv": 3,
+   "props": {
+    "Label#272:3": {
+     "t": "TEXT",
+     "d": "Carousel"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Disabled"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:34"
+  },
+  {
+   "id": "5:133",
+   "t": "SET",
+   "name": "Choice",
+   "in": "Checkbox",
+   "nv": 4,
+   "props": {
+    "Label#5:81": {
+     "t": "TEXT",
+     "d": "Keep my reading place"
+    },
+    "Kind": {
+     "v": [
+      "Checkbox",
+      "Switch"
+     ],
+     "d": "Checkbox"
+    },
+    "Selected": {
+     "v": [
+      "False",
+      "True"
+     ],
+     "d": "False"
+    }
+   },
+   "def": "5:129"
+  },
+  {
+   "id": "44:754",
+   "t": "SET",
+   "name": "Checkbox",
+   "in": "Checkbox",
+   "nv": 21,
+   "props": {
+    "Selected": {
+     "v": [
+      "Off",
+      "On",
+      "Mixed"
+     ],
+     "d": "Off"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:723"
+  },
+  {
+   "id": "5:151",
+   "t": "SET",
+   "name": "Badge",
+   "in": "Chips",
+   "nv": 4,
+   "props": {
+    "Label#5:86": {
+     "t": "TEXT",
+     "d": "Status"
+    },
+    "Intent": {
+     "v": [
+      "Success",
+      "Warning",
+      "Error",
+      "Info"
+     ],
+     "d": "Success"
+    }
+   },
+   "def": "5:147"
+  },
+  {
+   "id": "45:1767",
+   "t": "SET",
+   "name": "Badge / Tag",
+   "in": "Chips",
+   "nv": 3,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1752"
+  },
+  {
+   "id": "272:385",
+   "t": "SET",
+   "name": "Universal / Status pill",
+   "in": "Chips",
+   "nv": 4,
+   "props": {
+    "Label#272:62": {
+     "t": "TEXT",
+     "d": "Status pill"
+    },
+    "State": {
+     "v": [
+      "Neutral",
+      "Success",
+      "Warning",
+      "Error"
+     ],
+     "d": "Neutral"
+    }
+   },
+   "def": "272:358"
+  },
+  {
+   "id": "44:1081",
+   "t": "SET",
+   "name": "Date picker",
+   "in": "Date Pickers",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1010"
+  },
+  {
+   "id": "64:527",
+   "t": "COMP",
+   "name": "Calendar panel",
+   "in": "Date Pickers"
+  },
+  {
+   "id": "272:193",
+   "t": "SET",
+   "name": "Universal / Date range picker",
+   "in": "Date Pickers",
+   "nv": 4,
+   "props": {
+    "Label#272:29": {
+     "t": "TEXT",
+     "d": "Date range picker"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Disabled",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:166"
+  },
+  {
+   "id": "45:1252",
+   "t": "SET",
+   "name": "Pagination",
+   "in": "Lists",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1159"
+  },
+  {
+   "id": "45:1535",
+   "t": "SET",
+   "name": "Data table",
+   "in": "Lists",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1474"
+  },
+  {
+   "id": "45:1813",
+   "t": "SET",
+   "name": "Avatar",
+   "in": "Lists",
+   "nv": 3,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1801"
+  },
+  {
+   "id": "45:1888",
+   "t": "SET",
+   "name": "Accordion",
+   "in": "Lists",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1843"
+  },
+  {
+   "id": "45:2109",
+   "t": "SET",
+   "name": "List",
+   "in": "Lists",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1994"
+  },
+  {
+   "id": "85:1112",
+   "t": "SET",
+   "name": "Meridian / List item",
+   "in": "Lists",
+   "nv": 7,
+   "props": {
+    "Label#85:7": {
+     "t": "TEXT",
+     "d": "Natural rhythm"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "85:1077"
+  },
+  {
+   "id": "272:259",
+   "t": "SET",
+   "name": "Universal / Collection grid",
+   "in": "Lists",
+   "nv": 3,
+   "props": {
+    "Label#272:38": {
+     "t": "TEXT",
+     "d": "Collection grid"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Selected",
+      "Loading"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:230"
+  },
+  {
+   "id": "272:273",
+   "t": "SET",
+   "name": "Universal / Column browser",
+   "in": "Lists",
+   "nv": 2,
+   "props": {
+    "Label#272:41": {
+     "t": "TEXT",
+     "d": "Column browser"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:260"
+  },
+  {
+   "id": "45:2726",
+   "t": "SET",
+   "name": "Spinner",
+   "in": "Loading Indicator",
+   "nv": 3,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Loading",
+      "Reduced motion"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2717"
+  },
+  {
+   "id": "45:2767",
+   "t": "SET",
+   "name": "Skeleton",
+   "in": "Loading Indicator",
+   "nv": 3,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Loading",
+      "Reduced motion"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2752"
+  },
+  {
+   "id": "45:2677",
+   "t": "SET",
+   "name": "Progress bar",
+   "in": "Progress Indicator",
+   "nv": 4,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Loading",
+      "Error",
+      "Complete"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2658"
+  },
+  {
+   "id": "272:229",
+   "t": "SET",
+   "name": "Universal / Circular progress",
+   "in": "Progress Indicator",
+   "nv": 4,
+   "props": {
+    "Label#272:34": {
+     "t": "TEXT",
+     "d": "Circular progress"
+    },
+    "State": {
+     "v": [
+      "Determinate",
+      "Indeterminate",
+      "Complete",
+      "Error"
+     ],
+     "d": "Determinate"
+    }
+   },
+   "def": "272:194"
+  },
+  {
+   "id": "5:187",
+   "t": "COMP",
+   "name": "Dialog",
+   "in": "Dialogues",
+   "props": {
+    "Title#5:96": {
+     "t": "TEXT",
+     "d": "Keep your place."
+    },
+    "Body#5:97": {
+     "t": "TEXT",
+     "d": "Use a native dialog. Escape closes it; focus returns to the opener."
+    }
+   }
+  },
+  {
+   "id": "45:2339",
+   "t": "SET",
+   "name": "Dialog",
+   "in": "Dialogues",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2267"
+  },
+  {
+   "id": "272:55",
+   "t": "COMP",
+   "name": "Universal / Divider",
+   "in": "Divider",
+   "props": {
+    "Label#272:4": {
+     "t": "TEXT",
+     "d": "Divider"
+    }
+   }
+  },
+  {
+   "id": "272:109",
+   "t": "SET",
+   "name": "Universal / Menu list",
+   "in": "Menus",
+   "nv": 2,
+   "props": {
+    "Label#272:14": {
+     "t": "TEXT",
+     "d": "Menu list"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:96"
+  },
+  {
+   "id": "5:183",
+   "t": "COMP",
+   "name": "Navigation item",
+   "in": "Navigation Bar",
+   "props": {
+    "Label#5:94": {
+     "t": "TEXT",
+     "d": "Foundations"
+    }
+   }
+  },
+  {
+   "id": "44:1807",
+   "t": "SET",
+   "name": "Breadcrumbs",
+   "in": "Navigation Bar",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1784"
+  },
+  {
+   "id": "44:1620",
+   "t": "SET",
+   "name": "Sidebar",
+   "in": "Navigation Drawer",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1499"
+  },
+  {
+   "id": "314:286",
+   "t": "SET",
+   "name": "Search / Field",
+   "in": "Search",
+   "nv": 14,
+   "props": {
+    "Label#314:6": {
+     "t": "TEXT",
+     "d": "Search records"
+    },
+    "Value#314:7": {
+     "t": "TEXT",
+     "d": "Project notes"
+    },
+    "Placeholder#314:8": {
+     "t": "TEXT",
+     "d": "Search records…"
+    },
+    "Help#314:9": {
+     "t": "TEXT",
+     "d": "Search by name or reference."
+    },
+    "Error#314:10": {
+     "t": "TEXT",
+     "d": "Search failed. Try again."
+    },
+    "Loading message#314:11": {
+     "t": "TEXT",
+     "d": "Searching… Keep this query."
+    },
+    "Readonly message#314:12": {
+     "t": "TEXT",
+     "d": "This saved query cannot be edited."
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Disabled",
+      "Loading",
+      "Error",
+      "Readonly"
+     ],
+     "d": "Default"
+    },
+    "Content": {
+     "v": [
+      "Empty",
+      "Filled"
+     ],
+     "d": "Empty"
+    }
+   },
+   "def": "247:9"
+  },
+  {
+   "id": "272:81",
+   "t": "SET",
+   "name": "Universal / Sheet / Bottom sheet",
+   "in": "Sheets",
+   "nv": 3,
+   "props": {
+    "Label#272:8": {
+     "t": "TEXT",
+     "d": "Sheet / Bottom sheet"
+    },
+    "State": {
+     "v": [
+      "Open",
+      "Loading",
+      "Error"
+     ],
+     "d": "Open"
+    }
+   },
+   "def": "272:61"
+  },
+  {
+   "id": "45:2484",
+   "t": "SET",
+   "name": "Toast",
+   "in": "Snackbar",
+   "nv": 5,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:2447"
+  },
+  {
+   "id": "44:943",
+   "t": "SET",
+   "name": "Switch",
+   "in": "Switch",
+   "nv": 14,
+   "props": {
+    "Selected": {
+     "v": [
+      "Off",
+      "On"
+     ],
+     "d": "Off"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:907"
+  },
+  {
+   "id": "5:185",
+   "t": "COMP",
+   "name": "Tab",
+   "in": "Tabs",
+   "props": {
+    "Label#5:95": {
+     "t": "TEXT",
+     "d": "Purpose"
+    }
+   }
+  },
+  {
+   "id": "44:1917",
+   "t": "SET",
+   "name": "Tabs",
+   "in": "Tabs",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1859"
+  },
+  {
+   "id": "5:108",
+   "t": "SET",
+   "name": "Field",
+   "in": "Text Fields",
+   "nv": 8,
+   "props": {
+    "Label#5:63": {
+     "t": "TEXT",
+     "d": "Project name"
+    },
+    "Value#5:69": {
+     "t": "TEXT",
+     "d": "Meridian library"
+    },
+    "Help#5:75": {
+     "t": "TEXT",
+     "d": "Use a name people recognise."
+    },
+    "Error message#8:0": {
+     "t": "TEXT",
+     "d": "Enter a complete project name."
+    },
+    "Loading message#323:0": {
+     "t": "TEXT",
+     "d": "Checking this value…"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Error",
+      "Disabled",
+      "Readonly",
+      "Hover",
+      "Active",
+      "Loading"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "5:103"
+  },
+  {
+   "id": "44:503",
+   "t": "SET",
+   "name": "Text area",
+   "in": "Text Fields",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:468"
+  },
+  {
+   "id": "44:629",
+   "t": "SET",
+   "name": "Select",
+   "in": "Text Fields",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:569"
+  },
+  {
+   "id": "44:1229",
+   "t": "SET",
+   "name": "Slider",
+   "in": "Text Fields",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "44:1187"
+  },
+  {
+   "id": "45:1414",
+   "t": "SET",
+   "name": "Stepper",
+   "in": "Text Fields",
+   "nv": 7,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Active",
+      "Disabled",
+      "Loading",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1384"
+  },
+  {
+   "id": "272:137",
+   "t": "SET",
+   "name": "Universal / Numeric stepper",
+   "in": "Text Fields",
+   "nv": 4,
+   "props": {
+    "Label#272:19": {
+     "t": "TEXT",
+     "d": "Numeric stepper"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Disabled",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:110"
+  },
+  {
+   "id": "272:165",
+   "t": "SET",
+   "name": "Universal / Token field",
+   "in": "Text Fields",
+   "nv": 4,
+   "props": {
+    "Label#272:24": {
+     "t": "TEXT",
+     "d": "Token field"
+    },
+    "State": {
+     "v": [
+      "Default",
+      "Focus",
+      "Disabled",
+      "Error"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "272:138"
+  },
+  {
+   "id": "45:1971",
+   "t": "SET",
+   "name": "Tooltip",
+   "in": "Tooltips",
+   "nv": 3,
+   "props": {
+    "State": {
+     "v": [
+      "Default",
+      "Hover",
+      "Focus"
+     ],
+     "d": "Default"
+    }
+   },
+   "def": "45:1965"
+  },
+  {
+   "id": "386:2125",
+   "t": "SET",
+   "name": "Navigation / Liquid dock",
+   "in": "Components",
+   "nv": 8,
+   "props": {
+    "State": {
+     "v": [
+      "Collapsed",
+      "Expanded"
+     ],
+     "d": "Collapsed"
+    },
+    "Accessibility": {
+     "v": [
+      "Standard",
+      "Reduced Motion",
+      "Reduced Transparency",
+      "High Contrast"
+     ],
+     "d": "Standard"
+    }
+   },
+   "def": "386:2117"
+  },
+  {
+   "id": "510:2238",
+   "t": "SET",
+   "name": "Toolbar / Glass groups",
+   "in": "Glass / Functional components",
+   "nv": 8,
+   "props": {
+    "Selected": {
+     "v": [
+      "Workspace",
+      "Explore"
+     ],
+     "d": "Workspace"
+    },
+    "Accessibility": {
+     "v": [
+      "Standard",
+      "Reduced Motion",
+      "Reduced Transparency",
+      "High Contrast"
+     ],
+     "d": "Standard"
+    }
+   },
+   "def": "510:2118"
+  },
+  {
+   "id": "510:2279",
+   "t": "SET",
+   "name": "Popover / Glass actions",
+   "in": "Glass / Functional components",
+   "nv": 4,
+   "props": {
+    "Accessibility": {
+     "v": [
+      "Standard",
+      "Reduced Motion",
+      "Reduced Transparency",
+      "High Contrast"
+     ],
+     "d": "Standard"
+    }
+   },
+   "def": "510:2239"
+  },
+  {
+   "id": "510:2280",
+   "t": "COMP",
+   "name": "Button / Liquid XL",
+   "in": "Glass / Functional components"
+  }
+ ]
+}

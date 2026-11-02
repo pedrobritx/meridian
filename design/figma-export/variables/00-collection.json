@@ -1,0 +1,20 @@
+{
+ "_label": "EXISTING (read from Figma via Plugin API, read-only). valuesByMode = as returned by Figma (aliases kept as aliases). resolvedByMode = DERIVED by following aliases in this export; when an alias crosses into a multi-mode collection the result is keyed by that collection's mode name because the final value depends on the consumer's selected mode there.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "collection": {
+  "id": "VariableCollectionId:1:2",
+  "name": "Collection",
+  "key": "899c4deb99c3810ef4bec67ae77bea2b6344b870",
+  "defaultModeId": "1:0",
+  "hiddenFromPublishing": false,
+  "remote": false,
+  "modes": [
+   {
+    "modeId": "1:0",
+    "name": "Mode 1"
+   }
+  ]
+ },
+ "variableCount": 0,
+ "variables": []
+}

@@ -1,0 +1,909 @@
+{
+ "_label": "EXISTING (read from Figma via Plugin API, read-only)",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "count": 23,
+ "note": "GLASS effects carry radius only: Figma does not expose glass optics (refraction, light) through the Plugin API and they cannot bind variables. Shadow colour binds color/elevation/shadow (Meridian / Colour).",
+ "styles": [
+  {
+   "id": "S:5bcb849103fc2c19bf5b6577a0371bb5455387b6,",
+   "name": "Meridian/Glass/Subtle",
+   "desc": "Controls/navigation only. No glass content surfaces or nested glass. Environment tint + independent Dawn/Dusk. Glass optics cannot bind Figma variables; material tokens document matching values.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 24
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 3,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 16,
+     "off": [
+      0,
+      5
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:f551f13a8179de53533a545fe959ce1ed2e99d1b,",
+   "name": "Meridian/Glass/Standard",
+   "desc": "Controls/navigation only. No glass content surfaces or nested glass. Environment tint + independent Dawn/Dusk. Glass optics cannot bind Figma variables; material tokens document matching values.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 32
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      12
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:9d3416d55a8ebc8c2cd1bb7020c13d09ed912edc,",
+   "name": "Meridian/Glass/Liquid",
+   "desc": "Controls/navigation only. No glass content surfaces or nested glass. Environment tint + independent Dawn/Dusk. Glass optics cannot bind Figma variables; material tokens document matching values.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 32
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 40,
+     "off": [
+      0,
+      16
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:8617a9a8eaa21896e0fc20ba43181f03c915ebe6,",
+   "name": "Meridian/Elevation/Raised",
+   "desc": "Opaque content uses contact + ambient shadows. No blur or lensing.",
+   "effects": [
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 2,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 14,
+     "off": [
+      0,
+      4
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:e564ce29be379bc35f729e0d79ed5dba4e0d165c,",
+   "name": "Meridian/Elevation/Floating",
+   "desc": "Environment-aware contact and ambient shadows for raised opaque layers. No glass on content.",
+   "effects": [
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      12
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:b8fc207236cbc565832de259db0de99bd78ca486,",
+   "name": "Meridian/Elevation/Overlay",
+   "desc": "Environment-aware contact and ambient shadows for raised opaque layers. No glass on content.",
+   "effects": [
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 48,
+     "off": [
+      0,
+      20
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:728ed93cd4ac192d8446ea64e4d9860448fa036e,",
+   "name": "Meridian/Glass/Button",
+   "desc": "Controls/navigation only. No glass content surfaces or nested glass. Environment tint + independent Dawn/Dusk. Glass optics cannot bind Figma variables; material tokens document matching values.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 24
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 3,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 18,
+     "off": [
+      0,
+      5
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:55932ec12e90a9a98a845ebc84e4aa3814715ad0,",
+   "name": "Meridian/Glass/Project Button",
+   "desc": "Controls/navigation only. No glass content surfaces or nested glass. Environment tint + independent Dawn/Dusk. Glass optics cannot bind Figma variables; material tokens document matching values.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 24
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 3,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 18,
+     "off": [
+      0,
+      5
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:c817a4652a494805009ecacdf1adcd387352d05d,",
+   "name": "Meridian/Glass/Pressed",
+   "desc": "Brief contact compression. 98.5% visual scale; never change hit geometry.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 28
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 2,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 10,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:8988659bb753dcc6c75cafafd3d62454b4cc3530,",
+   "name": "Meridian/Glass/Opaque fallback",
+   "desc": "Opaque fill, no lensing, blur or elastic motion. Reduced transparency / high contrast / unsupported renderer.",
+   "effects": [
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 3,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 24,
+     "off": [
+      0,
+      8
+     ],
+     "c": "#101f2624",
+     "bv": {
+      "color": "color/elevation/shadow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S:855d98b698e899d46f42c3b96f130955774135b6,",
+   "name": "Meridian/Symbol/Material relief",
+   "desc": "Living Matter 2.0. Top-left light, restrained edge relief. Decorative: use opaque Outline or Filled at small sizes.",
+   "effects": [
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 0.699999988079071,
+     "off": [
+      0.3499999940395355,
+      0.6000000238418579
+     ],
+     "c": "#fffae5d1"
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 0.8999999761581421,
+     "off": [
+      -0.3499999940395355,
+      -0.6499999761581421
+     ],
+     "c": "#1f292447"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 0.800000011920929,
+     "off": [
+      0,
+      0.699999988079071
+     ],
+     "c": "#1a262133"
+    }
+   ]
+  },
+  {
+   "id": "S:29e606daac0a44b6976ec3f8e9590fee7d5887f9,",
+   "name": "Meridian/Glass/Layers/Rear",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 16
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff52"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1133"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b112b"
+    }
+   ]
+  },
+  {
+   "id": "S:4e855783f3caac0fbc12fa629920e088a4d3c52a,",
+   "name": "Meridian/Glass/Layers/Raised",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 24
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff52"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1133"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b112b"
+    }
+   ]
+  },
+  {
+   "id": "S:6f8d5399813431ba001e398ae3c44ca4d67c523c,",
+   "name": "Meridian/Glass/Layers/Navigation",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 36
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff52"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1133"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b112b"
+    }
+   ]
+  },
+  {
+   "id": "S:37fa1d4b21543bbc9d5794c2fc4edd2ab2c8999c,",
+   "name": "Meridian/Glass/Layers/Menu",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 52
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff52"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1133"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 40,
+     "off": [
+      0,
+      16
+     ],
+     "c": "#060b112b"
+    }
+   ]
+  },
+  {
+   "id": "S:9a33b86d40a28cc0e01a20808aec67bfd5631726,",
+   "name": "Meridian/Glass/Layers/Dialog",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 68
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff52"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1133"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 40,
+     "off": [
+      0,
+      16
+     ],
+     "c": "#060b112b"
+    }
+   ]
+  },
+  {
+   "id": "S:9d0dc59df68b7f32460387b243f1ce71d8e8ec73,",
+   "name": "Meridian/Glass/Layers/Rear/Dusk",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 16
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff33"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1166"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b1152"
+    }
+   ]
+  },
+  {
+   "id": "S:89d590a9a24591d0ef9e3bb719d7803dc30841b5,",
+   "name": "Meridian/Glass/Layers/Raised/Dusk",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 24
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff33"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1166"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b1152"
+    }
+   ]
+  },
+  {
+   "id": "S:ea0b8abeff41aadb2483bfb8991e764a8ffef47f,",
+   "name": "Meridian/Glass/Layers/Navigation/Dusk",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 36
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff33"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1166"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 32,
+     "off": [
+      0,
+      10
+     ],
+     "c": "#060b1152"
+    }
+   ]
+  },
+  {
+   "id": "S:cbb3455b0417dcbe8623ec582bc8d86b23b2f850,",
+   "name": "Meridian/Glass/Layers/Menu/Dusk",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 52
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff33"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1166"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 40,
+     "off": [
+      0,
+      16
+     ],
+     "c": "#060b1152"
+    }
+   ]
+  },
+  {
+   "id": "S:7bd32dc56803b4991e2d689d28a7ebc0dcbfc258,",
+   "name": "Meridian/Glass/Layers/Dialog/Dusk",
+   "desc": "Physical glass depth: backdrop frost, refraction, directional rounded highlights, contact shadow and broad elevation shadow. Thin fading outline only. Foreground layers become more frosted; text stays sharp. Archive excluded.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 68
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff33"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 4,
+     "off": [
+      0,
+      2
+     ],
+     "c": "#060b1166"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 40,
+     "off": [
+      0,
+      16
+     ],
+     "c": "#060b1152"
+    }
+   ]
+  },
+  {
+   "id": "S:fa39b48367c5cadbfc65e8f4a3f9caced5c5ca53,",
+   "name": "Meridian/Glass/Selection/Raised 52",
+   "desc": "Selected item: Environment accent, raised frosted glass, rounded specular highlight, and local shadow. Clear contrast from sibling items; minimum text contrast 4.5:1.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 52
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff3d"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 2,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#060b113d"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 10,
+     "off": [
+      0,
+      4
+     ],
+     "c": "#060b1133"
+    }
+   ]
+  },
+  {
+   "id": "S:b7e8eba4b2c5e074f1aa881eb5b3849971f1f4a3,",
+   "name": "Meridian/Glass/Selection/Raised 68",
+   "desc": "Selected item: Environment accent, raised frosted glass, rounded specular highlight, and local shadow. Clear contrast from sibling items; minimum text contrast 4.5:1.",
+   "effects": [
+    {
+     "t": "GLASS",
+     "vis": true,
+     "r": 68
+    },
+    {
+     "t": "INNER_SHADOW",
+     "vis": true,
+     "r": 1.5,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#ffffff3d"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 2,
+     "off": [
+      0,
+      1
+     ],
+     "c": "#060b113d"
+    },
+    {
+     "t": "DROP_SHADOW",
+     "vis": true,
+     "r": 10,
+     "off": [
+      0,
+      4
+     ],
+     "c": "#060b1133"
+    }
+   ]
+  }
+ ]
+}

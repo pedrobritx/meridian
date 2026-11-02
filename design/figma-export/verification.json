@@ -1,0 +1,33 @@
+{
+  "_label": "EXISTING. FNV-1a 32-bit checksums, computed inside Figma over the compact JSON it returned (UTF-16 code units), and reproduced locally from the files built for this export. Every entry matched.",
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "readOn": "2026-11-01",
+  "checks": [
+    {"what": "collection and mode metadata (14 collections)", "length": 3979, "count": 14, "fnv1a": 661165538},
+    {"what": "Meridian / Primitives rows 0-330", "length": 17721, "count": 330, "fnv1a": 223526971},
+    {"what": "Meridian / Primitives rows 330-660", "length": 38269, "count": 330, "fnv1a": 695667630},
+    {"what": "Meridian / Primitives rows 660-978", "length": 42177, "count": 318, "fnv1a": 773945153},
+    {"what": "Meridian / Colour", "length": 10302, "count": 35, "fnv1a": 1237653299},
+    {"what": "Meridian / Layout", "length": 11056, "count": 48, "fnv1a": 774014728},
+    {"what": "Meridian / Typography", "length": 17740, "count": 61, "fnv1a": 2385663026},
+    {"what": "Meridian / Motion", "length": 6797, "count": 19, "fnv1a": 4283378573},
+    {"what": "Meridian / Elevation", "length": 1561, "count": 14, "fnv1a": 111343955},
+    {"what": "Meridian / Project Colour", "length": 11658, "count": 35, "fnv1a": 1271888260},
+    {"what": "Meridian 0.6 Lab / Forest", "length": 1655, "count": 12, "fnv1a": 211705969},
+    {"what": "Meridian / Living Environments 0.6", "length": 9561, "count": 39, "fnv1a": 572201676},
+    {"what": "Meridian / Environment", "length": 43119, "count": 62, "fnv1a": 124857407},
+    {"what": "Meridian / Appearance rows 0-118", "length": 30172, "count": 118, "fnv1a": 3157045201},
+    {"what": "Meridian / Appearance rows 118-236", "length": 38113, "count": 118, "fnv1a": 2016458661},
+    {"what": "Meridian / Appearance rows 236-354", "length": 35198, "count": 118, "fnv1a": 1763116534},
+    {"what": "Meridian / Appearance rows 354-470", "length": 19084, "count": 116, "fnv1a": 1939847099},
+    {"what": "Meridian / Icon Foreground", "length": 715, "count": 2, "fnv1a": 2730319880},
+    {"what": "Meridian / Material", "length": 4446, "count": 29, "fnv1a": 1996751369},
+    {"what": "text styles", "length": 12571, "count": 43, "fnv1a": 2481730609},
+    {"what": "effect styles", "length": 12124, "count": 23, "fnv1a": 791942971},
+    {"what": "component inventory, Components page (62 top-level items)", "length": 13093, "count": 62, "fnv1a": 1319331012}
+  ],
+  "notChecksummed": [
+    "Component screenshots: each PNG's pixel size was checked against the size Figma reported for the same node.",
+    "Variable code syntax that follows a fixed pattern was rebuilt from the variable name; the checksum covers the rebuilt value, so a mismatch would have shown."
+  ]
+}
