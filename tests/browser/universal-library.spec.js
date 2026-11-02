@@ -17,11 +17,11 @@ test('Universal Lab publishes all 92 components and 80 symbols with working sear
  expect(errors).toEqual([]);
 });
 
-test('Living Environments preview switches all ten token modes without replacing original theme roles',async({page})=>{
+test('Living Environments preview switches all twenty token modes without replacing original theme roles',async({page})=>{
  await page.goto('lab/universal-library/');
  await expect(page.locator('.u-theme')).toHaveCount(5);
  const selector=page.locator('#appearance-mode');
- await expect(selector.locator('option')).toHaveCount(10);
+ await expect(selector.locator('option')).toHaveCount(20);
  await selector.selectOption('aurora:dark');
  await expect(page.locator('html')).toHaveAttribute('data-meridian-environment','aurora');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
