@@ -1,7 +1,7 @@
 {
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
-  "versionId": "2410432353106277961",
-  "createdAt": "2026-10-15T04:32:57Z",
+  "versionId": "2416983071558803092",
+  "createdAt": "2026-11-01T21:47:16Z",
   "nodes": {
     "0:0": {
       "name": "Document",
@@ -165471,8 +165471,7 @@
     "7:61": {
       "name": "Polaris supplies the philosophical foundati",
       "type": "TEXT",
-      "hash": "f92e093f4efb1de677d81e27cbc83f5418ca4d3c8107dd0ca8c4cbe907105472",
-      "sourceNameUtf8Hex": "4253444c20737570706c69657320746865207068696c6f736f70686963616c20666f756e64617469"
+      "hash": "e1816169b01588721bc992f5fe49d6b6ba10547f2acffcaaa5c05f0f6eb87d44"
     },
     "66:37": {
       "name": "Meridian 0.3 / Completion index",
@@ -168187,8 +168186,7 @@
     "I271:3252;248:66": {
       "name": "Text / Record 001  ·  polaris + sqn411blocon",
       "type": "TEXT",
-      "hash": "76c2567ae1739c6ea99e6aca59ae6547c602a405c78c91d4600e66d61bfcc6ce",
-      "sourceNameUtf8Hex": "54657874202f205265636f7264203030312020c2b720206273646c202b2073716e343131626c6f636f6e"
+      "hash": "864561ffa1af11d7bb024517499a16af57298bfe1ceaf67b6f26518b3e23ee04"
     },
     "I271:3252;248:67": {
       "name": "Text / Title, priority, owner, status",
@@ -170058,8 +170056,7 @@
     "I271:3467;248:197": {
       "name": "Text / verbalis + polaris · application owns authoritative data",
       "type": "TEXT",
-      "hash": "9ae05cd5f60fc948a7f0cd25a19d34a047da2839a2508d1c7cd2dec1b4e850c1",
-      "sourceNameUtf8Hex": "54657874202f2076657262616c6973202b206273646c20c2b7206170706c69636174696f6e206f776e7320617574686f72697461746976652064617461"
+      "hash": "00056f3f3ff0e48392e9ebcb0554273e1ef2b859e1f754751d9cda01d2a4f1b6"
     },
     "271:3474": {
       "name": "Index / cefr-level",
@@ -189049,8 +189046,7 @@
     "248:66": {
       "name": "Text / Record 001  ·  polaris + sqn411blocon",
       "type": "TEXT",
-      "hash": "607f56fdaae5dbba5864326c088e42836ad82c0467bae185e2168df04a6cb475",
-      "sourceNameUtf8Hex": "54657874202f205265636f7264203030312020c2b720206273646c202b2073716e343131626c6f636f6e"
+      "hash": "63c6e0cb5abb30ed0d1c38e97a3d7c2f6f8fc413370be6d3414ba83246217631"
     },
     "248:67": {
       "name": "Text / Title, priority, owner, status",
@@ -189705,8 +189701,7 @@
     "248:197": {
       "name": "Text / verbalis + polaris · application owns authoritative data",
       "type": "TEXT",
-      "hash": "39cf32e795c279706e52266f7545546df56d505bed0a94cc6ab23b234c1e3e18",
-      "sourceNameUtf8Hex": "54657874202f2076657262616c6973202b206273646c20c2b7206170706c69636174696f6e206f776e7320617574686f72697461746976652064617461"
+      "hash": "f56d460c4af669b606163aa37bebfa586cb2a2f483fadc220e3fe867efed8665"
     },
     "248:198": {
       "name": "Universal / cefr-level",
@@ -190941,7 +190936,7 @@
     "182:104": {
       "name": "Footer",
       "type": "TEXT",
-      "hash": "365de8a66ed6d00670d06b236149aff0eeee8591f85523e309c59e5a87018d87"
+      "hash": "d3ad500ffb3ee8413a1eb123fdd01a9d11cb48f7eae159928e0f76ce547572ba"
     },
     "190:35": {
       "name": "LM / 0.6 · Living Workspace / Research Board",
@@ -217713,6 +217708,5 @@
       "type": "TEXT",
       "hash": "c19ee4a30ec3779d9234f2beb1e82b5487fc12ffd008318580f6f09874ffe706"
     }
-  },
-  "nameNormalization": "canonical-product-identities-v1; sourceNameUtf8Hex preserves captured labels; hash and versionId describe the original source"
+  }
 }
