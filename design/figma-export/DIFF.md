@@ -36,7 +36,7 @@ Labels: **EXISTING** = read from Figma or the repo. **PROPOSED** = my suggestion
 - **Primitives not found (483):** `environment/swatch/*` 269, `liquid-glass/aurora/*` 78 (all 78 are `hiddenFromPublishing`), `pigment/symbol/*` 48, `liquid-glass/material/*` 40, `material/liquid/*` 20, `optics/material/*` 19, `optics/motion/*` 9.
 - **Environment not found (23):** `color/material/layer/*` and `color/material/selection/foreground` (rear, raised, navigation, menu, dialog, selection, front-control, front-selection), `material/symbol/{ceramic,metal,botanical}/{light,body,shade,edge}` and `material/symbol/texture/{wood,sand}`.
 - **`tokens.json` names:** Figma has 9 names the 168-name repo contract lacks, all `motion/liquid/*` (duration feedback, morph, settle, reduced; spring mass, stiffness, damping; scale pressed; translate hover).
-- **Environments:** Figma defines ten (Forest, Core, Desert, Ocean, Alpine, Storm, Celestial, Aurora, Glacier, Embers). `living-environments.json` and `styles/living-environments.css` define five (forest, desert, aurora, glacier, embers). Core, Ocean, Alpine, Storm and Celestial have no repo definition I could find.
+- **Environments:** Figma defines ten (Forest, Core, Desert, Ocean, Alpine, Storm, Celestial, Aurora, Glacier, Embers). `living-environments.json` and `styles/living-environments.css` define five (forest, desert, aurora, glacier, embers). Core, Ocean, Alpine, Storm and Celestial have no repo definition I could find. **Correction (2026-11-01, phase 1):** Ocean, Alpine, Storm and Celestial exist as hand-authored Lab palettes in `lab/living-environments/environments.js` with a different role schema; they are not the Figma palettes.
 
 ### 1.2 In the repo, missing from Figma (EXISTING)
 
@@ -93,6 +93,8 @@ Contrast impact: not computable. Legibility over glass depends on the backdrop. 
 | Dusk | ambient/highlight, glow | `#6DECC9`, `#B858B3` | `#6f4f96`, `#9c6fbb` | decorative |
 
 Every text, link, focus and on-primary pair stays above its required ratio in the Figma values. The only thin margin is Aurora Dawn muted text on the sunken surface (4.53 against 4.5).
+
+**Correction (2026-11-01, phase 1):** this table checks links against the page only. With the full pair set used for 0.5 (`environmentContrastPairs`), Aurora Dawn link on sunken fails in both palettes: 4.28:1 in the repo, 4.15:1 in Figma. See `docs/migration/2026-11-01-phase-1-drift.md`.
 
 ### 2.3 What matched (EXISTING)
 
