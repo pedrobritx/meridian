@@ -1,0 +1,1566 @@
+{
+  "schemaVersion": 1,
+  "source": "design/figma-export (Figma read 2026-11-01) and design/figma/migrations/2026-11-01-reorganise/map.json",
+  "statusRule": "Preview items (the Universal prototypes and the glass set) may still change. Candidates can become stable once they pass the Definition of ready review, which has not happened yet.",
+  "groups": [
+    {
+      "key": "actions",
+      "name": "Actions",
+      "components": [
+        {
+          "id": "5:22",
+          "name": "Button",
+          "kind": "Component set",
+          "variants": 28,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "Show icon",
+              "kind": "boolean"
+            },
+            {
+              "name": "Icon",
+              "kind": "instance"
+            },
+            {
+              "name": "Style",
+              "kind": "variant",
+              "options": [
+                "Primary",
+                "Secondary",
+                "Quiet",
+                "Destructive"
+              ]
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Disabled",
+                "Loading",
+                "Pressed",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "button--5-2.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-22"
+        },
+        {
+          "id": "510:2280",
+          "name": "Button / Liquid XL",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Preview",
+          "properties": [],
+          "screenshot": "button-liquid-xl--510-2280.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=510-2280"
+        },
+        {
+          "id": "43:253",
+          "name": "Button group",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "button-group--43-194.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=43-253"
+        },
+        {
+          "id": "43:71",
+          "name": "Icon button",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Icon",
+              "kind": "instance"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "icon-button--43-42.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=43-71"
+        },
+        {
+          "id": "43:148",
+          "name": "Link",
+          "kind": "Component set",
+          "variants": 8,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error",
+                "Visited"
+              ]
+            }
+          ],
+          "screenshot": "link--43-132.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=43-148"
+        },
+        {
+          "id": "23:323",
+          "name": "Segmented control",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "Overview",
+                "Materials",
+                "Motion"
+              ]
+            }
+          ],
+          "screenshot": "segmented-control--23-302.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=23-323"
+        },
+        {
+          "id": "272:357",
+          "name": "Universal / Split button",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Disabled",
+                "Loading"
+              ]
+            }
+          ],
+          "screenshot": "universal-split-button--272-330.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-357"
+        }
+      ]
+    },
+    {
+      "key": "selection",
+      "name": "Selection",
+      "components": [
+        {
+          "id": "64:527",
+          "name": "Calendar panel",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [],
+          "screenshot": "calendar-panel--64-527.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=64-527"
+        },
+        {
+          "id": "44:754",
+          "name": "Checkbox",
+          "kind": "Component set",
+          "variants": 21,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "Off",
+                "On",
+                "Mixed"
+              ]
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "checkbox--44-723.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-754"
+        },
+        {
+          "id": "5:133",
+          "name": "Choice",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "Kind",
+              "kind": "variant",
+              "options": [
+                "Checkbox",
+                "Switch"
+              ]
+            },
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "False",
+                "True"
+              ]
+            }
+          ],
+          "screenshot": "choice--5-129.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-133"
+        },
+        {
+          "id": "44:1081",
+          "name": "Date picker",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "date-picker--44-1010.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1081"
+        },
+        {
+          "id": "44:846",
+          "name": "Radio",
+          "kind": "Component set",
+          "variants": 14,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "Off",
+                "On"
+              ]
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "radio--44-815.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-846"
+        },
+        {
+          "id": "44:1229",
+          "name": "Slider",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "slider--44-1187.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1229"
+        },
+        {
+          "id": "44:943",
+          "name": "Switch",
+          "kind": "Component set",
+          "variants": 14,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "Off",
+                "On"
+              ]
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "switch--44-907.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-943"
+        },
+        {
+          "id": "272:193",
+          "name": "Universal / Date range picker",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Disabled",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-date-range-picker--272-166.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-193"
+        }
+      ]
+    },
+    {
+      "key": "text",
+      "name": "Text input",
+      "components": [
+        {
+          "id": "5:108",
+          "name": "Field",
+          "kind": "Component set",
+          "variants": 8,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "Value",
+              "kind": "text"
+            },
+            {
+              "name": "Help",
+              "kind": "text"
+            },
+            {
+              "name": "Error message",
+              "kind": "text"
+            },
+            {
+              "name": "Loading message",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Error",
+                "Disabled",
+                "Readonly",
+                "Hover",
+                "Active",
+                "Loading"
+              ]
+            }
+          ],
+          "screenshot": "field--5-103.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-108"
+        },
+        {
+          "id": "314:286",
+          "name": "Search / Field",
+          "kind": "Component set",
+          "variants": 14,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "Value",
+              "kind": "text"
+            },
+            {
+              "name": "Placeholder",
+              "kind": "text"
+            },
+            {
+              "name": "Help",
+              "kind": "text"
+            },
+            {
+              "name": "Error",
+              "kind": "text"
+            },
+            {
+              "name": "Loading message",
+              "kind": "text"
+            },
+            {
+              "name": "Readonly message",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Disabled",
+                "Loading",
+                "Error",
+                "Readonly"
+              ]
+            },
+            {
+              "name": "Content",
+              "kind": "variant",
+              "options": [
+                "Empty",
+                "Filled"
+              ]
+            }
+          ],
+          "screenshot": "search-field--247-9.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=314-286"
+        },
+        {
+          "id": "44:629",
+          "name": "Select",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "select--44-569.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-629"
+        },
+        {
+          "id": "44:503",
+          "name": "Text area",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "text-area--44-468.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-503"
+        },
+        {
+          "id": "272:137",
+          "name": "Universal / Numeric stepper",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Disabled",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-numeric-stepper--272-110.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-137"
+        },
+        {
+          "id": "272:165",
+          "name": "Universal / Token field",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Disabled",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-token-field--272-138.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-165"
+        }
+      ]
+    },
+    {
+      "key": "containment",
+      "name": "Containment",
+      "components": [
+        {
+          "id": "45:1888",
+          "name": "Accordion",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "accordion--45-1843.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1888"
+        },
+        {
+          "id": "5:171",
+          "name": "Card / Content",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Title",
+              "kind": "text"
+            },
+            {
+              "name": "Body",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "card-content--5-171.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-171"
+        },
+        {
+          "id": "45:1676",
+          "name": "Card / Stateful",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "card-stateful--45-1632.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1676"
+        },
+        {
+          "id": "5:187",
+          "name": "Dialog",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Title",
+              "kind": "text"
+            },
+            {
+              "name": "Body",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "dialog-component--5-187.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-187"
+        },
+        {
+          "id": "45:2339",
+          "name": "Dialog",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "dialog-set--45-2267.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2339"
+        },
+        {
+          "id": "510:2279",
+          "name": "Popover / Glass actions",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Accessibility",
+              "kind": "variant",
+              "options": [
+                "Standard",
+                "Reduced Motion",
+                "Reduced Transparency",
+                "High Contrast"
+              ]
+            }
+          ],
+          "screenshot": "popover-glass-actions--510-2239.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=510-2279"
+        },
+        {
+          "id": "272:55",
+          "name": "Universal / Divider",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "universal-divider--272-55.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-55"
+        },
+        {
+          "id": "272:81",
+          "name": "Universal / Sheet / Bottom sheet",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Open",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-bottom-sheet--272-61.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-81"
+        }
+      ]
+    },
+    {
+      "key": "navigation",
+      "name": "Navigation",
+      "components": [
+        {
+          "id": "44:1807",
+          "name": "Breadcrumbs",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "breadcrumbs--44-1784.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1807"
+        },
+        {
+          "id": "44:1383",
+          "name": "Header",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "header--44-1304.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1383"
+        },
+        {
+          "id": "386:2125",
+          "name": "Navigation / Liquid dock",
+          "kind": "Component set",
+          "variants": 8,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Collapsed",
+                "Expanded"
+              ]
+            },
+            {
+              "name": "Accessibility",
+              "kind": "variant",
+              "options": [
+                "Standard",
+                "Reduced Motion",
+                "Reduced Transparency",
+                "High Contrast"
+              ]
+            }
+          ],
+          "screenshot": "navigation-liquid-dock--386-2117.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=386-2125"
+        },
+        {
+          "id": "5:183",
+          "name": "Navigation item",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "navigation-item--5-183.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-183"
+        },
+        {
+          "id": "45:1252",
+          "name": "Pagination",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "pagination--45-1159.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1252"
+        },
+        {
+          "id": "44:1620",
+          "name": "Sidebar",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "sidebar--44-1499.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1620"
+        },
+        {
+          "id": "45:1414",
+          "name": "Stepper",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "stepper--45-1384.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1414"
+        },
+        {
+          "id": "5:185",
+          "name": "Tab",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "tab--5-185.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-185"
+        },
+        {
+          "id": "44:1917",
+          "name": "Tabs",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "tabs--44-1859.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=44-1917"
+        },
+        {
+          "id": "510:2238",
+          "name": "Toolbar / Glass groups",
+          "kind": "Component set",
+          "variants": 8,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Selected",
+              "kind": "variant",
+              "options": [
+                "Workspace",
+                "Explore"
+              ]
+            },
+            {
+              "name": "Accessibility",
+              "kind": "variant",
+              "options": [
+                "Standard",
+                "Reduced Motion",
+                "Reduced Transparency",
+                "High Contrast"
+              ]
+            }
+          ],
+          "screenshot": "toolbar-glass-groups--510-2118.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=510-2238"
+        },
+        {
+          "id": "272:95",
+          "name": "Universal / Menu bar",
+          "kind": "Component set",
+          "variants": 2,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "universal-menu-bar--272-82.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-95"
+        },
+        {
+          "id": "272:109",
+          "name": "Universal / Menu list",
+          "kind": "Component set",
+          "variants": 2,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "universal-menu-list--272-96.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-109"
+        },
+        {
+          "id": "272:301",
+          "name": "Universal / Page indicator",
+          "kind": "Component set",
+          "variants": 2,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "universal-page-indicator--272-288.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-301"
+        },
+        {
+          "id": "272:287",
+          "name": "Universal / Scroll view",
+          "kind": "Component set",
+          "variants": 2,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "universal-scroll-view--272-274.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-287"
+        }
+      ]
+    },
+    {
+      "key": "communication",
+      "name": "Communication",
+      "components": [
+        {
+          "id": "5:177",
+          "name": "Alert",
+          "kind": "Component",
+          "variants": 1,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Message",
+              "kind": "text"
+            }
+          ],
+          "screenshot": "alert--5-177.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-177"
+        },
+        {
+          "id": "5:151",
+          "name": "Badge",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "Intent",
+              "kind": "variant",
+              "options": [
+                "Success",
+                "Warning",
+                "Error",
+                "Info"
+              ]
+            }
+          ],
+          "screenshot": "badge--5-147.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=5-151"
+        },
+        {
+          "id": "45:1767",
+          "name": "Badge / Tag",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "badge-tag--45-1752.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1767"
+        },
+        {
+          "id": "45:2589",
+          "name": "Banner",
+          "kind": "Component set",
+          "variants": 5,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "banner--45-2547.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2589"
+        },
+        {
+          "id": "45:2677",
+          "name": "Progress bar",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Loading",
+                "Error",
+                "Complete"
+              ]
+            }
+          ],
+          "screenshot": "progress-bar--45-2658.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2677"
+        },
+        {
+          "id": "45:2767",
+          "name": "Skeleton",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Loading",
+                "Reduced motion"
+              ]
+            }
+          ],
+          "screenshot": "skeleton--45-2752.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2767"
+        },
+        {
+          "id": "45:2726",
+          "name": "Spinner",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Loading",
+                "Reduced motion"
+              ]
+            }
+          ],
+          "screenshot": "spinner--45-2717.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2726"
+        },
+        {
+          "id": "45:2484",
+          "name": "Toast",
+          "kind": "Component set",
+          "variants": 5,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "toast--45-2447.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2484"
+        },
+        {
+          "id": "45:1971",
+          "name": "Tooltip",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "tooltip--45-1965.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1971"
+        },
+        {
+          "id": "272:229",
+          "name": "Universal / Circular progress",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Determinate",
+                "Indeterminate",
+                "Complete",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-circular-progress--272-194.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-229"
+        },
+        {
+          "id": "272:385",
+          "name": "Universal / Status pill",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Neutral",
+                "Success",
+                "Warning",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-status-pill--272-358.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-385"
+        }
+      ]
+    },
+    {
+      "key": "data",
+      "name": "Data and media",
+      "components": [
+        {
+          "id": "45:1813",
+          "name": "Avatar",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "avatar--45-1801.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1813"
+        },
+        {
+          "id": "45:1535",
+          "name": "Data table",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "data-table--45-1474.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-1535"
+        },
+        {
+          "id": "45:2109",
+          "name": "List",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "list--45-1994.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=45-2109"
+        },
+        {
+          "id": "85:1112",
+          "name": "Meridian / List item",
+          "kind": "Component set",
+          "variants": 7,
+          "status": "Candidate",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Hover",
+                "Focus",
+                "Active",
+                "Disabled",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "meridian-list-item--85-1077.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=85-1112"
+        },
+        {
+          "id": "272:54",
+          "name": "Universal / Carousel",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus",
+                "Disabled"
+              ]
+            }
+          ],
+          "screenshot": "universal-carousel--272-34.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-54"
+        },
+        {
+          "id": "272:259",
+          "name": "Universal / Collection grid",
+          "kind": "Component set",
+          "variants": 3,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Selected",
+                "Loading"
+              ]
+            }
+          ],
+          "screenshot": "universal-collection-grid--272-230.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-259"
+        },
+        {
+          "id": "272:273",
+          "name": "Universal / Column browser",
+          "kind": "Component set",
+          "variants": 2,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Default",
+                "Focus"
+              ]
+            }
+          ],
+          "screenshot": "universal-column-browser--272-260.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-273"
+        },
+        {
+          "id": "272:329",
+          "name": "Universal / Image well",
+          "kind": "Component set",
+          "variants": 4,
+          "status": "Preview",
+          "properties": [
+            {
+              "name": "Label",
+              "kind": "text"
+            },
+            {
+              "name": "State",
+              "kind": "variant",
+              "options": [
+                "Empty",
+                "Selected",
+                "Loading",
+                "Error"
+              ]
+            }
+          ],
+          "screenshot": "universal-image-well--272-302.png",
+          "figma": "https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=272-329"
+        }
+      ]
+    }
+  ]
+}
