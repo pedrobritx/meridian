@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Reduced-transparency check
+
+- Fail CI when a stable library style blurs its backdrop without a `prefers-reduced-transparency` fallback that removes the blur (ADR-0002 §5). Both current glass surfaces, `.md-glass` and `.md-button.glass`, pass.
+
 ## Unreleased — 2026-11-02 · Release notes from named versions (phase 6, second increment)
 
 - Turn each named Figma version's description into release notes: shown in the export issue and PR, stored in `changes.json`, and written as a changelog-ready `release-note.md`. `design/figma/README.md` gives a three-line description template.
