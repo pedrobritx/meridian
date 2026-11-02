@@ -1,4 +1,5 @@
 import { websiteCss } from "./token-contract.mjs";
+import { linkStatus } from "./links.mjs";
 import { readFile } from "node:fs/promises";
 import {
   api,
@@ -252,6 +253,14 @@ if (event.action === "figma-tokens") {
   }
   const nodes = snapshot(file.document);
   diff = changes(previous.nodes, nodes);
+  // Refresh the repo's Figma link status at every approved version (policy: tests/figma-links.test.mjs).
+  if (mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")) {
+    const links = await readMain("design/figma/links.json");
+    writes.set("design/figma/links.json", {
+      content: json(linkStatus(file.document, links, version.created_at.slice(0, 10),
+        `Figma REST file document at named version ${version.id}, checked by figma-sync.yml`)),
+    });
+  }
   add(
     "snapshot.json",
     json({
