@@ -1,4 +1,6 @@
 {
+  "status": "historical: describes the 0.5 page layout; 8 of its node IDs no longer exist and 96 sit on the Archive page (design/figma/links.json, 2026-11-02)",
+  "supersededBy": "design/figma-export/ (2026-11-01)",
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
   "version": "0.5",
   "pages": [

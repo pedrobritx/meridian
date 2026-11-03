@@ -111,6 +111,9 @@ async function installMock() {
               ]
             : []),
           { path: "site/content.json", type: "blob", sha: "content-blob" },
+          { path: "design/figma/generated/figma-source.json", type: "blob", sha: "source-blob" },
+          { path: "design/figma/generated/provenance-overrides.json", type: "blob", sha: "ledger-blob" },
+          { path: "design/figma/links.json", type: "blob", sha: "links-blob" },
           {
             path: "design/figma/generated/content-baseline.json",
             type: "blob",
@@ -132,6 +135,9 @@ async function installMock() {
             : []),
         ],
       });
+    for (const [sha, file] of [["source-blob", "design/figma/generated/figma-source.json"], ["ledger-blob", "design/figma/generated/provenance-overrides.json"], ["links-blob", "design/figma/links.json"]])
+      if (path.endsWith("/git/blobs/" + sha))
+        return response({ content: Buffer.from(readFileSync(process.env.MOCK_REPO_ROOT + file, "utf8")).toString("base64") });
     if (path.endsWith("/git/blobs/content-blob"))
       return response({
         content: Buffer.from(JSON.stringify(mainContent)).toString("base64"),
@@ -237,6 +243,7 @@ function run(action, scenario = "new", tokens, blobPublication = false) {
           GITHUB_TOKEN: "fake-github",
           FIGMA_GITHUB_CONSTELLATION: "fake-figma",
           MOCK_SCENARIO: scenario,
+          MOCK_REPO_ROOT: fileURLToPath(new URL("../../", import.meta.url)),
           MOCK_CONFIG: JSON.stringify(config),
           MOCK_CONTENT: JSON.stringify(sharedContent),
           MOCK_TOKENS_FILE: join(dir, "tokens.json"),
@@ -323,6 +330,21 @@ test("plugin publication generates CSS without the Figma REST API", () => {
     tree.tree.find((entry) => entry.path.endsWith("meridian.css")).content,
     /142ms/,
   );
+  // The provenance ledger is rewritten so capture + ledger still equals the published tokens.
+  const ledger = JSON.parse(tree.tree.find((entry) => entry.path.endsWith("provenance-overrides.json")).content);
+  const hover = ledger.overrides.find((entry) => entry.token === "motion/duration/hover");
+  assert.equal(hover.value, 142);
+  assert.match(hover.source, /Plugin publication/);
+});
+
+test("named-version exports refresh the Figma link status from the file document", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const links = JSON.parse(tree.tree.find((entry) => entry.path === "design/figma/links.json").content);
+  // The mocked document holds only the preview frames and the mapped text nodes.
+  for (const id of Object.values(config.frames)) assert.ok(!links.missing.includes(id), id);
+  assert.ok(links.missing.includes("92:51"));
+  assert.match(links.method, /named version v2/);
 });
 
 test('large plugin publications resolve an immutable blob while retaining validation and stale-main protection', () => {

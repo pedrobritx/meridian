@@ -176,12 +176,24 @@ function modeForCollection(collection, theme) {
   if (collection.modes.length === 1 && !["Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout", "Meridian / Motion"].includes(collection.name)) return collection.modes[0];
   throw Error("Missing profile mode in " + collection.name);
 }
+/**
+ * The 0.5 token contract lives in these collections only. 0.6 collections in the same file
+ * (Environment, Appearance, Material, Icon Foreground, Living Environments) have environment or
+ * appearance modes, not profile modes, and are not part of tokens.json.
+ */
+const CONTRACT_COLLECTIONS = Object.freeze([
+  "Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout",
+  "Meridian / Typography", "Meridian / Motion", "Meridian / Elevation",
+]);
+/** Intermediate aliases behind public tokens (e.g. motion/duration/hover -> motion/liquid/duration/feedback). */
+const INTERNAL_TOKEN_PREFIXES = Object.freeze(["motion/liquid/"]);
 function semanticForMode(variables, collections, theme) {
   const colour = profileForMode(theme).projectColour ? "Meridian / Project Colour" : "Meridian / Colour";
   return variables.filter(v => {
     const name = collections[v.variableCollectionId]?.name;
-    return name?.startsWith("Meridian /") && name !== "Meridian / Primitives"
+    return CONTRACT_COLLECTIONS.includes(name)
       && (!name.endsWith("Colour") || name === colour)
+      && !INTERNAL_TOKEN_PREFIXES.some(prefix => v.name.startsWith(prefix))
       && ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType);
   });
 }
@@ -412,7 +424,7 @@ function planForestImport(remote,local,template) {
 
 const forestTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","pageId":"218:21","collectionName":"Meridian 0.6 Lab / Forest","source":"lab/forest-reference/forest-model.js","modes":{"Dawn":{"page":"#EDF1E6","surface":"#FCFDF8","text":"#243B2E","muted":"#435B49","border":"#94AB97","action":"#22583E","onAction":"#FFFFFF","focus":"#22583E","sunlight":"#E7E2B8","canopy":"#9CB8A1","earth":"#70886B","ambient":"#D6E4D0"},"Dusk":{"page":"#293B33","surface":"#354D40","text":"#F8F6E9","muted":"#E1E8D9","border":"#A6B7A4","action":"#F0D7A6","onAction":"#253A30","focus":"#FFE0A2","sunlight":"#C5A477","canopy":"#6E967D","earth":"#476C57","ambient":"#4B6556"}},"fields":{"dawnTitle":{"nodeId":"219:15","pageId":"218:21"},"dawnDescription":{"nodeId":"219:16","pageId":"218:21"},"dawnHistoryTitle":{"nodeId":"219:51","pageId":"218:21"},"duskTitle":{"nodeId":"219:70","pageId":"218:21"},"duskDescription":{"nodeId":"219:71","pageId":"218:21"},"duskHistoryTitle":{"nodeId":"219:106","pageId":"218:21"}}};
 
-const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"coreDescription":{"nodeId":"92:41","pageId":"92:34"},"coreTitle":{"nodeId":"92:40","pageId":"92:34"},"extendDescription":{"nodeId":"92:50","pageId":"92:34"},"extendTitle":{"nodeId":"92:49","pageId":"92:34"},"grassDescription":{"nodeId":"92:44","pageId":"92:34"},"grassTitle":{"nodeId":"92:43","pageId":"92:34"},"heroDescription":{"nodeId":"92:38","pageId":"92:34"},"heroTitle":{"nodeId":"92:37","pageId":"92:34"},"paperDescription":{"nodeId":"92:47","pageId":"92:34"},"paperTitle":{"nodeId":"92:46","pageId":"92:34"}}};
+const contentTemplate={"schemaVersion":1,"fileKey":"aJ2f6aYX9KBucAdPsCmkXn","fields":{"coreDescription":{"nodeId":"92:41","pageId":"218:21"},"coreTitle":{"nodeId":"92:40","pageId":"218:21"},"extendDescription":{"nodeId":"92:50","pageId":"218:21"},"extendTitle":{"nodeId":"92:49","pageId":"218:21"},"grassDescription":{"nodeId":"92:44","pageId":"218:21"},"grassTitle":{"nodeId":"92:43","pageId":"218:21"},"heroDescription":{"nodeId":"92:38","pageId":"218:21"},"heroTitle":{"nodeId":"92:37","pageId":"218:21"},"paperDescription":{"nodeId":"92:47","pageId":"218:21"},"paperTitle":{"nodeId":"92:46","pageId":"218:21"}}};
 figma.showUI(__html__, { width: 480, height: 600 });
 async function capture() {
   if (figma.fileKey && figma.fileKey !== fileKey)

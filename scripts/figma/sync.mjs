@@ -1,4 +1,6 @@
 import { websiteCss } from "./token-contract.mjs";
+import { linkStatus } from "./links.mjs";
+import { captureFromSource, provenanceOverrides } from "./provenance.mjs";
 import { readFile } from "node:fs/promises";
 import {
   api,
@@ -181,6 +183,16 @@ if (event.action === "figma-tokens") {
     process.exit(0);
   }
   tokensChanged = true;
+  // Keep the provenance ledger exact so the contract test stays meaningful (scripts/figma/provenance.mjs).
+  const has = (path) => mainTree.tree.some((e) => e.type === "blob" && e.path === path);
+  if (has(prefix + "figma-source.json") && has(prefix + "provenance-overrides.json"))
+    add("provenance-overrides.json", json(provenanceOverrides(
+      captureFromSource(await readMain(prefix + "figma-source.json")),
+      bundle,
+      await readMain(prefix + "provenance-overrides.json"),
+      { source: `Plugin publication ${new Date().toISOString().slice(0, 10)}, contract blob ${payload.bundle_blob_sha ?? "inline"}`,
+        decision: "Published from Figma for review; ADR-0002 §7 applies at review" },
+    )));
   writes.set("site/content.json", { content: json(publishedContent) });
   add("content-baseline.json", json(publishedContent));
   add("tokens.json", json(bundle));
@@ -252,6 +264,14 @@ if (event.action === "figma-tokens") {
   }
   const nodes = snapshot(file.document);
   diff = changes(previous.nodes, nodes);
+  // Refresh the repo's Figma link status at every approved version (policy: tests/figma-links.test.mjs).
+  if (mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")) {
+    const links = await readMain("design/figma/links.json");
+    writes.set("design/figma/links.json", {
+      content: json(linkStatus(file.document, links, version.created_at.slice(0, 10),
+        `Figma REST file document at named version ${version.id}, checked by figma-sync.yml`)),
+    });
+  }
   add(
     "snapshot.json",
     json({

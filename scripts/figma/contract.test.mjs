@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { tokenCss, validateTokens } from './lib.mjs'
-import { captureNativeTokens } from './roundtrip.mjs'
+import { captureFromSource, applyOverrides, provenanceOverrides } from './provenance.mjs'
 
 const read = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url)))
 const config = await read('../../design/figma/config.json')
@@ -11,20 +11,11 @@ const source = await read('../../design/figma/generated/figma-source.json')
 
 const overrides = await read('../../design/figma/generated/provenance-overrides.json')
 
-test('canonical tokens match the captured native Figma aliases and modes, plus recorded overrides', () => {
-  const variables = source.collections.flatMap(c => c.variables.map(v => ({...v,variableCollectionId:c.id,resolvedType:v.type,valuesByMode:v.values})))
-  const captured = captureNativeTokens(source.collections,variables)
-  assert.equal(overrides.schemaVersion, 1)
-  for (const o of overrides.overrides) {
-    assert.equal(o.modes, 'all', o.token)
-    assert.ok(o.source && o.decision, 'Override needs a source and a decision: ' + o.token)
-    for (const mode of Object.values(captured.modes)) {
-      assert.ok(mode[o.token], 'Override targets an existing token: ' + o.token)
-      assert.notDeepEqual(mode[o.token].value, o.value, 'Stale override, remove it: ' + o.token)
-      mode[o.token] = { ...mode[o.token], value: o.value }
-    }
-  }
-  assert.deepEqual(captured,bundle)
+test('canonical tokens equal the native capture plus an exact provenance ledger', () => {
+  const captured = captureFromSource(source)
+  assert.deepEqual(applyOverrides(captured, overrides), bundle)
+  // The ledger is exactly the difference: rebuilding it changes nothing.
+  assert.deepEqual(provenanceOverrides(captured, bundle, overrides, { source: 'unused', decision: 'unused' }), overrides)
 })
 
 test('committed CSS is reproducible from the validated token snapshot', async () => {

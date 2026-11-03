@@ -13,19 +13,19 @@
       "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
     },
     {
-      "token": "motion/duration/release",
-      "modes": "all",
-      "value": 380,
-      "captured": "220",
-      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:103 → motion/liquid/duration/settle (VariableID:383:1853)",
-      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
-    },
-    {
       "token": "motion/duration/reduced",
       "modes": "all",
       "value": 80,
       "captured": "0",
       "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:106 → motion/liquid/duration/reduced (VariableID:383:1855)",
+      "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
+    },
+    {
+      "token": "motion/duration/release",
+      "modes": "all",
+      "value": 380,
+      "captured": "220",
+      "source": "Figma export 2026-11-01 (design/figma-export/variables/05-meridian-motion.json), VariableID:42:103 → motion/liquid/duration/settle (VariableID:383:1853)",
       "decision": "ADR-0002 §7: newer Figma value accepted after motion checks"
     },
     {
