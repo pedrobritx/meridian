@@ -2,6 +2,7 @@
 
 ## Unreleased — 2026-11-03 · Cross-browser acceptance
 
+- Keep standalone fields within their container and apply native dark controls for the supported `.dark` selector.
 - Restore dialog focus to its opener explicitly, including WebKit pointer activation.
 - Add Firefox and WebKit projects to CI; keep Chromium-only reduced-transparency emulation explicitly scoped.
 - Verify all 2,016 live stable-profile values with the actual plugin capture code.
