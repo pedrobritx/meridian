@@ -20,6 +20,13 @@ test('Forest and Desert inherit original Grass/Paper colours exactly',()=>{
   }
  }
 });
+test('Core environment keeps Core 0.5 colour roles apart from the documented glass alpha',()=>{
+ const env=manifest.environments.find(x=>x.name==='Core');
+ for(const [index,mode]of ['CoreDawn','CoreDusk'].entries())for(const [role,token]of Object.entries(legacy.modes[mode])){
+  if(!role.startsWith('color/')||token.type!=='COLOR'||role==='color/material/glass')continue;
+  assert.equal(env.modes[['Dawn','Dusk'][index]][role],hex(token.value),'Core/'+mode+'/'+role);
+ }
+});
 test('opaque text and action colour pairs meet baseline WCAG AA contrast checks',()=>{
  for(const e of manifest.environments)for(const mode of ['Dawn','Dusk']){
   const p=e.modes[mode];

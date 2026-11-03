@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Token migration groundwork (phase 3)
+
+- Add the 1.0 deprecation table (`design/meridian/deprecations.json`, `docs/migration/1.0-token-migration.md`): 0.5 profile colours alias to Forest, Desert and Core environments; project profiles move to their products; `--meridian-*` gives way to `--md-*`. Nothing is removed before 2.0.
+- Run the 864-pair 0.5 contrast check in CI and require the committed contrast evidence to be reproducible.
+- Test that the Core environment keeps Core 0.5 colours apart from the documented glass alpha.
+- Document how products build their own themes with Meridian (`docs/theming.md`).
+
 ## Unreleased — 2026-11-02 · Sync and links repaired (phase 2)
 
 - Fix the plugin's token capture, which failed on the 0.6 collections in the Figma file; capture now reads the 0.5 contract collections only and treats `motion/liquid/*` as internal. Reload the development plugin to use it.
