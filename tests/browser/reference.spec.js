@@ -8,6 +8,9 @@ const routes = [
   "symbols",
   "patterns",
   "adoption",
+  "environments",
+  "library",
+  "changelog",
 ];
 for (const profile of ["core", "grass", "paper", "parallel", "canvas", "gallery"])
   for (const environment of ["dawn", "dusk"])

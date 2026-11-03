@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Website pages from the library (phase 5, first increment)
+
+- Add Environments, Figma library and Changelog pages to the website, built from the committed Figma export, the environment manifest and this changelog. All ten environments show status and contrast; all 62 Figma components appear in seven purpose groups with their Figma render and a link into Figma.
+- Record each component's group in the reorganisation map, so Figma and the website share one grouping.
+
 ## Unreleased — 2026-11-02 · Token migration groundwork (phase 3)
 
 - Add the 1.0 deprecation table (`design/meridian/deprecations.json`, `docs/migration/1.0-token-migration.md`): 0.5 profile colours alias to Forest, Desert and Core environments; project profiles move to their products; `--meridian-*` gives way to `--md-*`. Nothing is removed before 2.0.
