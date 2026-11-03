@@ -1,5 +1,6 @@
 import { websiteCss } from "./token-contract.mjs";
 import { linkStatus } from "./links.mjs";
+import { symbolVariants, isSafeSvg } from "./symbols.mjs";
 import { captureFromSource, provenanceOverrides } from "./provenance.mjs";
 import { readFile } from "node:fs/promises";
 import {
@@ -311,6 +312,32 @@ if (event.action === "figma-tokens") {
     );
     writes.set(`${prefix}previews/${name}.png`, { sha: blob.sha });
   }
+  // Per-variant symbol SVGs (scripts/figma/symbols.mjs), rendered by Figma at this version.
+  const archivePages = mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")
+    ? (await readMain("design/figma/links.json")).archivePages ?? [] : [];
+  const symbols = symbolVariants(file.document, archivePages);
+  const exported = [];
+  for (let i = 0; i < symbols.length; i += 100) {
+    const batch = symbols.slice(i, i + 100);
+    const rendered = await figma(
+      `/images/${config.fileKey}?ids=${encodeURIComponent(batch.map((s) => s.id).join(","))}&format=svg&version=${encodeURIComponent(version.id)}`,
+    );
+    if (rendered.err) throw new Error("Figma could not render symbol SVGs");
+    for (const symbol of batch) {
+      const url = rendered.images?.[symbol.id];
+      if (!url || new URL(url).protocol !== "https:") { exported.push({ ...symbol, file: null }); continue; }
+      const result = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+      const svg = result.ok ? await result.text() : null;
+      if (!isSafeSvg(svg)) { exported.push({ ...symbol, file: null }); continue; }
+      writes.set(`design/figma-export/icons/svg/${symbol.file}`, { content: svg });
+      exported.push(symbol);
+    }
+  }
+  if (symbols.length)
+    writes.set("design/figma-export/icons/svg/index.json", {
+      content: json({ versionId: version.id, createdAt: version.created_at, count: exported.filter((s) => s.file).length,
+        missing: exported.filter((s) => !s.file).map((s) => s.id), symbols: exported }),
+    });
 }
 
 const title = tokensChanged

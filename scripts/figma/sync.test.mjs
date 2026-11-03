@@ -67,9 +67,20 @@ async function installMock() {
               name: "Review",
               type: "FRAME",
             })),
+            { id: "449:1", name: "Symbol / leaf", type: "COMPONENT_SET", children: [
+              { id: "449:2", name: "Style=Outline", type: "COMPONENT" },
+              { id: "449:3", name: "Style=Filled", type: "COMPONENT" } ] },
           ],
         },
       });
+    if (url.includes("api.figma.com/v1/images/") && url.includes("format=svg")) {
+      const ids = decodeURIComponent(new URL(url).searchParams.get("ids")).split(",");
+      return response({ images: Object.fromEntries(ids.map((id) => [id, `https://cdn.figma.com/${id.replace(":", "-")}.svg`])) });
+    }
+    if (url.startsWith("https://cdn.figma.com/") && url.endsWith(".svg"))
+      return new Response(url.includes("449-3")
+        ? '<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg"><path d="M2 2h20"/></svg>');
     if (url.includes("api.figma.com/v1/images/"))
       return response({
         images: Object.fromEntries(
@@ -268,7 +279,7 @@ test("approved version exports diffs, configured previews, an issue and a draft 
   const cdn = calls.filter((call) =>
     call.url.startsWith("https://cdn.figma.com"),
   );
-  assert.equal(cdn.length, Object.keys(config.frames).length);
+  assert.equal(cdn.filter((call) => !call.url.endsWith(".svg")).length, Object.keys(config.frames).length);
   assert.ok(cdn.every((call) => !call.authenticated));
   const tree = calls.find(
     (call) => call.url.endsWith("/git/trees") && call.method === "POST",
@@ -335,6 +346,18 @@ test("plugin publication generates CSS without the Figma REST API", () => {
   const hover = ledger.overrides.find((entry) => entry.token === "motion/duration/hover");
   assert.equal(hover.value, 142);
   assert.match(hover.source, /Plugin publication/);
+});
+
+test("named-version exports write one SVG per symbol variant and skip unsafe renders", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const svg = tree.tree.find((entry) => entry.path === "design/figma-export/icons/svg/leaf/outline.svg");
+  assert.match(svg.content, /^<svg/);
+  assert.ok(!tree.tree.some((entry) => entry.path === "design/figma-export/icons/svg/leaf/filled.svg"));
+  const index = JSON.parse(tree.tree.find((entry) => entry.path === "design/figma-export/icons/svg/index.json").content);
+  assert.equal(index.count, 1);
+  assert.deepEqual(index.missing, ["449:3"]);
+  assert.ok(calls.some((call) => call.url.includes("format=svg") && call.url.includes("version=v2")));
 });
 
 test("named-version exports refresh the Figma link status from the file document", () => {
