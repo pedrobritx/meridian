@@ -143,3 +143,18 @@ A plugin token publication also rewrites `generated/provenance-overrides.json`, 
 ```
 node scripts/build-provenance-overrides.mjs "<source>" "<decision>"
 ```
+
+### Describe each named version
+
+The description of a named version becomes the release note for that version:
+- it appears as "Version notes" in the export issue and PR;
+- it is stored in `generated/changes.json`;
+- it is written to `generated/release-note.md`, ready to paste into `CHANGELOG.md`.
+
+Write it as three short lines:
+
+```
+Type: added, changed, fixed or deprecated
+Summary: one plain sentence about what changed for people using Meridian
+Issue: #number, if there is one
+```

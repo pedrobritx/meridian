@@ -36,6 +36,8 @@ const figma = (path) => api(`https://api.figma.com/v1${path}`, figmaToken);
 const post = (body) => ({ method: "POST", body: JSON.stringify(body) });
 const prefix = "design/figma/generated/";
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
+// Designer-written version text: keep line breaks, drop HTML brackets and table pipes, cap length.
+const notes = (value, max) => String(value ?? "").replace(/[<>|]/g, " ").trim().slice(0, max);
 const payload = event.client_payload ?? {};
 if (payload.file_key && payload.file_key !== config.fileKey)
   throw new Error("Figma file mismatch");
@@ -284,7 +286,19 @@ if (event.action === "figma-tokens") {
   );
   add(
     "changes.json",
-    json({ versionId: version.id, label: version.label, ...diff }),
+    json({ versionId: version.id, label: version.label, description: version.description ?? "", createdAt: version.created_at, ...diff }),
+  );
+  // Ready-to-paste changelog entry written from the named version's own description.
+  add(
+    "release-note.md",
+    [
+      `## Figma · ${notes(version.label, 120)} · ${version.created_at.slice(0, 10)}`,
+      "",
+      notes(version.description, 2000) || "No description was given for this named version.",
+      "",
+      `- ${diff.added.length} added, ${diff.changed.length} changed, ${diff.removed.length} removed layers. Named version ${version.id}.`,
+      "",
+    ].join("\n"),
   );
   const validFrames = Object.entries(config.frames).filter(
     ([, id]) => nodes[id],
@@ -362,6 +376,7 @@ const lines = details
   );
 const body = [
   `Source: [Meridian in Figma](${designUrl})${version ? ` · named version ${version.id}` : " · explicitly published local variables"}.`,
+  ...(version?.description?.trim() ? [`Version notes: ${notes(version.description, 2000)}`] : []),
   tokensChanged
     ? "The designer published a complete Grass/Paper light/dark token export. Tokens and shared library copy feed the website build after this PR reaches main."
     : `${counts}. Previews and layer diffs are exported from the approved named version.`,
