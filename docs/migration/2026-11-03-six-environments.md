@@ -45,3 +45,13 @@ A fresh read-only execution of the actual plugin capture code also verified all 
 Extended browser review: WebKit passed 61 cases and exposed a dialog focus-restoration defect plus a Chromium-only emulation test. The dialog now explicitly restores focus to its opener; the corrected tests passed in Chromium and WebKit (five passes, one explicitly unsupported media-emulation skip). Firefox failed before page creation because its downloaded macOS build could not locate an existing profile folder, including with a dedicated temporary profile. Linux CI now installs all three engines to complete the engine checks independently of that local launch failure.
 
 Two actionable findings from the supplied historical audit are repaired: standalone input/select/textarea recipes now include their own border-box sizing, and the stable `.dark` selector sets the native control color scheme while respecting explicit light appearance. A test without the reference-site reset passed in Chromium and WebKit; all 106 unit checks still pass.
+
+## File ownership and saved version
+
+Pedro saved named version `2417769680861415862` in the main library. The existing sync job was rerun to export it; the outcome is tracked separately from the saved-version confirmation.
+
+The existing [Website file](https://www.figma.com/design/t8af32zfCQTsfIygmivuwi/Meridian-Website) contains five designed pages and is preserved. Its cover now reflects the owner’s natural-material direction and current website address. The new [Lab copy](https://www.figma.com/design/vX1eNJVAJ7QLqjimSvcGmm/Meridian-Lab) puts Studies and Archive first, with copied dependency pages labelled Reference. Those references are snapshots, not a second published library. The discovered Web Design Library file is empty and was left untouched. `2026-11-03-file-ownership.json` records IDs and edits.
+
+This establishes the destination files without deleting source pages. Migrating existing source links and replacing copied local dependencies with verified library references remains necessary before pruning anything.
+
+The first Linux three-engine CI run passed 237 cases and found 21 forced-click failures on clipped native inputs in the Material Model tests. Tests now click the visible native labels and assert the resulting input state. All 30 affected Chromium/WebKit cases passed locally; the next CI run verifies Firefox and Linux WebKit.
