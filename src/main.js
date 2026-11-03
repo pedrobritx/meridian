@@ -53,7 +53,7 @@ render();
 content.addEventListener('click',async event=>{const target=event.target.closest('button');if(!target)return;
  if(target.hasAttribute('data-list-item'))announce(target.dataset.listItem+' selected. This example does not store information.');
  if(target.hasAttribute('data-demo'))announce(target.dataset.demo);
- if(target.hasAttribute('data-open-dialog'))document.querySelector('#example-dialog').showModal();
+ if(target.hasAttribute('data-open-dialog')){const dialog=document.querySelector('#example-dialog');dialog.addEventListener('close',()=>{if(target.isConnected)target.focus();},{once:true});dialog.showModal();}
  if(target.matches('[role="tab"]'))activateTab(target);
  if(target.id==='create-item'){const status=document.querySelector('#item-status');status.hidden=false;status.textContent='Example item added. This demonstration is kept only on this page.';target.disabled=true;target.textContent='Example added';}
  if(target.hasAttribute('data-copy')){try{await navigator.clipboard.writeText(target.dataset.copy);const small=target.querySelector('small');small.textContent='Copied';announce(`${target.dataset.copy} copied.`);setTimeout(()=>{if(small.isConnected)small.textContent=target.dataset.copy;},1800);}catch{announce(`Copy unavailable. Colour value: ${target.dataset.copy}`);target.querySelector('small').textContent=`Copy manually: ${target.dataset.copy}`;}}

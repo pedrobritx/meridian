@@ -23,8 +23,10 @@ npm ci
 npm run dev
 npm test
 npm run build
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run test:browser
+# Include Firefox and WebKit, as CI does:
+MERIDIAN_EXTENDED_BROWSERS=1 npm run test:browser
 ```
 
 The development and preview base is `/meridian/`, matching GitHub Pages. `npm run build` regenerates the plugin, CSS tokens and `dist/`. Edit the canonical JSON and `site/content.json` instead of generated outputs. Browser checks cover every view in all twelve profile/environment combinations at desktop and mobile widths, native dialog focus, tabs, local form validation, theme persistence and reduced motion.

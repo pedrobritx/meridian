@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — 2026-11-03 · Cross-browser acceptance
+
+- Restore dialog focus to its opener explicitly, including WebKit pointer activation.
+- Add Firefox and WebKit projects to CI; keep Chromium-only reduced-transparency emulation explicitly scoped.
+- Verify all 2,016 live stable-profile values with the actual plugin capture code.
+
 ## Unreleased — 2026-11-03 · Six environments and material labs
 
 - Consolidate active environments into Prism, Forest, Desert, Ocean, Aurora and Canyon, each in Dawn/Dusk; retain archived retired selectors and stable 0.5 profiles.

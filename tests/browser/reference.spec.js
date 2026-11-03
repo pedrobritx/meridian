@@ -134,12 +134,19 @@ test("only the selected segment is bold and list hover belongs to one rounded ro
   await expect(page.locator("html")).toHaveAttribute("data-meridian", "paper");
 });
 
-test("glass buttons support keyboard activation and solid preference fallbacks", async ({page}) => {
+test("glass buttons support keyboard activation and an opaque alternative", async ({page}) => {
   await page.goto('#components');
   const glass=page.locator('button.md-button.glass').first();
   await glass.focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('#announcement')).toContainText('Button option selected');
+  expect(await page.locator('button.md-button.opaque').first().evaluate(el=>getComputedStyle(el).backdropFilter)).toBe('none');
+});
+
+test('glass respects emulated reduced transparency and forced colors', async ({page,browserName}) => {
+  test.skip(browserName !== 'chromium', 'Reduced-transparency media emulation requires Chromium CDP.');
+  await page.goto('#components');
+  const glass=page.locator('button.md-button.glass').first();
   const session=await page.context().newCDPSession(page);
   await session.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-transparency',value:'reduce'}]});
   expect(await glass.evaluate(el=>getComputedStyle(el).backdropFilter)).toBe('none');
