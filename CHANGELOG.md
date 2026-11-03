@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased — 2026-11-02 · Component pages (phase 5, second increment)
+
+- Give every Figma library component its own page on the website, with Overview, Specs and Guidelines tabs. Guidelines come from `design/meridian/components.json` where they exist (28 components) and say plainly when they have not been written yet.
+
 ## Unreleased — 2026-11-02 · Symbol SVG export (phase 6, first increment)
 
 - Export one SVG per variant of every `Symbol / …` component set at each named Figma version, into `design/figma-export/icons/svg/`, with an index of anything Figma could not render. Unsafe SVG content is rejected.
