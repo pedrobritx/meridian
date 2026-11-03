@@ -1,15 +1,27 @@
 {
   "schemaVersion": 1,
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
-  "checkedAt": "2026-11-02",
-  "method": "Figma Plugin API getNodeByIdAsync on every node ID referenced by the files in policy, read-only. Re-run after the Figma file is reorganised and update this snapshot in the same change.",
+  "checkedAt": "2026-11-03",
+  "method": "Figma REST file document at named version 2417769680861415862, checked by figma-sync.yml",
   "pages": {
-    "0:1": "Home",
-    "3:211": "Develop",
-    "3:207": "Foundations",
-    "197:34": "Style",
-    "3:208": "Components",
-    "218:21": "Archive"
+    "0:1": "Cover",
+    "672:2": "Getting started",
+    "672:3": "Changelog",
+    "197:34": "Foundations",
+    "672:4": "Symbols",
+    "3:208": "Components / Overview",
+    "672:5": "Components / Actions",
+    "672:6": "Components / Selection",
+    "672:7": "Components / Text input",
+    "672:8": "Components / Containment",
+    "672:9": "Components / Navigation",
+    "672:10": "Components / Communication",
+    "672:11": "Components / Data and media",
+    "672:12": "Templates",
+    "3:211": "Website / Develop",
+    "3:207": "Website / Foundations",
+    "672:13": "Lab / Studies",
+    "218:21": "Lab / Archive"
   },
   "archivePages": [
     "218:21"
@@ -43,21 +55,21 @@
     "historical": "Records of earlier layouts, kept as written. Superseded by design/figma-export (2026-11-01)."
   },
   "missing": [
-    "270:34",
-    "271:3159",
-    "271:3307",
-    "271:34",
-    "271:3427",
-    "273:34",
-    "276:34",
     "3:209",
     "3:210",
     "43:37",
     "44:1299",
     "45:2262",
-    "91:2692",
     "91:34",
-    "92:34"
+    "91:2692",
+    "92:34",
+    "270:34",
+    "271:34",
+    "271:3159",
+    "271:3307",
+    "271:3427",
+    "273:34",
+    "276:34"
   ],
   "archived": [
     "4:43",

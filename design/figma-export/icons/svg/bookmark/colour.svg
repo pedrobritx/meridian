@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M8 3H16C18 3 19 4 19 6V20C19 21 18.5333 21.2333 17.6 20.7L12 17.2L6.4 20.7C5.46667 21.2333 5 21 5 20V6C5 4 6 3 8 3Z" fill-rule="evenodd" clip-rule="evenodd" fill="url(#paint0_linear_275_102)"/>
+<path d="M8 3H16C18 3 19 4 19 6V20C19 21 18.5333 21.2333 17.6 20.7L12 17.2L6.4 20.7C5.46667 21.2333 5 21 5 20V6C5 4 6 3 8 3Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke="#235D50" style="stroke:#235D50;stroke:color(display-p3 0.1373 0.3647 0.3137);stroke-opacity:1;"/>
+<defs>
+<linearGradient id="paint0_linear_275_102" x1="5.50515" y1="8.28227" x2="18.6043" y2="15.4973" gradientUnits="userSpaceOnUse">
+<stop stop-color="#DCE3B2" style="stop-color:#DCE3B2;stop-color:color(display-p3 0.8627 0.8902 0.6980);stop-opacity:1;"/>
+<stop offset="0.48" stop-color="#94AE72" style="stop-color:#94AE72;stop-color:color(display-p3 0.5804 0.6824 0.4471);stop-opacity:1;"/>
+<stop offset="1" stop-color="#405E3C" style="stop-color:#405E3C;stop-color:color(display-p3 0.2510 0.3686 0.2353);stop-opacity:1;"/>
+</linearGradient>
+</defs>
+</svg>
