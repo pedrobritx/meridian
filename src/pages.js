@@ -1,4 +1,4 @@
-import bundle from '../design/figma/generated/tokens.json';
+import bundle from '../design/figma/generated/tokens.json' with {type:'json'};
 import content from '../site/content.json';
 import projectThemes from '../design/meridian/project-themes.json';
 import {profiles} from '../scripts/figma/token-contract.mjs';

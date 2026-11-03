@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 2026-11-03 · Six environments and material labs
+
+- Consolidate active environments into Prism, Forest, Desert, Ocean, Aurora and Canyon, each in Dawn/Dusk; retain archived retired selectors and stable 0.5 profiles.
+- Integrate the supplied Material Model and Environment Patterns labs, including keyboard, reduced-motion and transparency checks.
+- Add the Meridian philosophy page and purpose, accessibility and implementation guidance for all 62 component entries.
+- Apply the Figma page reorganisation, bind 468 environment values to the canonical manifest and repair the contact-duration alias. Record live verification separately from historical exports.
+
 ## Unreleased — 2026-11-02 · Reduced-transparency check
 
 - Fail CI when a stable library style blurs its backdrop without a `prefers-reduced-transparency` fallback that removes the blur (ADR-0002 §5). Both current glass surfaces, `.md-glass` and `.md-button.glass`, pass.

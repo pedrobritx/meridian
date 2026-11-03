@@ -1,5 +1,7 @@
 # Meridian Figma reorganisation · Living Environments & Universal Components
 
+> Historical proposal. Active families and live Figma reconciliation are recorded in [the 3 November migration](migration/2026-11-03-six-environments.md). The five-family palette and page-count descriptions below are retained as dated context.
+
 **Date:** 9 October 2026  
 **Design authority:** [00 · Meridian · Start (node 7:2)](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2). **Status:** Figma 0.6 refactor, review required before stable release.
 

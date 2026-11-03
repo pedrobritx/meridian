@@ -1,0 +1,7 @@
+{
+  "status": "blocked-by-tool-capability",
+  "method": "saveVersionHistoryAsync",
+  "message": "Method is exposed but invocation returns not a supported API. No named version created.",
+  "debugUuid": "0bec0275-66d1-4d38-9084-e8ed8b639e90",
+  "requiredAction": "Save named version in Figma UI; user notified."
+}

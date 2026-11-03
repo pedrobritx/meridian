@@ -1,0 +1,41 @@
+# Six environments and material labs
+
+Status: implementation prepared for review; not a 1.0 release.
+
+## Owner direction
+
+The active families are Prism (neutral), Forest (green), Desert (gold), Ocean (blue), Aurora (purple/pink), and Canyon (red/terracotta). Each has Dawn and Dusk. Fluid is shared interaction behavior, not an environment. Natural light and material response should explain hierarchy without displacing content. See [philosophy](../philosophy.md).
+
+## Canonical sources and compatibility
+
+`design/meridian/living-environments.json` defines the six active families, with 35 semantic and four decorative roles in each appearance. `scripts/build-environments.mjs` generates the CSS. The original ten-family manifest is preserved verbatim in `design/meridian/compatibility/environments-2026-11-02.json`.
+
+Core becomes Prism; Embers becomes Canyon. Alpine, Storm and Glacier inform Ocean; Celestial informs Aurora. The retired CSS identifiers keep their original values and are omitted from active pickers. Stable 0.5 Core/Grass/Paper and product profiles are unchanged. The new golden Desert is deliberately different from Paper. Existing `desert` and `aurora` experimental consumers receive the revised palettes and need visual review; do not claim pixel-identical migration for those selectors.
+
+Prism and Forest preserve their earlier canonical role values. Desert, Ocean, Aurora and Canyon use the supplied Material Model direction for primary surfaces and accents, retaining compatible semantic status colors. All twelve canonical appearances pass the defined solid-surface contrast pairs. Translucent compositions still require testing against actual content.
+
+## Supplied experiments
+
+Material Model demonstrates six environments across simulated input/device contexts. Environment Patterns separates environment from stable profile selection. Both are registered build entries and have browser checks. The Material Model is a self-contained exploration with its own palette and physics; it is not a production component package or proof of native watch, spatial or automotive support.
+
+## Live Figma work
+
+The existing file was reorganised in place, preserving component roots and semantic IDs. The seven component purpose pages contain all 62 catalogued roots. Symbols and Lab studies have dedicated pages; top-level moved sections were arranged without overlap. Getting started, Changelog and Templates explain usage and readiness.
+
+The six active Environment modes resolve through Appearance aliases into hidden primitives. All 468 values were compared against the canonical manifest with no differences. Core and Embers mode IDs now display Prism and Canyon; the four retired modes are labelled Legacy. The existing collection default remains Forest to avoid changing inherited designs; explicitly select Prism for new work. The contact-duration alias now points to an 80 ms primitive in every Motion mode. Stable 0.5 collections were not migrated.
+
+Evidence: `design/figma/migrations/2026-11-03-live-verification.json`, per-environment sync records, component-move records and library-guidance records. These describe live changes; older exports and migration maps retain their historical provenance. Additional material/symbol roles outside the 39-role manifest have not been certified as six-environment equivalents.
+
+## Remaining acceptance
+
+- Inspect the final website and live Figma compositions, including materials over real content.
+- Complete the named-version export and plugin round trip; verify aliases after the round trip.
+- Complete the separate Website/Lab Figma-file migration with component references preserved. No source pages have been deleted.
+- Perform the human keyboard/screen-reader/device evaluation tracked by issue #12 before release claims.
+- Review the six environments as visual candidates before publication. Automated contrast results do not constitute full accessibility certification.
+
+The component website now includes purpose, usage, accessibility and HTML starting points for all catalogued entries. Composite controls still require a complete interaction controller and product validation; documentation examples are explicitly labelled accordingly.
+
+## Validation evidence
+
+On 3 November 2026, all 106 unit checks passed. The production build and 126 Chromium desktop/mobile browser cases passed before the dependency update. Against Vite 7.3.7, 125 passed and the Canyon Dawn axe scan timed out; that exact case then passed three isolated repetitions (2.3–2.4 seconds each). No accessibility violation was reported, but the timeout remains recorded rather than claiming an uninterrupted green run. The dependency audit reports zero known vulnerabilities after that patch. Visual review covered the relocated Actions composition and the three new guidance frames in Figma. This does not replace browser-engine or real-device acceptance.

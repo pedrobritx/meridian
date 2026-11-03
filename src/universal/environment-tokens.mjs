@@ -5,7 +5,7 @@
  * This is opt-in until a documented, accessible stable release.
  */
 export const APPEARANCES=Object.freeze(['Dawn','Dusk']);
-export const ENVIRONMENT_NAMES=Object.freeze(['Forest','Core','Desert','Ocean','Alpine','Storm','Celestial','Aurora','Glacier','Embers']);
+export const ENVIRONMENT_NAMES=Object.freeze(['Prism','Forest','Desert','Ocean','Aurora','Canyon']);
 export const ENVIRONMENT_STATUSES=Object.freeze(['candidate','preview']);
 const color=/^#[0-9A-F]{6}(?:[0-9A-F]{2})?$/i;
 export function validateEnvironmentManifest(input){
@@ -46,12 +46,17 @@ export function hexToCss(value){
  const alpha=value.length===9?(parseInt(value.slice(7,9),16)/255).toFixed(4):'1';
  return 'rgb('+r+' '+g+' '+b+' / '+alpha+')';
 }
-export function environmentCss(source){
+export function environmentCss(source,compatibility){
  const doc=validateEnvironmentManifest(source);
  const lines=['/* Generated from design/meridian/living-environments.json; experimental and opt-in. */'];
- for(const env of doc.environments)for(const appearance of APPEARANCES){
-  const selector='[data-meridian][data-meridian-environment="'+env.id+'"]'+
-    (appearance==='Dusk'?'[data-theme="dark"]':':not([data-theme="dark"])');
+ const retired=compatibility?.environments.filter(e=>!doc.environments.some(n=>n.id===e.id))??[];
+ for(const env of [...doc.environments,...retired])for(const appearance of APPEARANCES){
+  const base='[data-meridian][data-meridian-environment="'+env.id+'"]';
+  // Dusk also honours the stable 0.5 `.dark` class boundary, so a profile and its
+  // environment never resolve different appearances on the same element.
+  const selector=appearance==='Dusk'
+    ?base+'[data-theme="dark"], '+base+'.dark:not([data-theme="light"])'
+    :base+':not([data-theme="dark"])';
   lines.push(selector+' {');
   lines.push('  color-scheme: '+(appearance==='Dusk'?'dark':'light')+';');
   for(const [name,value]of Object.entries(env.modes[appearance])){

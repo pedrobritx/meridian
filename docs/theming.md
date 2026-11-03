@@ -50,7 +50,7 @@ Each role becomes a custom property: `color/bg/page` becomes `--md-color-bg-page
 
 Meridian components read only `--md-*` properties, so they adopt the theme without changes.
 
-- **Today:** `environmentCss` only accepts Meridian's ten environments, so products write the CSS themselves using `hexToCss`.
+- **Today:** `environmentCss` only accepts Meridian's six active environments, so products write the CSS themselves using `hexToCss`.
 - **PROPOSED:** a product-facing helper that validates any 39-role palette and emits scoped CSS.
 
 ## 5. Keep the theme in the product

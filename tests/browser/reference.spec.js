@@ -9,6 +9,7 @@ const routes = [
   "patterns",
   "adoption",
   "environments",
+  "philosophy",
   "library",
   "changelog",
   "component/5-22",
@@ -158,7 +159,11 @@ test("component pages open from the Figma library and their tabs work by keyboar
   await expect(page.getByRole("tab", { name: "Specs" })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("rowheader", { name: "Style" })).toBeVisible();
   await page.keyboard.press("ArrowRight");
-  await expect(page.getByRole("tabpanel")).toContainText("Written guidance for this component has not been added yet.");
+  await expect(page.getByRole("tabpanel")).toContainText("Use a verb that describes the outcome.");
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tabpanel")).toContainText("native button");
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tabpanel")).toContainText("<button");
   await page.goto("#component/999-1");
   await expect(page.locator("main h1")).toHaveText("Component not found.");
 });

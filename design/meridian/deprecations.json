@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "decision": "ADR-0002 §6 (DECIDED 2026-11-01): Environment × Appearance is the only public colour API; 0.5 names stay as deprecated aliases; product themes move to their products.",
+  "decision": "ADR-0002 \u00a76 (DECIDED 2026-11-01): Environment \u00d7 Appearance is the only public colour API; 0.5 names stay as deprecated aliases; product themes move to their products.",
   "window": "design/meridian/governance.md: keep compatibility for at least two minor releases or 30 days, whichever is longer. Removal happens only in a major release.",
-  "status": "PROPOSED details within the DECIDED direction; nothing is removed or renamed by this file.",
+  "status": "Six-environment catalog adopted 2026-11-02; stable 0.5 values and retired selector values remain compatible.",
   "entries": [
     {
       "use": "[data-meridian] (Grass, default) colour roles",
@@ -16,11 +16,11 @@
       "replacement": "[data-meridian][data-meridian-environment=\"desert\"]",
       "deprecatedIn": "1.0",
       "removeNoEarlierThan": "2.0",
-      "compatibility": "Colour identical; tested"
+      "compatibility": "Paper 0.5 remains unchanged. New Desert is golden; migration requires product review and is not colour-identical."
     },
     {
       "use": "[data-meridian=\"core\"] colour roles",
-      "replacement": "[data-meridian][data-meridian-environment=\"core\"]",
+      "replacement": "[data-meridian][data-meridian-environment=\"prism\"]",
       "deprecatedIn": "1.0",
       "removeNoEarlierThan": "2.0",
       "compatibility": "Colour identical except color/material/glass alpha (Core 0.5 0.96, environment 0.72 Dawn, 0.82 Dusk); tested"
@@ -54,11 +54,53 @@
       "compatibility": "Kept in the library file, labelled deprecated, until removal"
     },
     {
-      "use": "Figma collections Meridian / Living Environments · 0.6 and Meridian 0.6 Lab / Forest",
+      "use": "Figma collections Meridian / Living Environments \u00b7 0.6 and Meridian 0.6 Lab / Forest",
       "replacement": "Meridian / Environment (library) or the lab file",
       "deprecatedIn": "1.0",
       "removeNoEarlierThan": "1.x (Lab-only, no stable consumers)",
       "compatibility": "PROPOSED: move to the lab file with the Archive"
+    },
+    {
+      "use": "data-meridian-environment=\"core\"",
+      "replacement": "data-meridian-environment=\"prism\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"alpine\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"storm\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"glacier\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"celestial\"",
+      "replacement": "data-meridian-environment=\"aurora\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"embers\"",
+      "replacement": "data-meridian-environment=\"canyon\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
     }
   ]
 }
