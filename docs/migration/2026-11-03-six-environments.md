@@ -29,7 +29,7 @@ Evidence: `design/figma/migrations/2026-11-03-live-verification.json`, per-envir
 ## Remaining acceptance
 
 - Inspect the final website and live Figma compositions, including materials over real content.
-- Complete the named-version export and plugin round trip; verify aliases after the round trip.
+- Complete the installed-plugin round trip; verify aliases after the round trip. Named-version export succeeded for `2417769680861415862` in PR #54.
 - Complete the separate Website/Lab Figma-file migration with component references preserved. No source pages have been deleted.
 - Perform the human keyboard/screen-reader/device evaluation tracked by issue #12 before release claims.
 - Review the six environments as visual candidates before publication. Automated contrast results do not constitute full accessibility certification.
@@ -48,10 +48,14 @@ Two actionable findings from the supplied historical audit are repaired: standal
 
 ## File ownership and saved version
 
-Pedro saved named version `2417769680861415862` in the main library. The existing sync job was rerun to export it; the outcome is tracked separately from the saved-version confirmation.
+Pedro saved named version `2417769680861415862` in the main library. The existing sync job exported it successfully on attempt 3, creating issue #53 and draft PR #54. Attempt 2 timed out before publication; the retry completed.
 
 The existing [Website file](https://www.figma.com/design/t8af32zfCQTsfIygmivuwi/Meridian-Website) contains five designed pages and is preserved. Its cover now reflects the owner’s natural-material direction and current website address. The new [Lab copy](https://www.figma.com/design/vX1eNJVAJ7QLqjimSvcGmm/Meridian-Lab) puts Studies and Archive first, with copied dependency pages labelled Reference. Those references are snapshots, not a second published library. The discovered Web Design Library file is empty and was left untouched. `2026-11-03-file-ownership.json` records IDs and edits.
 
 This establishes the destination files without deleting source pages. Migrating existing source links and replacing copied local dependencies with verified library references remains necessary before pruning anything.
 
 The first Linux three-engine CI run passed 237 cases and found 21 forced-click failures on clipped native inputs in the Material Model tests. Tests now click the visible native labels and assert the resulting input state. All 30 affected Chromium/WebKit cases passed locally; the next CI run verifies Firefox and Linux WebKit.
+
+The Website environment article now shows all six candidate families in order. Fourteen hidden local preview variables provide seven swatch roles in Dawn/Dusk for each family; all 84 values match the canonical manifest. Existing card instances remain intact. These explicitly labelled previews await reviewed library publication rather than claiming that imported published variables already contain the new palettes.
+
+PR #52 and export PR #54 combine without conflicts; their combined tree passes all 106 unit checks and the build. The export refreshes layer snapshots, selected previews, links and symbol SVGs. The separate manually captured component inventory/screenshots used by `site/library.json` are not automatically refreshed by the current workflow; do not treat that historical inventory as a fresh full-library export.
