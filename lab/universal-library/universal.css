@@ -33,7 +33,7 @@ body.universal{margin:0;background:var(--md-color-bg-page);color:var(--md-color-
 .u-theme .u-eyebrow{color:inherit;opacity:.76}
 .u-theme h3{font:400 30px/1.2 Fraunces,Georgia,serif;letter-spacing:-.03em;margin:0 0 8px}
 .u-theme p:not(.u-eyebrow){font-size:12px;max-width:300px;margin:0 0 22px}
-.u-demobutton{display:inline-block;margin-top:auto;border-radius:99px;background:currentColor;color:inherit;font-size:12px;font-weight:700;padding:9px 17px;position:relative;isolation:isolate}
+.u-demobutton{display:inline-block;margin-top:auto;border:0;border-radius:99px;background:currentColor;color:inherit;font-size:12px;font-weight:700;padding:9px 17px;position:relative;isolation:isolate}
 .u-demobutton::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--md-color-bg-surface);z-index:-1;opacity:.94}
 .u-library{margin-top:75px}
 .u-lede{color:var(--md-color-text-secondary);font-size:14px;max-width:800px;margin:0 0 28px}
@@ -51,6 +51,7 @@ body.universal{margin:0;background:var(--md-color-bg-page);color:var(--md-color-
 .u-component-category{font-size:9px;font-weight:750;letter-spacing:.12em;color:var(--md-color-text-secondary);text-transform:uppercase}
 .u-component h3{font:400 21px/1.25 Fraunces,Georgia,serif;margin:3px 0 0}
 .u-component .u-anatomy{font-size:12px;color:var(--md-color-text-secondary);min-height:37px;margin:0}
+.u-readiness{margin:0;font-size:11px;color:var(--md-color-text-secondary)}
 .u-component .u-projects{font-size:10px;color:var(--md-color-text-secondary);margin-top:auto}
 .u-specimen{min-height:96px;padding:15px;background:var(--md-color-bg-sunken);border-radius:14px;display:flex;flex-direction:column;gap:10px}
 .u-specimen label{font-weight:650;font-size:12px;display:grid;gap:4px}

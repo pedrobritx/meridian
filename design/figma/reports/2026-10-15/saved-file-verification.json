@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "verification": {
+    "pages": [
+      {
+        "id": "0:1",
+        "name": "Home"
+      },
+      {
+        "id": "3:211",
+        "name": "Develop"
+      },
+      {
+        "id": "3:207",
+        "name": "Foundations"
+      },
+      {
+        "id": "197:34",
+        "name": "Style"
+      },
+      {
+        "id": "3:208",
+        "name": "Components"
+      },
+      {
+        "id": "218:21",
+        "name": "Archive"
+      }
+    ],
+    "sources": [
+      {
+        "id": "386:2126",
+        "name": "Navigation row",
+        "clipsContent": false
+      },
+      {
+        "id": "386:2140",
+        "name": "Navigation row",
+        "clipsContent": false
+      },
+      {
+        "id": "386:2182",
+        "name": "Navigation row",
+        "clipsContent": false
+      },
+      {
+        "id": "386:2196",
+        "name": "Navigation row",
+        "clipsContent": false
+      },
+      {
+        "id": "510:2119",
+        "name": "Group / Navigation",
+        "clipsContent": false
+      },
+      {
+        "id": "510:2134",
+        "name": "Group / Navigation",
+        "clipsContent": false
+      },
+      {
+        "id": "510:2179",
+        "name": "Group / Navigation",
+        "clipsContent": false
+      },
+      {
+        "id": "510:2194",
+        "name": "Group / Navigation",
+        "clipsContent": false
+      }
+    ],
+    "components": [
+      {
+        "id": "510:2238",
+        "name": "Toolbar / Glass groups",
+        "type": "COMPONENT_SET"
+      },
+      {
+        "id": "510:2279",
+        "name": "Popover / Glass actions",
+        "type": "COMPONENT_SET"
+      },
+      {
+        "id": "510:2280",
+        "name": "Button / Liquid XL",
+        "type": "COMPONENT"
+      }
+    ],
+    "foregroundTokens": [
+      {
+        "id": "VariableID:541:32",
+        "name": "color/material/layer/front-control"
+      },
+      {
+        "id": "VariableID:541:63",
+        "name": "color/material/layer/front-selection"
+      }
+    ],
+    "namedVersionSupported": true
+  },
+  "saveStatus": "Live file edits persist. Named history version creation was attempted but rejected as unsupported by the connector."
+}

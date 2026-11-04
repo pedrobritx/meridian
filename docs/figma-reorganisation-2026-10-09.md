@@ -1,11 +1,14 @@
 # Meridian Figma reorganisation · Living Environments & Universal Components
 
+**Historical record:** 9 October 2026
 > Historical proposal. Active families and live Figma reconciliation are recorded in [the 3 November migration](migration/2026-11-03-six-environments.md). The five-family palette and page-count descriptions below are retained as dated context.
 
 **Date:** 9 October 2026  
 **Design authority:** [00 · Meridian · Start (node 7:2)](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2). **Status:** Figma 0.6 refactor, review required before stable release.
 
 The user-approved original Grass/Start design is the visual source: humane editorial typography, soft organic radii, gentle depth, muted boundaries, restraint in translucent chrome, opaque content and clear focus. Do **not** substitute the rejected Forest Concept B or experimental photorealistic glass as the design foundation.
+
+> Superseded by the [current six-page, ten-environment system](current-system.md). The page list and collection below describe the 9 October snapshot; they are not current adoption instructions.
 
 ## New Figma navigation
 

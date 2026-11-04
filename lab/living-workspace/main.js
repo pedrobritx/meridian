@@ -3,7 +3,14 @@ import '@fontsource/manrope/latin-700.css';
 import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/fraunces/latin-400-italic.css';
 import '../../styles/tokens.css';
+import '../../styles/living-environments.css';
 import './workspace.css';
+import '../../styles/liquid-glass.css';
+import {initLiquidGlass} from '../../src/universal/liquid-glass.js';
+import {markGlassSurfaces} from '../../src/universal/glass-reference.js';
+
+markGlassSurfaces();
+initLiquidGlass();
 import {stepAttraction,anchorOffset} from '../physics/attraction.mjs';
 
 const $ = selector => document.querySelector(selector);

@@ -1,0 +1,2519 @@
+{
+  "date": "2026-10-14",
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "scope": "Active Figma shadow clipping; Archive excluded",
+  "before": [
+    {
+      "page": "197:34",
+      "shadowCount": 349,
+      "riskCount": 48,
+      "clippers": [
+        {
+          "id": "341:980",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:987",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:994",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:1001",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:1008",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:1015",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:1022",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Style / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "387:1800",
+          "name": "Opaque content / reading",
+          "type": "FRAME",
+          "parent": "Forest / Dawn",
+          "layout": "VERTICAL",
+          "box": [
+            624,
+            170
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "I387:1806;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:1822",
+          "name": "Opaque content / reading",
+          "type": "FRAME",
+          "parent": "Forest / Dusk",
+          "layout": "VERTICAL",
+          "box": [
+            624,
+            170
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "I387:1828;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1845;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1862;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1879;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1896;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1914;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1931;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1948;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1965;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:1983;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2000;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2017;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2034;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2052;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2069;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2086;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2103;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2121;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2138;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2155;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2172;386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Floating navigation / one glass plane",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:2186",
+          "name": "Standard",
+          "type": "FRAME",
+          "parent": "Accessibility / expanded menu specimens",
+          "layout": "VERTICAL",
+          "box": [
+            350,
+            288
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:2185",
+          "name": "Accessibility / expanded menu specimens",
+          "type": "FRAME",
+          "parent": "Material / Liquid Glass / Environment review",
+          "layout": "HORIZONTAL",
+          "box": [
+            1472,
+            288
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 4
+        },
+        {
+          "id": "I387:2188;386:2182",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Menu / Standard",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:2203",
+          "name": "Reduced Motion",
+          "type": "FRAME",
+          "parent": "Accessibility / expanded menu specimens",
+          "layout": "VERTICAL",
+          "box": [
+            350,
+            288
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "I387:2205;386:2196",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "Menu / Reduced Motion",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:2220",
+          "name": "Reduced Transparency",
+          "type": "FRAME",
+          "parent": "Accessibility / expanded menu specimens",
+          "layout": "VERTICAL",
+          "box": [
+            350,
+            288
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "387:2237",
+          "name": "High Contrast",
+          "type": "FRAME",
+          "parent": "Accessibility / expanded menu specimens",
+          "layout": "VERTICAL",
+          "box": [
+            350,
+            288
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        }
+      ],
+      "samples": [
+        {
+          "node": "341:981",
+          "name": "Frame",
+          "clipper": "341:980",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:984",
+          "name": "Frame",
+          "clipper": "341:980",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:988",
+          "name": "Frame",
+          "clipper": "341:987",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:991",
+          "name": "Frame",
+          "clipper": "341:987",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:995",
+          "name": "Frame",
+          "clipper": "341:994",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:998",
+          "name": "Frame",
+          "clipper": "341:994",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1002",
+          "name": "Frame",
+          "clipper": "341:1001",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1005",
+          "name": "Frame",
+          "clipper": "341:1001",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1009",
+          "name": "Frame",
+          "clipper": "341:1008",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1012",
+          "name": "Frame",
+          "clipper": "341:1008",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1016",
+          "name": "Frame",
+          "clipper": "341:1015",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1019",
+          "name": "Frame",
+          "clipper": "341:1015",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1023",
+          "name": "Frame",
+          "clipper": "341:1022",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:1026",
+          "name": "Frame",
+          "clipper": "341:1022",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "387:1803",
+          "name": "Inline action / opaque",
+          "clipper": "387:1800",
+          "clipperName": "Opaque content / reading",
+          "overflow": [
+            0,
+            0,
+            0,
+            8
+          ]
+        },
+        {
+          "node": "I387:1806;386:2127",
+          "name": "Workspace",
+          "clipper": "I387:1806;386:2126",
+          "clipperName": "Navigation row",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "387:1825",
+          "name": "Inline action / opaque",
+          "clipper": "387:1822",
+          "clipperName": "Opaque content / reading",
+          "overflow": [
+            0,
+            0,
+            0,
+            8
+          ]
+        },
+        {
+          "node": "I387:1828;386:2127",
+          "name": "Workspace",
+          "clipper": "I387:1828;386:2126",
+          "clipperName": "Navigation row",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "I387:1845;386:2127",
+          "name": "Workspace",
+          "clipper": "I387:1845;386:2126",
+          "clipperName": "Navigation row",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "I387:1862;386:2127",
+          "name": "Workspace",
+          "clipper": "I387:1862;386:2126",
+          "clipperName": "Navigation row",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "page": "3:208",
+      "shadowCount": 554,
+      "riskCount": 90,
+      "clippers": [
+        {
+          "id": "272:287",
+          "name": "Universal / Scroll view",
+          "type": "COMPONENT_SET",
+          "parent": "Components Overview",
+          "layout": "NONE",
+          "box": [
+            740,
+            275
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        },
+        {
+          "id": "272:301",
+          "name": "Universal / Page indicator",
+          "type": "COMPONENT_SET",
+          "parent": "Components Overview",
+          "layout": "NONE",
+          "box": [
+            740,
+            275
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        },
+        {
+          "id": "272:329",
+          "name": "Universal / Image well",
+          "type": "COMPONENT_SET",
+          "parent": "Components Overview",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:95",
+          "name": "Universal / Menu bar",
+          "type": "COMPONENT_SET",
+          "parent": "Bars",
+          "layout": "NONE",
+          "box": [
+            740,
+            275
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        },
+        {
+          "id": "272:357",
+          "name": "Universal / Split button",
+          "type": "COMPONENT_SET",
+          "parent": "Split Buttons",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:54",
+          "name": "Universal / Carousel",
+          "type": "COMPONENT_SET",
+          "parent": "Carousel",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:385",
+          "name": "Universal / Status pill",
+          "type": "COMPONENT_SET",
+          "parent": "Chips",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:193",
+          "name": "Universal / Date range picker",
+          "type": "COMPONENT_SET",
+          "parent": "Date Pickers",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:259",
+          "name": "Universal / Collection grid",
+          "type": "COMPONENT_SET",
+          "parent": "Lists",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:273",
+          "name": "Universal / Column browser",
+          "type": "COMPONENT_SET",
+          "parent": "Lists",
+          "layout": "NONE",
+          "box": [
+            740,
+            275
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        },
+        {
+          "id": "272:229",
+          "name": "Universal / Circular progress",
+          "type": "COMPONENT_SET",
+          "parent": "Progress Indicator",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "45:2339",
+          "name": "Dialog",
+          "type": "COMPONENT_SET",
+          "parent": "Dialogues",
+          "layout": "NONE",
+          "box": [
+            1040,
+            682
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        },
+        {
+          "id": "272:109",
+          "name": "Universal / Menu list",
+          "type": "COMPONENT_SET",
+          "parent": "Menus",
+          "layout": "NONE",
+          "box": [
+            740,
+            275
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:81",
+          "name": "Universal / Sheet / Bottom sheet",
+          "type": "COMPONENT_SET",
+          "parent": "Sheets",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 4
+        },
+        {
+          "id": "272:137",
+          "name": "Universal / Numeric stepper",
+          "type": "COMPONENT_SET",
+          "parent": "Text Fields",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "272:165",
+          "name": "Universal / Token field",
+          "type": "COMPONENT_SET",
+          "parent": "Text Fields",
+          "layout": "NONE",
+          "box": [
+            740,
+            540
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 3
+        },
+        {
+          "id": "I520:2327;510:2119",
+          "name": "Group / Navigation",
+          "type": "FRAME",
+          "parent": "Reference / Glass toolbar",
+          "layout": "HORIZONTAL",
+          "box": [
+            304,
+            60
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "341:2956",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2963",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2970",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2977",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2984",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2991",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:2998",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3005",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3012",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3019",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3026",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3033",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3040",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3047",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3054",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3061",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3068",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:3075",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Components / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "386:2126",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "State=Collapsed, Accessibility=Standard",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "386:2140",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "State=Collapsed, Accessibility=Reduced Motion",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "386:2182",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "State=Expanded, Accessibility=Standard",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "386:2196",
+          "name": "Navigation row",
+          "type": "FRAME",
+          "parent": "State=Expanded, Accessibility=Reduced Motion",
+          "layout": "HORIZONTAL",
+          "box": [
+            276,
+            44
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        },
+        {
+          "id": "510:2119",
+          "name": "Group / Navigation",
+          "type": "FRAME",
+          "parent": "Selected=Workspace, Accessibility=Standard",
+          "layout": "HORIZONTAL",
+          "box": [
+            304,
+            60
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "510:2134",
+          "name": "Group / Navigation",
+          "type": "FRAME",
+          "parent": "Selected=Workspace, Accessibility=Reduced Motion",
+          "layout": "HORIZONTAL",
+          "box": [
+            304,
+            60
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "510:2179",
+          "name": "Group / Navigation",
+          "type": "FRAME",
+          "parent": "Selected=Explore, Accessibility=Standard",
+          "layout": "HORIZONTAL",
+          "box": [
+            304,
+            60
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "510:2194",
+          "name": "Group / Navigation",
+          "type": "FRAME",
+          "parent": "Selected=Explore, Accessibility=Reduced Motion",
+          "layout": "HORIZONTAL",
+          "box": [
+            304,
+            60
+          ],
+          "scroll": "NONE",
+          "radius": 24,
+          "count": 1
+        },
+        {
+          "id": "510:2279",
+          "name": "Popover / Glass actions",
+          "type": "COMPONENT_SET",
+          "parent": "Glass / Functional components",
+          "layout": "NONE",
+          "box": [
+            1160,
+            240
+          ],
+          "scroll": "NONE",
+          "radius": 5,
+          "count": 2
+        }
+      ],
+      "samples": [
+        {
+          "node": "272:274",
+          "name": "State=Default",
+          "clipper": "272:287",
+          "clipperName": "Universal / Scroll view",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:280",
+          "name": "State=Focus",
+          "clipper": "272:287",
+          "clipperName": "Universal / Scroll view",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:288",
+          "name": "State=Default",
+          "clipper": "272:301",
+          "clipperName": "Universal / Page indicator",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:294",
+          "name": "State=Focus",
+          "clipper": "272:301",
+          "clipperName": "Universal / Page indicator",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:302",
+          "name": "State=Empty",
+          "clipper": "272:329",
+          "clipperName": "Universal / Image well",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:308",
+          "name": "State=Selected",
+          "clipper": "272:329",
+          "clipperName": "Universal / Image well",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:315",
+          "name": "State=Loading",
+          "clipper": "272:329",
+          "clipperName": "Universal / Image well",
+          "overflow": [
+            14,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "272:82",
+          "name": "State=Default",
+          "clipper": "272:95",
+          "clipperName": "Universal / Menu bar",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:88",
+          "name": "State=Focus",
+          "clipper": "272:95",
+          "clipperName": "Universal / Menu bar",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:330",
+          "name": "State=Default",
+          "clipper": "272:357",
+          "clipperName": "Universal / Split button",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:336",
+          "name": "State=Focus",
+          "clipper": "272:357",
+          "clipperName": "Universal / Split button",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:343",
+          "name": "State=Disabled",
+          "clipper": "272:357",
+          "clipperName": "Universal / Split button",
+          "overflow": [
+            14,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "272:34",
+          "name": "State=Default",
+          "clipper": "272:54",
+          "clipperName": "Universal / Carousel",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:40",
+          "name": "State=Focus",
+          "clipper": "272:54",
+          "clipperName": "Universal / Carousel",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:47",
+          "name": "State=Disabled",
+          "clipper": "272:54",
+          "clipperName": "Universal / Carousel",
+          "overflow": [
+            14,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "272:358",
+          "name": "State=Neutral",
+          "clipper": "272:385",
+          "clipperName": "Universal / Status pill",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:364",
+          "name": "State=Success",
+          "clipper": "272:385",
+          "clipperName": "Universal / Status pill",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:371",
+          "name": "State=Warning",
+          "clipper": "272:385",
+          "clipperName": "Universal / Status pill",
+          "overflow": [
+            14,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "272:166",
+          "name": "State=Default",
+          "clipper": "272:193",
+          "clipperName": "Universal / Date range picker",
+          "overflow": [
+            14,
+            0,
+            10,
+            0
+          ]
+        },
+        {
+          "node": "272:172",
+          "name": "State=Focus",
+          "clipper": "272:193",
+          "clipperName": "Universal / Date range picker",
+          "overflow": [
+            0,
+            0,
+            10,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "page": "3:207",
+      "shadowCount": 151,
+      "riskCount": 21,
+      "clippers": [
+        {
+          "id": "8:303",
+          "name": "Reading / Dusk / 390",
+          "type": "FRAME",
+          "parent": "Reading / responsive pair",
+          "layout": "VERTICAL",
+          "box": [
+            390,
+            923
+          ],
+          "scroll": "NONE",
+          "radius": 32,
+          "count": 1
+        },
+        {
+          "id": "8:341",
+          "name": "Preferences / Dusk / 390",
+          "type": "FRAME",
+          "parent": "Preferences / responsive pair",
+          "layout": "VERTICAL",
+          "box": [
+            390,
+            817
+          ],
+          "scroll": "NONE",
+          "radius": 32,
+          "count": 1
+        },
+        {
+          "id": "8:393",
+          "name": "Workspace / Dusk / 390",
+          "type": "FRAME",
+          "parent": "Workspace / responsive pair",
+          "layout": "VERTICAL",
+          "box": [
+            390,
+            841
+          ],
+          "scroll": "NONE",
+          "radius": 32,
+          "count": 1
+        },
+        {
+          "id": "341:731",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:738",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:745",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:752",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:759",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:766",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:773",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:780",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:787",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Foundations / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        }
+      ],
+      "samples": [
+        {
+          "node": "24:95",
+          "name": "Segmented control",
+          "clipper": "8:303",
+          "clipperName": "Reading / Dusk / 390",
+          "overflow": [
+            4.5,
+            1.5,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "24:109",
+          "name": "Segmented control",
+          "clipper": "8:341",
+          "clipperName": "Preferences / Dusk / 390",
+          "overflow": [
+            4.5,
+            1.5,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "24:123",
+          "name": "Segmented control",
+          "clipper": "8:393",
+          "clipperName": "Workspace / Dusk / 390",
+          "overflow": [
+            4.5,
+            1.5,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "341:732",
+          "name": "Frame",
+          "clipper": "341:731",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:735",
+          "name": "Frame",
+          "clipper": "341:731",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:739",
+          "name": "Frame",
+          "clipper": "341:738",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:742",
+          "name": "Frame",
+          "clipper": "341:738",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:746",
+          "name": "Frame",
+          "clipper": "341:745",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:749",
+          "name": "Frame",
+          "clipper": "341:745",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:753",
+          "name": "Frame",
+          "clipper": "341:752",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:756",
+          "name": "Frame",
+          "clipper": "341:752",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:760",
+          "name": "Frame",
+          "clipper": "341:759",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:763",
+          "name": "Frame",
+          "clipper": "341:759",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:767",
+          "name": "Frame",
+          "clipper": "341:766",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:770",
+          "name": "Frame",
+          "clipper": "341:766",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:774",
+          "name": "Frame",
+          "clipper": "341:773",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:777",
+          "name": "Frame",
+          "clipper": "341:773",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:781",
+          "name": "Frame",
+          "clipper": "341:780",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:784",
+          "name": "Frame",
+          "clipper": "341:780",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:788",
+          "name": "Frame",
+          "clipper": "341:787",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "page": "0:1",
+      "shadowCount": 5,
+      "riskCount": 5,
+      "clippers": [
+        {
+          "id": "341:6",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Home / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            140
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:13",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Home / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            140
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:20",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Home / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            166
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        }
+      ],
+      "samples": [
+        {
+          "node": "341:7",
+          "name": "Frame",
+          "clipper": "341:6",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:10",
+          "name": "Frame",
+          "clipper": "341:6",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:14",
+          "name": "Frame",
+          "clipper": "341:13",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:17",
+          "name": "Frame",
+          "clipper": "341:13",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:21",
+          "name": "Frame",
+          "clipper": "341:20",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "page": "3:211",
+      "shadowCount": 3,
+      "riskCount": 3,
+      "clippers": [
+        {
+          "id": "341:30",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Develop / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 2
+        },
+        {
+          "id": "341:37",
+          "name": "Frame",
+          "type": "FRAME",
+          "parent": "Develop / Directory",
+          "layout": "HORIZONTAL",
+          "box": [
+            1104,
+            114
+          ],
+          "scroll": "NONE",
+          "radius": 0,
+          "count": 1
+        }
+      ],
+      "samples": [
+        {
+          "node": "341:31",
+          "name": "Frame",
+          "clipper": "341:30",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:34",
+          "name": "Frame",
+          "clipper": "341:30",
+          "clipperName": "Frame",
+          "overflow": [
+            0,
+            14,
+            10,
+            18
+          ]
+        },
+        {
+          "node": "341:38",
+          "name": "Frame",
+          "clipper": "341:37",
+          "clipperName": "Frame",
+          "overflow": [
+            14,
+            0,
+            10,
+            18
+          ]
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "page": "197:34",
+      "shadowCount": 349,
+      "riskCount": 0,
+      "clippers": [],
+      "samples": []
+    },
+    {
+      "page": "3:208",
+      "shadowCount": 554,
+      "riskCount": 0,
+      "clippers": [],
+      "samples": []
+    },
+    {
+      "page": "3:207",
+      "shadowCount": 145,
+      "riskCount": 0,
+      "clippers": [],
+      "samples": []
+    },
+    {
+      "page": "0:1",
+      "shadowCount": 5,
+      "riskCount": 0,
+      "clippers": [],
+      "samples": []
+    },
+    {
+      "page": "3:211",
+      "shadowCount": 3,
+      "riskCount": 0,
+      "clippers": [],
+      "samples": []
+    }
+  ],
+  "writes": [
+    {
+      "page": "197:34",
+      "mutatedNodeIds": [
+        "341:980",
+        "341:987",
+        "341:994",
+        "341:1001",
+        "341:1008",
+        "341:1015",
+        "341:1022",
+        "387:1800",
+        "I387:1806;386:2126",
+        "387:1822",
+        "I387:1828;386:2126",
+        "I387:1845;386:2126",
+        "I387:1862;386:2126",
+        "I387:1879;386:2126",
+        "I387:1896;386:2126",
+        "I387:1914;386:2126",
+        "I387:1931;386:2126",
+        "I387:1948;386:2126",
+        "I387:1965;386:2126",
+        "I387:1983;386:2126",
+        "I387:2000;386:2126",
+        "I387:2017;386:2126",
+        "I387:2034;386:2126",
+        "I387:2052;386:2126",
+        "I387:2069;386:2126",
+        "I387:2086;386:2126",
+        "I387:2103;386:2126",
+        "I387:2121;386:2126",
+        "I387:2138;386:2126",
+        "I387:2155;386:2126",
+        "I387:2172;386:2126",
+        "387:2186",
+        "387:2185",
+        "I387:2188;386:2182",
+        "387:2203",
+        "I387:2205;386:2196",
+        "387:2220",
+        "387:2237"
+      ],
+      "createdNodeIds": [],
+      "unclippedContainers": 38,
+      "clearedEmptyWrapperEffects": 0
+    },
+    {
+      "page": "3:208",
+      "mutatedNodeIds": [
+        "272:287",
+        "272:301",
+        "272:329",
+        "272:95",
+        "272:357",
+        "272:54",
+        "272:385",
+        "272:193",
+        "272:259",
+        "272:273",
+        "272:229",
+        "45:2339",
+        "272:109",
+        "272:81",
+        "272:137",
+        "272:165",
+        "I520:2327;510:2119",
+        "341:2956",
+        "341:2963",
+        "341:2970",
+        "341:2977",
+        "341:2984",
+        "341:2991",
+        "341:2998",
+        "341:3005",
+        "341:3012",
+        "341:3019",
+        "341:3026",
+        "341:3033",
+        "341:3040",
+        "341:3047",
+        "341:3054",
+        "341:3061",
+        "341:3068",
+        "341:3075",
+        "386:2126",
+        "386:2140",
+        "386:2182",
+        "386:2196",
+        "510:2119",
+        "510:2134",
+        "510:2179",
+        "510:2194",
+        "510:2279"
+      ],
+      "createdNodeIds": [],
+      "unclippedContainers": 44,
+      "clearedEmptyWrapperEffects": 0
+    },
+    {
+      "page": "3:207",
+      "mutatedNodeIds": [
+        "341:731",
+        "341:738",
+        "341:745",
+        "341:752",
+        "341:759",
+        "341:766",
+        "341:773",
+        "341:780",
+        "341:787",
+        "24:85",
+        "24:95",
+        "24:102",
+        "24:109",
+        "24:116",
+        "24:123"
+      ],
+      "createdNodeIds": [],
+      "unclippedContainers": 9,
+      "clearedEmptyWrapperEffects": 6
+    },
+    {
+      "page": "0:1",
+      "mutatedNodeIds": [
+        "341:6",
+        "341:13",
+        "341:20"
+      ],
+      "createdNodeIds": [],
+      "unclippedContainers": 3,
+      "clearedEmptyWrapperEffects": 0
+    },
+    {
+      "page": "3:211",
+      "mutatedNodeIds": [
+        "341:30",
+        "341:37"
+      ],
+      "createdNodeIds": [],
+      "unclippedContainers": 2,
+      "clearedEmptyWrapperEffects": 0
+    }
+  ],
+  "materials": [
+    {
+      "page": "3:208",
+      "materialSurfaceCount": 337,
+      "violations": [],
+      "fallback": [
+        {
+          "id": "386:2119",
+          "glass": 0
+        },
+        {
+          "id": "386:2120",
+          "glass": 0
+        },
+        {
+          "id": "386:2123",
+          "glass": 0
+        },
+        {
+          "id": "386:2124",
+          "glass": 0
+        },
+        {
+          "id": "510:2148",
+          "glass": 0
+        },
+        {
+          "id": "510:2163",
+          "glass": 0
+        },
+        {
+          "id": "510:2208",
+          "glass": 0
+        },
+        {
+          "id": "510:2223",
+          "glass": 0
+        },
+        {
+          "id": "510:2259",
+          "glass": 0
+        },
+        {
+          "id": "510:2269",
+          "glass": 0
+        }
+      ]
+    },
+    {
+      "page": "197:34",
+      "materialSurfaceCount": 96,
+      "violations": [],
+      "fallback": []
+    },
+    {
+      "page": "3:207",
+      "materialSurfaceCount": 89,
+      "violations": [],
+      "fallback": []
+    }
+  ],
+  "archiveBefore": {
+    "nodeCount": 10208,
+    "clipHash": "4e744a6b",
+    "affected": []
+  },
+  "archiveAfter": {
+    "nodeCount": 10208,
+    "clipHash": "4e744a6b"
+  },
+  "visualReview": [
+    "387:1839",
+    "510:2117",
+    "8:303"
+  ],
+  "summary": {
+    "beforeCutoffRisks": 167,
+    "remainingCutoffRisks": 0,
+    "visibleShadowedElements": 1056,
+    "unclippedContainers": 96,
+    "transparentWrappersCorrected": 6,
+    "materialViolations": 0,
+    "archiveClippingUnchanged": true
+  }
+}

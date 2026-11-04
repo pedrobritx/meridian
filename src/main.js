@@ -23,6 +23,10 @@ import '@fontsource/cormorant-garamond/latin-600.css';
 import '../styles/tokens.css';
 import '../styles/components.css';
 import '../styles/reference.css';
+import '../styles/liquid-glass.css';
+import {initLiquidGlass} from './universal/liquid-glass.js';
+import {markGlassSurfaces} from './universal/glass-reference.js';
+import {pages} from './pages.js';
 import {pages as referencePages} from './pages.js';
 import {pages as libraryPages} from './pages-library.js';
 const pages={...referencePages,...libraryPages};
@@ -50,6 +54,9 @@ function activateTab(tab){const group=tab.closest('[role="tablist"]');for(const 
 function render(focus=false){const [key,...rest]=location.hash.slice(1).split('/');const page=Object.hasOwn(pages,key)?key:'overview';content.innerHTML=pages[page](rest.join('/'));document.title=`${page==='overview'?'A human rhythm for software':page==='component'?content.querySelector('h1').textContent:page[0].toUpperCase()+page.slice(1)} — Meridian`;document.querySelector('#page-label').textContent=({adoption:'Product adaptations',library:'Figma library'}[page]??page).toUpperCase();for(const link of document.querySelectorAll('[data-page]')){if(link.dataset.page===(page==='component'?'library':page))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}if(focus){content.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
 window.addEventListener('hashchange',()=>{if(location.hash==='#content'){content.focus();return;}render(true);});
 render();
+markGlassSurfaces();
+const glassRuntime=initLiquidGlass();
+window.addEventListener('hashchange',()=>{markGlassSurfaces();glassRuntime.refresh();});
 content.addEventListener('click',async event=>{const target=event.target.closest('button');if(!target)return;
  if(target.hasAttribute('data-list-item'))announce(target.dataset.listItem+' selected. This example does not store information.');
  if(target.hasAttribute('data-demo'))announce(target.dataset.demo);

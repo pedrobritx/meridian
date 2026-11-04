@@ -20,22 +20,37 @@
   },
   "environment": {
     "pageId": "197:34",
-    "atlasNodeId": "267:38",
-    "collectionId": "VariableCollectionId:266:34",
-    "collectionName": "Meridian / Living Environments · 0.6",
+    "atlasNodeId": "339:328",
+    "collectionId": "VariableCollectionId:302:34",
+    "collectionName": "Meridian / Environment",
     "roleCount": 39,
+    "nativeEnvironmentRoleCount": 62,
     "modes": [
-      "Forest / Dawn",
-      "Forest / Dusk",
-      "Desert / Dawn",
-      "Desert / Dusk",
-      "Aurora / Dawn",
-      "Aurora / Dusk",
-      "Glacier / Dawn",
-      "Glacier / Dusk",
-      "Embers / Dawn",
-      "Embers / Dusk"
-    ]
+      "Forest",
+      "Core",
+      "Desert",
+      "Ocean",
+      "Alpine",
+      "Storm",
+      "Celestial",
+      "Aurora",
+      "Glacier",
+      "Embers"
+    ],
+    "appearance": {
+      "collectionId": "VariableCollectionId:302:35",
+      "collectionName": "Meridian / Appearance",
+      "modes": [
+        "Dawn",
+        "Dusk"
+      ],
+      "modeIds": {
+        "Dawn": "302:10",
+        "Dusk": "302:11"
+      }
+    },
+    "webManifest": "design/meridian/living-environments.json",
+    "legacyCombinedCollectionId": "VariableCollectionId:266:34"
   },
   "universal": {
     "masterPageId": "247:8",
@@ -43,8 +58,8 @@
     "baseFamilyCount": 76,
     "extendedFamilyCount": 16,
     "icons": {
-      "sourcePage": "245:8",
-      "stylesPage": "274:34",
+      "sourcePage": "197:34",
+      "stylesPage": "197:34",
       "families": 80,
       "styles": [
         "Outline",
@@ -54,157 +69,44 @@
       ]
     },
     "displayDefaults": "Forest Dawn",
-    "bindingCollection": "Meridian / Living Environments · 0.6",
-    "stableCoreMastersNotModified": true
+    "bindingCollection": "Meridian / Environment",
+    "stableCoreMastersNotModified": false,
+    "familyCountMeaning": "Web component contracts; not a claim of one-to-one native component completeness"
   },
   "cataloguePages": [
     {
-      "id": "276:34",
-      "category": "Actions & Buttons",
-      "nativeReferences": 10,
-      "atlas": "276:35"
+      "id": "3:208",
+      "category": "Active component masters"
     },
     {
-      "id": "270:34",
-      "category": "Inputs & Selection",
-      "families": 12,
-      "atlas": "270:35"
-    },
-    {
-      "id": "271:34",
-      "category": "Navigation & Overlays",
-      "families": 13,
-      "atlas": "271:35"
-    },
-    {
-      "id": "271:3159",
-      "category": "Data & Collections",
-      "families": 15,
-      "atlas": "271:3160"
-    },
-    {
-      "id": "271:3307",
-      "category": "Feedback & Progress",
-      "families": 12,
-      "atlas": "271:3308"
-    },
-    {
-      "id": "273:34",
-      "category": "Advanced Patterns",
-      "families": 16,
-      "atlas": "273:35"
-    },
-    {
-      "id": "271:3427",
-      "category": "Product Workflows",
-      "families": 24,
-      "atlas": "271:3428"
+      "id": "197:34",
+      "category": "Styles, symbols and environment review"
     }
   ],
   "pages": [
     [
       "0:1",
-      "00 · Meridian · Start"
-    ],
-    [
-      "3:207",
-      "01 · Foundations · Tokens & Guidelines"
-    ],
-    [
-      "197:34",
-      "02 · Environments · Living Palettes"
-    ],
-    [
-      "276:34",
-      "03 · Components · Actions & Buttons"
-    ],
-    [
-      "270:34",
-      "04 · Components · Inputs & Selection"
-    ],
-    [
-      "271:34",
-      "05 · Components · Navigation & Overlays"
-    ],
-    [
-      "271:3159",
-      "06 · Components · Data & Collections"
-    ],
-    [
-      "271:3307",
-      "07 · Components · Feedback & Progress"
-    ],
-    [
-      "273:34",
-      "08 · Components · Advanced Patterns"
-    ],
-    [
-      "271:3427",
-      "09 · Patterns · Product Workflows"
-    ],
-    [
-      "274:34",
-      "10 · Icons · Semantic Styles"
-    ],
-    [
-      "3:210",
-      "11 · Patterns · Screens & Flows"
+      "Home"
     ],
     [
       "3:211",
-      "12 · Adoption · Governance & Usage"
+      "Develop"
+    ],
+    [
+      "3:207",
+      "Foundations"
+    ],
+    [
+      "197:34",
+      "Style"
     ],
     [
       "3:208",
-      "13 · Sources · Core Component Masters"
-    ],
-    [
-      "43:37",
-      "14 · Sources · Input & Control Sets"
-    ],
-    [
-      "44:1299",
-      "15 · Sources · Navigation & Data Sets"
-    ],
-    [
-      "45:2262",
-      "16 · Sources · Feedback Sets"
-    ],
-    [
-      "3:209",
-      "17 · Sources · Original Symbols"
-    ],
-    [
-      "247:8",
-      "18 · Sources · Universal Masters"
-    ],
-    [
-      "245:8",
-      "19 · Sources · Universal Outline Icons"
-    ],
-    [
-      "92:34",
-      "20 · Profiles · Core & Theme Studies"
-    ],
-    [
-      "91:34",
-      "21 · Profiles · Forest (Grass compatibility)"
-    ],
-    [
-      "91:2692",
-      "22 · Profiles · Desert (Paper compatibility)"
-    ],
-    [
-      "182:34",
-      "90 · Research · Living Controls"
-    ],
-    [
-      "190:34",
-      "91 · Research · Living Workspace"
+      "Components"
     ],
     [
       "218:21",
-      "92 · Research · Forest Archive"
+      "Archive"
     ]
   ],
   "validationNeeded": [
@@ -214,5 +116,240 @@
     "Responsive and alternative input in products",
     "Figma library publication of new 0.6 component sets",
     "Independent evidence-based release decision #12"
-  ]
+  ],
+  "previousOrganisation": {
+    "date": "2026-10-09",
+    "pages": [
+      [
+        "0:1",
+        "00 \u00b7 Meridian \u00b7 Start"
+      ],
+      [
+        "3:207",
+        "01 \u00b7 Foundations \u00b7 Tokens & Guidelines"
+      ],
+      [
+        "197:34",
+        "02 \u00b7 Environments \u00b7 Living Palettes"
+      ],
+      [
+        "276:34",
+        "03 \u00b7 Components \u00b7 Actions & Buttons"
+      ],
+      [
+        "270:34",
+        "04 \u00b7 Components \u00b7 Inputs & Selection"
+      ],
+      [
+        "271:34",
+        "05 \u00b7 Components \u00b7 Navigation & Overlays"
+      ],
+      [
+        "271:3159",
+        "06 \u00b7 Components \u00b7 Data & Collections"
+      ],
+      [
+        "271:3307",
+        "07 \u00b7 Components \u00b7 Feedback & Progress"
+      ],
+      [
+        "273:34",
+        "08 \u00b7 Components \u00b7 Advanced Patterns"
+      ],
+      [
+        "271:3427",
+        "09 \u00b7 Patterns \u00b7 Product Workflows"
+      ],
+      [
+        "274:34",
+        "10 \u00b7 Icons \u00b7 Semantic Styles"
+      ],
+      [
+        "3:210",
+        "11 \u00b7 Patterns \u00b7 Screens & Flows"
+      ],
+      [
+        "3:211",
+        "12 \u00b7 Adoption \u00b7 Governance & Usage"
+      ],
+      [
+        "3:208",
+        "13 \u00b7 Sources \u00b7 Core Component Masters"
+      ],
+      [
+        "43:37",
+        "14 \u00b7 Sources \u00b7 Input & Control Sets"
+      ],
+      [
+        "44:1299",
+        "15 \u00b7 Sources \u00b7 Navigation & Data Sets"
+      ],
+      [
+        "45:2262",
+        "16 \u00b7 Sources \u00b7 Feedback Sets"
+      ],
+      [
+        "3:209",
+        "17 \u00b7 Sources \u00b7 Original Symbols"
+      ],
+      [
+        "247:8",
+        "18 \u00b7 Sources \u00b7 Universal Masters"
+      ],
+      [
+        "245:8",
+        "19 \u00b7 Sources \u00b7 Universal Outline Icons"
+      ],
+      [
+        "92:34",
+        "20 \u00b7 Profiles \u00b7 Core & Theme Studies"
+      ],
+      [
+        "91:34",
+        "21 \u00b7 Profiles \u00b7 Forest (Grass compatibility)"
+      ],
+      [
+        "91:2692",
+        "22 \u00b7 Profiles \u00b7 Desert (Paper compatibility)"
+      ],
+      [
+        "182:34",
+        "90 \u00b7 Research \u00b7 Living Controls"
+      ],
+      [
+        "190:34",
+        "91 \u00b7 Research \u00b7 Living Workspace"
+      ],
+      [
+        "218:21",
+        "92 \u00b7 Research \u00b7 Forest Archive"
+      ]
+    ],
+    "cataloguePages": [
+      {
+        "id": "276:34",
+        "category": "Actions & Buttons",
+        "nativeReferences": 10,
+        "atlas": "276:35"
+      },
+      {
+        "id": "270:34",
+        "category": "Inputs & Selection",
+        "families": 12,
+        "atlas": "270:35"
+      },
+      {
+        "id": "271:34",
+        "category": "Navigation & Overlays",
+        "families": 13,
+        "atlas": "271:35"
+      },
+      {
+        "id": "271:3159",
+        "category": "Data & Collections",
+        "families": 15,
+        "atlas": "271:3160"
+      },
+      {
+        "id": "271:3307",
+        "category": "Feedback & Progress",
+        "families": 12,
+        "atlas": "271:3308"
+      },
+      {
+        "id": "273:34",
+        "category": "Advanced Patterns",
+        "families": 16,
+        "atlas": "273:35"
+      },
+      {
+        "id": "271:3427",
+        "category": "Product Workflows",
+        "families": 24,
+        "atlas": "271:3428"
+      }
+    ],
+    "environment": {
+      "pageId": "197:34",
+      "atlasNodeId": "267:38",
+      "collectionId": "VariableCollectionId:266:34",
+      "collectionName": "Meridian / Living Environments \u00b7 0.6",
+      "roleCount": 39,
+      "modes": [
+        "Forest / Dawn",
+        "Forest / Dusk",
+        "Desert / Dawn",
+        "Desert / Dusk",
+        "Aurora / Dawn",
+        "Aurora / Dusk",
+        "Glacier / Dawn",
+        "Glacier / Dusk",
+        "Embers / Dawn",
+        "Embers / Dusk"
+      ]
+    }
+  },
+  "updatedAt": "2026-10-14",
+  "material": {
+    "scope": "Functional glass above readable content; Archive excluded from restyling",
+    "nativeLibrary": {
+      "toolbar": "510:2238",
+      "popover": "510:2279",
+      "xl": "510:2280",
+      "sheet": "272:81",
+      "switch": "44:943",
+      "slider": "44:1229",
+      "dock": "386:2125",
+      "iconButton": "43:71",
+      "buttonGroup": "43:253",
+      "dialog": "45:2339",
+      "select": "44:629",
+      "datePicker": "44:1081",
+      "searchField": "314:286",
+      "pagination": "45:1252",
+      "splitButton": "272:357",
+      "tooltip": "45:1971",
+      "toast": "45:2484"
+    },
+    "web": {
+      "styles": "styles/liquid-glass.css",
+      "runtime": "src/universal/liquid-glass.js",
+      "example": "lab/universal-library/"
+    },
+    "depth": {
+      "rear": 0,
+      "navigation": 1,
+      "control": 2,
+      "overlay": 3,
+      "foregroundControl": 4,
+      "nesting": "max(role, parent + 1)",
+      "blur": "16px + level * 8px",
+      "selection": "Separate lens; frosting is retained"
+    },
+    "nativeForegroundTokens": {
+      "control": "VariableID:541:32",
+      "selection": "VariableID:541:63"
+    },
+    "liveReconciliation": {
+      "date": "2026-10-14",
+      "glassSurfaces": 464,
+      "softenedRims": 271,
+      "opaqueAccessibilityVariants": 10,
+      "materialAliasAndFrostViolations": 0,
+      "archiveGeometryPreserved": true,
+      "archiveFullAppearanceEqualityVerified": false
+    },
+    "status": "experimental-implemented; contextual adoption review required",
+    "shadowVerification": {
+      "beforeCutoffRisks": 167,
+      "remainingCutoffRisks": 0,
+      "visibleShadowedElements": 1056,
+      "unclippedContainers": 96,
+      "transparentWrappersCorrected": 6,
+      "materialViolations": 0,
+      "archiveClippingUnchanged": true,
+      "reviewRow": "387:1839",
+      "archiveExcluded": true
+    }
+  }
 }

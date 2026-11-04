@@ -1,3 +1,5 @@
+> Current active pages, environment routing and functional glass sources are documented in [the current system guide](../../docs/current-system.md). Forest-only and stable 0.5 synchronization paths below retain their explicitly limited contracts; they do not synchronize the entire current material library.
+
 # Meridian ↔ GitHub → website
 
 Source: [Meridian Figma](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn).
