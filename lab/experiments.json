@@ -66,7 +66,18 @@
       "comparison": "Environment-led reference and independent product brands; Dawn/Dusk",
       "accessibility": "Native radios and controls; forced-colour/opaque fallbacks; AA opaque contrast validation",
       "forestReference": "forest-reference",
-      "forestReferenceStatus": "experimental-reference-candidate; not stable"
+      "forestReferenceStatus": "experimental-reference-candidate; not stable",
+      "environmentPatterns": "environment-patterns",
+      "environmentPatternsStatus": "proposed resolution model and material grammar on the canonical 0.6 palettes; not stable"
+    },
+    {
+      "id": "MM-01",
+      "name": "Material model study: light, ground, content and instruments across five contexts",
+      "prototype": "material-model",
+      "hypothesis": "LM-H06, LM-H07",
+      "status": "implemented-experimental",
+      "comparison": "Refract, Frost and Solid tiers; Desk, Touch, Wrist, Space and Drive",
+      "accessibility": "Native controls; Solid material option; reduced motion; illustrative driving lockouts"
     }
   ]
 }

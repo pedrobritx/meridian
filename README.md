@@ -23,21 +23,25 @@ npm ci
 npm run dev
 npm test
 npm run build
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run test:browser
+# Include Firefox and WebKit, as CI does:
+MERIDIAN_EXTENDED_BROWSERS=1 npm run test:browser
 ```
 
 The development and preview base is `/meridian/`, matching GitHub Pages. `npm run build` regenerates the plugin, CSS tokens and `dist/`. Edit the canonical JSON and `site/content.json` instead of generated outputs. Browser checks cover every view in all twelve profile/environment combinations at desktop and mobile widths, native dialog focus, tabs, local form validation, theme persistence and reduced motion.
 
 ## Universal 0.6 environment and component Lab
 
-The original [Start / Review](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2) remains the approved visual reference. The [Figma refactor map](design/meridian/figma-refactor-map.json) indexes 26 pages, 92 universal component families, and 80 symbols in four native styles. Forest preserves the original Grass colours and Desert preserves Paper. Aurora, Glacier and Embers are new Dawn/Dusk environments, managed independently from the existing stable 0.5 tokens. [Full refactor and migration contract](docs/figma-reorganisation-2026-10-09.md).
+Meridian has six active environments: **Prism, Forest, Desert, Ocean, Aurora and Canyon**, each with Dawn and Dusk. Prism is the neutral starting point. Forest retains its green heritage; Desert now has a distinct gold foundation; Ocean consolidates Alpine, Storm and Glacier; Aurora incorporates Celestial; Canyon replaces Embers with a red sandstone direction. See the [philosophy](docs/philosophy.md) and [migration record](docs/migration/2026-11-03-six-environments.md).
 
-The [Universal Library Lab](lab/universal-library/) is experimental. Add `styles/living-environments.css` **after** `styles/tokens.css` and opt in with `data-meridian-environment="forest|desert|aurora|glacier|embers"`; this does not replace the published 0.5 profile selectors.
+The [Material Model](lab/material-model/), [Environment Patterns](lab/environment-patterns/) and [Universal Library](lab/universal-library/) are experimental review tools. Load `styles/living-environments.css` after `styles/tokens.css`, then opt in with `data-meridian-environment="prism"` (or another active environment) and `data-theme="light"` or `"dark"`. The manifest is the source for generated environment CSS. Retired selectors retain their archived palettes for compatibility.
 
 ## Design in Figma
 
-The native library contains **Core + Grass + Paper + Parallel + Canvas + Gallery**, with twelve resolved colour modes, profile-specific layout/motion/typography and 168 semantic roles per appearance. Core is neutral, Grass is green and Paper is sand/wine. The [profile guide](design/meridian/profiles.md), [project-purpose mapping](docs/adoption.md), [native inventory](docs/figma-library.json) and [token export](design/figma/generated/tokens.json) record the same contract. Ten editable Figma text layers share `site/content.json` with the website. Historical 0.1 source files remain archived.
+The working Figma library has purpose-based component pages and six active Environment modes. All 468 canonical environment values and all 62 component locations were verified on 3 November 2026; see the [live evidence](design/figma/migrations/2026-11-03-live-verification.json). Website and Lab pages remain labelled inside the same file pending the separate-file migration.
+
+Stable **Core, Grass, Paper, Parallel, Canvas and Gallery** profiles remain unchanged. These product profiles are a compatibility contract, distinct from the six environment families. Existing consumers are not automatically migrated to the new Desert or Aurora palettes. The original [Start / Review](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2) remains a visual reference. Historical refactor maps and exports are dated snapshots, not a live inventory.
 
 ## Figma ↔ Meridian GitHub → website
 

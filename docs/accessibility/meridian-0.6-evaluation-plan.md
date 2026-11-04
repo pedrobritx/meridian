@@ -21,7 +21,7 @@ These are **release policies chosen by Meridian**, not universal legal requireme
 
 ## 2. Scope and boundaries
 
-**Inside scope for 0.6:** the approved original Start design, Figma component specimens, 92 experimental universal families, 80 icon families/four styles, five opt-in environments (Forest, Desert, Aurora, Glacier, Embers) in Dawn/Dusk, the runnable Universal Library, Living Controls, Living Workspace, and Living Environments, and cross-project *reference* journeys. Only runnable/browser implementations can be evaluated for keyboard, AT and runtime behaviour; a static Figma master is a visual/construction specification.
+**Inside scope for 0.6:** the approved original Start design, Figma component specimens, 92 experimental universal families, 80 icon families/four styles, six opt-in environments (Prism, Forest, Desert, Ocean, Aurora, Canyon) in Dawn/Dusk, the runnable Universal Library, Living Controls, Living Workspace, and Living Environments, and cross-project *reference* journeys. Only runnable/browser implementations can be evaluated for keyboard, AT and runtime behaviour; a static Figma master is a visual/construction specification.
 
 **Outside the 0.6 claim:** certified conformity of Lexis, Verbalis, NotUX, Ambientis, or other separate production products; effectiveness for populations not recruited; full iOS/Android native app accessibility; psychiatric/neurological or circadian benefit; arbitrary background glass accessibility; a universal or legally binding WCAG certificate. Any unimplemented reference journey is marked **PROTOTYPE BLOCKED**, not passed.
 
@@ -47,7 +47,7 @@ These are **release policies chosen by Meridian**, not universal legal requireme
 
 Always promote a component to **High** when a failure can lose data, conceal permission or state, block completion, mislead a user, or make recovery impossible, regardless of score. Record the actual score and rationale rather than mechanically assigning tiers by name.
 
-**Sampling strategy:** all rendered catalogue routes undergo automated checks where feasible; manually exercise all *distinct high-risk mechanics*, not every permutation of 92 families × 10 appearances × input modes. Use pairwise/representative combinations for medium and low risk; give every one of the ten palettes automated role/contrast checks. Default manual anchors: **Forest Dawn, Forest Dusk, Aurora Dusk, Glacier Dawn, Desert Dawn, Embers Dusk**; add other combinations when a changed contrast, hue, or material creates a new risk. Failure in any environment blocks that scoped configuration.
+**Sampling strategy:** all rendered catalogue routes undergo automated checks where feasible; manually exercise all *distinct high-risk mechanics*, not every permutation of 92 families × 12 appearances × input modes. Use pairwise/representative combinations for medium and low risk; give every one of the twelve appearances automated role/contrast checks. Default manual anchors: **Forest Dawn, Forest Dusk, Aurora Dusk, Ocean Dawn, Desert Dawn, Canyon Dusk**; add other combinations when a changed contrast, hue, or material creates a new risk. Failure in any environment blocks that scoped configuration.
 
 ## 5. Platform and assistive-technology matrix
 
@@ -147,7 +147,7 @@ No unresolved P0 or P1 is allowed for an affected experimental/beta release. No 
 1. **Inventory:** confirm real device/AT availability, baseline commit and three runnable reference journeys; mark blocked cases instead of filling in guessed results.
 2. **Automated baseline:** run `npm test`, `npm run build`, `npm run test:browser`; link results and examine which WCAG 2.2 AA checks are not automated.
 3. **Core manual pass:** keyboard and real screen-reader tests for dialog/sheet, combobox/date picker, upload/validation, content editing and status announcements.
-4. **Environment pass:** Forest Dawn/Dusk plus high-contrast-risk Aurora Dusk, Glacier Dawn, Desert Dawn, Embers Dusk; all ten palette modes covered in token automation.
+4. **Environment pass:** Forest Dawn/Dusk plus high-contrast-risk Aurora Dusk, Ocean Dawn, Desert Dawn, Canyon Dusk; all twelve appearance modes covered in token automation.
 5. **Three journeys:** run J-DOC, J-LEARN, J-EVIDENCE with synthetic data on any genuinely runnable reference/product demo; write actual observed results.
 6. **Triage and report:** open GitHub issues, record regressions/limitations, complete first milestone report, propose per-experiment `REJECT` / `REVISE` / `LAB ONLY` / `PROMOTION CANDIDATE` decision with Polaris review.
 

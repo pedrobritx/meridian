@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — 2026-11-03 · Cross-browser acceptance
+
+- Keep standalone fields within their container and apply native dark controls for the supported `.dark` selector.
+- Restore dialog focus to its opener explicitly, including WebKit pointer activation.
+- Add Firefox and WebKit projects to CI; keep Chromium-only reduced-transparency emulation explicitly scoped.
+- Verify all 2,016 live stable-profile values with the actual plugin capture code.
+
+## Unreleased — 2026-11-03 · Six environments and material labs
+
+- Consolidate active environments into Prism, Forest, Desert, Ocean, Aurora and Canyon, each in Dawn/Dusk; retain archived retired selectors and stable 0.5 profiles.
+- Integrate the supplied Material Model and Environment Patterns labs, including keyboard, reduced-motion and transparency checks.
+- Add the Meridian philosophy page and purpose, accessibility and implementation guidance for all 62 component entries.
+- Apply the Figma page reorganisation, bind 468 environment values to the canonical manifest and repair the contact-duration alias. Record live verification separately from historical exports.
+
 ## Unreleased — 2026-11-02 · Reduced-transparency check
 
 - Fail CI when a stable library style blurs its backdrop without a `prefers-reduced-transparency` fallback that removes the blur (ADR-0002 §5). Both current glass surfaces, `.md-glass` and `.md-button.glass`, pass.

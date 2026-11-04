@@ -1,0 +1,649 @@
+{
+  "verifiedAt": "2026-11-03",
+  "checked": 468,
+  "failures": [],
+  "components": [
+    {
+      "id": "5:177",
+      "name": "Alert",
+      "key": "0286b020adbc67f32a3fd72ac244ef70d44eb0db",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "43:148",
+      "name": "Link",
+      "key": "118f8852013153bdcc8bd7feb0bab9de8d511c22",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "272:287",
+      "name": "Universal / Scroll view",
+      "key": "cda975dce81e62c8f33b705ea64a67686a5d1055",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "272:301",
+      "name": "Universal / Page indicator",
+      "key": "1a6e5a260b52dc170eee5fc942cb6b9aa15d855d",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "272:329",
+      "name": "Universal / Image well",
+      "key": "955b61695ef8134889aac84fae20a78d40c1b597",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "44:1383",
+      "name": "Header",
+      "key": "347eb85491e2ec08f7f0901870341247e8e7d4e4",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "45:2589",
+      "name": "Banner",
+      "key": "3cbb0fd1b6bf8d6b54d33b993881fb82939d0141",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "272:95",
+      "name": "Universal / Menu bar",
+      "key": "c3167fc6408ea928150028b39aae8aeba67a59f8",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "5:22",
+      "name": "Button",
+      "key": "dd9d55f07634397dfeeb1420975f872b74d25f04",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "43:253",
+      "name": "Button group",
+      "key": "61499d28aef2c6e03790053d903ae144cc91a270",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "43:71",
+      "name": "Icon button",
+      "key": "2ff2544f8357ce1b4e73a939a6e55b12f5156ba1",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "44:846",
+      "name": "Radio",
+      "key": "4dd6a7ccf35b89da1fb504c68f06e7bd7e2dca1c",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "23:323",
+      "name": "Segmented control",
+      "key": "54a671c6998adbd82fab3ad8b0d22ae4d86d37b1",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "272:357",
+      "name": "Universal / Split button",
+      "key": "562862f0d33a0de189694ac1ea51c03a55a35206",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    },
+    {
+      "id": "5:171",
+      "name": "Card / Content",
+      "key": "c6ff57b305acff702abbac4c1acf9df3215ad189",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "45:1676",
+      "name": "Card / Stateful",
+      "key": "886c9770d8d5e5e5935ab92af37ac86a95bbcee7",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "272:54",
+      "name": "Universal / Carousel",
+      "key": "62ae985a9843960c4de24f7eccbed8450128d30f",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "5:133",
+      "name": "Choice",
+      "key": "91539db5d35e7cdd5420346f4f0e1fe3f4f9e60c",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "44:754",
+      "name": "Checkbox",
+      "key": "4f0b57c410c33a12896ba9724586401ddd0674bf",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "5:151",
+      "name": "Badge",
+      "key": "f7e07f5db52f94fb7d184259670dd0debe13ad7f",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "45:1767",
+      "name": "Badge / Tag",
+      "key": "21579175a958ca7c62537642c30bcd2ee5ddcfee",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "272:385",
+      "name": "Universal / Status pill",
+      "key": "02dfc626473d50562f00e9bc2506264bf392a8d4",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "44:1081",
+      "name": "Date picker",
+      "key": "ebd0de1da3114713a5377c6eaa8b64051154ec02",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "64:527",
+      "name": "Calendar panel",
+      "key": "123ad9b3286d336165f71fb1294ab02a53019052",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "272:193",
+      "name": "Universal / Date range picker",
+      "key": "50799a1db4c75e75366a67dc476784b772cf1cc3",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "45:1252",
+      "name": "Pagination",
+      "key": "4b6272addf091f3ab2222ac5a9b2a964dfe4b007",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "45:1535",
+      "name": "Data table",
+      "key": "22f4d9978ed2b6bb605b1bd2fd2f72d43d751ab2",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "45:1813",
+      "name": "Avatar",
+      "key": "f281d5ea2d6dd4333abd68bf0bfa62d269739c81",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "45:1888",
+      "name": "Accordion",
+      "key": "29b7ec6f12bcc6b69f645da145e83458bcb18083",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "45:2109",
+      "name": "List",
+      "key": "e9b7c607f37d5e59d3e3ce2446c90a612939fc27",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "85:1112",
+      "name": "Meridian / List item",
+      "key": "ceabf3062445f8be1c359a89bfd6acab6a907ab6",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "272:259",
+      "name": "Universal / Collection grid",
+      "key": "21d261fb4a80acbcd50ad4b009639983a4ec6afa",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "272:273",
+      "name": "Universal / Column browser",
+      "key": "f55d063534263abdcca7df93332cddb07db2854a",
+      "page": "Components / Data and media",
+      "expected": "Components / Data and media",
+      "pass": true
+    },
+    {
+      "id": "45:2726",
+      "name": "Spinner",
+      "key": "659693e3b88b37aec7ed67b2e37798975156b89e",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "45:2767",
+      "name": "Skeleton",
+      "key": "22167acab88e58dbb1757a7b118d7dc51d527b79",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "45:2677",
+      "name": "Progress bar",
+      "key": "8fbb9bf2467acd53906d7280d95728594ede3d33",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "272:229",
+      "name": "Universal / Circular progress",
+      "key": "ed4c7c1a4b93735cccca29adda05c0bae6361deb",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "5:187",
+      "name": "Dialog",
+      "key": "25ffe62903f66a77f5a18674202c3cd969219432",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "45:2339",
+      "name": "Dialog",
+      "key": "1472fbb20c6f1385e8ace35853325cd8cd364045",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "272:55",
+      "name": "Universal / Divider",
+      "key": "27c97c65f6a5e10195bbe3259b4be108ff6c35c4",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "272:109",
+      "name": "Universal / Menu list",
+      "key": "3eb4c42a48622af3dbcedf54da8a52b26779418b",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "5:183",
+      "name": "Navigation item",
+      "key": "bfa543b2d26b46db98ec2ccf9ebf3b8510fe85e9",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "44:1807",
+      "name": "Breadcrumbs",
+      "key": "c872fffb296269b41aa10a3e596093c3f51f32b5",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "44:1620",
+      "name": "Sidebar",
+      "key": "da6e2db84e161ca3bb3543d79dd28a73b7a40867",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "314:286",
+      "name": "Search / Field",
+      "key": "852f9a94d1373bdc194ab4e48e39987fcba915ca",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "272:81",
+      "name": "Universal / Sheet / Bottom sheet",
+      "key": "6c2e7746e01f903a7dd92b89e10b06615633a564",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "45:2484",
+      "name": "Toast",
+      "key": "1187d4217e9425cfee6f1d27a3c2a37521fcf1da",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "44:943",
+      "name": "Switch",
+      "key": "c31ee0005a57ab527c14769020e16e7d0b1a0519",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "5:185",
+      "name": "Tab",
+      "key": "9220189e09e1b56d96b165a6c0648add9d6acfe8",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "44:1917",
+      "name": "Tabs",
+      "key": "a9ce7c27ddbebbfb19ef8c21704c6b9c94216db6",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "5:108",
+      "name": "Field",
+      "key": "6d562e295e912632bb14015f09fa83d3c0fba24d",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "44:503",
+      "name": "Text area",
+      "key": "d5325cf46051e55a94b927757aebd74b52edf9e9",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "44:629",
+      "name": "Select",
+      "key": "df9b9b6d55263bc71f817b7c39bccdec4a683522",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "44:1229",
+      "name": "Slider",
+      "key": "fd11bfc5486a304b7c9842bd31e9cb31ec83e2e1",
+      "page": "Components / Selection",
+      "expected": "Components / Selection",
+      "pass": true
+    },
+    {
+      "id": "45:1414",
+      "name": "Stepper",
+      "key": "3cecc28de89be16a7801c9166427b8e46014153c",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "272:137",
+      "name": "Universal / Numeric stepper",
+      "key": "50a5cbfc7ec862898f728341307f1b7914c910df",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "272:165",
+      "name": "Universal / Token field",
+      "key": "ff55700751302d7f5573e377deec7972a48c2a5a",
+      "page": "Components / Text input",
+      "expected": "Components / Text input",
+      "pass": true
+    },
+    {
+      "id": "45:1971",
+      "name": "Tooltip",
+      "key": "3650e200134142a87e105b4dbc3be8b6a67aa185",
+      "page": "Components / Communication",
+      "expected": "Components / Communication",
+      "pass": true
+    },
+    {
+      "id": "386:2125",
+      "name": "Navigation / Liquid dock",
+      "key": "d80a354198736707e436ab2f629af488ff4dde00",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "510:2238",
+      "name": "Toolbar / Glass groups",
+      "key": "e8a5d5ac7305150d3d75d40158f69c830952fc27",
+      "page": "Components / Navigation",
+      "expected": "Components / Navigation",
+      "pass": true
+    },
+    {
+      "id": "510:2279",
+      "name": "Popover / Glass actions",
+      "key": "49f65b0b344a1c15b42a8565bcfd0fffe410644b",
+      "page": "Components / Containment",
+      "expected": "Components / Containment",
+      "pass": true
+    },
+    {
+      "id": "510:2280",
+      "name": "Button / Liquid XL",
+      "key": "7d3c8dba407a6efb5050642473aee5b2dc9dd59f",
+      "page": "Components / Actions",
+      "expected": "Components / Actions",
+      "pass": true
+    }
+  ],
+  "modes": [
+    {
+      "name": "Forest",
+      "modeId": "302:0"
+    },
+    {
+      "name": "Prism",
+      "modeId": "302:1"
+    },
+    {
+      "name": "Desert",
+      "modeId": "302:2"
+    },
+    {
+      "name": "Ocean",
+      "modeId": "302:3"
+    },
+    {
+      "name": "Legacy / Alpine",
+      "modeId": "302:4"
+    },
+    {
+      "name": "Legacy / Storm",
+      "modeId": "302:5"
+    },
+    {
+      "name": "Legacy / Celestial",
+      "modeId": "302:6"
+    },
+    {
+      "name": "Aurora",
+      "modeId": "302:7"
+    },
+    {
+      "name": "Legacy / Glacier",
+      "modeId": "302:8"
+    },
+    {
+      "name": "Canyon",
+      "modeId": "302:9"
+    }
+  ],
+  "contact": {
+    "42:0": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    },
+    "83:3": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    },
+    "133:3": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    },
+    "159:3": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    },
+    "159:7": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    },
+    "159:11": {
+      "type": "VARIABLE_ALIAS",
+      "id": "VariableID:677:16892"
+    }
+  },
+  "layout": [
+    {
+      "page": "672:6",
+      "placed": [
+        "673:13055",
+        "339:689",
+        "339:709",
+        "339:717",
+        "339:780"
+      ]
+    },
+    {
+      "page": "672:7",
+      "placed": [
+        "339:768",
+        "339:788"
+      ]
+    },
+    {
+      "page": "672:8",
+      "placed": [
+        "673:13058",
+        "673:13059",
+        "339:701",
+        "339:743",
+        "339:747",
+        "339:772"
+      ]
+    },
+    {
+      "page": "672:9",
+      "placed": [
+        "673:13060",
+        "673:13061",
+        "673:13062",
+        "673:13063",
+        "673:13064",
+        "339:660",
+        "339:751",
+        "339:755",
+        "339:784",
+        "339:792"
+      ]
+    },
+    {
+      "page": "672:10",
+      "placed": [
+        "673:13056",
+        "673:13057",
+        "339:713",
+        "339:734",
+        "339:776",
+        "339:796"
+      ]
+    },
+    {
+      "page": "672:11",
+      "placed": [
+        "674:655",
+        "339:705",
+        "339:730"
+      ]
+    },
+    {
+      "page": "672:4",
+      "placed": [
+        "339:357"
+      ]
+    },
+    {
+      "page": "672:13",
+      "placed": [
+        "387:1789",
+        "450:12511",
+        "450:13627"
+      ]
+    }
+  ]
+}

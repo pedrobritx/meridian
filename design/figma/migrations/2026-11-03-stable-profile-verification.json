@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-03",
+  "method": "Actual repository captureNativeTokens code executed read-only in live Figma; comparison numeric tolerance 0.000001",
+  "scope": "168 roles across all 12 stable profile appearances; capture check only, not plugin UI or import round trip",
+  "results": [
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "Dawn",
+        "Dusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    },
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "PaperDawn",
+        "PaperDusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    },
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "CoreDawn",
+        "CoreDusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    },
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "ParallelDawn",
+        "ParallelDusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    },
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "CanvasDawn",
+        "CanvasDusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    },
+    {
+      "checked": 336,
+      "differences": [],
+      "modes": [
+        "GalleryDawn",
+        "GalleryDusk"
+      ],
+      "modeCount": 12,
+      "roleCount": 168
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "page": "672:2",
+    "title": "Getting started",
+    "sections": [
+      [
+        "A familiar world, a clear interface",
+        "Meridian is a shared design language inspired by natural light, depth and response. Content leads; materials explain hierarchy and interaction."
+      ],
+      [
+        "Choose an environment",
+        "Prism is the neutral starting point. Forest is green; Desert is gold; Ocean is blue; Aurora is purple and pink; Canyon is red and terracotta. Each has Dawn and Dusk."
+      ],
+      [
+        "Use the library",
+        "Choose a component by its purpose page. Keep its semantic variable bindings. Set Environment and Appearance explicitly on the containing frame. Prism is recommended for new work; existing files retain their selected modes."
+      ],
+      [
+        "Material is progressive",
+        "Start with Solid. Add translucent layers only where text remains readable over the actual backdrop. Reduced motion and reduced transparency must remain usable. Fluid describes shared response, not a seventh environment."
+      ],
+      [
+        "Readiness",
+        "The six environments are experimental candidates. Token checks do not prove full accessibility. Validate keyboard, touch, screen readers, focus, contrast and motion in the consuming product. Spatial, watch and vehicle views are simulations."
+      ],
+      [
+        "Compatibility and ownership",
+        "Stable 0.5 profiles remain supported. Legacy environment modes preserve older studies. Meridian owns design; Axis owns architecture; Sentinel verifies security; Polaris coordinates decisions."
+      ]
+    ],
+    "result": {
+      "page": "672:2",
+      "createdNodeIds": [
+        "680:2",
+        "680:3",
+        "680:4",
+        "680:5",
+        "680:6",
+        "680:7",
+        "680:8",
+        "680:9",
+        "680:10",
+        "680:11",
+        "680:12",
+        "680:13",
+        "680:14",
+        "680:15",
+        "680:16"
+      ],
+      "frame": "680:2",
+      "width": 960,
+      "height": 1258
+    }
+  },
+  {
+    "page": "672:3",
+    "title": "Changelog",
+    "sections": [
+      [
+        "3 November 2026 · Six environments",
+        "Core → Prism; Embers → Canyon. Ocean incorporates the direction of Alpine, Storm and Glacier; Aurora incorporates Celestial. Retired studies stay available as Legacy modes."
+      ],
+      [
+        "Verified in this file",
+        "468 resolved environment values match the canonical repository manifest. All 62 catalogued component roots are on their assigned purpose pages. Existing semantic IDs and component roots were retained."
+      ],
+      [
+        "Library organisation",
+        "Components are grouped into Actions, Selection, Text input, Containment, Navigation, Communication, and Data and media. Symbols have their own page. Website and Lab material remains labelled in this file pending a separate-file migration."
+      ],
+      [
+        "Motion correction",
+        "The contact duration now resolves to 80 ms in every Motion mode."
+      ],
+      [
+        "Release status",
+        "This is working-library reconciliation, not a 1.0 publication. A named-version sync, plugin round trip and human accessibility evaluation remain release checks."
+      ]
+    ],
+    "result": {
+      "page": "672:3",
+      "createdNodeIds": [
+        "680:17",
+        "680:18",
+        "680:19",
+        "680:20",
+        "680:21",
+        "680:22",
+        "680:23",
+        "680:24",
+        "680:25",
+        "680:26",
+        "680:27",
+        "680:28",
+        "680:29"
+      ],
+      "frame": "680:17",
+      "width": 960,
+      "height": 1026
+    }
+  },
+  {
+    "page": "672:12",
+    "title": "Templates",
+    "sections": [
+      [
+        "Composition starting points",
+        "Use the runnable Material Model and Environment Patterns labs in the Meridian repository to compare task flows, environments and input contexts."
+      ],
+      [
+        "Build from the library",
+        "Start with Prism and an explicit Dawn or Dusk appearance. Combine the existing navigation, content, action and feedback components for one real user task. Preserve semantic bindings and native control behavior."
+      ],
+      [
+        "Template readiness",
+        "No production template is approved on this page yet. The labs are review specimens; watch, spatial and vehicle layouts are simulations requiring their own platform implementation and testing."
+      ]
+    ],
+    "result": {
+      "page": "672:12",
+      "createdNodeIds": [
+        "680:30",
+        "680:31",
+        "680:32",
+        "680:33",
+        "680:34",
+        "680:35",
+        "680:36",
+        "680:37",
+        "680:38"
+      ],
+      "frame": "680:30",
+      "width": 960,
+      "height": 751
+    }
+  }
+]

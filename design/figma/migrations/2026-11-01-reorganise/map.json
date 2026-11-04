@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
   "date": "2026-11-01",
-  "status": "PROPOSED, not yet applied: Figma write calls are waiting for Pedro's approval",
-  "decision": "ADR-0002 §2, §5, §8; docs/roadmap/1.0-library-and-site.md §2.2 and §2.3",
+  "status": "Applied in place 2026-11-03; all 62 component locations verified. Website and Lab destinations established; reference migration and source-page pruning remain pending.",
+  "decision": "ADR-0002 \u00a72, \u00a75, \u00a78; docs/roadmap/1.0-library-and-site.md \u00a72.2 and \u00a72.3",
   "rule": "Reparent within the same file only, so node IDs and component keys stay unchanged. Nothing is deleted. Website / and Lab / pages leave this file later, by duplicate-and-prune, after approval.",
   "pages": [
     {
@@ -277,7 +277,7 @@
     },
     {
       "from": "3:208",
-      "section": "Glass actions · Preview",
+      "section": "Glass actions \u00b7 Preview",
       "to": "c-actions",
       "nodes": [
         "510:2280"
@@ -303,7 +303,7 @@
     },
     {
       "from": "3:208",
-      "section": "Popover · Preview",
+      "section": "Popover \u00b7 Preview",
       "to": "c-containment",
       "nodes": [
         "510:2279"
@@ -338,7 +338,7 @@
     },
     {
       "from": "3:208",
-      "section": "Liquid dock · Preview",
+      "section": "Liquid dock \u00b7 Preview",
       "to": "c-navigation",
       "nodes": [
         "386:2125"
@@ -346,7 +346,7 @@
     },
     {
       "from": "3:208",
-      "section": "Glass toolbar · Preview",
+      "section": "Glass toolbar \u00b7 Preview",
       "to": "c-navigation",
       "nodes": [
         "510:2238"
@@ -462,7 +462,7 @@
             ]
           },
           {
-            "section": "Popover · Preview",
+            "section": "Popover \u00b7 Preview",
             "nodes": [
               "510:2279"
             ]
@@ -501,13 +501,13 @@
             ]
           },
           {
-            "section": "Liquid dock · Preview",
+            "section": "Liquid dock \u00b7 Preview",
             "nodes": [
               "386:2125"
             ]
           },
           {
-            "section": "Glass toolbar · Preview",
+            "section": "Glass toolbar \u00b7 Preview",
             "nodes": [
               "510:2238"
             ]
@@ -551,7 +551,7 @@
             ]
           },
           {
-            "section": "Glass actions · Preview",
+            "section": "Glass actions \u00b7 Preview",
             "nodes": [
               "510:2280"
             ]
@@ -626,5 +626,6 @@
       "510:2279": "c-containment",
       "510:2280": "c-actions"
     }
-  }
+  },
+  "evidence": "../2026-11-03-live-verification.json"
 }
