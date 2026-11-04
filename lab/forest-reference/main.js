@@ -215,9 +215,20 @@ function renderHistory() {
     const button=document.createElement('button');button.type='button';
     button.textContent=record.unread?'Mark as read':'Mark as unread';
     button.setAttribute('aria-label',(record.unread?'Mark as read: ':'Mark as unread: ')+record.eventType);
+    // Preserve the action shown when a pointer press begins. WebKit can focus
+    // the containing row before click, acknowledging it and reversing a toggle.
+    let requestedRead;
+    button.addEventListener('pointerdown',()=>{
+      requestedRead=records.find(r=>r.id===record.id).unread;
+      clearExposure(record.id);
+    });
+    button.addEventListener('pointercancel',()=>{requestedRead=undefined;});
+    button.addEventListener('keydown',()=>{requestedRead=undefined;});
     button.addEventListener('click',()=>{
       const current=records.find(r=>r.id===record.id);
-      if(current.unread) {
+      const markRead=requestedRead ?? current.unread;
+      requestedRead=undefined;
+      if(markRead) {
         // Explicit acknowledgement is always available, even after Mark unread.
         records[records.findIndex(r=>r.id===record.id)]={...current,unread:false,explicitUnread:false};
       } else {
