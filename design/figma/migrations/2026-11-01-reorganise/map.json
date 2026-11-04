@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
   "date": "2026-11-01",
-  "status": "Applied in place 2026-11-03; all 62 component locations verified. Separate Website/Lab files remain pending.",
+  "status": "Applied in place 2026-11-03; all 62 component locations verified. Website and Lab destinations established; reference migration and source-page pruning remain pending.",
   "decision": "ADR-0002 \u00a72, \u00a75, \u00a78; docs/roadmap/1.0-library-and-site.md \u00a72.2 and \u00a72.3",
   "rule": "Reparent within the same file only, so node IDs and component keys stay unchanged. Nothing is deleted. Website / and Lab / pages leave this file later, by duplicate-and-prune, after approval.",
   "pages": [

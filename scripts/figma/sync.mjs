@@ -1,3 +1,5 @@
+import { componentInventory } from "./component-inventory.mjs";
+import { buildLibraryData } from "../build-site-data.mjs";
 import { websiteCss } from "./token-contract.mjs";
 import { linkStatus } from "./links.mjs";
 import { symbolVariants, isSafeSvg } from "./symbols.mjs";
@@ -58,7 +60,8 @@ const previousEntries = oldTree.tree.filter(
   (entry) =>
     entry.type === "blob" &&
     (entry.path.startsWith(prefix) ||
-      ["site/content.json", "styles/tokens.css"].includes(entry.path)),
+      entry.path.startsWith("design/figma-export/components/") ||
+      ["site/content.json", "site/library.json", "styles/tokens.css"].includes(entry.path)),
 );
 async function readPrevious(name) {
   const entry = previousEntries.find((entry) => entry.path === prefix + name);
@@ -325,6 +328,37 @@ if (event.action === "figma-tokens") {
       post({ encoding: "base64", content: bytes.toString("base64") }),
     );
     writes.set(`${prefix}previews/${name}.png`, { sha: blob.sha });
+  }
+  // Refresh catalog metadata and renders together from this exact approved version.
+  const mapPath = "design/figma/migrations/2026-11-01-reorganise/map.json";
+  if (mainTree.tree.some(e => e.path === mapPath && e.type === "blob")) {
+    const map = await readMain(mapPath);
+    const inventory = componentInventory(file.document, map.componentGroups.assignments, config.fileKey, version);
+    const oldShots = await readMain("design/figma-export/components/screenshots.json");
+    const shots = inventory.items.map(item => {
+      const old = oldShots.items.find(s => s.componentId === item.id);
+      if (!old || !/^screenshots\/[a-zA-Z0-9_-]+\.png$/.test(old.file))
+        throw new Error(`Missing safe screenshot destination: ${item.id}`);
+      return {...old, name: item.name, type: item.t, screenshotNode: item.def ?? item.id, screenshotOf: item.t === "SET" ? "representative variant (first in document order)" : "component"};
+    });
+    const rendered = await figma(`/images/${config.fileKey}?ids=${encodeURIComponent(shots.map(s => s.screenshotNode).join(','))}&format=png&scale=1&version=${encodeURIComponent(version.id)}`);
+    if (rendered.err) throw new Error("Figma could not render component catalog");
+    for (const shot of shots) {
+      const url = rendered.images?.[shot.screenshotNode];
+      if (!url || new URL(url).protocol !== "https:") throw new Error(`Missing component render: ${shot.componentId}`);
+      const response = await fetch(url, {signal: AbortSignal.timeout(30_000)});
+      if (!response.ok) throw new Error(`Component render download failed: ${shot.componentId}`);
+      const bytes = Buffer.from(await response.arrayBuffer());
+      if (bytes.length < 33 || bytes.length > 15_000_000 || bytes.subarray(0,8).toString('hex') !== '89504e470d0a1a0a' || bytes.readUInt32BE(8) !== 13 || bytes.subarray(12,16).toString() !== 'IHDR' || !bytes.readUInt32BE(16) || !bytes.readUInt32BE(20))
+        throw new Error(`Invalid component PNG: ${shot.componentId}`);
+      shot.width = bytes.readUInt32BE(16); shot.height = bytes.readUInt32BE(20);
+      const blob = await gh('/git/blobs', post({encoding:'base64',content:bytes.toString('base64')}));
+      writes.set(`design/figma-export/components/${shot.file}`, {sha:blob.sha});
+    }
+    const screenshots = {_label:'Rendered from the approved named version; PNG dimensions read from IHDR.', versionId:version.id, count:shots.length, items:shots};
+    writes.set('design/figma-export/components/inventory-components-page.json', {content:json(inventory)});
+    writes.set('design/figma-export/components/screenshots.json', {content:json(screenshots)});
+    writes.set('site/library.json', {content:json(buildLibraryData(inventory, screenshots, map))});
   }
   // Per-variant symbol SVGs (scripts/figma/symbols.mjs), rendered by Figma at this version.
   const archivePages = mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")

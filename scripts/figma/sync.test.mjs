@@ -16,6 +16,9 @@ async function installMock() {
   const { writeFileSync, readFileSync } = await import("node:fs");
   const config = JSON.parse(process.env.MOCK_CONFIG);
   const scenario = process.env.MOCK_SCENARIO;
+  const catalog = scenario.startsWith('catalog');
+  const catalogMap = {fileKey:config.fileKey, pages:[{key:'c-actions',name:'Components / Actions'}],componentGroups:{assignments:{'700:1':'c-actions'}}};
+  const catalogShots = {items:[{componentId:'700:1',file:'screenshots/button.png',screenshotNode:'old'}]};
   const content = JSON.parse(process.env.MOCK_CONTENT),
     canonical = JSON.parse(readFileSync(process.env.MOCK_TOKENS_FILE, "utf8"));
   const mainContent = structuredClone(content),
@@ -57,6 +60,7 @@ async function installMock() {
           name: "Meridian",
           type: "DOCUMENT",
           children: [
+            ...(catalog && scenario !== 'catalog-missing' ? [{id:'700:0',type:'CANVAS',name:'Components / Actions',children:[{id:'700:1',type:'COMPONENT_SET',name:'Button',componentPropertyDefinitions:{Size:{type:'VARIANT',variantOptions:['Small'],defaultValue:'Small'}},children:[{id:'700:2',type:'COMPONENT',name:'Size=Small'}]}]}] : []),
             ...Object.values(versionContent.fields).map((f) => ({
               id: f.nodeId,
               type: "TEXT",
@@ -84,12 +88,18 @@ async function installMock() {
     if (url.includes("api.figma.com/v1/images/"))
       return response({
         images: Object.fromEntries(
-          Object.values(config.frames).map((id) => [
+          decodeURIComponent(new URL(url).searchParams.get('ids')).split(',').filter(id => scenario !== 'catalog-render-missing' || id !== '700:2').map((id) => [
             id,
-            "https://cdn.figma.com/preview.png",
+            id === "700:2" ? "https://cdn.figma.com/component.png" : "https://cdn.figma.com/preview.png",
           ]),
         ),
       });
+    if (url === 'https://cdn.figma.com/component.png') {
+      if (scenario === 'catalog-download-failure') return new Response('unavailable', {status:503});
+      if (scenario === 'catalog-invalid-png') return new Response('not a PNG');
+      const png = Buffer.alloc(33); Buffer.from('89504e470d0a1a0a','hex').copy(png); png.writeUInt32BE(13,8); png.write('IHDR',12); png.writeUInt32BE(120,16); png.writeUInt32BE(40,20);
+      return new Response(png);
+    }
     if (url.startsWith("https://cdn.figma.com/"))
       return new Response(new Uint8Array([137, 80, 78, 71]));
     if (path.endsWith('/git/blobs/'+'a'.repeat(40))) return response({encoding:'base64',content:Buffer.from(JSON.stringify(publication)).toString('base64')});
@@ -112,6 +122,7 @@ async function installMock() {
     if (path.includes("/git/trees/") && method !== "POST")
       return response({
         tree: [
+          ...(catalog ? [{path:'design/figma/migrations/2026-11-01-reorganise/map.json',type:'blob',sha:'map-blob'},{path:'design/figma-export/components/screenshots.json',type:'blob',sha:'shots-blob'}] : []),
           ...(scenario === "pending-conflict"
             ? [
                 {
@@ -149,6 +160,8 @@ async function installMock() {
     for (const [sha, file] of [["source-blob", "design/figma/generated/figma-source.json"], ["ledger-blob", "design/figma/generated/provenance-overrides.json"], ["links-blob", "design/figma/links.json"]])
       if (path.endsWith("/git/blobs/" + sha))
         return response({ content: Buffer.from(readFileSync(process.env.MOCK_REPO_ROOT + file, "utf8")).toString("base64") });
+    if (path.endsWith('/git/blobs/map-blob')) return response({content:Buffer.from(JSON.stringify(catalogMap)).toString('base64')});
+    if (path.endsWith('/git/blobs/shots-blob')) return response({content:Buffer.from(JSON.stringify(catalogShots)).toString('base64')});
     if (path.endsWith("/git/blobs/content-blob"))
       return response({
         content: Buffer.from(JSON.stringify(mainContent)).toString("base64"),
@@ -469,3 +482,30 @@ test("a pending export cannot rewind an independently advanced main", () => {
     },
   );
 });
+
+
+test('named version refreshes catalog metadata, page locations and matching screenshots together', () => {
+  const calls = run('figma-version','catalog');
+  const entries = calls.find(c => c.url.endsWith('/git/trees') && c.method === 'POST').body.tree;
+  const read = path => JSON.parse(entries.find(e => e.path === path).content);
+  const inventory = read('design/figma-export/components/inventory-components-page.json');
+  assert.equal(inventory.versionId,'v2');
+  assert.equal(inventory.items[0].page.name,'Components / Actions');
+  const shots = read('design/figma-export/components/screenshots.json');
+  assert.equal(shots.items[0].screenshotNode,'700:2');
+  assert.equal(shots.items[0].width,120);
+  assert.equal(shots.items[0].height,40);
+  assert.ok(entries.some(e => e.path === 'design/figma-export/components/screenshots/button.png' && e.sha));
+  assert.equal(read('site/library.json').groups[0].components[0].properties[0].kind,'variant');
+  assert.ok(calls.some(c => c.url.includes('ids=700%3A2') && c.url.includes('version=v2')));
+  assert.ok(calls.filter(c => c.url.startsWith('https://cdn.figma.com')).every(c => !c.authenticated));
+});
+for (const scenario of ['catalog-missing','catalog-render-missing','catalog-download-failure','catalog-invalid-png']) {
+  test(`${scenario} never publishes an incomplete catalog`, () => {
+    assert.throws(() => run('figma-version',scenario), error => {
+      assert.ok(error.calls.every(c => !(c.method === 'POST' && /\/(trees|commits|issues|pulls)$/.test(c.url))));
+      assert.ok(error.calls.every(c => c.method !== 'PATCH'));
+      return true;
+    });
+  });
+}

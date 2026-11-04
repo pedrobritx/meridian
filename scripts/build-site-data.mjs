@@ -8,6 +8,9 @@ export async function libraryData() {
   const inventory = await read("design/figma-export/components/inventory-components-page.json");
   const shots = await read("design/figma-export/components/screenshots.json");
   const map = await read("design/figma/migrations/2026-11-01-reorganise/map.json");
+  return buildLibraryData(inventory, shots, map);
+}
+export function buildLibraryData(inventory, shots, map) {
   const glass = new Set(["386:2125", "510:2238", "510:2279", "510:2280"]);
   const groups = map.pages.filter((p) => p.key.startsWith("c-") && p.key !== "c-overview")
     .map((p) => ({ key: p.key.slice(2), name: p.name.replace("Components / ", ""), components: [] }));
@@ -34,7 +37,7 @@ export async function libraryData() {
   for (const g of groups) g.components.sort((a, b) => a.name.localeCompare(b.name));
   return {
     schemaVersion: 1,
-    source: "design/figma-export (Figma read 2026-11-01) and design/figma/migrations/2026-11-01-reorganise/map.json",
+    source: inventory.versionId ? `Figma named version ${inventory.versionId} (${inventory.capturedAt}) and design/figma/migrations/2026-11-01-reorganise/map.json` : "design/figma-export (Figma read 2026-11-01) and design/figma/migrations/2026-11-01-reorganise/map.json",
     statusRule: "Preview items (the Universal prototypes and the glass set) may still change. Candidates can become stable once they pass the Definition of ready review, which has not happened yet.",
     groups,
   };
