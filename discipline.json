@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": "meridian",
+  "repository": "pedrobritx/meridian",
+  "entrypoint": "AGENTS.md",
+  "context": ["README.md", "CONTRIBUTING.md", "agents/designer.md", "docs/adoption.md", "docs/validation.md"],
+  "owns": ["Reusable interface method, tokens, components and symbols", "Design reference implementation and design/accessibility evaluation methods"],
+  "outputs": ["Product interaction, state and semantic token contracts", "Product design references and deliberate theme adoption", "Design/accessibility evidence separated from planned and independent checks"]
+}

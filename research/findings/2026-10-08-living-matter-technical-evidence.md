@@ -50,7 +50,7 @@ The editable study boards are visual specifications; browser implementations sup
 | Composited glass contrast | **Not demonstrated for arbitrary images** | Capture simple/complex scenes; measure effective contrast, adapt or fall back to opaque |
 | Runtime end-to-end latency / frame stability | **No representative benchmark report** | Record hardware, platform, task, device load, frame timing and input responsiveness |
 | Battery/power | **Unknown** | Only make claims if observed under a documented method |
-| BSDL review and promotion | **Not authorised** | Review evidence, accessibility, user autonomy and ethics; explicitly accept/reject/revise each pattern |
+| Polaris review and promotion | **Not authorised** | Review evidence, accessibility, user autonomy and ethics; explicitly accept/reject/revise each pattern |
 
 The Lab's `requestAnimationFrame` scheduling-delay display is only a local descriptive observation. It cannot be re-labelled as measured input latency or as evidence of better performance.
 
@@ -58,7 +58,7 @@ The Lab's `requestAnimationFrame` scheduling-delay display is only a local descr
 
 **LM-01, LM-02, LM-03, LM-04, LM-05, LM-06 and LM-07: RETAIN IN LAB — exploratory.**
 
-This is a **scope/status decision**, not a design endorsement or evidence of user benefit. Promotion requires study results and review against [BSDL](https://github.com/pedrobritx/bsdl). No stable design tokens, React production APIs or consuming-product migrations are approved by this document.
+This is a **scope/status decision**, not a design endorsement or evidence of user benefit. Promotion requires study results and review against [Polaris](https://github.com/pedrobritx/polaris). No stable design tokens, React production APIs or consuming-product migrations are approved by this document.
 
 ## Human-study preparation
 

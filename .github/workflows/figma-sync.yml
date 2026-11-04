@@ -39,4 +39,4 @@ jobs:
         run: node scripts/figma/sync.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+          FIGMA_GITHUB_CONSTELLATION: ${{ secrets.FIGMA_GITHUB_CONSTELLATION }}

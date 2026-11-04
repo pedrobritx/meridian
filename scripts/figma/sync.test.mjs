@@ -16,6 +16,9 @@ async function installMock() {
   const { writeFileSync, readFileSync } = await import("node:fs");
   const config = JSON.parse(process.env.MOCK_CONFIG);
   const scenario = process.env.MOCK_SCENARIO;
+  const catalog = scenario.startsWith('catalog');
+  const catalogMap = {fileKey:config.fileKey, pages:[{key:'c-actions',name:'Components / Actions'}],componentGroups:{assignments:{'700:1':'c-actions'}}};
+  const catalogShots = {items:[{componentId:'700:1',file:'screenshots/button.png',screenshotNode:'old'}]};
   const content = JSON.parse(process.env.MOCK_CONTENT),
     canonical = JSON.parse(readFileSync(process.env.MOCK_TOKENS_FILE, "utf8"));
   const mainContent = structuredClone(content),
@@ -47,7 +50,7 @@ async function installMock() {
     if (url.includes("/files/") && url.endsWith("/versions"))
       return response({
         versions: [
-          { id: "v2", label: "Approved", created_at: "2026-10-06T12:00:00Z" },
+          { id: "v2", label: "Approved", description: "Feature: refine <b>buttons</b>\nIssue #43", created_at: "2026-10-06T12:00:00Z" },
         ],
       });
     if (url.includes("api.figma.com/v1/files/"))
@@ -57,6 +60,7 @@ async function installMock() {
           name: "Meridian",
           type: "DOCUMENT",
           children: [
+            ...(catalog && scenario !== 'catalog-missing' ? [{id:'700:0',type:'CANVAS',name:'Components / Actions',children:[{id:'700:1',type:'COMPONENT_SET',name:'Button',componentPropertyDefinitions:{Size:{type:'VARIANT',variantOptions:['Small'],defaultValue:'Small'}},children:[{id:'700:2',type:'COMPONENT',name:'Size=Small'}]}]}] : []),
             ...Object.values(versionContent.fields).map((f) => ({
               id: f.nodeId,
               type: "TEXT",
@@ -67,18 +71,35 @@ async function installMock() {
               name: "Review",
               type: "FRAME",
             })),
+            { id: "449:1", name: "Symbol / leaf", type: "COMPONENT_SET", children: [
+              { id: "449:2", name: "Style=Outline", type: "COMPONENT" },
+              { id: "449:3", name: "Style=Filled", type: "COMPONENT" } ] },
           ],
         },
       });
+    if (url.includes("api.figma.com/v1/images/") && url.includes("format=svg")) {
+      const ids = decodeURIComponent(new URL(url).searchParams.get("ids")).split(",");
+      return response({ images: Object.fromEntries(ids.map((id) => [id, `https://cdn.figma.com/${id.replace(":", "-")}.svg`])) });
+    }
+    if (url.startsWith("https://cdn.figma.com/") && url.endsWith(".svg"))
+      return new Response(url.includes("449-3")
+        ? '<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg"><path d="M2 2h20"/></svg>');
     if (url.includes("api.figma.com/v1/images/"))
       return response({
         images: Object.fromEntries(
-          Object.values(config.frames).map((id) => [
+          decodeURIComponent(new URL(url).searchParams.get('ids')).split(',').filter(id => scenario !== 'catalog-render-missing' || id !== '700:2').map((id) => [
             id,
-            "https://cdn.figma.com/preview.png",
+            id === "700:2" ? "https://cdn.figma.com/component.png" : "https://cdn.figma.com/preview.png",
           ]),
         ),
       });
+    if (url === 'https://cdn.figma.com/component.png') {
+      if (scenario === 'catalog-download-failure') return new Response('unavailable', {status:503});
+      if (scenario === 'catalog-invalid-png') return new Response('not a PNG');
+      const png = Buffer.alloc(33); Buffer.from('89504e470d0a1a0a','hex').copy(png); png.writeUInt32BE(13,8); png.write('IHDR',12); png.writeUInt32BE(120,16); png.writeUInt32BE(40,20);
+      return new Response(png);
+    }
     if (url.startsWith("https://cdn.figma.com/"))
       return new Response(new Uint8Array([137, 80, 78, 71]));
     if (path.endsWith('/git/blobs/'+'a'.repeat(40))) return response({encoding:'base64',content:Buffer.from(JSON.stringify(publication)).toString('base64')});
@@ -101,6 +122,7 @@ async function installMock() {
     if (path.includes("/git/trees/") && method !== "POST")
       return response({
         tree: [
+          ...(catalog ? [{path:'design/figma/migrations/2026-11-01-reorganise/map.json',type:'blob',sha:'map-blob'},{path:'design/figma-export/components/screenshots.json',type:'blob',sha:'shots-blob'}] : []),
           ...(scenario === "pending-conflict"
             ? [
                 {
@@ -111,6 +133,9 @@ async function installMock() {
               ]
             : []),
           { path: "site/content.json", type: "blob", sha: "content-blob" },
+          { path: "design/figma/generated/figma-source.json", type: "blob", sha: "source-blob" },
+          { path: "design/figma/generated/provenance-overrides.json", type: "blob", sha: "ledger-blob" },
+          { path: "design/figma/links.json", type: "blob", sha: "links-blob" },
           {
             path: "design/figma/generated/content-baseline.json",
             type: "blob",
@@ -132,6 +157,11 @@ async function installMock() {
             : []),
         ],
       });
+    for (const [sha, file] of [["source-blob", "design/figma/generated/figma-source.json"], ["ledger-blob", "design/figma/generated/provenance-overrides.json"], ["links-blob", "design/figma/links.json"]])
+      if (path.endsWith("/git/blobs/" + sha))
+        return response({ content: Buffer.from(readFileSync(process.env.MOCK_REPO_ROOT + file, "utf8")).toString("base64") });
+    if (path.endsWith('/git/blobs/map-blob')) return response({content:Buffer.from(JSON.stringify(catalogMap)).toString('base64')});
+    if (path.endsWith('/git/blobs/shots-blob')) return response({content:Buffer.from(JSON.stringify(catalogShots)).toString('base64')});
     if (path.endsWith("/git/blobs/content-blob"))
       return response({
         content: Buffer.from(JSON.stringify(mainContent)).toString("base64"),
@@ -235,8 +265,9 @@ function run(action, scenario = "new", tokens, blobPublication = false) {
           GITHUB_EVENT_PATH: eventFile,
           GITHUB_REPOSITORY: config.repository,
           GITHUB_TOKEN: "fake-github",
-          FIGMA_ACCESS_TOKEN: "fake-figma",
+          FIGMA_GITHUB_CONSTELLATION: "fake-figma",
           MOCK_SCENARIO: scenario,
+          MOCK_REPO_ROOT: fileURLToPath(new URL("../../", import.meta.url)),
           MOCK_CONFIG: JSON.stringify(config),
           MOCK_CONTENT: JSON.stringify(sharedContent),
           MOCK_TOKENS_FILE: join(dir, "tokens.json"),
@@ -261,7 +292,7 @@ test("approved version exports diffs, configured previews, an issue and a draft 
   const cdn = calls.filter((call) =>
     call.url.startsWith("https://cdn.figma.com"),
   );
-  assert.equal(cdn.length, Object.keys(config.frames).length);
+  assert.equal(cdn.filter((call) => !call.url.endsWith(".svg")).length, Object.keys(config.frames).length);
   assert.ok(cdn.every((call) => !call.authenticated));
   const tree = calls.find(
     (call) => call.url.endsWith("/git/trees") && call.method === "POST",
@@ -323,6 +354,47 @@ test("plugin publication generates CSS without the Figma REST API", () => {
     tree.tree.find((entry) => entry.path.endsWith("meridian.css")).content,
     /142ms/,
   );
+  // The provenance ledger is rewritten so capture + ledger still equals the published tokens.
+  const ledger = JSON.parse(tree.tree.find((entry) => entry.path.endsWith("provenance-overrides.json")).content);
+  const hover = ledger.overrides.find((entry) => entry.token === "motion/duration/hover");
+  assert.equal(hover.value, 142);
+  assert.match(hover.source, /Plugin publication/);
+});
+
+test("named-version exports write one SVG per symbol variant and skip unsafe renders", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const svg = tree.tree.find((entry) => entry.path === "design/figma-export/icons/svg/leaf/outline.svg");
+  assert.match(svg.content, /^<svg/);
+  assert.ok(!tree.tree.some((entry) => entry.path === "design/figma-export/icons/svg/leaf/filled.svg"));
+  const index = JSON.parse(tree.tree.find((entry) => entry.path === "design/figma-export/icons/svg/index.json").content);
+  assert.equal(index.count, 1);
+  assert.deepEqual(index.missing, ["449:3"]);
+  assert.ok(calls.some((call) => call.url.includes("format=svg") && call.url.includes("version=v2")));
+});
+
+test("named-version exports record the version description as a changelog-ready note", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const note = tree.tree.find((entry) => entry.path.endsWith("release-note.md")).content;
+  assert.match(note, /^## Figma · Approved · 2026-10-06/);
+  assert.match(note, /Feature: refine  b buttons \/b \nIssue #43/);
+  assert.match(note, /Named version v2\./);
+  const changes = JSON.parse(tree.tree.find((entry) => entry.path.endsWith("changes.json")).content);
+  assert.match(changes.description, /Feature: refine/);
+  const pr = calls.find((call) => call.url.endsWith("/pulls") && call.method === "POST").body;
+  assert.match(pr.body, /Version notes: Feature: refine/);
+  assert.doesNotMatch(pr.body, /<b>/);
+});
+
+test("named-version exports refresh the Figma link status from the file document", () => {
+  const calls = run("figma-version");
+  const tree = calls.find((call) => call.url.endsWith("/git/trees") && call.method === "POST").body;
+  const links = JSON.parse(tree.tree.find((entry) => entry.path === "design/figma/links.json").content);
+  // The mocked document holds only the preview frames and the mapped text nodes.
+  for (const id of Object.values(config.frames)) assert.ok(!links.missing.includes(id), id);
+  assert.ok(links.missing.includes("92:51"));
+  assert.match(links.method, /named version v2/);
 });
 
 test('large plugin publications resolve an immutable blob while retaining validation and stale-main protection', () => {
@@ -410,3 +482,30 @@ test("a pending export cannot rewind an independently advanced main", () => {
     },
   );
 });
+
+
+test('named version refreshes catalog metadata, page locations and matching screenshots together', () => {
+  const calls = run('figma-version','catalog');
+  const entries = calls.find(c => c.url.endsWith('/git/trees') && c.method === 'POST').body.tree;
+  const read = path => JSON.parse(entries.find(e => e.path === path).content);
+  const inventory = read('design/figma-export/components/inventory-components-page.json');
+  assert.equal(inventory.versionId,'v2');
+  assert.equal(inventory.items[0].page.name,'Components / Actions');
+  const shots = read('design/figma-export/components/screenshots.json');
+  assert.equal(shots.items[0].screenshotNode,'700:2');
+  assert.equal(shots.items[0].width,120);
+  assert.equal(shots.items[0].height,40);
+  assert.ok(entries.some(e => e.path === 'design/figma-export/components/screenshots/button.png' && e.sha));
+  assert.equal(read('site/library.json').groups[0].components[0].properties[0].kind,'variant');
+  assert.ok(calls.some(c => c.url.includes('ids=700%3A2') && c.url.includes('version=v2')));
+  assert.ok(calls.filter(c => c.url.startsWith('https://cdn.figma.com')).every(c => !c.authenticated));
+});
+for (const scenario of ['catalog-missing','catalog-render-missing','catalog-download-failure','catalog-invalid-png']) {
+  test(`${scenario} never publishes an incomplete catalog`, () => {
+    assert.throws(() => run('figma-version',scenario), error => {
+      assert.ok(error.calls.every(c => !(c.method === 'POST' && /\/(trees|commits|issues|pulls)$/.test(c.url))));
+      assert.ok(error.calls.every(c => c.method !== 'PATCH'));
+      return true;
+    });
+  });
+}

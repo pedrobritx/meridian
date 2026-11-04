@@ -1,6 +1,6 @@
 # Meridian
 
-A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. BSDL remains its philosophical foundation; Meridian is the interface method, and BSF concerns the software-building process.
+A human rhythm for software. Meridian is a humanist interface method: familiar materials, natural light, clear hierarchy and purposeful interaction. The Polaris Constitution remains its philosophical foundation; Meridian owns interface practice, Axis owns engineering capabilities and Sentinel owns security guidance. Each capability is independently usable; full Polaris governance is explicitly opt-in.
 
 **Stable token contract 0.5 · Current material reference 0.6 experimental** — [Published reference](https://britx.me/meridian/) · [Figma library](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian)
 
@@ -25,8 +25,10 @@ npm ci
 npm run dev
 npm test
 npm run build
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run test:browser
+# Include Firefox and WebKit, as CI does:
+MERIDIAN_EXTENDED_BROWSERS=1 npm run test:browser
 ```
 
 The development and preview base is `/meridian/`, matching GitHub Pages. `npm run build` regenerates the plugin, CSS tokens and `dist/`. Edit the canonical JSON and `site/content.json` instead of generated outputs. Browser checks cover every view in all twelve profile/environment combinations at desktop and mobile widths, native dialog focus, tabs, local form validation, theme persistence and reduced motion.
@@ -40,6 +42,15 @@ The [Universal Library Lab](lab/universal-library/) exposes all twenty environme
 ## Design in Figma
 
 The stable 0.5 compatibility library contains **Core + Grass + Paper + Parallel + Canvas + Gallery**, with twelve resolved colour modes, profile-specific layout/motion/typography and 168 semantic roles per appearance. Core is neutral, Grass is green and Paper is sand/wine. The [profile guide](design/meridian/profiles.md), [project-purpose mapping](docs/adoption.md), [native inventory](docs/figma-library.json) and [token export](design/figma/generated/tokens.json) record the same contract. Ten editable Figma text layers share `site/content.json` with the website. Historical 0.1 source files remain archived.
+Meridian has six active environments: **Prism, Forest, Desert, Ocean, Aurora and Canyon**, each with Dawn and Dusk. Prism is the neutral starting point. Forest retains its green heritage; Desert now has a distinct gold foundation; Ocean consolidates Alpine, Storm and Glacier; Aurora incorporates Celestial; Canyon replaces Embers with a red sandstone direction. See the [philosophy](docs/philosophy.md) and [migration record](docs/migration/2026-11-03-six-environments.md).
+
+The [Material Model](lab/material-model/), [Environment Patterns](lab/environment-patterns/) and [Universal Library](lab/universal-library/) are experimental review tools. Load `styles/living-environments.css` after `styles/tokens.css`, then opt in with `data-meridian-environment="prism"` (or another active environment) and `data-theme="light"` or `"dark"`. The manifest is the source for generated environment CSS. Retired selectors retain their archived palettes for compatibility.
+
+## Design in Figma
+
+The working Figma library has purpose-based component pages and six active Environment modes. All 468 canonical environment values and all 62 component locations were verified on 3 November 2026; see the [live evidence](design/figma/migrations/2026-11-03-live-verification.json). Website and Lab pages remain labelled inside the same file pending the separate-file migration.
+
+Stable **Core, Grass, Paper, Parallel, Canvas and Gallery** profiles remain unchanged. These product profiles are a compatibility contract, distinct from the six environment families. Existing consumers are not automatically migrated to the new Desert or Aurora palettes. The original [Start / Review](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn/Meridian?node-id=7-2) remains a visual reference. Historical refactor maps and exports are dated snapshots, not a live inventory.
 
 ## Figma ↔ Meridian GitHub → website
 
@@ -61,3 +72,11 @@ GitHub Pages serves the static website. It cannot receive webhooks. Polling need
 See [docs/validation.md](docs/validation.md). Contrast assertions apply to tested solid surfaces; translucent compositions need context-specific checks. Automated accessibility passes are not a claim of full WCAG certification. Human screen-reader and native Safari/Firefox checks remain part of product adoption.
 
 [Design decisions](docs/decisions.md) · [Contribution guide](CONTRIBUTING.md) · [Font and asset notices](THIRD_PARTY_NOTICES.md)
+
+[Designer capability](agents/designer.md) · [Migration provenance](migration/provenance.json)
+
+## Optional Constellation composition
+
+Polaris is the usual coordinating entry point; [the composition contract](https://github.com/pedrobritx/polaris/blob/main/integration/README.md) defines explicit adoption, task scope and evidence returns. [discipline.json](discipline.json) describes this capability without installing a runtime dependency. Start directly at this repository’s AGENTS.md for standalone work.
+
+When receiving a handoff, inspect the actual adopting project and retain its request ID, acceptance criteria, constraints and reviewed source revision. Return project artifacts, checks actually run, limitations, interface changes and blockers. Product-specific implementation/findings belong in the product repository; reusable capability improvements belong here. Excluded disciplines are explicit choices and never imply that their quality or safety checks passed.

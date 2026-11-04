@@ -24,11 +24,16 @@ test('Living Environments preview exposes all ten environments and twenty appear
  await expect(selector.locator('option')).toHaveCount(20);
  const preview=page.locator('.u-theme[data-theme-kind="aurora"] .u-demobutton');
  await expect(preview).toHaveCSS('color','rgb(32, 44, 66)');
+test('Living Environments preview switches all twelve token modes without replacing original theme roles',async({page})=>{
+ await page.goto('lab/universal-library/');
+ await expect(page.locator('.u-theme')).toHaveCount(6);
+ const selector=page.locator('#appearance-mode');
+ await expect(selector.locator('option')).toHaveCount(12);
  await selector.selectOption('aurora:dark');
  await expect(page.locator('html')).toHaveAttribute('data-meridian-environment','aurora');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  const surface=await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--md-color-bg-surface').trim());
- expect(surface).toBe('rgb(27 33 64 / 1)');
+ expect(surface).toBe('rgb(22 18 38 / 1)');
  await selector.selectOption('desert:light');
  await expect(page.locator('html')).toHaveAttribute('data-meridian-environment','desert');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();

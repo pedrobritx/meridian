@@ -149,7 +149,8 @@ const websiteAliases = `[data-meridian] {
   --md-ease: var(--md-motion-easing-settle);
   color-scheme: light;
 }
-[data-meridian][data-theme="dark"] { color-scheme: dark; }
+[data-meridian][data-theme="dark"],
+[data-meridian].dark:not([data-theme="light"]) { color-scheme: dark; }
 `;
 
 export function websiteCss(bundle) {

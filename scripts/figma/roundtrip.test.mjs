@@ -78,3 +78,26 @@ test("content mapping rejects arbitrary nodes and obsolete versions", () => {
     signature(content),
   );
 });
+test("0.5 capture ignores 0.6 collections and internal motion/liquid aliases in the same file", () => {
+  // Mirrors the Figma file as exported on 2026-11-01: 0.6 collections whose modes are
+  // environments or appearances, and motion/liquid/* variables inside Meridian / Motion.
+  const collections = structuredClone(source.collections);
+  const motion = collections.find((c) => c.name === "Meridian / Motion");
+  const primitives = collections.find((c) => c.name === "Meridian / Primitives");
+  primitives.variables.push({ id: "VariableID:t:1", name: "optics/motion/liquid/duration/feedback", type: "FLOAT", values: { [primitives.modes[0].modeId]: 120 }, scopes: [], code: "" });
+  motion.variables.push({ id: "VariableID:t:2", name: "motion/liquid/duration/feedback", type: "FLOAT",
+    values: Object.fromEntries(motion.modes.map((m) => [m.modeId, { type: "VARIABLE_ALIAS", id: "VariableID:t:1" }])), scopes: [], code: "" });
+  for (const [id, name, modeNames] of [
+    ["VariableCollectionId:t:3", "Meridian / Environment", ["Forest", "Core"]],
+    ["VariableCollectionId:t:4", "Meridian / Appearance", ["Dawn", "Dusk"]],
+    ["VariableCollectionId:t:5", "Meridian / Living Environments · 0.6", ["Forest / Dawn", "Forest / Dusk"]],
+    ["VariableCollectionId:t:6", "Meridian / Material", ["Value"]],
+  ]) {
+    const modes = modeNames.map((n, i) => ({ name: n, modeId: id + ":" + i }));
+    collections.push({ id, name, modes, variables: [{ id: id + ":v", name: "color/bg/page", type: "COLOR",
+      values: Object.fromEntries(modes.map((m) => [m.modeId, { r: 0, g: 0, b: 0, a: 1 }])), scopes: ["FRAME_FILL"], code: "" }] });
+  }
+  const vs = collections.flatMap((c) => c.variables.map((v) => ({ ...v, variableCollectionId: c.id, resolvedType: v.type, valuesByMode: v.values })));
+  assert.deepEqual(captureNativeTokens(collections, vs), bundle);
+  assert.deepEqual(planTokenImport(bundle, collections, vs), []);
+});

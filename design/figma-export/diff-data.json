@@ -1,0 +1,748 @@
+{
+ "summary": {
+  "compared_tokens_modes": 2016,
+  "mismatches": 72,
+  "figma_only_names": [
+   "motion/liquid/duration/feedback",
+   "motion/liquid/duration/morph",
+   "motion/liquid/duration/reduced",
+   "motion/liquid/duration/settle",
+   "motion/liquid/scale/pressed",
+   "motion/liquid/spring/damping",
+   "motion/liquid/spring/mass",
+   "motion/liquid/spring/stiffness",
+   "motion/liquid/translate/hover"
+  ],
+  "repo_only_names": [],
+  "env_compared": 390,
+  "env_mismatches": 25,
+  "figma_environments": [
+   "Forest",
+   "Core",
+   "Desert",
+   "Ocean",
+   "Alpine",
+   "Storm",
+   "Celestial",
+   "Aurora",
+   "Glacier",
+   "Embers"
+  ],
+  "repo_environments": [
+   "forest",
+   "desert",
+   "aurora",
+   "glacier",
+   "embers"
+  ],
+  "figma_env_roles_not_in_repo_json": [
+   "color/material/layer/dialog",
+   "color/material/layer/front-control",
+   "color/material/layer/front-selection",
+   "color/material/layer/menu",
+   "color/material/layer/navigation",
+   "color/material/layer/raised",
+   "color/material/layer/rear",
+   "color/material/layer/selection",
+   "color/material/selection/foreground",
+   "material/symbol/botanical/body",
+   "material/symbol/botanical/edge",
+   "material/symbol/botanical/light",
+   "material/symbol/botanical/shade",
+   "material/symbol/ceramic/body",
+   "material/symbol/ceramic/edge",
+   "material/symbol/ceramic/light",
+   "material/symbol/ceramic/shade",
+   "material/symbol/metal/body",
+   "material/symbol/metal/edge",
+   "material/symbol/metal/light",
+   "material/symbol/metal/shade",
+   "material/symbol/texture/sand",
+   "material/symbol/texture/wood"
+  ],
+  "repo_env_roles_not_in_figma": []
+ },
+ "tokenMismatches": [
+  {
+   "mode": "Dawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "Dawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "Dawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "Dawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "Dawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 0.9800000190734863,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "Dawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 2,
+   "figma": 1
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 0.9800000190734863,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "Dusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 2,
+   "figma": 1
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 0.9900000095367432,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "PaperDawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 2,
+   "figma": 1
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 0.9900000095367432,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "PaperDusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 2,
+   "figma": 1
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "CoreDawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "CoreDusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "ParallelDawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "ParallelDusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "CanvasDawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "CanvasDusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "GalleryDawn",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/duration/contact",
+   "type": "FLOAT",
+   "repo": 80,
+   "figma": 120
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/duration/hover",
+   "type": "FLOAT",
+   "repo": 140,
+   "figma": 120
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/duration/reduced",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 80
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/duration/release",
+   "type": "FLOAT",
+   "repo": 220,
+   "figma": 380
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/scale/pressed",
+   "type": "FLOAT",
+   "repo": 1,
+   "figma": 0.9850000143051147
+  },
+  {
+   "mode": "GalleryDusk",
+   "name": "motion/translate/hover",
+   "type": "FLOAT",
+   "repo": 0,
+   "figma": 1
+  }
+ ],
+ "environmentMismatches": [
+  {
+   "env": "Desert",
+   "mode": "Dawn",
+   "name": "color/material/glass",
+   "repo": "#FCF9F2E5",
+   "figma": "#fcf9f2b8"
+  },
+  {
+   "env": "Desert",
+   "mode": "Dusk",
+   "name": "color/material/glass",
+   "repo": "#2B241CE0",
+   "figma": "#2b241cd1"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/action/active",
+   "repo": "#174C46",
+   "figma": "#3f4a80"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/action/hover",
+   "repo": "#1C5E55",
+   "figma": "#475486"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/action/primary",
+   "repo": "#39796B",
+   "figma": "#59639c"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/action/secondary",
+   "repo": "#244F4A",
+   "figma": "#475486"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/bg/sunken",
+   "repo": "#E7EBF9",
+   "figma": "#d7dbf4"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/focus/ring",
+   "repo": "#295F59",
+   "figma": "#59639c"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/link/default",
+   "repo": "#39796B",
+   "figma": "#59639c"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "color/link/hover",
+   "repo": "#1C5E55",
+   "figma": "#475486"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dawn",
+   "name": "ambient/highlight",
+   "repo": "#B5FFE1",
+   "figma": "#b9b5e9"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/action/active",
+   "repo": "#B2FBDC",
+   "figma": "#d5dbff"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/action/hover",
+   "repo": "#B2FBDC",
+   "figma": "#d5dbff"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/action/primary",
+   "repo": "#90EEC6",
+   "figma": "#bbc3f3"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/action/secondary",
+   "repo": "#90EEC6",
+   "figma": "#bbc3f3"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/bg/sunken",
+   "repo": "#0C1025",
+   "figma": "#252e59"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/focus/ring",
+   "repo": "#B2FBDC",
+   "figma": "#d5dbff"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/link/default",
+   "repo": "#90EEC6",
+   "figma": "#bbc3f3"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "color/link/hover",
+   "repo": "#B2FBDC",
+   "figma": "#d5dbff"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "ambient/highlight",
+   "repo": "#6DECC9",
+   "figma": "#6f4f96"
+  },
+  {
+   "env": "Aurora",
+   "mode": "Dusk",
+   "name": "ambient/glow",
+   "repo": "#B858B3",
+   "figma": "#9c6fbb"
+  },
+  {
+   "env": "Glacier",
+   "mode": "Dawn",
+   "name": "color/material/glass",
+   "repo": "#FFFFFFED",
+   "figma": "#ffffffb8"
+  },
+  {
+   "env": "Glacier",
+   "mode": "Dusk",
+   "name": "color/material/glass",
+   "repo": "#173646ED",
+   "figma": "#173646d1"
+  },
+  {
+   "env": "Embers",
+   "mode": "Dawn",
+   "name": "color/material/glass",
+   "repo": "#FFFCF8ED",
+   "figma": "#fffcf8b8"
+  },
+  {
+   "env": "Embers",
+   "mode": "Dusk",
+   "name": "color/material/glass",
+   "repo": "#332D2EED",
+   "figma": "#332d2ed1"
+  }
+ ]
+}

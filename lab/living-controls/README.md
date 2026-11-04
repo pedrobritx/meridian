@@ -49,7 +49,7 @@ This is an interactive visual experiment, not evidence that magnetic attraction 
 - Obtain formative user-study results and verify on representative hardware.
 - Add documented motion intensity presets or measured spring parameters only after evaluation.
 - Implement Living Workspace and Living Environments in separate Lab milestones.
-- Do not promote effects to stable Meridian Design/React components without BSDL ethical, engineering and accessibility review.
+- Do not promote effects to stable Meridian Design/React components without Polaris ethical, engineering and accessibility review.
 
 
 ## LM-02 fusion experiment (additional to liquid selection)

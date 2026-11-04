@@ -9,12 +9,24 @@ export function modeForCollection(collection, theme) {
   if (collection.modes.length === 1 && !["Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout", "Meridian / Motion"].includes(collection.name)) return collection.modes[0];
   throw Error("Missing profile mode in " + collection.name);
 }
+/**
+ * The 0.5 token contract lives in these collections only. 0.6 collections in the same file
+ * (Environment, Appearance, Material, Icon Foreground, Living Environments) have environment or
+ * appearance modes, not profile modes, and are not part of tokens.json.
+ */
+export const CONTRACT_COLLECTIONS = Object.freeze([
+  "Meridian / Colour", "Meridian / Project Colour", "Meridian / Layout",
+  "Meridian / Typography", "Meridian / Motion", "Meridian / Elevation",
+]);
+/** Intermediate aliases behind public tokens (e.g. motion/duration/hover -> motion/liquid/duration/feedback). */
+export const INTERNAL_TOKEN_PREFIXES = Object.freeze(["motion/liquid/"]);
 function semanticForMode(variables, collections, theme) {
   const colour = profileForMode(theme).projectColour ? "Meridian / Project Colour" : "Meridian / Colour";
   return variables.filter(v => {
     const name = collections[v.variableCollectionId]?.name;
-    return name?.startsWith("Meridian /") && name !== "Meridian / Primitives"
+    return CONTRACT_COLLECTIONS.includes(name)
       && (!name.endsWith("Colour") || name === colour)
+      && !INTERNAL_TOKEN_PREFIXES.some(prefix => v.name.startsWith(prefix))
       && ["COLOR", "FLOAT", "STRING"].includes(v.resolvedType);
   });
 }

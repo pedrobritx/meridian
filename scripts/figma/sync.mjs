@@ -1,4 +1,9 @@
+import { componentInventory } from "./component-inventory.mjs";
+import { buildLibraryData } from "../build-site-data.mjs";
 import { websiteCss } from "./token-contract.mjs";
+import { linkStatus } from "./links.mjs";
+import { symbolVariants, isSafeSvg } from "./symbols.mjs";
+import { captureFromSource, provenanceOverrides } from "./provenance.mjs";
 import { readFile } from "node:fs/promises";
 import {
   api,
@@ -23,7 +28,7 @@ const contentTemplate = JSON.parse(
 );
 const event = JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH));
 const githubToken = process.env.GITHUB_TOKEN;
-const figmaToken = process.env.FIGMA_ACCESS_TOKEN;
+const figmaToken = process.env.FIGMA_GITHUB_CONSTELLATION;
 if (!githubToken) throw new Error("GITHUB_TOKEN is required");
 if (process.env.GITHUB_REPOSITORY !== config.repository)
   throw new Error("Repository mismatch");
@@ -33,6 +38,8 @@ const figma = (path) => api(`https://api.figma.com/v1${path}`, figmaToken);
 const post = (body) => ({ method: "POST", body: JSON.stringify(body) });
 const prefix = "design/figma/generated/";
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
+// Designer-written version text: keep line breaks, drop HTML brackets and table pipes, cap length.
+const notes = (value, max) => String(value ?? "").replace(/[<>|]/g, " ").trim().slice(0, max);
 const payload = event.client_payload ?? {};
 if (payload.file_key && payload.file_key !== config.fileKey)
   throw new Error("Figma file mismatch");
@@ -53,7 +60,8 @@ const previousEntries = oldTree.tree.filter(
   (entry) =>
     entry.type === "blob" &&
     (entry.path.startsWith(prefix) ||
-      ["site/content.json", "styles/tokens.css"].includes(entry.path)),
+      entry.path.startsWith("design/figma-export/components/") ||
+      ["site/content.json", "site/library.json", "styles/tokens.css"].includes(entry.path)),
 );
 async function readPrevious(name) {
   const entry = previousEntries.find((entry) => entry.path === prefix + name);
@@ -181,6 +189,16 @@ if (event.action === "figma-tokens") {
     process.exit(0);
   }
   tokensChanged = true;
+  // Keep the provenance ledger exact so the contract test stays meaningful (scripts/figma/provenance.mjs).
+  const has = (path) => mainTree.tree.some((e) => e.type === "blob" && e.path === path);
+  if (has(prefix + "figma-source.json") && has(prefix + "provenance-overrides.json"))
+    add("provenance-overrides.json", json(provenanceOverrides(
+      captureFromSource(await readMain(prefix + "figma-source.json")),
+      bundle,
+      await readMain(prefix + "provenance-overrides.json"),
+      { source: `Plugin publication ${new Date().toISOString().slice(0, 10)}, contract blob ${payload.bundle_blob_sha ?? "inline"}`,
+        decision: "Published from Figma for review; ADR-0002 §7 applies at review" },
+    )));
   writes.set("site/content.json", { content: json(publishedContent) });
   add("content-baseline.json", json(publishedContent));
   add("tokens.json", json(bundle));
@@ -189,7 +207,7 @@ if (event.action === "figma-tokens") {
 } else {
   if (!figmaToken)
     throw new Error(
-      "Set the FIGMA_ACCESS_TOKEN repository secret before enabling design sync",
+      "Set the FIGMA_GITHUB_CONSTELLATION repository secret before enabling design sync",
     );
   const requested = payload.version_id || event.inputs?.version_id;
   if (requested && !/^[\w-]{1,128}$/.test(requested))
@@ -252,6 +270,14 @@ if (event.action === "figma-tokens") {
   }
   const nodes = snapshot(file.document);
   diff = changes(previous.nodes, nodes);
+  // Refresh the repo's Figma link status at every approved version (policy: tests/figma-links.test.mjs).
+  if (mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")) {
+    const links = await readMain("design/figma/links.json");
+    writes.set("design/figma/links.json", {
+      content: json(linkStatus(file.document, links, version.created_at.slice(0, 10),
+        `Figma REST file document at named version ${version.id}, checked by figma-sync.yml`)),
+    });
+  }
   add(
     "snapshot.json",
     json({
@@ -263,7 +289,19 @@ if (event.action === "figma-tokens") {
   );
   add(
     "changes.json",
-    json({ versionId: version.id, label: version.label, ...diff }),
+    json({ versionId: version.id, label: version.label, description: version.description ?? "", createdAt: version.created_at, ...diff }),
+  );
+  // Ready-to-paste changelog entry written from the named version's own description.
+  add(
+    "release-note.md",
+    [
+      `## Figma · ${notes(version.label, 120)} · ${version.created_at.slice(0, 10)}`,
+      "",
+      notes(version.description, 2000) || "No description was given for this named version.",
+      "",
+      `- ${diff.added.length} added, ${diff.changed.length} changed, ${diff.removed.length} removed layers. Named version ${version.id}.`,
+      "",
+    ].join("\n"),
   );
   const validFrames = Object.entries(config.frames).filter(
     ([, id]) => nodes[id],
@@ -291,6 +329,63 @@ if (event.action === "figma-tokens") {
     );
     writes.set(`${prefix}previews/${name}.png`, { sha: blob.sha });
   }
+  // Refresh catalog metadata and renders together from this exact approved version.
+  const mapPath = "design/figma/migrations/2026-11-01-reorganise/map.json";
+  if (mainTree.tree.some(e => e.path === mapPath && e.type === "blob")) {
+    const map = await readMain(mapPath);
+    const inventory = componentInventory(file.document, map.componentGroups.assignments, config.fileKey, version);
+    const oldShots = await readMain("design/figma-export/components/screenshots.json");
+    const shots = inventory.items.map(item => {
+      const old = oldShots.items.find(s => s.componentId === item.id);
+      if (!old || !/^screenshots\/[a-zA-Z0-9_-]+\.png$/.test(old.file))
+        throw new Error(`Missing safe screenshot destination: ${item.id}`);
+      return {...old, name: item.name, type: item.t, screenshotNode: item.def ?? item.id, screenshotOf: item.t === "SET" ? "representative variant (first in document order)" : "component"};
+    });
+    const rendered = await figma(`/images/${config.fileKey}?ids=${encodeURIComponent(shots.map(s => s.screenshotNode).join(','))}&format=png&scale=1&version=${encodeURIComponent(version.id)}`);
+    if (rendered.err) throw new Error("Figma could not render component catalog");
+    for (const shot of shots) {
+      const url = rendered.images?.[shot.screenshotNode];
+      if (!url || new URL(url).protocol !== "https:") throw new Error(`Missing component render: ${shot.componentId}`);
+      const response = await fetch(url, {signal: AbortSignal.timeout(30_000)});
+      if (!response.ok) throw new Error(`Component render download failed: ${shot.componentId}`);
+      const bytes = Buffer.from(await response.arrayBuffer());
+      if (bytes.length < 33 || bytes.length > 15_000_000 || bytes.subarray(0,8).toString('hex') !== '89504e470d0a1a0a' || bytes.readUInt32BE(8) !== 13 || bytes.subarray(12,16).toString() !== 'IHDR' || !bytes.readUInt32BE(16) || !bytes.readUInt32BE(20))
+        throw new Error(`Invalid component PNG: ${shot.componentId}`);
+      shot.width = bytes.readUInt32BE(16); shot.height = bytes.readUInt32BE(20);
+      const blob = await gh('/git/blobs', post({encoding:'base64',content:bytes.toString('base64')}));
+      writes.set(`design/figma-export/components/${shot.file}`, {sha:blob.sha});
+    }
+    const screenshots = {_label:'Rendered from the approved named version; PNG dimensions read from IHDR.', versionId:version.id, count:shots.length, items:shots};
+    writes.set('design/figma-export/components/inventory-components-page.json', {content:json(inventory)});
+    writes.set('design/figma-export/components/screenshots.json', {content:json(screenshots)});
+    writes.set('site/library.json', {content:json(buildLibraryData(inventory, screenshots, map))});
+  }
+  // Per-variant symbol SVGs (scripts/figma/symbols.mjs), rendered by Figma at this version.
+  const archivePages = mainTree.tree.some((e) => e.type === "blob" && e.path === "design/figma/links.json")
+    ? (await readMain("design/figma/links.json")).archivePages ?? [] : [];
+  const symbols = symbolVariants(file.document, archivePages);
+  const exported = [];
+  for (let i = 0; i < symbols.length; i += 100) {
+    const batch = symbols.slice(i, i + 100);
+    const rendered = await figma(
+      `/images/${config.fileKey}?ids=${encodeURIComponent(batch.map((s) => s.id).join(","))}&format=svg&version=${encodeURIComponent(version.id)}`,
+    );
+    if (rendered.err) throw new Error("Figma could not render symbol SVGs");
+    for (const symbol of batch) {
+      const url = rendered.images?.[symbol.id];
+      if (!url || new URL(url).protocol !== "https:") { exported.push({ ...symbol, file: null }); continue; }
+      const result = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+      const svg = result.ok ? await result.text() : null;
+      if (!isSafeSvg(svg)) { exported.push({ ...symbol, file: null }); continue; }
+      writes.set(`design/figma-export/icons/svg/${symbol.file}`, { content: svg });
+      exported.push(symbol);
+    }
+  }
+  if (symbols.length)
+    writes.set("design/figma-export/icons/svg/index.json", {
+      content: json({ versionId: version.id, createdAt: version.created_at, count: exported.filter((s) => s.file).length,
+        missing: exported.filter((s) => !s.file).map((s) => s.id), symbols: exported }),
+    });
 }
 
 const title = tokensChanged
@@ -315,6 +410,7 @@ const lines = details
   );
 const body = [
   `Source: [Meridian in Figma](${designUrl})${version ? ` · named version ${version.id}` : " · explicitly published local variables"}.`,
+  ...(version?.description?.trim() ? [`Version notes: ${notes(version.description, 2000)}`] : []),
   tokensChanged
     ? "The designer published a complete Grass/Paper light/dark token export. Tokens and shared library copy feed the website build after this PR reaches main."
     : `${counts}. Previews and layer diffs are exported from the approved named version.`,

@@ -1,0 +1,1171 @@
+{
+ "_label": "EXISTING (read from Figma, Style page 197:34). Inventory only: no SVG files were exported. Variant node IDs are not recorded here.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "setCount": 104,
+ "variantCount": 434,
+ "variantSize": "24x24",
+ "items": [
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:53",
+   "layerName": "Symbol / home",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:79",
+   "layerName": "Symbol / layout-grid",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:93",
+   "layerName": "Symbol / menu",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:107",
+   "layerName": "Symbol / plus",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:121",
+   "layerName": "Symbol / minus",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:135",
+   "layerName": "Symbol / pencil",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:149",
+   "layerName": "Symbol / trash",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:167",
+   "layerName": "Symbol / duplicate",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:181",
+   "layerName": "Symbol / download",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:195",
+   "layerName": "Symbol / upload",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:221",
+   "layerName": "Symbol / share",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:239",
+   "layerName": "Symbol / external-link",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:253",
+   "layerName": "Symbol / link",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:267",
+   "layerName": "Symbol / arrow-left",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:281",
+   "layerName": "Symbol / arrow-right",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:295",
+   "layerName": "Symbol / refresh",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:309",
+   "layerName": "Symbol / filter",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:323",
+   "layerName": "Symbol / command",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:341",
+   "layerName": "Symbol / settings",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "274:363",
+   "layerName": "Symbol / ellipsis",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:46",
+   "layerName": "Symbol / file-text",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:60",
+   "layerName": "Symbol / folder",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:74",
+   "layerName": "Symbol / folder-open",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:92",
+   "layerName": "Symbol / archive",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:106",
+   "layerName": "Symbol / bookmark",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:124",
+   "layerName": "Symbol / calendar-days",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:142",
+   "layerName": "Symbol / clock",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:160",
+   "layerName": "Symbol / tag",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:182",
+   "layerName": "Symbol / clipboard",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:200",
+   "layerName": "Symbol / table",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:214",
+   "layerName": "Symbol / chart-bar",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:228",
+   "layerName": "Symbol / chart-line",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:242",
+   "layerName": "Symbol / history",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:268",
+   "layerName": "Symbol / git-branch",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:286",
+   "layerName": "Symbol / users",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:304",
+   "layerName": "Symbol / user",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:318",
+   "layerName": "Symbol / shield",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:336",
+   "layerName": "Symbol / lock",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:350",
+   "layerName": "Symbol / graduation-cap",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:368",
+   "layerName": "Symbol / notebook-pen",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:382",
+   "layerName": "Symbol / headphones",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:400",
+   "layerName": "Symbol / mic",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:414",
+   "layerName": "Symbol / volume-2",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:428",
+   "layerName": "Symbol / book-open",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:442",
+   "layerName": "Symbol / list-checks",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:464",
+   "layerName": "Symbol / target",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:478",
+   "layerName": "Symbol / pen-tool",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:496",
+   "layerName": "Symbol / shapes",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:514",
+   "layerName": "Symbol / award",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:528",
+   "layerName": "Symbol / languages",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:3966",
+   "layerName": "Symbol / recycle",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:3980",
+   "layerName": "Symbol / droplets",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:3994",
+   "layerName": "Symbol / waves",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4008",
+   "layerName": "Symbol / landmark",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4026",
+   "layerName": "Symbol / building-2",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4040",
+   "layerName": "Symbol / house",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4062",
+   "layerName": "Symbol / route",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4080",
+   "layerName": "Symbol / map-pin",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4098",
+   "layerName": "Symbol / bus",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4112",
+   "layerName": "Symbol / car",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4126",
+   "layerName": "Symbol / play",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4140",
+   "layerName": "Symbol / pause",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4158",
+   "layerName": "Symbol / film",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4180",
+   "layerName": "Symbol / music",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4198",
+   "layerName": "Symbol / video",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4220",
+   "layerName": "Symbol / image",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4234",
+   "layerName": "Symbol / gamepad",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4252",
+   "layerName": "Symbol / monitor",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4270",
+   "layerName": "Symbol / tv",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4288",
+   "layerName": "Symbol / circle-check",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4302",
+   "layerName": "Symbol / triangle-alert",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4320",
+   "layerName": "Symbol / shield-check",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4334",
+   "layerName": "Symbol / cloud-off",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4348",
+   "layerName": "Symbol / cloud-upload",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4362",
+   "layerName": "Symbol / activity",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4376",
+   "layerName": "Symbol / bell",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4390",
+   "layerName": "Symbol / bell-ring",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4408",
+   "layerName": "Symbol / eye",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4422",
+   "layerName": "Symbol / eye-off",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Universal icon set (Style page section 339:869)",
+   "setId": "275:4440",
+   "layerName": "Symbol / help-circle",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9397",
+   "layerName": "Symbol / meridian",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9416",
+   "layerName": "Symbol / compass",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9518",
+   "layerName": "Symbol / sun",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9540",
+   "layerName": "Symbol / moon",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9865",
+   "layerName": "Symbol / arrow",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9879",
+   "layerName": "Symbol / check",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9894",
+   "layerName": "Symbol / warning",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9917",
+   "layerName": "Symbol / info",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9939",
+   "layerName": "Symbol / close",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:9954",
+   "layerName": "Symbol / book",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10056",
+   "layerName": "Symbol / layers",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10163",
+   "layerName": "Symbol / leaf",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10261",
+   "layerName": "Symbol / search",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10359",
+   "layerName": "Symbol / calendar",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10381",
+   "layerName": "Symbol / chevron-down",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10395",
+   "layerName": "Symbol / chevron-left",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10409",
+   "layerName": "Symbol / chevron-right",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10423",
+   "layerName": "Symbol / sort",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10438",
+   "layerName": "Symbol / segments",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10461",
+   "layerName": "Symbol / pen",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10562",
+   "layerName": "Symbol / frame",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10577",
+   "layerName": "Symbol / evidence",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10600",
+   "layerName": "Symbol / water",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone",
+    "Style=Material"
+   ]
+  },
+  {
+   "group": "Reference, project and Meridian mark masters (Style page section 339:867)",
+   "setId": "449:10701",
+   "layerName": "Symbol / reconcile",
+   "variantLayerNames": [
+    "Style=Outline",
+    "Style=Filled",
+    "Style=Colour",
+    "Style=Duotone"
+   ]
+  }
+ ]
+}

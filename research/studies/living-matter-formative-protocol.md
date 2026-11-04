@@ -1,7 +1,7 @@
 # Meridian 0.6 — Living Matter formative evaluation protocol
 
 **Status:** Prepared, not executed · **Programme:** LM-01 through LM-07 · **Owner:** Meridian Design/Research  
-**Ethical basis:** [BSDL constitutional framework](https://github.com/pedrobritx/bsdl/blob/main/bsdl/constitution/principles.md)  
+**Ethical basis:** [Polaris constitutional framework](https://github.com/pedrobritx/polaris/blob/031f9b1e5da102f28523699bbafb0d70af89cfda/polaris/constitution/principles.md)<br>
 **Research tracking:** [Issue #12](https://github.com/pedrobritx/meridian/issues/12)  
 **No participant data or observations have been collected in this document.**
 
@@ -93,7 +93,7 @@ Use one record per study round:
 - Biases, missing participants and generalisability limitations.
 - Evidence stage: Speculative / Exploratory / Evidence-supported / Validated for scope.
 - Disposition per experiment: reject / revise / retain Lab / candidate for stable Design.
-- Reviewer, BSDL review result, linked PR/ADR and follow-up issues.
+- Reviewer, Polaris review result, linked PR/ADR and follow-up issues.
 
 ## Current evidence snapshot
 

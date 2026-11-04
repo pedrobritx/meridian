@@ -39,7 +39,7 @@ The [existing validation record](https://github.com/pedrobritx/meridian/blob/mai
 1. Keep current `main` untouched during Phase 0.
 2. Author planning work in `planning/meridian-next-0.6-living-matter`; propose merge by draft PR.
 3. Do not rename current tokens, overwrite generated outputs manually, or rewrite Figma component IDs.
-4. Do not change the BSDL repository or consuming products.
+4. Do not change the Polaris repository or consuming products.
 5. For implementation, use a separate scoped Lab branch and reviewed PRs.
 6. Existing `npm test`, `npm run build`, `npm run test:browser`, Figma token/bridge checks and contrast checks remain regression gates.
 

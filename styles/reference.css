@@ -16,3 +16,20 @@ h2,h3,h4{font-family:var(--md-font-display);font-weight:400}
 .environment .button-row{margin-top:20px}
 .environment .md-button{max-width:100%}
 code,.code-block{font-family:var(--md-font-code),monospace}
+
+/* 1.0 pages: Figma library, environments, changelog */
+.library-index{color:var(--md-color-text-secondary);margin:20px 0 0}
+.library-grid,.env-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.library-card,.env-card{display:flex;flex-direction:column;border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-md);background:var(--md-color-bg-surface);overflow:hidden;min-width:0}
+.library-shot{display:grid;place-items:center;min-height:160px;padding:16px;background:var(--md-color-bg-sunken);border-bottom:1px solid var(--md-color-border-subtle)}
+.library-shot img{display:block;max-width:100%;max-height:220px;height:auto;object-fit:contain}
+.library-body,.env-card{padding:20px}
+.library-body h3,.env-card h3{margin:0 0 8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.library-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px;color:var(--md-color-text-secondary)}
+.library-props{margin:0 0 8px;overflow-wrap:anywhere;color:var(--md-color-text-secondary)}
+.library-props strong{color:var(--md-color-text-primary)}
+.env-label{margin:12px 0 4px;font-size:13px;color:var(--md-color-text-secondary)}
+.env-strip{display:grid;grid-template-columns:repeat(6,1fr);height:40px;border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-sm);overflow:hidden}
+.env-checks{margin:16px 0 0;padding-left:20px;color:var(--md-color-text-secondary)}
+.changelog h2{margin-top:40px}.changelog-list li{margin:8px 0}.changelog code{overflow-wrap:anywhere}
+.library-links{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 0}.component-shot{border:1px solid var(--md-color-border-subtle);border-radius:var(--md-radius-md);margin:24px 0 16px}.component-shot img{max-height:420px}

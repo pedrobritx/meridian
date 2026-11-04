@@ -34,4 +34,4 @@ The inspector panel offers a glass treatment and an opaque fallback, with system
 
 Tests: `npm test`, `npm run build`, `npm run test:browser`. Relevant browser suite: `tests/browser/living-workspace.spec.js` and `tests/browser/living-matter-physics.spec.js`; integrator tests: `tests/living-matter-motion.test.mjs`.
 
-No experiment is promoted to stable Meridian Design without human-task research, documented performance on named devices, accessibility evaluation and BSDL ethical review. See [research protocol](../../research/studies/living-matter-formative-protocol.md) and [issue #12](https://github.com/pedrobritx/meridian/issues/12).
+No experiment is promoted to stable Meridian Design without human-task research, documented performance on named devices, accessibility evaluation and Polaris ethical review. See [research protocol](../../research/studies/living-matter-formative-protocol.md) and [issue #12](https://github.com/pedrobritx/meridian/issues/12).

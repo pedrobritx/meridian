@@ -28,7 +28,7 @@
 | FR-20 | App-supplied announcement levels, ordered event queue and verified state | P, Q101–110 | Documented contract only, not application service | AT narration, stale/neutral states, status source review |
 | FR-21 | Constrained overrides; no silent degradation of core accessible contracts | P final choice 4 | Experimental CSS roles isolated from Core 0.5 | Cross-product adoption review |
 | FR-22 | Sunrise/sunset/manual locale, privacy-first environmental transitions | P, Q1–71 | Not implemented; mode uses explicit/system appearance | Privacy, timezone DST and consent testing before coding |
-| FR-23 | Official stable promotion must follow human + AT + BSDL evidence | P final choices 3 and 5 | Explicit Lab-only labels, issue #12 remains open | Consent-based observations, reproducible measures and disposition |
+| FR-23 | Official stable promotion must follow human + AT + Polaris evidence | P final choices 3 and 5 | Explicit Lab-only labels, issue #12 remains open | Consent-based observations, reproducible measures and disposition |
 
 ## Evidence entry template for each task
 
@@ -43,7 +43,7 @@ Use [formative protocol](../studies/living-matter-formative-protocol.md) and [ob
 - [ ] Effective contrast with composite images, opaque alternatives, high/forced contrast, text zoom
 - [ ] Native/OS motion/transparency preferences and device interaction equivalents
 - [ ] Named-hardware input responsiveness, frame timing, battery/energy only if measured
-- [ ] Revised/retained/rejected per-experiment LM-01–LM-07 BSDL decision
+- [ ] Revised/retained/rejected per-experiment LM-01–LM-07 Polaris decision
 - [ ] Explicit reviewer approval before changes to Meridian 0.5 stable tokens/APIs
 
 **Disposition:** Preference phase complete. Technical Lab work may proceed under review; #12 and release #13 stay open until evidence supports their closure.

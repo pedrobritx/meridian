@@ -12,6 +12,8 @@ import {universalComponents,universalGroups,projectNames,componentsFor,component
 import universalSymbols from '../../design/meridian/universal-symbols.json' with {type:'json'};
 import environments from '../../design/meridian/living-environments.json' with {type:'json'};
 import currentSystem from '../../design/meridian/figma-refactor-map.json' with {type:'json'};
+import {universalComponents,universalGroups,projectNames,componentsFor} from '../../src/universal/catalog.js';
+import universalSymbols from '../../design/meridian/universal-symbols.json' with {type: "json"};
 import {iconMarkup,symbolNames} from '../../src/universal/symbols.js';
 
 const byId=id=>document.getElementById(id);

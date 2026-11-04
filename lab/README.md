@@ -7,7 +7,7 @@ Meridian Lab is an explicitly experimental design environment for testing materi
 1. Explore expressive, physically intelligible, playful interactions; compare with simpler alternatives.
 2. Keep the baseline Meridian 0.5 reference, Figma IDs and canonical design tokens intact.
 3. Never infer usability from aesthetics alone or present prototypes as proven HCI interventions.
-4. Respect BSDL ethical boundaries: accessibility, autonomy, inclusion, environmental responsibility and human oversight.
+4. Respect Polaris ethical boundaries: accessibility, autonomy, inclusion, environmental responsibility and human oversight.
 5. Require keyboard, touch and reduced-motion/opaque/forced-colour alternatives for relevant interactions.
 6. Use self-contained demos and versioned experiments; avoid premature global motion engine or React API.
 7. Link every experiment to a hypothesis, stated scope, test record and issue.
@@ -36,6 +36,12 @@ See the [0.6 milestone plan](../docs/roadmap/0.6-living-matter.md), [research hy
 - [Living Environments](./living-environments/) — LM-H07, six optional natural palette families × two independent appearances × optional product identities.
 - [Forest-first reference](./forest-reference/) — a cohesive experimental Dawn/Dusk vertical slice with accessible appearance settings, local simulated status/notification patterns, and explicit no-promotion gates.
 
-- [Universal Library](./universal-library/) — catalogued component/symbol specimens, now built with the ten new environment palettes (Forest, Desert, Aurora, Glacier, Embers in Dawn/Dusk). Native masters and source Figma pages are indexed in the [Figma reorganisation map](../design/meridian/figma-refactor-map.json).
+- [Environment Patterns](./environment-patterns/) — one shared fixture resolved through independent Environment, Appearance, Product identity, Material and Motion settings across the five canonical 0.6 environments; proposed acrylic/liquid material layer with opaque-first fallbacks.
+
+- [Universal Library](./universal-library/) — catalogued component/symbol specimens, now built with the twelve active environment appearances (Prism, Forest, Desert, Ocean, Aurora and Canyon in Dawn/Dusk). Native masters and source Figma pages are indexed in the [Figma reorganisation map](../design/meridian/figma-refactor-map.json).
 
 See the [experiment registry](./experiments.json). All demos are exploratory and remain outside stable Meridian Core; research/promotion gates are not complete.
+
+## Material Model study
+
+[Material Model](material-model/) explores six proposed environments in Dawn/Dusk across five simulated contexts. Experimental; stable tokens and product integrations are unchanged.

@@ -1,0 +1,120 @@
+name: Accessibility finding
+description: Reproducible accessibility issue, with platform, WCAG and evidence classification.
+title: "[a11y] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload personal data, private documents, access tokens, non-consented recordings or participant identities.
+        See docs/accessibility/meridian-0.6-evaluation-plan.md. An automated pass is not independent participant validation.
+  - type: input
+    id: case_id
+    attributes:
+      label: Test case identifier
+      description: ID from research/studies/meridian-accessibility-test-cases.csv, if available.
+      placeholder: T-007 or J-DOC
+    validations:
+      required: true
+  - type: input
+    id: scope
+    attributes:
+      label: Component, route and Figma node
+      description: Exact affected interface and links.
+      placeholder: Dialog / /lab/universal-library / node 247:9
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - P0 - blocker
+        - P1 - major
+        - P2 - moderate
+        - P3 - minor
+        - Not assessed
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_type
+    attributes:
+      label: Evidence category
+      options:
+        - SOLO_OBSERVED - personally tested with recorded configuration
+        - AUTOMATED - reproducible tool/CI evidence
+        - INDEPENDENT - actual external evaluation with permission
+        - PLANNED - expected behaviour only, not yet tested
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Actual test outcome
+      options:
+        - FAIL
+        - BLOCKED
+        - NOT_RUN
+        - PASS - regression follow-up only
+        - NOT_APPLICABLE
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Tested configuration
+      description: Exact Git SHA, device, OS, browser, AT version, input, appearance/mode, accessibility preferences and date. Explicitly state if a setup is unavailable or simulated.
+      placeholder: "Commit: ... | OS: ... | Browser: ... | AT: ... | Input: ... | Environment: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and baseline steps
+      description: Numbered steps using synthetic, non-personal data; include control/opaque path when applicable.
+      placeholder: "1. Open ...\n2. Press ...\n3. Observe ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected accessible behaviour
+      description: Explain expected semantics, focus, announcement, recovery and completion.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual observation and impact
+      description: Verbatim AT announcement if possible; user impact, recovery and errors. Never present inferences as observations.
+    validations:
+      required: true
+  - type: input
+    id: criteria
+    attributes:
+      label: WCAG 2.2 success criteria / APG pattern
+      placeholder: "2.4.11, 4.1.2; WAI-ARIA modal dialog"
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence, links and limitations
+      description: CI permalink, redacted screenshot/video pointer, solo observation record; missing conditions; suspected cause. Do not upload raw private media.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Proposed repair and re-test acceptance
+      description: Exact measurable definition of done, original failing config and control config; due milestone and owner.
+    validations:
+      required: false
+  - type: checkboxes
+    id: safeguarding
+    attributes:
+      label: Evidence safeguards
+      options:
+        - label: I distinguished planned, automated, solo and independent findings accurately.
+          required: true
+        - label: Attached material is synthetic or redacted; no identifying or secret data is public.
+          required: true

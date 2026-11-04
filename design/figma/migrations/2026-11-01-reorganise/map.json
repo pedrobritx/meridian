@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 1,
+  "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+  "date": "2026-11-01",
+  "status": "Applied in place 2026-11-03; all 62 component locations verified. Website and Lab destinations established; reference migration and source-page pruning remain pending.",
+  "decision": "ADR-0002 \u00a72, \u00a75, \u00a78; docs/roadmap/1.0-library-and-site.md \u00a72.2 and \u00a72.3",
+  "rule": "Reparent within the same file only, so node IDs and component keys stay unchanged. Nothing is deleted. Website / and Lab / pages leave this file later, by duplicate-and-prune, after approval.",
+  "pages": [
+    {
+      "key": "cover",
+      "name": "Cover",
+      "existing": "0:1",
+      "was": "Home"
+    },
+    {
+      "key": "start",
+      "name": "Getting started",
+      "existing": null
+    },
+    {
+      "key": "changelog",
+      "name": "Changelog",
+      "existing": null
+    },
+    {
+      "key": "foundations",
+      "name": "Foundations",
+      "existing": "197:34",
+      "was": "Style"
+    },
+    {
+      "key": "symbols",
+      "name": "Symbols",
+      "existing": null
+    },
+    {
+      "key": "c-overview",
+      "name": "Components / Overview",
+      "existing": "3:208",
+      "was": "Components"
+    },
+    {
+      "key": "c-actions",
+      "name": "Components / Actions",
+      "existing": null
+    },
+    {
+      "key": "c-selection",
+      "name": "Components / Selection",
+      "existing": null
+    },
+    {
+      "key": "c-text",
+      "name": "Components / Text input",
+      "existing": null
+    },
+    {
+      "key": "c-containment",
+      "name": "Components / Containment",
+      "existing": null
+    },
+    {
+      "key": "c-navigation",
+      "name": "Components / Navigation",
+      "existing": null
+    },
+    {
+      "key": "c-communication",
+      "name": "Components / Communication",
+      "existing": null
+    },
+    {
+      "key": "c-data",
+      "name": "Components / Data and media",
+      "existing": null
+    },
+    {
+      "key": "templates",
+      "name": "Templates",
+      "existing": null
+    },
+    {
+      "key": "w-develop",
+      "name": "Website / Develop",
+      "existing": "3:211",
+      "was": "Develop",
+      "destination": "Website file"
+    },
+    {
+      "key": "w-foundations",
+      "name": "Website / Foundations",
+      "existing": "3:207",
+      "was": "Foundations",
+      "destination": "Website file"
+    },
+    {
+      "key": "lab-studies",
+      "name": "Lab / Studies",
+      "existing": null,
+      "destination": "Lab file"
+    },
+    {
+      "key": "lab-archive",
+      "name": "Lab / Archive",
+      "existing": "218:21",
+      "was": "Archive",
+      "destination": "Lab file"
+    }
+  ],
+  "moves": [
+    {
+      "from": "197:34",
+      "node": "339:357",
+      "name": "Icons (section)",
+      "to": "symbols"
+    },
+    {
+      "from": "197:34",
+      "node": "387:1789",
+      "name": "Material / Liquid Glass / Environment review",
+      "to": "lab-studies"
+    },
+    {
+      "from": "197:34",
+      "node": "450:12511",
+      "name": "Symbols / Living Matter 2.0 / Review",
+      "to": "lab-studies"
+    },
+    {
+      "from": "197:34",
+      "node": "450:13627",
+      "name": "Symbols / Living Matter 2.0 / Environment QA",
+      "to": "lab-studies"
+    },
+    {
+      "from": "3:208",
+      "node": "339:664",
+      "name": "Buttons (section)",
+      "to": "c-actions"
+    },
+    {
+      "from": "3:208",
+      "node": "339:689",
+      "name": "Radio Button (nested section)",
+      "to": "c-selection"
+    },
+    {
+      "from": "3:208",
+      "node": "339:709",
+      "name": "Checkbox (section)",
+      "to": "c-selection"
+    },
+    {
+      "from": "3:208",
+      "node": "339:780",
+      "name": "Switch (section)",
+      "to": "c-selection"
+    },
+    {
+      "from": "3:208",
+      "node": "339:717",
+      "name": "Date & Pickers (section)",
+      "to": "c-selection"
+    },
+    {
+      "from": "3:208",
+      "node": "339:788",
+      "name": "Text Fields (section)",
+      "to": "c-text"
+    },
+    {
+      "from": "3:208",
+      "node": "339:768",
+      "name": "Search (section)",
+      "to": "c-text"
+    },
+    {
+      "from": "3:208",
+      "node": "339:701",
+      "name": "Cards (section)",
+      "to": "c-containment"
+    },
+    {
+      "from": "3:208",
+      "node": "339:743",
+      "name": "Dialogues (section)",
+      "to": "c-containment"
+    },
+    {
+      "from": "3:208",
+      "node": "339:772",
+      "name": "Sheets (section)",
+      "to": "c-containment"
+    },
+    {
+      "from": "3:208",
+      "node": "339:747",
+      "name": "Divider (section)",
+      "to": "c-containment"
+    },
+    {
+      "from": "3:208",
+      "node": "339:660",
+      "name": "Bars (section)",
+      "to": "c-navigation"
+    },
+    {
+      "from": "3:208",
+      "node": "339:784",
+      "name": "Tabs (section)",
+      "to": "c-navigation"
+    },
+    {
+      "from": "3:208",
+      "node": "339:755",
+      "name": "Navigation (section)",
+      "to": "c-navigation"
+    },
+    {
+      "from": "3:208",
+      "node": "339:751",
+      "name": "Menus (section)",
+      "to": "c-navigation"
+    },
+    {
+      "from": "3:208",
+      "node": "339:792",
+      "name": "Toolbars (section)",
+      "to": "c-navigation"
+    },
+    {
+      "from": "3:208",
+      "node": "339:776",
+      "name": "Snackbar (section)",
+      "to": "c-communication"
+    },
+    {
+      "from": "3:208",
+      "node": "339:796",
+      "name": "Tooltips (section)",
+      "to": "c-communication"
+    },
+    {
+      "from": "3:208",
+      "node": "339:713",
+      "name": "Chips (section)",
+      "to": "c-communication"
+    },
+    {
+      "from": "3:208",
+      "node": "339:734",
+      "name": "Loading & Progress (section)",
+      "to": "c-communication"
+    },
+    {
+      "from": "3:208",
+      "node": "339:730",
+      "name": "Lists (section)",
+      "to": "c-data"
+    },
+    {
+      "from": "3:208",
+      "node": "339:705",
+      "name": "Carousel (section)",
+      "to": "c-data"
+    }
+  ],
+  "splits": [
+    {
+      "from": "3:208",
+      "section": "Link",
+      "to": "c-actions",
+      "nodes": [
+        "43:148",
+        "43:128"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Glass actions \u00b7 Preview",
+      "to": "c-actions",
+      "nodes": [
+        "510:2280"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Slider",
+      "to": "c-selection",
+      "nodes": [
+        "44:1229",
+        "44:1183"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Accordion",
+      "to": "c-containment",
+      "nodes": [
+        "45:1888",
+        "45:1839"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Popover \u00b7 Preview",
+      "to": "c-containment",
+      "nodes": [
+        "510:2279"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Pagination",
+      "to": "c-navigation",
+      "nodes": [
+        "45:1252",
+        "45:1155"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Stepper",
+      "to": "c-navigation",
+      "nodes": [
+        "45:1414",
+        "45:1380"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Scroll and paging",
+      "to": "c-navigation",
+      "nodes": [
+        "272:287",
+        "272:301"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Liquid dock \u00b7 Preview",
+      "to": "c-navigation",
+      "nodes": [
+        "386:2125"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Glass toolbar \u00b7 Preview",
+      "to": "c-navigation",
+      "nodes": [
+        "510:2238"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Alert",
+      "to": "c-communication",
+      "nodes": [
+        "5:177"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Banner",
+      "to": "c-communication",
+      "nodes": [
+        "45:2589",
+        "45:2543"
+      ]
+    },
+    {
+      "from": "3:208",
+      "section": "Image well",
+      "to": "c-data",
+      "nodes": [
+        "272:329"
+      ]
+    }
+  ],
+  "stays": {
+    "cover": [
+      "341:2"
+    ],
+    "foundations": [
+      "339:328",
+      "339:353",
+      "339:361",
+      "339:374",
+      "339:378",
+      "339:382",
+      "341:975"
+    ],
+    "c-overview": [
+      "341:2951",
+      "339:656 (keeps only Topic / Components Overview)",
+      "510:2117 (emptied glass section, removal needs approval)"
+    ],
+    "symbols": [
+      "450:19981 Living Matter 2.0 / Catalogue (inside Icons)"
+    ]
+  },
+  "componentRunOrder": {
+    "why": "Nested nodes leave their old section before that section itself moves (Radio before Buttons; Slider and Stepper before Text Fields; Banner before Bars; Accordion and Pagination before Lists).",
+    "runs": [
+      {
+        "target": "Components / Selection",
+        "sections": [
+          "339:689",
+          "339:709",
+          "339:780",
+          "339:717"
+        ],
+        "splits": [
+          {
+            "section": "Slider",
+            "nodes": [
+              "44:1229",
+              "44:1183"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "Components / Communication",
+        "sections": [
+          "339:776",
+          "339:796",
+          "339:713",
+          "339:734"
+        ],
+        "splits": [
+          {
+            "section": "Alert",
+            "nodes": [
+              "5:177"
+            ]
+          },
+          {
+            "section": "Banner",
+            "nodes": [
+              "45:2589",
+              "45:2543"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "Components / Containment",
+        "sections": [
+          "339:701",
+          "339:743",
+          "339:772",
+          "339:747"
+        ],
+        "splits": [
+          {
+            "section": "Accordion",
+            "nodes": [
+              "45:1888",
+              "45:1839"
+            ]
+          },
+          {
+            "section": "Popover \u00b7 Preview",
+            "nodes": [
+              "510:2279"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "Components / Navigation",
+        "sections": [
+          "339:660",
+          "339:784",
+          "339:755",
+          "339:751",
+          "339:792"
+        ],
+        "splits": [
+          {
+            "section": "Pagination",
+            "nodes": [
+              "45:1252",
+              "45:1155"
+            ]
+          },
+          {
+            "section": "Stepper",
+            "nodes": [
+              "45:1414",
+              "45:1380"
+            ]
+          },
+          {
+            "section": "Scroll and paging",
+            "nodes": [
+              "272:287",
+              "272:301"
+            ]
+          },
+          {
+            "section": "Liquid dock \u00b7 Preview",
+            "nodes": [
+              "386:2125"
+            ]
+          },
+          {
+            "section": "Glass toolbar \u00b7 Preview",
+            "nodes": [
+              "510:2238"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "Components / Text input",
+        "sections": [
+          "339:788",
+          "339:768"
+        ],
+        "splits": []
+      },
+      {
+        "target": "Components / Data and media",
+        "sections": [
+          "339:730",
+          "339:705"
+        ],
+        "splits": [
+          {
+            "section": "Image well",
+            "nodes": [
+              "272:329"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "Components / Actions",
+        "sections": [
+          "339:664"
+        ],
+        "splits": [
+          {
+            "section": "Link",
+            "nodes": [
+              "43:148",
+              "43:128"
+            ]
+          },
+          {
+            "section": "Glass actions \u00b7 Preview",
+            "nodes": [
+              "510:2280"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "componentGroups": {
+    "note": "Component ID to target page key, derived from moves and splits above; also used by the website (scripts/build-site-data.mjs).",
+    "assignments": {
+      "5:177": "c-communication",
+      "43:148": "c-actions",
+      "272:287": "c-navigation",
+      "272:301": "c-navigation",
+      "272:329": "c-data",
+      "44:1383": "c-navigation",
+      "45:2589": "c-communication",
+      "272:95": "c-navigation",
+      "5:22": "c-actions",
+      "43:253": "c-actions",
+      "43:71": "c-actions",
+      "44:846": "c-selection",
+      "23:323": "c-actions",
+      "272:357": "c-actions",
+      "5:171": "c-containment",
+      "45:1676": "c-containment",
+      "272:54": "c-data",
+      "5:133": "c-selection",
+      "44:754": "c-selection",
+      "5:151": "c-communication",
+      "45:1767": "c-communication",
+      "272:385": "c-communication",
+      "44:1081": "c-selection",
+      "64:527": "c-selection",
+      "272:193": "c-selection",
+      "45:1252": "c-navigation",
+      "45:1535": "c-data",
+      "45:1813": "c-data",
+      "45:1888": "c-containment",
+      "45:2109": "c-data",
+      "85:1112": "c-data",
+      "272:259": "c-data",
+      "272:273": "c-data",
+      "45:2726": "c-communication",
+      "45:2767": "c-communication",
+      "45:2677": "c-communication",
+      "272:229": "c-communication",
+      "5:187": "c-containment",
+      "45:2339": "c-containment",
+      "272:55": "c-containment",
+      "272:109": "c-navigation",
+      "5:183": "c-navigation",
+      "44:1807": "c-navigation",
+      "44:1620": "c-navigation",
+      "314:286": "c-text",
+      "272:81": "c-containment",
+      "45:2484": "c-communication",
+      "44:943": "c-selection",
+      "5:185": "c-navigation",
+      "44:1917": "c-navigation",
+      "5:108": "c-text",
+      "44:503": "c-text",
+      "44:629": "c-text",
+      "44:1229": "c-selection",
+      "45:1414": "c-navigation",
+      "272:137": "c-text",
+      "272:165": "c-text",
+      "45:1971": "c-communication",
+      "386:2125": "c-navigation",
+      "510:2238": "c-navigation",
+      "510:2279": "c-containment",
+      "510:2280": "c-actions"
+    }
+  },
+  "evidence": "../2026-11-03-live-verification.json"
+}

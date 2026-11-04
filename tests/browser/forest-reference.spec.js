@@ -78,3 +78,17 @@ test('a11y preferences force opaque/quiet fallback; HTML retains basic accessibi
   expect(audit.violations,JSON.stringify(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})))).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();
 });
+
+ test('history pointer intent survives acknowledgement between press and click',async({page})=>{
+  await page.goto('lab/forest-reference/');
+  await page.locator('#history summary').click();
+  const entry=page.locator('#history-h1');
+  const button=entry.locator('button');
+  await entry.evaluate(el=>{
+    const button=el.querySelector('button');
+    button.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}));
+    el.focus();
+    button.click();
+  });
+  await expect(entry).toHaveAttribute('data-unread','false');
+ });

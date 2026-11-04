@@ -47,7 +47,7 @@ The independent product identities intentionally override the action accent with
 
 This prototype does **not** demonstrate cognitive, physiological, therapeutic, cultural or circadian benefits of any colour environment. Testing aesthetic preference alone cannot establish improved task performance.
 
-Before stable adoption, run formative evaluations with task success, error and comprehension measurements, including participants across input needs and cultural contexts. Record negative results, conditions and limitations in [research/](../../research/) and release decisions under BSDL.
+Before stable adoption, run formative evaluations with task success, error and comprehension measurements, including participants across input needs and cultural contexts. Record negative results, conditions and limitations in [research/](../../research/) and release decisions under Polaris.
 
 ## Roadmap
 

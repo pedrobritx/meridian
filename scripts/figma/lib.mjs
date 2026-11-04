@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { displayIdentity } from './product-identities.mjs'
 
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
 
@@ -44,7 +45,7 @@ export function snapshot(document) {
     ])
       if (node[key] !== undefined) properties[key] = node[key]
     properties.children = (node.children ?? []).map((child) => child.id)
-    nodes[node.id] = { name: node.name, type: node.type, hash: hash(properties) }
+    nodes[node.id] = { ...displayIdentity(node.name), type: node.type, hash: hash(properties) }
     for (const child of node.children ?? []) visit(child)
   }
   visit(document)

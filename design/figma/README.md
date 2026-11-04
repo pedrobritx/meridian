@@ -61,7 +61,7 @@ A passing CI suite proves the contract and plugin logic against mocks, **not** a
 
 Autosaves are ignored. This is not an every-keystroke mirror, and a named version does not automatically export native variables on Education plans. The Variables REST API requires a different plan; the development plugin avoids that requirement. Live mode is session-based, not a server-side Figma writer. Exports never merge themselves or generate arbitrary application code.
 
-Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core and themes page. Changing either contract on `main` updates the next website build. Archive `tokens/legacy-0.1.json` is not consumed.
+Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 library export; `meridian.css` uses scoped `--meridian-*` variables. The website derives `styles/tokens.css` from the same canonical bundle, with `--md-*` names. `site/content.json` maps ten editable text nodes on the Core and themes page. Changing either contract on `main` updates the next website build. Historical 0.1 artifacts live under `archive/0.1/` and are not consumed.
 
 ## Activate
 
@@ -69,9 +69,13 @@ Artifacts live in `generated/`. `tokens.json` is the canonical resolved 0.5 libr
 
 1. Merge the bridge PR into **Meridian's `main`**. Repository-dispatch and scheduled workflows must exist on the default branch.
 2. In [Meridian Actions settings](https://github.com/pedrobritx/meridian/settings/actions), enable **Allow GitHub Actions to create and approve pull requests**.
-3. Create a Figma personal access token with `file_content:read` and `file_versions:read`. Store it as **FIGMA_ACCESS_TOKEN** in [Meridian Actions secrets](https://github.com/pedrobritx/meridian/settings/secrets/actions). Renew it before expiry. Do not send credentials in chat.
+3. Create a Figma personal access token with `file_content:read` and `file_versions:read`. Store it as the **repository secret FIGMA_GITHUB_CONSTELLATION** in [Meridian Actions secrets](https://github.com/pedrobritx/meridian/settings/secrets/actions). Renew it before expiry. Do not send credentials in chat.
 4. Save a named version such as **Meridian 0.5 · Purposeful profiles verification**.
 5. Run [Figma Design Sync](https://github.com/pedrobritx/meridian/actions/workflows/figma-sync.yml) manually with a blank version ID, or wait for the scheduled check. It should create a handoff issue and a draft PR on `design/figma-sync` in **Meridian**.
+
+The sync job does not declare a GitHub Environment, so an Environment-scoped secret is not available to it. Keep the token in repository scope; 1Password may separately store the same Figma-issued token in its Constellation Environment under the same variable name. These stores do not synchronise automatically.
+
+When migrating from the previous secret name, retain both repository entries until this workflow change is merged and a run on `main` succeeds. Then remove the unused old entry; deleting a stored copy does not revoke the Figma token.
 
 Missing credentials and API failures fail the run; test-suite success alone does not establish live synchronization.
 
@@ -82,7 +86,7 @@ GitHub Pages is static and cannot receive Figma POSTs. Deploy the included `api/
 - Use a publicly reachable HTTPS `/api/figma-webhook` route without login protection. A GET returns 405; an authenticated Figma PING returns 200. GET availability alone does not prove authentication or delivery.
 - On that host, set **FIGMA_GITHUB_DISPATCH_TOKEN** to a fine-grained GitHub token restricted to **meridian** with **Contents: Read and write**. This permission is required for repository dispatch.
 - Generate a passcode (`openssl rand -hex 24`) and set **FIGMA_WEBHOOK_PASSCODE** on the host. Redeploy after changing production environment variables.
-- Give the local Figma token `webhooks:read` and `webhooks:write` as well. Set `FIGMA_ACCESS_TOKEN`, the matching `FIGMA_WEBHOOK_PASSCODE` and your actual `FIGMA_WEBHOOK_URL` in your local environment, then run:
+- Give the local Figma token `webhooks:read` and `webhooks:write` as well. Set `FIGMA_GITHUB_CONSTELLATION`, the matching `FIGMA_WEBHOOK_PASSCODE` and your actual `FIGMA_WEBHOOK_URL` in your local environment, then run:
 
 ```sh
 node scripts/figma/register-webhook.mjs
@@ -94,7 +98,7 @@ Registration is idempotent and prints only webhook ID/status. The receiver authe
 
 After this update reaches `main`, download the repository and import `plugin/manifest.json` in Figma desktop through **Plugins → Development → Import plugin from manifest**. Run **Meridian ↔ GitHub** in the configured file. Reimport the manifest to replace an older plugin.
 
-1. Enter a fine-grained GitHub token restricted to **pedrobritx/meridian**, with **Contents: Read and write**. This is separate from the repository's `FIGMA_ACCESS_TOKEN` secret. The plugin password field clears after reading; the credential remains only in session memory until Disconnect or closing the plugin.
+1. Enter a fine-grained GitHub token restricted to **pedrobritx/meridian**, with **Contents: Read and write**. This is separate from the repository's `FIGMA_GITHUB_CONSTELLATION` secret. The plugin password field clears after reading; the credential remains only in session memory until Disconnect or closing the plugin.
 2. Choose **Compare**. If both sides match, the plugin establishes a baseline. If they differ on first use, explicitly choose **Apply GitHub values** or **Publish Figma for review**.
 3. Optionally enable **Live while this plugin is open**. Every 30 seconds, a GitHub-only change is imported; a Figma-only change is published once for review. Closing the plugin stops live synchronization. Wait for the export PR to merge before the website or GitHub baseline advances.
 4. If both sides changed since the baseline, live mode stops. Compare and choose a version explicitly; no automatic overwrite occurs. A publication whose GitHub baseline is stale is rejected by the workflow.
@@ -128,3 +132,31 @@ Tests execute the actual export/sync code with mocked HTTP and native provenance
 `generated/figma-source.json` is a separately captured native alias/style provenance snapshot. Token-only publication does not refresh it. [Profile configuration](../meridian/profiles.md) and [product adoption](../meridian/integration.md) explain the design/runtime boundaries.
 
 Pending bot exports are checked for duplicate delivery. The plugin compares against `main`; unmerged review changes are not yet website releases. If `main` advances independently while an export is pending, the workflow stops and requires the pending PR to be resolved before further exports. If PR creation fails after an export commit, rerun to recover the existing draft PR. To disable delivery, deactivate the webhook and disable this repository's workflow.
+
+## What each named version now refreshes (2026-11-02)
+
+Saving a named version in Figma still produces the accumulating draft PR on `design/figma-sync`. That PR now also carries:
+
+- **`design/figma/links.json`:** the status of every Figma node ID the repo references. `tests/figma-links.test.mjs` fails the PR if a preview frame moves to an archive page, or if any referenced node disappears.
+- **`design/figma-export/icons/svg/<symbol>/<variant>.svg`:** one SVG per variant of every `Symbol / …` component set outside archive pages, rendered by Figma at that version. `index.json` lists the files and any variants Figma could not render. SVGs that contain scripts, event handlers or foreign objects are rejected.
+
+A plugin token publication also rewrites `generated/provenance-overrides.json`, the ledger of token values newer than the native capture in `generated/figma-source.json`. After a GitHub-side token edit, run:
+
+```
+node scripts/build-provenance-overrides.mjs "<source>" "<decision>"
+```
+
+### Describe each named version
+
+The description of a named version becomes the release note for that version:
+- it appears as "Version notes" in the export issue and PR;
+- it is stored in `generated/changes.json`;
+- it is written to `generated/release-note.md`, ready to paste into `CHANGELOG.md`.
+
+Write it as three short lines:
+
+```
+Type: added, changed, fixed or deprecated
+Summary: one plain sentence about what changed for people using Meridian
+Issue: #number, if there is one
+```

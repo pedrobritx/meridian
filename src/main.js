@@ -27,6 +27,9 @@ import '../styles/liquid-glass.css';
 import {initLiquidGlass} from './universal/liquid-glass.js';
 import {markGlassSurfaces} from './universal/glass-reference.js';
 import {pages} from './pages.js';
+import {pages as referencePages} from './pages.js';
+import {pages as libraryPages} from './pages-library.js';
+const pages={...referencePages,...libraryPages};
 import {icon} from './icons.js';
 import {profiles} from '../scripts/figma/token-contract.mjs';
 const content=document.querySelector('#content');
@@ -48,7 +51,7 @@ applyProfile();
 document.querySelector('#brand-mark').innerHTML=icon('meridian',38);
 function announce(message){announcement.textContent='';requestAnimationFrame(()=>{announcement.textContent=message;});}
 function activateTab(tab){const group=tab.closest('[role="tablist"]');for(const item of group.querySelectorAll('[role="tab"]')){const selected=item===tab;item.setAttribute('aria-selected',String(selected));item.tabIndex=selected?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!selected;}}
-function render(focus=false){const key=location.hash.slice(1);const page=Object.hasOwn(pages,key)?key:'overview';content.innerHTML=pages[page]();document.title=`${page==='overview'?'A human rhythm for software':page[0].toUpperCase()+page.slice(1)} — Meridian`;document.querySelector('#page-label').textContent=page.replace('adoption','Product adaptations').toUpperCase();for(const link of document.querySelectorAll('[data-page]')){if(link.dataset.page===page)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}if(focus){content.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
+function render(focus=false){const [key,...rest]=location.hash.slice(1).split('/');const page=Object.hasOwn(pages,key)?key:'overview';content.innerHTML=pages[page](rest.join('/'));document.title=`${page==='overview'?'A human rhythm for software':page==='component'?content.querySelector('h1').textContent:page[0].toUpperCase()+page.slice(1)} — Meridian`;document.querySelector('#page-label').textContent=({adoption:'Product adaptations',library:'Figma library'}[page]??page).toUpperCase();for(const link of document.querySelectorAll('[data-page]')){if(link.dataset.page===(page==='component'?'library':page))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}if(focus){content.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
 window.addEventListener('hashchange',()=>{if(location.hash==='#content'){content.focus();return;}render(true);});
 render();
 markGlassSurfaces();
@@ -57,7 +60,7 @@ window.addEventListener('hashchange',()=>{markGlassSurfaces();glassRuntime.refre
 content.addEventListener('click',async event=>{const target=event.target.closest('button');if(!target)return;
  if(target.hasAttribute('data-list-item'))announce(target.dataset.listItem+' selected. This example does not store information.');
  if(target.hasAttribute('data-demo'))announce(target.dataset.demo);
- if(target.hasAttribute('data-open-dialog'))document.querySelector('#example-dialog').showModal();
+ if(target.hasAttribute('data-open-dialog')){const dialog=document.querySelector('#example-dialog');dialog.addEventListener('close',()=>{if(target.isConnected)target.focus();},{once:true});dialog.showModal();}
  if(target.matches('[role="tab"]'))activateTab(target);
  if(target.id==='create-item'){const status=document.querySelector('#item-status');status.hidden=false;status.textContent='Example item added. This demonstration is kept only on this page.';target.disabled=true;target.textContent='Example added';}
  if(target.hasAttribute('data-copy')){try{await navigator.clipboard.writeText(target.dataset.copy);const small=target.querySelector('small');small.textContent='Copied';announce(`${target.dataset.copy} copied.`);setTimeout(()=>{if(small.isConnected)small.textContent=target.dataset.copy;},1800);}catch{announce(`Copy unavailable. Colour value: ${target.dataset.copy}`);target.querySelector('small').textContent=`Copy manually: ${target.dataset.copy}`;}}

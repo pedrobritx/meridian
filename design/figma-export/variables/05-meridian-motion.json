@@ -1,0 +1,1352 @@
+{
+ "_label": "EXISTING (read from Figma via Plugin API, read-only). valuesByMode = as returned by Figma (aliases kept as aliases). resolvedByMode = DERIVED by following aliases in this export; when an alias crosses into a multi-mode collection the result is keyed by that collection's mode name because the final value depends on the consumer's selected mode there.",
+ "fileKey": "aJ2f6aYX9KBucAdPsCmkXn",
+ "collection": {
+  "id": "VariableCollectionId:42:37",
+  "name": "Meridian / Motion",
+  "key": "8713d81bcc62fc8a675e235976e7de5fdbbe38cf",
+  "defaultModeId": "42:0",
+  "hiddenFromPublishing": false,
+  "remote": false,
+  "modes": [
+   {
+    "modeId": "42:0",
+    "name": "Grass"
+   },
+   {
+    "modeId": "83:3",
+    "name": "Paper"
+   },
+   {
+    "modeId": "133:3",
+    "name": "Core"
+   },
+   {
+    "modeId": "159:3",
+    "name": "Parallel"
+   },
+   {
+    "modeId": "159:7",
+    "name": "Canvas"
+   },
+   {
+    "modeId": "159:11",
+    "name": "Gallery"
+   }
+  ]
+ },
+ "variableCount": 19,
+ "variables": [
+  {
+   "id": "VariableID:42:99",
+   "name": "motion/duration/contact",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-duration-contact)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 120,
+    "Paper": 120,
+    "Core": 120,
+    "Parallel": 120,
+    "Canvas": 120,
+    "Gallery": 120
+   }
+  },
+  {
+   "id": "VariableID:42:101",
+   "name": "motion/duration/hover",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-duration-hover)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/feedback",
+      "id": "VariableID:383:1849"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 120,
+    "Paper": 120,
+    "Core": 120,
+    "Parallel": 120,
+    "Canvas": 120,
+    "Gallery": 120
+   }
+  },
+  {
+   "id": "VariableID:42:103",
+   "name": "motion/duration/release",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-duration-release)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/settle",
+      "id": "VariableID:383:1853"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 380,
+    "Paper": 380,
+    "Core": 380,
+    "Parallel": 380,
+    "Canvas": 380,
+    "Gallery": 380
+   }
+  },
+  {
+   "id": "VariableID:42:105",
+   "name": "motion/duration/overlay",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-duration-overlay)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/morph",
+      "id": "VariableID:383:1851"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 320,
+    "Paper": 320,
+    "Core": 320,
+    "Parallel": 320,
+    "Canvas": 320,
+    "Gallery": 320
+   }
+  },
+  {
+   "id": "VariableID:42:106",
+   "name": "motion/duration/reduced",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-duration-reduced)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/duration/reduced",
+      "id": "VariableID:383:1855"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 80,
+    "Paper": 80,
+    "Core": 80,
+    "Parallel": 80,
+    "Canvas": 80,
+    "Gallery": 80
+   }
+  },
+  {
+   "id": "VariableID:42:108",
+   "name": "motion/scale/pressed",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-scale-pressed)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/scale/pressed",
+      "id": "VariableID:383:1863"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 0.9850000143051147,
+    "Paper": 0.9850000143051147,
+    "Core": 0.9850000143051147,
+    "Parallel": 0.9850000143051147,
+    "Canvas": 0.9850000143051147,
+    "Gallery": 0.9850000143051147
+   }
+  },
+  {
+   "id": "VariableID:42:109",
+   "name": "motion/translate/hover",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-translate-hover)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Motion",
+      "name": "motion/liquid/translate/hover",
+      "id": "VariableID:383:1865"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1,
+    "Paper": 1,
+    "Core": 1,
+    "Parallel": 1,
+    "Canvas": 1,
+    "Gallery": 1
+   }
+  },
+  {
+   "id": "VariableID:42:111",
+   "name": "motion/easing/settle",
+   "resolvedType": "STRING",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-easing-settle)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/settle",
+      "id": "VariableID:42:110"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "paper/motion/settle",
+      "id": "VariableID:83:106"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/settle",
+      "id": "VariableID:42:110"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/settle",
+      "id": "VariableID:42:110"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/settle",
+      "id": "VariableID:42:110"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/settle",
+      "id": "VariableID:42:110"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "Paper": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "Core": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "Parallel": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "Canvas": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "Gallery": "cubic-bezier(0.2, 0.8, 0.2, 1)"
+   }
+  },
+  {
+   "id": "VariableID:42:113",
+   "name": "motion/easing/enter",
+   "resolvedType": "STRING",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-easing-enter)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/enter",
+      "id": "VariableID:42:112"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "Paper": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "Core": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "Parallel": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "Canvas": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "Gallery": "cubic-bezier(0.16, 1, 0.3, 1)"
+   }
+  },
+  {
+   "id": "VariableID:42:115",
+   "name": "motion/easing/exit",
+   "resolvedType": "STRING",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--meridian-motion-easing-exit)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "primitive/motion/easing/exit",
+      "id": "VariableID:42:114"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": "cubic-bezier(0.4, 0, 1, 1)",
+    "Paper": "cubic-bezier(0.4, 0, 1, 1)",
+    "Core": "cubic-bezier(0.4, 0, 1, 1)",
+    "Parallel": "cubic-bezier(0.4, 0, 1, 1)",
+    "Canvas": "cubic-bezier(0.4, 0, 1, 1)",
+    "Gallery": "cubic-bezier(0.4, 0, 1, 1)"
+   }
+  },
+  {
+   "id": "VariableID:383:1849",
+   "name": "motion/liquid/duration/feedback",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-duration-feedback)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/feedback",
+      "id": "VariableID:383:1848"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 120,
+    "Paper": 120,
+    "Core": 120,
+    "Parallel": 120,
+    "Canvas": 120,
+    "Gallery": 120
+   }
+  },
+  {
+   "id": "VariableID:383:1851",
+   "name": "motion/liquid/duration/morph",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-duration-morph)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/morph",
+      "id": "VariableID:383:1850"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 320,
+    "Paper": 320,
+    "Core": 320,
+    "Parallel": 320,
+    "Canvas": 320,
+    "Gallery": 320
+   }
+  },
+  {
+   "id": "VariableID:383:1853",
+   "name": "motion/liquid/duration/settle",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-duration-settle)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/settle",
+      "id": "VariableID:383:1852"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 380,
+    "Paper": 380,
+    "Core": 380,
+    "Parallel": 380,
+    "Canvas": 380,
+    "Gallery": 380
+   }
+  },
+  {
+   "id": "VariableID:383:1855",
+   "name": "motion/liquid/duration/reduced",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-duration-reduced)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/duration/reduced",
+      "id": "VariableID:383:1854"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 80,
+    "Paper": 80,
+    "Core": 80,
+    "Parallel": 80,
+    "Canvas": 80,
+    "Gallery": 80
+   }
+  },
+  {
+   "id": "VariableID:383:1857",
+   "name": "motion/liquid/spring/mass",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-spring-mass)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/mass",
+      "id": "VariableID:383:1856"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1,
+    "Paper": 1,
+    "Core": 1,
+    "Parallel": 1,
+    "Canvas": 1,
+    "Gallery": 1
+   }
+  },
+  {
+   "id": "VariableID:383:1859",
+   "name": "motion/liquid/spring/stiffness",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-spring-stiffness)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/stiffness",
+      "id": "VariableID:383:1858"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 340,
+    "Paper": 340,
+    "Core": 340,
+    "Parallel": 340,
+    "Canvas": 340,
+    "Gallery": 340
+   }
+  },
+  {
+   "id": "VariableID:383:1861",
+   "name": "motion/liquid/spring/damping",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-spring-damping)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/spring/damping",
+      "id": "VariableID:383:1860"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 30,
+    "Paper": 30,
+    "Core": 30,
+    "Parallel": 30,
+    "Canvas": 30,
+    "Gallery": 30
+   }
+  },
+  {
+   "id": "VariableID:383:1863",
+   "name": "motion/liquid/scale/pressed",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-scale-pressed)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/scale/pressed",
+      "id": "VariableID:383:1862"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 0.9850000143051147,
+    "Paper": 0.9850000143051147,
+    "Core": 0.9850000143051147,
+    "Parallel": 0.9850000143051147,
+    "Canvas": 0.9850000143051147,
+    "Gallery": 0.9850000143051147
+   }
+  },
+  {
+   "id": "VariableID:383:1865",
+   "name": "motion/liquid/translate/hover",
+   "resolvedType": "FLOAT",
+   "scopes": [],
+   "codeSyntax": {
+    "WEB": "var(--motion-liquid-translate-hover)"
+   },
+   "description": "",
+   "hiddenFromPublishing": false,
+   "valuesByMode": {
+    "Grass": {
+     "modeId": "42:0",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    },
+    "Paper": {
+     "modeId": "83:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    },
+    "Core": {
+     "modeId": "133:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    },
+    "Parallel": {
+     "modeId": "159:3",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    },
+    "Canvas": {
+     "modeId": "159:7",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    },
+    "Gallery": {
+     "modeId": "159:11",
+     "alias": {
+      "collection": "Meridian / Primitives",
+      "name": "optics/motion/liquid/translate/hover",
+      "id": "VariableID:383:1864"
+     }
+    }
+   },
+   "resolvedByMode": {
+    "Grass": 1,
+    "Paper": 1,
+    "Core": 1,
+    "Parallel": 1,
+    "Canvas": 1,
+    "Gallery": 1
+   }
+  }
+ ]
+}

@@ -2,16 +2,20 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { tokenCss, validateTokens } from './lib.mjs'
-import { captureNativeTokens } from './roundtrip.mjs'
+import { captureFromSource, applyOverrides, provenanceOverrides } from './provenance.mjs'
 
 const read = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url)))
 const config = await read('../../design/figma/config.json')
 const bundle = await read('../../design/figma/generated/tokens.json')
 const source = await read('../../design/figma/generated/figma-source.json')
 
-test('canonical tokens exactly match the captured native Figma aliases and modes', () => {
-  const variables = source.collections.flatMap(c => c.variables.map(v => ({...v,variableCollectionId:c.id,resolvedType:v.type,valuesByMode:v.values})))
-  assert.deepEqual(captureNativeTokens(source.collections,variables),bundle)
+const overrides = await read('../../design/figma/generated/provenance-overrides.json')
+
+test('canonical tokens equal the native capture plus an exact provenance ledger', () => {
+  const captured = captureFromSource(source)
+  assert.deepEqual(applyOverrides(captured, overrides), bundle)
+  // The ledger is exactly the difference: rebuilding it changes nothing.
+  assert.deepEqual(provenanceOverrides(captured, bundle, overrides, { source: 'unused', decision: 'unused' }), overrides)
 })
 
 test('committed CSS is reproducible from the validated token snapshot', async () => {

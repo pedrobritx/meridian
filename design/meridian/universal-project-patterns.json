@@ -62,7 +62,7 @@
       "icon": "git-compare",
       "projects": [
         "verbalis",
-        "bsdl"
+        "polaris"
       ],
       "anatomy": "Before/after, approval and provenance",
       "states": [

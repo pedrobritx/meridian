@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decision": "ADR-0002 \u00a76 (DECIDED 2026-11-01): Environment \u00d7 Appearance is the only public colour API; 0.5 names stay as deprecated aliases; product themes move to their products.",
+  "window": "design/meridian/governance.md: keep compatibility for at least two minor releases or 30 days, whichever is longer. Removal happens only in a major release.",
+  "status": "Six-environment catalog adopted 2026-11-02; stable 0.5 values and retired selector values remain compatible.",
+  "entries": [
+    {
+      "use": "[data-meridian] (Grass, default) colour roles",
+      "replacement": "[data-meridian][data-meridian-environment=\"forest\"]",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Colour identical; tested in tests/environment-contract.test.mjs"
+    },
+    {
+      "use": "[data-meridian=\"paper\"] colour roles",
+      "replacement": "[data-meridian][data-meridian-environment=\"desert\"]",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Paper 0.5 remains unchanged. New Desert is golden; migration requires product review and is not colour-identical."
+    },
+    {
+      "use": "[data-meridian=\"core\"] colour roles",
+      "replacement": "[data-meridian][data-meridian-environment=\"prism\"]",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Colour identical except color/material/glass alpha (Core 0.5 0.96, environment 0.72 Dawn, 0.82 Dusk); tested"
+    },
+    {
+      "use": "[data-meridian=\"parallel\"], [data-meridian=\"canvas\"], [data-meridian=\"gallery\"]",
+      "replacement": "The adopting product (Verbalis, NotUX, Framio) owns its theme, built with docs/theming.md",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Unchanged until removal"
+    },
+    {
+      "use": "Grass and Paper typography, shape and motion profiles",
+      "replacement": "OPEN DECISION: which profile's typography, shape and motion is Meridian's 1.0 default (Core or Grass); product-specific profiles move to their products (Paper to Lexis)",
+      "deprecatedIn": "pending decision",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Unchanged"
+    },
+    {
+      "use": "--meridian-* custom properties (design/figma/generated/meridian.css)",
+      "replacement": "--md-* custom properties (styles/tokens.css and styles/living-environments.css)",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Same values; the website already uses --md-*"
+    },
+    {
+      "use": "Figma collections Meridian / Colour and Meridian / Project Colour",
+      "replacement": "Meridian / Environment with Meridian / Appearance",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Kept in the library file, labelled deprecated, until removal"
+    },
+    {
+      "use": "Figma collections Meridian / Living Environments \u00b7 0.6 and Meridian 0.6 Lab / Forest",
+      "replacement": "Meridian / Environment (library) or the lab file",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "1.x (Lab-only, no stable consumers)",
+      "compatibility": "PROPOSED: move to the lab file with the Archive"
+    },
+    {
+      "use": "data-meridian-environment=\"core\"",
+      "replacement": "data-meridian-environment=\"prism\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"alpine\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"storm\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"glacier\"",
+      "replacement": "data-meridian-environment=\"ocean\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"celestial\"",
+      "replacement": "data-meridian-environment=\"aurora\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    },
+    {
+      "use": "data-meridian-environment=\"embers\"",
+      "replacement": "data-meridian-environment=\"canyon\"",
+      "deprecatedIn": "1.0",
+      "removeNoEarlierThan": "2.0",
+      "compatibility": "Retired selector retains its exact pre-consolidation palette; excluded from active pickers."
+    }
+  ]
+}
