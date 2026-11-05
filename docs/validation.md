@@ -1,5 +1,7 @@
 # Validation — Meridian
 
+> Current-state note: the October material records below predate the six-environment consolidation. The merged glass follow-up introduced source merge conflicts; repairs and current verification are tracked in `docs/migration/2026-11-05-merge-repair.md`. Earlier test totals and ten-environment claims are historical evidence.
+
 
 ## Current material implementation — 14 October 2026
 

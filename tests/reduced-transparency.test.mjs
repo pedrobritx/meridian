@@ -18,7 +18,7 @@ function rules(css){
   return out;
 }
 const reduced=r=>r.context.some(c=>/^@media[^{]*prefers-reduced-transparency\s*:\s*reduce/.test(c.replace(/\s+/g,' ')));
-const blurs=r=>/backdrop-filter\s*:\s*(?!none)[^;]+/.test(r.body);
+const blurs=r=>[...r.body.matchAll(/backdrop-filter\s*:\s*([^;]+)/g)].some(m=>!/^none(?:\s*!important)?$/.test(m[1].trim()));
 const clears=r=>/backdrop-filter\s*:\s*none/.test(r.body);
 
 test('every backdrop blur in the stable library has a reduced-transparency fallback',async()=>{
@@ -32,4 +32,9 @@ test('every backdrop blur in the stable library has a reduced-transparency fallb
     const base=selector.split(':')[0];
     assert.ok(fallbacks.some(f=>f===selector||f.startsWith(base)),`${rule.file}: ${selector} blurs its backdrop without a reduced-transparency fallback`);
   }
+});
+
+test('opaque declarations do not count as backdrop blur',()=>{
+ for(const body of ['backdrop-filter: none;', '-webkit-backdrop-filter: none !important;'])assert.equal(blurs({body}),false);
+ assert.equal(blurs({body:'backdrop-filter: blur(16px);'}),true);
 });

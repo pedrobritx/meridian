@@ -35,9 +35,9 @@ The development and preview base is `/meridian/`, matching GitHub Pages. `npm ru
 
 ## Current environment and component system
 
-The active Figma library uses six pages and ten environments: Forest, Core, Desert, Ocean, Alpine, Storm, Celestial, Aurora, Glacier and Embers, each with independent Dawn/Dusk appearance. The [current system guide](docs/current-system.md) and [native map](design/meridian/figma-refactor-map.json) identify the active collections and component sources. The former 26-page structure and five-environment combined collection are historical records.
+The active design direction is six environments, each with Dawn/Dusk: Prism, Forest, Desert, Ocean, Aurora and Canyon. The library was organised by component purpose on 3 November, preserving IDs. The [current system guide](docs/current-system.md) explains the contract; the [migration evidence](docs/migration/2026-11-03-six-environments.md) records the verified Figma changes. The native material map retains earlier source inventories and is not evidence of current page or environment counts.
 
-The [Universal Library Lab](lab/universal-library/) exposes all twenty environment/appearance combinations and distinguishes interactive examples from anatomy previews. Load `styles/living-environments.css` after `styles/tokens.css`, and `styles/liquid-glass.css` after component styles. Opt in with `data-meridian-environment` and `data-theme="light|dark"`. Stable 0.5 selectors and twelve-mode exports remain compatible. The catalogue's 92 contracts do not imply native parity or production readiness for every pattern.
+The [Universal Library Lab](lab/universal-library/) exposes all twelve active environment/appearance combinations and distinguishes interactive examples from anatomy previews. Load `styles/living-environments.css` after `styles/tokens.css`, and `styles/liquid-glass.css` after component styles. Opt in with `data-meridian-environment` and `data-theme="light|dark"`. Stable 0.5 selectors and twelve-mode exports remain compatible. The catalogue's 92 contracts do not imply native parity or production readiness for every pattern.
 
 ## Design in Figma
 

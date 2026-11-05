@@ -17,13 +17,6 @@ test('Universal Lab publishes all 92 components and 80 symbols with working sear
  expect(errors).toEqual([]);
 });
 
-test('Living Environments preview exposes all ten environments and twenty appearances while preserving theme roles',async({page})=>{
- await page.goto('lab/universal-library/');
- await expect(page.locator('.u-theme')).toHaveCount(10);
- const selector=page.locator('#appearance-mode');
- await expect(selector.locator('option')).toHaveCount(20);
- const preview=page.locator('.u-theme[data-theme-kind="aurora"] .u-demobutton');
- await expect(preview).toHaveCSS('color','rgb(32, 44, 66)');
 test('Living Environments preview switches all twelve token modes without replacing original theme roles',async({page})=>{
  await page.goto('lab/universal-library/');
  await expect(page.locator('.u-theme')).toHaveCount(6);
@@ -43,4 +36,18 @@ test('Universal Lab representative surface passes automated accessibility audit'
  await page.goto('lab/universal-library/');
  const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
  expect(axe.violations,JSON.stringify(axe.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)})))).toEqual([]);
+});
+
+test('each environment card selects the family shown on its surface',async({page})=>{
+ await page.goto('lab/universal-library/');
+ const cards=page.locator('.u-theme');
+ const families=['prism','forest','desert','ocean','aurora','canyon'];
+ for(let i=0;i<families.length;i++){
+  const card=cards.nth(i);
+  await expect(card).toHaveAttribute('data-meridian-environment',families[i]);
+  await expect(card).toHaveAttribute('data-theme-kind',families[i]);
+  await card.getByRole('button').click();
+  await expect(page.locator('#appearance-mode')).toHaveValue(families[i]+':light');
+  await expect(page.locator('html')).toHaveAttribute('data-meridian-environment',families[i]);
+ }
 });
