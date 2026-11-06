@@ -26,7 +26,6 @@ import '../styles/reference.css';
 import '../styles/liquid-glass.css';
 import {initLiquidGlass} from './universal/liquid-glass.js';
 import {markGlassSurfaces} from './universal/glass-reference.js';
-import {pages} from './pages.js';
 import {pages as referencePages} from './pages.js';
 import {pages as libraryPages} from './pages-library.js';
 const pages={...referencePages,...libraryPages};

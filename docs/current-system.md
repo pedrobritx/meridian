@@ -1,12 +1,12 @@
 # Meridian current system
 
-The active Figma file has six pages: Home, Develop, Foundations, Style, Components and Archive. The [current map](../design/meridian/figma-refactor-map.json) records their native IDs, active collections and functional glass sources. The 26-page organization from 9 October is retained under `previousOrganisation` as a historical record.
+The library was reorganised by component purpose on 3 November while preserving component and variable IDs. Website and Lab destination files are established, with copied dependency pages retained until their references are migrated. See [migration evidence](migration/2026-11-03-six-environments.md). The [native material map](../design/meridian/figma-refactor-map.json) preserves earlier component source inventories; its six-page/ten-environment snapshot is historical, not the active organisation.
 
 ## Environments and compatibility
 
-Current environments are Forest, Core, Desert, Ocean, Alpine, Storm, Celestial, Aurora, Glacier and Embers. Environment and appearance are independent: the native `Meridian / Environment` collection routes to `Meridian / Appearance`, which provides Dawn and Dusk. The web manifest resolves the twenty combinations into semantic CSS roles. Forest keeps the approved Grass colors and Desert keeps Paper; stable 0.5 profile selectors and its twelve-mode export remain compatibility contracts.
+The active environments are Prism, Forest, Desert, Ocean, Aurora and Canyon, each with Dawn and Dusk. The canonical manifest defines twelve appearances; retired selectors retain archived palettes for compatibility. Forest retains Grass's colours; the new golden Desert intentionally differs from stable Paper. Stable 0.5 profiles and their twelve-mode export remain unchanged. Aurora follows the approved purple/pink direction; focus and status colours preserve their functional meaning.
 
-Load `styles/tokens.css`, `styles/living-environments.css`, your component styles, then `styles/liquid-glass.css`. Set `data-meridian="grass"`, `data-meridian-environment="aurora"` and `data-theme="light"` or `"dark"` on an independently themed boundary. The Universal Lab offers every current environment. Aurora's actions, selection and atmosphere use the same cool lavender/indigo semantics everywhere.
+Load `styles/tokens.css`, `styles/living-environments.css`, your component styles, then `styles/liquid-glass.css`. Set `data-meridian="grass"`, `data-meridian-environment="aurora"` and `data-theme="light"` or `"dark"` on an independently themed boundary. The Universal Lab offers every current environment. Selection uses the environment's semantic surface and text roles.
 
 ## Material rules
 

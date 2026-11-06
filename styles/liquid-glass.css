@@ -152,3 +152,11 @@ html[data-material="opaque"] [data-liquid-glass]:not(input),html[data-lab-opaque
   input[data-liquid-glass][type="range"]::-moz-range-thumb { border-color: ButtonText; background: ButtonFace; box-shadow: none; }
   [data-liquid-glass]:is([aria-selected="true"],[aria-pressed="true"],[aria-current="page"]) { outline: 2px solid Highlight; outline-offset: -3px; }
 }
+
+/* Native thumb and switch layers must also respect opaque system preferences. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  input[data-liquid-glass][type="range"]::-webkit-slider-thumb { background: var(--md-glass-pigment); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  input[data-liquid-glass][type="range"]::-moz-range-thumb { background: var(--md-glass-pigment); }
+  .lm-switch input:is(:active,:focus-visible) + .lm-switch-track::after { background: var(--md-glass-pigment, white); backdrop-filter: none; }
+}
+:is([data-material="opaque"],[data-lab-opaque="true"],[data-glass-transparency="opaque"]) .lm-switch input:is(:active,:focus-visible) + .lm-switch-track::after { background: var(--md-glass-pigment, white); backdrop-filter: none; }

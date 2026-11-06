@@ -1,11 +1,10 @@
 /**
  * Living Environments 0.6: independent semantic palette layer.
- * Forest/Desert are exact copies of existing Grass/Paper colour roles.
- * Order follows the Figma collection Meridian / Environment (VariableCollectionId:302:34).
+ * Forest preserves Grass; archived Desert preserves Paper. Active Desert is gold.
+ * Active order follows the six-environment owner direction; retired selectors stay compatible.
  * This is opt-in until a documented, accessible stable release.
  */
 export const APPEARANCES=Object.freeze(['Dawn','Dusk']);
-export const ENVIRONMENT_NAMES=Object.freeze(['Forest','Core','Desert','Ocean','Alpine','Storm','Celestial','Aurora','Glacier','Embers']);
 export const ENVIRONMENT_NAMES=Object.freeze(['Prism','Forest','Desert','Ocean','Aurora','Canyon']);
 export const ENVIRONMENT_STATUSES=Object.freeze(['candidate','preview']);
 const color=/^#[0-9A-F]{6}(?:[0-9A-F]{2})?$/i;

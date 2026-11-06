@@ -12,8 +12,6 @@ import {universalComponents,universalGroups,projectNames,componentsFor,component
 import universalSymbols from '../../design/meridian/universal-symbols.json' with {type:'json'};
 import environments from '../../design/meridian/living-environments.json' with {type:'json'};
 import currentSystem from '../../design/meridian/figma-refactor-map.json' with {type:'json'};
-import {universalComponents,universalGroups,projectNames,componentsFor} from '../../src/universal/catalog.js';
-import universalSymbols from '../../design/meridian/universal-symbols.json' with {type: "json"};
 import {iconMarkup,symbolNames} from '../../src/universal/symbols.js';
 
 const byId=id=>document.getElementById(id);
@@ -384,15 +382,7 @@ byId('symbol-filter').addEventListener('input',renderSymbols);
 const appearance=byId('appearance-mode');
 appearance.replaceChildren(...environments.environments.flatMap(environment=>['Dawn','Dusk'].map(mode=>
   node('option',{value:environment.id+':'+(mode==='Dusk'?'dark':'light')},environment.name+' · '+mode))));
-document.querySelector('.u-examples .u-section-heading > span').textContent='Ten environments · Dawn and Dusk';
-const previewCopy={core:['Space for every kind of work.','A neutral foundation with clear hierarchy.'],ocean:['A little room to breathe.','Tidal blues and refracted coastal light.'],alpine:['Clear air, quiet focus.','Mountain light and restrained natural surfaces.'],storm:['Focus through the weather.','Layered slate, atmospheric light and warm accents.'],celestial:['A wider field of thought.','Night-sky depth and luminous violet.']};
-for(const environment of environments.environments) {
-  if(document.querySelector('.u-theme[data-theme-kind="'+environment.id+'"]'))continue;
-  const [title,description]=previewCopy[environment.id];
-  const card=node('article',{class:'u-theme','data-meridian':'grass','data-meridian-environment':environment.id,'data-theme':'light','data-theme-kind':environment.id},
-    text('p',environment.name,'u-eyebrow'),text('h3',title),text('p',description));
-  document.querySelector('.u-theme-grid').append(card);
-}
+document.querySelector('.u-examples .u-section-heading > span').textContent='Six environments · Dawn and Dusk';
 for(const card of document.querySelectorAll('.u-theme')) {
   card.querySelector('.u-demobutton')?.remove();
   const control=button('Explore '+card.dataset.themeKind+' →',()=>{
