@@ -51,7 +51,7 @@
   },
   "policyNotes": {
     "live": "Named-version previews must show current design, so preview frames may not sit on an archive page.",
-    "allowArchived": "Working mappings and references to Lab or historical frames that still sit on the Archive page until ADR-0002 §8 moves them to the lab file. Missing nodes are never allowed.",
+    "allowArchived": "Working mappings and references to Lab or historical frames that still sit on the Archive page until ADR-0002 \u00a78 moves them to the lab file. Missing nodes are never allowed.",
     "historical": "Records of earlier layouts, kept as written. Superseded by design/figma-export (2026-11-01)."
   },
   "missing": [
@@ -681,5 +681,30 @@
     "387:1789",
     "450:19981",
     "510:2117"
-  ]
+  ],
+  "externalFiles": {
+    "design/figma/forest-lab.json": {
+      "fileKey": "vX1eNJVAJ7QLqjimSvcGmm",
+      "checkedAt": "2026-11-05",
+      "method": "Live read and actual plugin capture; 24 palette cells and six texts match. Original library references retained.",
+      "known": [
+        "218:21",
+        "219:15",
+        "219:16",
+        "219:51",
+        "219:70",
+        "219:71",
+        "219:106"
+      ],
+      "missing": [],
+      "archived": [
+        "219:15",
+        "219:16",
+        "219:51",
+        "219:70",
+        "219:71",
+        "219:106"
+      ]
+    }
+  }
 }

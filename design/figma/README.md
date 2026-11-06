@@ -160,3 +160,10 @@ Type: added, changed, fixed or deprecated
 Summary: one plain sentence about what changed for people using Meridian
 Issue: #number, if there is one
 ```
+
+
+## Forest Lab file ownership
+
+Forest-only compare/apply now targets [Meridian — Lab](https://www.figma.com/design/vX1eNJVAJ7QLqjimSvcGmm/Meridian-Lab?node-id=218-21). Reload the development plugin after this change. Open that file for **Compare Forest** and **Apply GitHub Forest**; stable token/copy sync remains restricted to the original library. The original library's Forest copy is retained as historical reference and is no longer the Forest importer target.
+
+The destination preserves the experimental page and six text IDs. A live execution of the actual read-only Forest capture found all 24 palette cells and six text values unchanged. This proves destination/capture compatibility, not the installed UI or import/publication round trip. The link snapshot now identifies the destination file explicitly, so identical node IDs across duplicated files cannot count as evidence for the wrong file.
