@@ -18,11 +18,18 @@ const known=new Set(links.known),missing=new Set(links.missing),archived=new Set
 
 test('every Figma node ID in live and working files is known, present and allowed',async()=>{
   for(const [kind,files] of [['live',links.policy.live],['allowArchived',links.policy.allowArchived]])
-    for(const file of files)for(const id of await idsIn(file)){
-      assert.ok(known.has(id),`${file}: ${id} is not in design/figma/links.json; re-check the Figma file`);
-      assert.ok(!missing.has(id),`${file}: ${id} no longer exists in Figma`);
-      if(kind==='live')assert.ok(!archived.has(id),`${file}: ${id} sits on an archive page`);
+    for(const file of files){
+     const scope=links.externalFiles?.[file];
+     const fileKnown=scope?new Set(scope.known):known;
+     const fileMissing=scope?new Set(scope.missing):missing;
+     const fileArchived=scope?new Set(scope.archived):archived;
+     if(file.endsWith('.json')){const data=JSON.parse(await read(file));if(data.fileKey)assert.equal(data.fileKey,scope?.fileKey??links.fileKey,file+' must use its own file snapshot');}
+     for(const id of await idsIn(file)){
+      assert.ok(fileKnown.has(id),`${file}: ${id} is not in design/figma/links.json; re-check the Figma file`);
+      assert.ok(!fileMissing.has(id),`${file}: ${id} no longer exists in Figma`);
+      if(kind==='live')assert.ok(!fileArchived.has(id),`${file}: ${id} sits on an archive page`);
     }
+   }
 });
 
 test('the link snapshot covers historical files and keeps its lists consistent',async()=>{

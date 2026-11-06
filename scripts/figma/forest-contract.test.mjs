@@ -11,7 +11,7 @@ const template={...remote,fields:Object.fromEntries(
   Object.entries(remote.fields).map(([k,v])=>[k,{nodeId:v.nodeId,pageId:v.pageId}]))};
 
 test('Forest Figma contract is pinned to the actual prepared file and experimental page',()=>{
-  assert.equal(remote.fileKey,'aJ2f6aYX9KBucAdPsCmkXn');
+  assert.equal(remote.fileKey,'vX1eNJVAJ7QLqjimSvcGmm');
   assert.equal(remote.pageId,'218:21');
   assert.equal(remote.collectionName,'Meridian 0.6 Lab / Forest');
   assert.equal(Object.keys(remote.fields).length,6);
@@ -43,6 +43,7 @@ test('Forest importer only plans updated Lab tokens and six allowlisted text nod
 
 test('Forest importer refuses unexpected pages, nodes, roles, modes and invalid colours',()=>{
   for(const mutation of [
+    c=>{c.fileKey='aJ2f6aYX9KBucAdPsCmkXn';},
     c=>{c.pageId='3:208';},
     c=>{c.collectionName='Meridian / Colour';},
     c=>{c.fields.dawnTitle.nodeId='5:2';},
