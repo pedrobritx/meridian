@@ -1,5 +1,5 @@
-## Figma · Meridian — six environments and library organisation · 2026-11-03
+## Figma · Meridian — catalog capture verification · 2026-11-06
 
 No description was given for this named version.
 
-- 62 added, 30207 changed, 0 removed layers. Named version 2417769680861415862.
+- 0 added, 0 changed, 0 removed layers. Named version 2418535610978959320.
