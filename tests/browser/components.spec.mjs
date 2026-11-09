@@ -366,3 +366,76 @@ test('sheet: after a short drag, the grabber still closes it from the keyboard',
   await page.keyboard.press('Enter');
   await expect(sheet).toBeHidden();
 });
+
+test('a segmented control left with no choice hides its drop', async ({ page }) => {
+  await open(page);
+  const visible = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form');
+    form.innerHTML = `<fieldset class="m-seg"><legend>Size</legend>
+      <label class="m-seg-opt"><input type="radio" name="size2" value="s"><span>Small</span></label>
+      <label class="m-seg-opt"><input type="radio" name="size2" value="l"><span>Large</span></label></fieldset>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    const ind = form.querySelector('.m-ind'), before = ind.checkVisibility();
+    form.querySelector('input[value="l"]').click();
+    await new Promise(r => setTimeout(r, 300));
+    const chosen = ind.checkVisibility();
+    form.reset();
+    await new Promise(r => setTimeout(r, 300));
+    return [before, chosen, ind.checkVisibility()];
+  });
+  expect(visible).toEqual([false, true, false]);
+});
+
+test('switch: holding Space and moving focus away releases the press', async ({ page }) => {
+  await open(page, 'motion=full');
+  const sw = page.getByRole('switch', { name: 'Follow the sun' });
+  await sw.focus();
+  await page.keyboard.down(' ');
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Tab');
+  await page.keyboard.up(' ');
+  await expect.poll(() => sw.evaluate(i => Math.abs(parseFloat(i.closest('.m-switch').querySelector('.m-thumb').style.getPropertyValue('--press')) || 0)), { timeout: 2000 }).toBeLessThan(.005);
+});
+
+test.describe('before the script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('buttons still have a surface and an edge', async ({ page }) => {
+    await page.goto('/components/');
+    const looks = await page.evaluate(() => ['Save draft', 'Continue', 'Cancel'].map(name => {
+      const b = [...document.querySelectorAll('button')].find(x => x.textContent.trim() === name), s = getComputedStyle(b);
+      return `${name}: ${s.backgroundColor === 'rgba(0, 0, 0, 0)' ? 'clear' : 'filled'}`;
+    }));
+    expect(looks).toEqual(['Save draft: filled', 'Continue: filled', 'Cancel: clear']);
+  });
+});
+
+test('tabs inside a form switch panels without submitting it', async ({ page }) => {
+  await open(page);
+  const result = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); let submitted = 0;
+    form.addEventListener('submit', e => { e.preventDefault(); submitted++; });
+    form.innerHTML = `<div class="m-tabs"><div class="m-tablist" role="tablist" aria-label="Form tabs">
+      <button class="m-tab" role="tab" id="ft1" aria-controls="fp1" aria-selected="true">One</button>
+      <button class="m-tab" role="tab" id="ft2" aria-controls="fp2" aria-selected="false">Two</button></div>
+      <div role="tabpanel" id="fp1" aria-labelledby="ft1">1</div><div role="tabpanel" id="fp2" aria-labelledby="ft2" hidden>2</div></div>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    form.querySelector('#ft2').click();
+    return { submitted, selected: form.querySelector('#ft2').getAttribute('aria-selected'), shown: !form.querySelector('#fp2').hidden };
+  });
+  expect(result).toEqual({ submitted: 0, selected: 'true', shown: true });
+});
+
+test.describe('text field before the script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('it has an edge and shows a focus ring', async ({ page }) => {
+    await page.goto('/components/');
+    const well = page.locator('#note-title').locator('xpath=..');
+    expect(await well.evaluate(w => getComputedStyle(w).boxShadow)).not.toBe('none');
+    await page.locator('#note-title').focus();
+    expect(await well.evaluate(w => { const s = getComputedStyle(w); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; })).toBe('solid 2');
+  });
+});

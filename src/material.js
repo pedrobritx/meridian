@@ -271,6 +271,7 @@ function wireSwitch(sw) {
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => sw.addEventListener(t, () => c.up()));
   input.addEventListener('keydown', e => { if (e.key === ' ' && !e.repeat) c.down(.5, .5); });
   input.addEventListener('keyup', e => { if (e.key === ' ') c.up(); });
+  input.addEventListener('blur', () => c.up());   // Space held while focus moves away: no keyup will come
   sw._place = place;
   followReset(sw, place);
   place(true);
@@ -356,6 +357,7 @@ function wireTabs(tabs) {
     tabs.dispatchEvent(new CustomEvent('tabchange', { bubbles: true, detail: { tab } }));
   };
   for (const t of all()) {
+    if (t.matches('button') && !t.hasAttribute('type')) t.type = 'button';   // inside a form, a tab must not submit it
     hoverable(t);
     t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
     t.addEventListener('click', () => { if (!t.disabled) select(t, false); });

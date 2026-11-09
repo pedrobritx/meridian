@@ -136,8 +136,8 @@ Switch between panels of one view. For a setting that changes how one view looks
 ```html
 <div class="m-tabs">
   <div class="m-tablist" role="tablist" aria-label="Field notes">
-    <button class="m-tab" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true">Read</button>
-    <button class="m-tab" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">Notes</button>
+    <button class="m-tab" type="button" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true">Read</button>
+    <button class="m-tab" type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">Notes</button>
   </div>
   <div class="m-tabpanel" role="tabpanel" id="panel-read" aria-labelledby="tab-read" tabindex="0">…</div>
   <div class="m-tabpanel" role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" tabindex="0" hidden>…</div>
