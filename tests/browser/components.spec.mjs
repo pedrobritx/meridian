@@ -140,3 +140,47 @@ test('a form reset puts segmented controls and switches back in step', async ({ 
   });
   expect(state).toEqual({ indOnSmall: true, dye: 0, checked: false });
 });
+
+test('a segmented control left with no choice hides its drop', async ({ page }) => {
+  await open(page);
+  const visible = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form');
+    form.innerHTML = `<fieldset class="m-seg"><legend>Size</legend>
+      <label class="m-seg-opt"><input type="radio" name="size2" value="s"><span>Small</span></label>
+      <label class="m-seg-opt"><input type="radio" name="size2" value="l"><span>Large</span></label></fieldset>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    const ind = form.querySelector('.m-ind'), before = ind.checkVisibility();
+    form.querySelector('input[value="l"]').click();
+    await new Promise(r => setTimeout(r, 300));
+    const chosen = ind.checkVisibility();
+    form.reset();
+    await new Promise(r => setTimeout(r, 300));
+    return [before, chosen, ind.checkVisibility()];
+  });
+  expect(visible).toEqual([false, true, false]);
+});
+
+test('switch: holding Space and moving focus away releases the press', async ({ page }) => {
+  await open(page, 'motion=full');
+  const sw = page.getByRole('switch', { name: 'Follow the sun' });
+  await sw.focus();
+  await page.keyboard.down(' ');
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Tab');
+  await page.keyboard.up(' ');
+  await expect.poll(() => sw.evaluate(i => Math.abs(parseFloat(i.closest('.m-switch').querySelector('.m-thumb').style.getPropertyValue('--press')) || 0)), { timeout: 2000 }).toBeLessThan(.005);
+});
+
+test.describe('before the script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('buttons still have a surface and an edge', async ({ page }) => {
+    await page.goto('/components/');
+    const looks = await page.evaluate(() => ['Save draft', 'Continue', 'Cancel'].map(name => {
+      const b = [...document.querySelectorAll('button')].find(x => x.textContent.trim() === name), s = getComputedStyle(b);
+      return `${name}: ${s.backgroundColor === 'rgba(0, 0, 0, 0)' ? 'clear' : 'filled'}`;
+    }));
+    expect(looks).toEqual(['Save draft: filled', 'Continue: filled', 'Cancel: clear']);
+  });
+});
