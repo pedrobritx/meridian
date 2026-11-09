@@ -337,3 +337,32 @@ test('a form reset puts the slider back in step', async ({ page }) => {
   });
   expect(value).toBe(.2);
 });
+
+test('menu: ArrowUp on its button opens it at the last item', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await trigger.focus();
+  await page.keyboard.press('ArrowUp');
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+  await page.waitForTimeout(150);
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+});
+
+test('sheet: after a short drag, the grabber still closes it from the keyboard', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'pointer drag is checked on Desk');
+  await open(page, 'motion=reduced');
+  await page.locator('.row [data-m-open="reading-sheet"]').click();
+  const sheet = page.getByRole('dialog', { name: 'Reading options' });
+  const grab = sheet.getByRole('button', { name: 'Close reading options' });
+  const box = await grab.boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 30, { steps: 4 });
+  await page.mouse.up();
+  await expect(sheet).toBeVisible();
+  await grab.focus();
+  await page.keyboard.press('Enter');
+  await expect(sheet).toBeHidden();
+});

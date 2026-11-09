@@ -420,7 +420,7 @@ function wireSheet(sheet) {
     else { back.x = dy; back.to(0); }
   };
   grab.addEventListener('pointerup', end); grab.addEventListener('pointercancel', end);
-  grab.addEventListener('click', () => { if (dy < 4) sheet.close(); });
+  grab.addEventListener('click', e => { if (e.detail === 0 || dy < 4) sheet.close(); dy = 0; });   // detail 0: Enter or Space
 }
 
 /* ---------- Menu: a popover with the ARIA menu keys ---------- */
@@ -432,6 +432,7 @@ function wireMenu(trigger) {
   if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
   const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(i => !i.disabled);
   items().forEach(i => { i.tabIndex = -1; });
+  let openAt = 'first';   // ArrowUp on the button opens at the last item
   const position = () => {
     const t = trigger.getBoundingClientRect(), m = menu.getBoundingClientRect(), gap = 6, pad = 8;
     const below = t.bottom + gap + m.height <= innerHeight - pad || t.top - gap - m.height < pad;
@@ -443,14 +444,15 @@ function wireMenu(trigger) {
   menu.addEventListener('toggle', e => {
     const open = e.newState === 'open';
     trigger.setAttribute('aria-expanded', String(open));
-    if (open) { position(); (items()[0])?.focus(); }
+    if (open) { position(); (openAt === 'last' ? items().at(-1) : items()[0])?.focus(); openAt = 'first'; }
     else if (menu.contains(document.activeElement) || document.activeElement === document.body) trigger.focus();
   });
   trigger.addEventListener('keydown', e => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
     e.preventDefault();
+    openAt = e.key === 'ArrowUp' ? 'last' : 'first';
     if (!menu.matches(':popover-open')) menu.showPopover();
-    (e.key === 'ArrowUp' ? items().at(-1) : items()[0])?.focus();
+    else { (openAt === 'last' ? items().at(-1) : items()[0])?.focus(); openAt = 'first'; }
   });
   menu.addEventListener('keydown', e => {
     const list = items(), i = list.indexOf(document.activeElement);
