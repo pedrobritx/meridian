@@ -654,3 +654,28 @@ test('hidden toolbar controls are skipped and never hold the Tab stop', async ({
   await btn('Cut').evaluate(el => { el.style.display = 'none'; });       // hidden in a way no attribute shows
   await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Paste')).toBeFocused();
 });
+
+test('a vertical toolbar stacks its controls to match its arrow keys', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Tools" aria-orientation="vertical">
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Pen">P</button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Marker">M</button>
+      <span class="m-toolbar-sep" aria-hidden="true"></span>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Eraser">E</button></div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Tools' });
+  const boxes = await bar.evaluate(b => [...b.querySelectorAll(':scope > button, :scope > .m-toolbar-sep')].map(el => el.getBoundingClientRect().toJSON()));
+  for (let i = 1; i < boxes.length; i++) expect(boxes[i].top).toBeGreaterThanOrEqual(boxes[i - 1].bottom - 0.5);
+  const lefts = boxes.filter((_, i) => i !== 2).map(b => b.left);   // the buttons share one column
+  expect(Math.max(...lefts) - Math.min(...lefts)).toBeLessThan(2);
+  expect(boxes[2].height).toBeLessThanOrEqual(1.5);
+  expect(boxes[2].width).toBeGreaterThan(8);
+  await bar.getByRole('button', { name: 'Pen' }).focus();
+  await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Marker' })).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Eraser' })).toBeFocused();
+  await bar.screenshot({ path: test.info().outputPath('vertical-toolbar.png') });
+});

@@ -253,6 +253,9 @@
   .m-toolbar > :not(.m-body) { position: relative; z-index: 5; }
   .m-toolbar-title { flex: 1 1 auto; min-width: 0; contain: inline-size; padding: 0 var(--s2); font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .m-toolbar-sep { width: 1px; align-self: stretch; margin: var(--s2) var(--s1); background: var(--hair); }
+  .m-toolbar[aria-orientation="vertical"] { flex-direction: column; align-items: stretch; width: fit-content; min-height: 0; min-width: calc(var(--target) + 8px); }
+  .m-toolbar[aria-orientation="vertical"] > .m-toolbar-title { flex: none; contain: none; padding: var(--s1) var(--s2); }
+  .m-toolbar[aria-orientation="vertical"] > .m-toolbar-sep { width: auto; height: 1px; margin: var(--s1) var(--s2); }
 
   /* ---------- Dialog: a decision that needs an answer ---------- */
   .m-dialog {
