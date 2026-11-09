@@ -339,7 +339,7 @@ function canFocus(el) {
 }
 
 function wireTabs(tabs) {
-  if (tabs._wired) return; tabs._wired = true;
+  if (tabs._wired) { tabs._prepTabs?.(); return; } tabs._wired = true;   // enhancing again prepares tabs added since
   const list = tabs.querySelector('[role="tablist"]'); if (!list) return;
   const all = () => [...list.querySelectorAll('[role="tab"]')];
   const usable = () => all().filter(canFocus);
@@ -363,12 +363,14 @@ function wireTabs(tabs) {
     place(false);
     tabs.dispatchEvent(new CustomEvent('tabchange', { bubbles: true, detail: { tab } }));
   };
-  for (const t of all()) {
+  tabs._prepTabs = () => { for (const t of all()) {
+    if (t._wiredTab) continue; t._wiredTab = true;
     if (t.matches('button') && !t.hasAttribute('type')) t.type = 'button';   // inside a form, a tab must not submit it
     hoverable(t);
     t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
     t.addEventListener('click', () => { if (!t.disabled) select(t, false); });
-  }
+  } };
+  tabs._prepTabs();
   list.addEventListener('keydown', e => {
     const tabsNow = usable(); const i = tabsNow.indexOf(document.activeElement); if (i < 0) return;
     const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabsNow.length - 1 }[e.key];
@@ -484,6 +486,7 @@ function wireMenu(trigger) {
   // each button only records itself as the opener, so a choice is announced once and focus
   // and position follow the button that opened it.
   const state = menu._menu || (menu._menu = wireMenuPopover(menu));
+  state.prepItems();   // items added since the last enhance get the same treatment
   if (trigger._wiredMenu) return; trigger._wiredMenu = true;
   state.triggers.add(trigger);
   trigger.setAttribute('aria-haspopup', 'menu'); trigger.setAttribute('aria-expanded', 'false');
@@ -503,7 +506,11 @@ function wireMenuPopover(menu) {
   const opener = () => state.trigger || state.triggers.values().next().value;
   if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
   const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(canFocus);
-  menu.querySelectorAll('[role^="menuitem"]').forEach(i => { i.tabIndex = -1; if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button'; });   // all of them: a closed menu shows none
+  // Every item, shown or not: inside a form an item must not submit it, and only the arrow keys reach it.
+  state.prepItems = () => menu.querySelectorAll('[role^="menuitem"]').forEach(i => {
+    if (i.getAttribute('tabindex') !== '-1') i.tabIndex = -1;
+    if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button';
+  });
   state.focusItem = () => { (state.openAt === 'last' ? items().at(-1) : items()[0])?.focus(); state.openAt = 'first'; };
   let size = { width: 0, height: 0 };   // a closed menu has no size, so the last open size stands in for it
   const position = () => {
@@ -520,7 +527,7 @@ function wireMenuPopover(menu) {
   let frame = 0;
   const follow = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; if (menu.matches(':popover-open')) position(); }); };
   // Place the menu by its button before it is first painted, then again once its size is known.
-  menu.addEventListener('beforetoggle', e => { if (e.newState === 'open') position(); });
+  menu.addEventListener('beforetoggle', e => { if (e.newState === 'open') { state.prepItems(); position(); } });
   menu.addEventListener('toggle', e => {
     const open = e.newState === 'open', btn = opener();
     state.triggers.forEach(t => t.setAttribute('aria-expanded', String(open && t === btn)));

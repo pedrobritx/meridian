@@ -758,3 +758,38 @@ test('menus and tabs skip hidden items', async ({ page }) => {
   await page.keyboard.press('ArrowRight'); await expect(tab('Month')).toBeFocused();
   expect(await tab('Week').getAttribute('aria-selected')).toBe('false');
 });
+
+test('items added after enhancing are prepared like the first ones', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); form.id = 'late-form';
+    form.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="late-menu">Insert</button>
+      <div class="m-menu" id="late-menu" popover role="menu" aria-label="Insert">
+        <button class="m-menuitem" role="menuitem">Table</button></div>
+      <div class="m-tabs"><div class="m-tablist" role="tablist" aria-label="Late">
+        <button class="m-tab" role="tab" aria-selected="true">One</button></div></div>`;
+    document.querySelector('main').prepend(form); enhance(form);
+    window.__late = { submits: 0, picks: [] };
+    form.addEventListener('submit', e => { e.preventDefault(); window.__late.submits++; });
+    form.addEventListener('menuselect', e => window.__late.picks.push(e.detail.value));
+    const add = (sel, html) => form.querySelector(sel).insertAdjacentHTML('beforeend', html);
+    add('#late-menu', '<button class="m-menuitem" role="menuitem">Chart</button>');
+    add('[role="tablist"]', '<button class="m-tab" role="tab" aria-selected="false">Two</button>');
+    enhance(form);   // enhancing again prepares the new menu item and tab, and wires nothing twice
+    add('#late-menu', '<button class="m-menuitem" role="menuitem">Image</button>');   // added with no enhance at all
+  });
+  await page.getByRole('button', { name: 'Insert', exact: true }).click();
+  const menuitems = page.locator('#late-menu [role="menuitem"]');
+  expect(await menuitems.evaluateAll(els => els.map(el => [el.type, el.tabIndex]))).toEqual([['button', -1], ['button', -1], ['button', -1]]);
+  await page.getByRole('menuitem', { name: 'Chart' }).click();
+  await page.getByRole('button', { name: 'Insert', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Image' }).click();
+  expect(await page.evaluate(() => window.__late)).toEqual({ submits: 0, picks: ['Chart', 'Image'] });
+
+  const two = page.getByRole('tab', { name: 'Two', exact: true });
+  expect(await two.evaluate(el => [el.type, el.tabIndex])).toEqual(['button', -1]);
+  await two.click();
+  await expect(two).toHaveAttribute('aria-selected', 'true');
+  expect(await page.evaluate(() => window.__late.submits)).toBe(0);
+});
