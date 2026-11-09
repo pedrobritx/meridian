@@ -473,16 +473,38 @@ function wireSheet(sheet) {
 
 /* ---------- Menu: a popover with the ARIA menu keys ---------- */
 function wireMenu(trigger) {
-  if (trigger._wiredMenu) return; trigger._wiredMenu = true;
   const menu = document.getElementById(trigger.getAttribute('popovertarget'));
   if (!menu || !('popover' in HTMLElement.prototype)) return;
+  // Several buttons may open one menu (native popovers allow it). The menu is wired once;
+  // each button only records itself as the opener, so a choice is announced once and focus
+  // and position follow the button that opened it.
+  const state = menu._menu || (menu._menu = wireMenuPopover(menu));
+  if (trigger._wiredMenu) return; trigger._wiredMenu = true;
+  state.triggers.add(trigger);
   trigger.setAttribute('aria-haspopup', 'menu'); trigger.setAttribute('aria-expanded', 'false');
+  trigger.addEventListener('click', () => { if (!menu.matches(':popover-open')) state.trigger = trigger; });
+  trigger.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    e.preventDefault();
+    state.openAt = e.key === 'ArrowUp' ? 'last' : 'first';
+    if (menu.matches(':popover-open') && state.trigger !== trigger) menu.hidePopover();
+    state.trigger = trigger;
+    if (!menu.matches(':popover-open')) menu.showPopover();
+    else { state.focusItem(); }
+  });
+}
+function wireMenuPopover(menu) {
+  const state = { trigger: null, triggers: new Set(), openAt: 'first' };   // openAt: ArrowUp on the button opens at the last item
+  const opener = () => state.trigger || state.triggers.values().next().value;
   if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
   const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(i => !i.disabled);
   items().forEach(i => { i.tabIndex = -1; if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button'; });
-  let openAt = 'first';   // ArrowUp on the button opens at the last item
+  state.focusItem = () => { (state.openAt === 'last' ? items().at(-1) : items()[0])?.focus(); state.openAt = 'first'; };
+  let size = { width: 0, height: 0 };   // a closed menu has no size, so the last open size stands in for it
   const position = () => {
-    const t = trigger.getBoundingClientRect(), m = menu.getBoundingClientRect(), gap = 6, pad = 8;
+    const btn = opener(); if (!btn) return;
+    const r = menu.getBoundingClientRect(); if (r.height) size = { width: r.width, height: r.height };
+    const t = btn.getBoundingClientRect(), m = size, gap = 6, pad = 8;
     const below = t.bottom + gap + m.height <= innerHeight - pad || t.top - gap - m.height < pad;
     let left = Math.min(Math.max(pad, t.left), innerWidth - m.width - pad);
     const top = below ? t.bottom + gap : t.top - gap - m.height;
@@ -492,20 +514,15 @@ function wireMenu(trigger) {
   // While open, the menu follows its button when the page scrolls or the window changes size.
   let frame = 0;
   const follow = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; if (menu.matches(':popover-open')) position(); }); };
+  // Place the menu by its button before it is first painted, then again once its size is known.
+  menu.addEventListener('beforetoggle', e => { if (e.newState === 'open') position(); });
   menu.addEventListener('toggle', e => {
-    const open = e.newState === 'open';
-    trigger.setAttribute('aria-expanded', String(open));
+    const open = e.newState === 'open', btn = opener();
+    state.triggers.forEach(t => t.setAttribute('aria-expanded', String(open && t === btn)));
     if (open) { addEventListener('scroll', follow, { capture: true, passive: true }); addEventListener('resize', follow); }
     else { removeEventListener('scroll', follow, { capture: true }); removeEventListener('resize', follow); }
-    if (open) { position(); (openAt === 'last' ? items().at(-1) : items()[0])?.focus(); openAt = 'first'; }
-    else if (menu.contains(document.activeElement) || document.activeElement === document.body) trigger.focus();
-  });
-  trigger.addEventListener('keydown', e => {
-    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-    e.preventDefault();
-    openAt = e.key === 'ArrowUp' ? 'last' : 'first';
-    if (!menu.matches(':popover-open')) menu.showPopover();
-    else { (openAt === 'last' ? items().at(-1) : items()[0])?.focus(); openAt = 'first'; }
+    if (open) { position(); state.focusItem(); }
+    else if (menu.contains(document.activeElement) || document.activeElement === document.body) btn?.focus();
   });
   menu.addEventListener('keydown', e => {
     const list = items(), i = list.indexOf(document.activeElement);
@@ -520,9 +537,10 @@ function wireMenu(trigger) {
   menu.addEventListener('click', e => {
     const item = e.target.closest('[role^="menuitem"]'); if (!item || item.disabled) return;
     // Close and return focus first, so a dialog opened by the handler returns focus to the button, not to a hidden item.
-    menu.hidePopover(); trigger.focus();
-    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim() } }));
+    menu.hidePopover(); opener()?.focus();
+    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim(), trigger: opener() } }));
   });
+  return state;
 }
 
 /** Re-place indicators after a value is changed from script (a change event does it automatically). */

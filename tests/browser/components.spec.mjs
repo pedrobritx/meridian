@@ -533,14 +533,14 @@ test('an open menu follows its button when the page scrolls', async ({ page }) =
   await trigger.click();
   const menu = page.getByRole('menu', { name: 'Sort by' });
   await expect(menu).toBeVisible();
-  const gap = async () => {
-    const t = await trigger.boundingBox(), m = await menu.boundingBox();
-    return Math.round(Math.min(Math.abs(m.y - (t.y + t.height)), Math.abs(t.y - (m.y + m.height))));
-  };
+  const gap = () => page.evaluate(() => {   // measure both in one frame, so a scroll in progress cannot fall between them
+    const t = document.querySelector('[popovertarget="sort-menu"]').getBoundingClientRect(), m = document.getElementById('sort-menu').getBoundingClientRect();
+    return Math.round(Math.min(Math.abs(m.top - t.bottom), Math.abs(t.top - m.bottom)));
+  });
   const before = await gap();
   await page.mouse.wheel(0, 120);
-  await page.waitForTimeout(150);
-  expect(await gap()).toBe(before);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(0);
+  await expect.poll(gap, { timeout: 2000 }).toBe(before);
 });
 
 test('in right-to-left text the drop runs the same way as the native slider', async ({ page }) => {
@@ -678,4 +678,50 @@ test('a vertical toolbar stacks its controls to match its arrow keys', async ({ 
   await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Marker' })).toBeFocused();
   await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Eraser' })).toBeFocused();
   await bar.screenshot({ path: test.info().outputPath('vertical-toolbar.png') });
+});
+
+test('a menu shared by two buttons announces one choice and follows the button that opened it', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div'); host.style.cssText = 'display:flex; gap:200px';
+    host.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="shared-menu">First</button>
+      <button class="m-mat m-glass" type="button" popovertarget="shared-menu">Second</button>
+      <div class="m-menu" id="shared-menu" popover role="menu" aria-label="Shared">
+        <button class="m-menuitem" role="menuitem" type="button" value="a">Alpha</button>
+        <button class="m-menuitem" role="menuitem" type="button" value="b">Beta</button></div>`;
+    document.querySelector('main').prepend(host); enhance(host); enhance(host);   // enhancing twice must not wire twice
+    window.__picks = [];
+    host.addEventListener('menuselect', e => window.__picks.push(e.detail.value + ':' + e.detail.trigger.textContent));
+  });
+  const first = page.getByRole('button', { name: 'First' }), second = page.getByRole('button', { name: 'Second' });
+  await second.click();
+  await expect(page.getByRole('menuitem', { name: 'Alpha' })).toBeFocused();
+  expect(await first.getAttribute('aria-expanded')).toBe('false');
+  expect(await second.getAttribute('aria-expanded')).toBe('true');
+  const [b, m] = await Promise.all([second.boundingBox(), page.locator('#shared-menu').boundingBox()]);
+  const w = await page.evaluate(() => innerWidth);
+  expect(Math.abs(m.x - Math.min(b.x, w - m.width - 8))).toBeLessThan(2);   // aligned to Second, kept inside the window
+  await page.getByRole('menuitem', { name: 'Beta' }).click();
+  await expect(second).toBeFocused();
+  expect(await page.evaluate(() => window.__picks)).toEqual(['b:Second']);
+
+  await first.focus(); await page.keyboard.press('ArrowUp');
+  await expect(page.getByRole('menuitem', { name: 'Beta' })).toBeFocused();
+  expect(await first.getAttribute('aria-expanded')).toBe('true');
+  await page.keyboard.press('Enter');
+  await expect(first).toBeFocused();
+  expect(await page.evaluate(() => window.__picks)).toEqual(['b:Second', 'b:First']);
+});
+
+test('a menu is placed by its button before it is first painted', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const gap = await page.evaluate(() => {   // read synchronously: the toggle event has not run yet
+    const btn = document.querySelector('[popovertarget="sort-menu"]'), menu = document.getElementById('sort-menu');
+    btn.scrollIntoView({ block: 'center' });
+    btn.click();
+    const t = btn.getBoundingClientRect(), m = menu.getBoundingClientRect();
+    return Math.round(Math.min(Math.abs(m.top - t.bottom), Math.abs(t.top - m.bottom)));
+  });
+  expect(gap).toBeLessThanOrEqual(8);
 });

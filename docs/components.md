@@ -210,7 +210,7 @@ A short list of actions next to its button, built on the `popover` attribute: a 
 </div>
 ```
 
-The script positions the menu under its button (or above, near the bottom edge), sets `aria-expanded`, moves focus with the arrow keys, Home, End and the first letter of an item, and sends a `menuselect` event with the chosen item. Use a menu for actions; to choose a value, use a segmented control or radio buttons.
+The script positions the menu under its button (or above, near the bottom edge), sets `aria-expanded`, moves focus with the arrow keys, Home, End and the first letter of an item, and sends one `menuselect` event whose `detail` holds the chosen `item`, its `value` and the `trigger` that opened the menu. Several buttons may share one menu; it opens by, and returns focus to, whichever button opened it. Use a menu for actions; to choose a value, use a segmented control or radio buttons.
 
 ## Behaviour in script
 
