@@ -397,6 +397,7 @@ function wireToolbar(bar) {
 /* ---------- Dialog and sheet: native <dialog>, opened by any [data-m-open] button ---------- */
 function wireOpener(btn) {
   if (btn._wiredOpen) return; btn._wiredOpen = true;
+  if (btn.matches('button') && !btn.hasAttribute('type')) btn.type = 'button';   // inside a form, opening must not submit it
   btn.addEventListener('click', () => {
     const d = document.getElementById(btn.dataset.mOpen);
     if (d && typeof d.showModal === 'function' && !d.open) d.showModal();
@@ -433,7 +434,7 @@ function wireMenu(trigger) {
   trigger.setAttribute('aria-haspopup', 'menu'); trigger.setAttribute('aria-expanded', 'false');
   if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
   const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(i => !i.disabled);
-  items().forEach(i => { i.tabIndex = -1; });
+  items().forEach(i => { i.tabIndex = -1; if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button'; });
   let openAt = 'first';   // ArrowUp on the button opens at the last item
   const position = () => {
     const t = trigger.getBoundingClientRect(), m = menu.getBoundingClientRect(), gap = 6, pad = 8;

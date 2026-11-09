@@ -439,3 +439,24 @@ test.describe('text field before the script', () => {
     expect(await well.evaluate(w => { const s = getComputedStyle(w); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; })).toBe('solid 2');
   });
 });
+
+test('dialog openers and menu items inside a form do not submit it', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const submitted = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); let n = 0;
+    form.addEventListener('submit', e => { e.preventDefault(); n++; });
+    form.innerHTML = `<button class="m-mat m-glass" data-m-open="form-dialog">Open</button>
+      <dialog class="m-dialog" id="form-dialog" aria-label="Form dialog"><p>Hi</p></dialog>
+      <button class="m-mat m-glass" popovertarget="form-menu">Menu</button>
+      <div class="m-menu" id="form-menu" popover role="menu" aria-label="Form menu"><button class="m-menuitem" role="menuitem">Pick</button></div>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    form.querySelector('[data-m-open]').click();
+    form.querySelector('#form-dialog').close();
+    form.querySelector('#form-menu').showPopover();
+    form.querySelector('.m-menuitem').click();
+    return n;
+  });
+  expect(submitted).toBe(0);
+});
