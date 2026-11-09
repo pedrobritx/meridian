@@ -23,7 +23,7 @@ test('every target meets the context size', async ({ page }, info) => {
   const expected = info.project.name === 'phone' ? 48 : 40;
   const target = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--target')));
   expect(target).toBe(expected);
-  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind):not(.m-toolbar), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab, .m-menuitem')]
+  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind):not(.m-toolbar), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab, .m-menuitem, .m-sheet-grabber')]
     .filter(el => el.checkVisibility())
     .map(el => ({ el, r: el.getBoundingClientRect() }))
     .filter(({ el, r }) => r.height < t - .5 || (el.matches('.m-mat') && r.width < t - .5))
@@ -555,4 +555,20 @@ test('in right-to-left text the drop runs the same way as the native slider', as
     return t.left + t.width / 2 - s.left < s.width / 2 ? 'left' : 'right';
   });
   expect(side).toBe('left');   // the maximum sits on the left in right-to-left text
+});
+
+test('controls inside open overlays meet the context size too', async ({ page }, info) => {
+  const expected = info.project.name === 'phone' ? 48 : 40;
+  await open(page, 'motion=reduced');
+  const small = async () => page.evaluate(t => [...document.querySelectorAll('dialog[open] button, dialog[open] .m-seg-opt, dialog[open] .m-switch, :popover-open .m-menuitem')]
+    .filter(el => el.checkVisibility()).map(el => ({ el, r: el.getBoundingClientRect() }))
+    .filter(({ r }) => r.height < t - .5).map(({ el, r }) => `${el.className} ${(el.getAttribute('aria-label') || el.textContent).trim().slice(0, 24)} ${r.height.toFixed(0)}`), expected);
+  await page.locator('.row [data-m-open="reading-sheet"]').click();
+  expect(await small()).toEqual([]);
+  await page.keyboard.press('Escape');
+  await page.locator('[data-m-open="delete-dialog"]').click();
+  expect(await small()).toEqual([]);
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Sort by' }).click();
+  expect(await small()).toEqual([]);
 });

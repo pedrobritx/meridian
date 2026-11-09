@@ -281,8 +281,8 @@
   .m-sheet:not([open]) { transform: translateY(100%); }
   @starting-style { .m-sheet[open] { transform: translateY(100%); } }
   .m-sheet.is-dragging { transition: none; }
-  .m-sheet-grabber { display: block; width: 100%; height: 24px; margin: 0 0 var(--s2); padding: 0; border: 0; background: none; cursor: grab; touch-action: none; }
-  .m-sheet-grabber::before { content: ""; display: block; width: 36px; height: 5px; margin: 0 auto; border-radius: 999px; background: color-mix(in srgb, var(--ink) 24%, transparent); }
+  .m-sheet-grabber { display: grid; place-items: center; width: 100%; min-height: var(--target); margin: calc(var(--s3) * -1) 0 0; padding: 0; border: 0; background: none; cursor: grab; touch-action: none; }
+  .m-sheet-grabber::before { content: ""; display: block; width: 36px; height: 5px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 24%, transparent); }
   .m-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s3); }
   .m-sheet-head h2 { margin: 0; }
 
