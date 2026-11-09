@@ -332,11 +332,17 @@ function wireField(well) {
 }
 
 /* ---------- Tabs: the ARIA tabs pattern with automatic activation ---------- */
+/** Keyboard navigation skips controls that cannot take focus: disabled, inert or not rendered. */
+function canFocus(el) {
+  if (el.disabled || el.matches(':disabled') || el.closest('[inert]')) return false;   // :disabled also covers a disabled fieldset around it
+  return typeof el.checkVisibility === 'function' ? el.checkVisibility({ visibilityProperty: true }) : el.getClientRects().length > 0;
+}
+
 function wireTabs(tabs) {
-  if (tabs._wired) return; tabs._wired = true;
+  if (tabs._wired) { tabs._prepTabs?.(); return; } tabs._wired = true;   // enhancing again prepares tabs added since
   const list = tabs.querySelector('[role="tablist"]'); if (!list) return;
   const all = () => [...list.querySelectorAll('[role="tab"]')];
-  const usable = () => all().filter(t => !t.disabled);
+  const usable = () => all().filter(canFocus);
   const ind = document.createElement('span'); ind.className = 'm-mat m-ind'; ind.setAttribute('aria-hidden', 'true');
   list.prepend(ind); addBody(ind);
   let moving = false;
@@ -357,12 +363,14 @@ function wireTabs(tabs) {
     place(false);
     tabs.dispatchEvent(new CustomEvent('tabchange', { bubbles: true, detail: { tab } }));
   };
-  for (const t of all()) {
+  tabs._prepTabs = () => { for (const t of all()) {
+    if (t._wiredTab) continue; t._wiredTab = true;
     if (t.matches('button') && !t.hasAttribute('type')) t.type = 'button';   // inside a form, a tab must not submit it
     hoverable(t);
     t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
     t.addEventListener('click', () => { if (!t.disabled) select(t, false); });
-  }
+  } };
+  tabs._prepTabs();
   list.addEventListener('keydown', e => {
     const tabsNow = usable(); const i = tabsNow.indexOf(document.activeElement); if (i < 0) return;
     const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabsNow.length - 1 }[e.key];
@@ -373,6 +381,178 @@ function wireTabs(tabs) {
   tabs._place = place;
   place(true);
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => place(true)).observe(list);
+}
+
+/* ---------- Toolbar: one Tab stop; arrow keys, Home and End move between controls ---------- */
+const toolbarSyncs = new Set();
+let toolbarTabWatch = false;
+function wireToolbar(bar) {
+  if (bar._wiredBar) return; bar._wiredBar = true;
+  const candidates = () => [...bar.querySelectorAll('button, [href], input, select, textarea, [tabindex]')]
+    .filter(el => {
+      if (el.closest('.m-toolbar') !== bar) return false;
+      const overlay = el.closest('[popover], dialog');   // skip controls in an overlay inside the bar, not a bar inside an overlay
+      return !overlay || !bar.contains(overlay);
+    });
+  const usable = canFocus;
+  const items = () => candidates().filter(usable);
+  // The bar's one Tab stop must be a control that can take focus. Keep the current stop while it can;
+  // otherwise move it to the first usable control. Hidden and disabled controls are skipped by the arrow keys too.
+  const sync = () => {
+    const all = candidates(), list = all.filter(usable);
+    const stop = list.find(el => el.getAttribute('tabindex') === '0') || list[0];
+    all.forEach(el => { const t = el === stop ? 0 : -1; if (el.tabIndex !== t || !el.hasAttribute('tabindex')) el.tabIndex = t; });
+  };
+  sync();
+  toolbarSyncs.add(sync);
+  if (typeof MutationObserver === 'function') new MutationObserver(sync).observe(bar, { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden', 'disabled', 'inert', 'class'] });
+  if (!toolbarTabWatch) {   // a stop hidden some other way (inline style, a stylesheet) is caught as Tab is pressed
+    toolbarTabWatch = true;
+    document.addEventListener('keydown', e => { if (e.key === 'Tab') toolbarSyncs.forEach(f => f()); }, true);
+  }
+  bar.addEventListener('focusin', e => { if (!items().includes(e.target)) return; candidates().forEach(el => { el.tabIndex = el === e.target ? 0 : -1; }); });
+  let pending = null;   // a key a text field or slider may have had no use for, checked when it is released
+  bar.addEventListener('keydown', e => {
+    if (!e.repeat) pending = null;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
+    const vertical = bar.getAttribute('aria-orientation') === 'vertical';
+    const rtl = !vertical && getComputedStyle(bar).direction === 'rtl';
+    const el = document.activeElement, list = items(), i = list.indexOf(el); if (i < 0) return;
+    const next = vertical ? 'ArrowDown' : rtl ? 'ArrowLeft' : 'ArrowRight';
+    const prev = vertical ? 'ArrowUp' : rtl ? 'ArrowRight' : 'ArrowLeft';
+    const step = { [next]: i + 1, [prev]: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    if (step === undefined) return;
+    const go = () => list[(step + list.length) % list.length].focus();
+    // A text field or slider keeps the key for itself. The bar only takes it once the control
+    // has nothing left to do with it: the caret or the value is already at that end.
+    const where = editState(el);
+    if (where === null) { e.preventDefault(); go(); return; }
+    if (!e.repeat) pending = { key: e.key, el, where, go };   // holding a key to reach the end must not carry focus out
+  });
+  bar.addEventListener('keyup', e => {
+    const p = pending; if (!p || p.key !== e.key) return; pending = null;
+    if (document.activeElement === p.el && editState(p.el) === p.where) p.go();
+  });
+}
+const TEXT_TYPES = new Set(['text', 'search', 'url', 'tel', 'password']);
+function editState(el) {
+  if (el.matches('input[type="range" i]')) return el.value;
+  if (el.matches('textarea') || (el.matches('input') && TEXT_TYPES.has(el.type))) return `${el.value}|${el.selectionStart}|${el.selectionEnd}`;
+  if (el.isContentEditable) {
+    const sel = getSelection(); if (!sel || !sel.rangeCount) return el.textContent;
+    const r = sel.getRangeAt(0), upTo = (node, offset) => { const x = document.createRange(); x.selectNodeContents(el); x.setEnd(node, offset); return x.toString().length; };
+    return `${el.textContent}|${upTo(r.startContainer, r.startOffset)}|${upTo(r.endContainer, r.endOffset)}`;
+  }
+  return null;
+}
+
+/* ---------- Dialog and sheet: native <dialog>, opened by any [data-m-open] button ---------- */
+function wireOpener(btn) {
+  if (btn._wiredOpen) return; btn._wiredOpen = true;
+  if (btn.matches('button') && !btn.hasAttribute('type')) btn.type = 'button';   // inside a form, opening must not submit it
+  btn.addEventListener('click', () => {
+    const d = document.getElementById(btn.dataset.mOpen);
+    if (d && typeof d.showModal === 'function' && !d.open) d.showModal();
+  });
+}
+function wireSheet(sheet) {
+  if (sheet._wiredSheet) return; sheet._wiredSheet = true;
+  // Light dismiss: a click on the backdrop closes a sheet. Dialogs keep their decision until it is made.
+  sheet.addEventListener('click', e => {
+    if (e.target !== sheet) return;
+    const r = sheet.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) sheet.close();
+  });
+  const grab = sheet.querySelector('.m-sheet-grabber'); if (!grab) return;
+  // Drag down on the grabber to dismiss; let go early and it springs back. Arrow keys on the grabber do the same.
+  let y0 = 0, dy = 0, dragging = false;
+  const back = new Spring(0, SPRING.release, v => sheet.style.setProperty('--m-drag', `${Math.max(0, v).toFixed(1)}px`));
+  grab.addEventListener('pointerdown', e => { dragging = true; y0 = e.clientY; dy = 0; grab.setPointerCapture(e.pointerId); sheet.classList.add('is-dragging'); });
+  grab.addEventListener('pointermove', e => { if (!dragging) return; dy = Math.max(0, e.clientY - y0); back.jump(dy); });
+  const end = () => {
+    if (!dragging) return; dragging = false; sheet.classList.remove('is-dragging');
+    if (dy > Math.min(120, sheet.offsetHeight * .3)) { sheet.close(); back.jump(0); }
+    else { back.x = dy; back.to(0); }
+  };
+  grab.addEventListener('pointerup', end); grab.addEventListener('pointercancel', end);
+  grab.addEventListener('click', e => { if (e.detail === 0 || dy < 4) sheet.close(); dy = 0; });   // detail 0: Enter or Space
+}
+
+/* ---------- Menu: a popover with the ARIA menu keys ---------- */
+function wireMenu(trigger) {
+  const menu = document.getElementById(trigger.getAttribute('popovertarget'));
+  if (!menu || !('popover' in HTMLElement.prototype)) return;
+  // Several buttons may open one menu (native popovers allow it). The menu is wired once;
+  // each button only records itself as the opener, so a choice is announced once and focus
+  // and position follow the button that opened it.
+  const state = menu._menu || (menu._menu = wireMenuPopover(menu));
+  state.prepItems();   // items added since the last enhance get the same treatment
+  if (trigger._wiredMenu) return; trigger._wiredMenu = true;
+  state.triggers.add(trigger);
+  trigger.setAttribute('aria-haspopup', 'menu'); trigger.setAttribute('aria-expanded', 'false');
+  trigger.addEventListener('click', () => { if (!menu.matches(':popover-open')) state.trigger = trigger; });
+  trigger.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    e.preventDefault();
+    state.openAt = e.key === 'ArrowUp' ? 'last' : 'first';
+    if (menu.matches(':popover-open') && state.trigger !== trigger) menu.hidePopover();
+    state.trigger = trigger;
+    if (!menu.matches(':popover-open')) menu.showPopover();
+    else { state.focusItem(); }
+  });
+}
+function wireMenuPopover(menu) {
+  const state = { trigger: null, triggers: new Set(), openAt: 'first' };   // openAt: ArrowUp on the button opens at the last item
+  const opener = () => state.trigger || state.triggers.values().next().value;
+  if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
+  const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(canFocus);
+  // Every item, shown or not: inside a form an item must not submit it, and only the arrow keys reach it.
+  state.prepItems = () => menu.querySelectorAll('[role^="menuitem"]').forEach(i => {
+    if (i.getAttribute('tabindex') !== '-1') i.tabIndex = -1;
+    if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button';
+  });
+  state.focusItem = () => { (state.openAt === 'last' ? items().at(-1) : items()[0])?.focus(); state.openAt = 'first'; };
+  let size = { width: 0, height: 0 };   // a closed menu has no size, so the last open size stands in for it
+  const position = () => {
+    const btn = opener(); if (!btn) return;
+    const r = menu.getBoundingClientRect(); if (r.height) size = { width: r.width, height: r.height };
+    const t = btn.getBoundingClientRect(), m = size, gap = 6, pad = 8;
+    const below = t.bottom + gap + m.height <= innerHeight - pad || t.top - gap - m.height < pad;
+    let left = Math.min(Math.max(pad, t.left), innerWidth - m.width - pad);
+    const top = below ? t.bottom + gap : t.top - gap - m.height;
+    menu.style.left = `${left}px`; menu.style.top = `${Math.max(pad, top)}px`;
+    menu.style.setProperty('--m-origin', `${t.left + t.width / 2 - left}px ${below ? 'top' : 'bottom'}`);
+  };
+  // While open, the menu follows its button when the page scrolls or the window changes size.
+  let frame = 0;
+  const follow = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; if (menu.matches(':popover-open')) position(); }); };
+  // Place the menu by its button before it is first painted, then again once its size is known.
+  menu.addEventListener('beforetoggle', e => { if (e.newState === 'open') { state.prepItems(); position(); } });
+  menu.addEventListener('toggle', e => {
+    const open = e.newState === 'open', btn = opener();
+    state.triggers.forEach(t => t.setAttribute('aria-expanded', String(open && t === btn)));
+    if (open) { addEventListener('scroll', follow, { capture: true, passive: true }); addEventListener('resize', follow); }
+    else { removeEventListener('scroll', follow, { capture: true }); removeEventListener('resize', follow); }
+    if (open) { position(); state.focusItem(); }
+    else if (menu.contains(document.activeElement) || document.activeElement === document.body) btn?.focus();
+  });
+  menu.addEventListener('keydown', e => {
+    const list = items(), i = list.indexOf(document.activeElement);
+    const next = { ArrowDown: i + 1, ArrowUp: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    if (next !== undefined) { e.preventDefault(); list[(next + list.length) % list.length].focus(); return; }
+    if (e.key === 'Tab') { menu.hidePopover(); return; }
+    if (e.key.length === 1 && /\S/.test(e.key)) {   // type-ahead: the next item starting with that letter
+      const k = e.key.toLowerCase(), order = [...list.slice(i + 1), ...list.slice(0, i + 1)];
+      order.find(it => it.textContent.trim().toLowerCase().startsWith(k))?.focus();
+    }
+  });
+  menu.addEventListener('click', e => {
+    const item = e.target.closest('[role^="menuitem"]'); if (!item || item.disabled) return;
+    // Close and return focus first, so a dialog opened by the handler returns focus to the button, not to a hidden item.
+    menu.hidePopover(); opener()?.focus();
+    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim(), trigger: opener() } }));
+  });
+  return state;
 }
 
 /** Re-place indicators after a value is changed from script (a change event does it automatically). */
@@ -392,4 +572,8 @@ export function enhance(root = document) {
   root.querySelectorAll('.m-switch').forEach(wireSwitch);
   root.querySelectorAll('.m-slider').forEach(wireSlider);
   root.querySelectorAll('.m-tabs').forEach(wireTabs);
+  root.querySelectorAll('.m-toolbar').forEach(wireToolbar);
+  root.querySelectorAll('[data-m-open]').forEach(wireOpener);
+  root.querySelectorAll('dialog.m-sheet').forEach(wireSheet);
+  root.querySelectorAll('[popovertarget]').forEach(t => { if (document.getElementById(t.getAttribute('popovertarget'))?.classList.contains('m-menu')) wireMenu(t); });
 }

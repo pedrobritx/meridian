@@ -23,7 +23,8 @@ test('every target meets the context size', async ({ page }, info) => {
   const expected = info.project.name === 'phone' ? 48 : 40;
   const target = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--target')));
   expect(target).toBe(expected);
-  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab')]
+  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind):not(.m-toolbar), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab, .m-menuitem, .m-sheet-grabber')]
+    .filter(el => el.checkVisibility())
     .map(el => ({ el, r: el.getBoundingClientRect() }))
     .filter(({ el, r }) => r.height < t - .5 || (el.matches('.m-mat') && r.width < t - .5))
     .map(({ el, r }) => `${el.className} ${el.textContent.trim().slice(0, 20)} ${r.width.toFixed(0)}×${r.height.toFixed(0)}`), target);
@@ -176,6 +177,107 @@ test('tabs: arrow keys, Home and End select tabs and show their panels', async (
   }), { timeout: 2000 }).toBe(true);
 });
 
+test('toolbar: one Tab stop, arrow keys, Home and End', async ({ page }) => {
+  await open(page);
+  const bar = page.getByRole('toolbar', { name: 'Article' });
+  await bar.getByRole('button', { name: 'Back' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(bar.getByRole('button', { name: 'Reading options' })).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(bar.getByRole('button', { name: 'More' })).toBeFocused();
+  await page.keyboard.press('ArrowRight');
+  await expect(bar.getByRole('button', { name: 'Back' })).toBeFocused();
+  const stops = await bar.evaluate(b => [...b.querySelectorAll('button')].filter(x => x.tabIndex === 0).length);
+  expect(stops).toBe(1);
+});
+
+test('dialog: focus moves in, Escape closes, focus returns to its opener', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const opener = page.locator('[data-m-open="delete-dialog"]');
+  await opener.click();
+  const dialog = page.getByRole('dialog', { name: 'Delete this note?' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAccessibleDescription(/cannot be undone/);
+  await expect(dialog.getByRole('button', { name: 'Keep note' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+  await opener.click();
+  await dialog.getByRole('button', { name: 'Delete' }).click();
+  await expect(page.locator('#overlay-out')).toContainText('Note deleted');
+});
+
+test('sheet: opens from its button, closes on the backdrop and with Escape', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const opener = page.locator('.row [data-m-open="reading-sheet"]');
+  await opener.click();
+  const sheet = page.getByRole('dialog', { name: 'Reading options' });
+  await expect(sheet).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(sheet).toBeHidden();
+  await expect(opener).toBeFocused();
+  await opener.click();
+  await expect(sheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(sheet).toBeHidden();
+});
+
+test('menu: opens on its button, arrow keys move, Escape returns focus, choosing closes', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+  await trigger.click();
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(menu.getByRole('menuitem', { name: 'Newest first' })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(menu.getByRole('menuitem', { name: 'Oldest first' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(menu).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await trigger.click();
+  await expect(menu.getByRole('menuitem', { name: 'Newest first' })).toBeFocused();
+  await page.keyboard.press('t');
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(menu).toBeHidden();
+  await expect(page.locator('#overlay-out')).toHaveText('Sorted: Title.');
+});
+
+test('menu inside the toolbar can open the dialog; disabled items are skipped', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'More' }).click();
+  const menu = page.getByRole('menu', { name: 'More' });
+  await expect(menu.getByRole('menuitem', { name: 'Copy link' })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('ArrowDown');
+  await expect(menu.getByRole('menuitem', { name: 'Delete note…' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog', { name: 'Delete this note?' })).toBeVisible();
+});
+
+test('overlays have no WCAG 2.2 AA violations', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'checked on Desk');
+  for (const [open_, name] of [['[data-m-open="delete-dialog"]', 'dialog'], ['.row [data-m-open="reading-sheet"]', 'sheet']]) {
+    await open(page, 'env=canyon&appearance=dusk&motion=reduced');
+    await page.locator(open_).click();
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
+    expect(results.violations.map(v => `${name} ${v.id}`)).toEqual([]);
+  }
+  await open(page, 'env=canyon&appearance=dawn&motion=reduced');
+  await page.getByRole('button', { name: 'Sort by' }).click();
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
+  expect(results.violations.map(v => `menu ${v.id}`)).toEqual([]);
+});
+
+test('nothing overflows the page sideways', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const widths = await page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
+  expect(widths[0]).toBeLessThanOrEqual(widths[1]);
+});
+
 test('a form reset puts segmented controls and switches back in step', async ({ page }) => {
   await open(page);
   const state = await page.evaluate(async () => {
@@ -234,6 +336,35 @@ test('a form reset puts the slider back in step', async ({ page }) => {
     return +parseFloat(form.querySelector('.m-slider').style.getPropertyValue('--m-value')).toFixed(2);
   });
   expect(value).toBe(.2);
+});
+
+test('menu: ArrowUp on its button opens it at the last item', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await trigger.focus();
+  await page.keyboard.press('ArrowUp');
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+  await page.waitForTimeout(150);
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+});
+
+test('sheet: after a short drag, the grabber still closes it from the keyboard', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'pointer drag is checked on Desk');
+  await open(page, 'motion=reduced');
+  await page.locator('.row [data-m-open="reading-sheet"]').click();
+  const sheet = page.getByRole('dialog', { name: 'Reading options' });
+  const grab = sheet.getByRole('button', { name: 'Close reading options' });
+  const box = await grab.boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 30, { steps: 4 });
+  await page.mouse.up();
+  await expect(sheet).toBeVisible();
+  await grab.focus();
+  await page.keyboard.press('Enter');
+  await expect(sheet).toBeHidden();
 });
 
 test('a segmented control left with no choice hides its drop', async ({ page }) => {
@@ -309,6 +440,27 @@ test.describe('text field before the script', () => {
   });
 });
 
+test('dialog openers and menu items inside a form do not submit it', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const submitted = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); let n = 0;
+    form.addEventListener('submit', e => { e.preventDefault(); n++; });
+    form.innerHTML = `<button class="m-mat m-glass" data-m-open="form-dialog">Open</button>
+      <dialog class="m-dialog" id="form-dialog" aria-label="Form dialog"><p>Hi</p></dialog>
+      <button class="m-mat m-glass" popovertarget="form-menu">Menu</button>
+      <div class="m-menu" id="form-menu" popover role="menu" aria-label="Form menu"><button class="m-menuitem" role="menuitem">Pick</button></div>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    form.querySelector('[data-m-open]').click();
+    form.querySelector('#form-dialog').close();
+    form.querySelector('#form-menu').showPopover();
+    form.querySelector('.m-menuitem').click();
+    return n;
+  });
+  expect(submitted).toBe(0);
+});
+
 test('an invalid field still shows where focus is', async ({ page }) => {
   await open(page, 'motion=reduced');
   await page.getByRole('button', { name: 'Save note' }).click();
@@ -330,6 +482,38 @@ test('slider follows a value set from script with a change event', async ({ page
   expect(value).toBe(1);
 });
 
+test('a toolbar inside a dialog keeps its single Tab stop and arrow keys', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const result = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const d = document.createElement('dialog'); d.className = 'm-dialog'; d.setAttribute('aria-label', 'Editor');
+    d.innerHTML = `<div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Format">
+      <button class="m-mat m-quiet" type="button">Bold</button><button class="m-mat m-quiet" type="button">Italic</button></div>`;
+    document.body.append(d); enhance(d); d.showModal();
+    const [b, i] = d.querySelectorAll('button');
+    return [b.tabIndex, i.tabIndex];
+  });
+  expect(result).toEqual([0, -1]);
+  await page.getByRole('toolbar', { name: 'Format' }).getByRole('button', { name: 'Bold' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('button', { name: 'Italic' })).toBeFocused();
+});
+
+test('a dialog opened from a menu returns focus to the menu button', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const more = page.getByRole('button', { name: 'More' });
+  await more.click();
+  const menu = page.getByRole('menu', { name: 'More' });
+  await expect(menu.getByRole('menuitem', { name: 'Copy link' })).toBeFocused();
+  await page.keyboard.press('End');
+  await page.keyboard.press('Enter');
+  const dialog = page.getByRole('dialog', { name: 'Delete this note?' });
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(more).toBeFocused();
+});
+
 test('a radio group with no choice looks unchosen (radios are never indeterminate)', async ({ page }) => {
   await open(page, 'motion=reduced');
   const looks = await page.evaluate(() => {
@@ -341,6 +525,22 @@ test('a radio group with no choice looks unchosen (radios are never indeterminat
     return { indeterminate: r.matches(':indeterminate'), filled: getComputedStyle(r).backgroundColor === getComputedStyle(probe).color };
   });
   expect(looks).toEqual({ indeterminate: true, filled: false });
+});
+
+test('an open menu follows its button when the page scrolls', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await trigger.click();
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  const gap = () => page.evaluate(() => {   // measure both in one frame, so a scroll in progress cannot fall between them
+    const t = document.querySelector('[popovertarget="sort-menu"]').getBoundingClientRect(), m = document.getElementById('sort-menu').getBoundingClientRect();
+    return Math.round(Math.min(Math.abs(m.top - t.bottom), Math.abs(t.top - m.bottom)));
+  });
+  const before = await gap();
+  await page.mouse.wheel(0, 120);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(0);
+  await expect.poll(gap, { timeout: 2000 }).toBe(before);
 });
 
 test('in right-to-left text the drop runs the same way as the native slider', async ({ page }) => {
@@ -355,4 +555,261 @@ test('in right-to-left text the drop runs the same way as the native slider', as
     return t.left + t.width / 2 - s.left < s.width / 2 ? 'left' : 'right';
   });
   expect(side).toBe('left');   // the maximum sits on the left in right-to-left text
+});
+
+test('controls inside open overlays meet the context size too', async ({ page }, info) => {
+  const expected = info.project.name === 'phone' ? 48 : 40;
+  await open(page, 'motion=reduced');
+  const small = async () => page.evaluate(t => [...document.querySelectorAll('dialog[open] button, dialog[open] .m-seg-opt, dialog[open] .m-switch, :popover-open .m-menuitem')]
+    .filter(el => el.checkVisibility()).map(el => ({ el, r: el.getBoundingClientRect() }))
+    .filter(({ r }) => r.height < t - .5).map(({ el, r }) => `${el.className} ${(el.getAttribute('aria-label') || el.textContent).trim().slice(0, 24)} ${r.height.toFixed(0)}`), expected);
+  await page.locator('.row [data-m-open="reading-sheet"]').click();
+  expect(await small()).toEqual([]);
+  await page.keyboard.press('Escape');
+  await page.locator('[data-m-open="delete-dialog"]').click();
+  expect(await small()).toEqual([]);
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Sort by' }).click();
+  expect(await small()).toEqual([]);
+});
+
+test('text fields and sliders inside a toolbar keep their editing keys until they reach an end', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const bar = document.createElement('div');
+    bar.className = 'm-mat m-glass m-surface m-toolbar'; bar.setAttribute('role', 'toolbar'); bar.setAttribute('aria-label', 'Find');
+    bar.innerHTML = `<button class="m-mat m-quiet" type="button">Back</button>
+      <input aria-label="Search" value="glow">
+      <input type="range" aria-label="Zoom" min="0" max="2" value="1">
+      <button class="m-mat m-quiet" type="button">Done</button>`;
+    const host = document.createElement('div'); host.append(bar); document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Find' });
+  const search = bar.getByRole('textbox', { name: 'Search' }), zoom = bar.getByRole('slider', { name: 'Zoom' });
+  const caret = () => search.evaluate(el => el.selectionStart);
+
+  await search.focus(); await search.evaluate(el => el.setSelectionRange(4, 4));
+  await page.keyboard.press('ArrowLeft'); expect(await caret()).toBe(3); await expect(search).toBeFocused();
+  await page.keyboard.press('Home'); expect(await caret()).toBe(0); await expect(search).toBeFocused();
+  await page.keyboard.press('End'); expect(await caret()).toBe(4); await expect(search).toBeFocused();
+  await page.keyboard.press('Shift+ArrowLeft'); await expect(search).toBeFocused();   // selection keys stay with the field
+  await page.keyboard.press('End');
+  await page.keyboard.press('ArrowRight'); await expect(zoom).toBeFocused();          // caret already at the end: the bar moves on
+
+  await page.keyboard.press('ArrowRight'); expect(await zoom.inputValue()).toBe('2'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('ArrowLeft'); expect(await zoom.inputValue()).toBe('1'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('End'); expect(await zoom.inputValue()).toBe('2'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Done' })).toBeFocused();
+
+  await page.keyboard.press('Home'); await expect(bar.getByRole('button', { name: 'Back' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(search).toBeFocused();
+});
+
+test('arrow keys follow the visual order of a right-to-left toolbar', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const bar = document.createElement('div'); bar.dir = 'rtl';
+    bar.className = 'm-mat m-glass m-surface m-toolbar'; bar.setAttribute('role', 'toolbar'); bar.setAttribute('aria-label', 'RTL');
+    bar.innerHTML = '<button class="m-mat m-quiet" type="button">One</button><button class="m-mat m-quiet" type="button">Two</button>';
+    const host = document.createElement('div'); host.append(bar); document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'RTL' });
+  await bar.getByRole('button', { name: 'One' }).focus();
+  await page.keyboard.press('ArrowLeft'); await expect(bar.getByRole('button', { name: 'Two' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'One' })).toBeFocused();
+});
+
+test('hidden toolbar controls are skipped and never hold the Tab stop', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button type="button">Before</button>
+      <div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Edit">
+        <button class="m-mat m-quiet" type="button" hidden>Undo</button>
+        <button class="m-mat m-quiet" type="button">Cut</button>
+        <button class="m-mat m-quiet" type="button" hidden>Copy</button>
+        <button class="m-mat m-quiet" type="button">Paste</button>
+      </div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Edit' });
+  const btn = name => bar.getByRole('button', { name, includeHidden: true });
+  const before = page.getByRole('button', { name: 'Before' });
+  expect(await bar.evaluate(b => [...b.querySelectorAll('button')].map(x => x.tabIndex))).toEqual([-1, 0, -1, -1]);
+
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Cut')).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(btn('Paste')).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(btn('Cut')).toBeFocused();
+  await page.keyboard.press('End'); await expect(btn('Paste')).toBeFocused();
+
+  await btn('Copy').evaluate(el => { el.hidden = false; });
+  await page.keyboard.press('ArrowLeft'); await expect(btn('Copy')).toBeFocused();
+
+  await btn('Copy').evaluate(el => { el.hidden = true; });                // the stop itself disappears
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Cut')).toBeFocused();
+
+  await btn('Cut').evaluate(el => { el.style.display = 'none'; });       // hidden in a way no attribute shows
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Paste')).toBeFocused();
+});
+
+test('a vertical toolbar stacks its controls to match its arrow keys', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Tools" aria-orientation="vertical">
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Pen">P</button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Marker">M</button>
+      <span class="m-toolbar-sep" aria-hidden="true"></span>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Eraser">E</button></div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Tools' });
+  const boxes = await bar.evaluate(b => [...b.querySelectorAll(':scope > button, :scope > .m-toolbar-sep')].map(el => el.getBoundingClientRect().toJSON()));
+  for (let i = 1; i < boxes.length; i++) expect(boxes[i].top).toBeGreaterThanOrEqual(boxes[i - 1].bottom - 0.5);
+  const lefts = boxes.filter((_, i) => i !== 2).map(b => b.left);   // the buttons share one column
+  expect(Math.max(...lefts) - Math.min(...lefts)).toBeLessThan(2);
+  expect(boxes[2].height).toBeLessThanOrEqual(1.5);
+  expect(boxes[2].width).toBeGreaterThan(8);
+  await bar.getByRole('button', { name: 'Pen' }).focus();
+  await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Marker' })).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(bar.getByRole('button', { name: 'Eraser' })).toBeFocused();
+  await bar.screenshot({ path: test.info().outputPath('vertical-toolbar.png') });
+});
+
+test('a menu shared by two buttons announces one choice and follows the button that opened it', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div'); host.style.cssText = 'display:flex; gap:200px';
+    host.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="shared-menu">First</button>
+      <button class="m-mat m-glass" type="button" popovertarget="shared-menu">Second</button>
+      <div class="m-menu" id="shared-menu" popover role="menu" aria-label="Shared">
+        <button class="m-menuitem" role="menuitem" type="button" value="a">Alpha</button>
+        <button class="m-menuitem" role="menuitem" type="button" value="b">Beta</button></div>`;
+    document.querySelector('main').prepend(host); enhance(host); enhance(host);   // enhancing twice must not wire twice
+    window.__picks = [];
+    host.addEventListener('menuselect', e => window.__picks.push(e.detail.value + ':' + e.detail.trigger.textContent));
+  });
+  const first = page.getByRole('button', { name: 'First' }), second = page.getByRole('button', { name: 'Second' });
+  await second.click();
+  await expect(page.getByRole('menuitem', { name: 'Alpha' })).toBeFocused();
+  expect(await first.getAttribute('aria-expanded')).toBe('false');
+  expect(await second.getAttribute('aria-expanded')).toBe('true');
+  const [b, m] = await Promise.all([second.boundingBox(), page.locator('#shared-menu').boundingBox()]);
+  const w = await page.evaluate(() => innerWidth);
+  expect(Math.abs(m.x - Math.min(b.x, w - m.width - 8))).toBeLessThan(2);   // aligned to Second, kept inside the window
+  await page.getByRole('menuitem', { name: 'Beta' }).click();
+  await expect(second).toBeFocused();
+  expect(await page.evaluate(() => window.__picks)).toEqual(['b:Second']);
+
+  await first.focus(); await page.keyboard.press('ArrowUp');
+  await expect(page.getByRole('menuitem', { name: 'Beta' })).toBeFocused();
+  expect(await first.getAttribute('aria-expanded')).toBe('true');
+  await page.keyboard.press('Enter');
+  await expect(first).toBeFocused();
+  expect(await page.evaluate(() => window.__picks)).toEqual(['b:Second', 'b:First']);
+});
+
+test('a menu is placed by its button before it is first painted', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const gap = await page.evaluate(() => {   // read synchronously: the toggle event has not run yet
+    const btn = document.querySelector('[popovertarget="sort-menu"]'), menu = document.getElementById('sort-menu');
+    btn.scrollIntoView({ block: 'center' });
+    btn.click();
+    const t = btn.getBoundingClientRect(), m = menu.getBoundingClientRect();
+    return Math.round(Math.min(Math.abs(m.top - t.bottom), Math.abs(t.top - m.bottom)));
+  });
+  expect(gap).toBeLessThanOrEqual(8);
+});
+
+test('menus and tabs skip hidden items', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="hide-menu">Actions</button>
+      <div class="m-menu" id="hide-menu" popover role="menu" aria-label="Actions">
+        <button class="m-menuitem" role="menuitem" hidden>Archive</button>
+        <button class="m-menuitem" role="menuitem">Rename</button>
+        <button class="m-menuitem" role="menuitem" style="display:none">Duplicate</button>
+        <button class="m-menuitem" role="menuitem">Delete</button></div>
+      <div class="m-tabs"><div class="m-mat m-quiet m-tablist" role="tablist" aria-label="Views">
+        <button class="m-tab" role="tab" aria-selected="true">Day</button>
+        <button class="m-tab" role="tab" aria-selected="false" hidden>Week</button>
+        <button class="m-tab" role="tab" aria-selected="false">Month</button></div></div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const item = name => page.getByRole('menuitem', { name, exact: true, includeHidden: true });
+  expect(await page.locator('#hide-menu [hidden], .m-tab[hidden]').evaluateAll(els => els.map(el => getComputedStyle(el).display))).toEqual(['none', 'none']);
+  expect(await page.locator('#hide-menu [role="menuitem"]').evaluateAll(els => els.map(el => [el.tabIndex, el.type]))).toEqual([[-1, 'button'], [-1, 'button'], [-1, 'button'], [-1, 'button']]);
+  await page.getByRole('button', { name: 'Actions' }).click();
+  await expect(item('Rename')).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(item('Delete')).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(item('Rename')).toBeFocused();
+  await page.keyboard.press('a'); await expect(item('Rename')).toBeFocused();   // type-ahead ignores the hidden Archive
+  await page.keyboard.press('Escape');
+
+  const tab = name => page.getByRole('tab', { name, exact: true, includeHidden: true });
+  await tab('Day').focus();
+  await page.keyboard.press('ArrowRight'); await expect(tab('Month')).toBeFocused();
+  expect(await tab('Week').getAttribute('aria-selected')).toBe('false');
+});
+
+test('items added after enhancing are prepared like the first ones', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); form.id = 'late-form';
+    form.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="late-menu">Insert</button>
+      <div class="m-menu" id="late-menu" popover role="menu" aria-label="Insert">
+        <button class="m-menuitem" role="menuitem">Table</button></div>
+      <div class="m-tabs"><div class="m-tablist" role="tablist" aria-label="Late">
+        <button class="m-tab" role="tab" aria-selected="true">One</button></div></div>`;
+    document.querySelector('main').prepend(form); enhance(form);
+    window.__late = { submits: 0, picks: [] };
+    form.addEventListener('submit', e => { e.preventDefault(); window.__late.submits++; });
+    form.addEventListener('menuselect', e => window.__late.picks.push(e.detail.value));
+    const add = (sel, html) => form.querySelector(sel).insertAdjacentHTML('beforeend', html);
+    add('#late-menu', '<button class="m-menuitem" role="menuitem">Chart</button>');
+    add('[role="tablist"]', '<button class="m-tab" role="tab" aria-selected="false">Two</button>');
+    enhance(form);   // enhancing again prepares the new menu item and tab, and wires nothing twice
+    add('#late-menu', '<button class="m-menuitem" role="menuitem">Image</button>');   // added with no enhance at all
+  });
+  await page.getByRole('button', { name: 'Insert', exact: true }).click();
+  const menuitems = page.locator('#late-menu [role="menuitem"]');
+  expect(await menuitems.evaluateAll(els => els.map(el => [el.type, el.tabIndex]))).toEqual([['button', -1], ['button', -1], ['button', -1]]);
+  await page.getByRole('menuitem', { name: 'Chart' }).click();
+  await page.getByRole('button', { name: 'Insert', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Image' }).click();
+  expect(await page.evaluate(() => window.__late)).toEqual({ submits: 0, picks: ['Chart', 'Image'] });
+
+  const two = page.getByRole('tab', { name: 'Two', exact: true });
+  expect(await two.evaluate(el => [el.type, el.tabIndex])).toEqual(['button', -1]);
+  await two.click();
+  await expect(two).toHaveAttribute('aria-selected', 'true');
+  expect(await page.evaluate(() => window.__late.submits)).toBe(0);
+});
+
+test('controls in a disabled fieldset are skipped and never hold the Tab stop', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button type="button">Ahead</button>
+      <div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Format">
+        <fieldset disabled style="display:contents"><button class="m-mat m-quiet" type="button">Bold</button></fieldset>
+        <button class="m-mat m-quiet" type="button">Italic</button>
+        <button class="m-mat m-quiet" type="button">Underline</button>
+      </div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Format' });
+  await page.getByRole('button', { name: 'Ahead' }).focus();
+  await page.keyboard.press('Tab'); await expect(bar.getByRole('button', { name: 'Italic' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Underline' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Italic' })).toBeFocused();
 });

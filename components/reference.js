@@ -67,3 +67,22 @@ form?.addEventListener('submit', e => {
   else { title.removeAttribute('aria-invalid'); titleMsg.hidden = true; }
 });
 title?.addEventListener('input', () => { if (title.value.trim()) { title.removeAttribute('aria-invalid'); titleMsg.hidden = true; } });
+
+// Menus, dialog and sheet results.
+const toolbarOut = document.querySelector('#toolbar-out'), overlayOut = document.querySelector('#overlay-out');
+const dialog = document.querySelector('#delete-dialog');
+document.addEventListener('menuselect', e => {
+  const { value } = e.detail;
+  if (e.target.id === 'more-menu') {
+    if (value === 'delete') dialog.showModal();
+    else toolbarOut.textContent = `${e.detail.item.textContent.trim()} chosen.`;
+  } else {
+    overlayOut.textContent = `Sorted: ${e.detail.item.textContent.trim()}.`;
+  }
+});
+dialog?.addEventListener('close', () => {
+  overlayOut.textContent = dialog.returnValue === 'delete' ? 'Note deleted (not really: this is a reference page).' : 'Note kept.';
+  dialog.returnValue = '';
+});
+// A sheet's segmented control sits in a closed dialog at first; place its drop when the sheet opens.
+document.querySelector('#reading-sheet')?.addEventListener('toggle', e => { if (e.newState === 'open') requestAnimationFrame(() => refresh(e.target)); });

@@ -29,10 +29,12 @@ test('no blend modes', () => {
 });
 
 test('every interactive component shows a focus ring', () => {
-  for (const sel of ['.m-mat:focus-visible', '.m-seg-opt:has(input:focus-visible)', '.m-switch:has(input:focus-visible)', '.m-slider:has(input:focus-visible)', '.m-check > input:focus-visible', '.m-tab:focus-visible', '.m-well:focus-within > .m-body::after']) {
-    const at = code.indexOf(sel);
-    assert.ok(at >= 0, `missing ${sel}`);
-    assert.match(code.slice(at, code.indexOf('}', at)), /(outline: 2px solid|background): var\(--focus\)|outline: 2px solid var\(--focus\)/, sel);
+  for (const sel of ['.m-mat:focus-visible', '.m-seg-opt:has(input:focus-visible)', '.m-switch:has(input:focus-visible)', '.m-slider:has(input:focus-visible)', '.m-check > input:focus-visible', '.m-tab:focus-visible', '.m-well:focus-within > .m-body::after', '.m-menuitem:focus-visible']) {
+    // Some selectors also appear in grouped rules (hover and focus share a fill); one of their rules must draw the ring.
+    const bodies = [];
+    for (let at = code.indexOf(sel); at >= 0; at = code.indexOf(sel, at + 1)) bodies.push(code.slice(code.indexOf('{', at), code.indexOf('}', at)));
+    assert.ok(bodies.length, `missing ${sel}`);
+    assert.ok(bodies.some(b => /outline: 2px solid var\(--focus\)|background: var\(--focus\)/.test(b)), `${sel} draws no focus ring`);
   }
 });
 
@@ -46,6 +48,7 @@ test('targets come from the context token', () => {
   assert.match(rule('.m-check'), /min-height: var\(--target\)/);
   assert.match(code, /\.m-well input, \.m-well textarea \{[^}]*min-height: var\(--target\)/);
   assert.match(code, /\.m-tab \{[^}]*min-height: var\(--target\)/);
+  assert.match(code, /\.m-menuitem \{[^}]*min-height: var\(--target\)/);
 });
 
 test('looping motion stops with reduced motion, from the system or the page', () => {
@@ -56,4 +59,8 @@ test('looping motion stops with reduced motion, from the system or the page', ()
 
 test('components sit in the Meridian cascade layer', () => {
   assert.match(code, /^\s*@layer meridian\.components \{/);
+});
+
+test('overlays are thick enough to read over anything, and fall back to solid', () => {
+  assert.match(code, /\.m-dialog, \.m-sheet, \.m-menu \{\s*background: rgb\(var\(--glass-rgb\) \/ max\(var\(--glass-a\), \.86\)\)/);
 });

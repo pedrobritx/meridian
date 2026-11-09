@@ -29,7 +29,7 @@ In JavaScript, `src/tokens.js` exports the same tokens, `src/fluid.js` the physi
 
 Load `css/components.css` after the tokens and call `enhance(document)` from `src/material.js`. Recipes are in [docs/components.md](docs/components.md); every component is shown in every environment on the [reference page](components/) (`npm run lab`, then open `/components/`).
 
-Ready: button, icon button, segmented control, switch, slider, text field, checkbox and radio, tabs.
+Ready: button, icon button, segmented control, switch, slider, text field, checkbox and radio, tabs, toolbar, dialog, sheet and menu.
 
 ## Change a value
 
@@ -58,7 +58,7 @@ npm run lab
 
 1. Material Lab and review: done.
 2. Foundation: done.
-3. Twelve core components from the lab, in progress: buttons, icon button, segmented control, switch, slider, text field, checkbox and radio, toolbar, sheet, dialog, menu, tabs.
+3. Twelve core components from the lab: buttons, icon button, segmented control, switch, slider, text field, checkbox and radio, toolbar, sheet, dialog, menu, tabs. In review.
 4. Figma library generated from the token source.
 5. Website at britx.studio/meridian.
 6. First product: Glassfolio, then Lexis.
