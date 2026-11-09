@@ -620,3 +620,37 @@ test('arrow keys follow the visual order of a right-to-left toolbar', async ({ p
   await page.keyboard.press('ArrowLeft'); await expect(bar.getByRole('button', { name: 'Two' })).toBeFocused();
   await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'One' })).toBeFocused();
 });
+
+test('hidden toolbar controls are skipped and never hold the Tab stop', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button type="button">Before</button>
+      <div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Edit">
+        <button class="m-mat m-quiet" type="button" hidden>Undo</button>
+        <button class="m-mat m-quiet" type="button">Cut</button>
+        <button class="m-mat m-quiet" type="button" hidden>Copy</button>
+        <button class="m-mat m-quiet" type="button">Paste</button>
+      </div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Edit' });
+  const btn = name => bar.getByRole('button', { name, includeHidden: true });
+  const before = page.getByRole('button', { name: 'Before' });
+  expect(await bar.evaluate(b => [...b.querySelectorAll('button')].map(x => x.tabIndex))).toEqual([-1, 0, -1, -1]);
+
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Cut')).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(btn('Paste')).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(btn('Cut')).toBeFocused();
+  await page.keyboard.press('End'); await expect(btn('Paste')).toBeFocused();
+
+  await btn('Copy').evaluate(el => { el.hidden = false; });
+  await page.keyboard.press('ArrowLeft'); await expect(btn('Copy')).toBeFocused();
+
+  await btn('Copy').evaluate(el => { el.hidden = true; });                // the stop itself disappears
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Cut')).toBeFocused();
+
+  await btn('Cut').evaluate(el => { el.style.display = 'none'; });       // hidden in a way no attribute shows
+  await before.focus(); await page.keyboard.press('Tab'); await expect(btn('Paste')).toBeFocused();
+});

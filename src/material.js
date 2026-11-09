@@ -376,19 +376,34 @@ function wireTabs(tabs) {
 }
 
 /* ---------- Toolbar: one Tab stop; arrow keys, Home and End move between controls ---------- */
+const toolbarSyncs = new Set();
+let toolbarTabWatch = false;
 function wireToolbar(bar) {
   if (bar._wiredBar) return; bar._wiredBar = true;
-  const items = () => [...bar.querySelectorAll('button, [href], input, select, textarea, [tabindex]')]
+  const candidates = () => [...bar.querySelectorAll('button, [href], input, select, textarea, [tabindex]')]
     .filter(el => {
-      if (el.disabled || el.closest('.m-toolbar') !== bar) return false;
+      if (el.closest('.m-toolbar') !== bar) return false;
       const overlay = el.closest('[popover], dialog');   // skip controls in an overlay inside the bar, not a bar inside an overlay
       return !overlay || !bar.contains(overlay);
     });
-  const focusable = items();
-  if (!focusable.length) return;
-  const current = focusable.find(el => el.tabIndex === 0 && el.hasAttribute('tabindex')) || focusable[0];
-  focusable.forEach(el => { el.tabIndex = el === current ? 0 : -1; });
-  bar.addEventListener('focusin', e => { const list = items(); if (!list.includes(e.target)) return; list.forEach(el => { el.tabIndex = el === e.target ? 0 : -1; }); });
+  const usable = el => !el.disabled && !el.closest('[inert]')
+    && (typeof el.checkVisibility === 'function' ? el.checkVisibility({ visibilityProperty: true }) : el.getClientRects().length > 0);
+  const items = () => candidates().filter(usable);
+  // The bar's one Tab stop must be a control that can take focus. Keep the current stop while it can;
+  // otherwise move it to the first usable control. Hidden and disabled controls are skipped by the arrow keys too.
+  const sync = () => {
+    const all = candidates(), list = all.filter(usable);
+    const stop = list.find(el => el.getAttribute('tabindex') === '0') || list[0];
+    all.forEach(el => { const t = el === stop ? 0 : -1; if (el.tabIndex !== t || !el.hasAttribute('tabindex')) el.tabIndex = t; });
+  };
+  sync();
+  toolbarSyncs.add(sync);
+  if (typeof MutationObserver === 'function') new MutationObserver(sync).observe(bar, { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden', 'disabled', 'inert', 'class'] });
+  if (!toolbarTabWatch) {   // a stop hidden some other way (inline style, a stylesheet) is caught as Tab is pressed
+    toolbarTabWatch = true;
+    document.addEventListener('keydown', e => { if (e.key === 'Tab') toolbarSyncs.forEach(f => f()); }, true);
+  }
+  bar.addEventListener('focusin', e => { if (!items().includes(e.target)) return; candidates().forEach(el => { el.tabIndex = el === e.target ? 0 : -1; }); });
   let pending = null;   // a key a text field or slider may have had no use for, checked when it is released
   bar.addEventListener('keydown', e => {
     if (!e.repeat) pending = null;
