@@ -210,8 +210,8 @@
   .m-check > input[type="checkbox"]::before { width: 10px; height: 5px; margin-top: -3px; border: solid var(--on-accent); border-width: 0 0 2.2px 2.2px; rotate: -45deg; }
   .m-check > input[type="checkbox"]:indeterminate::before { width: 10px; height: 0; margin: 0; border-width: 0 0 2.2px; rotate: 0deg; }
   .m-check > input[type="radio"]::before { width: 8px; height: 8px; border-radius: 50%; background: var(--on-accent); }
-  .m-check > input:checked, .m-check > input:indeterminate { background: var(--accent); box-shadow: 0 1px 3px rgb(var(--shadow-rgb) / .24), inset 0 1px 0 rgb(var(--light-rgb) / .25); }
-  .m-check > input:checked::before, .m-check > input:indeterminate::before { transform: scale(1); }
+  .m-check > input:checked, .m-check > input[type="checkbox"]:indeterminate { background: var(--accent); box-shadow: 0 1px 3px rgb(var(--shadow-rgb) / .24), inset 0 1px 0 rgb(var(--light-rgb) / .25); }
+  .m-check > input:checked::before, .m-check > input[type="checkbox"]:indeterminate::before { transform: scale(1); }
   .m-check:active > input:not(:disabled) { transform: scale(.88); }
   .m-check > input:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
   .m-check:has(input:disabled) { cursor: not-allowed; color: var(--muted); }
@@ -332,7 +332,7 @@
     .m-well { border: 1px solid ButtonText; }
     .m-well:focus-within { outline: 2px solid Highlight; outline-offset: 2px; }
     .m-check > input { border: 1px solid ButtonText; background: Canvas; forced-color-adjust: none; }
-    .m-check > input:checked, .m-check > input:indeterminate { background: Highlight; }
+    .m-check > input:checked, .m-check > input[type="checkbox"]:indeterminate { background: Highlight; }
     .m-check > input[type="checkbox"]::before { border-color: HighlightText; }
     .m-check > input[type="radio"]::before { background: HighlightText; }
     .m-tab[aria-selected="true"] { background: Highlight; color: HighlightText; forced-color-adjust: none; }

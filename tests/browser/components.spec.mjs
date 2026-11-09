@@ -513,3 +513,16 @@ test('a dialog opened from a menu returns focus to the menu button', async ({ pa
   await expect(dialog).toBeHidden();
   await expect(more).toBeFocused();
 });
+
+test('a radio group with no choice looks unchosen (radios are never indeterminate)', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const looks = await page.evaluate(() => {
+    const f = document.createElement('fieldset'); f.className = 'm-choices';
+    f.innerHTML = '<legend>Pick</legend><label class="m-check"><input type="radio" name="none"><span>A</span></label><label class="m-check"><input type="radio" name="none"><span>B</span></label>';
+    document.querySelector('main').append(f);
+    const r = f.querySelector('input'), accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    const probe = document.createElement('span'); probe.style.color = accent; document.body.append(probe);
+    return { indeterminate: r.matches(':indeterminate'), filled: getComputedStyle(r).backgroundColor === getComputedStyle(probe).color };
+  });
+  expect(looks).toEqual({ indeterminate: true, filled: false });
+});
