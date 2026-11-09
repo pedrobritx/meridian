@@ -174,4 +174,27 @@ test('tabs: arrow keys, Home and End select tabs and show their panels', async (
     const ind = l.querySelector('.m-ind'), t = l.querySelector('[aria-selected="true"]');
     return Math.abs(parseFloat(ind.style.left) - t.offsetLeft) < 1;
   }), { timeout: 2000 }).toBe(true);
+test('a form reset puts segmented controls and switches back in step', async ({ page }) => {
+  await open(page);
+  const state = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form');
+    form.innerHTML = `
+      <fieldset class="m-seg"><legend>Size</legend>
+        <label class="m-seg-opt"><input type="radio" name="size" value="s" checked><span>Small</span></label>
+        <label class="m-seg-opt"><input type="radio" name="size" value="l"><span>Large</span></label>
+      </fieldset>
+      <label class="m-switch"><span>Alerts</span><input type="checkbox" role="switch"><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    const large = form.querySelector('input[value="l"]'), sw = form.querySelector('[role="switch"]');
+    large.click(); sw.click();
+    await new Promise(r => setTimeout(r, 1200));
+    form.reset();
+    await new Promise(r => setTimeout(r, 1200));
+    const ind = form.querySelector('.m-ind'), small = form.querySelector('input[value="s"]').closest('.m-seg-opt');
+    const track = form.querySelector('.m-switch-track');
+    return { indOnSmall: Math.abs(parseFloat(ind.style.left) - small.offsetLeft) < 1, dye: parseFloat(track.style.getPropertyValue('--dye')), checked: sw.checked };
+  });
+  expect(state).toEqual({ indOnSmall: true, dye: 0, checked: false });
 });

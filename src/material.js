@@ -204,6 +204,12 @@ function travel(onFrame) {
   } };
 }
 
+/* A form reset restores values without a change event: re-place the component once the reset has applied. */
+function followReset(el, place) {
+  const form = el.closest('form'); if (!form) return;
+  form.addEventListener('reset', () => setTimeout(() => place(false), 0));
+}
+
 /* ---------- Segmented control ---------- */
 function wireSeg(seg) {
   if (seg._wired) return; seg._wired = true;
@@ -239,6 +245,7 @@ function wireSeg(seg) {
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => seg.addEventListener(t, release));
   seg.addEventListener('change', () => place(false));
   seg._place = place;
+  followReset(seg, place);
   place(true);
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => place(true)).observe(seg);
 }
@@ -265,6 +272,7 @@ function wireSwitch(sw) {
   input.addEventListener('keydown', e => { if (e.key === ' ' && !e.repeat) c.down(.5, .5); });
   input.addEventListener('keyup', e => { if (e.key === ' ') c.up(); });
   sw._place = place;
+  followReset(sw, place);
   place(true);
 }
 
