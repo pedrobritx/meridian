@@ -793,3 +793,23 @@ test('items added after enhancing are prepared like the first ones', async ({ pa
   await expect(two).toHaveAttribute('aria-selected', 'true');
   expect(await page.evaluate(() => window.__late.submits)).toBe(0);
 });
+
+test('controls in a disabled fieldset are skipped and never hold the Tab stop', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button type="button">Ahead</button>
+      <div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Format">
+        <fieldset disabled style="display:contents"><button class="m-mat m-quiet" type="button">Bold</button></fieldset>
+        <button class="m-mat m-quiet" type="button">Italic</button>
+        <button class="m-mat m-quiet" type="button">Underline</button>
+      </div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Format' });
+  await page.getByRole('button', { name: 'Ahead' }).focus();
+  await page.keyboard.press('Tab'); await expect(bar.getByRole('button', { name: 'Italic' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Underline' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Italic' })).toBeFocused();
+});

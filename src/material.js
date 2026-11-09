@@ -334,7 +334,7 @@ function wireField(well) {
 /* ---------- Tabs: the ARIA tabs pattern with automatic activation ---------- */
 /** Keyboard navigation skips controls that cannot take focus: disabled, inert or not rendered. */
 function canFocus(el) {
-  if (el.disabled || el.closest('[inert]')) return false;
+  if (el.disabled || el.matches(':disabled') || el.closest('[inert]')) return false;   // :disabled also covers a disabled fieldset around it
   return typeof el.checkVisibility === 'function' ? el.checkVisibility({ visibilityProperty: true }) : el.getClientRects().length > 0;
 }
 
