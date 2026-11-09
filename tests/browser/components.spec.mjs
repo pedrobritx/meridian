@@ -319,3 +319,13 @@ test('an invalid field still shows where focus is', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Note', exact: true }).focus();
   expect(await ring(title)).not.toBe('solid 2');
 });
+
+test('slider follows a value set from script with a change event', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const value = await page.locator('#text-size').evaluate(async input => {
+    input.value = '24'; input.dispatchEvent(new Event('change', { bubbles: true }));
+    await new Promise(r => requestAnimationFrame(r));
+    return +parseFloat(input.closest('.m-slider').style.getPropertyValue('--m-value')).toFixed(2);
+  });
+  expect(value).toBe(1);
+});
