@@ -379,7 +379,11 @@ function wireTabs(tabs) {
 function wireToolbar(bar) {
   if (bar._wiredBar) return; bar._wiredBar = true;
   const items = () => [...bar.querySelectorAll('button, [href], input, select, textarea, [tabindex]')]
-    .filter(el => !el.disabled && !el.closest('[popover], dialog') && el.closest('.m-toolbar') === bar);
+    .filter(el => {
+      if (el.disabled || el.closest('.m-toolbar') !== bar) return false;
+      const overlay = el.closest('[popover], dialog');   // skip controls in an overlay inside the bar, not a bar inside an overlay
+      return !overlay || !bar.contains(overlay);
+    });
   const focusable = items();
   if (!focusable.length) return;
   const current = focusable.find(el => el.tabIndex === 0 && el.hasAttribute('tabindex')) || focusable[0];
@@ -470,8 +474,9 @@ function wireMenu(trigger) {
   });
   menu.addEventListener('click', e => {
     const item = e.target.closest('[role^="menuitem"]'); if (!item || item.disabled) return;
-    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim() } }));
+    // Close and return focus first, so a dialog opened by the handler returns focus to the button, not to a hidden item.
     menu.hidePopover(); trigger.focus();
+    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim() } }));
   });
 }
 

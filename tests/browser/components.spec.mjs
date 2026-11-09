@@ -481,3 +481,35 @@ test('slider follows a value set from script with a change event', async ({ page
   });
   expect(value).toBe(1);
 });
+
+test('a toolbar inside a dialog keeps its single Tab stop and arrow keys', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const result = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const d = document.createElement('dialog'); d.className = 'm-dialog'; d.setAttribute('aria-label', 'Editor');
+    d.innerHTML = `<div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Format">
+      <button class="m-mat m-quiet" type="button">Bold</button><button class="m-mat m-quiet" type="button">Italic</button></div>`;
+    document.body.append(d); enhance(d); d.showModal();
+    const [b, i] = d.querySelectorAll('button');
+    return [b.tabIndex, i.tabIndex];
+  });
+  expect(result).toEqual([0, -1]);
+  await page.getByRole('toolbar', { name: 'Format' }).getByRole('button', { name: 'Bold' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('button', { name: 'Italic' })).toBeFocused();
+});
+
+test('a dialog opened from a menu returns focus to the menu button', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const more = page.getByRole('button', { name: 'More' });
+  await more.click();
+  const menu = page.getByRole('menu', { name: 'More' });
+  await expect(menu.getByRole('menuitem', { name: 'Copy link' })).toBeFocused();
+  await page.keyboard.press('End');
+  await page.keyboard.press('Enter');
+  const dialog = page.getByRole('dialog', { name: 'Delete this note?' });
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(more).toBeFocused();
+});
