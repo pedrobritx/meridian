@@ -23,7 +23,7 @@ test('every target meets the context size', async ({ page }, info) => {
   const expected = info.project.name === 'phone' ? 48 : 40;
   const target = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--target')));
   expect(target).toBe(expected);
-  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch')]
+  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab')]
     .map(el => ({ el, r: el.getBoundingClientRect() }))
     .filter(({ el, r }) => r.height < t - .5 || (el.matches('.m-mat') && r.width < t - .5))
     .map(({ el, r }) => `${el.className} ${el.textContent.trim().slice(0, 20)} ${r.width.toFixed(0)}×${r.height.toFixed(0)}`), target);
@@ -114,4 +114,64 @@ test('the page loads without errors', async ({ page }) => {
   page.on('console', m => { if (m.type() === 'error' && !m.text().includes('favicon')) errors.push(m.text()); });
   await open(page);
   expect(errors).toEqual([]);
+});
+
+test('slider: arrow keys step the value and the drop follows', async ({ page }) => {
+  await open(page);
+  const slider = page.getByRole('slider', { name: /Text size/ });
+  await slider.focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
+  await expect(slider).toHaveValue('20');
+  await expect(page.locator('#text-size-out')).toHaveText('20 px');
+  await expect.poll(() => slider.evaluate(i => +parseFloat(i.closest('.m-slider').style.getPropertyValue('--m-value')).toFixed(2)), { timeout: 2000 }).toBe(.6);
+  await expect(page.getByRole('slider', { name: /Glass tint/ })).toBeDisabled();
+});
+
+test('text field: an empty title is refused with a linked, visible message', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'Save note' }).click();
+  const title = page.getByRole('textbox', { name: 'Note title' });
+  await expect(title).toHaveAttribute('aria-invalid', 'true');
+  await expect(title).toBeFocused();
+  await expect(title).toHaveAccessibleDescription('Give the note a title before saving.');
+  await expect(page.locator('#note-title-msg')).toBeVisible();
+  await title.fill('Shallow water');
+  await expect(title).not.toHaveAttribute('aria-invalid', 'true');
+  await expect(page.locator('#note-title-msg')).toBeHidden();
+  await expect(page.getByRole('textbox', { name: 'Note', exact: true })).toHaveAccessibleDescription('Optional. Notes stay on this device.');
+});
+
+test('checkbox and radio: Space checks, arrow keys move within the group', async ({ page }) => {
+  await open(page);
+  const box = page.getByRole('checkbox', { name: 'Highlight the current sentence' });
+  await box.focus();
+  await page.keyboard.press('Space');
+  await expect(box).toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'All aids (some on)' })).toHaveJSProperty('indeterminate', true);
+  const normal = page.getByRole('radio', { name: 'Normal' });
+  await normal.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('radio', { name: 'Airy' })).toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'Dictionary (unavailable)' })).toBeDisabled();
+});
+
+test('tabs: arrow keys, Home and End select tabs and show their panels', async ({ page }) => {
+  await open(page);
+  const list = page.getByRole('tablist', { name: 'Field notes' });
+  await list.getByRole('tab', { name: 'Read' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toHaveAttribute('aria-selected', 'true');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toBeFocused();
+  await expect(page.getByRole('tabpanel', { name: 'Listen' })).toBeVisible();
+  await expect(page.locator('#panel-read')).toBeHidden();
+  await page.keyboard.press('End');
+  await expect(list.getByRole('tab', { name: 'Sources' })).toHaveAttribute('aria-selected', 'true');
+  await page.keyboard.press('ArrowRight');
+  await expect(list.getByRole('tab', { name: 'Read' })).toHaveAttribute('aria-selected', 'true');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toHaveAttribute('tabindex', '-1');
+  await expect.poll(() => list.evaluate(l => {
+    const ind = l.querySelector('.m-ind'), t = l.querySelector('[aria-selected="true"]');
+    return Math.abs(parseFloat(ind.style.left) - t.offsetLeft) < 1;
+  }), { timeout: 2000 }).toBe(true);
 });

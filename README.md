@@ -29,7 +29,7 @@ In JavaScript, `src/tokens.js` exports the same tokens, `src/fluid.js` the physi
 
 Load `css/components.css` after the tokens and call `enhance(document)` from `src/material.js`. Recipes are in [docs/components.md](docs/components.md); every component is shown in every environment on the [reference page](components/) (`npm run lab`, then open `/components/`).
 
-Ready: button, icon button, segmented control, switch.
+Ready: button, icon button, segmented control, switch, slider, text field, checkbox and radio, tabs.
 
 ## Change a value
 
