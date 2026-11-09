@@ -277,9 +277,107 @@ function wireSwitch(sw) {
   place(true);
 }
 
+/* ---------- Slider ---------- */
+function dragStretchFor(speed, feel) {
+  const x = Math.abs(speed) / FLUID.dragPeak;
+  return FLUID.dragStretch * x * Math.exp(1 - x) * feel.stretch;
+}
+function wireSlider(sl) {
+  if (sl._wired) return; sl._wired = true;
+  const input = sl.querySelector('input[type="range"]'), thumb = sl.querySelector('.m-thumb'), fill = sl.querySelector('.m-fill');
+  if (!input || !thumb || !fill) return;
+  addBody(thumb);
+  const lift = new Spring(0, SPRING.lift, v => thumb.style.setProperty('--lift', v.toFixed(3)));
+  hoverable(sl, thumb);
+  let dragging = false, lastX = 0, lastT = 0, rest = 0;
+  const frac = () => { const min = +input.min || 0, max = input.max === '' ? 100 : +input.max; return max > min ? (input.value - min) / (max - min) : 0; };
+  const travelWidth = () => sl.offsetWidth - 28;
+  const render = (x, speedPxMs) => {
+    const st = dragStretchFor(speedPxMs, feelOf(sl));
+    sl.style.setProperty('--m-value', x.toFixed(4));
+    thumb.style.setProperty('--stretch', st.toFixed(3));
+    setFlow(thumb, { k: st / FLUID.dragStretch, dir: Math.sign(speedPxMs) || 1 });
+  };
+  const pos = new Spring(frac(), SPRING.travel, (x, v) => render(x, v * travelWidth() / 1000));
+  sl._place = instant => {
+    const f = frac();
+    if (instant) { pos.jump(f); return; }
+    if (dragging) {
+      const now = performance.now(), px = f * travelWidth(); const speed = (px - lastX) / Math.max(8, now - lastT); lastX = px; lastT = now;
+      pos.x = pos.target = f; pos.v = 0; render(f, speed); clearTimeout(rest); rest = setTimeout(() => render(pos.x, 0), 90); return;
+    }
+    pos.to(f);
+  };
+  input.addEventListener('pointerdown', () => { if (input.disabled) return; dragging = true; lastX = frac() * travelWidth(); lastT = performance.now(); lift.to(1); });
+  const end = () => { if (!dragging) return; dragging = false; lift.to(0, SPRING.release); render(pos.x, 0); bounce(thumb, .6); };   // set down, it settles with a wobble
+  input.addEventListener('pointerup', end); input.addEventListener('pointercancel', end); input.addEventListener('blur', () => lift.to(0));
+  input.addEventListener('input', () => sl._place(false));
+  input.addEventListener('change', () => sl._place(false));   // a value set from script, announced with a change event
+  followReset(sl, sl._place);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(() => sl._place(true)).observe(sl);
+  sl._place(true);
+  sl.dataset.mReady = '';
+}
+
+/* ---------- Field: one jiggle when an error appears ---------- */
+function wireField(well) {
+  if (well._wired) return; well._wired = true;
+  const control = well.querySelector('input, textarea'); if (!control) return;
+  let invalid = control.getAttribute('aria-invalid') === 'true';
+  new MutationObserver(() => {
+    const now = control.getAttribute('aria-invalid') === 'true';
+    if (now && !invalid) jiggle(well);
+    invalid = now;
+  }).observe(control, { attributes: true, attributeFilter: ['aria-invalid'] });
+}
+
+/* ---------- Tabs: the ARIA tabs pattern with automatic activation ---------- */
+function wireTabs(tabs) {
+  if (tabs._wired) return; tabs._wired = true;
+  const list = tabs.querySelector('[role="tablist"]'); if (!list) return;
+  const all = () => [...list.querySelectorAll('[role="tab"]')];
+  const usable = () => all().filter(t => !t.disabled);
+  const ind = document.createElement('span'); ind.className = 'm-mat m-ind'; ind.setAttribute('aria-hidden', 'true');
+  list.prepend(ind); addBody(ind);
+  let moving = false;
+  const mover = travel((x, w, v) => {
+    ind.style.left = x + 'px'; ind.style.width = w + 'px';
+    setFlow(ind, { k: clamp(Math.abs(v) / 1000) * .85, dir: Math.sign(v) || 1 });
+    if (Math.abs(v) > 260) moving = true; else if (moving && Math.abs(v) < 60) { moving = false; bounce(ind, 1.2); }
+  });
+  const place = instant => { const t = all().find(x => x.getAttribute('aria-selected') === 'true'); ind.hidden = !t; if (t) mover.to(t.offsetLeft, t.offsetWidth, instant); };
+  const select = (tab, focus) => {
+    for (const t of all()) {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    }
+    if (focus) tab.focus();
+    place(false);
+    tabs.dispatchEvent(new CustomEvent('tabchange', { bubbles: true, detail: { tab } }));
+  };
+  for (const t of all()) {
+    if (t.matches('button') && !t.hasAttribute('type')) t.type = 'button';   // inside a form, a tab must not submit it
+    hoverable(t);
+    t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
+    t.addEventListener('click', () => { if (!t.disabled) select(t, false); });
+  }
+  list.addEventListener('keydown', e => {
+    const tabsNow = usable(); const i = tabsNow.indexOf(document.activeElement); if (i < 0) return;
+    const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabsNow.length - 1 }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    select(tabsNow[(next + tabsNow.length) % tabsNow.length], true);
+  });
+  tabs._place = place;
+  place(true);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(() => place(true)).observe(list);
+}
+
 /** Re-place indicators after a value is changed from script (a change event does it automatically). */
 export function refresh(root = document) {
-  root.querySelectorAll('.m-seg, .m-switch').forEach(el => el._place?.(true));
+  root.querySelectorAll('.m-seg, .m-switch, .m-slider, .m-tabs').forEach(el => el._place?.(true));
 }
 
 /** Wire every Meridian component inside root. */
@@ -287,8 +385,11 @@ export function enhance(root = document) {
   root.querySelectorAll('.m-mat').forEach(el => {
     if (el.matches('.m-thumb, .m-ind')) return;
     addBody(el);
-    if (!el.matches('.m-surface, .m-well')) wireContact(el);
+    if (el.matches('.m-well')) wireField(el);
+    else if (!el.matches('.m-surface')) wireContact(el);
   });
   root.querySelectorAll('.m-seg').forEach(wireSeg);
   root.querySelectorAll('.m-switch').forEach(wireSwitch);
+  root.querySelectorAll('.m-slider').forEach(wireSlider);
+  root.querySelectorAll('.m-tabs').forEach(wireTabs);
 }

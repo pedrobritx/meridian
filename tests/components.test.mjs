@@ -29,10 +29,10 @@ test('no blend modes', () => {
 });
 
 test('every interactive component shows a focus ring', () => {
-  for (const sel of ['.m-mat:focus-visible', '.m-seg-opt:has(input:focus-visible)', '.m-switch:has(input:focus-visible)']) {
+  for (const sel of ['.m-mat:focus-visible', '.m-seg-opt:has(input:focus-visible)', '.m-switch:has(input:focus-visible)', '.m-slider:has(input:focus-visible)', '.m-check > input:focus-visible', '.m-tab:focus-visible', '.m-well:focus-within > .m-body::after']) {
     const at = code.indexOf(sel);
     assert.ok(at >= 0, `missing ${sel}`);
-    assert.match(code.slice(at, code.indexOf('}', at)), /outline: 2px solid var\(--focus\)/, sel);
+    assert.match(code.slice(at, code.indexOf('}', at)), /(outline: 2px solid|background): var\(--focus\)|outline: 2px solid var\(--focus\)/, sel);
   }
 });
 
@@ -42,6 +42,10 @@ test('targets come from the context token', () => {
   assert.match(rule('.m-mat'), /min-width: var\(--target\)/);
   assert.match(rule('.m-seg-opt'), /min-height: var\(--target\)/);
   assert.match(rule('.m-switch'), /min-height: var\(--target\)/);
+  assert.match(rule('.m-slider'), /height: var\(--target\)/);
+  assert.match(rule('.m-check'), /min-height: var\(--target\)/);
+  assert.match(code, /\.m-well input, \.m-well textarea \{[^}]*min-height: var\(--target\)/);
+  assert.match(code, /\.m-tab \{[^}]*min-height: var\(--target\)/);
 });
 
 test('looping motion stops with reduced motion, from the system or the page', () => {

@@ -7,3 +7,4 @@
 - Foundation checks: contrast, solid fallbacks, reduced motion, settle time, no blend modes, refraction budget, target sizes and up-to-date generated files.
 - Everything before 1.0 is preserved, unchanged, on the branch `archive/0.5`.
 - Components, first group: button, icon button, segmented control and switch, with the material behaviour in `src/material.js`, a reference page and browser checks.
+- Components, second group: slider, text field, checkbox and radio, tabs.

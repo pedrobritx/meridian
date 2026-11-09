@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../css/meridian.css">
 <link rel="stylesheet" href="../css/components.css">
 <style>
+  html { background: var(--g0); }
   body {
     margin: 0; min-height: 100vh; font-family: var(--font-ui); color: var(--ink); line-height: 1.5;
     background: radial-gradient(120% 80% at 15% 0%, var(--g2), transparent 60%), radial-gradient(100% 70% at 90% 100%, var(--g1), transparent 62%), var(--g0);
@@ -34,6 +35,10 @@
   .scroll { overflow-x: auto; margin: -4px; padding: 4px; }
   .scroll .m-seg { width: max(100%, 460px); }
   .switches { display: grid; gap: var(--s1); max-width: 420px; }
+  .fields { display: grid; gap: var(--s5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); align-items: start; }
+  .fields > .row { grid-column: 1 / -1; }
+  .m-field output { font-weight: 500; color: var(--ink); margin-left: var(--s2); }
+  .sample { margin: 0; font-family: var(--font-read); font-size: 18px; line-height: 1.55; max-width: 60ch; }
   .output { margin: var(--s4) 0 0; font-size: 14px; color: var(--muted); min-height: 1.5em; }
   footer { color: var(--muted); font-size: 14px; }
   footer a { color: var(--accent-ink); }
@@ -150,6 +155,76 @@
       <label class="m-switch"><span>Quiet chrome while reading</span><input type="checkbox" role="switch" checked><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
       <label class="m-switch"><span>Follow the sun</span><input type="checkbox" role="switch"><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
       <label class="m-switch"><span>Offline copies (unavailable)</span><input type="checkbox" role="switch" disabled><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="slider-title">
+    <h2 id="slider-title">Slider</h2>
+    <p>A value along a range. The drop lifts while held and stretches with speed; arrow keys step it.</p>
+    <div class="fields">
+      <div class="m-field">
+        <label for="text-size">Text size <output for="text-size" id="text-size-out">18 px</output></label>
+        <div class="m-slider"><input type="range" id="text-size" min="14" max="24" step="1" value="18"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>
+      </div>
+      <div class="m-field">
+        <label for="tint">Glass tint (unavailable)</label>
+        <div class="m-slider"><input type="range" id="tint" min="0" max="100" value="30" disabled><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="field-title">
+    <h2 id="field-title">Text field</h2>
+    <p>A quiet well on the content plane. An error turns the rim red, jiggles once and always says what to do, with an icon and text.</p>
+    <form class="fields" id="note-form" novalidate>
+      <div class="m-field">
+        <label for="note-title">Note title</label>
+        <span class="m-mat m-well"><input id="note-title" name="title" type="text" autocomplete="off" aria-describedby="note-title-msg"></span>
+        <p class="m-field-msg" id="note-title-msg" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M12 4.5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15z"/><path d="M12 4.5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15z M12 8.3v4.6 M12 15.7v.1"/></svg><span>Give the note a title before saving.</span></p>
+      </div>
+      <div class="m-field">
+        <label for="note-body">Note</label>
+        <span class="m-mat m-well"><textarea id="note-body" name="body" aria-describedby="note-body-hint"></textarea></span>
+        <p class="m-field-hint" id="note-body-hint">Optional. Notes stay on this device.</p>
+      </div>
+      <div class="row"><button class="m-mat m-pigment" type="submit"><span class="m-label">Save note</span></button></div>
+    </form>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="check-title">
+    <h2 id="check-title">Checkbox and radio</h2>
+    <p>Choices confirmed later, with a Save button. The drop fills with pigment when chosen.</p>
+    <div class="fields">
+      <fieldset class="m-choices">
+        <legend>Reading aids</legend>
+        <label class="m-check"><input type="checkbox" checked><span>Show line numbers</span></label>
+        <label class="m-check"><input type="checkbox"><span>Highlight the current sentence</span></label>
+        <label class="m-check"><input type="checkbox" id="mixed"><span>All aids (some on)</span></label>
+        <label class="m-check"><input type="checkbox" disabled><span>Dictionary (unavailable)</span></label>
+      </fieldset>
+      <fieldset class="m-choices">
+        <legend>Paragraph spacing</legend>
+        <label class="m-check"><input type="radio" name="spacing" value="tight"><span>Tight</span></label>
+        <label class="m-check"><input type="radio" name="spacing" value="normal" checked><span>Normal</span></label>
+        <label class="m-check"><input type="radio" name="spacing" value="airy"><span>Airy</span></label>
+      </fieldset>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="tabs-title">
+    <h2 id="tabs-title">Tabs</h2>
+    <p>Switch between panels of one view. The drop travels under the chosen tab; arrow keys, Home and End move between tabs.</p>
+    <div class="m-tabs">
+      <div class="m-tablist" role="tablist" aria-label="Field notes">
+        <button class="m-tab" type="button" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true">Read</button>
+        <button class="m-tab" type="button" role="tab" id="tab-listen" aria-controls="panel-listen" aria-selected="false">Listen</button>
+        <button class="m-tab" type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">Notes</button>
+        <button class="m-tab" type="button" role="tab" id="tab-sources" aria-controls="panel-sources" aria-selected="false">Sources</button>
+      </div>
+      <div class="m-tabpanel" role="tabpanel" id="panel-read" aria-labelledby="tab-read" tabindex="0"><p class="sample">Light that enters the sea loses its warm colours first. Over pale sand the shallows glow turquoise.</p></div>
+      <div class="m-tabpanel" role="tabpanel" id="panel-listen" aria-labelledby="tab-listen" tabindex="0" hidden><p class="sample">The recording runs four minutes.</p></div>
+      <div class="m-tabpanel" role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" tabindex="0" hidden><p class="sample">No notes yet.</p></div>
+      <div class="m-tabpanel" role="tabpanel" id="panel-sources" aria-labelledby="tab-sources" tabindex="0" hidden><p class="sample">Two sources are cited in this article.</p></div>
     </div>
   </section>
 

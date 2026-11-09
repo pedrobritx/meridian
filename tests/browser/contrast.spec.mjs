@@ -7,6 +7,7 @@ const TEXT = [
   '.m-mat:not(:disabled):not(.m-icon) > .m-label',
   '.m-seg-opt:not(:has(input:disabled)) > span',
   '.m-switch:not(:has(input:disabled)) > span:first-child',
+  '.m-check:not(:has(input:disabled)) > span', '.m-tab:not(:disabled)', '.m-field > label', '.m-field-hint', '.m-tabpanel .sample',
   '.panel > h2', '.panel > p:not(.output)', 'header p',
 ].join(', ');
 

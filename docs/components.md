@@ -11,7 +11,7 @@ Load the tokens, the components and the behaviour:
 </script>
 ```
 
-Without the script, every component still works and shows its state; the script adds the fluid behaviour: presses that sink and rebound, drops that travel, hover light. Call `enhance(root)` again after adding components to the page, and `refresh(root)` after changing a segmented control or switch from script without a `change` event.
+Without the script, every component except tabs still works and shows its state; the script adds the fluid behaviour: presses that sink and rebound, drops that travel, hover light. Call `enhance(root)` again after adding components to the page, and `refresh(root)` after changing a segmented control or switch from script without a `change` event.
 
 The material layers (`.m-body` with `.m-refract` and `.m-light`) are added by the script when they are missing. Include them in the markup if the page must look complete before the script runs:
 
@@ -77,12 +77,81 @@ An immediate on or off, for settings that apply at once. For a choice confirmed 
 
 The whole row is the target. `checked` and `disabled` work as on any checkbox.
 
+## Slider
+
+A value along a range, built on `<input type="range">`, so arrow keys, Page Up and Page Down, Home and End work as usual.
+
+```html
+<div class="m-field">
+  <label for="text-size">Text size</label>
+  <div class="m-slider">
+    <input type="range" id="text-size" min="14" max="24" value="18">
+    <span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span>
+  </div>
+</div>
+```
+
+Until the script runs, the browser's own slider shows, in the accent colour; the script then swaps in the drop and keeps it in step with the value, including after a form reset. Show the value next to the label with an `<output>` when it matters.
+
+## Text field
+
+A quiet well on the content plane. Use `<textarea>` inside the well for longer text.
+
+```html
+<div class="m-field">
+  <label for="note-title">Note title</label>
+  <span class="m-mat m-well"><input id="note-title" type="text" aria-describedby="note-title-msg"></span>
+  <p class="m-field-msg" id="note-title-msg" hidden><svg aria-hidden="true">…</svg><span>Give the note a title before saving.</span></p>
+</div>
+```
+
+- Error: set `aria-invalid="true"` on the input and show the message. The rim turns to the error colour and the field jiggles once. The message always carries an icon and text that says what to do; never colour alone.
+- Hint: `<p class="m-field-hint">`, linked with `aria-describedby`.
+- Placeholders are not labels: always use a `<label>`.
+
+## Checkbox and radio
+
+For choices confirmed later with a Save button. For a setting that applies at once, use a switch.
+
+```html
+<fieldset class="m-choices">
+  <legend>Reading aids</legend>
+  <label class="m-check"><input type="checkbox" checked><span>Show line numbers</span></label>
+  <label class="m-check"><input type="checkbox"><span>Highlight the current sentence</span></label>
+</fieldset>
+
+<fieldset class="m-choices">
+  <legend>Paragraph spacing</legend>
+  <label class="m-check"><input type="radio" name="spacing" value="tight"><span>Tight</span></label>
+  <label class="m-check"><input type="radio" name="spacing" value="normal" checked><span>Normal</span></label>
+</fieldset>
+```
+
+The whole row is the target. `indeterminate` (set from script) shows a dash. No script is needed.
+
+## Tabs
+
+Switch between panels of one view. For a setting that changes how one view looks, use a segmented control.
+
+```html
+<div class="m-tabs">
+  <div class="m-tablist" role="tablist" aria-label="Field notes">
+    <button class="m-tab" type="button" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true">Read</button>
+    <button class="m-tab" type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">Notes</button>
+  </div>
+  <div class="m-tabpanel" role="tabpanel" id="panel-read" aria-labelledby="tab-read" tabindex="0">…</div>
+  <div class="m-tabpanel" role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" tabindex="0" hidden>…</div>
+</div>
+```
+
+Tabs need the script: it moves between tabs with the arrow keys, Home and End, keeps only the chosen tab in the Tab order, shows its panel, and sends a `tabchange` event.
+
 ## Behaviour in script
 
 `src/material.js` exports:
 
 - `enhance(root)`: wires every component inside `root`.
-- `refresh(root)`: places segmented indicators and switch thumbs after a change made in script.
+- `refresh(root)`: places segmented indicators, switch thumbs, slider thumbs and tab indicators after a change made in script.
 - `jiggle(element)`: one short jiggle, for an error that appears on a control.
 - `reducedMotion()`: `data-motion="reduced"` or `"full"` on the root, otherwise the system setting.
 - `feelOf(element)`: the physical feel of the environment the element sits in.

@@ -48,3 +48,22 @@ busy?.addEventListener('click', () => {
   busy.setAttribute('aria-busy', 'true'); label.textContent = 'Saving…';
   setTimeout(() => { busy.removeAttribute('aria-busy'); label.textContent = 'Saved'; setTimeout(() => { label.textContent = 'Save'; }, 1400); }, 1800);
 });
+
+// Slider readout.
+const size = document.querySelector('#text-size'), sizeOut = document.querySelector('#text-size-out');
+size?.addEventListener('input', () => { sizeOut.textContent = `${size.value} px`; });
+
+// Indeterminate checkbox example.
+const mixed = document.querySelector('#mixed');
+if (mixed) mixed.indeterminate = true;
+
+// Field validation: the error appears on submit and clears as soon as there is a title.
+const form = document.querySelector('#note-form');
+const title = document.querySelector('#note-title'), titleMsg = document.querySelector('#note-title-msg');
+form?.addEventListener('submit', e => {
+  e.preventDefault();
+  const empty = !title.value.trim();
+  if (empty) { title.setAttribute('aria-invalid', 'true'); titleMsg.hidden = false; title.focus(); }
+  else { title.removeAttribute('aria-invalid'); titleMsg.hidden = true; }
+});
+title?.addEventListener('input', () => { if (title.value.trim()) { title.removeAttribute('aria-invalid'); titleMsg.hidden = true; } });

@@ -23,7 +23,7 @@ test('every target meets the context size', async ({ page }, info) => {
   const expected = info.project.name === 'phone' ? 48 : 40;
   const target = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--target')));
   expect(target).toBe(expected);
-  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch')]
+  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab')]
     .map(el => ({ el, r: el.getBoundingClientRect() }))
     .filter(({ el, r }) => r.height < t - .5 || (el.matches('.m-mat') && r.width < t - .5))
     .map(({ el, r }) => `${el.className} ${el.textContent.trim().slice(0, 20)} ${r.width.toFixed(0)}×${r.height.toFixed(0)}`), target);
@@ -116,6 +116,66 @@ test('the page loads without errors', async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
+test('slider: arrow keys step the value and the drop follows', async ({ page }) => {
+  await open(page);
+  const slider = page.getByRole('slider', { name: /Text size/ });
+  await slider.focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
+  await expect(slider).toHaveValue('20');
+  await expect(page.locator('#text-size-out')).toHaveText('20 px');
+  await expect.poll(() => slider.evaluate(i => +parseFloat(i.closest('.m-slider').style.getPropertyValue('--m-value')).toFixed(2)), { timeout: 2000 }).toBe(.6);
+  await expect(page.getByRole('slider', { name: /Glass tint/ })).toBeDisabled();
+});
+
+test('text field: an empty title is refused with a linked, visible message', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'Save note' }).click();
+  const title = page.getByRole('textbox', { name: 'Note title' });
+  await expect(title).toHaveAttribute('aria-invalid', 'true');
+  await expect(title).toBeFocused();
+  await expect(title).toHaveAccessibleDescription('Give the note a title before saving.');
+  await expect(page.locator('#note-title-msg')).toBeVisible();
+  await title.fill('Shallow water');
+  await expect(title).not.toHaveAttribute('aria-invalid', 'true');
+  await expect(page.locator('#note-title-msg')).toBeHidden();
+  await expect(page.getByRole('textbox', { name: 'Note', exact: true })).toHaveAccessibleDescription('Optional. Notes stay on this device.');
+});
+
+test('checkbox and radio: Space checks, arrow keys move within the group', async ({ page }) => {
+  await open(page);
+  const box = page.getByRole('checkbox', { name: 'Highlight the current sentence' });
+  await box.focus();
+  await page.keyboard.press('Space');
+  await expect(box).toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'All aids (some on)' })).toHaveJSProperty('indeterminate', true);
+  const normal = page.getByRole('radio', { name: 'Normal' });
+  await normal.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('radio', { name: 'Airy' })).toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'Dictionary (unavailable)' })).toBeDisabled();
+});
+
+test('tabs: arrow keys, Home and End select tabs and show their panels', async ({ page }) => {
+  await open(page);
+  const list = page.getByRole('tablist', { name: 'Field notes' });
+  await list.getByRole('tab', { name: 'Read' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toHaveAttribute('aria-selected', 'true');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toBeFocused();
+  await expect(page.getByRole('tabpanel', { name: 'Listen' })).toBeVisible();
+  await expect(page.locator('#panel-read')).toBeHidden();
+  await page.keyboard.press('End');
+  await expect(list.getByRole('tab', { name: 'Sources' })).toHaveAttribute('aria-selected', 'true');
+  await page.keyboard.press('ArrowRight');
+  await expect(list.getByRole('tab', { name: 'Read' })).toHaveAttribute('aria-selected', 'true');
+  await expect(list.getByRole('tab', { name: 'Listen' })).toHaveAttribute('tabindex', '-1');
+  await expect.poll(() => list.evaluate(l => {
+    const ind = l.querySelector('.m-ind'), t = l.querySelector('[aria-selected="true"]');
+    return Math.abs(parseFloat(ind.style.left) - t.offsetLeft) < 1;
+  }), { timeout: 2000 }).toBe(true);
+});
+
 test('a form reset puts segmented controls and switches back in step', async ({ page }) => {
   await open(page);
   const state = await page.evaluate(async () => {
@@ -139,6 +199,41 @@ test('a form reset puts segmented controls and switches back in step', async ({ 
     return { indOnSmall: Math.abs(parseFloat(ind.style.left) - small.offsetLeft) < 1, dye: parseFloat(track.style.getPropertyValue('--dye')), checked: sw.checked };
   });
   expect(state).toEqual({ indOnSmall: true, dye: 0, checked: false });
+});
+
+test('forced colours: a focused text field shows a ring', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.emulateMedia({ forcedColors: 'active' });
+  await page.getByRole('textbox', { name: 'Note title' }).focus();
+  const outline = await page.locator('#note-title').evaluate(i => { const s = getComputedStyle(i.closest('.m-well')); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; });
+  expect(outline).toBe('solid 2');
+});
+
+test.describe('without script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('the native slider shows its value until the script takes over', async ({ page }) => {
+    await page.goto('/components/');
+    const input = page.locator('#text-size');
+    await expect(input).toHaveCSS('opacity', '1');
+    await expect(page.locator('#text-size ~ .m-thumb')).toBeHidden();
+  });
+});
+
+test('a form reset puts the slider back in step', async ({ page }) => {
+  await open(page);
+  const value = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form');
+    form.innerHTML = '<div class="m-slider"><input type="range" min="0" max="10" value="2" aria-label="Level"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>';
+    document.querySelector('main').append(form);
+    enhance(form);
+    const input = form.querySelector('input'); input.value = '9'; input.dispatchEvent(new Event('input', { bubbles: true }));
+    await new Promise(r => setTimeout(r, 1200));
+    form.reset();
+    await new Promise(r => setTimeout(r, 1200));
+    return +parseFloat(form.querySelector('.m-slider').style.getPropertyValue('--m-value')).toFixed(2);
+  });
+  expect(value).toBe(.2);
 });
 
 test('a segmented control left with no choice hides its drop', async ({ page }) => {
@@ -183,4 +278,81 @@ test.describe('before the script', () => {
     }));
     expect(looks).toEqual(['Save draft: filled', 'Continue: filled', 'Cancel: clear']);
   });
+});
+
+test('tabs inside a form switch panels without submitting it', async ({ page }) => {
+  await open(page);
+  const result = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); let submitted = 0;
+    form.addEventListener('submit', e => { e.preventDefault(); submitted++; });
+    form.innerHTML = `<div class="m-tabs"><div class="m-tablist" role="tablist" aria-label="Form tabs">
+      <button class="m-tab" role="tab" id="ft1" aria-controls="fp1" aria-selected="true">One</button>
+      <button class="m-tab" role="tab" id="ft2" aria-controls="fp2" aria-selected="false">Two</button></div>
+      <div role="tabpanel" id="fp1" aria-labelledby="ft1">1</div><div role="tabpanel" id="fp2" aria-labelledby="ft2" hidden>2</div></div>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    form.querySelector('#ft2').click();
+    return { submitted, selected: form.querySelector('#ft2').getAttribute('aria-selected'), shown: !form.querySelector('#fp2').hidden };
+  });
+  expect(result).toEqual({ submitted: 0, selected: 'true', shown: true });
+});
+
+test.describe('text field before the script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('it has an edge and shows a focus ring', async ({ page }) => {
+    await page.goto('/components/');
+    const well = page.locator('#note-title').locator('xpath=..');
+    expect(await well.evaluate(w => getComputedStyle(w).boxShadow)).not.toBe('none');
+    await page.locator('#note-title').focus();
+    expect(await well.evaluate(w => { const s = getComputedStyle(w); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; })).toBe('solid 2');
+  });
+});
+
+test('an invalid field still shows where focus is', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'Save note' }).click();
+  const title = page.getByRole('textbox', { name: 'Note title' });
+  await expect(title).toBeFocused();
+  const ring = el => el.evaluate(i => { const s = getComputedStyle(i.closest('.m-well')); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; });
+  expect(await ring(title)).toBe('solid 2');
+  await page.getByRole('textbox', { name: 'Note', exact: true }).focus();
+  expect(await ring(title)).not.toBe('solid 2');
+});
+
+test('slider follows a value set from script with a change event', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const value = await page.locator('#text-size').evaluate(async input => {
+    input.value = '24'; input.dispatchEvent(new Event('change', { bubbles: true }));
+    await new Promise(r => requestAnimationFrame(r));
+    return +parseFloat(input.closest('.m-slider').style.getPropertyValue('--m-value')).toFixed(2);
+  });
+  expect(value).toBe(1);
+});
+
+test('a radio group with no choice looks unchosen (radios are never indeterminate)', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const looks = await page.evaluate(() => {
+    const f = document.createElement('fieldset'); f.className = 'm-choices';
+    f.innerHTML = '<legend>Pick</legend><label class="m-check"><input type="radio" name="none"><span>A</span></label><label class="m-check"><input type="radio" name="none"><span>B</span></label>';
+    document.querySelector('main').append(f);
+    const r = f.querySelector('input'), accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    const probe = document.createElement('span'); probe.style.color = accent; document.body.append(probe);
+    return { indeterminate: r.matches(':indeterminate'), filled: getComputedStyle(r).backgroundColor === getComputedStyle(probe).color };
+  });
+  expect(looks).toEqual({ indeterminate: true, filled: false });
+});
+
+test('in right-to-left text the drop runs the same way as the native slider', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const side = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const box = document.createElement('div'); box.dir = 'rtl'; box.style.width = '300px';
+    box.innerHTML = '<div class="m-slider"><input type="range" min="0" max="10" value="10" aria-label="Level"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>';
+    document.querySelector('main').append(box); enhance(box);
+    await new Promise(r => requestAnimationFrame(r));
+    const s = box.querySelector('.m-slider').getBoundingClientRect(), t = box.querySelector('.m-thumb').getBoundingClientRect();
+    return t.left + t.width / 2 - s.left < s.width / 2 ? 'left' : 'right';
+  });
+  expect(side).toBe('left');   // the maximum sits on the left in right-to-left text
 });
