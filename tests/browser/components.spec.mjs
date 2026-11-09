@@ -460,3 +460,14 @@ test('dialog openers and menu items inside a form do not submit it', async ({ pa
   });
   expect(submitted).toBe(0);
 });
+
+test('an invalid field still shows where focus is', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'Save note' }).click();
+  const title = page.getByRole('textbox', { name: 'Note title' });
+  await expect(title).toBeFocused();
+  const ring = el => el.evaluate(i => { const s = getComputedStyle(i.closest('.m-well')); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; });
+  expect(await ring(title)).toBe('solid 2');
+  await page.getByRole('textbox', { name: 'Note', exact: true }).focus();
+  expect(await ring(title)).not.toBe('solid 2');
+});

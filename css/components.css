@@ -181,6 +181,8 @@
   .m-well:not(:has(> .m-body)):focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
   .m-well:not(:has(> .m-body)):has([aria-invalid="true"]) { box-shadow: inset 0 0 0 2px var(--error); }
   .m-well:has([aria-invalid="true"]) > .m-body::after { background: var(--error); padding: 2px; }
+  /* An invalid field keeps its error rim; focus adds a ring outside it, so the two never look alike. */
+  .m-well:has([aria-invalid="true"]):focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
   .m-well input, .m-well textarea {
     position: relative; z-index: 5; box-sizing: border-box; width: 100%; min-height: var(--target); border: 0; margin: 0; background: transparent;
     font: inherit; font-size: 15px; color: var(--ink); padding: 0 var(--s4); outline: none;
