@@ -1,0 +1,174 @@
+/* Meridian 1.0 components. Load after css/meridian.css.
+   The material: .m-mat > .m-body (aria-hidden: .m-refract + .m-light) + .m-label.
+   At rest every shape is round: a capsule, or a rounded rectangle on the radius scale.
+   Shape changes only while the fluid is under stress or moving (src/material.js).
+   Colours come only from tokens; the one exception is the white of thumbs, which reads as a lit drop in every environment. */
+
+@layer meridian.components {
+
+  .m-visually-hidden {
+    position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+
+  /* ---------- Material ---------- */
+  .m-mat {
+    --press: 0; --hover: 0; --lift: 0; --creep: 0; --dye: 0; --stretch: 0; --shiver: 0;
+    --cx: 50%; --cy: 50%; --px: 50%; --py: 50%; --rip-r: 0; --rip-o: 0;
+    --e0: 3;
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+    box-sizing: border-box; border: 0; margin: 0; background: none; color: var(--ink); font: inherit;
+    padding: 0 calc(var(--target) * .55); min-height: var(--target); min-width: var(--target); border-radius: 999px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none; -webkit-user-select: none;
+  }
+  .m-mat:focus { outline: none; }
+  .m-mat:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .m-mat[hidden] { display: none; }
+  /* Before the script adds the material layers, or without script, every component still has a surface and an edge. */
+  .m-mat:not(:has(> .m-body)) { background: rgb(var(--glass-rgb) / var(--glass-a)); box-shadow: inset 0 0 0 1px var(--line); }
+  .m-pigment:not(:has(> .m-body)) { background: var(--accent); box-shadow: none; }
+  .m-quiet:not(:has(> .m-body)) { background: transparent; box-shadow: none; }
+
+  .m-body {
+    --e: calc(var(--e0) + var(--hover) * 1.5 + var(--lift) * 8 - max(var(--press), 0) * var(--e0) * .75 + var(--creep) * 1.5);
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    transform-origin: var(--cx) var(--cy);
+    /* Volume is kept: pressed, the drop flattens and spreads; rebounding, it narrows and rises. */
+    transform:
+      translate(calc(var(--shiver) * 1px), calc(var(--hover) * -.5px - var(--lift) * 2px))
+      scale(calc(1 + var(--press) * .04 + var(--hover) * .012 + var(--lift) * .04 + var(--creep) * .05 + var(--stretch)),
+            calc(1 - var(--press) * .065 + var(--hover) * .012 + var(--lift) * .04 + var(--creep) * .05 - var(--stretch) * .6));
+    box-shadow:
+      calc(var(--lx) * var(--e) * -.5px * var(--sun-len, 1)) calc(var(--ly) * var(--e) * -.5px * var(--sun-len, 1) + var(--e) * .7px) calc(var(--e) * 3.2px) rgb(var(--shadow-rgb) / calc(.05 + var(--e) * .011)),
+      0 .5px 1px rgb(var(--shadow-rgb) / .08);
+  }
+  .m-refract { position: absolute; inset: 0; border-radius: inherit; background: rgb(var(--glass-rgb) / var(--glass-a)); box-shadow: inset 0 0 0 .5px var(--hair); }
+  /* Sheen: a soft wash from the light, never a hotspot. No blend modes: a blended layer isolates its group,
+     and an isolated group cannot sample what lies behind it. */
+  .m-body::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 2;
+    background: linear-gradient(var(--light-deg), rgb(var(--light-rgb) / calc(var(--sheen) * .26 * (1 - max(var(--press), 0) * .6))), transparent 46%);
+  }
+  /* Specular rim: bright on the side facing the light, a faint return on the far side. */
+  .m-body::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 3; padding: 1px;
+    background: linear-gradient(var(--light-deg), rgb(var(--light-rgb) / calc(var(--rim) + var(--sheen) * .6)), rgb(var(--light-rgb) / .08) 34%, rgb(var(--light-rgb) / .03) 66%, rgb(var(--light-rgb) / calc(.06 + var(--sheen) * .2)));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .m-light {
+    position: absolute; inset: 0; border-radius: inherit; z-index: 4; pointer-events: none;
+    box-shadow: inset 0 0 0 calc(var(--creep) * 2px) rgb(var(--accent-rgb) / calc(var(--creep) * .7));
+    background:
+      radial-gradient(circle at var(--cx) var(--cy), transparent calc(var(--rip-r) * 1px - 12px), rgb(var(--light-rgb) / calc(var(--rip-o) * .7)) calc(var(--rip-r) * 1px), transparent calc(var(--rip-r) * 1px + 14px)),
+      radial-gradient(circle at var(--cx) var(--cy), rgb(var(--shadow-rgb) / calc(max(var(--press), 0) * .12)), transparent 62%),
+      radial-gradient(80px circle at var(--px) var(--py), rgb(var(--light-rgb) / calc(var(--hover) * var(--glow))), transparent 72%),
+      radial-gradient(circle at var(--cx) var(--cy), rgb(var(--accent-rgb) / calc(var(--dye) * .14)) calc(var(--dye) * 160%), transparent calc(var(--dye) * 160% + 1%));
+  }
+  .m-label { position: relative; z-index: 5; display: inline-flex; align-items: center; gap: var(--s2); pointer-events: none; font-weight: 590; font-size: 14px; line-height: 1.2; white-space: nowrap; }
+  .m-label svg { width: 20px; height: 20px; flex: none; }
+
+  /* Glass: frost rises with the press. Glass never stacks on glass: nested glass does not blur again. */
+  .m-glass > .m-body > .m-refract {
+    -webkit-backdrop-filter: blur(calc(var(--frost) + max(var(--press), 0) * 8px)) saturate(1.6);
+    backdrop-filter: blur(calc(var(--frost) + max(var(--press), 0) * 8px)) saturate(1.6);
+  }
+  .m-glass .m-glass > .m-body > .m-refract { -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+  /* Pigment: the accent, for the one primary action. */
+  .m-pigment { color: var(--on-accent); }
+  .m-pigment > .m-body > .m-refract { background: var(--accent); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; }
+  .m-pigment > .m-body::before { opacity: .7; }
+  .m-pigment > .m-body::after { opacity: .55; }
+  /* Prism: graphite, with iridescence on the primary button only. */
+  :where(:root:not([data-env]), [data-env="prism"]) button.m-pigment > .m-body::after {
+    opacity: 1; padding: 1.5px;
+    background: conic-gradient(from calc(var(--light-deg) + 90deg), rgb(255 150 190 / .55), rgb(255 214 140 / .5), rgb(150 232 200 / .5), rgb(140 190 255 / .55), rgb(204 160 255 / .55), rgb(255 150 190 / .55));
+  }
+
+  /* Quiet: borderless until it matters, as in a toolbar. */
+  .m-quiet > .m-body { box-shadow: none; }
+  .m-quiet > .m-body > .m-refract { background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; transition: background-color var(--dur-quick) var(--ease-calm); }
+  .m-quiet > .m-body::after, .m-quiet > .m-body::before { opacity: 0; }
+  .m-quiet:hover > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+  .m-quiet[aria-pressed="true"] > .m-body > .m-refract, .m-quiet[aria-current="true"] > .m-body > .m-refract { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+  .m-quiet[aria-pressed="true"], .m-quiet[aria-current="true"] { color: var(--accent-ink); }
+  [aria-current="true"] > .m-label, [aria-pressed="true"] > .m-label { font-weight: 650; }
+
+  /* Icon button: a round drop. Always give it an accessible name (aria-label). */
+  .m-icon { padding: 0; width: var(--target); }
+
+  /* Disabled: the fluid has set. Flat and matte, flush with the ground, does not yield. */
+  .m-mat:disabled, .m-mat[aria-disabled="true"] { cursor: not-allowed; color: var(--muted); }
+  .m-mat:disabled > .m-body > .m-refract, .m-mat[aria-disabled="true"] > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 6%, var(--surface)); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .m-mat:disabled > .m-body, .m-mat[aria-disabled="true"] > .m-body { box-shadow: none; }
+  .m-mat:disabled > .m-body::before, .m-mat:disabled > .m-body::after, .m-mat[aria-disabled="true"] > .m-body::before, .m-mat[aria-disabled="true"] > .m-body::after { opacity: 0; }
+
+  /* Busy: a band of light flows through while work runs; still with reduced motion. */
+  .m-mat[aria-busy="true"] > .m-body > .m-light {
+    background-image: linear-gradient(100deg, transparent 30%, rgb(var(--light-rgb) / .32) 50%, transparent 70%); background-size: 260% 100%; background-position: 50% 0;
+    animation: m-flow 1.3s linear infinite;
+  }
+  @keyframes m-flow { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+
+  /* ---------- Segmented control: a drop of glass travels between options ---------- */
+  .m-seg { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border: 0; margin: 0; min-width: 0; border-radius: 999px; }
+  .m-seg > legend { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; padding: 0; }
+  .m-seg > .m-track { position: absolute; inset: 0; border-radius: inherit; background: color-mix(in srgb, var(--ink) 7%, transparent); box-shadow: inset 0 1px 2px rgb(var(--shadow-rgb) / .12), inset 0 -.5px 0 rgb(var(--light-rgb) / .25); }
+  .m-seg .m-ind { position: absolute; top: 3px; bottom: 3px; left: 0; width: 0; --e0: 1.5; padding: 0; min-height: 0; min-width: 0; pointer-events: none; transform-origin: 50% 50%; }
+  .m-seg .m-ind > .m-body > .m-refract { background: rgb(var(--glass-rgb) / calc(var(--glass-a) + .34)); }
+  :where([data-appearance="dusk"]) .m-seg .m-ind > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 16%, var(--surface)); }
+  @media (prefers-color-scheme: dark) { :where(:root:not([data-appearance])) .m-seg .m-ind > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 16%, var(--surface)); } }
+  .m-seg-opt {
+    position: relative; z-index: 2; display: grid; place-items: center; padding: 0 var(--s3); min-height: var(--target);
+    cursor: pointer; font-size: 13.5px; font-weight: 500; white-space: nowrap; border-radius: 999px;
+    color: color-mix(in srgb, var(--ink) calc(var(--hover, 0) * 55%), var(--muted));
+  }
+  .m-seg-opt > input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
+  .m-seg-opt::before { content: ""; position: absolute; inset: 0; border-radius: 999px; background: color-mix(in srgb, var(--ink) calc(var(--hover, 0) * 8%), transparent); pointer-events: none; z-index: -1; }
+  .m-seg-opt:has(input:checked) { color: var(--ink); font-weight: 600; }
+  .m-seg-opt:has(input:checked)::before { opacity: 0; }
+  .m-seg-opt:has(input:disabled) { cursor: not-allowed; opacity: .55; }
+  .m-seg-opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .m-seg-opt > span { display: inline-block; pointer-events: none; transform: scale(calc(1 - var(--lp, 0) * .06)); }
+  /* Without script the checked option still reads as chosen. */
+  .m-seg:not(:has(.m-ind)) .m-seg-opt:has(input:checked) { background: rgb(var(--glass-rgb) / calc(var(--glass-a) + .34)); box-shadow: 0 1px 3px rgb(var(--shadow-rgb) / .16); }
+
+  /* ---------- Switch: a drop travels; colour spreads from it into the track ---------- */
+  .m-switch { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--s4); min-height: var(--target); cursor: pointer; font-size: 14px; }
+  .m-switch > input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; z-index: 1; }
+  .m-switch-track {
+    --dye: 0; --tx: 16px; position: relative; width: 52px; height: 32px; flex: none; border-radius: 999px;
+    background: radial-gradient(circle at var(--tx) 50%, var(--accent) calc(var(--dye) * 72px), color-mix(in srgb, var(--ink) 10%, var(--surface)) calc(var(--dye) * 72px + 1px));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) calc((1 - var(--dye)) * 100%), transparent), inset 0 1px 2px rgb(var(--shadow-rgb) / .16);
+  }
+  .m-switch .m-thumb { position: absolute; top: 3px; left: 3px; height: 26px; width: 26px; min-height: 0; min-width: 0; padding: 0; --e0: 2; pointer-events: none; }
+  .m-switch .m-thumb > .m-body > .m-refract { background: #fff; }
+  .m-switch:has(input:focus-visible) .m-switch-track { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .m-switch:has(input:disabled) { cursor: not-allowed; color: var(--muted); }
+  .m-switch:has(input:disabled) .m-switch-track { opacity: .55; }
+  /* Without script the state still shows. */
+  .m-switch:has(input:checked) .m-switch-track:not([style]) { --dye: 1; }
+  .m-switch:has(input:checked) .m-thumb:not([style]) { left: 23px; }
+
+  /* ---------- Reduced motion: nothing loops; springs jump in script. ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .m-mat[aria-busy="true"] > .m-body > .m-light { animation: none; }
+    .m-quiet > .m-body > .m-refract { transition: none; }
+  }
+  [data-motion="reduced"] .m-mat[aria-busy="true"] > .m-body > .m-light { animation: none; }
+  [data-motion="reduced"] .m-quiet > .m-body > .m-refract { transition: none; }
+
+  /* ---------- Forced colours: the system draws edges and states. ---------- */
+  @media (forced-colors: active) {
+    .m-body { display: none; }
+    .m-mat { border: 1px solid ButtonText; }
+    .m-mat:disabled { border-color: GrayText; color: GrayText; }
+    .m-pigment, .m-quiet[aria-pressed="true"] { background: Highlight; color: HighlightText; forced-color-adjust: none; }
+    .m-seg { border: 1px solid ButtonText; }
+    .m-seg .m-ind { display: none; }
+    .m-seg-opt:has(input:checked) { background: Highlight; color: HighlightText; forced-color-adjust: none; }
+    .m-switch-track { border: 1px solid ButtonText; background: Canvas; forced-color-adjust: none; }
+    .m-switch:has(input:checked) .m-switch-track { background: Highlight; }
+    .m-switch .m-thumb { display: block; background: ButtonText; border-radius: 999px; }
+  }
+}

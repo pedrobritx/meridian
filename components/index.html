@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-env="prism" data-context="desk" data-tier="frost">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian components</title>
+<meta name="description" content="Meridian 1.0 components in every environment, appearance, context and material tier.">
+<link rel="stylesheet" href="../css/meridian.css">
+<link rel="stylesheet" href="../css/components.css">
+<style>
+  body {
+    margin: 0; min-height: 100vh; font-family: var(--font-ui); color: var(--ink); line-height: 1.5;
+    background: radial-gradient(120% 80% at 15% 0%, var(--g2), transparent 60%), radial-gradient(100% 70% at 90% 100%, var(--g1), transparent 62%), var(--g0);
+    background-attachment: fixed;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: var(--s7) var(--s5) var(--s8); display: grid; gap: var(--s5); }
+  header h1 { margin: 0; font-family: var(--font-display); font-size: clamp(32px, 6vw, 48px); line-height: 1.05; letter-spacing: -.01em; }
+  header p { margin: var(--s3) 0 0; max-width: 62ch; color: var(--muted); font-size: 17px; }
+  .panel {
+    position: relative; padding: var(--s5); border-radius: var(--r-panel);
+    background: rgb(var(--glass-rgb) / var(--glass-a));
+    -webkit-backdrop-filter: blur(var(--frost)) saturate(1.6); backdrop-filter: blur(var(--frost)) saturate(1.6);
+    box-shadow: inset 0 0 0 .5px var(--hair), 0 10px 30px -14px rgb(var(--shadow-rgb) / .3);
+  }
+  .panel h2 { margin: 0 0 var(--s1); font-family: var(--font-display); font-size: 22px; line-height: 1.2; }
+  .panel > p { margin: 0 0 var(--s4); max-width: 62ch; color: var(--muted); font-size: 15px; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap); }
+  .stack { display: grid; gap: var(--s4); justify-items: start; }
+  .settings { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .setting { display: grid; gap: var(--s2); min-width: 0; }
+  .setting > span { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .setting .m-seg { width: 100%; }
+  .setting.wide { grid-column: 1 / -1; }
+  .scroll { overflow-x: auto; margin: -4px; padding: 4px; }
+  .scroll .m-seg { width: max(100%, 460px); }
+  .switches { display: grid; gap: var(--s1); max-width: 420px; }
+  .output { margin: var(--s4) 0 0; font-size: 14px; color: var(--muted); min-height: 1.5em; }
+  footer { color: var(--muted); font-size: 14px; }
+  footer a { color: var(--accent-ink); }
+  svg.ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  svg.ic .fill { fill: currentColor; fill-opacity: .14; stroke: none; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Meridian components</h1>
+    <p>One material in every environment. Change the environment, appearance, context, material and motion below; every component follows.</p>
+  </header>
+
+  <section class="panel m-glass" id="settings" aria-labelledby="settings-title">
+    <h2 id="settings-title">View</h2>
+    <p>Your choices are kept in this browser.</p>
+    <div class="settings">
+      <div class="setting wide">
+        <span id="l-env">Environment</span>
+        <div class="scroll">
+          <fieldset class="m-seg" aria-labelledby="l-env">
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="prism"><span>Prism</span></label>
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="forest"><span>Forest</span></label>
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="desert"><span>Desert</span></label>
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="ocean"><span>Ocean</span></label>
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="aurora"><span>Aurora</span></label>
+            <label class="m-seg-opt"><input type="radio" name="ref-env" value="canyon"><span>Canyon</span></label>
+          </fieldset>
+        </div>
+      </div>
+      <div class="setting">
+        <span id="l-appearance">Appearance</span>
+        <fieldset class="m-seg" aria-labelledby="l-appearance">
+          <label class="m-seg-opt"><input type="radio" name="ref-appearance" value="system"><span>System</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-appearance" value="dawn"><span>Dawn</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-appearance" value="dusk"><span>Dusk</span></label>
+        </fieldset>
+      </div>
+      <div class="setting">
+        <span id="l-context">Context</span>
+        <fieldset class="m-seg" aria-labelledby="l-context">
+          <label class="m-seg-opt"><input type="radio" name="ref-context" value="desk"><span>Desk</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-context" value="touch"><span>Touch</span></label>
+        </fieldset>
+      </div>
+      <div class="setting">
+        <span id="l-tier">Material</span>
+        <fieldset class="m-seg" aria-labelledby="l-tier">
+          <label class="m-seg-opt"><input type="radio" name="ref-tier" value="frost"><span>Frost</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-tier" value="solid"><span>Solid</span></label>
+        </fieldset>
+      </div>
+      <div class="setting">
+        <span id="l-motion">Motion</span>
+        <fieldset class="m-seg" aria-labelledby="l-motion">
+          <label class="m-seg-opt"><input type="radio" name="ref-motion" value="system"><span>System</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-motion" value="full"><span>Full</span></label>
+          <label class="m-seg-opt"><input type="radio" name="ref-motion" value="reduced"><span>Reduced</span></label>
+        </fieldset>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="buttons-title">
+    <h2 id="buttons-title">Buttons</h2>
+    <p>Pigment for the one primary action, glass for the rest, quiet inside toolbars. Press slowly and the drop sinks; tap quickly and it stays firm.</p>
+    <div class="row" id="buttons">
+      <button class="m-mat m-pigment" type="button"><span class="m-label">Continue</span></button>
+      <button class="m-mat m-glass" type="button"><span class="m-label">Save draft</span></button>
+      <button class="m-mat m-quiet" type="button"><span class="m-label">Cancel</span></button>
+      <button class="m-mat m-glass" type="button" id="busy-demo"><span class="m-label">Save</span></button>
+      <button class="m-mat m-quiet" type="button" aria-pressed="false"><span class="m-label">Bold</span></button>
+      <button class="m-mat m-glass" type="button" disabled><span class="m-label">Unavailable</span></button>
+    </div>
+    <p class="output" id="buttons-out" aria-live="polite"></p>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="icons-title">
+    <h2 id="icons-title">Icon buttons</h2>
+    <p>A round drop for one action. Every icon button carries a name for screen readers.</p>
+    <div class="row">
+      <button class="m-mat m-glass m-icon" type="button" aria-label="Share"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8v10.4 M8.3 7.3 12 3.8l3.7 3.5 M8 10H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1"/></svg></span></button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Bookmark" aria-pressed="false"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8.5 4h7A1.5 1.5 0 0 1 17 5.5v13.1a.8.8 0 0 1-1.27.65L12 16.5l-3.73 2.75A.8.8 0 0 1 7 18.6V5.5A1.5 1.5 0 0 1 8.5 4z"/><path d="M8.5 4h7A1.5 1.5 0 0 1 17 5.5v13.1a.8.8 0 0 1-1.27.65L12 16.5l-3.73 2.75A.8.8 0 0 1 7 18.6V5.5A1.5 1.5 0 0 1 8.5 4z"/></svg></span></button>
+      <button class="m-mat m-pigment m-icon" type="button" aria-label="Play"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6.2v11.6a1 1 0 0 0 1.53.85l9.18-5.8a1 1 0 0 0 0-1.7L10.03 5.35A1 1 0 0 0 8.5 6.2z"/></svg></span></button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Close"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11 M17.5 6.5l-11 11"/></svg></span></button>
+      <button class="m-mat m-glass m-icon" type="button" aria-label="Search" disabled><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4.5a6 6 0 1 1 0 12 6 6 0 0 1 0-12z M15 15l4.5 4.5"/></svg></span></button>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="seg-title">
+    <h2 id="seg-title">Segmented control</h2>
+    <p>Two to five choices that change a view. A drop of glass travels to the choice; it lands with a small wobble. Arrow keys move between choices.</p>
+    <div class="stack">
+      <fieldset class="m-seg" id="measure">
+        <legend>Measure</legend>
+        <label class="m-seg-opt"><input type="radio" name="measure" value="narrow"><span>Narrow</span></label>
+        <label class="m-seg-opt"><input type="radio" name="measure" value="comfort" checked><span>Comfort</span></label>
+        <label class="m-seg-opt"><input type="radio" name="measure" value="wide"><span>Wide</span></label>
+      </fieldset>
+      <fieldset class="m-seg">
+        <legend>Listen or read</legend>
+        <label class="m-seg-opt"><input type="radio" name="mode" value="read" checked><span>Read</span></label>
+        <label class="m-seg-opt"><input type="radio" name="mode" value="listen"><span>Listen</span></label>
+        <label class="m-seg-opt"><input type="radio" name="mode" value="notes" disabled><span>Notes</span></label>
+      </fieldset>
+    </div>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="switch-title">
+    <h2 id="switch-title">Switch</h2>
+    <p>An immediate on or off. Colour spreads from the drop into the track.</p>
+    <div class="switches">
+      <label class="m-switch"><span>Quiet chrome while reading</span><input type="checkbox" role="switch" checked><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
+      <label class="m-switch"><span>Follow the sun</span><input type="checkbox" role="switch"><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
+      <label class="m-switch"><span>Offline copies (unavailable)</span><input type="checkbox" role="switch" disabled><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
+    </div>
+  </section>
+
+  <footer>
+    <p>Markup for every component is in <a href="../docs/components.md">docs/components.md</a>. The physics study lives in the <a href="../lab/">Material Lab</a>.</p>
+  </footer>
+</main>
+<script type="module" src="./reference.js"></script>
+<script type="module">
+  const out = document.querySelector('#buttons-out');
+  document.querySelector('#buttons').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.id === 'busy-demo') return;
+    out.textContent = `${b.textContent.trim()} pressed.`;
+  });
+</script>
+</body>
+</html>
