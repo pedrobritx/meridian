@@ -542,3 +542,17 @@ test('an open menu follows its button when the page scrolls', async ({ page }) =
   await page.waitForTimeout(150);
   expect(await gap()).toBe(before);
 });
+
+test('in right-to-left text the drop runs the same way as the native slider', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const side = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const box = document.createElement('div'); box.dir = 'rtl'; box.style.width = '300px';
+    box.innerHTML = '<div class="m-slider"><input type="range" min="0" max="10" value="10" aria-label="Level"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>';
+    document.querySelector('main').append(box); enhance(box);
+    await new Promise(r => requestAnimationFrame(r));
+    const s = box.querySelector('.m-slider').getBoundingClientRect(), t = box.querySelector('.m-thumb').getBoundingClientRect();
+    return t.left + t.width / 2 - s.left < s.width / 2 ? 'left' : 'right';
+  });
+  expect(side).toBe('left');   // the maximum sits on the left in right-to-left text
+});
