@@ -1,7 +1,7 @@
 # Meridian contributor entry point
 
-Read README.md, CONTRIBUTING.md and the affected canonical design/source contracts. Use agents/designer.md for design work. Preserve existing product identities, stable 0.5 contracts and experimental isolation. Full Polaris governance and Axis architecture are optional explicit adoptions.
-
-Write code, comments, technical instructions and reviews in English. Work reversibly within approved scope; consequential decisions and external configuration require explicit authorisation. Run repository-required checks for changed behaviour. Figma, publication and consuming-product migrations require their own approved scope.
-
-For a composed task, read the local discipline.json and the supplied project context. Return evidence and blockers with the original request ID; keep product-specific changes in the adopting product. A missing or excluded peer discipline never grants an automatic assurance pass.
+- Write code, comments and documentation in English, with British spelling.
+- Edit `tokens/meridian.tokens.json`, never `css/meridian.css` or `src/tokens.js`. Run `npm run build` and `npm test` before committing.
+- A value or component that fails a check ships as Preview, not stable.
+- Follow `docs/decisions.md`. If a request conflicts with a decision there, raise the conflict instead of choosing silently.
+- Work reversibly. Figma changes, publication and changes to consuming products need their own approval.

@@ -1,0 +1,705 @@
+// Generated from tokens/meridian.tokens.json by npm run build. Do not edit by hand.
+export const tokens = {
+  "name": "Meridian",
+  "version": "1.0.0-alpha.0",
+  "description": "Canonical Meridian 1.0 tokens. Edit this file; css/meridian.css and src/tokens.js are generated from it by npm run build.",
+  "feedback": {
+    "dawn": {
+      "error": "#B42318"
+    },
+    "dusk": {
+      "error": "#FFB4A9"
+    }
+  },
+  "environments": {
+    "prism": {
+      "name": "Prism",
+      "accentName": "Graphite",
+      "texture": "spectrum",
+      "glyph": "prism",
+      "note": "Clear liquid acrylic. Neutral and quiet, the default: where the key light crosses the ground it leaves a faint spectrum; the glass keeps a clean rim of light.",
+      "light": {
+        "angle": -100
+      },
+      "material": {
+        "frost": 24,
+        "refract": 20,
+        "sheen": 0.5
+      },
+      "feel": {
+        "depth": 0.62,
+        "creep": 1.35,
+        "k": 1.45,
+        "zeta": 0.3,
+        "ripple": 0.55,
+        "stretch": 0.6,
+        "says": "Under touch it behaves like cut glass: rigid, it barely gives, rings back crisply and throws light rather than ripples."
+      },
+      "dawn": {
+        "ground": [
+          "#E7EAEF",
+          "#D9DEE6",
+          "#F2F3F6"
+        ],
+        "surface": "#F8F9FA",
+        "surface2": "#EEF0F3",
+        "ink": "#1C2028",
+        "muted": "#4E5664",
+        "accent": "#262B34",
+        "onAccent": "#F8F9FA",
+        "accentInk": "#262B34",
+        "line": "#7E8796",
+        "focus": "#2B5FD9",
+        "glass": 0.42,
+        "lightRGB": "255 255 255",
+        "shadowRGB": "20 24 32"
+      },
+      "dusk": {
+        "ground": [
+          "#14171D",
+          "#1C2129",
+          "#0F1216"
+        ],
+        "surface": "#1B1F26",
+        "surface2": "#242932",
+        "ink": "#ECEEF2",
+        "muted": "#AAB1BD",
+        "accent": "#E4E7EC",
+        "onAccent": "#1B1F26",
+        "accentInk": "#E4E7EC",
+        "line": "#7A8392",
+        "focus": "#8FB3FF",
+        "glass": 0.38,
+        "lightRGB": "214 224 255",
+        "shadowRGB": "0 0 4"
+      }
+    },
+    "forest": {
+      "name": "Forest",
+      "accentName": "Moss",
+      "texture": "dapple",
+      "glyph": "leaf",
+      "note": "Filtered woodland light. Soft pools of light sway slowly on the ground, as through moving leaves; moss accent.",
+      "light": {
+        "angle": -118
+      },
+      "material": {
+        "frost": 26,
+        "refract": 16,
+        "sheen": 0.42
+      },
+      "feel": {
+        "depth": 0.95,
+        "creep": 1,
+        "k": 0.85,
+        "zeta": -0.04,
+        "ripple": 0.8,
+        "stretch": 0.9,
+        "says": "Under touch it behaves like moss and leaves: springy, it gives softly and sways back like a branch."
+      },
+      "dawn": {
+        "ground": [
+          "#DAE6D7",
+          "#C5D8C3",
+          "#EDF3E9"
+        ],
+        "surface": "#F6F8F2",
+        "surface2": "#EAF0E5",
+        "ink": "#1A2A20",
+        "muted": "#47594C",
+        "accent": "#2C6848",
+        "onAccent": "#F6F8F2",
+        "accentInk": "#235A3C",
+        "line": "#70887A",
+        "focus": "#1F6E8C",
+        "glass": 0.42,
+        "lightRGB": "255 252 230",
+        "shadowRGB": "16 32 22"
+      },
+      "dusk": {
+        "ground": [
+          "#0F1A14",
+          "#17271D",
+          "#0B130E"
+        ],
+        "surface": "#16221B",
+        "surface2": "#1E2C24",
+        "ink": "#E7F0E7",
+        "muted": "#A6BAA8",
+        "accent": "#8FCFA6",
+        "onAccent": "#0F1A14",
+        "accentInk": "#9AD6AF",
+        "line": "#6E8A76",
+        "focus": "#9ED8F0",
+        "glass": 0.38,
+        "lightRGB": "200 236 210",
+        "shadowRGB": "0 6 2"
+      }
+    },
+    "desert": {
+      "name": "Desert",
+      "accentName": "Ochre",
+      "texture": "sand",
+      "glyph": "dunes",
+      "note": "Low warm sun. A fine, granular sand on the ground; frosted glass that refracts least.",
+      "light": {
+        "angle": -152
+      },
+      "material": {
+        "frost": 30,
+        "refract": 10,
+        "sheen": 0.36
+      },
+      "feel": {
+        "depth": 1.05,
+        "creep": 1.15,
+        "k": 0.62,
+        "zeta": 0.55,
+        "ripple": 0.35,
+        "stretch": 0.7,
+        "linger": 0.12,
+        "says": "Under touch it behaves like sand: it yields, holds the print a moment, then fills back in without bouncing."
+      },
+      "dawn": {
+        "ground": [
+          "#F0E1C4",
+          "#E4CDA2",
+          "#F8EEDA"
+        ],
+        "surface": "#FBF6EC",
+        "surface2": "#F2E9D8",
+        "ink": "#2D2315",
+        "muted": "#62523A",
+        "accent": "#7A4E06",
+        "onAccent": "#FBF6EC",
+        "accentInk": "#744A06",
+        "line": "#8F7B5C",
+        "focus": "#1F5F8A",
+        "glass": 0.44,
+        "lightRGB": "255 244 214",
+        "shadowRGB": "58 36 10"
+      },
+      "dusk": {
+        "ground": [
+          "#1E170E",
+          "#2B2114",
+          "#15100A"
+        ],
+        "surface": "#231B12",
+        "surface2": "#2D2418",
+        "ink": "#F4EBDD",
+        "muted": "#C3B299",
+        "accent": "#E2B65C",
+        "onAccent": "#231B12",
+        "accentInk": "#E9C273",
+        "line": "#8E7B5E",
+        "focus": "#9CCBEA",
+        "glass": 0.4,
+        "lightRGB": "255 214 160",
+        "shadowRGB": "8 4 0"
+      }
+    },
+    "ocean": {
+      "name": "Ocean",
+      "accentName": "Tide",
+      "texture": "caustics",
+      "glyph": "wave",
+      "note": "Light from the surface above. A faint caustic net with soft shapes flowing slowly across it; the clearest glass, bending the most.",
+      "light": {
+        "angle": -90
+      },
+      "material": {
+        "frost": 20,
+        "refract": 28,
+        "sheen": 0.55
+      },
+      "feel": {
+        "depth": 1.15,
+        "creep": 0.8,
+        "k": 0.9,
+        "zeta": -0.12,
+        "ripple": 1.45,
+        "stretch": 1.25,
+        "says": "Under touch it behaves like water, the most fluid of all: it sinks quickly, wobbles freely and sends rings outward."
+      },
+      "dawn": {
+        "ground": [
+          "#D3E6EC",
+          "#B7D4DF",
+          "#E8F3F5"
+        ],
+        "surface": "#F5F9FA",
+        "surface2": "#E6EFF2",
+        "ink": "#0F2737",
+        "muted": "#3C5868",
+        "accent": "#145B78",
+        "onAccent": "#F5F9FA",
+        "accentInk": "#125471",
+        "line": "#6C8996",
+        "focus": "#7A3FB8",
+        "glass": 0.4,
+        "lightRGB": "236 252 255",
+        "shadowRGB": "6 30 46"
+      },
+      "dusk": {
+        "ground": [
+          "#071622",
+          "#0C2434",
+          "#050E17"
+        ],
+        "surface": "#0E1E2B",
+        "surface2": "#152938",
+        "ink": "#E3EFF4",
+        "muted": "#9CB6C3",
+        "accent": "#7CC6E3",
+        "onAccent": "#071622",
+        "accentInk": "#88CDE8",
+        "line": "#5F8496",
+        "focus": "#E0B3FF",
+        "glass": 0.38,
+        "lightRGB": "150 220 255",
+        "shadowRGB": "0 4 10"
+      }
+    },
+    "aurora": {
+      "name": "Aurora",
+      "accentName": "Violet",
+      "texture": "aurora",
+      "glyph": "aurora",
+      "note": "No texture to touch. The light is the environment: curtains of colour drift slowly in blur behind crystal-clear glass.",
+      "light": {
+        "angle": -62
+      },
+      "material": {
+        "frost": 22,
+        "refract": 24,
+        "sheen": 0.6
+      },
+      "feel": {
+        "depth": 0.8,
+        "creep": 1.1,
+        "k": 0.55,
+        "zeta": -0.06,
+        "ripple": 1.1,
+        "stretch": 1.1,
+        "says": "Under touch it behaves like light in air: weightless, it drifts down, glows and floats back slowly."
+      },
+      "dawn": {
+        "ground": [
+          "#EAE2F2",
+          "#DACDEA",
+          "#F5F0F9"
+        ],
+        "surface": "#FAF7FC",
+        "surface2": "#EFE9F5",
+        "ink": "#241A32",
+        "muted": "#5A4B6C",
+        "accent": "#6A3EA6",
+        "onAccent": "#FAF7FC",
+        "accentInk": "#5E3696",
+        "line": "#86789A",
+        "focus": "#0F6E76",
+        "glass": 0.4,
+        "lightRGB": "255 246 255",
+        "shadowRGB": "36 18 60"
+      },
+      "dusk": {
+        "ground": [
+          "#0D0A1A",
+          "#17112B",
+          "#08060F"
+        ],
+        "surface": "#161226",
+        "surface2": "#1F1A32",
+        "ink": "#EEE9F7",
+        "muted": "#B2A7C7",
+        "accent": "#C8A6F5",
+        "onAccent": "#120E20",
+        "accentInk": "#CDB0F7",
+        "line": "#7F7398",
+        "focus": "#7FE3D2",
+        "glass": 0.36,
+        "lightRGB": "190 255 236",
+        "shadowRGB": "2 0 8"
+      }
+    },
+    "canyon": {
+      "name": "Canyon",
+      "accentName": "Terracotta",
+      "texture": "strata",
+      "glyph": "mesa",
+      "note": "Late sun across red sandstone. Faint strata on the ground; warm, more frosted, alabaster-like glass.",
+      "light": {
+        "angle": -30
+      },
+      "material": {
+        "frost": 30,
+        "refract": 10,
+        "sheen": 0.32
+      },
+      "feel": {
+        "depth": 0.7,
+        "creep": 1.25,
+        "k": 1.3,
+        "zeta": 0.42,
+        "ripple": 0.45,
+        "stretch": 0.55,
+        "says": "Under touch it behaves like clay and stone: heavy and firm, with short travel, a dull thud and no wobble."
+      },
+      "dawn": {
+        "ground": [
+          "#EFDACB",
+          "#E0BCA4",
+          "#F7E9DF"
+        ],
+        "surface": "#FBF5F0",
+        "surface2": "#F2E6DC",
+        "ink": "#2C1912",
+        "muted": "#67483A",
+        "accent": "#9C4228",
+        "onAccent": "#FBF5F0",
+        "accentInk": "#8C3A22",
+        "line": "#987A6C",
+        "focus": "#235F86",
+        "glass": 0.44,
+        "lightRGB": "255 232 214",
+        "shadowRGB": "60 22 10"
+      },
+      "dusk": {
+        "ground": [
+          "#1C0F0B",
+          "#2B1710",
+          "#130A07"
+        ],
+        "surface": "#22140F",
+        "surface2": "#2C1B14",
+        "ink": "#F6E8E1",
+        "muted": "#CCAD9E",
+        "accent": "#EF9A78",
+        "onAccent": "#22140F",
+        "accentInk": "#F2A585",
+        "line": "#94705F",
+        "focus": "#9DD0F2",
+        "glass": 0.4,
+        "lightRGB": "255 196 160",
+        "shadowRGB": "8 0 0"
+      }
+    }
+  },
+  "defaults": {
+    "environment": "prism",
+    "appearance": "dawn",
+    "context": "desk",
+    "tier": "frost"
+  },
+  "material": {
+    "tiers": [
+      "refract",
+      "frost",
+      "solid",
+      "pigment"
+    ],
+    "maxGlassAlpha": 0.94,
+    "appearance": {
+      "dawn": {
+        "guard": 0.74,
+        "rim": 0.35,
+        "glow": 0.3,
+        "sheenFactor": 1
+      },
+      "dusk": {
+        "guard": 0.7,
+        "rim": 0.16,
+        "glow": 0.14,
+        "sheenFactor": 0.55
+      }
+    },
+    "rules": [
+      "Glass never stacks on glass: nested glass is opaque.",
+      "Every glass surface has an opaque solid fallback (the surface colour).",
+      "No blend modes."
+    ]
+  },
+  "fluid": {
+    "creepTau": 0.18,
+    "holdAfter": 0.35,
+    "holdTau": 0.3,
+    "holdFire": 0.8,
+    "firmWindow": 0.5,
+    "firmFloor": 0.12,
+    "depthCapFirm": 0.4,
+    "zetaSoft": 0.42,
+    "zetaFirm": 0.95,
+    "kSoft": 380,
+    "kFirm": 900,
+    "dragPeak": 1.2,
+    "dragStretch": 0.22
+  },
+  "feelSettle": 0.9,
+  "motion": {
+    "duration": {
+      "quick": 140,
+      "calm": 280,
+      "scene": 420
+    },
+    "ease": {
+      "calm": "cubic-bezier(.2, .8, .2, 1)"
+    },
+    "springs": {
+      "travel": {
+        "k": 520,
+        "c": 38
+      },
+      "trail": {
+        "k": 300,
+        "c": 30
+      },
+      "lift": {
+        "k": 300,
+        "c": 30
+      },
+      "release": {
+        "k": 380,
+        "c": 26
+      },
+      "shiver": {
+        "k": 1400,
+        "c": 14
+      }
+    }
+  },
+  "space": {
+    "s1": 4,
+    "s2": 8,
+    "s3": 12,
+    "s4": 16,
+    "s5": 24,
+    "s6": 32,
+    "s7": 48,
+    "s8": 64
+  },
+  "radius": {
+    "window": 30,
+    "panel": 26,
+    "tile": 22,
+    "field": 18,
+    "row": 16
+  },
+  "type": {
+    "ui": "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro\", system-ui, \"Inter\", \"Segoe UI Variable Text\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "display": "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"SF Pro\", system-ui, \"Inter\", \"Segoe UI Variable Display\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "read": "ui-serif, \"New York\", \"Iowan Old Style\", Charter, \"Bitstream Charter\", Georgia, serif"
+  },
+  "contexts": {
+    "desk": {
+      "status": "web",
+      "name": "Desk",
+      "title": "Desk · laptops and desktops",
+      "size": [
+        1060,
+        680
+      ],
+      "target": 40,
+      "gap": 12,
+      "tierCap": "refract",
+      "hover": true,
+      "refractBudget": 4,
+      "inputs": [
+        "cursor",
+        "keyboard",
+        "touch",
+        "pencil",
+        "voice",
+        "switch"
+      ],
+      "lede": "Precise pointing, so targets can be smaller and hover is a real signal. Touch laptops and pen displays bring finger and pencil to the same screen.",
+      "grammar": [
+        "Hover glow; keyboard focus light",
+        "Click, tap, Enter or Space",
+        "Right-click, long click, menu key",
+        "Tab, arrows",
+        "Drag, wheel, two-finger scroll",
+        "Escape"
+      ],
+      "rules": [
+        "Targets at least 40 px with 12 px between them; 48 px wherever touch is possible.",
+        "Up to four refracting surfaces per view; everything else frosts.",
+        "Hover lights the surface where the pointer is and lifts it slightly; the shape and the hit area never move."
+      ]
+    },
+    "touch": {
+      "status": "web",
+      "name": "Touch",
+      "title": "Touch · phones, tablets, foldables",
+      "size": [
+        392,
+        812
+      ],
+      "target": 48,
+      "gap": 16,
+      "tierCap": "refract",
+      "hover": false,
+      "refractBudget": 3,
+      "inputs": [
+        "touch",
+        "pencil",
+        "keyboard",
+        "cursor",
+        "gyro",
+        "voice",
+        "switch"
+      ],
+      "lede": "The finger is the light. With no hover, contact must answer on the next frame and show exactly where it landed. Tablets add pencil, keyboard and trackpad.",
+      "grammar": [
+        "None; Pencil hover where supported",
+        "Tap",
+        "Long press",
+        "Swipe; keyboard as Desk",
+        "Drag, pinch",
+        "Edge swipe, system back"
+      ],
+      "rules": [
+        "Targets at least 48 px (44 pt iOS, 48 dp Android) with 16 px between them.",
+        "A slow press sinks and wobbles back; a quick tap stays firm.",
+        "Foldables reflow at the hinge; material and physics do not change."
+      ]
+    },
+    "wrist": {
+      "status": "spec",
+      "name": "Wrist",
+      "title": "Wrist · glance, tap, turn",
+      "size": [
+        236,
+        276
+      ],
+      "target": 52,
+      "gap": 10,
+      "tierCap": "solid",
+      "hover": false,
+      "refractBudget": 0,
+      "inputs": [
+        "touch",
+        "crown",
+        "buttons",
+        "voice"
+      ],
+      "lede": "Seconds of attention, a tiny screen and a battery. Material is opaque; shading carries depth on its own.",
+      "grammar": [
+        "None",
+        "Tap",
+        "Long press",
+        "Crown detents (here: wheel or ↑ ↓)",
+        "Crown rotation",
+        "Swipe right, side button"
+      ],
+      "rules": [
+        "One primary action per screen, two at most.",
+        "Solid tier always, which also keeps always-on displays cheap.",
+        "Ripples shrink to a brief brightening; springs keep their timing."
+      ]
+    },
+    "space": {
+      "status": "spec",
+      "name": "Space",
+      "title": "Space · AR and VR headsets",
+      "size": [
+        1060,
+        720
+      ],
+      "target": 64,
+      "gap": 20,
+      "tierCap": "frost",
+      "hover": true,
+      "refractBudget": 0,
+      "inputs": [
+        "eyes",
+        "hands",
+        "controller",
+        "voice"
+      ],
+      "lede": "The real world is the ground, and you do not control it. Glass is the content plane here, so it must be thick enough to read over anything.",
+      "grammar": [
+        "Gaze, drawn by the system",
+        "Pinch, direct touch",
+        "Pinch and hold",
+        "Not by default",
+        "Pinch and drag",
+        "Close control, ornament"
+      ],
+      "rules": [
+        "Targets at least 60 pt of angular size, with room between them.",
+        "Glass tint 0.84 or more behind text; the passthrough world never counts toward contrast.",
+        "Nothing depends on knowing where someone looks."
+      ]
+    },
+    "tv": {
+      "status": "spec",
+      "name": "TV",
+      "title": "TV · remote, controller, voice",
+      "size": [
+        1280,
+        720
+      ],
+      "target": 72,
+      "gap": 24,
+      "tierCap": "frost",
+      "hover": false,
+      "refractBudget": 0,
+      "inputs": [
+        "remote",
+        "controller",
+        "cursor",
+        "voice"
+      ],
+      "lede": "Viewed from about three metres and steered one step at a time. Focus is the whole interface: the focused item lifts toward you and the light travels with it.",
+      "grammar": [
+        "Focus, moved by the D-pad",
+        "OK, A button",
+        "Long OK",
+        "D-pad in four directions",
+        "Stick, pointer remote",
+        "Back, B button"
+      ],
+      "rules": [
+        "Keep everything that matters inside a 5% overscan-safe margin.",
+        "Text at least 24 px at 1080p; focused items lift and grow by 8%.",
+        "Frost at most: television browsers and chips vary widely."
+      ]
+    },
+    "drive": {
+      "status": "spec",
+      "name": "Drive",
+      "title": "Drive · knob, keys, touch, voice",
+      "size": [
+        1100,
+        470
+      ],
+      "target": 76,
+      "gap": 20,
+      "tierCap": "frost",
+      "hover": false,
+      "refractBudget": 0,
+      "inputs": [
+        "crown",
+        "buttons",
+        "touch",
+        "voice"
+      ],
+      "lede": "Attention belongs to the road. Every task must fit short glances, and the system removes anything that invites a longer look.",
+      "grammar": [
+        "Knob or steering-wheel focus",
+        "Knob press, tap, voice",
+        "Long knob press",
+        "Knob detents, wheel arrows",
+        "Avoid while moving",
+        "Dedicated back key"
+      ],
+      "rules": [
+        "Glances of 2 s or less and 12 s per task in total (NHTSA guidance).",
+        "While moving: no texture, ripples or travel; reading locked; Solid.",
+        "Targets of 72 to 80 px here: a proposal to test with real dashboards."
+      ]
+    }
+  }
+};
+export default tokens;

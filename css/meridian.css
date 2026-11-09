@@ -1,0 +1,896 @@
+/* Meridian 1.0.0-alpha.0. Generated from tokens/meridian.tokens.json by npm run build. Do not edit by hand. */
+@layer meridian {
+  :where(:root) {
+    --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", system-ui, "Inter", "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", system-ui, "Inter", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-read: ui-serif, "New York", "Iowan Old Style", Charter, "Bitstream Charter", Georgia, serif;
+    --s1: 4px;
+    --s2: 8px;
+    --s3: 12px;
+    --s4: 16px;
+    --s5: 24px;
+    --s6: 32px;
+    --s7: 48px;
+    --s8: 64px;
+    --r-window: 30px;
+    --r-panel: 26px;
+    --r-tile: 22px;
+    --r-field: 18px;
+    --r-row: 16px;
+    --dur-quick: 140ms;
+    --dur-calm: 280ms;
+    --dur-scene: 420ms;
+    --ease-calm: cubic-bezier(.2, .8, .2, 1);
+    --max-glass-a: 0.94;
+    --target: 40px;
+    --gap: 12px;
+  }
+
+  /* Prism */
+  :where(:root:not([data-env]), [data-env="prism"]) {
+    color-scheme: light;
+    --g0: #E7EAEF;
+    --g1: #D9DEE6;
+    --g2: #F2F3F6;
+    --surface: #F8F9FA;
+    --surface-2: #EEF0F3;
+    --ink: #1C2028;
+    --muted: #4E5664;
+    --accent: #262B34;
+    --on-accent: #F8F9FA;
+    --accent-ink: #262B34;
+    --line: #7E8796;
+    --focus: #2B5FD9;
+    --error: #B42318;
+    --accent-rgb: 38 43 52;
+    --on-accent-rgb: 248 249 250;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 248 249 250;
+    --glass-a: 0.42;
+    --light-rgb: 255 255 255;
+    --shadow-rgb: 20 24 32;
+    --light-deg: -190deg;
+    --lx: -0.174;
+    --ly: -0.985;
+    --frost: 24px;
+    --refract: 20px;
+    --sheen: 0.5;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(20 24 32 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where(:root:not([data-env]):not([data-appearance]), [data-env="prism"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #14171D;
+      --g1: #1C2129;
+      --g2: #0F1216;
+      --surface: #1B1F26;
+      --surface-2: #242932;
+      --ink: #ECEEF2;
+      --muted: #AAB1BD;
+      --accent: #E4E7EC;
+      --on-accent: #1B1F26;
+      --accent-ink: #E4E7EC;
+      --line: #7A8392;
+      --focus: #8FB3FF;
+      --error: #FFB4A9;
+      --accent-rgb: 228 231 236;
+      --on-accent-rgb: 27 31 38;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 27 31 38;
+      --glass-a: 0.38;
+      --light-rgb: 214 224 255;
+      --shadow-rgb: 0 0 4;
+      --light-deg: -190deg;
+      --lx: -0.174;
+      --ly: -0.985;
+      --frost: 24px;
+      --refract: 20px;
+      --sheen: 0.275;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where(:root:not([data-env])[data-appearance="dawn"], [data-env="prism"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #E7EAEF;
+    --g1: #D9DEE6;
+    --g2: #F2F3F6;
+    --surface: #F8F9FA;
+    --surface-2: #EEF0F3;
+    --ink: #1C2028;
+    --muted: #4E5664;
+    --accent: #262B34;
+    --on-accent: #F8F9FA;
+    --accent-ink: #262B34;
+    --line: #7E8796;
+    --focus: #2B5FD9;
+    --error: #B42318;
+    --accent-rgb: 38 43 52;
+    --on-accent-rgb: 248 249 250;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 248 249 250;
+    --glass-a: 0.42;
+    --light-rgb: 255 255 255;
+    --shadow-rgb: 20 24 32;
+    --light-deg: -190deg;
+    --lx: -0.174;
+    --ly: -0.985;
+    --frost: 24px;
+    --refract: 20px;
+    --sheen: 0.5;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(20 24 32 / .12);
+  }
+  :where(:root:not([data-env])[data-appearance="dusk"], [data-env="prism"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #14171D;
+    --g1: #1C2129;
+    --g2: #0F1216;
+    --surface: #1B1F26;
+    --surface-2: #242932;
+    --ink: #ECEEF2;
+    --muted: #AAB1BD;
+    --accent: #E4E7EC;
+    --on-accent: #1B1F26;
+    --accent-ink: #E4E7EC;
+    --line: #7A8392;
+    --focus: #8FB3FF;
+    --error: #FFB4A9;
+    --accent-rgb: 228 231 236;
+    --on-accent-rgb: 27 31 38;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 27 31 38;
+    --glass-a: 0.38;
+    --light-rgb: 214 224 255;
+    --shadow-rgb: 0 0 4;
+    --light-deg: -190deg;
+    --lx: -0.174;
+    --ly: -0.985;
+    --frost: 24px;
+    --refract: 20px;
+    --sheen: 0.275;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Forest */
+  :where([data-env="forest"]) {
+    color-scheme: light;
+    --g0: #DAE6D7;
+    --g1: #C5D8C3;
+    --g2: #EDF3E9;
+    --surface: #F6F8F2;
+    --surface-2: #EAF0E5;
+    --ink: #1A2A20;
+    --muted: #47594C;
+    --accent: #2C6848;
+    --on-accent: #F6F8F2;
+    --accent-ink: #235A3C;
+    --line: #70887A;
+    --focus: #1F6E8C;
+    --error: #B42318;
+    --accent-rgb: 44 104 72;
+    --on-accent-rgb: 246 248 242;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 246 248 242;
+    --glass-a: 0.42;
+    --light-rgb: 255 252 230;
+    --shadow-rgb: 16 32 22;
+    --light-deg: -208deg;
+    --lx: -0.469;
+    --ly: -0.883;
+    --frost: 26px;
+    --refract: 16px;
+    --sheen: 0.42;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(16 32 22 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where([data-env="forest"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #0F1A14;
+      --g1: #17271D;
+      --g2: #0B130E;
+      --surface: #16221B;
+      --surface-2: #1E2C24;
+      --ink: #E7F0E7;
+      --muted: #A6BAA8;
+      --accent: #8FCFA6;
+      --on-accent: #0F1A14;
+      --accent-ink: #9AD6AF;
+      --line: #6E8A76;
+      --focus: #9ED8F0;
+      --error: #FFB4A9;
+      --accent-rgb: 143 207 166;
+      --on-accent-rgb: 15 26 20;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 22 34 27;
+      --glass-a: 0.38;
+      --light-rgb: 200 236 210;
+      --shadow-rgb: 0 6 2;
+      --light-deg: -208deg;
+      --lx: -0.469;
+      --ly: -0.883;
+      --frost: 26px;
+      --refract: 16px;
+      --sheen: 0.231;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where([data-env="forest"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #DAE6D7;
+    --g1: #C5D8C3;
+    --g2: #EDF3E9;
+    --surface: #F6F8F2;
+    --surface-2: #EAF0E5;
+    --ink: #1A2A20;
+    --muted: #47594C;
+    --accent: #2C6848;
+    --on-accent: #F6F8F2;
+    --accent-ink: #235A3C;
+    --line: #70887A;
+    --focus: #1F6E8C;
+    --error: #B42318;
+    --accent-rgb: 44 104 72;
+    --on-accent-rgb: 246 248 242;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 246 248 242;
+    --glass-a: 0.42;
+    --light-rgb: 255 252 230;
+    --shadow-rgb: 16 32 22;
+    --light-deg: -208deg;
+    --lx: -0.469;
+    --ly: -0.883;
+    --frost: 26px;
+    --refract: 16px;
+    --sheen: 0.42;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(16 32 22 / .12);
+  }
+  :where([data-env="forest"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #0F1A14;
+    --g1: #17271D;
+    --g2: #0B130E;
+    --surface: #16221B;
+    --surface-2: #1E2C24;
+    --ink: #E7F0E7;
+    --muted: #A6BAA8;
+    --accent: #8FCFA6;
+    --on-accent: #0F1A14;
+    --accent-ink: #9AD6AF;
+    --line: #6E8A76;
+    --focus: #9ED8F0;
+    --error: #FFB4A9;
+    --accent-rgb: 143 207 166;
+    --on-accent-rgb: 15 26 20;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 22 34 27;
+    --glass-a: 0.38;
+    --light-rgb: 200 236 210;
+    --shadow-rgb: 0 6 2;
+    --light-deg: -208deg;
+    --lx: -0.469;
+    --ly: -0.883;
+    --frost: 26px;
+    --refract: 16px;
+    --sheen: 0.231;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Desert */
+  :where([data-env="desert"]) {
+    color-scheme: light;
+    --g0: #F0E1C4;
+    --g1: #E4CDA2;
+    --g2: #F8EEDA;
+    --surface: #FBF6EC;
+    --surface-2: #F2E9D8;
+    --ink: #2D2315;
+    --muted: #62523A;
+    --accent: #7A4E06;
+    --on-accent: #FBF6EC;
+    --accent-ink: #744A06;
+    --line: #8F7B5C;
+    --focus: #1F5F8A;
+    --error: #B42318;
+    --accent-rgb: 122 78 6;
+    --on-accent-rgb: 251 246 236;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 251 246 236;
+    --glass-a: 0.44;
+    --light-rgb: 255 244 214;
+    --shadow-rgb: 58 36 10;
+    --light-deg: -242deg;
+    --lx: -0.883;
+    --ly: -0.469;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.36;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(58 36 10 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where([data-env="desert"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #1E170E;
+      --g1: #2B2114;
+      --g2: #15100A;
+      --surface: #231B12;
+      --surface-2: #2D2418;
+      --ink: #F4EBDD;
+      --muted: #C3B299;
+      --accent: #E2B65C;
+      --on-accent: #231B12;
+      --accent-ink: #E9C273;
+      --line: #8E7B5E;
+      --focus: #9CCBEA;
+      --error: #FFB4A9;
+      --accent-rgb: 226 182 92;
+      --on-accent-rgb: 35 27 18;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 35 27 18;
+      --glass-a: 0.4;
+      --light-rgb: 255 214 160;
+      --shadow-rgb: 8 4 0;
+      --light-deg: -242deg;
+      --lx: -0.883;
+      --ly: -0.469;
+      --frost: 30px;
+      --refract: 10px;
+      --sheen: 0.198;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where([data-env="desert"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #F0E1C4;
+    --g1: #E4CDA2;
+    --g2: #F8EEDA;
+    --surface: #FBF6EC;
+    --surface-2: #F2E9D8;
+    --ink: #2D2315;
+    --muted: #62523A;
+    --accent: #7A4E06;
+    --on-accent: #FBF6EC;
+    --accent-ink: #744A06;
+    --line: #8F7B5C;
+    --focus: #1F5F8A;
+    --error: #B42318;
+    --accent-rgb: 122 78 6;
+    --on-accent-rgb: 251 246 236;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 251 246 236;
+    --glass-a: 0.44;
+    --light-rgb: 255 244 214;
+    --shadow-rgb: 58 36 10;
+    --light-deg: -242deg;
+    --lx: -0.883;
+    --ly: -0.469;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.36;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(58 36 10 / .12);
+  }
+  :where([data-env="desert"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #1E170E;
+    --g1: #2B2114;
+    --g2: #15100A;
+    --surface: #231B12;
+    --surface-2: #2D2418;
+    --ink: #F4EBDD;
+    --muted: #C3B299;
+    --accent: #E2B65C;
+    --on-accent: #231B12;
+    --accent-ink: #E9C273;
+    --line: #8E7B5E;
+    --focus: #9CCBEA;
+    --error: #FFB4A9;
+    --accent-rgb: 226 182 92;
+    --on-accent-rgb: 35 27 18;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 35 27 18;
+    --glass-a: 0.4;
+    --light-rgb: 255 214 160;
+    --shadow-rgb: 8 4 0;
+    --light-deg: -242deg;
+    --lx: -0.883;
+    --ly: -0.469;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.198;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Ocean */
+  :where([data-env="ocean"]) {
+    color-scheme: light;
+    --g0: #D3E6EC;
+    --g1: #B7D4DF;
+    --g2: #E8F3F5;
+    --surface: #F5F9FA;
+    --surface-2: #E6EFF2;
+    --ink: #0F2737;
+    --muted: #3C5868;
+    --accent: #145B78;
+    --on-accent: #F5F9FA;
+    --accent-ink: #125471;
+    --line: #6C8996;
+    --focus: #7A3FB8;
+    --error: #B42318;
+    --accent-rgb: 20 91 120;
+    --on-accent-rgb: 245 249 250;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 245 249 250;
+    --glass-a: 0.4;
+    --light-rgb: 236 252 255;
+    --shadow-rgb: 6 30 46;
+    --light-deg: -180deg;
+    --lx: 0;
+    --ly: -1;
+    --frost: 20px;
+    --refract: 28px;
+    --sheen: 0.55;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(6 30 46 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where([data-env="ocean"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #071622;
+      --g1: #0C2434;
+      --g2: #050E17;
+      --surface: #0E1E2B;
+      --surface-2: #152938;
+      --ink: #E3EFF4;
+      --muted: #9CB6C3;
+      --accent: #7CC6E3;
+      --on-accent: #071622;
+      --accent-ink: #88CDE8;
+      --line: #5F8496;
+      --focus: #E0B3FF;
+      --error: #FFB4A9;
+      --accent-rgb: 124 198 227;
+      --on-accent-rgb: 7 22 34;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 14 30 43;
+      --glass-a: 0.38;
+      --light-rgb: 150 220 255;
+      --shadow-rgb: 0 4 10;
+      --light-deg: -180deg;
+      --lx: 0;
+      --ly: -1;
+      --frost: 20px;
+      --refract: 28px;
+      --sheen: 0.303;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where([data-env="ocean"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #D3E6EC;
+    --g1: #B7D4DF;
+    --g2: #E8F3F5;
+    --surface: #F5F9FA;
+    --surface-2: #E6EFF2;
+    --ink: #0F2737;
+    --muted: #3C5868;
+    --accent: #145B78;
+    --on-accent: #F5F9FA;
+    --accent-ink: #125471;
+    --line: #6C8996;
+    --focus: #7A3FB8;
+    --error: #B42318;
+    --accent-rgb: 20 91 120;
+    --on-accent-rgb: 245 249 250;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 245 249 250;
+    --glass-a: 0.4;
+    --light-rgb: 236 252 255;
+    --shadow-rgb: 6 30 46;
+    --light-deg: -180deg;
+    --lx: 0;
+    --ly: -1;
+    --frost: 20px;
+    --refract: 28px;
+    --sheen: 0.55;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(6 30 46 / .12);
+  }
+  :where([data-env="ocean"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #071622;
+    --g1: #0C2434;
+    --g2: #050E17;
+    --surface: #0E1E2B;
+    --surface-2: #152938;
+    --ink: #E3EFF4;
+    --muted: #9CB6C3;
+    --accent: #7CC6E3;
+    --on-accent: #071622;
+    --accent-ink: #88CDE8;
+    --line: #5F8496;
+    --focus: #E0B3FF;
+    --error: #FFB4A9;
+    --accent-rgb: 124 198 227;
+    --on-accent-rgb: 7 22 34;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 14 30 43;
+    --glass-a: 0.38;
+    --light-rgb: 150 220 255;
+    --shadow-rgb: 0 4 10;
+    --light-deg: -180deg;
+    --lx: 0;
+    --ly: -1;
+    --frost: 20px;
+    --refract: 28px;
+    --sheen: 0.303;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Aurora */
+  :where([data-env="aurora"]) {
+    color-scheme: light;
+    --g0: #EAE2F2;
+    --g1: #DACDEA;
+    --g2: #F5F0F9;
+    --surface: #FAF7FC;
+    --surface-2: #EFE9F5;
+    --ink: #241A32;
+    --muted: #5A4B6C;
+    --accent: #6A3EA6;
+    --on-accent: #FAF7FC;
+    --accent-ink: #5E3696;
+    --line: #86789A;
+    --focus: #0F6E76;
+    --error: #B42318;
+    --accent-rgb: 106 62 166;
+    --on-accent-rgb: 250 247 252;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 250 247 252;
+    --glass-a: 0.4;
+    --light-rgb: 255 246 255;
+    --shadow-rgb: 36 18 60;
+    --light-deg: -152deg;
+    --lx: 0.469;
+    --ly: -0.883;
+    --frost: 22px;
+    --refract: 24px;
+    --sheen: 0.6;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(36 18 60 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where([data-env="aurora"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #0D0A1A;
+      --g1: #17112B;
+      --g2: #08060F;
+      --surface: #161226;
+      --surface-2: #1F1A32;
+      --ink: #EEE9F7;
+      --muted: #B2A7C7;
+      --accent: #C8A6F5;
+      --on-accent: #120E20;
+      --accent-ink: #CDB0F7;
+      --line: #7F7398;
+      --focus: #7FE3D2;
+      --error: #FFB4A9;
+      --accent-rgb: 200 166 245;
+      --on-accent-rgb: 18 14 32;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 22 18 38;
+      --glass-a: 0.36;
+      --light-rgb: 190 255 236;
+      --shadow-rgb: 2 0 8;
+      --light-deg: -152deg;
+      --lx: 0.469;
+      --ly: -0.883;
+      --frost: 22px;
+      --refract: 24px;
+      --sheen: 0.33;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where([data-env="aurora"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #EAE2F2;
+    --g1: #DACDEA;
+    --g2: #F5F0F9;
+    --surface: #FAF7FC;
+    --surface-2: #EFE9F5;
+    --ink: #241A32;
+    --muted: #5A4B6C;
+    --accent: #6A3EA6;
+    --on-accent: #FAF7FC;
+    --accent-ink: #5E3696;
+    --line: #86789A;
+    --focus: #0F6E76;
+    --error: #B42318;
+    --accent-rgb: 106 62 166;
+    --on-accent-rgb: 250 247 252;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 250 247 252;
+    --glass-a: 0.4;
+    --light-rgb: 255 246 255;
+    --shadow-rgb: 36 18 60;
+    --light-deg: -152deg;
+    --lx: 0.469;
+    --ly: -0.883;
+    --frost: 22px;
+    --refract: 24px;
+    --sheen: 0.6;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(36 18 60 / .12);
+  }
+  :where([data-env="aurora"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #0D0A1A;
+    --g1: #17112B;
+    --g2: #08060F;
+    --surface: #161226;
+    --surface-2: #1F1A32;
+    --ink: #EEE9F7;
+    --muted: #B2A7C7;
+    --accent: #C8A6F5;
+    --on-accent: #120E20;
+    --accent-ink: #CDB0F7;
+    --line: #7F7398;
+    --focus: #7FE3D2;
+    --error: #FFB4A9;
+    --accent-rgb: 200 166 245;
+    --on-accent-rgb: 18 14 32;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 22 18 38;
+    --glass-a: 0.36;
+    --light-rgb: 190 255 236;
+    --shadow-rgb: 2 0 8;
+    --light-deg: -152deg;
+    --lx: 0.469;
+    --ly: -0.883;
+    --frost: 22px;
+    --refract: 24px;
+    --sheen: 0.33;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Canyon */
+  :where([data-env="canyon"]) {
+    color-scheme: light;
+    --g0: #EFDACB;
+    --g1: #E0BCA4;
+    --g2: #F7E9DF;
+    --surface: #FBF5F0;
+    --surface-2: #F2E6DC;
+    --ink: #2C1912;
+    --muted: #67483A;
+    --accent: #9C4228;
+    --on-accent: #FBF5F0;
+    --accent-ink: #8C3A22;
+    --line: #987A6C;
+    --focus: #235F86;
+    --error: #B42318;
+    --accent-rgb: 156 66 40;
+    --on-accent-rgb: 251 245 240;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 251 245 240;
+    --glass-a: 0.44;
+    --light-rgb: 255 232 214;
+    --shadow-rgb: 60 22 10;
+    --light-deg: -120deg;
+    --lx: 0.866;
+    --ly: -0.5;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.32;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(60 22 10 / .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :where([data-env="canyon"]:not([data-appearance])) {
+      color-scheme: dark;
+      --g0: #1C0F0B;
+      --g1: #2B1710;
+      --g2: #130A07;
+      --surface: #22140F;
+      --surface-2: #2C1B14;
+      --ink: #F6E8E1;
+      --muted: #CCAD9E;
+      --accent: #EF9A78;
+      --on-accent: #22140F;
+      --accent-ink: #F2A585;
+      --line: #94705F;
+      --focus: #9DD0F2;
+      --error: #FFB4A9;
+      --accent-rgb: 239 154 120;
+      --on-accent-rgb: 34 20 15;
+      --error-rgb: 255 180 169;
+      --glass-rgb: 34 20 15;
+      --glass-a: 0.4;
+      --light-rgb: 255 196 160;
+      --shadow-rgb: 8 0 0;
+      --light-deg: -120deg;
+      --lx: 0.866;
+      --ly: -0.5;
+      --frost: 30px;
+      --refract: 10px;
+      --sheen: 0.176;
+      --glow: 0.14;
+      --guard: 0.7;
+      --rim: 0.16;
+      --hair: rgb(255 255 255 / .10);
+    }
+  }
+  :where([data-env="canyon"][data-appearance="dawn"]) {
+    color-scheme: light;
+    --g0: #EFDACB;
+    --g1: #E0BCA4;
+    --g2: #F7E9DF;
+    --surface: #FBF5F0;
+    --surface-2: #F2E6DC;
+    --ink: #2C1912;
+    --muted: #67483A;
+    --accent: #9C4228;
+    --on-accent: #FBF5F0;
+    --accent-ink: #8C3A22;
+    --line: #987A6C;
+    --focus: #235F86;
+    --error: #B42318;
+    --accent-rgb: 156 66 40;
+    --on-accent-rgb: 251 245 240;
+    --error-rgb: 180 35 24;
+    --glass-rgb: 251 245 240;
+    --glass-a: 0.44;
+    --light-rgb: 255 232 214;
+    --shadow-rgb: 60 22 10;
+    --light-deg: -120deg;
+    --lx: 0.866;
+    --ly: -0.5;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.32;
+    --glow: 0.3;
+    --guard: 0.74;
+    --rim: 0.35;
+    --hair: rgb(60 22 10 / .12);
+  }
+  :where([data-env="canyon"][data-appearance="dusk"]) {
+    color-scheme: dark;
+    --g0: #1C0F0B;
+    --g1: #2B1710;
+    --g2: #130A07;
+    --surface: #22140F;
+    --surface-2: #2C1B14;
+    --ink: #F6E8E1;
+    --muted: #CCAD9E;
+    --accent: #EF9A78;
+    --on-accent: #22140F;
+    --accent-ink: #F2A585;
+    --line: #94705F;
+    --focus: #9DD0F2;
+    --error: #FFB4A9;
+    --accent-rgb: 239 154 120;
+    --on-accent-rgb: 34 20 15;
+    --error-rgb: 255 180 169;
+    --glass-rgb: 34 20 15;
+    --glass-a: 0.4;
+    --light-rgb: 255 196 160;
+    --shadow-rgb: 8 0 0;
+    --light-deg: -120deg;
+    --lx: 0.866;
+    --ly: -0.5;
+    --frost: 30px;
+    --refract: 10px;
+    --sheen: 0.176;
+    --glow: 0.14;
+    --guard: 0.7;
+    --rim: 0.16;
+    --hair: rgb(255 255 255 / .10);
+  }
+
+  /* Contexts: Desk and Touch are built for the web; the others are written specs in the token file. */
+  :where([data-context="desk"]) {
+    --target: 40px;
+    --gap: 12px;
+  }
+  :where([data-context="touch"]) {
+    --target: 48px;
+    --gap: 16px;
+  }
+  /* Wherever touch is possible, targets grow to the Touch size. */
+  @media (any-pointer: coarse) {
+    :where(:root:not([data-context]), [data-context="desk"]) {
+      --target: 48px;
+      --gap: 16px;
+    }
+  }
+}
+
+/* Fallbacks sit outside the layer and carry specificity, so they win over any environment. */
+/* Solid: every glass surface falls back to its opaque surface colour. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root, [data-env] {
+    --glass-a: 1;
+    --frost: 0px;
+    --refract: 0px;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-env] {
+    --glass-a: 1;
+    --frost: 0px;
+    --refract: 0px;
+  }
+}
+[data-tier="solid"], [data-tier="solid"] [data-env] {
+  --glass-a: 1;
+  --frost: 0px;
+  --refract: 0px;
+}
+/* Reduced motion: transitions become instant; springs read the same preference in JavaScript. */
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-env] {
+    --dur-quick: 0ms;
+    --dur-calm: 0ms;
+    --dur-scene: 0ms;
+  }
+}
+[data-motion="reduced"], [data-motion="reduced"] [data-env] {
+  --dur-quick: 0ms;
+  --dur-calm: 0ms;
+  --dur-scene: 0ms;
+}

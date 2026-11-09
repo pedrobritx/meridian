@@ -1,30 +1,16 @@
 {
   "name": "@pedrobritx/meridian",
-  "version": "0.5.0",
+  "version": "1.0.0-alpha.0",
   "private": true,
   "type": "module",
-  "description": "Meridian web foundations, Figma library and living reference",
+  "description": "Meridian 1.0: one fluid material, six environments, generated from a single token source.",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/build-plugin.mjs && node scripts/build-tokens.mjs && node scripts/build-environments.mjs && vite build --base=/meridian/",
-    "preview": "vite preview --host 127.0.0.1",
-    "test": "node --test tests/*.test.mjs scripts/figma/*.test.mjs",
-    "test:browser": "playwright test",
-    "test:figma": "node --test scripts/figma/*.test.mjs"
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test tests/*.test.mjs",
+    "lab": "node scripts/serve.mjs"
   },
-  "dependencies": {
-    "@fontsource/cormorant-garamond": "^5.3.0",
-    "@fontsource/fraunces": "^5.2.9",
-    "@fontsource/geist": "^5.3.0",
-    "@fontsource/geist-mono": "^5.3.0",
-    "@fontsource/inter": "^5.3.0",
-    "@fontsource/jetbrains-mono": "^5.2.8",
-    "@fontsource/manrope": "^5.3.0",
-    "@fontsource/newsreader": "^5.2.8"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "^4.10.2",
-    "@playwright/test": "^1.56.0",
-    "vite": "^7.3.7"
+  "engines": {
+    "node": ">=20"
   }
 }

@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-env="prism" data-appearance="dawn" data-context="desk" data-tier="frost" data-motion="full" data-icons="duotone">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Material Lab</title>
+<meta name="description" content="Meridian's material model: a shear-thickening fluid with one physics, six environments, sun-following light and one interaction grammar across desk, touch, wrist, space, TV and drive.">
+<style>
+/* =====================================================================
+   Meridian Material Lab: a study of the proposed material model.
+   Layers: Light, Ground, Content, Instruments.
+   The material is a shear-thickening fluid: round at rest, held by surface
+   tension; it gives under pressure and stretches only while it moves.
+   Environments change light, ground and rendering; timing, physics and
+   hit areas never change.
+   ===================================================================== */
+:root {
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", system-ui, "Inter", "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", system-ui, "Inter", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-read: ui-serif, "New York", "Iowan Old Style", Charter, "Bitstream Charter", Georgia, serif;
+  --g0: #E7EAEF; --g1: #D9DEE6; --g2: #F2F3F6;
+  --surface: #F8F9FA; --surface-2: #EEF0F3; --ink: #1C2028; --muted: #4E5664;
+  --accent: #262B34; --on-accent: #F8F9FA; --accent-ink: #262B34; --line: #7E8796; --focus: #2B5FD9; --error: #B42318;
+  --accent-rgb: 38 43 52; --on-accent-rgb: 248 249 250; --error-rgb: 180 35 24;
+  --glass-rgb: 248 249 250; --glass-a: .58; --shadow-rgb: 20 24 32; --light-rgb: 255 255 255; --hair: rgb(20 24 32 / .10);
+  --lx: 0; --ly: -1; --light-deg: -180deg; --sun-x: 50%; --sun-y: 0%; --sun-len: 1;
+  --frost: 24px; --sheen: .5; --glow: .3; --guard: .74; --rim: .35;
+  --target: 40px; --gap: 12px; --tex-url: none;
+  --dur-quick: 140ms; --dur-calm: 280ms; --dur-scene: 420ms; --ease-calm: cubic-bezier(.2, .8, .2, 1);
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  /* One radius scale. Nested shapes follow inner = outer - padding, so corners stay concentric. */
+  --r-window: 30px; --r-panel: 26px; --r-tile: 22px; --r-field: 18px; --r-row: 16px;
+  --icon-w: 1.9; --icon-dw: 0; --icon-fill: transparent;
+  color-scheme: light;
+}
+[data-appearance="dusk"] { color-scheme: dark; --guard: .70; --icon-dw: -.2; --rim: .16; }
+[data-icons="duotone"] { --icon-fill: rgb(var(--accent-rgb) / .18); }
+[data-icons="duotone"] .m-pigment { --icon-fill: rgb(var(--on-accent-rgb) / .26); }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+html { background: var(--g1); }   /* the ground's base tone, so anything translucent is judged against the real ground */
+body { font: 15px/1.5 var(--font-ui); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; font-feature-settings: "kern"; }
+.sr { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.01em; }
+
+/* Icons: one drawing, any weight; Dusk thins strokes to offset light-on-dark spread */
+.ic { width: var(--ic, 20px); height: var(--ic, 20px); flex: none; display: block; }
+.ic-s { fill: none; stroke: currentColor; stroke-width: calc(var(--icon-w) + var(--icon-dw)); stroke-linecap: round; stroke-linejoin: round; }
+.ic-f { fill: var(--icon-fill); stroke: none; }
+
+/* ---------- Ground: the environment itself, calm and static ---------- */
+.ground { position: fixed; inset: 0; z-index: -1; background: radial-gradient(120% 90% at var(--sun-x) var(--sun-y), var(--g2), transparent 64%), linear-gradient(172deg, var(--g0), var(--g1)); }
+.ground canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; transition: opacity var(--dur-calm) var(--ease-calm); }
+[data-texture="off"] .ground canvas, [data-driving="true"] .ground canvas { opacity: 0; }
+/* Ambient: where an environment moves in nature, its ground moves too, very slowly: Forest light sways, Ocean shapes flow,
+   Aurora colours drift in blur. Static under reduced motion; gone with reduced texture, while driving and on the wrist. */
+.ambient { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.ambient i { position: absolute; display: block; border-radius: 50%; background: radial-gradient(closest-side, rgb(var(--c) / var(--a)), rgb(var(--c) / 0)); will-change: transform;
+  animation: var(--anim) var(--dur) ease-in-out var(--delay) infinite alternate; }
+@keyframes sway { from { transform: translate(-3%, -2%) scale(1); } to { transform: translate(3%, 2%) scale(1.08); } }
+@keyframes fluid { from { transform: translate(-6%, 4%) scale(1.06, .88) rotate(-12deg); } to { transform: translate(7%, -5%) scale(.88, 1.1) rotate(12deg); } }
+@keyframes drift { from { transform: translateX(-7%) scale(1.12, .84) skewX(-8deg); } to { transform: translateX(7%) scale(.94, 1.1) skewX(8deg); } }
+[data-motion="reduced"] .ambient i { animation: none; }
+[data-texture="off"] .ambient, [data-driving="true"] .ambient, .dev-wrist .ambient { display: none; }
+.screen > .ambient { z-index: 0; }
+.a11y-note { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+
+/* ---------- Page ---------- */
+.page { max-width: 1520px; margin: 0 auto; padding: var(--s5) clamp(14px, 2.6vw, 40px) var(--s8); }
+.masthead { display: flex; align-items: center; gap: var(--s4); flex-wrap: wrap; margin-bottom: var(--s5); padding: var(--s4) var(--s5); }
+.masthead h1 { font-size: 19px; line-height: 1.25; margin: 0 0 2px; font-weight: 650; }
+.masthead p { margin: 0; color: var(--muted); max-width: 84ch; font-size: 14px; }
+.mark { width: 32px; height: 32px; flex: none; }
+.layout { display: grid; grid-template-columns: 336px minmax(0, 1fr); gap: var(--s4); align-items: start; }
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+
+/* ---------- Planes ----------
+   Content: calm, solid, highest contrast. Glass: the lab's own chrome, frosted over a calm ground. */
+.content { background: var(--surface); color: var(--ink); border-radius: var(--r-window);
+  box-shadow: 0 0 0 .5px var(--hair), 0 1px 2px rgb(var(--shadow-rgb) / .05), calc(var(--lx) * -6px * var(--sun-len)) calc(var(--ly) * -6px * var(--sun-len) + 10px) 36px -12px rgb(var(--shadow-rgb) / .16); }
+.content-2 { background: var(--surface-2); }
+.glass-panel { position: relative; color: var(--ink); border-radius: var(--r-window);
+  background: linear-gradient(var(--light-deg), rgb(var(--light-rgb) / calc(var(--sheen) * .22)), transparent 55%), rgb(var(--glass-rgb) / min(.97, calc(var(--glass-a) + .1)));
+  box-shadow: 0 0 0 .5px var(--hair), inset 0 1px 0 rgb(var(--light-rgb) / calc(var(--sheen) * .5)), calc(var(--lx) * -6px * var(--sun-len)) calc(var(--ly) * -6px * var(--sun-len) + 10px) 36px -12px rgb(var(--shadow-rgb) / .16); }
+[data-tier="frost"] .glass-panel, [data-tier="refract"] .glass-panel { -webkit-backdrop-filter: blur(22px) saturate(1.9) brightness(1.04); backdrop-filter: blur(22px) saturate(1.9) brightness(1.04); }
+[data-appearance="dusk"][data-tier="frost"] .glass-panel, [data-appearance="dusk"][data-tier="refract"] .glass-panel { -webkit-backdrop-filter: blur(22px) saturate(1.7) brightness(.92); backdrop-filter: blur(22px) saturate(1.7) brightness(.92); }
+[data-tier="solid"] .glass-panel { background: var(--surface); }
+
+/* ---------- Lab controls ---------- */
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); align-content: start; position: sticky; top: var(--s4); max-height: calc(100vh - 32px); overflow: auto; scrollbar-width: thin; padding: 2px 2px var(--s3); }
+/* Bento: each tile holds one decision; tiles share a gap and the radius scale, and wide controls span both columns. */
+.tile { display: grid; gap: var(--s4); align-content: start; padding: 18px; border-radius: var(--r-panel); grid-column: span 2; min-width: 0; }
+.tile.half { grid-column: span 1; }
+.tile-title { margin: 0; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.controls-more { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--s3); }
+.controls-more .tile { grid-column: auto; }
+@media (pointer: coarse) { .controls .m-seg, .controls-more .m-seg { --target: 48px; } .chips .chip.m-mat { --target: 48px; min-height: 48px; } .swatch { min-height: 56px; } .controls .m-switch, .controls-more .m-switch { min-height: 48px; } }
+@media (max-width: 1000px) { .controls { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); } .tile, .tile.half { grid-column: auto; } }
+@media (max-width: 1000px) { .controls { position: static; max-height: none; } }
+.controls fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.controls legend, .field-label { font-size: 12.5px; font-weight: 600; color: var(--muted); margin-bottom: var(--s2); padding: 0; display: block; }
+.status { font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; }
+.status b { color: var(--ink); font-weight: 600; }
+.sun-controls { display: grid; gap: var(--s3); }
+.sky { width: 100%; height: auto; display: block; touch-action: none; cursor: grab; overflow: visible; }
+.sky:active { cursor: grabbing; }
+.sky-path { fill: none; stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 1.5; stroke-linecap: round; }
+.sky-path.below { stroke-dasharray: 2 5; stroke: color-mix(in srgb, var(--ink) 18%, transparent); }
+.sky-horizon { stroke: color-mix(in srgb, var(--ink) 16%, transparent); stroke-width: 1; }
+.sky-sun { fill: rgb(var(--light-rgb)); stroke: color-mix(in srgb, var(--ink) 25%, transparent); stroke-width: 1; }
+.sky.night .sky-sun { fill: color-mix(in srgb, var(--ink) 25%, var(--surface)); }
+.sky.night .sky-body > circle:first-child { opacity: .25; }
+.tile-note { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.icon-peek { display: flex; justify-content: space-between; padding: 2px 4px; color: var(--ink); }
+.icon-peek .ic { width: 22px; height: 22px; }
+.icon-peek .peek { display: inline-grid; transform: translateY(calc(var(--press, 0) * -5px)) scale(calc(1 - var(--press, 0) * .06), calc(1 + var(--press, 0) * .08)); transform-origin: 50% 100%; }
+.sun-read { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.45; }
+.sun-read b { color: var(--ink); font-weight: 600; }
+.sun-controls[hidden] { display: none; }
+.row-inline { display: flex; gap: var(--s3); align-items: center; }
+.row-inline > :first-child { flex: 1; }
+
+/* Environments: accent dots, as in a system accent-colour picker */
+.swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+/* Scene changes (environment, appearance, material) blend instead of cutting: the theme's colours are typed, so they interpolate,
+   and the page stays fully interactive while they do. The ground and the device cross-fade in script. */
+@property --g0 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --g1 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --g2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --surface { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --surface-2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --ink { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --muted { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --on-accent { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --accent-ink { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --line { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --focus { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --error { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --hair { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --glass-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --light-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --shadow-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --accent-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --on-accent-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --error-rgb { syntax: '<number>+'; inherits: true; initial-value: 0 0 0; }
+@property --glass-a { syntax: '<number>'; inherits: true; initial-value: 0; }
+@property --sheen { syntax: '<number>'; inherits: true; initial-value: 0; }
+@property --glow { syntax: '<number>'; inherits: true; initial-value: 0; }
+:root { transition: --g0 var(--dur-scene) var(--ease-calm), --g1 var(--dur-scene) var(--ease-calm), --g2 var(--dur-scene) var(--ease-calm), --surface var(--dur-scene) var(--ease-calm), --surface-2 var(--dur-scene) var(--ease-calm), --ink var(--dur-scene) var(--ease-calm), --muted var(--dur-scene) var(--ease-calm), --accent var(--dur-scene) var(--ease-calm), --on-accent var(--dur-scene) var(--ease-calm), --accent-ink var(--dur-scene) var(--ease-calm), --line var(--dur-scene) var(--ease-calm), --focus var(--dur-scene) var(--ease-calm), --error var(--dur-scene) var(--ease-calm), --hair var(--dur-scene) var(--ease-calm), --glass-rgb var(--dur-scene) var(--ease-calm), --light-rgb var(--dur-scene) var(--ease-calm), --shadow-rgb var(--dur-scene) var(--ease-calm), --accent-rgb var(--dur-scene) var(--ease-calm), --on-accent-rgb var(--dur-scene) var(--ease-calm), --error-rgb var(--dur-scene) var(--ease-calm), --glass-a var(--dur-scene) var(--ease-calm), --sheen var(--dur-scene) var(--ease-calm), --glow var(--dur-scene) var(--ease-calm); }
+html.no-blend { transition: none; }
+.swatch { position: relative; display: grid; justify-items: center; gap: 6px; padding: 6px 0 4px; border-radius: var(--r-row); cursor: pointer; font-size: 11.5px; color: var(--muted); min-height: 44px; }
+.swatch .drop { width: 26px; height: 26px; border-radius: 50%;   /* a drop of coloured glass: lit from above, resting on the surface */
+  background: radial-gradient(circle at 36% 28%, rgb(255 255 255 / .3), transparent 42%), radial-gradient(circle at 50% 118%, rgb(0 0 0 / .16), transparent 60%), var(--sw-a);
+  box-shadow: inset 0 0 0 .5px rgb(0 0 0 / .2), 0 1px 2px rgb(var(--shadow-rgb) / .22), 0 4px 10px -3px rgb(var(--shadow-rgb) / .24); }
+.swatch .drop { transform: translateY(calc(var(--hover, 0) * -2px)) scale(calc(1 + var(--press, 0) * .12 + var(--hover, 0) * .08), calc(1 - var(--press, 0) * .16 + var(--hover, 0) * .08)); transform-origin: 50% 70%; }
+.swatch .drop { box-shadow: 0 calc(2px + var(--hover, 0) * 3px) calc(5px + var(--hover, 0) * 6px) rgb(0 0 0 / calc(.16 + var(--hover, 0) * .06)), inset 0 -3px 6px rgb(0 0 0 / .16), inset 0 2px 3px rgb(255 255 255 / .3); }
+.swatch:has(input:checked) .drop { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink), 0 calc(2px + var(--hover, 0) * 3px) calc(5px + var(--hover, 0) * 6px) rgb(0 0 0 / .16); }
+.m-seg-opt::before { content: ''; position: absolute; inset: 0; border-radius: 999px; background: color-mix(in srgb, var(--ink) calc(var(--hover, 0) * 8%), transparent); pointer-events: none; z-index: -1; }
+.m-seg-opt:has(input:checked)::before { opacity: 0; }
+.swatch > span:last-child, .m-seg-opt > span { display: inline-block; transform: scale(calc(1 - var(--lp, 0) * .06)); }
+.swatch:has(input:checked) .drop { box-shadow: inset 0 0 0 .5px rgb(0 0 0 / .2), 0 1px 2px rgb(var(--shadow-rgb) / .22), 0 0 0 2.5px var(--surface), 0 0 0 4.5px var(--ink); }
+.swatch:has(input:checked) > span:last-child { color: var(--ink); font-weight: 600; }
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+/* Context chips are made of the material: raised drops that catch the light, not flat fills. */
+.chip.m-mat { width: 100%; min-height: 40px; padding: 0 6px; --e0: 2; }
+.chip.m-mat > .m-label { font-size: 13px; font-weight: 550; }
+[data-tier] .chips .chip > .m-body > .m-refract { background: rgb(var(--glass-rgb) / calc(var(--glass-a) + .22)); -webkit-backdrop-filter: none; backdrop-filter: none; }   /* glass never stacks on glass */
+[data-tier] .chips .chip:has(input:checked) > .m-body > .m-refract { background: var(--accent); box-shadow: none; }
+.chip:has(input:checked) { color: var(--on-accent); --e0: 3.5; }
+.chip:has(input:checked) > .m-label { font-weight: 650; }
+.swatch:has(input:focus-visible), .chip:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+html.attn .swatch:has(input:focus-visible), html.attn .chip:has(input:focus-visible) { outline: none; }
+
+select.m-select, .m-text { font: inherit; font-size: 14px; color: var(--ink); background: rgb(var(--glass-rgb) / calc(var(--glass-a) + .18)); border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); min-height: 40px; padding: 0 var(--s4); border-radius: 999px; width: 100%; }
+select.m-select:focus-visible, .m-text:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+html.attn select.m-select:focus-visible, html.attn .m-text:focus-visible { outline: none; }
+
+/* ---------- Stage ---------- */
+.stage-col { display: grid; gap: var(--s4); min-width: 0; }
+.stage { position: relative; min-height: 440px; display: grid; place-items: center; padding: clamp(8px, 2vw, 32px) 0; }
+.fit { position: relative; }
+.stage-note { margin: var(--s3) 0 0; padding: var(--s2) var(--s4); border-radius: var(--r-tile); max-width: 48ch; text-align: center; font-size: 13px; background: var(--surface); color: var(--ink); box-shadow: 0 0 0 .5px var(--hair); }
+.dev { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+
+/* =====================================================================
+   Material
+   .m-mat > .m-body (aria-hidden: .m-refract + .m-light) + .m-label
+   At rest every shape is round: a capsule, or a rounded rectangle on the radius scale.
+   Shape changes only while the fluid is under stress or moving (script).
+   ===================================================================== */
+.m-mat {
+  --press: 0; --hover: 0; --lift: 0; --creep: 0; --dye: 0; --stretch: 0; --shiver: 0;
+  --cx: 50%; --cy: 50%; --px: 50%; --py: 50%; --rip-r: 0; --rip-o: 0;
+  --e0: 3;
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  border: 0; background: none; color: var(--ink); font: inherit; padding: 0 calc(var(--target) * .55);
+  min-height: var(--target); min-width: var(--target); border-radius: 999px;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.m-mat:focus { outline: none; }
+.m-mat:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+html.attn .m-mat:focus-visible { outline: none; }
+.m-body {
+  --e: calc(var(--e0) + var(--hover) * 1.5 + var(--lift) * 8 - max(var(--press), 0) * var(--e0) * .75 + var(--creep) * 1.5);
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  transform-origin: var(--cx) var(--cy);
+  /* Volume is kept: pressed, the drop flattens and spreads; rebounding, it narrows and rises. */
+  transform:
+    translate(calc(var(--shiver) * 1px), calc(var(--hover) * -.5px - var(--lift) * 2px))
+    scale(calc(1 + var(--press) * .04 + var(--hover) * .012 + var(--lift) * .04 + var(--creep) * .05 + var(--stretch)), calc(1 - var(--press) * .065 + var(--hover) * .012 + var(--lift) * .04 + var(--creep) * .05 - var(--stretch) * .6));
+  box-shadow:
+    calc(var(--lx) * var(--e) * -.5px * var(--sun-len)) calc(var(--ly) * var(--e) * -.5px * var(--sun-len) + var(--e) * .7px) calc(var(--e) * 3.2px * (.7 + var(--sun-len) * .3)) rgb(var(--shadow-rgb) / calc(.05 + var(--e) * .011)),
+    0 .5px 1px rgb(var(--shadow-rgb) / .08);
+}
+.m-refract { position: absolute; inset: 0; border-radius: inherit; background: rgb(var(--glass-rgb) / var(--glass-a)); box-shadow: inset 0 0 0 .5px var(--hair); }
+/* Sheen: a soft wash from the light, never a hotspot. No blend modes anywhere in the material:
+   a blended layer isolates its group, and an isolated group cannot sample what lies behind it. */
+.m-body::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 2;
+  background: linear-gradient(var(--light-deg), rgb(var(--light-rgb) / calc(var(--sheen) * .26 * (1 - max(var(--press), 0) * .6))), transparent 46%);
+}
+/* Specular rim: bright on the side facing the light, a faint return on the far side. */
+.m-body::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 3; padding: 1px;
+  background: linear-gradient(var(--light-deg), rgb(var(--light-rgb) / calc(var(--rim) + var(--sheen) * .6)), rgb(var(--light-rgb) / .08) 34%, rgb(var(--light-rgb) / .03) 66%, rgb(var(--light-rgb) / calc(.06 + var(--sheen) * .2)));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.m-light {
+  position: absolute; inset: 0; border-radius: inherit; z-index: 4; pointer-events: none;
+  box-shadow: inset 0 0 0 calc(var(--creep) * 2px) rgb(var(--accent-rgb) / calc(var(--creep) * .7));
+  background:
+    radial-gradient(circle at var(--cx) var(--cy), transparent calc(var(--rip-r) * 1px - 12px), rgb(var(--light-rgb) / calc(var(--rip-o) * .7)) calc(var(--rip-r) * 1px), transparent calc(var(--rip-r) * 1px + 14px)),
+    radial-gradient(circle at var(--cx) var(--cy), rgb(var(--shadow-rgb) / calc(max(var(--press), 0) * .12)), transparent 62%),
+    radial-gradient(var(--glow-r, 80px) circle at var(--px) var(--py), rgb(var(--light-rgb) / calc(var(--hover) * var(--glow))), transparent 72%),
+    radial-gradient(circle at var(--cx) var(--cy), rgb(var(--accent-rgb) / calc(var(--dye) * .14)) calc(var(--dye) * 160%), transparent calc(var(--dye) * 160% + 1%));
+}
+.m-label { position: relative; z-index: 5; display: inline-flex; align-items: center; gap: var(--s2); pointer-events: none; font-weight: 590; font-size: 14px; line-height: 1.2; white-space: nowrap; }
+
+/* Tiers. Stress clouds the material: frost rises with the press. */
+[data-tier="frost"] .m-glass > .m-body > .m-refract,
+[data-tier="refract"] .m-glass:not([data-refract]) > .m-body > .m-refract {
+  -webkit-backdrop-filter: blur(calc(var(--frost) + max(var(--press), 0) * 8px)) saturate(1.6);
+  backdrop-filter: blur(calc(var(--frost) + max(var(--press), 0) * 8px)) saturate(1.6);
+}
+[data-tier="refract"] .m-glass[data-refract] > .m-body > .m-refract { backdrop-filter: var(--lens, none) blur(calc(var(--frost) * .5)) saturate(1.6); }
+.bar > .m-body > .m-refract::before { content: ""; position: absolute; inset: 8px; border-radius: inherit; background: rgb(var(--glass-rgb) / var(--guard)); filter: blur(4px); }
+[data-tier="solid"] .bar > .m-body > .m-refract::before { display: none; }
+[data-tier="solid"] .m-glass > .m-body > .m-refract { background: var(--surface); }
+[data-tier="solid"] .m-glass > .m-body::before { opacity: .6; }
+[data-tier] .m-glass .m-glass > .m-body > .m-refract { -webkit-backdrop-filter: none; backdrop-filter: none; }
+[data-tier] .m-pigment > .m-body > .m-refract { background: var(--accent); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; }
+.m-pigment { color: var(--on-accent); }
+.m-pigment > .m-body::before { opacity: .7; }
+.m-pigment > .m-body::after { opacity: .55; }
+/* Quiet: borderless until it matters, like buttons in a toolbar or ornament. */
+.m-quiet > .m-body { box-shadow: none; }
+[data-tier] .m-quiet > .m-body > .m-refract { background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; transition: background-color var(--dur-quick) var(--ease-calm); }
+.m-quiet > .m-body::after, .m-quiet > .m-body::before { opacity: 0; }
+[data-tier] .m-quiet:hover > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+[data-tier] .m-quiet[aria-pressed="true"] > .m-body > .m-refract, [data-tier] .m-quiet[aria-current="true"] > .m-body > .m-refract { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+[aria-current="true"] > .m-label { font-weight: 650; }
+.m-icon { padding: 0; width: var(--target); }
+.m-surface { cursor: default; }
+.m-surface > .m-body { --e: var(--e0); transform: none; }
+.bar > .m-body { transition: transform var(--dur-calm) var(--ease-calm); }
+
+/* Disabled: the fluid has set. Flat and matte, flush with the ground, does not yield. */
+.m-mat:disabled, .m-mat.is-disabled, .m-mat[aria-disabled="true"] { cursor: not-allowed; color: var(--muted); }
+[data-tier] .m-mat:disabled > .m-body > .m-refract, [data-tier] .m-mat.is-disabled > .m-body > .m-refract, [data-tier] .m-mat[aria-disabled="true"] > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 6%, var(--surface)); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.m-mat:disabled > .m-body, .m-mat.is-disabled > .m-body, .m-mat[aria-disabled="true"] > .m-body { box-shadow: none; }
+.m-mat:disabled > .m-body::before, .m-mat.is-disabled > .m-body::before, .m-mat:disabled > .m-body::after, .m-mat.is-disabled > .m-body::after { opacity: 0; }
+/* Error: the rim takes the error colour; one short jiggle on entry (script); always with icon and text. */
+.is-error > .m-body::after, .m-well:has(input[aria-invalid="true"]) > .m-body::after { background: rgb(var(--error-rgb) / .95); padding: 2px; opacity: 1; }
+/* Busy: a band of light flows through while work runs. */
+.m-mat[aria-busy="true"] > .m-body > .m-light, .is-busy > .m-body > .m-light {
+  background-image: linear-gradient(100deg, transparent 30%, rgb(var(--light-rgb) / .32) 50%, transparent 70%); background-size: 260% 100%; background-position: 50% 0;
+}
+.m-mat[aria-busy="true"] > .m-body > .m-light { animation: flow 1.3s linear infinite; }
+@keyframes flow { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+[data-motion="reduced"] .m-mat[aria-busy="true"] > .m-body > .m-light { animation: none; }
+
+/* Segmented control: a drop of glass travels between options */
+.m-seg { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; min-height: var(--target); border: 0; margin: 0; border-radius: 999px; }
+.m-seg > .m-track { position: absolute; inset: 0; border-radius: inherit; background: color-mix(in srgb, var(--ink) 7%, transparent); box-shadow: inset 0 1px 2px rgb(var(--shadow-rgb) / .12), inset 0 -.5px 0 rgb(var(--light-rgb) / .25); }
+.m-seg .m-ind { position: absolute; top: 3px; bottom: 3px; left: 0; width: 0; --e0: 1.5; padding: 0; min-height: 0; min-width: 0; pointer-events: none; transform-origin: 50% 50%; }
+[data-tier] .m-seg .m-ind > .m-body > .m-refract { background: rgb(var(--glass-rgb) / calc(var(--glass-a) + .34)); }
+[data-tier="solid"] .m-seg .m-ind > .m-body > .m-refract { background: var(--surface); }
+[data-appearance="dusk"][data-tier] .m-seg .m-ind > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 16%, var(--surface)); }
+.m-seg-opt { position: relative; z-index: 2; display: grid; place-items: center; padding: 0 var(--s3); cursor: pointer; font-size: 13.5px; font-weight: 500; color: color-mix(in srgb, var(--ink) calc(var(--hover, 0) * 55%), var(--muted)); min-height: calc(var(--target) - 6px); white-space: nowrap; border-radius: 999px; }
+.m-seg-opt:has(input:checked) { color: var(--ink); font-weight: 600; }
+.m-seg-opt:has(input:disabled) { cursor: not-allowed; opacity: .55; }
+.m-seg-opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 1px; }
+html.attn .m-seg-opt:has(input:focus-visible) { outline: none; }
+
+/* Switch: a drop travels; colour spreads from it into the track */
+.m-switch { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); cursor: pointer; min-height: var(--target); font-size: 14px; }
+.m-switch-track { --dye: 0; --tx: 16px; position: relative; width: 52px; height: 32px; flex: none; border-radius: 999px;
+  background: radial-gradient(circle at var(--tx) 50%, var(--accent) calc(var(--dye) * 72px), color-mix(in srgb, var(--ink) 10%, var(--surface)) calc(var(--dye) * 72px + 1px));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) calc((1 - var(--dye)) * 100%), transparent), inset 0 1px 2px rgb(var(--shadow-rgb) / .16); }
+.m-switch .m-thumb { position: absolute; top: 3px; left: 3px; height: 26px; width: 26px; min-height: 0; min-width: 0; padding: 0; --e0: 2; pointer-events: none; }
+[data-tier] .m-switch .m-thumb > .m-body > .m-refract { background: #fff; }
+.m-switch:has(input:focus-visible) .m-switch-track { outline: 2px solid var(--focus); outline-offset: 3px; }
+html.attn .m-switch:has(input:focus-visible) .m-switch-track { outline: none; }
+
+/* Slider: native range for access; the drop lifts while held and stretches with speed */
+.m-slider { position: relative; height: var(--target); display: flex; align-items: center; }
+.m-slider input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 3; -webkit-appearance: none; appearance: none; background: transparent; }
+.m-slider input::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; }
+.m-slider input::-moz-range-thumb { width: 28px; height: 28px; border: 0; }
+.m-slider .m-rail { position: absolute; left: 0; right: 0; height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 14%, transparent); box-shadow: inset 0 1px 1.5px rgb(var(--shadow-rgb) / .18); }
+.m-slider .m-fill { position: absolute; left: 0; height: 6px; border-radius: 999px; background: var(--accent); }
+.m-slider .m-thumb { position: absolute; top: 50%; left: 0; width: 26px; height: 26px; margin: -13px 0 0 -13px; padding: 0; min-height: 0; min-width: 0; --e0: 2.5; pointer-events: none; }
+[data-tier] .m-slider .m-thumb > .m-body > .m-refract { background: #fff; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) 55%, transparent); }
+.m-slider:has(input:focus-visible) .m-rail { outline: 2px solid var(--focus); outline-offset: 12px; }
+html.attn .m-slider:has(input:focus-visible) .m-rail { outline: none; }
+
+/* Field: a quiet well on the content plane */
+.m-field { display: grid; gap: var(--s2); }
+.m-well { padding: 0; width: 100%; justify-content: stretch; cursor: text; --e0: 0; border-radius: 999px; }
+.m-well > .m-body { box-shadow: none !important; }
+[data-tier] .m-well > .m-body > .m-refract { background: color-mix(in srgb, var(--ink) 4%, var(--surface)); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.m-well > .m-body::before { opacity: 0; }
+.m-well > .m-body::after { background: var(--line); }
+.m-well:focus-within > .m-body::after { background: var(--focus); padding: 2px; }
+.m-well input { position: relative; z-index: 5; width: 100%; min-height: var(--target); border: 0; background: transparent; font: inherit; color: var(--ink); padding: 0 var(--s3); outline: none; }
+.m-well:focus-within { outline: none; }
+.field-msg { margin: 0; display: flex; gap: var(--s2); align-items: center; font-size: 13px; color: var(--error); font-weight: 600; }
+.field-msg[hidden] { display: none; }
+.field-msg .ic { --ic: 18px; --icon-fill: rgb(var(--error-rgb) / .16); }
+
+/* ---------- Attention light: a calm ring that travels and hugs the outline ---------- */
+#attention { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 50; pointer-events: none; opacity: 0; border-radius: 999px;
+  box-shadow: 0 0 0 2.5px var(--focus), 0 0 0 6px color-mix(in srgb, var(--focus) 16%, transparent); transition: opacity var(--dur-quick) var(--ease-calm); }
+#attention.on { opacity: 1; }
+@media (forced-colors: active) { #attention { display: none; } }
+
+/* =====================================================================
+   Devices: one app, six contexts
+   ===================================================================== */
+.screen { position: relative; overflow: hidden; overflow: clip; background: var(--tex-url) center / cover no-repeat, radial-gradient(120% 90% at var(--sun-x) var(--sun-y), var(--g2), transparent 64%), linear-gradient(172deg, var(--g0), var(--g1)); }
+[data-driving="true"] .screen, [data-texture="off"] .screen { background: radial-gradient(120% 90% at var(--sun-x) var(--sun-y), var(--g2), transparent 64%), linear-gradient(172deg, var(--g0), var(--g1)); }
+.bezel { box-shadow: 0 0 0 1px rgb(var(--shadow-rgb) / .2), 0 30px 70px -24px rgb(var(--shadow-rgb) / .4), 0 0 0 9px #101216, 0 0 0 10px rgb(255 255 255 / .1); }
+
+.article { font-family: var(--font-read); font-size: var(--read-size, 19px); line-height: 1.62; color: var(--ink); max-width: var(--measure, 62ch); margin: 0 auto; }
+.article h2 { font-family: var(--font-display); font-size: 1.45em; line-height: 1.18; margin: 0 0 .3em; font-weight: 700; letter-spacing: -.015em; }
+.article .meta { font-family: var(--font-ui); font-size: 13px; color: var(--muted); margin: 0 0 1.2em; }
+.article p { margin: 0 0 1.05em; }
+.article figure { margin: 1.4em 0; }
+.article .plate { height: 150px; border-radius: var(--r-tile); background: radial-gradient(70% 100% at 30% 115%, #E8D7A8, transparent 70%), linear-gradient(180deg, #9BD8D4 0%, #46A2B4 48%, #21607F 100%); box-shadow: inset 0 0 0 .5px rgb(0 0 0 / .1); }
+.article figcaption { font-family: var(--font-ui); font-size: 12.5px; color: var(--muted); margin-top: var(--s2); }
+.article a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.article a { transition: text-decoration-thickness var(--dur-quick) var(--ease-calm), text-underline-offset var(--dur-quick) var(--ease-calm); }
+@media (hover: hover) { .article a:hover { text-decoration-thickness: 2px; text-underline-offset: 4px; } }
+
+.bar { position: absolute; display: flex; align-items: center; gap: var(--s2); padding: 6px; --e0: 5; cursor: default; }
+.bar > .m-label { pointer-events: auto; gap: var(--s2); font-weight: 590; }
+.bar.receded > .m-body { transform: scale(.94); }
+[data-tier] .bar.receded > .m-body > .m-refract { background: rgb(var(--glass-rgb) / calc(var(--glass-a) - .14)); }
+.bar.receded .hide-recede { display: none; }
+.title-text { font-size: 14px; font-weight: 600; padding: 0 var(--s2); max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+.edge { position: absolute; pointer-events: none; height: 100px; }
+.edge-b { bottom: 0; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--edge-c) 86%, transparent) 78%); }
+.edge-t { top: 0; height: 92px; background: linear-gradient(0deg, transparent, color-mix(in srgb, var(--edge-c) 80%, transparent) 70%); }
+
+.panel { padding: 28px; display: grid; gap: 22px; align-content: start; }
+.panel h3 { margin: 0; font-size: 13px; color: var(--muted); font-weight: 600; letter-spacing: 0; }
+.panel .row { display: grid; gap: var(--s2); }
+.panel .row .field-label { margin: 0; }
+.panel .actions { display: flex; gap: var(--gap); flex-wrap: wrap; }
+.live { font-size: 12.5px; color: var(--muted); min-height: 1.2em; margin: 0; }
+
+/* Desk: a window with an edge-to-edge sidebar and one toolbar */
+.dev-desk { width: 1060px; height: 680px; --target: 40px; --gap: 12px; }
+.dev-desk .win { position: absolute; inset: 0; border-radius: var(--r-window); overflow: hidden; overflow: clip; box-shadow: 0 30px 70px -24px rgb(var(--shadow-rgb) / .4), 0 0 0 .5px rgb(var(--shadow-rgb) / .3); }
+.dev-desk .win-grid { position: absolute; inset: 0; display: grid; grid-template-columns: 220px 1fr 300px; }
+.dev-desk .side { padding: 76px 10px var(--s4); display: grid; gap: 2px; align-content: start; border-right: .5px solid var(--hair); background: color-mix(in srgb, var(--surface-2) 84%, transparent); }
+.dev-desk .side .m-mat { justify-content: flex-start; width: 100%; border-radius: var(--r-row); padding: 0 12px; }
+.dev-desk .side .m-label { font-weight: 500; }
+.dev-desk .side .ic { --ic: 18px; color: var(--accent-ink); }
+.dev-desk .reader { position: relative; overflow: auto; padding: 92px 44px 140px; scrollbar-width: thin; background: var(--surface); }
+.dev-desk .panel { border-left: .5px solid var(--hair); padding-top: 76px; background: var(--surface-2); height: 100%; overflow: auto; scrollbar-width: thin; }
+.dev-desk .bar-top { left: 236px; right: 316px; top: 16px; justify-content: space-between; }
+.dev-desk .dock { left: 490px; translate: -50% 0; bottom: 22px; }
+.dev-desk .edge { left: 220px; right: 300px; --edge-c: var(--surface); }
+
+/* Touch */
+.dev-touch { width: 392px; height: 812px; --target: 48px; --gap: 16px; }
+.dev-touch .phone { position: absolute; inset: 0; border-radius: 52px; overflow: hidden; overflow: clip; }
+.dev-touch .reader { position: absolute; inset: 0; overflow: auto; padding: 108px 20px 160px; scrollbar-width: none; }
+.dev-touch .reader::-webkit-scrollbar { display: none; }
+.dev-touch .card { padding: 28px 24px; }
+.dev-touch .bar-top { left: 16px; right: 16px; top: 48px; justify-content: space-between; }
+.dev-touch .dock { left: 50%; translate: -50% 0; bottom: 28px; }
+.dev-touch .edge { left: 0; right: 0; --edge-c: var(--g1); }
+.dev-touch .sheet { position: absolute; left: 8px; right: 8px; bottom: 8px; padding: 0; --e0: 9; cursor: default; display: block; border-radius: 36px; transform: translateY(calc((1 - var(--open, 0)) * 110%)); max-height: 92%; }
+.dev-touch .sheet > .m-label { display: grid; gap: var(--s2); pointer-events: auto; white-space: normal; font-weight: 400; padding: 20px 6px 6px; max-height: 100%; }
+.dev-touch .sheet .panel { padding: var(--s3) var(--s5) var(--s5); gap: 18px; }
+.dev-touch .sheet[hidden] { display: none; }
+[data-tier] .dev-touch .sheet > .m-body > .m-refract { background: rgb(var(--glass-rgb) / .86); }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; padding: 0 var(--s4) 0 var(--s5); }
+.grabber { width: 36px; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 22%, transparent); margin: -8px auto var(--s2); }
+
+/* Wrist */
+.dev-wrist { width: 236px; height: 276px; --target: 52px; --gap: 8px; }
+.dev-wrist .watch { position: absolute; left: 0; top: 0; width: 214px; height: 260px; border-radius: 58px; overflow: hidden; overflow: clip; }
+.dev-wrist .crown { position: absolute; right: 2px; top: 70px; width: 16px; height: 46px; border-radius: 6px; background: repeating-linear-gradient(180deg, #4a4f57 0 2px, #2b2f35 2px 4px); background-position: 0 var(--crown, 0px); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12); }
+.dev-wrist .wscroll { position: absolute; inset: 0; overflow: hidden; overflow: clip; padding: 30px 14px 16px; }
+.dev-wrist .wlist { display: grid; gap: var(--gap); transform: translateY(var(--wy, 0px)); }
+.dev-wrist .wtitle { font-size: 13px; font-weight: 600; text-align: center; margin: 0 0 2px; }
+.dev-wrist .wplay { width: 100%; }
+.dev-wrist .wrow { width: 100%; justify-content: flex-start; }
+.dev-wrist .wrow .m-label { font-weight: 500; font-size: 13px; white-space: normal; text-align: left; }
+
+/* Space: glass windows with an ornament overlapping the bottom edge by 20 */
+.dev-space { width: 1060px; height: 720px; --target: 64px; --gap: 20px; --glow-r: 140px; }
+.dev-space .room { position: absolute; inset: 0; border-radius: 28px; overflow: hidden; overflow: clip; }
+.dev-space .room::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: linear-gradient(180deg, transparent, rgb(var(--shadow-rgb) / .14)); }
+.dev-space .window { position: absolute; left: 80px; top: 44px; width: 560px; height: 520px; --e0: 14; cursor: default; display: block; padding: 0; border-radius: 36px; }
+.dev-space .window > .m-label { position: absolute; inset: 0; display: block; white-space: normal; font-weight: 400; pointer-events: auto; }
+[data-tier] .dev-space .window > .m-body > .m-refract, [data-tier] .dev-space .side-win > .m-body > .m-refract { background: rgb(var(--glass-rgb) / .84); }
+.dev-space .reader { position: absolute; inset: 0; overflow: auto; padding: 108px 48px 64px; scrollbar-width: thin; }
+.dev-space .bar-top { left: 24px; right: 24px; top: 20px; justify-content: space-between; }
+.dev-space .ornament { left: 360px; translate: -50% 0; top: 544px; }
+.dev-space .side-win { position: absolute; left: 672px; top: 44px; width: 340px; height: 632px; --e0: 12; cursor: default; display: block; padding: 0; border-radius: 32px; }
+.dev-space .side-win .panel { height: 632px; overflow: auto; scrollbar-width: none; }
+.dev-space .side-win > .m-label { display: block; white-space: normal; font-weight: 400; pointer-events: auto; }
+.dev-space .panel { gap: 18px; }
+
+/* TV: 10-foot, focus-driven, 5% overscan-safe */
+.dev-tv { width: 1280px; height: 720px; --target: 72px; --gap: 24px; }
+.dev-tv .tv { position: absolute; inset: 0; border-radius: 10px; overflow: hidden; overflow: clip; }
+.dev-tv .tv-safe { position: absolute; inset: 36px 64px; display: grid; grid-template-rows: auto auto auto; align-content: space-between; gap: 28px; }
+.dev-tv .tv-top { display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 650; }
+.dev-tv .tv-top span:last-child { font-size: 20px; font-weight: 500; color: var(--muted); }
+.dev-tv .hero { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; padding: 44px 52px; border-radius: 38px; }
+.dev-tv .hero .kicker { margin: 0 0 8px; font-size: 22px; color: var(--muted); font-weight: 500; }
+.dev-tv .hero h2 { margin: 0 0 12px; font-size: 52px; line-height: 1.06; font-weight: 700; }
+.dev-tv .hero p { margin: 0; font-size: 24px; color: var(--muted); max-width: 34ch; }
+.dev-tv .tv-actions { display: flex; gap: var(--gap); align-items: center; }
+.dev-tv .m-mat .m-label { font-size: 22px; }
+.dev-tv .m-mat .ic { --ic: 30px; }
+.dev-tv .tv-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.dev-tv .tv-row .m-mat { min-height: 116px; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 28px; border-radius: 30px; }
+.dev-tv .tv-row .m-label { flex-direction: column; align-items: flex-start; gap: 10px; white-space: normal; text-align: left; }
+.dev-tv .m-mat { transform: scale(calc(1 + var(--tvlift, 0) * .08)); }
+
+/* Drive */
+.dev-drive { width: 1100px; height: 470px; --target: 76px; --gap: 20px; }
+.dev-drive .cluster { position: absolute; inset: 0; border-radius: 30px; overflow: hidden; overflow: clip; display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; padding: 28px; }
+.dev-drive .np { padding: 28px 32px; display: grid; gap: 18px; align-content: start; }
+.dev-drive .np .kicker { font-size: 16px; color: var(--muted); margin: 0; font-weight: 500; }
+.dev-drive .np h2 { margin: 0; font-size: 32px; line-height: 1.15; }
+.dev-drive .progress { height: 8px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 14%, transparent); overflow: hidden; }
+.dev-drive .progress span { display: block; height: 100%; width: 38%; background: var(--accent); border-radius: inherit; }
+.dev-drive .transport { display: flex; gap: var(--gap); align-items: center; }
+.dev-drive .transport .ic { --ic: 32px; }
+.dev-drive .chapters { display: grid; gap: 14px; align-content: start; }
+.dev-drive .chapters .m-mat { width: 100%; justify-content: flex-start; --target: 72px; border-radius: 999px; }
+.dev-drive .chapters .m-label { font-size: 18px; font-weight: 590; }
+.dev-drive .tabs .m-seg-opt { font-size: 18px; padding: 0 28px; }
+.lock-note { font-size: 15px; color: var(--muted); margin: 0; min-height: 1.4em; }
+.chapters [aria-current="true"] > .m-label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+
+/* ---------- Sections below the stage ---------- */
+.sect { padding: var(--s6) clamp(18px, 3vw, 40px); display: grid; gap: var(--s5); }
+.sect .grid-auto { gap: var(--s3); }
+.sect .grid-auto > div, .weights, .icon-grid { background: var(--surface-2); border-radius: var(--r-tile); padding: var(--s5); min-width: 0; }
+.sect .grid-auto > div > h3:first-child { margin-top: 0; }
+#notes .grid-auto { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); align-items: start; }
+#notes .grid-auto > div:first-child, #notes .grid-auto > .layers-tile { grid-column: 1 / -1; }
+#notes .layers { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: var(--s4); }
+#notes .layers { align-items: start; }
+#notes .layers li { grid-template-columns: 1fr; gap: var(--s1); align-content: start; }
+.sect h2 { font-size: 19px; margin: 0 0 6px; font-weight: 650; }
+.sect h3 { font-size: 14.5px; margin: 0 0 var(--s2); font-weight: 600; }
+.sect p { margin: 0; max-width: 78ch; }
+.sect .lede { color: var(--muted); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: var(--s6); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl th, .tbl td { text-align: left; padding: 9px 12px 9px 0; border-bottom: .5px solid var(--hair); vertical-align: top; }
+.tbl th { font-weight: 600; }
+.tbl thead th { font-size: 12.5px; color: var(--muted); }
+.rules { margin: 0; padding-left: 1.1em; display: grid; gap: var(--s2); }
+.layers { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--s3); }
+.layers li { display: grid; grid-template-columns: 7.5em 1fr; gap: var(--s3); }
+.foot { font-size: 12.5px; color: var(--muted); }
+
+/* Behaviour board: specimens sit on a patch of the ground so the glass has something to show */
+.playground { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: var(--s6); align-items: center; padding: var(--s5); border-radius: var(--r-panel); background: var(--tex-url) center / cover, linear-gradient(160deg, var(--g0), var(--g1)); }
+@media (max-width: 760px) { .playground { grid-template-columns: 1fr; } }
+.pg-stage { display: grid; place-items: center; min-height: 200px; }
+.pg-btn { --target: 88px; min-width: 240px; --e0: 5; }
+.pg-btn .m-label { font-size: 16px; white-space: normal; text-align: center; max-width: 16ch; }
+.pg-read { display: grid; gap: var(--s3); background: var(--surface); padding: var(--s5); border-radius: var(--r-tile); box-shadow: 0 0 0 .5px var(--hair); }
+.pg-read p { margin: 0; }
+.meter { height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 12%, transparent); overflow: hidden; }
+.meter span { display: block; height: 100%; width: 0; background: var(--accent); border-radius: inherit; }
+.states { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: var(--s6) var(--s5); }
+.state { display: grid; gap: var(--s3); align-content: start; }
+.state .spec-wrap { position: relative; display: grid; place-items: center; height: 104px; border-radius: var(--r-tile); background: var(--tex-url) center / cover, linear-gradient(160deg, var(--g0), var(--g1)); overflow: hidden; }
+.state .spec { --target: 50px; min-width: 150px; pointer-events: none; }
+.state .spec-wrap { width: 100%; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; }
+.state .spec-wrap:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+html.attn .state .spec-wrap:focus-visible { outline: none; }
+.spec-hint { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px 3px 7px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 82%, transparent); box-shadow: 0 0 0 .5px var(--hair); font-size: 11.5px; font-weight: 600; color: var(--ink); opacity: 0; transition: opacity var(--dur-quick) var(--ease-calm); z-index: 3; }
+.spec-hint .ic { width: 12px; height: 12px; }
+.spec-wrap:hover .spec-hint, .spec-wrap:focus-visible .spec-hint { opacity: 1; }
+@media (hover: none) { .spec-hint { opacity: 1; } }
+.state .spec-ring { position: absolute; inset: -6px; border-radius: 999px; box-shadow: 0 0 0 2.5px var(--focus), 0 0 0 6px color-mix(in srgb, var(--focus) 16%, transparent); pointer-events: none; }
+.state h3 { margin: 4px 0 0; font-size: 15px; }
+.state dl { margin: 0; display: grid; grid-template-columns: 4.8em 1fr; gap: 4px 10px; font-size: 13px; }
+.state dt { color: var(--muted); font-weight: 500; }
+.state dd { margin: 0; }
+
+/* Icon board */
+.icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: var(--s4) var(--s3); }
+.icon-tile { display: grid; justify-items: center; gap: var(--s2); padding: var(--s3) var(--s2); font-size: 12px; color: var(--muted); text-align: center; }
+.icon-tile .ic { --ic: 28px; color: var(--ink); }
+.weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: var(--s3) var(--s5); }
+.weight-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4); padding: var(--s3) 0; border-bottom: .5px solid var(--hair); }
+.weight-row .ic { --ic: 28px; }
+.weight-row b { width: 5.4em; font-size: 13px; color: var(--muted); font-weight: 600; }
+.weight-row.on-glass { padding: var(--s3) var(--s4); border: 0; border-radius: var(--r-tile); background: var(--tex-url) center / cover, linear-gradient(160deg, var(--g0), var(--g1)); }
+
+[data-motion="reduced"] .m-body, [data-motion="reduced"] .m-light { transition: none; }
+@media (forced-colors: active) {
+  .m-body, .m-light { display: none; }
+  .m-mat, .m-seg, .m-switch-track, .bar, .sheet, .window, .side-win { border: 1px solid CanvasText; }
+  .m-seg-opt:has(input:checked), .chip:has(input:checked) { outline: 2px solid Highlight; }
+}
+@media (prefers-contrast: more) { :root { --glass-a: .92 !important; } .m-body::after { padding: 1.5px; } .glass-panel { background: var(--surface); } }
+</style>
+</head>
+<body>
+<div class="ground" aria-hidden="true"><canvas id="tex"></canvas><div class="ambient" id="ambient"></div></div>
+<svg id="lenses" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"></svg>
+<div id="attention" aria-hidden="true"></div>
+
+<div class="page">
+  <header class="masthead glass-panel">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="16" cy="16" rx="5.5" ry="12.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 16h25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <div>
+      <h1>Meridian Material Lab</h1>
+      <p>One material that behaves like a liquid. At rest it is round and still; slow pressure sinks in, a quick strike meets a firm surface, and it stretches only while it moves. Environments change light, ground and rendering. Timing, physics and hit areas never change.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="controls" aria-label="Lab settings">
+      <section class="tile glass-panel" aria-labelledby="t-look"><h2 class="tile-title" id="t-look">Environment</h2>
+        <div class="swatches" id="env-swatches" role="radiogroup" aria-labelledby="t-look"></div>
+        <div>
+          <div class="field-label" id="lbl-app">Appearance</div>
+          <fieldset class="m-seg" data-seg aria-labelledby="lbl-app" style="width:100%">
+            <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="appearance" value="dawn" checked><span>Dawn</span></label>
+            <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="appearance" value="dusk"><span>Dusk</span></label>
+            <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="appearance" value="sun"><span>Follow sun</span></label>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="tile glass-panel" aria-labelledby="t-ctx"><h2 class="tile-title" id="t-ctx">Context</h2>
+        <fieldset aria-labelledby="t-ctx"><div class="chips" id="ctx-chips"></div></fieldset>
+        <div id="driving-wrap" hidden>
+          <label class="m-switch" data-attn><span>Vehicle moving</span><input class="sr" type="checkbox" role="switch" id="driving"><span class="m-switch-track"><span class="m-mat m-thumb" aria-hidden="true"></span></span></label>
+        </div>
+      </section>
+
+      <section class="tile glass-panel" aria-labelledby="lbl-light"><h2 class="tile-title" id="lbl-light">Light</h2>
+        <fieldset class="m-seg" data-seg aria-labelledby="lbl-light" style="width:100%">
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="lightmode" value="env" checked><span>Environment</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="lightmode" value="sun"><span>Sun</span></label>
+        </fieldset>
+        <svg class="sky" id="sky" viewBox="0 0 280 112" role="presentation" aria-hidden="true">
+          <defs><clipPath id="sky-up"><rect x="0" y="0" width="280" height="84"/></clipPath><clipPath id="sky-down"><rect x="0" y="84" width="280" height="28"/></clipPath>
+            <radialGradient id="sky-glow"><stop offset="0" stop-color="rgb(var(--light-rgb))" stop-opacity=".55"/><stop offset="1" stop-color="rgb(var(--light-rgb))" stop-opacity="0"/></radialGradient></defs>
+          <path class="sky-path" clip-path="url(#sky-up)"/><path class="sky-path below" clip-path="url(#sky-down)"/>
+          <line class="sky-horizon" x1="8" y1="84" x2="272" y2="84"/>
+          <g class="sky-body"><circle r="22" fill="url(#sky-glow)"/><circle class="sky-sun" r="8"/></g>
+        </svg>
+        <div id="env-light">
+          <label class="field-label" for="light">Key light <span id="light-val"></span></label>
+          <div class="m-slider" data-attn><input type="range" id="light" min="-180" max="0" step="1" value="-100"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>
+          <p class="tile-note" id="light-note" hidden>Dawn and Dusk follow the real sun; the key light stays the environment's. Choose Sun to light the glass from it too.</p>
+        </div>
+        <div class="sun-controls" id="sun-controls" hidden>
+          <p class="sun-read" id="sun-read" aria-live="polite"></p>
+          <button type="button" class="m-mat m-glass" id="sun-day" aria-pressed="false"><span class="m-label">Play a day</span></button>
+        </div>
+      </section>
+
+      <section class="tile glass-panel" aria-labelledby="lbl-tier"><h2 class="tile-title" id="lbl-tier">Material</h2>
+        <fieldset class="m-seg" data-seg aria-labelledby="lbl-tier" style="width:100%">
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="tier" value="auto" checked><span>Auto</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="tier" value="refract"><span>Refract</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="tier" value="frost"><span>Frost</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="tier" value="solid"><span>Solid</span></label>
+        </fieldset>
+        <div>
+          <label class="field-label" for="clarity">Glass <span id="clarity-val"></span></label>
+          <div class="m-slider" data-attn><input type="range" id="clarity" min="0" max="100" step="1" value="0"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>
+        </div>
+      </section>
+
+
+
+      <div class="tile glass-panel status" aria-live="polite" id="status"></div>
+    </aside>
+
+    <div class="stage-col">
+      <section class="stage" aria-label="Specimen" id="stage"><div class="fit" id="fit"></div><p class="stage-note" id="stage-note" hidden></p></section>
+      <aside class="controls-more" aria-label="More settings">
+        <section class="tile glass-panel" aria-labelledby="lbl-motion"><h2 class="tile-title" id="lbl-motion">Motion</h2>
+        <fieldset class="m-seg" data-seg aria-labelledby="lbl-motion" style="width:100%">
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="motion" value="system" checked><span>System</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="motion" value="full"><span>Full</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="motion" value="reduced"><span>Reduced</span></label>
+        </fieldset>
+        <p class="tile-note" id="motion-note"></p>
+      </section>
+        <section class="tile glass-panel" aria-labelledby="t-icons"><h2 class="tile-title" id="t-icons">Icons</h2>
+        <div class="icon-peek" id="icon-peek" aria-hidden="true"></div>
+        <fieldset class="m-seg" data-seg aria-label="Icon weight" style="width:100%">
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="weight" value="1.4"><span>Light</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="weight" value="1.9" checked><span>Regular</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="weight" value="2.5"><span>Bold</span></label>
+        </fieldset>
+        <fieldset class="m-seg" data-seg aria-label="Icon style" style="width:100%">
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="istyle" value="outline"><span>Outline</span></label>
+          <label class="m-seg-opt" data-attn><input class="sr" type="radio" name="istyle" value="duotone" checked><span>Duotone</span></label>
+        </fieldset>
+      </section>
+        <section class="tile glass-panel" aria-labelledby="t-a11y"><h2 class="tile-title" id="t-a11y">Accessibility</h2>
+        <label class="m-switch" data-attn><span>Reduce ground texture</span><input class="sr" type="checkbox" role="switch" id="texture" aria-describedby="a11y-note"><span class="m-switch-track"><span class="m-mat m-thumb" aria-hidden="true"></span></span></label>
+        <p class="a11y-note" id="a11y-note">Texture and ambient motion are standard. Reducing texture also stops the ground's motion; the system's Reduce motion and Reduce transparency settings are honoured as well.</p>
+      </section>
+      </aside>
+
+      <section class="sect content" id="notes" aria-labelledby="notes-title">
+        <div><h2 id="notes-title"></h2><p class="lede" id="notes-lede"></p></div>
+        <div class="grid-auto">
+          <div><h3>Inputs here</h3><table class="tbl"><thead><tr><th scope="col">Input</th><th scope="col">How it maps</th><th scope="col">Stress it sends</th></tr></thead><tbody id="inputs"></tbody></table></div>
+          <div><h3>Interaction grammar</h3><table class="tbl"><tbody id="grammar"></tbody></table></div>
+          <div><h3>What the system does here</h3><ul class="rules" id="rules"></ul></div>
+          <div class="layers-tile"><h3>The four layers</h3>
+            <ul class="layers">
+              <li><b>Light</b><span>The environment's key light, or the real sun. Your pointer, finger, focus or gaze adds a local light.</span></li>
+              <li><b>Ground</b><span>The environment itself: colour, haze and a texture that follows its logic: Desert is granular, Prism refracts light, Ocean flows, Aurora drifts, Forest sways, Canyon is layered rock. Motion is very slow and stops with reduced motion; never under body text.</span></li>
+              <li><b>Content</b><span>Calm, solid, highest contrast. Never refracts, warps or ripples.</span></li>
+              <li><b>Instruments</b><span>Controls made of the fluid. They catch light, carry depth and recede while you read.</span></li>
+            </ul></div>
+        </div>
+      </section>
+
+      <section class="sect content" id="behaviour" aria-labelledby="beh-title">
+        <div><h2 id="beh-title">Material behaviour: a shear-thickening fluid</h2>
+          <p class="lede">Like cornflour in water. At rest, surface tension keeps every shape round. The faster the force, the firmer the surface, so quick and repeated actions stay crisp while slow, exploratory ones get rich feedback; the shape gives, stretches and wobbles only while something acts on it, then rounds again. Every state below is the same fluid answering a different stress.</p></div>
+        <div class="playground">
+          <div class="pg-stage"><button type="button" class="m-mat m-glass pg-btn" id="pg-btn" data-hold="1"><span class="m-label">Press slowly, then tap quickly</span></button></div>
+          <div class="pg-read" aria-live="polite">
+            <p><b>Last contact:</b> <span id="pg-what">nothing yet</span></p>
+            <div><span class="field-label">Depth reached</span><div class="meter"><span id="pg-depth"></span></div></div>
+            <div><span class="field-label">Firmness</span><div class="meter"><span id="pg-firm"></span></div></div>
+            <p class="foot">Hold for about a second: the fluid creeps outward and a ring of light says a second action is ready.</p>
+          </div>
+        </div>
+        <div class="states" id="states"></div>
+      </section>
+
+      <section class="sect content" id="icons" aria-labelledby="ic-title">
+        <div><h2 id="ic-title">Icons</h2>
+          <p class="lede">Drawn on a 24 grid with round caps and joins and calm, even curves; the subjects come from nature, the geometry stays quiet. One drawing serves every weight; Dusk thins strokes a little to offset light-on-dark spread; duotone tints take the environment's accent.</p></div>
+        <div class="weights" id="weights"></div>
+        <div class="icon-grid" id="icon-grid"></div>
+        <p class="foot">Prototype for review, not a component package. Real refraction runs only in Chromium; other engines receive Frost. Refraction bends light evenly at the rim and never splits it into colours. Contrast pairs are checked against solid surfaces and a modelled glass composite; screenshot checks over real content are still required.</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { ENV, CTX, INPUT, INTENTS, STATES, ICONS, FEEDBACK } from './model.js';
+import { FLUID, FEEL, feelSpring, clamp, firmnessFromInterval, depthAfter, reboundSpring, dragStretch, sunPosition, dateAtSolarHour, solarHour, screenLight, shadowLength, sunColour } from './fluid.js';
+
+/* =====================================================================
+   1. State and preferences
+   ===================================================================== */
+const root = document.documentElement;
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+const mqMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const mqTransp = matchMedia('(prefers-reduced-transparency: reduce)');
+const mqContrast = matchMedia('(prefers-contrast: more)');
+const textureOn = () => state.texture && !mqTransp.matches && !mqContrast.matches;   // texture is standard; the person's settings can take it away
+const isChromium = !!(navigator.userAgentData && navigator.userAgentData.brands && navigator.userAgentData.brands.some(b => /Chromium/i.test(b.brand)));
+
+const PLACES = [
+  ['sao-paulo', 'São Paulo', -23.55, -46.63], ['brasilia', 'Brasília', -15.79, -47.88], ['buenos-aires', 'Buenos Aires', -34.6, -58.38],
+  ['mexico-city', 'Mexico City', 19.43, -99.13], ['new-york', 'New York', 40.71, -74.0], ['los-angeles', 'Los Angeles', 34.05, -118.24],
+  ['reykjavik', 'Reykjavík', 64.15, -21.94], ['lisbon', 'Lisbon', 38.72, -9.14], ['london', 'London', 51.51, -0.13], ['berlin', 'Berlin', 52.52, 13.4],
+  ['cairo', 'Cairo', 30.04, 31.24], ['nairobi', 'Nairobi', -1.29, 36.82], ['dubai', 'Dubai', 25.2, 55.27], ['mumbai', 'Mumbai', 19.08, 72.88],
+  ['singapore', 'Singapore', 1.35, 103.82], ['tokyo', 'Tokyo', 35.68, 139.69], ['sydney', 'Sydney', -33.87, 151.21],
+];
+const TZ_PLACE = { 'America/Sao_Paulo': 'sao-paulo', 'America/Argentina/Buenos_Aires': 'buenos-aires', 'America/Mexico_City': 'mexico-city', 'America/New_York': 'new-york', 'America/Los_Angeles': 'los-angeles', 'Atlantic/Reykjavik': 'reykjavik', 'Europe/Lisbon': 'lisbon', 'Europe/London': 'london', 'Europe/Berlin': 'berlin', 'Africa/Cairo': 'cairo', 'Africa/Nairobi': 'nairobi', 'Asia/Dubai': 'dubai', 'Asia/Kolkata': 'mumbai', 'Asia/Singapore': 'singapore', 'Asia/Tokyo': 'tokyo', 'Australia/Sydney': 'sydney' };
+const tzPlace = () => { try { return TZ_PLACE[Intl.DateTimeFormat().resolvedOptions().timeZone] || 'london'; } catch (e) { return 'london'; } };
+
+const state = { env: 'prism', appearance: 'dawn', context: 'desk', tier: 'auto', motion: 'system', lightmode: 'env', light: null, tint: 0, texture: true, driving: false, weight: '1.9', istyle: 'duotone', place: tzPlace(), hour: null, heading: null };
+try { Object.assign(state, JSON.parse(localStorage.getItem('meridian-lab-2') || '{}')); } catch (e) { /* storage unavailable */ }
+// The sun is automatic: where comes from the time zone, when from the clock. Nothing to ask, nothing to remember.
+Object.assign(state, { place: tzPlace(), hour: null, heading: null });
+const save = () => { try { localStorage.setItem('meridian-lab-2', JSON.stringify(state)); } catch (e) { /* ignore */ } };
+
+let feel = FEEL.prism;   // how the material gives and recovers, after the environment's physical counterpart
+const reduced = () => state.motion === 'reduced' || (state.motion === 'system' && mqMotion.matches) || (state.context === 'drive' && state.driving);
+function resolvedTier() {
+  const order = ['solid', 'frost', 'refract'];
+  let t = state.tier === 'auto' ? (mqTransp.matches ? 'solid' : 'refract') : state.tier;
+  const cap = state.context === 'drive' && state.driving ? 'solid' : CTX[state.context].tierCap;
+  if (order.indexOf(t) > order.indexOf(cap)) t = cap;
+  if (t === 'refract' && !isChromium) t = 'frost';
+  return t;
+}
+
+/* =====================================================================
+   2. Engine: springs and waves, running only while something moves
+   ===================================================================== */
+const active = new Set(); let raf = 0, last = 0;
+function loop(t) { const dt = Math.min(Math.max((t - last) / 1000, 0), 1 / 30); last = t; for (const a of active) if (a.step(dt)) active.delete(a); raf = active.size ? requestAnimationFrame(loop) : 0; }
+function wake(a) { active.add(a); if (!raf) { last = performance.now(); raf = requestAnimationFrame(loop); } }
+class Spring {
+  constructor(value, cfg, onUpdate) { this.x = value; this.v = 0; this.target = value; this.cfg = cfg; this.onUpdate = onUpdate; }
+  to(target, cfg, v0) { if (cfg) this.cfg = cfg; if (v0 !== undefined) this.v = v0; this.target = target; if (reduced()) { this.jump(target); return; } wake(this); }
+  jump(value) { this.x = this.target = value; this.v = 0; active.delete(this); this.onUpdate(value, 0); }
+  step(dt) {
+    const { k, c } = this.cfg; const n = Math.max(1, Math.ceil(dt * 240)); const h = dt / n;
+    for (let i = 0; i < n; i++) { const a = -k * (this.x - this.target) - c * this.v; this.v += a * h; this.x += this.v * h; }
+    const done = Math.abs(this.x - this.target) < 0.001 * Math.max(1, Math.abs(this.target)) && Math.abs(this.v) < 0.01 * Math.max(1, Math.abs(this.target));
+    if (done) { this.x = this.target; this.v = 0; } this.onUpdate(this.x, this.v); return done;
+  }
+}
+const SPRING = { travel: { k: 520, c: 38 }, trail: { k: 300, c: 30 }, lift: { k: 300, c: 30 }, release: { k: 380, c: 26 }, shiver: { k: 1400, c: 14 } };
+class Ripple {
+  constructor(el) { this.el = el; this.t = 1; }
+  start(maxR, strength = 1) { if (reduced()) return; this.maxR = maxR; this.s = strength; this.t = 0; wake(this); }
+  step(dt) { this.t = Math.min(1, this.t + dt / 0.56); const e = 1 - Math.pow(1 - this.t, 3);
+    this.el.style.setProperty('--rip-r', (e * this.maxR).toFixed(1)); this.el.style.setProperty('--rip-o', (Math.pow(1 - this.t, 2) * 0.42 * this.s).toFixed(3)); return this.t >= 1; }
+}
+
+/* =====================================================================
+   3. Shape: round at rest, held by surface tension.
+   The resting shape comes from CSS (a capsule, or a rounded rectangle on the
+   radius scale). Only motion changes it: a moving drop keeps a round front
+   and draws out a tail; pressing or holding pulls a rectangle toward round.
+   When the energy is gone the inline shape is cleared and CSS takes over.
+   ===================================================================== */
+function shapeOf(el) { el._flow = el._flow || { k: 0, dir: 1, round: 0, moving: false }; shapeObserver.observe(el); applyShape(el); }
+function setFlow(el, f) { if (!el._flow) return; Object.assign(el._flow, f); applyShape(el); }
+function applyShape(el, measure) {
+  const f = el._flow; if (!f) return; const W = el.offsetWidth, H = el.offsetHeight; if (!W || !H) return;
+  if (!f.moving && (measure || el._base == null)) { el.style.borderRadius = ''; el._base = Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0, W / 2, H / 2); }   // read the resting radius only when size or style can have changed
+  const k = clamp(f.k), rnd = clamp(f.round), base = el._base ?? Math.min(W, H) / 2;
+  const R = base + (Math.min(W, H) / 2 - base) * rnd * .6;
+  let tail = R * (1 + .9 * k), lead = R; if (tail + lead > W) { lead = Math.max(R * .5, W - tail); tail = W - lead; }
+  const ry = Math.min(R, H / 2), T = { x: +tail.toFixed(1), y: +ry.toFixed(1) }, F = { x: +lead.toFixed(1), y: +ry.toFixed(1) };
+  const r = f.dir >= 0 ? [T, F, F, T] : [F, T, T, F];   // corners: top-left, top-right, bottom-right, bottom-left
+  el._radii = r; f.moving = k > .002 || rnd > .002;
+  el.style.borderRadius = f.moving ? `${r[0].x}px ${r[1].x}px ${r[2].x}px ${r[3].x}px / ${r[0].y}px ${r[1].y}px ${r[2].y}px ${r[3].y}px` : '';
+  if (el === attnEl || el.contains(attnEl)) aimAttn(true);
+}
+const shapeObserver = new ResizeObserver(es => es.forEach(e => { applyShape(e.target, true); if (e.target.hasAttribute('data-refract')) buildLens(e.target); }));
+
+/* =====================================================================
+   4. Light: environment key light or the real sun
+   ===================================================================== */
+const hexRGB = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const place = () => PLACES.find(p => p[0] === state.place) || PLACES[0];
+function sunNow() {
+  const [, , lat, lon] = place(); const now = new Date();
+  const hour = state.hour ?? solarHour(now, lon);
+  return { ...sunPosition(dateAtSolarHour(now, hour, lon), lat, lon), hour, lat, lon };
+}
+sunNow.real = () => solarHour(new Date(), place()[3]);
+function appearance() {
+  if (state.appearance !== 'sun') return state.appearance;
+  return sunNow().elevation > -4 ? 'dawn' : 'dusk';
+}
+const defaultHeading = () => place()[2] >= 0 ? 180 : 0;   // face the equator, where the sun travels
+function lightModel() {
+  const env = ENV[state.env], app = appearance(), p = env[app];
+  if (state.lightmode !== 'sun') return { angle: state.light ?? env.light, rgb: p.lightRGB, len: 1, strength: 1, text: 'Environment key light' };
+  const sun = sunNow(); const heading = state.heading ?? defaultHeading();
+  const L = screenLight(sun, heading);
+  let rgb = p.lightRGB;
+  if (!L.night && app === 'dawn') { const s = sunColour(sun.elevation), e = p.lightRGB.split(' ').map(Number); rgb = s.map((v, i) => Math.round(v * .6 + e[i] * .4)).join(' '); }
+  return { angle: L.angle, rgb, len: shadowLength(sun.elevation), strength: L.night ? .6 : .7 + .3 * L.strength, sun, heading };
+}
+const compass = d => ['north', 'north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west'][Math.round(((d % 360) + 360) % 360 / 45) % 8];
+const fromSide = a => { const x = -a; return x < 30 ? 'low from the right' : x < 70 ? 'from the upper right' : x <= 110 ? 'from overhead' : x <= 150 ? 'from the upper left' : 'low from the left'; };
+const sideOf = a => { const x = -a; return x < 30 ? 'low, right' : x < 70 ? 'upper right' : x <= 110 ? 'overhead' : x <= 150 ? 'upper left' : 'low, left'; };
+
+/* =====================================================================
+   5. Theme
+   ===================================================================== */
+function applyTheme() {
+  const env = ENV[state.env], app = appearance(), p = env[app]; feel = FEEL[state.env] || FEEL.prism;
+  const L = lightModel(); const rad = L.angle * Math.PI / 180, lx = Math.cos(rad), ly = Math.sin(rad);
+  const vars = {
+    '--g0': p.ground[0], '--g1': p.ground[1], '--g2': p.ground[2], '--surface': p.surface, '--surface-2': p.surface2, '--ink': p.ink, '--muted': p.muted,
+    '--accent': p.accent, '--on-accent': p.onAccent, '--accent-ink': p.accentInk, '--line': p.line, '--focus': p.focus, '--error': FEEDBACK[app].error,
+    '--accent-rgb': hexRGB(p.accent).join(' '), '--on-accent-rgb': hexRGB(p.onAccent).join(' '), '--error-rgb': hexRGB(FEEDBACK[app].error).join(' '),
+    '--glass-rgb': hexRGB(p.surface).join(' '), '--glass-a': (p.glass + (state.tint / 100) * (.94 - p.glass)).toFixed(3), '--light-rgb': L.rgb, '--shadow-rgb': p.shadowRGB,
+    '--lx': lx.toFixed(3), '--ly': ly.toFixed(3), '--light-deg': (L.angle - 90).toFixed(1) + 'deg', '--sun-len': L.len.toFixed(2),
+    '--sun-x': (50 + lx * 46).toFixed(1) + '%', '--sun-y': (50 + ly * 58).toFixed(1) + '%',
+    '--frost': env.frost + 'px', '--sheen': ((app === 'dusk' ? env.sheen * .55 : env.sheen) * L.strength).toFixed(3), '--glow': app === 'dusk' ? .14 : .3,
+    '--hair': app === 'dusk' ? 'rgb(255 255 255 / .10)' : `rgb(${p.shadowRGB} / .12)`,
+    '--icon-w': state.weight,
+  };
+  for (const [k, v] of Object.entries(vars)) root.style.setProperty(k, v);
+  Object.assign(root.dataset, { env: state.env, appearance: app, context: state.context, tier: resolvedTier(), motion: reduced() ? 'reduced' : 'full', texture: textureOn() ? 'on' : 'off', driving: String(state.context === 'drive' && state.driving), icons: state.istyle, lightmode: state.lightmode });
+  $('#light').value = state.light ?? env.light; $('#light-val').textContent = '· ' + sideOf(+$('#light').value);
+  syncSlider($('#light').closest('.m-slider'), true);
+  drawSky(L); tileNotes();
+  if (state.lightmode === 'sun') {
+    const s = L.sun, hh = Math.floor(s.hour), mm = Math.floor((s.hour - hh) * 60) % 60, t = `${String(hh % 24).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+    const [rise, set] = sunTimes(), fmt = h => h == null ? null : `${String(Math.floor(h)).padStart(2, '0')}:${String(Math.floor((h % 1) * 60)).padStart(2, '0')}`;
+    const read = `Sun over <b>${place()[1]}</b> at <b>${t}</b>${state.hour == null ? '' : ' (preview)'}, ${s.elevation > 0 ? 'lighting the screen ' + fromSide(L.angle) : 'below the horizon'}.`
+      + (rise != null ? ` Rises ${fmt(rise)}, sets ${fmt(set)}.` : '') + (state.appearance === 'sun' ? ' Dawn and Dusk follow it.' : '');
+    if (read !== applyTheme.sunRead) { applyTheme.sunRead = read; $('#sun-read').innerHTML = read; }
+  }
+  $('#clarity').value = state.tint; $('#clarity-val').textContent = '· ' + (state.tint < 15 ? 'clear' : state.tint > 85 ? 'tinted' : state.tint + '% tinted'); syncSlider($('#clarity').closest('.m-slider'), true);
+  $('#env-light').hidden = state.lightmode === 'sun'; $('#sun-controls').hidden = state.lightmode !== 'sun';
+  // The Prism spectrum follows the key light, so its ground repaints when the light moves.
+  const texKey = [state.env, app, state.env === 'prism' ? Math.round(L.angle / 4) : ''].join('/'); if (texKey !== applyTheme.texKey) { applyTheme.texKey = texKey; scheduleTexture(); }
+  if (app !== applyTheme.app) { applyTheme.app = app; const focused = document.activeElement && document.activeElement.name === 'env'; buildSwatches(); if (focused) $('input[name="env"]:checked').focus(); }
+  refreshLenses(); renderStatus(L);
+}
+
+/* =====================================================================
+   6. Ground: generated once per environment, static and quiet.
+   Texture stays at the edge of perception: felt more than seen.
+   ===================================================================== */
+function mulberry32(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function makeNoise(seed) {
+  const rnd = mulberry32(seed), N = 256, g = new Float32Array(N * N); for (let i = 0; i < g.length; i++) g[i] = rnd();
+  const s = t => t * t * (3 - 2 * t); const at = (x, y) => g[((y & 255) * N) + (x & 255)];
+  const n2 = (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), xf = s(x - xi), yf = s(y - yi); const a = at(xi, yi), b = at(xi + 1, yi), c = at(xi, yi + 1), d = at(xi + 1, yi + 1); return a + (b - a) * xf + (c - a) * yf + (a - b - c + d) * xf * yf; };
+  return (x, y) => n2(x, y) * .55 + n2(x * 2.1, y * 2.1) * .3 + n2(x * 4.3, y * 4.3) * .15;
+}
+function grain(ctx, w, h, alpha, tint, seed) {
+  const t = document.createElement('canvas'); t.width = t.height = 160; const c = t.getContext('2d'); const id = c.createImageData(160, 160), rnd = mulberry32(seed);
+  for (let i = 0; i < id.data.length; i += 4) { const v = rnd(); const on = v > .5; id.data[i] = on ? tint[0] : 0; id.data[i + 1] = on ? tint[1] : 0; id.data[i + 2] = on ? tint[2] : 0; id.data[i + 3] = Math.round(Math.abs(v - .5) * 2 * alpha * 255); }
+  c.putImageData(id, 0, 0); ctx.fillStyle = ctx.createPattern(t, 'repeat'); ctx.fillRect(0, 0, w, h);
+}
+function granules(ctx, w, h, dpr, tints, alpha, seed) {   // sand: scattered grains of slightly different size and tone, on a repeating tile
+  const T = Math.round(220 * dpr), t = document.createElement('canvas'); t.width = t.height = T; const c = t.getContext('2d'), rnd = mulberry32(seed);
+  for (let i = 0, n = Math.round(T * T / (26 * dpr * dpr)); i < n; i++) { const r = (.45 + rnd() * .8) * dpr, tint = tints[Math.floor(rnd() * tints.length)];
+    c.fillStyle = `rgb(${tint} / ${(alpha * (.35 + rnd() * .65)).toFixed(3)})`; c.beginPath(); c.arc(rnd() * T, rnd() * T, r, 0, Math.PI * 2); c.fill(); }
+  ctx.fillStyle = ctx.createPattern(t, 'repeat'); ctx.fillRect(0, 0, w, h);
+}
+function lowRes(ctx, w, h, scale, fn, blur = 0) {   // computed and blurred at low resolution, then scaled up: cheap, and the upscale smooths it further
+  const lw = Math.max(2, Math.ceil(w / scale)), lh = Math.max(2, Math.ceil(h / scale)); const t = document.createElement('canvas'); t.width = lw; t.height = lh; const c = t.getContext('2d'); const id = c.createImageData(lw, lh);
+  for (let y = 0; y < lh; y++) for (let x = 0; x < lw; x++) { const o = (y * lw + x) * 4; const [r, g, b, a] = fn(x * scale, y * scale); id.data[o] = r; id.data[o + 1] = g; id.data[o + 2] = b; id.data[o + 3] = a; }
+  c.putImageData(id, 0, 0); let src = t;
+  if (blur) { const t2 = document.createElement('canvas'); t2.width = lw; t2.height = lh; const c2 = t2.getContext('2d'); c2.filter = `blur(${(blur / scale).toFixed(2)}px)`; c2.drawImage(t, 0, 0); src = t2; }
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(src, 0, 0, w, h);
+}
+function pools(ctx, w, h, dpr, n, rgb, alpha, rMin, rMax, seed) {
+  const rnd = mulberry32(seed); for (let i = 0; i < n; i++) { const x = rnd() * w, y = rnd() * h * .9, r = (rMin + rnd() * (rMax - rMin)) * dpr;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgb(${rgb.join(' ')} / ${alpha * (.6 + rnd() * .4)})`); g.addColorStop(1, `rgb(${rgb.join(' ')} / 0)`); ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2); }
+}
+/* Ambient blobs: [left %, top %, width %, height %]. Soft radial light, moved only by transform, so it costs the compositor, not the painter. */
+const AMBIENT = {
+  forest: { anim: 'sway', dur: 10, blobs: [[8, 10, 34, 34], [54, 4, 30, 30], [66, 52, 34, 34], [20, 60, 30, 30]], colours: { dawn: ['255 252 225'], dusk: ['200 236 210'] }, alpha: { dawn: .32, dusk: .06 } },
+  ocean:  { anim: 'fluid', dur: 18, blobs: [[4, 18, 44, 30], [44, 2, 40, 26], [52, 48, 46, 32], [10, 62, 38, 28]], colours: { dawn: ['255 255 255', '200 238 246'], dusk: ['120 200 235', '80 150 205'] }, alpha: { dawn: .34, dusk: .09 } },
+  aurora: { anim: 'drift', dur: 22, blobs: [[-10, 4, 70, 30], [30, 18, 80, 28], [-4, 34, 74, 26]], colours: { dawn: ['120 214 196', '176 140 255', '255 160 210'], dusk: ['79 224 192', '155 107 255', '255 122 200'] }, alpha: { dawn: .2, dusk: .26 } },
+};
+function ambientHTML() {
+  const a = AMBIENT[state.env]; if (!a) return ''; const app = appearance();
+  return a.blobs.map(([l, t, w, h], i) => `<i style="left:${l}%;top:${t}%;width:${w}%;height:${h}%;--c:${a.colours[app][i % a.colours[app].length]};--a:${a.alpha[app]};--anim:${a.anim};--dur:${a.dur + i * 5}s;--delay:${-i * 7}s"></i>`).join('');
+}
+function paintAmbient() { const html = ambientHTML(); $('#ambient').innerHTML = html; $$('#fit .screen > .ambient').forEach(el => { el.innerHTML = html; }); }
+let texTimer = 0, texURL = '', texGen = 0;
+function scheduleTexture() { clearTimeout(texTimer); texTimer = setTimeout(() => { paintTexture(); paintAmbient(); }, 30); }
+function paintTexture() {
+  const cv = $('#tex'), env = ENV[state.env], app = appearance(), dusk = app === 'dusk';
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5), w = Math.round(innerWidth * dpr), h = Math.round(innerHeight * dpr);
+  const sceneKey = state.env + app;
+  if (paintTexture.scene && paintTexture.scene !== sceneKey && cv.width) {   // a new scene: the old ground fades out over the new one
+    const ghost = document.createElement('canvas'); ghost.width = cv.width; ghost.height = cv.height; ghost.getContext('2d').drawImage(cv, 0, 0); ghost.setAttribute('aria-hidden', 'true');
+    ghost.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none'; cv.after(ghost);
+    ghost.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduced() ? 200 : 520, easing: 'cubic-bezier(.2, .8, .2, 1)' }).onfinish = () => ghost.remove();
+  }
+  paintTexture.scene = sceneKey;
+  cv.width = w; cv.height = h; const ctx = cv.getContext('2d'); ctx.clearRect(0, 0, w, h);
+  const L = env[app].lightRGB.split(' ').map(Number); const noise = makeNoise(7);
+  switch (env.texture) {
+    case 'spectrum': { const D = Math.hypot(innerWidth, innerHeight); pools(ctx, w, h, dpr, 3, L, dusk ? .05 : .42, D * .2, D * .34, 3);   // sized to the screen, so a phone is not washed out
+      // Prism: where the key light crosses the ground it leaves a faint, soft spectrum, as light through a prism does on a wall.
+      // Ground only: glass edges never split light into colours.
+      const Lm = lightModel(), a = Lm.angle * Math.PI / 180, lx = Math.cos(a), ly = Math.sin(a);
+      const ox = w * (.5 + lx * .46), oy = h * (.5 + ly * .58), len = Math.ceil(Math.hypot(w, h) * .8), bw = Math.ceil(Math.min(240, innerWidth * .5) * dpr), peak = dusk ? .1 : .12;
+      const q = 4, sl = Math.ceil(len / q), sb = Math.ceil(bw / q), t = document.createElement('canvas'); t.width = sl; t.height = sb; const c = t.getContext('2d');   // quarter resolution: it is blurred anyway
+      const hues = ['255 128 140', '255 190 128', '248 230 140', '146 222 176', '128 190 255', '172 146 255'];
+      for (let i = 0, N = 28; i < N; i++) {   // the band fans out as it travels, as dispersed light does
+        const half = sb / 2 * (.3 + .7 * i / (N - 1)), across = c.createLinearGradient(0, sb / 2 - half, 0, sb / 2 + half);
+        across.addColorStop(0, `rgb(${hues[0]} / 0)`); hues.forEach((col, j) => across.addColorStop(.12 + .76 * j / (hues.length - 1), `rgb(${col})`)); across.addColorStop(1, `rgb(${hues[5]} / 0)`);
+        c.fillStyle = across; c.fillRect(Math.floor(sl * i / N), sb / 2 - half, Math.ceil(sl / N) + 1, half * 2); }
+      const along = c.createLinearGradient(0, 0, sl, 0); along.addColorStop(0, 'rgb(0 0 0 / 0)'); along.addColorStop(.2, `rgb(0 0 0 / ${peak})`); along.addColorStop(.55, `rgb(0 0 0 / ${peak * .55})`); along.addColorStop(1, 'rgb(0 0 0 / 0)');
+      c.globalCompositeOperation = 'destination-in'; c.fillStyle = along; c.fillRect(0, 0, sl, sb);
+      const t2 = document.createElement('canvas'); t2.width = sl; t2.height = sb; const c2 = t2.getContext('2d'); c2.filter = `blur(${(22 * dpr / q).toFixed(2)}px)`; c2.drawImage(t, 0, 0);
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high'; ctx.translate(ox, oy); ctx.rotate(Math.atan2(-ly, -lx) + .38); ctx.drawImage(t2, 0, -bw / 2, len, bw); ctx.restore(); break; }
+    case 'dapple': pools(ctx, w, h, dpr, 9, L, dusk ? .035 : .16, 150, 340, 5); break;
+    case 'sand': pools(ctx, w, h, dpr, 2, L, dusk ? .04 : .3, 420, 640, 9); granules(ctx, w, h, dpr, dusk ? ['255 230 190', '200 160 110', '20 12 4'] : ['255 250 235', '150 112 60', '96 70 34'], dusk ? .16 : .2, 11); break;
+    case 'strata':
+      lowRes(ctx, w, h, 6, (x, y) => { const v = Math.sin((y / dpr) * .022 + noise(x * .0015, y * .004) * 5) * .6 + Math.sin((y / dpr) * .008) * .4; return v > 0 ? [...L, Math.round(v * (dusk ? 6 : 14))] : [96, 34, 16, Math.round(-v * (dusk ? 12 : 9))]; }, 3 * dpr);
+      grain(ctx, w, h, dusk ? .025 : .035, dusk ? [255, 200, 170] : [110, 50, 30], 13); break;
+    case 'caustics': { const n2 = makeNoise(29);
+      lowRes(ctx, w, h, 3, (x, y) => { const X = x / dpr, Y = y / dpr; const wx = X + (noise(X * .005, Y * .005) - .5) * 70, wy = Y + (n2(X * .005, Y * .005) - .5) * 70;
+        const r1 = 1 - Math.abs(noise(wx * .011, wy * .011) * 2 - 1), r2 = 1 - Math.abs(n2(wx * .016 + 9, wy * .016 + 4) * 2 - 1); const v = Math.pow(Math.max(r1, r2 * .9), 10) * (.5 + .5 * noise(X * .002, Y * .002));
+        return [...L, Math.round(Math.min(1, v) * (dusk ? 12 : 34))]; }, 1.2 * dpr); break; }
+    case 'aurora': { const curtains = dusk ? [[79, 224, 192, .16, .16, 0], [155, 107, 255, .15, .26, 2.1], [255, 122, 200, .09, .36, 4.2]] : [[120, 214, 196, .08, .12, 0], [176, 140, 255, .08, .22, 2.1], [255, 160, 210, .06, .32, 4.2]];
+      // each curtain keeps its own colour; averaging them would turn the sky grey
+      for (const [cr, cg, cb, ca, top, ph] of curtains) lowRes(ctx, w, h, 6, (x, y) => { const X = x / dpr, Y = y / dpr, H = h / dpr;
+        const t = H * top + Math.sin(X * .0035 + ph) * H * .06 + (noise(x * .002, ph) - .5) * H * .06; const d = (Y - t) / (H * .4); if (d < 0 || d > 1) return [0, 0, 0, 0];
+        return [cr, cg, cb, Math.round(Math.pow(1 - d, 1.8) * Math.min(1, d / .2) * ca * 255)]; }, 14 * dpr);
+      break; }
+  }
+  // Device screens reuse a half-size copy; a generation counter drops results from superseded paints.
+  const gen = ++texGen, small = document.createElement('canvas'); small.width = Math.ceil(w / 2); small.height = Math.ceil(h / 2); small.getContext('2d').drawImage(cv, 0, 0, small.width, small.height);
+  small.toBlob(b => { if (!b || gen !== texGen) return; if (texURL) URL.revokeObjectURL(texURL); texURL = URL.createObjectURL(b); root.style.setProperty('--tex-url', `url("${texURL}")`); });
+}
+
+/* =====================================================================
+   7. Lenses: refraction maps drawn from each shape's real outline
+   ===================================================================== */
+let lensId = 0;
+function displacementMap(w, h, radii, bezel) {
+  const shape = document.createElement('canvas'); shape.width = w; shape.height = h; const sc = shape.getContext('2d');
+  sc.fillStyle = '#fff'; sc.beginPath(); sc.roundRect(0, 0, w, h, radii.map(r => ({ x: r.x, y: r.y }))); sc.fill();
+  const soft = document.createElement('canvas'); soft.width = w; soft.height = h; const so = soft.getContext('2d');
+  so.filter = `blur(${bezel / 2}px)`; so.drawImage(shape, 0, 0);
+  const m = so.getImageData(0, 0, w, h).data, inside = sc.getImageData(0, 0, w, h).data;
+  const out = sc.createImageData(w, h); const A = (x, y) => m[(Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))) * 4 + 3] / 255;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const o = (y * w + x) * 4; let dx = 0, dy = 0;
+    if (inside[o + 3] > 127) {
+      const a = A(x, y), gx = A(x + 1, y) - A(x - 1, y), gy = A(x, y + 1) - A(x, y - 1), gl = Math.hypot(gx, gy);
+      const t = clamp((1 - a) * 2); if (gl > 1e-4 && t > 0) { const p = 1 - Math.sqrt(1 - t * t); dx = gx / gl * p; dy = gy / gl * p; }
+    }
+    out.data[o] = 128 + dx * 127; out.data[o + 1] = 128 + dy * 127; out.data[o + 2] = 128; out.data[o + 3] = 255;
+  }
+  sc.putImageData(out, 0, 0); return shape.toDataURL();
+}
+function buildLens(el) {
+  if (!isChromium || root.dataset.tier !== 'refract' || !el._radii) return;
+  const w = Math.round(el.offsetWidth), h = Math.round(el.offsetHeight); if (w < 4 || h < 4) return;
+  const env = ENV[state.env]; const key = [w, h, state.env, JSON.stringify(el._radii)].join('|'); if (el._lensKey === key) return; el._lensKey = key;
+  const id = el._lensId || (el._lensId = 'lens-' + (++lensId)); const svg = $('#lenses'); let f = document.getElementById(id); if (f) f.remove();
+  const ns = 'http://www.w3.org/2000/svg'; f = document.createElementNS(ns, 'filter');
+  for (const [k, v] of Object.entries({ id, x: 0, y: 0, width: w, height: h, filterUnits: 'userSpaceOnUse', 'color-interpolation-filters': 'sRGB' })) f.setAttribute(k, v);
+  const img = document.createElementNS(ns, 'feImage');
+  for (const [k, v] of Object.entries({ href: displacementMap(w, h, el._radii, Math.min(14, h / 2.6)), x: 0, y: 0, width: w, height: h, preserveAspectRatio: 'none', result: 'map' })) img.setAttribute(k, v);
+  f.appendChild(img);
+  const d = document.createElementNS(ns, 'feDisplacementMap');   // one channel: light bends evenly and never splits into colours
+  for (const [k, v] of Object.entries({ in: 'SourceGraphic', in2: 'map', scale: env.refract.toFixed(1), xChannelSelector: 'R', yChannelSelector: 'G' })) d.setAttribute(k, v);
+  f.appendChild(d);
+  svg.appendChild(f); el.style.setProperty('--lens', `url(#${id})`);
+}
+function refreshLenses() { $$('[data-refract]').forEach(buildLens); }
+
+/* =====================================================================
+   8. The fluid: contact, hold, hover light, ink, jiggle
+   ===================================================================== */
+let lastContact = -1;
+function rapidFirmness() { const now = performance.now() / 1000; const f = lastContact < 0 ? 0 : firmnessFromInterval(now - lastContact); lastContact = now; return f; }
+const report = { set(o) { if (this.onUpdate) this.onUpdate(o); } };
+
+function addBody(el) {
+  if (!el.querySelector(':scope > .m-body')) { const b = document.createElement('span'); b.className = 'm-body'; b.setAttribute('aria-hidden', 'true'); b.innerHTML = '<span class="m-refract"></span><span class="m-light"></span>'; el.prepend(b); }
+  if (!el._flow) shapeOf(el);
+}
+
+/** Shear-thickening contact. Depth creeps while held; firmness from rapid repetition caps it. */
+function fluid(el) {
+  const rip = new Ripple(el); let d = 0, creep = 0, t0 = 0, firm = 0, pressure = 1, holding = false, fired = false, rebound = null, creepSpring = null;
+  const set = () => {
+    el.style.setProperty('--press', d.toFixed(3)); el.style.setProperty('--creep', creep.toFixed(3));
+    if (el._flow && !el.disabled) setFlow(el, { round: clamp(d) * .5 + creep * .5 });
+  };
+  const creepAnim = { step(dt) {
+    const t = performance.now() / 1000 - t0;
+    d = depthAfter(t, Math.min(1.15, pressure * feel.depth), firm, { creepTau: FLUID.creepTau * feel.creep, depthCapFirm: FLUID.depthCapFirm });
+    if (t > FLUID.holdAfter && el.dataset.hold) creep = 1 - Math.exp(-(t - FLUID.holdAfter) / FLUID.holdTau);
+    if (creep > FLUID.holdFire && !fired) { fired = true; el.dispatchEvent(new CustomEvent('fluidhold', { bubbles: true })); }
+    set(); return !holding; } };
+  function down(cx, cy, opts = {}) {
+    if (el.disabled || el.classList.contains('is-disabled') || el.getAttribute('aria-disabled') === 'true') { rigidTick(el); return; }
+    holding = true; fired = false; t0 = performance.now() / 1000; pressure = opts.pressure ?? 1; firm = Math.max(opts.firm ?? 0, rapidFirmness());
+    el.style.setProperty('--cx', (cx * 100).toFixed(1) + '%'); el.style.setProperty('--cy', (cy * 100).toFixed(1) + '%');
+    if (rebound) active.delete(rebound); if (creepSpring) active.delete(creepSpring);
+    if (reduced()) { d = Math.min(.6, pressure); set(); return; }
+    wake(creepAnim);
+    const w = el.offsetWidth, h = el.offsetHeight; rip.start(Math.hypot(Math.max(cx, 1 - cx) * w, Math.max(cy, 1 - cy) * h) * .55, .5 * feel.ripple);
+  }
+  function up() {
+    if (!holding) return; holding = false; active.delete(creepAnim);
+    const held = performance.now() / 1000 - t0, depth = d;
+    report.set({ el, held, depth, firm, fired });
+    if (reduced()) { d = 0; creep = 0; set(); return; }
+    const sp = feelSpring(reboundSpring(clamp(depth / feel.depth), firm), feel);
+    rebound = new Spring(d, sp, x => { d = x; set(); });
+    if (feel.linger) { const r = rebound; setTimeout(() => { if (rebound === r && !holding) r.to(0, sp); }, feel.linger * 1000); } else rebound.to(0, sp);   // sand holds the print a moment
+    creepSpring = new Spring(creep, SPRING.release, x => { creep = x; set(); }); creepSpring.to(0);
+    const w = el.offsetWidth, h = el.offsetHeight; const cx = parseFloat(el.style.getPropertyValue('--cx')) / 100 || .5, cy = parseFloat(el.style.getPropertyValue('--cy')) / 100 || .5;
+    rip.start(Math.hypot(Math.max(cx, 1 - cx) * w, Math.max(cy, 1 - cy) * h) * (state.context === 'wrist' ? .5 : 1), (.4 + .6 * depth) * feel.ripple);
+  }
+  return { down, up };
+}
+/* Bounce: a drop that lands, or is let go, settles with the same soft wobble as a slow press. Every input shares it. */
+const pressSpring = el => el._bounce || (el._bounce = new Spring(0, SPRING.lift, x => el.style.setProperty('--press', x.toFixed(3))));
+function squash(el, v) { if (!el || reduced()) return; pressSpring(el).to(v, SPRING.lift); }   // sink under a held press
+function bounce(el, amount = 1) { if (!el || reduced()) return; const s = pressSpring(el), sp = feelSpring(reboundSpring(.8, 0), feel);
+  if (Math.abs(s.x) > .05) s.to(0, sp);          // let go of a held press: it springs back past rest and settles
+  else s.to(0, sp, s.v + 7 * amount * Math.sqrt(feel.depth)); }           // landed from travel: the drop squashes on arrival, then settles
+/* Dip: the label under a finger or pointer gives a little while pressed, then springs back. */
+function dip(el, v) { if (!el) return; const s = el._dip || (el._dip = new Spring(0, SPRING.lift, x => el.style.setProperty('--lp', x.toFixed(3)))); s.to(v, v ? SPRING.lift : SPRING.release); }
+function rigidTick(el) { if (reduced()) return; const s = new Spring(0, { k: 2000, c: 40 }, x => el.style.setProperty('--shiver', x.toFixed(2))); s.to(0, null, 30); wake(s); }
+function shiver(el) { if (reduced()) return; const s = new Spring(0, SPRING.shiver, x => el.style.setProperty('--shiver', x.toFixed(2))); s.v = 160; s.to(0); }
+
+const realHover = matchMedia('(hover: hover)');
+const canHover = (el, e) => (e.pointerType === 'mouse' || e.pointerType === 'pen') && (el.closest('#fit') ? CTX[state.context].hover : realHover.matches);
+function hoverable(trigger, target = trigger) {   // one hover spring for everything that is not a button: options glow, drops and thumbs lift
+  if (trigger._hov) return; const s = trigger._hov = new Spring(0, SPRING.lift, v => target.style.setProperty('--hover', v.toFixed(3)));
+  trigger.addEventListener('pointerenter', e => { if (canHover(trigger, e) && !trigger.matches(':has(input:disabled)')) s.to(1); });
+  trigger.addEventListener('pointerleave', () => s.to(0));
+}
+function wireContact(el) {
+  const hover = new Spring(0, SPRING.lift, v => el.style.setProperty('--hover', v.toFixed(3)));
+  const f = fluid(el); el._fluid = f;
+  el.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return; const r = el.getBoundingClientRect();
+    const pressure = e.pointerType === 'pen' ? clamp(e.pressure * 1.4, .15, 1) : 1;
+    f.down((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, { pressure });
+  });
+  el.addEventListener('pointermove', e => {
+    if (e.pointerType === 'pen' && e.buttons) { /* pressure changes the dent live */ }
+    if (!canHover(el, e)) return;
+    const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+    el.style.setProperty('--px', (px * 100).toFixed(1) + '%'); el.style.setProperty('--py', (py * 100).toFixed(1) + '%');
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => el.addEventListener(t, () => f.up()));
+  el.addEventListener('pointerenter', e => { if (canHover(el, e) && !el.disabled) hover.to(1); });
+  el.addEventListener('pointerleave', () => hover.to(0));
+  el.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) f.down(.5, .5, { firm: 0 }); if (e.repeat) lastContact = performance.now() / 1000; });
+  el.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') f.up(); });
+  el.addEventListener('blur', () => f.up());
+  if (el.hasAttribute('aria-pressed')) {
+    const ink = new Spring(el.getAttribute('aria-pressed') === 'true' ? 1 : 0, SPRING.release, v => el.style.setProperty('--dye', v.toFixed(3)));
+    el.style.setProperty('--dye', ink.x); new MutationObserver(() => ink.to(el.getAttribute('aria-pressed') === 'true' ? 1 : 0)).observe(el, { attributes: true, attributeFilter: ['aria-pressed'] });
+  }
+}
+
+/* Two-edge travel: the leading edge is stiffer than the trailing edge, so a moving droplet stretches, then gathers. */
+function travel({ onFrame }) {
+  let L = null, R = null; const draw = () => onFrame(L.x, R.x - L.x, (L.v + R.v) / 2);
+  return { to(left, width, instant) {
+    if (!L) { L = new Spring(left, SPRING.travel, draw); R = new Spring(left + width, SPRING.travel, draw); }
+    if (instant) { L.jump(left); R.jump(left + width); return; }
+    const right = left > L.target; L.to(left, right ? SPRING.trail : SPRING.travel); R.to(left + width, right ? SPRING.travel : SPRING.trail);
+  } };
+}
+function wireSeg(seg) {
+  $$('.m-seg-opt', seg).forEach(l => hoverable(l));
+  if (seg._wired) return; seg._wired = true;
+  const track = document.createElement('span'); track.className = 'm-track'; track.setAttribute('aria-hidden', 'true');
+  const ind = document.createElement('span'); ind.className = 'm-mat m-ind m-glass'; ind.setAttribute('aria-hidden', 'true');
+  seg.prepend(ind); seg.prepend(track); addBody(ind); let moving = false;
+  const mover = travel({ onFrame: (x, w, v) => { ind.style.left = x + 'px'; ind.style.width = w + 'px'; const base = (seg.querySelector('input:checked')?.closest('label').offsetWidth) || w; const s = Math.max(.86, Math.min(1, base / Math.max(1, w))); ind.style.transform = `scaleY(${s.toFixed(3)})`; setFlow(ind, { k: clamp(Math.abs(v) / 1000) * .85, dir: Math.sign(v) || 1 });
+    if (Math.abs(v) > 260) moving = true; else if (moving && Math.abs(v) < 60) { moving = false; bounce(ind, 1.4); } } });   // it lands, and the landing wobbles
+  const place = instant => { const c = seg.querySelector('input:checked'); if (!c) return; const lab = c.closest('label'); mover.to(lab.offsetLeft, lab.offsetWidth, instant); };
+  // Pressing the current option sinks the drop; choosing another sends it travelling, and it lands with a wobble.
+  let pressing = false;
+  seg.addEventListener('pointerdown', e => { const lab = e.target.closest('.m-seg-opt'); if (!lab || e.button !== 0 || lab.querySelector('input:disabled')) return;
+    pressing = true; dip(lab, 1); if (lab.querySelector('input').checked) squash(ind, .55); });
+  const release = () => { if (!pressing) return; pressing = false; $$('.m-seg-opt', seg).forEach(l => dip(l, 0)); if (Math.abs(pressSpring(ind).x) > .05) bounce(ind, .9); };
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => seg.addEventListener(t, release));
+  seg.addEventListener('change', () => place(false)); seg._place = place; requestAnimationFrame(() => place(true));
+  new ResizeObserver(() => place(true)).observe(seg);
+}
+function wireSwitch(sw) {
+  if (sw._wired) return; sw._wired = true;
+  const input = sw.querySelector('input'), thumb = sw.querySelector('.m-thumb'), track = sw.querySelector('.m-switch-track'); addBody(thumb); const c = fluid(thumb);
+  const ink = new Spring(input.checked ? 1 : 0, SPRING.release, v => track.style.setProperty('--dye', v.toFixed(3)));
+  track.style.setProperty('--dye', ink.x);
+  const mover = travel({ onFrame: (x, w, v) => { thumb.style.left = (3 + x) + 'px'; thumb.style.width = w + 'px'; thumb.style.transform = `scaleY(${Math.max(.86, 26 / Math.max(26, w)).toFixed(3)})`; track.style.setProperty('--tx', (3 + x + w / 2) + 'px'); setFlow(thumb, { k: clamp(Math.abs(v) / 900) * .8, dir: Math.sign(v) || 1 }); } });
+  const place = instant => { mover.to(input.checked ? 20 : 0, 26, instant); instant ? ink.jump(input.checked ? 1 : 0) : ink.to(input.checked ? 1 : 0); };
+  input.addEventListener('change', () => place(false));
+  sw.addEventListener('pointerdown', e => { if (e.button === 0) c.down(.5, .5); }); hoverable(sw, thumb);
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => sw.addEventListener(t, () => c.up()));
+  input.addEventListener('keydown', e => { if (e.key === ' ' && !e.repeat) c.down(.5, .5); });
+  input.addEventListener('keyup', e => { if (e.key === ' ') c.up(); });
+  sw._place = place; place(true);
+}
+function syncSlider(sl, instant) { if (sl && sl._sync) sl._sync(instant); }
+function wireSlider(sl) {
+  if (sl._wired) return; sl._wired = true;
+  const input = sl.querySelector('input'), thumb = sl.querySelector('.m-thumb'), fill = sl.querySelector('.m-fill'); addBody(thumb);
+  const lift = new Spring(0, SPRING.lift, v => thumb.style.setProperty('--lift', v.toFixed(3))); hoverable(sl, thumb);
+  let dragging = false, lastX = 0, lastT = 0, rest = 0;
+  const frac = () => (input.value - input.min) / (input.max - input.min);
+  const render = (x, speedPxMs) => { const w = sl.offsetWidth - 28, st = dragStretch(Math.abs(speedPxMs)) * feel.stretch; thumb.style.left = (14 + x * w) + 'px'; fill.style.width = (14 + x * w) + 'px'; thumb.style.setProperty('--stretch', st.toFixed(3)); setFlow(thumb, { k: st / FLUID.dragStretch, dir: Math.sign(speedPxMs) || 1 }); };
+  const pos = new Spring(frac(), SPRING.travel, (x, v) => render(x, v * (sl.offsetWidth - 28) / 1000));
+  sl._sync = instant => {
+    const f = frac(); if (instant) { pos.jump(f); return; }
+    if (dragging) { const now = performance.now(), px = f * (sl.offsetWidth - 28); const speed = (px - lastX) / Math.max(8, now - lastT); lastX = px; lastT = now;
+      pos.x = pos.target = f; pos.v = 0; render(f, speed); clearTimeout(rest); rest = setTimeout(() => render(pos.x, 0), 90); return; }
+    pos.to(f);
+  };
+  input.addEventListener('pointerdown', () => { dragging = true; lastX = frac() * (sl.offsetWidth - 28); lastT = performance.now(); lift.to(1); });
+  const end = () => { dragging = false; lift.to(0, SPRING.release); render(pos.x, 0); bounce(thumb, .6); };   // set down, it settles with a wobble
+  input.addEventListener('pointerup', end); input.addEventListener('pointercancel', end); input.addEventListener('blur', () => lift.to(0));
+  input.addEventListener('input', () => sl._sync(false));
+  new ResizeObserver(() => sl._sync(true)).observe(sl); sl._sync(true);
+}
+function enhance(scope) {
+  $$('.m-mat', scope).forEach(el => { if (el.matches('.m-thumb, .m-ind')) return; addBody(el); if (!el.classList.contains('m-surface') && !el.classList.contains('spec') && !el.classList.contains('m-well')) wireContact(el); });
+  $$('[data-seg]', scope).forEach(wireSeg); $$('.m-switch', scope).forEach(wireSwitch); $$('.m-slider', scope).forEach(wireSlider);
+}
+
+/* =====================================================================
+   9. Attention light: one light that travels to whatever has focus
+   ===================================================================== */
+const attn = $('#attention'); const A = {}; ['x', 'y', 'w', 'h'].forEach(k => A[k] = new Spring(0, SPRING.travel, () => drawAttn()));
+let attnEl = null;
+function drawAttn() { attn.style.transform = `translate(${A.x.x}px, ${A.y.x}px)`; attn.style.width = A.w.x + 'px'; attn.style.height = A.h.x + 'px'; }
+function attnTarget(el) { if (el.matches('input[type=radio], input[type=checkbox]')) return el.closest('[data-attn]') || el; if (el.matches('input[type=range]')) return el.closest('.m-slider'); if (el.matches('.m-well input')) return el.closest('.m-well'); return el; }
+function aimAttn(instant) {
+  if (!attnEl || !attnEl.isConnected) return; const t = attnTarget(attnEl), r = t.getBoundingClientRect(); const pad = t.classList.contains('m-slider') ? 4 : 4;
+  const br = getComputedStyle(t).borderRadius; attn.style.borderRadius = br.replace(/([\d.]+)px/g, (m, n) => (+n + pad) + 'px');
+  const tgt = { x: r.left - pad, y: r.top - pad, w: r.width + pad * 2, h: r.height + pad * 2 }; const wasOff = !attn.classList.contains('on');
+  for (const k in tgt) (instant || wasOff) ? A[k].jump(tgt[k]) : A[k].to(tgt[k]);
+}
+const tvLift = el => el._tvlift || (el._tvlift = new Spring(0, SPRING.lift, v => { el.style.setProperty('--tvlift', v.toFixed(3)); el.style.setProperty('--lift', (v * .6).toFixed(3)); if (el === attnEl) aimAttn(true); }));
+document.addEventListener('focusin', e => {
+  const el = e.target; let visible = false; try { visible = el.matches(':focus-visible'); } catch (_) {}
+  if (state.context === 'tv' && el.closest('.dev-tv') && el.matches('.m-mat')) tvLift(el).to(1);
+  if (!visible) { attn.classList.remove('on'); attnEl = null; return; }
+  attnEl = el; aimAttn(false); attn.classList.add('on');
+});
+document.addEventListener('focusout', e => { if (e.target._tvlift) e.target._tvlift.to(0); setTimeout(() => { if (!document.activeElement || document.activeElement === document.body) { attn.classList.remove('on'); attnEl = null; } }, 0); });
+document.addEventListener('pointerdown', () => attn.classList.remove('on'));
+addEventListener('scroll', () => aimAttn(true), true); addEventListener('resize', () => aimAttn(true));
+root.classList.add('attn');
+
+/* Spatial navigation for remotes, controllers, knobs: arrows move focus to the nearest item in that direction. */
+function spatial(scope, dir) {
+  const items = $$('button:not([disabled])', scope).filter(b => b.offsetParent && !b.closest('[inert]')); const cur = document.activeElement;
+  if (!items.includes(cur)) { items[0]?.focus(); return; }
+  const c = el => { const r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; }; const o = c(cur); let best = null, score = Infinity;
+  for (const el of items) { if (el === cur) continue; const p = c(el), dx = p.x - o.x, dy = p.y - o.y;
+    const along = { right: dx, left: -dx, down: dy, up: -dy }[dir], across = dir === 'left' || dir === 'right' ? Math.abs(dy) : Math.abs(dx);
+    if (along <= 4) continue; const s = along + across * 2.2; if (s < score) { score = s; best = el; } }
+  if (best) best.focus();
+}
+/* Game controllers: D-pad steps, A engages (trigger depth = pressure), B goes back. Feature-detected; may be blocked inside frames. */
+let padLoop = 0; const padPrev = {};
+function pollPads() {
+  let pads = []; try { pads = Array.from(navigator.getGamepads ? navigator.getGamepads() : []).filter(Boolean); } catch (e) { return; }
+  if (!pads.length) { padLoop = 0; return; }
+  const p = pads[0], btn = i => p.buttons[i] && p.buttons[i].pressed; const scope = $('#fit');
+  [[12, 'up'], [13, 'down'], [14, 'left'], [15, 'right']].forEach(([i, dir]) => { if (btn(i) && !padPrev[i]) spatial(scope, dir); padPrev[i] = btn(i); });
+  const a = btn(0), el = document.activeElement;
+  if (a && !padPrev.a && el) { if (el._fluid) el._fluid.down(.5, .5, { pressure: Math.max(.6, p.buttons[7] ? p.buttons[7].value : 0) }); }
+  if (!a && padPrev.a && el) { if (el._fluid) el._fluid.up(); el.click(); }
+  padPrev.a = a;
+  if (btn(1) && !padPrev.b) document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); padPrev.b = btn(1);
+  padLoop = requestAnimationFrame(pollPads);
+}
+addEventListener('gamepadconnected', () => { if (!padLoop) padLoop = requestAnimationFrame(pollPads); renderStatus(); });
+
+/* =====================================================================
+   10. Icons
+   ===================================================================== */
+const icon = (name, extra = '') => { const g = ICONS[name]; return `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" ${extra}>${g.fill ? `<path class="ic-f" d="${g.d}"/>` : ''}<path class="ic-s" d="${g.d}"/></svg>`; };
+
+/* =====================================================================
+   11. The app in six contexts
+   ===================================================================== */
+const btn = (cls, label, inner, extra = '') => `<button type="button" class="m-mat ${cls}" ${extra}><span class="m-label">${inner ?? label}</span></button>`;
+const iconBtn = (cls, label, ic, extra = '') => `<button type="button" class="m-mat m-icon ${cls}" aria-label="${label}" ${extra}><span class="m-label">${icon(ic)}</span></button>`;
+const seg = (name, label, opts, checked, extra = '') => `<fieldset class="m-seg" data-seg ${/aria-labelledby/.test(extra) ? '' : `aria-label="${label}"`} ${extra}>${opts.map(([v, t, dis]) => `<label class="m-seg-opt" data-attn><input class="sr" type="radio" name="${name}" value="${v}" ${v === checked ? 'checked' : ''} ${dis ? 'disabled' : ''}><span>${t}</span></label>`).join('')}</fieldset>`;
+const sw = (id, label, on) => `<label class="m-switch" data-attn><span>${label}</span><input class="sr" type="checkbox" role="switch" id="${id}" ${on ? 'checked' : ''}><span class="m-switch-track"><span class="m-mat m-thumb" aria-hidden="true"></span></span></label>`;
+const slider = (id, label, min, max, val) => `<div class="row"><label class="field-label" for="${id}">${label}</label><div class="m-slider" data-attn><input type="range" id="${id}" min="${min}" max="${max}" value="${val}"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div></div>`;
+const CHAPTERS = ['Warm colours fade first', 'Sand, rock and weed', 'Lenses on the surface', 'Reading light'];
+
+const ARTICLE = `<article class="article">
+  <h2>Why shallow water glows</h2><p class="meta">Field Notes · 4 min read</p>
+  <p>Light that enters the sea loses its warm colours first. Over the first few metres, water absorbs much of the red, so what returns to your eye from a sandy bottom is the blue and green that survived the journey.</p>
+  <figure><div class="plate" role="img" aria-label="Illustration: turquoise shallows over pale sand"></div><figcaption>Pale sand returns the light; dark rock and weed absorb it.</figcaption></figure>
+  <p>Over pale sand the shallows glow turquoise. Over dark rock or weed, the same water reads as deep blue or olive. Nothing about the water changed; only the ground beneath it did.</p>
+  <p>Ripples on the surface act as moving lenses. Each one gathers sunlight into bright threads on the sea floor, the net of light swimmers call caustics, and scatters it again a moment later.</p>
+  <p>None of this has to be learned. People read depth, warmth and distance from light long before they read words, which is why an interface that borrows the <em>behaviour</em> of light, rather than its decoration, can feel obvious at first sight. <a href="#behaviour">How the material behaves</a>.</p>
+  <p>Glass that stays out of the way, light that shows where you are, a surface that answers where you touched it: the material is there when you need it and quiet while you read.</p>
+</article>`;
+
+const PANEL = ctx => `<div class="panel">
+  <h3>Reading</h3>
+  <div class="row"><span class="field-label" id="m-lbl-${ctx}">Measure</span>${seg('measure-' + ctx, 'Measure', [['52ch', 'Narrow'], ['62ch', 'Comfort'], ['74ch', 'Wide']], '62ch', `aria-labelledby="m-lbl-${ctx}" style="width:100%"`)}</div>
+  ${slider('size-' + ctx, 'Text size', 15, 24, 19)}
+  ${sw('quiet-' + ctx, 'Quiet chrome while reading', true)}
+  <h3>Note</h3>
+  <div class="m-field"><label class="field-label" for="note-${ctx}">Note title</label><span class="m-mat m-well"><input id="note-${ctx}" type="text" autocomplete="off" aria-describedby="note-msg-${ctx}"></span>
+    <p class="field-msg" id="note-msg-${ctx}" hidden>${icon('alert')}<span>Give the note a title before saving.</span></p></div>
+  <div class="actions">${btn('m-pigment', 'Save', null, 'data-act="save"')}${btn('m-glass', 'Share', `${icon('share')}<span>Share</span>`, 'data-act="share"')}${btn('m-glass', 'Export', null, 'data-act="export" aria-disabled="true" aria-describedby="export-why"')}</div><p class="tile-note" id="export-why">Save the note first, then export.</p>
+  <p class="live" aria-live="polite"></p>
+</div>`;
+const DOCK = ctx => `<div class="m-mat m-glass m-surface bar dock" data-refract role="toolbar" aria-label="Playback"><span class="m-label"><span class="hide-recede">${seg('mode-' + ctx, 'Mode', [['read', 'Read'], ['listen', 'Listen'], ['notes', 'Notes']], 'read')}</span>
+  ${iconBtn('m-pigment', 'Play', 'play', 'data-act="play"')}${ctx === 'touch' ? iconBtn('m-quiet', 'Reading settings', 'textsize', 'data-act="sheet" aria-expanded="false" aria-controls="sheet"') : ''}</span></div>`;
+const TOPBAR = ctx => `<div class="${ctx === 'space' ? '' : 'm-mat m-glass m-surface'} bar bar-top" ${ctx === 'space' ? '' : 'data-refract'}>
+  <span class="m-label">${iconBtn('m-quiet', 'Back', 'back')}<span class="title-text hide-recede">Field Notes</span></span><span class="m-label">${iconBtn('m-quiet', 'Bookmark', 'bookmark', 'aria-pressed="false" data-act="toggle"')}</span></div>`;
+
+const T = {
+  desk: () => `<div class="dev dev-desk"><div class="win screen"><div class="win-grid">
+      <nav class="side" aria-label="Notes">${[['wave', 'Why shallow water glows'], ['leaf', 'Lichen keeps time'], ['moon', 'The colour of dusk'], ['dunes', 'Sand that sings']].map(([ic, t], i) => btn('m-quiet', t, `${icon(ic)}<span>${t}</span>`, i === 0 ? 'aria-current="true"' : '')).join('')}</nav>
+      <div class="reader" tabindex="0" aria-label="Article">${ARTICLE}</div>
+      <aside class="panel-wrap" aria-label="Reading settings">${PANEL('desk').replace('class="panel"', 'class="panel" style="height:100%"')}</aside>
+    </div><div class="edge edge-t" aria-hidden="true"></div><div class="edge edge-b" aria-hidden="true"></div>${TOPBAR('desk')}${DOCK('desk')}</div></div>`,
+  touch: () => `<div class="dev dev-touch"><div class="phone screen bezel">
+    <div class="reader" tabindex="0" aria-label="Article"><div class="card content">${ARTICLE}</div></div>
+    <div class="edge edge-t" aria-hidden="true"></div><div class="edge edge-b" aria-hidden="true"></div>${TOPBAR('touch')}${DOCK('touch')}
+    <div class="m-mat m-glass m-surface sheet" id="sheet" hidden role="dialog" aria-label="Reading settings"><span class="m-label"><div class="grabber" aria-hidden="true"></div>
+      <div class="sheet-head"><strong style="font-size:17px">Reading settings</strong>${iconBtn('m-glass', 'Close', 'close', 'data-act="sheet-close"')}</div>${PANEL('touch')}</span></div>
+  </div></div>`,
+  wrist: () => `<div class="dev dev-wrist"><div class="watch screen bezel"><div class="wscroll" tabindex="0" aria-label="Chapters, scroll with the crown or arrow keys"><div class="wlist">
+      <p class="wtitle">Why shallow water glows</p>${btn('m-pigment wplay', 'Listen', `${icon('play')}<span>Listen</span>`, 'data-act="play"')}
+      ${CHAPTERS.map((c, i) => btn('m-glass wrow', c, `<span>${i + 1} · ${c}</span>`)).join('')}</div></div></div><div class="crown" aria-hidden="true"></div></div>`,
+  space: () => `<div class="dev dev-space"><div class="room screen">
+    <div class="m-mat m-glass m-surface window"><span class="m-label"><div class="reader" tabindex="0" aria-label="Article">${ARTICLE}</div>${TOPBAR('space')}</span></div>
+    <div class="m-mat m-glass m-surface side-win"><span class="m-label">${PANEL('space')}</span></div>
+    ${DOCK('space').replace('bar dock', 'bar ornament').replace(' data-refract', '')}</div></div>`,
+  tv: () => `<div class="dev dev-tv"><div class="tv screen bezel"><div class="tv-safe">
+    <div class="tv-top"><span>Field Notes</span><span>Continue listening</span></div>
+    <section class="hero content" aria-label="Now playing"><div><p class="kicker">Chapter 2 of 4 · 38% listened</p><h2>Sand, rock and weed</h2><p>Why the same water reads turquoise over sand and olive over weed.</p></div>
+      <div class="tv-actions">${btn('m-pigment', 'Resume', `${icon('play')}<span>Resume</span>`, 'data-act="play"')}${btn('m-glass', 'Read instead', null)}${iconBtn('m-glass', 'Bookmark', 'bookmark', 'aria-pressed="false" data-act="toggle"')}</div></section>
+    <div class="tv-row" role="group" aria-label="Chapters">${CHAPTERS.map((c, i) => btn('m-glass', c, `${icon(['sun', 'dunes', 'wave', 'prism'][i])}<span>${i + 1} · ${c}</span>`, i === 1 ? 'aria-current="true"' : '')).join('')}</div>
+  </div></div></div>`,
+  drive: () => `<div class="dev dev-drive"><div class="cluster screen bezel">
+    <section class="np content" aria-label="Now playing"><p class="kicker">Field Notes · Chapter 2 of 4</p><h2>Sand, rock and weed</h2>
+      <div class="progress" role="progressbar" aria-label="Chapter progress" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+      <div class="transport">${iconBtn('m-glass', 'Previous chapter', 'prev')}${iconBtn('m-pigment', 'Play', 'play', 'data-act="play"')}${iconBtn('m-glass', 'Next chapter', 'next')}</div>
+      ${seg('drive-mode', 'Mode', [['listen', 'Listen'], ['read', 'Read', state.driving]], 'listen').replace('class="m-seg"', 'class="m-seg tabs"')}
+      <p class="lock-note" aria-live="polite">${state.driving ? 'Reading is paused while the vehicle is moving.' : 'Parked: reading is available.'}</p></section>
+    <div class="chapters" role="group" aria-label="Chapters">${CHAPTERS.map((c, i) => btn('m-glass', c, `<span>${i + 1} · ${c}</span>`, i === 1 ? 'aria-current="true"' : '')).join('')}</div>
+  </div></div>`,
+};
+
+function fit() {
+  const [w, h] = CTX[state.context].size; const stage = $('#stage'); const s = Math.min(1, (stage.clientWidth - 4) / w);
+  const fitEl = $('#fit'); fitEl.style.width = w * s + 'px'; fitEl.style.height = h * s + 'px';
+  const dev = $('.dev', fitEl); if (!dev) return; dev.style.transform = `scale(${s})`;
+  const tooSmall = s < 0.66, note = $('#stage-note'); dev.inert = tooSmall; note.hidden = !tooSmall;
+  if (tooSmall) note.textContent = `${CTX[state.context].name} preview at ${Math.round(s * 100)}%, too small to use here. Choose Touch or Wrist, or open the lab on a wider screen.`;
+}
+function renderDevice() {
+  const fitEl = $('#fit'); $$('.m-mat', fitEl).forEach(el => shapeObserver.unobserve(el));
+  fitEl.innerHTML = T[state.context](); $$('.screen', fitEl).forEach(sc => { const a = document.createElement('div'); a.className = 'ambient'; a.setAttribute('aria-hidden', 'true'); a.innerHTML = ambientHTML(); sc.prepend(a); });
+  enhance(fitEl); fit(); wireApp(fitEl); refreshLenses();
+}
+function wireApp(scope) {
+  $$('[data-seg]', scope).forEach(s => { const first = s.querySelector('input'); if (first && first.name.startsWith('measure')) s.addEventListener('change', () => { const v = s.querySelector('input:checked').value; $$('.article', scope).forEach(a => a.style.setProperty('--measure', v)); }); });
+  $$('input[type=range]', scope).forEach(r => r.addEventListener('input', () => { if (r.id.startsWith('size')) $$('.article', scope).forEach(a => a.style.setProperty('--read-size', r.value + 'px')); }));
+  const reader = $('.reader', scope), bars = $$('.bar', scope); const quiet = () => { const q = $('[id^="quiet-"]', scope); return q ? q.checked : false; };
+  if (reader) { let lastY = 0; reader.addEventListener('scroll', () => { const y = reader.scrollTop, down = y > lastY + 4, up = y < lastY - 4; if (down && y > 60 && quiet()) bars.forEach(b => b.classList.add('receded')); if (up || !quiet()) bars.forEach(b => b.classList.remove('receded')); if (down || up) lastY = y; }, { passive: true }); }
+  bars.forEach(b => ['pointerenter', 'focusin'].forEach(t => b.addEventListener(t, () => b.classList.remove('receded'))));
+  scope.addEventListener('input', e => { if (e.target.id && e.target.id.startsWith('note-')) setError(e.target, false); });
+  scope.addEventListener('click', e => {
+    const b = e.target.closest('button[data-act]'); if (!b) return; const act = b.dataset.act; const live = $('.live', b.closest('.panel') || scope);
+    if (act === 'play') { const on = b.dataset.playing !== '1'; b.dataset.playing = on ? '1' : ''; const host = b.querySelector('.m-label'); const txt = host.querySelector('span');
+      if (txt) host.innerHTML = icon(on ? 'pause' : 'play') + `<span>${on ? 'Pause' : (b.closest('.dev-tv') ? 'Resume' : 'Listen')}</span>`; else { host.innerHTML = icon(on ? 'pause' : 'play'); b.setAttribute('aria-label', on ? 'Pause' : 'Play'); } }
+    if (act === 'toggle') b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+    if (act === 'save') save$(b, live);
+    if (act === 'export') { if (b.getAttribute('aria-disabled') === 'true') { if (live) live.textContent = 'Save the note first, then export.'; return; }
+      b.setAttribute('aria-busy', 'true'); if (live) live.textContent = 'Exporting…';
+      setTimeout(() => { b.removeAttribute('aria-busy'); b.querySelector('.m-label').textContent = 'Exported'; if (live) live.textContent = 'Exported as Markdown.'; swell(b); }, 900); }
+    if (act === 'share' && live) live.textContent = 'The share sheet would open here.';
+    if (act === 'sheet') openSheet(scope, b); if (act === 'sheet-close') closeSheet(scope);
+  });
+  const ws = $('.wscroll', scope);
+  if (ws) { let y = 0; const list = $('.wlist', scope), crown = $('.crown', scope);
+    const spring = new Spring(0, SPRING.travel, v => { list.style.setProperty('--wy', v + 'px'); crown.style.setProperty('--crown', (v * .5) + 'px'); });
+    const max = () => Math.max(0, list.scrollHeight - ws.clientHeight + 24); const go = dy => { y = Math.max(-max(), Math.min(0, y - dy)); spring.to(y); };
+    ws.addEventListener('wheel', e => { e.preventDefault(); go(Math.sign(e.deltaY) * 62); }, { passive: false });
+    ws.addEventListener('keydown', e => { if (e.key === 'ArrowDown') { e.preventDefault(); go(62); } if (e.key === 'ArrowUp') { e.preventDefault(); go(-62); } });
+    ws.addEventListener('focusin', e => { const b = e.target.closest('button'); if (!b) return; const top = b.offsetTop; if (top + y > ws.clientHeight - 70) go(top + y - ws.clientHeight + 80); if (top + y < 20) go(top + y - 30); }); }
+  const nav = $('.dev-tv, .chapters', scope);
+  if (nav) (state.context === 'tv' ? $('.tv', scope) : nav).addEventListener('keydown', e => { const dir = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' }[e.key]; if (!dir || e.target.matches('input')) return; e.preventDefault(); spatial(state.context === 'tv' ? $('.tv', scope) : nav, dir); });
+}
+function setError(input, on) {
+  const well = input.closest('.m-well'), msg = document.getElementById(input.getAttribute('aria-describedby'));
+  const was = input.getAttribute('aria-invalid') === 'true'; if (on) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  if (msg) msg.hidden = !on; if (on && !was) shiver(well);
+}
+function swell(b) { const s = b._swell || (b._swell = new Spring(0, SPRING.release, v => b.style.setProperty('--hover', v.toFixed(3)))); s.to(1); setTimeout(() => s.to(0), 260); }   // success: one gentle swell
+function save$(b, live) {
+  const input = $('.m-well input', b.closest('.panel'));
+  if (input && !input.value.trim()) { setError(input, true); input.focus(); if (live) live.textContent = ''; return; }
+  b.setAttribute('aria-busy', 'true'); b.querySelector('.m-label').textContent = 'Saving'; if (live) live.textContent = 'Saving…';
+  setTimeout(() => { b.removeAttribute('aria-busy'); b.querySelector('.m-label').textContent = 'Saved'; if (live) live.textContent = 'Saved to your library.';
+    swell(b); const ex = $('[data-act="export"]', b.closest('.panel') || document);
+    if (ex && ex.getAttribute('aria-disabled') === 'true') { ex.removeAttribute('aria-disabled'); const why = document.getElementById('export-why'); if (why) why.textContent = 'Ready to export.'; setTimeout(() => swell(ex), 160); } }, 900);
+}
+let sheetOpener = null;
+function openSheet(scope, opener) {
+  const sh = $('#sheet', scope); if (!sh) return; sheetOpener = opener; sh.hidden = false; opener.setAttribute('aria-expanded', 'true');
+  const s = sh._spring || (sh._spring = new Spring(0, SPRING.release, v => sh.style.setProperty('--open', v.toFixed(3)))); enhance(sh); refreshLenses();
+  requestAnimationFrame(() => { s.to(1); $('button, input', sh).focus({ preventScroll: true }); }); sh.onkeydown = e => { if (e.key === 'Escape') closeSheet(scope); };
+}
+function closeSheet(scope) {
+  const sh = $('#sheet', scope); if (!sh || sh.hidden) return; sh._spring.to(0, SPRING.travel); setTimeout(() => { sh.hidden = true; }, reduced() ? 0 : 320);
+  if (sheetOpener) { sheetOpener.setAttribute('aria-expanded', 'false'); sheetOpener.focus({ preventScroll: true }); }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.context === 'touch') closeSheet($('#fit')); });
+
+/* =====================================================================
+   12. Behaviour board, icon board, notes, status
+   ===================================================================== */
+function buildStates() {
+  $('#states').innerHTML = STATES.map(s => `<article class="state" data-state="${s.id}"><button type="button" class="spec-wrap" aria-label="Play the ${s.name} motion" aria-describedby="spec-${s.id}">
+      <span class="spec-hint" aria-hidden="true">${icon('play')}Replay</span>
+      <span aria-hidden="true" class="m-mat ${s.selected ? 'm-pigment' : 'm-glass'} spec ${s.disabled ? 'is-disabled' : ''} ${s.error ? 'is-error' : ''} ${s.busy ? 'is-busy' : ''}" style="${Object.entries(s.vars).map(([k, v]) => `${k}:${v}`).join(';')}">
+      ${s.focus ? '<span class="spec-ring"></span>' : ''}<span class="m-label">${s.id === 'selected' || s.id === 'success' ? icon('check') : ''}Continue</span></span></button>
+    <h3>${s.name}</h3><dl id="spec-${s.id}"><dt>When</dt><dd>${s.trigger}</dd><dt>Shape</dt><dd>${s.shape}</dd><dt>Surface</dt><dd>${s.surface}</dd><dt>Motion</dt><dd>${s.motion}</dd><dt>Depth</dt><dd>${s.z}</dd><dt>Light</dt><dd>${s.light}</dd></dl></article>`).join('');
+  const flow = { dragging: { k: .7, dir: 1 }, dropped: { k: .25, dir: -1 } };   // only moving states change shape
+  $$('#states .spec').forEach(el => { const id = el.closest('.state').dataset.state; addBody(el); if (flow[id]) setFlow(el, flow[id]); });
+  // Each specimen replays its motion through the same engine, on hover, focus or press: the stills become demonstrations.
+  $$('#states .spec-wrap').forEach(w => { const el = $('.spec', w), id = w.closest('.state').dataset.state; let last = -Infinity;
+    const go = () => { const t = performance.now(); if (t - last < 700) return; last = t; replay(id, el); };
+    w.addEventListener('click', go); w.addEventListener('pointerenter', e => { if (canHover(w, e)) go(); }); w.addEventListener('focus', () => { if (root.classList.contains('attn')) go(); }); });
+}
+function replay(id, el) {
+  const pose = STATES.find(x => x.id === id).vars, num = k => typeof pose[k] === 'number' ? pose[k] : 0;
+  const sp = name => { el._sp = el._sp || {}; return el._sp[name] || (el._sp[name] = new Spring(parseFloat(getComputedStyle(el).getPropertyValue(name)) || 0, SPRING.release, x => el.style.setProperty(name, x.toFixed(3)))); };
+  const set = (name, from, to, cfg = SPRING.release, v0) => { const s = name === '--press' ? pressSpring(el) : sp(name); s.x = from; el.style.setProperty(name, from); s.to(to, cfg, v0); return s; };
+  const back = (ms, cfg = SPRING.lift) => setTimeout(() => ['--press', '--hover', '--lift', '--dye', '--creep'].forEach(k => (k === '--press' ? pressSpring(el) : sp(k)).to(num(k), cfg)), ms);
+  if (reduced()) { if (id === 'disabled') return; el.animate([{ opacity: .55 }, { opacity: 1 }], { duration: 280 }); return; }   // reduced: a calm flash, no travel
+  const rebound = feelSpring(reboundSpring(.8, 0), feel);
+  switch (id) {
+    case 'rest': set('--press', -.25, 0, rebound); break;
+    case 'hover': set('--hover', 0, 1, SPRING.lift); break;
+    case 'focus': { const ring = $('.spec-ring', el); if (ring) ring.animate([{ opacity: 0, transform: 'scale(1.14)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' }); set('--hover', 0, .4, SPRING.lift); break; }
+    case 'pressing': set('--press', 0, .85, { k: 90, c: 19 }); break;   // slow pressure creeps in
+    case 'released': set('--press', .7, 0, rebound); set('--rip-r', 0, 46, { k: 60, c: 14 }); set('--rip-o', .7, .3, { k: 40, c: 12 }); back(1100); break;
+    case 'holding': set('--press', 0, .5, { k: 60, c: 15 }); set('--creep', 0, 1, { k: 18, c: 8 }); break;
+    case 'selected': set('--dye', 0, 1, { k: 60, c: 14 }); break;
+    case 'off': set('--dye', 1, 0, { k: 60, c: 14 }); break;
+    case 'dragging': { const t0 = performance.now(); const step = now => { const u = (now - t0) / 1100; if (u >= 1) { el.style.translate = ''; setFlow(el, { k: .7, dir: 1 }); return; }
+        const x = Math.sin(u * Math.PI * 2) * 26 * (1 - u), v = Math.cos(u * Math.PI * 2) * (1 - u); el.style.translate = `${x.toFixed(1)}px 0`; setFlow(el, { k: Math.min(.9, Math.abs(v) * .9), dir: Math.sign(v) || 1 }); requestAnimationFrame(step); };
+      set('--lift', 0, 1, SPRING.lift); requestAnimationFrame(step); break; }
+    case 'dropped': set('--lift', 1, .2, SPRING.travel); setTimeout(() => bounce(el, 1.1), 160); back(1000); break;
+    case 'disabled': rigidTick(el); break;
+    case 'error': shiver(el); break;
+    case 'busy': el.classList.remove('is-busy'); void el.offsetWidth; el.classList.add('is-busy'); break;
+    case 'success': set('--dye', 0, .5, { k: 60, c: 14 }); set('--hover', 0, 1, SPRING.release); back(420, SPRING.release); break;
+  }
+}
+function buildIcons() {
+  const names = Object.keys(ICONS);
+  $('#icon-grid').innerHTML = names.map(n => `<div class="icon-tile">${icon(n)}<span>${ICONS[n].name}</span></div>`).join('');
+  const sample = ['play', 'leaf', 'wave', 'mesa', 'aurora', 'bookmark'];
+  $('#weights').innerHTML = [['Light', 1.4], ['Regular', 1.9], ['Bold', 2.5]].map(([n, w]) => `<div class="weight-row" style="--icon-w:${w}"><b>${n}</b>${sample.map(s => icon(s)).join('')}</div>`).join('')
+    + `<div class="weight-row on-glass"><b style="color:var(--ink)">On glass</b>${['back', 'search', 'heart'].map(n => `<button type="button" class="m-mat m-glass m-icon" aria-label="${ICONS[n].name}" style="--target:48px">${'<span class="m-label">' + icon(n) + '</span>'}</button>`).join('')}${`<button type="button" class="m-mat m-pigment m-icon" aria-label="Play" style="--target:48px"><span class="m-label">${icon('play')}</span></button>`}</div>`;
+  enhance($('#weights'));
+}
+function buildSwatches() {
+  const app = appearance();
+  $('#env-swatches').innerHTML = Object.entries(ENV).map(([k, e]) => `<label class="swatch" data-attn style="--sw-a:${e[app].accent}"><input class="sr" type="radio" name="env" value="${k}" ${k === state.env ? 'checked' : ''}><span class="drop" aria-hidden="true"></span><span>${e.name}</span></label>`).join('');
+  $$('#env-swatches .swatch').forEach(sw => hoverable(sw, sw.querySelector('.drop')));   // rebuilt with each appearance, so wired here
+}
+function wireSwatches() {   // the colour drops give under a press and land with a wobble when chosen
+  const box = $('#env-swatches'); if (box._wired) return; box._wired = true; let held = null;
+  box.addEventListener('pointerdown', e => { const sw = e.target.closest('.swatch'); if (!sw || e.button !== 0) return; held = sw; dip(sw, 1);
+    squash(sw.querySelector('.drop'), .6); });
+  const release = () => { if (!held) return; const d = held.querySelector('.drop'); dip(held, 0); held = null; bounce(d, .9); };
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => box.addEventListener(t, release));
+  box.addEventListener('change', e => { const d = e.target.closest('.swatch')?.querySelector('.drop'); if (d && !held) bounce(d, .8); });
+}
+/* Play a day: the sun runs through the next 24 hours in a few seconds, then returns to now.
+   Under reduced motion it steps through dawn, noon, dusk and night instead of travelling. */
+function wireSunDay() {
+  const btn = $('#sun-day'); let run = 0;
+  const stop = () => { run++; state.hour = null; btn.setAttribute('aria-pressed', 'false'); btn.querySelector('.m-label').textContent = 'Play a day'; applyTheme(); };
+  btn.addEventListener('click', () => {
+    if (btn.getAttribute('aria-pressed') === 'true') { stop(); return; }
+    const id = ++run, start = sunNow().hour; btn.setAttribute('aria-pressed', 'true'); btn.querySelector('.m-label').textContent = 'Stop';
+    if (reduced()) { const steps = [6.5, 12, 17.5, 22]; let i = 0;
+      const next = () => { if (id !== run) return; if (i >= steps.length) { stop(); return; } state.hour = steps[i++]; applyTheme(); setTimeout(next, 1100); }; next(); return; }
+    const T = 9000, t0 = performance.now(); let last = 0;
+    const tick = now => { if (id !== run) return; const u = Math.min(1, (now - t0) / T);
+      if (now - last > 40 || u === 1) { last = now; const e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; state.hour = (start + 24 * e) % 24; applyTheme(); }
+      if (u < 1) requestAnimationFrame(tick); else stop(); };
+    requestAnimationFrame(tick);
+  });
+}
+/* A scene change cross-fades (and the device morphs between contexts) so the page moves the way its controls do. */
+function direct() { root.classList.add('no-blend'); clearTimeout(direct.t); direct.t = setTimeout(() => root.classList.remove('no-blend'), 200); }
+function scene(apply, device = false) {
+  const stage = $('#stage'), h0 = stage.offsetHeight; apply(); if (!device) return;
+  const fit = $('#fit'), h1 = stage.offsetHeight, ease = 'cubic-bezier(.2, .8, .2, 1)';
+  if (h0 !== h1 && !reduced()) stage.animate([{ height: h0 + 'px' }, { height: h1 + 'px' }], { duration: 420, easing: ease });   // the stage grows or shrinks, never jumps
+  fit.animate(reduced() ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: 'scale(.965) translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: reduced() ? 200 : 420, easing: ease });
+}
+/* The sky: the light's path across the Light tile. Environment light rides a calm arc; the real sun traces today's curve where you are.
+   Drag the light along it: environment light stays where you leave it; the sun glides back to now when you let go. */
+const SKY = { x0: 14, x1: 266, h: 84, top: 14 };
+let skyCurve = { key: '', d: '' };
+function sunTimes() {
+  const [, , lat, lon] = place(), now = new Date(), key = `${lat}|${lon}|${now.toDateString()}`; if (sunTimes.key === key) return sunTimes.v; let rise = null, set = null, prev = null;
+  for (let h = 0; h <= 24; h += .1) { const e = sunPosition(dateAtSolarHour(now, h, lon), lat, lon).elevation; if (prev != null) { if (prev <= 0 && e > 0) rise = h; if (prev > 0 && e <= 0) set = h; } prev = e; }
+  sunTimes.key = key; return (sunTimes.v = [rise, set]);
+}
+function skyPoint(L) {
+  if (L.sun) { const x = SKY.x0 + (L.sun.hour / 24) * (SKY.x1 - SKY.x0), y = SKY.h - clamp(L.sun.elevation, -30, 90) * (SKY.h - SKY.top) / 90; return [x, y]; }
+  const a = L.angle * Math.PI / 180; return [140 + 120 * Math.cos(a), SKY.h + (SKY.h - SKY.top) * Math.sin(a)];
+}
+function drawSky(L) {
+  const sky = $('#sky'); if (!sky) return; let key, d;
+  if (L.sun) { const [, , lat, lon] = place(), now = new Date(); key = `sun|${lat}|${lon}|${now.toDateString()}`;
+    if (skyCurve.key !== key) { const pts = []; for (let h = 0; h <= 24.001; h += .25) { const e = sunPosition(dateAtSolarHour(now, h, lon), lat, lon).elevation; pts.push(skyPoint({ sun: { hour: h, elevation: e } })); }
+      skyCurve = { key, d: 'M' + pts.map(p => p.map(v => v.toFixed(1)).join(' ')).join(' L') }; }
+  } else { key = 'env'; if (skyCurve.key !== key) skyCurve = { key, d: `M20 ${SKY.h} A120 ${SKY.h - SKY.top} 0 0 1 260 ${SKY.h}` }; }
+  $$('.sky-path', sky).forEach(p => p.setAttribute('d', skyCurve.d));
+  const [x, y] = skyPoint(L); $('.sky-body', sky).setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+  sky.classList.toggle('night', !!(L.sun && L.sun.elevation <= 0));
+}
+function wireSky() {
+  const sky = $('#sky'); let drag = null;
+  const at = e => { const r = sky.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * 280, (e.clientY - r.top) / r.height * 112]; };
+  const move = e => { const [x, y] = at(e);
+    if (state.lightmode === 'sun') { state.hour = clamp((x - SKY.x0) / (SKY.x1 - SKY.x0)) * 24 * .9999; }
+    else { const a = Math.atan2(Math.min(y, SKY.h - .01) - SKY.h, (x - 140) * ((SKY.h - SKY.top) / 120)) * 180 / Math.PI; state.light = Math.round(clamp((a + 180) / 180) * 180 - 180); $('#light').value = state.light; }
+    applyTheme(); };
+  sky.addEventListener('pointerdown', e => { if (e.button !== 0 || $('#sun-day').getAttribute('aria-pressed') === 'true') return; drag = e.pointerId; sky.setPointerCapture(e.pointerId); move(e); });
+  sky.addEventListener('pointermove', e => { if (drag === e.pointerId) move(e); });
+  const end = e => { if (drag !== e.pointerId) return; drag = null;
+    if (state.lightmode !== 'sun') { save(); return; }
+    const to = sunNow.real(), from = state.hour; let delta = ((to - from + 36) % 24) - 12;   // the short way round
+    if (reduced()) { state.hour = null; applyTheme(); return; }
+    const sp = new Spring(0, SPRING.travel, v => { state.hour = (from + delta * v + 24) % 24; applyTheme(); }); sp.to(1);
+    setTimeout(() => { if (drag == null) { state.hour = null; applyTheme(); } }, 900); };
+  sky.addEventListener('pointerup', end); sky.addEventListener('pointercancel', end);
+}
+/* Tiles say what they are doing now; the icon tile shows its glyphs, and they hop when the drawing changes. */
+function peekIcons(hop) {
+  const box = $('#icon-peek'); if (!box.children.length) box.innerHTML = ['leaf', 'wave', 'mesa', 'aurora', 'play', 'bookmark'].map(n => `<span class="peek">${icon(n)}</span>`).join('');
+  if (hop) $$('.peek', box).forEach((el, i) => setTimeout(() => bounce(el, 1.2), i * 45));
+}
+function tileNotes() {
+  const sys = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#motion-note').textContent = state.motion === 'full' ? 'Full springs, whatever the device says.' : state.motion === 'reduced' ? 'Reduced: every change still shows, without travel or wobble.'
+    : `Following your device: ${sys ? 'reduced, so changes show without travel or wobble' : 'full springs'}.`;
+  $('#light-note').hidden = !(state.appearance === 'sun' && state.lightmode !== 'sun');
+}
+function buildChips() { $('#ctx-chips').innerHTML = Object.entries(CTX).map(([k, c]) => `<label class="chip m-mat m-glass" data-attn><input class="sr" type="radio" name="context" value="${k}" ${k === state.context ? 'checked' : ''}><span class="m-label">${c.name}</span></label>`).join(''); }
+function renderNotes() {
+  const c = CTX[state.context], e = ENV[state.env];
+  $('#notes-title').textContent = c.title; $('#notes-lede').textContent = c.lede + ' ' + e.name + ': ' + e.note + ' ' + (FEEL[state.env] || FEEL.prism).says;
+  $('#inputs').innerHTML = c.inputs.map(k => { const i = INPUT[k]; return `<tr><th scope="row">${i.name}<br><span class="foot">${i.devices}</span></th><td>${i.maps}</td><td>${i.stress}</td></tr>`; }).join('');
+  $('#grammar').innerHTML = INTENTS.map((k, i) => `<tr><th scope="row">${k}</th><td>${c.grammar[i]}</td></tr>`).join('');
+  $('#rules').innerHTML = c.rules.map(r => `<li>${r}</li>`).join('');
+}
+function renderStatus(L = lightModel()) {
+  const tier = root.dataset.tier; let why = '';
+  if (state.tier !== 'solid' && tier === 'solid') why = state.context === 'wrist' ? ' (wrist is always Solid)' : state.driving && state.context === 'drive' ? ' (vehicle moving)' : mqTransp.matches ? ' (system: reduce transparency)' : '';
+  else if ((state.tier === 'refract' || state.tier === 'auto') && tier === 'frost') why = !isChromium ? ' (this browser cannot refract the backdrop)' : ` (${CTX[state.context].name} caps at Frost)`;
+  const n = tier === 'refract' ? $$('#fit [data-refract]').length : 0;
+  let light = `Environment key light, ${sideOf(L.angle)}`;
+  if (L.sun) { const p = place(); light = L.sun.elevation > 0 ? `Sun ${Math.round(L.sun.elevation)}° high in the ${compass(L.sun.azimuth)} over ${p[1]}; screen faces ${compass(L.heading)}; light ${fromSide(L.angle)}` : `Sun below the horizon over ${p[1]}; sky light from above`; }
+  let pads = 0; try { pads = Array.from(navigator.getGamepads ? navigator.getGamepads() : []).filter(Boolean).length; } catch (e) { /* blocked */ }
+  $('#status').innerHTML = `<div>Material: <b>${tier[0].toUpperCase() + tier.slice(1)}</b>${why}</div><div>Motion: <b>${reduced() ? 'Reduced: state changes, no travel' : 'Full springs'}</b></div>
+    <div>Refracting surfaces: <b>${n}</b> of ${CTX[state.context].refractBudget} allowed</div><div>Light: <b>${light}</b></div>
+    <div>${ENV[state.env].name} · ${appearance() === 'dawn' ? 'Dawn' : 'Dusk'}${state.appearance === 'sun' ? ' (following the sun)' : ''} · accent ${ENV[state.env].accent}${pads ? ' · controller connected' : ''}</div>`;
+}
+function setRadio(name, value) { const r = $(`input[name="${name}"][value="${value}"]`); if (r) r.checked = true; }
+
+/* =====================================================================
+   13. Start
+   ===================================================================== */
+function init() {
+  root.classList.add('no-blend'); requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('no-blend')));   // the first paint never fades in from defaults
+  wireSunDay();
+  buildChips(); buildSwatches(); wireSwatches(); wireSky(); peekIcons(false);
+  setRadio('appearance', state.appearance); setRadio('tier', state.tier); setRadio('motion', state.motion); setRadio('lightmode', state.lightmode); setRadio('weight', state.weight); setRadio('istyle', state.istyle);
+  $('#texture').checked = !state.texture; $('#driving').checked = state.driving; $('#driving-wrap').hidden = state.context !== 'drive';
+  enhance($('.controls')); enhance($('.controls-more')); enhance($('.playground'));
+  applyTheme(); renderDevice(); renderNotes(); buildStates(); buildIcons(); renderStatus();
+
+  const onSetting = e => {
+    const t = e.target, was = { context: state.context, driving: state.driving };
+    if (t.name === 'env') { state.env = t.value; state.light = null; }
+    if (t.name === 'appearance') state.appearance = t.value;
+    if (t.name === 'context') { state.context = t.value; $('#driving-wrap').hidden = state.context !== 'drive'; }
+    if (t.name === 'tier') state.tier = t.value; if (t.name === 'motion') state.motion = t.value; if (t.name === 'lightmode') state.lightmode = t.value;
+    if (t.name === 'weight') state.weight = t.value; if (t.name === 'istyle') state.istyle = t.value;
+    if (t.id === 'texture') state.texture = !t.checked; if (t.id === 'driving') state.driving = t.checked;
+    const apply = () => { save(); applyTheme(); if (state.context !== was.context || state.driving !== was.driving) renderDevice(); renderNotes(); renderStatus(); };
+    if (t.name === 'weight' || t.name === 'istyle') peekIcons(true);
+    scene(apply, t.name === 'context' || t.id === 'driving');
+  };
+  $('.controls').addEventListener('change', onSetting); $('.controls-more').addEventListener('change', onSetting);
+  $('#light').addEventListener('input', e => { state.light = Number(e.target.value); applyTheme(); save(); });
+  $('#clarity').addEventListener('input', e => { direct(); state.tint = Number(e.target.value); applyTheme(); save(); });   // direct manipulation: no blending lag under the finger
+  setInterval(() => { if (state.lightmode === 'sun' && state.hour == null || state.appearance === 'sun') applyTheme(); }, 60000);   // ambient, imperceptibly slow
+
+  const pg = $('#pg-btn');
+  report.onUpdate = ({ el, held, depth, firm, fired }) => {
+    if (el !== pg) return;
+    $('#pg-what').textContent = fired ? `${Math.round(held * 1000)} ms hold: the fluid crept outward and the second action fired.` : `${Math.round(held * 1000)} ms, sank to ${Math.round(depth * 100)}%, ${firm > .5 ? 'firm from rapid repetition, ' : ''}${depth > .7 ? 'wobbles on release' : depth > .35 ? 'settles with a small rebound' : 'stays firm'}.`;
+    $('#pg-depth').style.width = Math.round(depth * 100) + '%'; $('#pg-firm').style.width = Math.round(firm * 100) + '%';
+  };
+  pg.addEventListener('fluidhold', () => { $('#pg-what').textContent = 'Held: the fluid crept outward. A second action is ready.'; });
+
+  let rt; addEventListener('resize', () => { fit(); clearTimeout(rt); rt = setTimeout(() => { scheduleTexture(); refreshLenses(); }, 120); });
+  mqMotion.addEventListener('change', applyTheme); mqTransp.addEventListener('change', () => { applyTheme(); renderStatus(); }); mqContrast.addEventListener('change', applyTheme);
+}
+init();
+</script>
+</body>
+</html>
