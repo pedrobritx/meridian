@@ -279,3 +279,32 @@ test.describe('before the script', () => {
     expect(looks).toEqual(['Save draft: filled', 'Continue: filled', 'Cancel: clear']);
   });
 });
+
+test('tabs inside a form switch panels without submitting it', async ({ page }) => {
+  await open(page);
+  const result = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form'); let submitted = 0;
+    form.addEventListener('submit', e => { e.preventDefault(); submitted++; });
+    form.innerHTML = `<div class="m-tabs"><div class="m-tablist" role="tablist" aria-label="Form tabs">
+      <button class="m-tab" role="tab" id="ft1" aria-controls="fp1" aria-selected="true">One</button>
+      <button class="m-tab" role="tab" id="ft2" aria-controls="fp2" aria-selected="false">Two</button></div>
+      <div role="tabpanel" id="fp1" aria-labelledby="ft1">1</div><div role="tabpanel" id="fp2" aria-labelledby="ft2" hidden>2</div></div>`;
+    document.querySelector('main').append(form);
+    enhance(form);
+    form.querySelector('#ft2').click();
+    return { submitted, selected: form.querySelector('#ft2').getAttribute('aria-selected'), shown: !form.querySelector('#fp2').hidden };
+  });
+  expect(result).toEqual({ submitted: 0, selected: 'true', shown: true });
+});
+
+test.describe('text field before the script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('it has an edge and shows a focus ring', async ({ page }) => {
+    await page.goto('/components/');
+    const well = page.locator('#note-title').locator('xpath=..');
+    expect(await well.evaluate(w => getComputedStyle(w).boxShadow)).not.toBe('none');
+    await page.locator('#note-title').focus();
+    expect(await well.evaluate(w => { const s = getComputedStyle(w); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; })).toBe('solid 2');
+  });
+});

@@ -357,6 +357,7 @@ function wireTabs(tabs) {
     tabs.dispatchEvent(new CustomEvent('tabchange', { bubbles: true, detail: { tab } }));
   };
   for (const t of all()) {
+    if (t.matches('button') && !t.hasAttribute('type')) t.type = 'button';   // inside a form, a tab must not submit it
     hoverable(t);
     t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1;
     t.addEventListener('click', () => { if (!t.disabled) select(t, false); });
