@@ -47,3 +47,29 @@ for (const env of ENVS) for (const appearance of ['dawn', 'dusk']) {
     expect(failures).toEqual([]);
   });
 }
+
+for (const env of ENVS) for (const appearance of ['dawn', 'dusk']) {
+  test(`overlay text contrast as rendered: ${env} ${appearance}`, async ({ page }, info) => {
+    test.skip(info.project.name === 'phone', 'measured on Desk');
+    const failures = [];
+    const check = async selector => {
+      for (const el of await page.locator(selector).all()) {
+        if (!(await el.isVisible())) continue;
+        const ratio = await measure(page, el);
+        if (ratio !== null && ratio < 4.5) failures.push(`${(await el.textContent()).trim().slice(0, 30)}: ${ratio.toFixed(2)}:1`);
+      }
+    };
+    await page.goto(`/components/?env=${env}&appearance=${appearance}&motion=reduced`);
+    await page.waitForFunction(() => document.querySelectorAll('.m-ind').length > 0);
+    await check('.m-toolbar-title');
+    await page.locator('[data-m-open="delete-dialog"]').click();
+    await check('#delete-dialog h2, #delete-dialog p, #delete-dialog .m-label');
+    await page.keyboard.press('Escape');
+    await page.locator('.row [data-m-open="reading-sheet"]').click();
+    await check('#reading-sheet h2, #reading-sheet .m-switch > span:first-child, #reading-sheet .m-seg-opt > span');
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'More' }).click();
+    await check('#more-menu .m-menuitem:not(:disabled)');
+    expect(failures).toEqual([]);
+  });
+}

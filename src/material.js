@@ -362,6 +362,103 @@ function wireTabs(tabs) {
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => place(true)).observe(list);
 }
 
+/* ---------- Toolbar: one Tab stop; arrow keys, Home and End move between controls ---------- */
+function wireToolbar(bar) {
+  if (bar._wiredBar) return; bar._wiredBar = true;
+  const items = () => [...bar.querySelectorAll('button, [href], input, select, textarea, [tabindex]')]
+    .filter(el => !el.disabled && !el.closest('[popover], dialog') && el.closest('.m-toolbar') === bar);
+  const focusable = items();
+  if (!focusable.length) return;
+  const current = focusable.find(el => el.tabIndex === 0 && el.hasAttribute('tabindex')) || focusable[0];
+  focusable.forEach(el => { el.tabIndex = el === current ? 0 : -1; });
+  bar.addEventListener('focusin', e => { const list = items(); if (!list.includes(e.target)) return; list.forEach(el => { el.tabIndex = el === e.target ? 0 : -1; }); });
+  bar.addEventListener('keydown', e => {
+    const vertical = bar.getAttribute('aria-orientation') === 'vertical';
+    const list = items(), i = list.indexOf(document.activeElement); if (i < 0) return;
+    const step = { [vertical ? 'ArrowDown' : 'ArrowRight']: i + 1, [vertical ? 'ArrowUp' : 'ArrowLeft']: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    if (step === undefined) return;
+    e.preventDefault();
+    list[(step + list.length) % list.length].focus();
+  });
+}
+
+/* ---------- Dialog and sheet: native <dialog>, opened by any [data-m-open] button ---------- */
+function wireOpener(btn) {
+  if (btn._wiredOpen) return; btn._wiredOpen = true;
+  btn.addEventListener('click', () => {
+    const d = document.getElementById(btn.dataset.mOpen);
+    if (d && typeof d.showModal === 'function' && !d.open) d.showModal();
+  });
+}
+function wireSheet(sheet) {
+  if (sheet._wiredSheet) return; sheet._wiredSheet = true;
+  // Light dismiss: a click on the backdrop closes a sheet. Dialogs keep their decision until it is made.
+  sheet.addEventListener('click', e => {
+    if (e.target !== sheet) return;
+    const r = sheet.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) sheet.close();
+  });
+  const grab = sheet.querySelector('.m-sheet-grabber'); if (!grab) return;
+  // Drag down on the grabber to dismiss; let go early and it springs back. Arrow keys on the grabber do the same.
+  let y0 = 0, dy = 0, dragging = false;
+  const back = new Spring(0, SPRING.release, v => sheet.style.setProperty('--m-drag', `${Math.max(0, v).toFixed(1)}px`));
+  grab.addEventListener('pointerdown', e => { dragging = true; y0 = e.clientY; dy = 0; grab.setPointerCapture(e.pointerId); sheet.classList.add('is-dragging'); });
+  grab.addEventListener('pointermove', e => { if (!dragging) return; dy = Math.max(0, e.clientY - y0); back.jump(dy); });
+  const end = () => {
+    if (!dragging) return; dragging = false; sheet.classList.remove('is-dragging');
+    if (dy > Math.min(120, sheet.offsetHeight * .3)) { sheet.close(); back.jump(0); }
+    else { back.x = dy; back.to(0); }
+  };
+  grab.addEventListener('pointerup', end); grab.addEventListener('pointercancel', end);
+  grab.addEventListener('click', () => { if (dy < 4) sheet.close(); });
+}
+
+/* ---------- Menu: a popover with the ARIA menu keys ---------- */
+function wireMenu(trigger) {
+  if (trigger._wiredMenu) return; trigger._wiredMenu = true;
+  const menu = document.getElementById(trigger.getAttribute('popovertarget'));
+  if (!menu || !('popover' in HTMLElement.prototype)) return;
+  trigger.setAttribute('aria-haspopup', 'menu'); trigger.setAttribute('aria-expanded', 'false');
+  if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
+  const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(i => !i.disabled);
+  items().forEach(i => { i.tabIndex = -1; });
+  const position = () => {
+    const t = trigger.getBoundingClientRect(), m = menu.getBoundingClientRect(), gap = 6, pad = 8;
+    const below = t.bottom + gap + m.height <= innerHeight - pad || t.top - gap - m.height < pad;
+    let left = Math.min(Math.max(pad, t.left), innerWidth - m.width - pad);
+    const top = below ? t.bottom + gap : t.top - gap - m.height;
+    menu.style.left = `${left}px`; menu.style.top = `${Math.max(pad, top)}px`;
+    menu.style.setProperty('--m-origin', `${t.left + t.width / 2 - left}px ${below ? 'top' : 'bottom'}`);
+  };
+  menu.addEventListener('toggle', e => {
+    const open = e.newState === 'open';
+    trigger.setAttribute('aria-expanded', String(open));
+    if (open) { position(); (items()[0])?.focus(); }
+    else if (menu.contains(document.activeElement) || document.activeElement === document.body) trigger.focus();
+  });
+  trigger.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    e.preventDefault();
+    if (!menu.matches(':popover-open')) menu.showPopover();
+    (e.key === 'ArrowUp' ? items().at(-1) : items()[0])?.focus();
+  });
+  menu.addEventListener('keydown', e => {
+    const list = items(), i = list.indexOf(document.activeElement);
+    const next = { ArrowDown: i + 1, ArrowUp: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    if (next !== undefined) { e.preventDefault(); list[(next + list.length) % list.length].focus(); return; }
+    if (e.key === 'Tab') { menu.hidePopover(); return; }
+    if (e.key.length === 1 && /\S/.test(e.key)) {   // type-ahead: the next item starting with that letter
+      const k = e.key.toLowerCase(), order = [...list.slice(i + 1), ...list.slice(0, i + 1)];
+      order.find(it => it.textContent.trim().toLowerCase().startsWith(k))?.focus();
+    }
+  });
+  menu.addEventListener('click', e => {
+    const item = e.target.closest('[role^="menuitem"]'); if (!item || item.disabled) return;
+    menu.dispatchEvent(new CustomEvent('menuselect', { bubbles: true, detail: { item, value: item.value || item.textContent.trim() } }));
+    menu.hidePopover(); trigger.focus();
+  });
+}
+
 /** Re-place indicators after a value is changed from script (a change event does it automatically). */
 export function refresh(root = document) {
   root.querySelectorAll('.m-seg, .m-switch, .m-slider, .m-tabs').forEach(el => el._place?.(true));
@@ -379,4 +476,8 @@ export function enhance(root = document) {
   root.querySelectorAll('.m-switch').forEach(wireSwitch);
   root.querySelectorAll('.m-slider').forEach(wireSlider);
   root.querySelectorAll('.m-tabs').forEach(wireTabs);
+  root.querySelectorAll('.m-toolbar').forEach(wireToolbar);
+  root.querySelectorAll('[data-m-open]').forEach(wireOpener);
+  root.querySelectorAll('dialog.m-sheet').forEach(wireSheet);
+  root.querySelectorAll('[popovertarget]').forEach(t => { if (document.getElementById(t.getAttribute('popovertarget'))?.classList.contains('m-menu')) wireMenu(t); });
 }

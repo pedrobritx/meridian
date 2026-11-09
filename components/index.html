@@ -14,7 +14,7 @@
     background: radial-gradient(120% 80% at 15% 0%, var(--g2), transparent 60%), radial-gradient(100% 70% at 90% 100%, var(--g1), transparent 62%), var(--g0);
     background-attachment: fixed;
   }
-  main { max-width: 1040px; margin: 0 auto; padding: var(--s7) var(--s5) var(--s8); display: grid; gap: var(--s5); }
+  main { max-width: 1040px; margin: 0 auto; padding: var(--s7) var(--s5) var(--s8); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); }
   header h1 { margin: 0; font-family: var(--font-display); font-size: clamp(32px, 6vw, 48px); line-height: 1.05; letter-spacing: -.01em; }
   header p { margin: var(--s3) 0 0; max-width: 62ch; color: var(--muted); font-size: 17px; }
   .panel {
@@ -227,6 +227,69 @@
       <div class="m-tabpanel" role="tabpanel" id="panel-sources" aria-labelledby="tab-sources" tabindex="0" hidden><p class="sample">Two sources are cited in this article.</p></div>
     </div>
   </section>
+
+  <section class="panel m-glass" aria-labelledby="toolbar-title">
+    <h2 id="toolbar-title">Toolbar</h2>
+    <p>A floating bar of quiet controls. It is one stop for the Tab key; arrow keys, Home and End move inside it.</p>
+    <div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Article">
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Back"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></span></button>
+      <span class="m-toolbar-title">Why shallow water glows</span>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Reading options" data-m-open="reading-sheet"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 18.5 8.5 5.5l5 13 M5.3 14h6.4 M19.5 12.5v6 M17 13a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></svg></span></button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Bookmark" aria-pressed="false"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8.5 4h7A1.5 1.5 0 0 1 17 5.5v13.1a.8.8 0 0 1-1.27.65L12 16.5l-3.73 2.75A.8.8 0 0 1 7 18.6V5.5A1.5 1.5 0 0 1 8.5 4z"/><path d="M8.5 4h7A1.5 1.5 0 0 1 17 5.5v13.1a.8.8 0 0 1-1.27.65L12 16.5l-3.73 2.75A.8.8 0 0 1 7 18.6V5.5A1.5 1.5 0 0 1 8.5 4z"/></svg></span></button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="Share"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8v10.4 M8.3 7.3 12 3.8l3.7 3.5 M8 10H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1"/></svg></span></button>
+      <button class="m-mat m-quiet m-icon" type="button" aria-label="More" popovertarget="more-menu"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h.01 M12 12h.01 M18 12h.01" stroke-width="3"/></svg></span></button>
+    </div>
+    <div class="m-menu" id="more-menu" popover role="menu" aria-label="More">
+      <button class="m-menuitem" role="menuitem" type="button" value="copy">Copy link</button>
+      <button class="m-menuitem" role="menuitem" type="button" value="print">Print</button>
+      <button class="m-menuitem" role="menuitem" type="button" value="offline" disabled>Save offline (unavailable)</button>
+      <hr class="m-menu-sep">
+      <button class="m-menuitem is-danger" role="menuitem" type="button" value="delete">Delete note…</button>
+    </div>
+    <p class="output" id="toolbar-out" aria-live="polite"></p>
+  </section>
+
+  <section class="panel m-glass" aria-labelledby="overlay-title">
+    <h2 id="overlay-title">Dialog, sheet and menu</h2>
+    <p>A dialog asks for a decision and waits for it. A sheet rises from the bottom with supporting content; tap outside or drag it down to put it away. A menu lists a few actions next to its button.</p>
+    <div class="row">
+      <button class="m-mat m-glass" type="button" data-m-open="delete-dialog"><span class="m-label">Delete note…</span></button>
+      <button class="m-mat m-glass" type="button" data-m-open="reading-sheet"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 8h15 M4.5 16h15 M9 5.8a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4z M15 13.8a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4z"/></svg>Reading options</span></button>
+      <button class="m-mat m-glass" type="button" popovertarget="sort-menu"><span class="m-label">Sort by</span></button>
+    </div>
+    <div class="m-menu" id="sort-menu" popover role="menu" aria-label="Sort by">
+      <button class="m-menuitem" role="menuitem" type="button" value="newest">Newest first</button>
+      <button class="m-menuitem" role="menuitem" type="button" value="oldest">Oldest first</button>
+      <button class="m-menuitem" role="menuitem" type="button" value="title">Title</button>
+    </div>
+    <p class="output" id="overlay-out" aria-live="polite"></p>
+  </section>
+
+  <dialog class="m-dialog" id="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-desc">
+    <h2 id="delete-title">Delete this note?</h2>
+    <p id="delete-desc">The note and its highlights are removed from this device. This cannot be undone.</p>
+    <form method="dialog" class="m-actions">
+      <button class="m-mat m-quiet" value="cancel" autofocus><span class="m-label">Keep note</span></button>
+      <button class="m-mat m-pigment" value="delete"><span class="m-label">Delete</span></button>
+    </form>
+  </dialog>
+
+  <dialog class="m-sheet" id="reading-sheet" aria-labelledby="sheet-title">
+    <button class="m-sheet-grabber" type="button" aria-label="Close reading options"></button>
+    <div class="m-sheet-head">
+      <h2 id="sheet-title">Reading options</h2>
+      <form method="dialog"><button class="m-mat m-quiet m-icon" aria-label="Close"><span class="m-label"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11 M17.5 6.5l-11 11"/></svg></span></button></form>
+    </div>
+    <div class="stack">
+      <fieldset class="m-seg">
+        <legend>Measure</legend>
+        <label class="m-seg-opt"><input type="radio" name="sheet-measure" value="narrow"><span>Narrow</span></label>
+        <label class="m-seg-opt"><input type="radio" name="sheet-measure" value="comfort" checked><span>Comfort</span></label>
+        <label class="m-seg-opt"><input type="radio" name="sheet-measure" value="wide"><span>Wide</span></label>
+      </fieldset>
+      <label class="m-switch" style="width: 100%"><span>Quiet chrome while reading</span><input type="checkbox" role="switch" checked><span class="m-switch-track" aria-hidden="true"><span class="m-mat m-thumb"></span></span></label>
+    </div>
+  </dialog>
 
   <footer>
     <p>Markup for every component is in <a href="../docs/components.md">docs/components.md</a>. The physics study lives in the <a href="../lab/">Material Lab</a>.</p>

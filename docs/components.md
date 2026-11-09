@@ -11,7 +11,7 @@ Load the tokens, the components and the behaviour:
 </script>
 ```
 
-Without the script, every component except tabs still works and shows its state; the script adds the fluid behaviour: presses that sink and rebound, drops that travel, hover light. Call `enhance(root)` again after adding components to the page, and `refresh(root)` after changing a segmented control or switch from script without a `change` event.
+Without the script, every component except tabs, toolbar keys, sheet dragging and menu positioning still works and shows its state; the script adds the fluid behaviour: presses that sink and rebound, drops that travel, hover light. Call `enhance(root)` again after adding components to the page, and `refresh(root)` after changing a segmented control or switch from script without a `change` event.
 
 The material layers (`.m-body` with `.m-refract` and `.m-light`) are added by the script when they are missing. Include them in the markup if the page must look complete before the script runs:
 
@@ -145,6 +145,72 @@ Switch between panels of one view. For a setting that changes how one view looks
 ```
 
 Tabs need the script: it moves between tabs with the arrow keys, Home and End, keeps only the chosen tab in the Tab order, shows its panel, and sends a `tabchange` event.
+
+## Toolbar
+
+A floating bar of quiet controls. It is one stop for the Tab key; arrow keys, Home and End move inside it.
+
+```html
+<div class="m-mat m-glass m-surface m-toolbar" role="toolbar" aria-label="Article">
+  <button class="m-mat m-quiet m-icon" type="button" aria-label="Back">…</button>
+  <span class="m-toolbar-title">Why shallow water glows</span>
+  <button class="m-mat m-quiet m-icon" type="button" aria-label="Share">…</button>
+</div>
+```
+
+Add `aria-orientation="vertical"` for a vertical toolbar; the arrow keys follow. A thin divider is `<span class="m-toolbar-sep" aria-hidden="true"></span>`.
+
+## Dialog
+
+A decision that needs an answer before anything else. Built on `<dialog>`: focus moves in and stays in, Escape closes it, and focus returns to the button that opened it.
+
+```html
+<button class="m-mat m-glass" type="button" data-m-open="delete-dialog"><span class="m-label">Delete note…</span></button>
+
+<dialog class="m-dialog" id="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-desc">
+  <h2 id="delete-title">Delete this note?</h2>
+  <p id="delete-desc">The note and its highlights are removed from this device. This cannot be undone.</p>
+  <form method="dialog" class="m-actions">
+    <button class="m-mat m-quiet" value="cancel" autofocus><span class="m-label">Keep note</span></button>
+    <button class="m-mat m-pigment" value="delete"><span class="m-label">Delete</span></button>
+  </form>
+</dialog>
+```
+
+The answer is in `dialog.returnValue` when its `close` event fires. Put `autofocus` on the safer choice. A click outside does not close a dialog: the decision waits.
+
+## Sheet
+
+Supporting content that rises from the bottom edge, such as options for the current view. Also a `<dialog>`; a click on the backdrop, the grabber, Escape or a drag down closes it.
+
+```html
+<dialog class="m-sheet" id="reading-sheet" aria-labelledby="sheet-title">
+  <button class="m-sheet-grabber" type="button" aria-label="Close reading options"></button>
+  <div class="m-sheet-head">
+    <h2 id="sheet-title">Reading options</h2>
+    <form method="dialog"><button class="m-mat m-quiet m-icon" aria-label="Close">…</button></form>
+  </div>
+  …
+</dialog>
+```
+
+Open it with any `[data-m-open="reading-sheet"]` button. Call `refresh(sheet)` when it opens if it holds a segmented control or switch whose size was unknown while it was closed.
+
+## Menu
+
+A short list of actions next to its button, built on the `popover` attribute: a click outside or Escape closes it, and focus returns to the button.
+
+```html
+<button class="m-mat m-glass" type="button" popovertarget="sort-menu"><span class="m-label">Sort by</span></button>
+<div class="m-menu" id="sort-menu" popover role="menu" aria-label="Sort by">
+  <button class="m-menuitem" role="menuitem" type="button" value="newest">Newest first</button>
+  <button class="m-menuitem" role="menuitem" type="button" value="title">Title</button>
+  <hr class="m-menu-sep">
+  <button class="m-menuitem is-danger" role="menuitem" type="button" value="delete">Delete…</button>
+</div>
+```
+
+The script positions the menu under its button (or above, near the bottom edge), sets `aria-expanded`, moves focus with the arrow keys, Home, End and the first letter of an item, and sends a `menuselect` event with the chosen item. Use a menu for actions; to choose a value, use a segmented control or radio buttons.
 
 ## Behaviour in script
 

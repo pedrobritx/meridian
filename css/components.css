@@ -224,6 +224,74 @@
   .m-tablist:not(:has(.m-ind)) .m-tab[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 14%, transparent); }
   .m-tabpanel:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: var(--r-row); }
 
+  /* ---------- Overlays and bars share one rule: thick enough glass to read over anything ---------- */
+  .m-toolbar > .m-body > .m-refract,
+  .m-dialog, .m-sheet, .m-menu {
+    background: rgb(var(--glass-rgb) / max(var(--glass-a), .86));
+    -webkit-backdrop-filter: blur(var(--frost)) saturate(1.6); backdrop-filter: blur(var(--frost)) saturate(1.6);
+  }
+
+  /* ---------- Toolbar: a floating bar of quiet controls, one Tab stop ---------- */
+  .m-toolbar { display: flex; align-items: center; gap: var(--s1); padding: 4px; min-height: calc(var(--target) + 8px); cursor: default; --e0: 4; justify-content: flex-start; max-width: 100%; }
+  .m-toolbar > .m-body { --e: var(--e0); transform: none; }
+  .m-toolbar > .m-body > .m-refract::before { content: ""; position: absolute; inset: 8px; border-radius: inherit; background: rgb(var(--glass-rgb) / var(--guard)); filter: blur(4px); }
+  .m-toolbar > :not(.m-body) { position: relative; z-index: 5; }
+  .m-toolbar-title { flex: 1 1 auto; min-width: 0; contain: inline-size; padding: 0 var(--s2); font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .m-toolbar-sep { width: 1px; align-self: stretch; margin: var(--s2) var(--s1); background: var(--hair); }
+
+  /* ---------- Dialog: a decision that needs an answer ---------- */
+  .m-dialog {
+    box-sizing: border-box; width: min(520px, calc(100% - 2 * var(--s4))); max-height: calc(100% - 2 * var(--s4)); margin: auto; padding: var(--s6);
+    border: 0; border-radius: var(--r-window); color: var(--ink); font: inherit;
+    box-shadow: inset 0 0 0 .5px var(--hair), 0 24px 64px -16px rgb(var(--shadow-rgb) / .45), 0 2px 6px rgb(var(--shadow-rgb) / .12);
+    opacity: 1; transform: none;
+    transition: opacity var(--dur-calm) var(--ease-calm), transform var(--dur-calm) var(--ease-calm), overlay var(--dur-calm) allow-discrete, display var(--dur-calm) allow-discrete;
+  }
+  .m-dialog:not([open]) { opacity: 0; transform: scale(.98); }
+  @starting-style { .m-dialog[open] { opacity: 0; transform: scale(.96); } }
+  .m-dialog > h2, .m-sheet h2 { margin: 0 0 var(--s2); font-family: var(--font-display); font-size: 22px; line-height: 1.25; }
+  .m-dialog > p { margin: 0; color: var(--muted); font-size: 15px; }
+  .m-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--gap); margin: var(--s5) 0 0; padding: 0; border: 0; }
+  .m-dialog::backdrop, .m-sheet::backdrop { background: rgb(var(--shadow-rgb, 0 0 0) / .34); }
+
+  /* ---------- Sheet: supporting content that rises from the bottom edge ---------- */
+  .m-sheet {
+    box-sizing: border-box; position: fixed; inset: auto 0 0; width: min(640px, 100%); max-width: 100%; max-height: min(85vh, 85dvh); margin: 0 auto;
+    padding: var(--s3) var(--s5) calc(var(--s5) + env(safe-area-inset-bottom)); border: 0; border-radius: var(--r-window) var(--r-window) 0 0;
+    color: var(--ink); font: inherit; overflow: auto; overscroll-behavior: contain;
+    box-shadow: inset 0 .5px 0 var(--hair), 0 -12px 40px -12px rgb(var(--shadow-rgb) / .35);
+    transform: translateY(var(--m-drag, 0px));
+    transition: transform var(--dur-calm) var(--ease-calm), overlay var(--dur-calm) allow-discrete, display var(--dur-calm) allow-discrete;
+  }
+  .m-sheet:not([open]) { transform: translateY(100%); }
+  @starting-style { .m-sheet[open] { transform: translateY(100%); } }
+  .m-sheet.is-dragging { transition: none; }
+  .m-sheet-grabber { display: block; width: 100%; height: 24px; margin: 0 0 var(--s2); padding: 0; border: 0; background: none; cursor: grab; touch-action: none; }
+  .m-sheet-grabber::before { content: ""; display: block; width: 36px; height: 5px; margin: 0 auto; border-radius: 999px; background: color-mix(in srgb, var(--ink) 24%, transparent); }
+  .m-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s3); }
+  .m-sheet-head h2 { margin: 0; }
+
+  /* ---------- Menu: a short list of actions anchored to its button ---------- */
+  .m-menu {
+    position: fixed; inset: auto; margin: 0; box-sizing: border-box; min-width: 200px; max-width: min(320px, calc(100vw - 2 * var(--s4))); max-height: 60vh; overflow: auto;
+    padding: 6px; border: 0; border-radius: var(--r-tile); color: var(--ink); font: inherit;
+    box-shadow: inset 0 0 0 .5px var(--hair), 0 16px 40px -12px rgb(var(--shadow-rgb) / .4), 0 2px 6px rgb(var(--shadow-rgb) / .12);
+    opacity: 1; transform: none; transform-origin: var(--m-origin, top left);
+    transition: opacity var(--dur-quick) var(--ease-calm), transform var(--dur-quick) var(--ease-calm), overlay var(--dur-quick) allow-discrete, display var(--dur-quick) allow-discrete;
+  }
+  .m-menu:not(:popover-open) { opacity: 0; transform: scale(.96); }
+  @starting-style { .m-menu:popover-open { opacity: 0; transform: scale(.94); } }
+  .m-menuitem {
+    display: flex; align-items: center; gap: var(--s3); box-sizing: border-box; width: 100%; min-height: var(--target); padding: 0 var(--s3);
+    border: 0; margin: 0; border-radius: var(--r-row); background: none; color: inherit; font: inherit; font-size: 14px; text-align: start; cursor: pointer;
+  }
+  .m-menuitem svg { width: 20px; height: 20px; flex: none; }
+  .m-menuitem:hover, .m-menuitem:focus-visible { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  .m-menuitem:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .m-menuitem:disabled { color: var(--muted); cursor: not-allowed; background: none; }
+  .m-menuitem.is-danger { color: var(--error); }
+  .m-menu-sep { height: 1px; margin: 6px var(--s2); background: var(--hair); border: 0; }
+
   /* ---------- Reduced motion: nothing loops; springs jump in script. ---------- */
   @media (prefers-reduced-motion: reduce) {
     .m-mat[aria-busy="true"] > .m-body > .m-light { animation: none; }
@@ -254,5 +322,7 @@
     .m-check > input[type="radio"]::before { background: HighlightText; }
     .m-tab[aria-selected="true"] { background: Highlight; color: HighlightText; forced-color-adjust: none; }
     .m-tablist .m-ind { display: none; }
+    .m-dialog, .m-sheet, .m-menu, .m-toolbar { border: 1px solid CanvasText; }
+    .m-menuitem:focus-visible { outline: 2px solid Highlight; }
   }
 }

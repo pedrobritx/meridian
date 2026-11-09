@@ -23,7 +23,8 @@ test('every target meets the context size', async ({ page }, info) => {
   const expected = info.project.name === 'phone' ? 48 : 40;
   const target = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--target')));
   expect(target).toBe(expected);
-  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab')]
+  const small = await page.evaluate(t => [...document.querySelectorAll('.m-mat:not(.m-thumb):not(.m-ind):not(.m-toolbar), .m-seg-opt, .m-switch, .m-slider, .m-check, .m-tab, .m-menuitem')]
+    .filter(el => el.checkVisibility())
     .map(el => ({ el, r: el.getBoundingClientRect() }))
     .filter(({ el, r }) => r.height < t - .5 || (el.matches('.m-mat') && r.width < t - .5))
     .map(({ el, r }) => `${el.className} ${el.textContent.trim().slice(0, 20)} ${r.width.toFixed(0)}×${r.height.toFixed(0)}`), target);
@@ -174,4 +175,105 @@ test('tabs: arrow keys, Home and End select tabs and show their panels', async (
     const ind = l.querySelector('.m-ind'), t = l.querySelector('[aria-selected="true"]');
     return Math.abs(parseFloat(ind.style.left) - t.offsetLeft) < 1;
   }), { timeout: 2000 }).toBe(true);
+});
+
+test('toolbar: one Tab stop, arrow keys, Home and End', async ({ page }) => {
+  await open(page);
+  const bar = page.getByRole('toolbar', { name: 'Article' });
+  await bar.getByRole('button', { name: 'Back' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(bar.getByRole('button', { name: 'Reading options' })).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(bar.getByRole('button', { name: 'More' })).toBeFocused();
+  await page.keyboard.press('ArrowRight');
+  await expect(bar.getByRole('button', { name: 'Back' })).toBeFocused();
+  const stops = await bar.evaluate(b => [...b.querySelectorAll('button')].filter(x => x.tabIndex === 0).length);
+  expect(stops).toBe(1);
+});
+
+test('dialog: focus moves in, Escape closes, focus returns to its opener', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const opener = page.locator('[data-m-open="delete-dialog"]');
+  await opener.click();
+  const dialog = page.getByRole('dialog', { name: 'Delete this note?' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAccessibleDescription(/cannot be undone/);
+  await expect(dialog.getByRole('button', { name: 'Keep note' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+  await opener.click();
+  await dialog.getByRole('button', { name: 'Delete' }).click();
+  await expect(page.locator('#overlay-out')).toContainText('Note deleted');
+});
+
+test('sheet: opens from its button, closes on the backdrop and with Escape', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const opener = page.locator('.row [data-m-open="reading-sheet"]');
+  await opener.click();
+  const sheet = page.getByRole('dialog', { name: 'Reading options' });
+  await expect(sheet).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(sheet).toBeHidden();
+  await expect(opener).toBeFocused();
+  await opener.click();
+  await expect(sheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(sheet).toBeHidden();
+});
+
+test('menu: opens on its button, arrow keys move, Escape returns focus, choosing closes', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+  await trigger.click();
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(menu.getByRole('menuitem', { name: 'Newest first' })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(menu.getByRole('menuitem', { name: 'Oldest first' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(menu).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await trigger.click();
+  await expect(menu.getByRole('menuitem', { name: 'Newest first' })).toBeFocused();
+  await page.keyboard.press('t');
+  await expect(menu.getByRole('menuitem', { name: 'Title' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(menu).toBeHidden();
+  await expect(page.locator('#overlay-out')).toHaveText('Sorted: Title.');
+});
+
+test('menu inside the toolbar can open the dialog; disabled items are skipped', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.getByRole('button', { name: 'More' }).click();
+  const menu = page.getByRole('menu', { name: 'More' });
+  await expect(menu.getByRole('menuitem', { name: 'Copy link' })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('ArrowDown');
+  await expect(menu.getByRole('menuitem', { name: 'Delete note…' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog', { name: 'Delete this note?' })).toBeVisible();
+});
+
+test('overlays have no WCAG 2.2 AA violations', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'checked on Desk');
+  for (const [open_, name] of [['[data-m-open="delete-dialog"]', 'dialog'], ['.row [data-m-open="reading-sheet"]', 'sheet']]) {
+    await open(page, 'env=canyon&appearance=dusk&motion=reduced');
+    await page.locator(open_).click();
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
+    expect(results.violations.map(v => `${name} ${v.id}`)).toEqual([]);
+  }
+  await open(page, 'env=canyon&appearance=dawn&motion=reduced');
+  await page.getByRole('button', { name: 'Sort by' }).click();
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
+  expect(results.violations.map(v => `menu ${v.id}`)).toEqual([]);
+});
+
+test('nothing overflows the page sideways', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const widths = await page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
+  expect(widths[0]).toBeLessThanOrEqual(widths[1]);
 });
