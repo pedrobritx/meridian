@@ -271,6 +271,7 @@ function wireSwitch(sw) {
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => sw.addEventListener(t, () => c.up()));
   input.addEventListener('keydown', e => { if (e.key === ' ' && !e.repeat) c.down(.5, .5); });
   input.addEventListener('keyup', e => { if (e.key === ' ') c.up(); });
+  input.addEventListener('blur', () => c.up());   // Space held while focus moves away: no keyup will come
   sw._place = place;
   followReset(sw, place);
   place(true);

@@ -23,6 +23,11 @@
   }
   .m-mat:focus { outline: none; }
   .m-mat:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .m-mat[hidden] { display: none; }
+  /* Before the script adds the material layers, or without script, every component still has a surface and an edge. */
+  .m-mat:not(:has(> .m-body)) { background: rgb(var(--glass-rgb) / var(--glass-a)); box-shadow: inset 0 0 0 1px var(--line); }
+  .m-pigment:not(:has(> .m-body)) { background: var(--accent); box-shadow: none; }
+  .m-quiet:not(:has(> .m-body)) { background: transparent; box-shadow: none; }
 
   .m-body {
     --e: calc(var(--e0) + var(--hover) * 1.5 + var(--lift) * 8 - max(var(--press), 0) * var(--e0) * .75 + var(--creep) * 1.5);
