@@ -526,3 +526,19 @@ test('a radio group with no choice looks unchosen (radios are never indeterminat
   });
   expect(looks).toEqual({ indeterminate: true, filled: false });
 });
+
+test('an open menu follows its button when the page scrolls', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  const trigger = page.getByRole('button', { name: 'Sort by' });
+  await trigger.click();
+  const menu = page.getByRole('menu', { name: 'Sort by' });
+  await expect(menu).toBeVisible();
+  const gap = async () => {
+    const t = await trigger.boundingBox(), m = await menu.boundingBox();
+    return Math.round(Math.min(Math.abs(m.y - (t.y + t.height)), Math.abs(t.y - (m.y + m.height))));
+  };
+  const before = await gap();
+  await page.mouse.wheel(0, 120);
+  await page.waitForTimeout(150);
+  expect(await gap()).toBe(before);
+});

@@ -449,9 +449,14 @@ function wireMenu(trigger) {
     menu.style.left = `${left}px`; menu.style.top = `${Math.max(pad, top)}px`;
     menu.style.setProperty('--m-origin', `${t.left + t.width / 2 - left}px ${below ? 'top' : 'bottom'}`);
   };
+  // While open, the menu follows its button when the page scrolls or the window changes size.
+  let frame = 0;
+  const follow = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; if (menu.matches(':popover-open')) position(); }); };
   menu.addEventListener('toggle', e => {
     const open = e.newState === 'open';
     trigger.setAttribute('aria-expanded', String(open));
+    if (open) { addEventListener('scroll', follow, { capture: true, passive: true }); addEventListener('resize', follow); }
+    else { removeEventListener('scroll', follow, { capture: true }); removeEventListener('resize', follow); }
     if (open) { position(); (openAt === 'last' ? items().at(-1) : items()[0])?.focus(); openAt = 'first'; }
     else if (menu.contains(document.activeElement) || document.activeElement === document.body) trigger.focus();
   });
