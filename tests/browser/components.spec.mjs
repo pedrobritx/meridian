@@ -572,3 +572,51 @@ test('controls inside open overlays meet the context size too', async ({ page },
   await page.getByRole('button', { name: 'Sort by' }).click();
   expect(await small()).toEqual([]);
 });
+
+test('text fields and sliders inside a toolbar keep their editing keys until they reach an end', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const bar = document.createElement('div');
+    bar.className = 'm-mat m-glass m-surface m-toolbar'; bar.setAttribute('role', 'toolbar'); bar.setAttribute('aria-label', 'Find');
+    bar.innerHTML = `<button class="m-mat m-quiet" type="button">Back</button>
+      <input aria-label="Search" value="glow">
+      <input type="range" aria-label="Zoom" min="0" max="2" value="1">
+      <button class="m-mat m-quiet" type="button">Done</button>`;
+    const host = document.createElement('div'); host.append(bar); document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'Find' });
+  const search = bar.getByRole('textbox', { name: 'Search' }), zoom = bar.getByRole('slider', { name: 'Zoom' });
+  const caret = () => search.evaluate(el => el.selectionStart);
+
+  await search.focus(); await search.evaluate(el => el.setSelectionRange(4, 4));
+  await page.keyboard.press('ArrowLeft'); expect(await caret()).toBe(3); await expect(search).toBeFocused();
+  await page.keyboard.press('Home'); expect(await caret()).toBe(0); await expect(search).toBeFocused();
+  await page.keyboard.press('End'); expect(await caret()).toBe(4); await expect(search).toBeFocused();
+  await page.keyboard.press('Shift+ArrowLeft'); await expect(search).toBeFocused();   // selection keys stay with the field
+  await page.keyboard.press('End');
+  await page.keyboard.press('ArrowRight'); await expect(zoom).toBeFocused();          // caret already at the end: the bar moves on
+
+  await page.keyboard.press('ArrowRight'); expect(await zoom.inputValue()).toBe('2'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('ArrowLeft'); expect(await zoom.inputValue()).toBe('1'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('End'); expect(await zoom.inputValue()).toBe('2'); await expect(zoom).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'Done' })).toBeFocused();
+
+  await page.keyboard.press('Home'); await expect(bar.getByRole('button', { name: 'Back' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(search).toBeFocused();
+});
+
+test('arrow keys follow the visual order of a right-to-left toolbar', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const bar = document.createElement('div'); bar.dir = 'rtl';
+    bar.className = 'm-mat m-glass m-surface m-toolbar'; bar.setAttribute('role', 'toolbar'); bar.setAttribute('aria-label', 'RTL');
+    bar.innerHTML = '<button class="m-mat m-quiet" type="button">One</button><button class="m-mat m-quiet" type="button">Two</button>';
+    const host = document.createElement('div'); host.append(bar); document.querySelector('main').prepend(host); enhance(host);
+  });
+  const bar = page.getByRole('toolbar', { name: 'RTL' });
+  await bar.getByRole('button', { name: 'One' }).focus();
+  await page.keyboard.press('ArrowLeft'); await expect(bar.getByRole('button', { name: 'Two' })).toBeFocused();
+  await page.keyboard.press('ArrowRight'); await expect(bar.getByRole('button', { name: 'One' })).toBeFocused();
+});

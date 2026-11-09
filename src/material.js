@@ -389,14 +389,39 @@ function wireToolbar(bar) {
   const current = focusable.find(el => el.tabIndex === 0 && el.hasAttribute('tabindex')) || focusable[0];
   focusable.forEach(el => { el.tabIndex = el === current ? 0 : -1; });
   bar.addEventListener('focusin', e => { const list = items(); if (!list.includes(e.target)) return; list.forEach(el => { el.tabIndex = el === e.target ? 0 : -1; }); });
+  let pending = null;   // a key a text field or slider may have had no use for, checked when it is released
   bar.addEventListener('keydown', e => {
+    if (!e.repeat) pending = null;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
     const vertical = bar.getAttribute('aria-orientation') === 'vertical';
-    const list = items(), i = list.indexOf(document.activeElement); if (i < 0) return;
-    const step = { [vertical ? 'ArrowDown' : 'ArrowRight']: i + 1, [vertical ? 'ArrowUp' : 'ArrowLeft']: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    const rtl = !vertical && getComputedStyle(bar).direction === 'rtl';
+    const el = document.activeElement, list = items(), i = list.indexOf(el); if (i < 0) return;
+    const next = vertical ? 'ArrowDown' : rtl ? 'ArrowLeft' : 'ArrowRight';
+    const prev = vertical ? 'ArrowUp' : rtl ? 'ArrowRight' : 'ArrowLeft';
+    const step = { [next]: i + 1, [prev]: i - 1, Home: 0, End: list.length - 1 }[e.key];
     if (step === undefined) return;
-    e.preventDefault();
-    list[(step + list.length) % list.length].focus();
+    const go = () => list[(step + list.length) % list.length].focus();
+    // A text field or slider keeps the key for itself. The bar only takes it once the control
+    // has nothing left to do with it: the caret or the value is already at that end.
+    const where = editState(el);
+    if (where === null) { e.preventDefault(); go(); return; }
+    if (!e.repeat) pending = { key: e.key, el, where, go };   // holding a key to reach the end must not carry focus out
   });
+  bar.addEventListener('keyup', e => {
+    const p = pending; if (!p || p.key !== e.key) return; pending = null;
+    if (document.activeElement === p.el && editState(p.el) === p.where) p.go();
+  });
+}
+const TEXT_TYPES = new Set(['text', 'search', 'url', 'tel', 'password']);
+function editState(el) {
+  if (el.matches('input[type="range" i]')) return el.value;
+  if (el.matches('textarea') || (el.matches('input') && TEXT_TYPES.has(el.type))) return `${el.value}|${el.selectionStart}|${el.selectionEnd}`;
+  if (el.isContentEditable) {
+    const sel = getSelection(); if (!sel || !sel.rangeCount) return el.textContent;
+    const r = sel.getRangeAt(0), upTo = (node, offset) => { const x = document.createRange(); x.selectNodeContents(el); x.setEnd(node, offset); return x.toString().length; };
+    return `${el.textContent}|${upTo(r.startContainer, r.startOffset)}|${upTo(r.endContainer, r.endOffset)}`;
+  }
+  return null;
 }
 
 /* ---------- Dialog and sheet: native <dialog>, opened by any [data-m-open] button ---------- */

@@ -158,7 +158,7 @@ A floating bar of quiet controls. It is one stop for the Tab key; arrow keys, Ho
 </div>
 ```
 
-Add `aria-orientation="vertical"` for a vertical toolbar; the arrow keys follow. A thin divider is `<span class="m-toolbar-sep" aria-hidden="true"></span>`.
+Add `aria-orientation="vertical"` for a vertical toolbar; the arrow keys follow, and in right-to-left text they follow the visual order. A text field, text area or slider in the bar keeps its own arrow keys, Home and End: the bar takes the key only once the caret or value is already at that end, and never while the key is held or a modifier is down. Number, email, date and select fields keep only the keys the bar does not use, so place them last, as the ARIA toolbar pattern advises. A thin divider is `<span class="m-toolbar-sep" aria-hidden="true"></span>`.
 
 ## Dialog
 
