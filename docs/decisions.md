@@ -1,27 +1,34 @@
-# Decisions — historical 0.1 and current 0.4
+# Decisions for Meridian 1.0
 
-## Source hierarchy
+Decisions Pedro has made. Change them only with his agreement.
 
-The user selected Figma plus GitHub, web first, with existing product adaptations. The supplied Obsidian `Meridian Design System.md` defines the Dawn/Dusk palette and atmospheric intent. The local Meridian Constitution v1.0 and current Lexis docs/design.md establish the broader method: primitive → semantic → product; purposeful material references; product-specific identity. The colour research document is background, not verified scientific evidence or an instruction to implement health claims.
+## Scope
 
-These compose as follows: Dawn/Dusk is the reference theme, not a universal palette. The original pigments are retained. Glass is optional chrome with opaque fallbacks; reading surfaces remain solid. Elevation uses tone and boundaries rather than mandatory transparency. VIA's existing light-only decision is recorded, not rewritten. No product repository is changed.
+- Meridian 1.0 restarts from the Material Lab.
+- 1.0 is a stable core plus Preview. Automated checks decide what is stable; anything that fails ships as Preview.
+- Web first: Desk and Touch are built. Wrist, Space, TV and Drive stay written specs in the token file.
 
-## Colour
+## Colour and material
 
-The supplied text, action and status colours are not all safe on every surface. Accessible derivatives are explicit primitives: ink-muted #695E52 (Dawn muted text), tide-lit #90BED8 (Dusk action/info), warning-ink #854629, success-ink #465638, sea-green #98C3A4, amber-clay #E8B88A and garnet-lit #EDADB6. These are new reference choices, not previously approved product tokens. Token tests check text at 4.5:1 and focus/control boundaries at 3:1 on all solid reference surfaces.
+- Six environments, each with Dawn and Dusk: Prism (default), Forest, Desert, Ocean, Aurora and Canyon. Environment × appearance is the only public colour API.
+- Fluid is a behaviour shared by the whole system, not a theme.
+- Each product may override one thing: its accent.
+- Prism's accent is graphite, with iridescence on the primary button only.
+- Ground texture is on by default; reducing it is an accessibility option. Each environment's ground follows its own logic.
+- Shapes are round at rest and behave like blobs only while they move. The look stays modern and calm, closer to visionOS and macOS than to decorative skeuomorphism.
 
-## Typography and implementation
+## Physics
 
-Fraunces display, Newsreader reading and JetBrains Mono labels reflect the inspected education/VIA implementations. A product can replace font roles. Fonts are self-hosted through Fontsource packages. The reference uses native HTML controls and the HTML dialog element, CSS token roles and lightweight JS. Vite is build/development tooling only. No backend or framework migration is introduced.
+- How a press gives and recovers may vary by environment. What it does, the hit areas and the timing do not: every feel settles within 0.9 s.
 
-## Adaptation and versioning
+## Type
 
-0.1.0 is the first implemented reference, not a claim that every planned design-system capability is complete. Native Apple libraries, product migrations, a complete icon catalogue, advanced component families and approved Terra tokens remain future work. Designs and runtime representations share names and values but are not pixel-identical captures; Figma uses editable layers and instances.
+- Platform-native UI type plus one reading serif.
 
-## 0.4 shared contract
+## Figma, GitHub and the website
 
-The website now consumes the four-mode Core/Grass/Paper token export and mapped Figma library copy. This replaces the 0.1 palette as the current reference; the older choices above remain historical. The bridge preserves a review PR before Pages publication and offers session-based two-way variable/text synchronization. Layouts, code and prototype reactions are not reversible through tokens alone.
-
-## 0.5 — Repository-informed themes, 8 October 2026
-
-Inspect the five project repositories before choosing their profiles. Preserve Verbalis cyan CAT semantics, NotUX selection/guide and author-ink separation, Lexis editorial Paper, Framio stone/brass curation, and Ambientis evidence-first Terra intent. Core gains a neutral grayscale palette. Figma’s ten-mode limit requires complementary colour collections; original IDs remain intact. The 168-role export supports twelve appearances. Native glass is optional with at least 96% protective tint; opaque fallbacks are immediate under reduced transparency. Publish the enlarged contract as an immutable Git blob referenced by a small dispatch payload. See adoption and validation for current evidence.
+- Tokens, documentation and recipes are edited in GitHub and pushed to Figma. Components and specs are designed in Figma and come to GitHub as pull requests on named versions.
+- When Figma and GitHub disagree, Figma's newer value wins if it passes the checks.
+- Figma holds static design and is reviewed first; motion and refraction are reviewed in the lab.
+- Three Figma files: library, website, and lab/archive.
+- The website lives at britx.studio/meridian, built with Vite and served by GitHub Pages. Its home is a "Get started" presentation; philosophy is written in the manner of Apple's Human Interface Guidelines and specifications in the manner of Material 3.

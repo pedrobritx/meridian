@@ -1,6 +1,0 @@
-{
-  "body": "Source: [Meridian in Figma](https://www.figma.com/design/aJ2f6aYX9KBucAdPsCmkXn) · named version 2418535610978959320.\n\n0 added, 0 changed, 0 removed layers. Previews and layer diffs are exported from the approved named version.\n\nReview the generated artifacts, adapt relevant semantic tokens/components into a product, and verify desktop/mobile, keyboard focus, contrast and reduced motion before shipping.\n\nExports are review artifacts. Continuous refraction, pointer tracking and application behaviour require implementation.\n\nLatest design handoff: https://github.com/pedrobritx/meridian/issues/58\n\nThis branch accumulates pending approved exports. Review and merge it to update the shared contract and publish the website.",
-  "issueUrl": "https://github.com/pedrobritx/meridian/issues/58",
-  "baseHash": "170bd7809eda3897bfe16a78cd6d0e589a18c01c74f95c0b104b89acfdab6a15",
-  "contractHash": "170bd7809eda3897bfe16a78cd6d0e589a18c01c74f95c0b104b89acfdab6a15"
-}
