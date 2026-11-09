@@ -84,14 +84,14 @@ A value along a range, built on `<input type="range">`, so arrow keys, Page Up a
 ```html
 <div class="m-field">
   <label for="text-size">Text size</label>
-  <div class="m-slider" style="--m-value: .4">
+  <div class="m-slider">
     <input type="range" id="text-size" min="14" max="24" value="18">
     <span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span>
   </div>
 </div>
 ```
 
-`--m-value` is the starting position from 0 to 1, so the slider is drawn correctly before the script runs; the script keeps it in step with the value. Show the value next to the label with an `<output>` when it matters.
+Until the script runs, the browser's own slider shows, in the accent colour; the script then swaps in the drop and keeps it in step with the value, including after a form reset. Show the value next to the label with an `<output>` when it matters.
 
 ## Text field
 

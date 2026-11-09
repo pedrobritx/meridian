@@ -174,6 +174,8 @@ test('tabs: arrow keys, Home and End select tabs and show their panels', async (
     const ind = l.querySelector('.m-ind'), t = l.querySelector('[aria-selected="true"]');
     return Math.abs(parseFloat(ind.style.left) - t.offsetLeft) < 1;
   }), { timeout: 2000 }).toBe(true);
+});
+
 test('a form reset puts segmented controls and switches back in step', async ({ page }) => {
   await open(page);
   const state = await page.evaluate(async () => {
@@ -197,4 +199,39 @@ test('a form reset puts segmented controls and switches back in step', async ({ 
     return { indOnSmall: Math.abs(parseFloat(ind.style.left) - small.offsetLeft) < 1, dye: parseFloat(track.style.getPropertyValue('--dye')), checked: sw.checked };
   });
   expect(state).toEqual({ indOnSmall: true, dye: 0, checked: false });
+});
+
+test('forced colours: a focused text field shows a ring', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.emulateMedia({ forcedColors: 'active' });
+  await page.getByRole('textbox', { name: 'Note title' }).focus();
+  const outline = await page.locator('#note-title').evaluate(i => { const s = getComputedStyle(i.closest('.m-well')); return `${s.outlineStyle} ${parseFloat(s.outlineWidth)}`; });
+  expect(outline).toBe('solid 2');
+});
+
+test.describe('without script', () => {
+  test.use({ javaScriptEnabled: false });
+  test('the native slider shows its value until the script takes over', async ({ page }) => {
+    await page.goto('/components/');
+    const input = page.locator('#text-size');
+    await expect(input).toHaveCSS('opacity', '1');
+    await expect(page.locator('#text-size ~ .m-thumb')).toBeHidden();
+  });
+});
+
+test('a form reset puts the slider back in step', async ({ page }) => {
+  await open(page);
+  const value = await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const form = document.createElement('form');
+    form.innerHTML = '<div class="m-slider"><input type="range" min="0" max="10" value="2" aria-label="Level"><span class="m-rail"></span><span class="m-fill"></span><span class="m-mat m-thumb" aria-hidden="true"></span></div>';
+    document.querySelector('main').append(form);
+    enhance(form);
+    const input = form.querySelector('input'); input.value = '9'; input.dispatchEvent(new Event('input', { bubbles: true }));
+    await new Promise(r => setTimeout(r, 1200));
+    form.reset();
+    await new Promise(r => setTimeout(r, 1200));
+    return +parseFloat(form.querySelector('.m-slider').style.getPropertyValue('--m-value')).toFixed(2);
+  });
+  expect(value).toBe(.2);
 });

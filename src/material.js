@@ -311,8 +311,10 @@ function wireSlider(sl) {
   const end = () => { if (!dragging) return; dragging = false; lift.to(0, SPRING.release); render(pos.x, 0); bounce(thumb, .6); };   // set down, it settles with a wobble
   input.addEventListener('pointerup', end); input.addEventListener('pointercancel', end); input.addEventListener('blur', () => lift.to(0));
   input.addEventListener('input', () => sl._place(false));
+  followReset(sl, sl._place);
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => sl._place(true)).observe(sl);
   sl._place(true);
+  sl.dataset.mReady = '';
 }
 
 /* ---------- Field: one jiggle when an error appears ---------- */
