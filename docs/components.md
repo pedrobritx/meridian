@@ -144,7 +144,7 @@ Switch between panels of one view. For a setting that changes how one view looks
 </div>
 ```
 
-Tabs need the script: it moves between tabs with the arrow keys, Home and End, keeps only the chosen tab in the Tab order, shows its panel, and sends a `tabchange` event.
+Tabs need the script: it moves between tabs with the arrow keys, Home and End (skipping hidden and disabled tabs), keeps only the chosen tab in the Tab order, shows its panel, and sends a `tabchange` event.
 
 ## Toolbar
 
@@ -210,7 +210,7 @@ A short list of actions next to its button, built on the `popover` attribute: a 
 </div>
 ```
 
-The script positions the menu under its button (or above, near the bottom edge), sets `aria-expanded`, moves focus with the arrow keys, Home, End and the first letter of an item, and sends one `menuselect` event whose `detail` holds the chosen `item`, its `value` and the `trigger` that opened the menu. Several buttons may share one menu; it opens by, and returns focus to, whichever button opened it. Use a menu for actions; to choose a value, use a segmented control or radio buttons.
+The script positions the menu under its button (or above, near the bottom edge), sets `aria-expanded`, moves focus with the arrow keys, Home, End and the first letter of an item (skipping hidden and disabled items), and sends one `menuselect` event whose `detail` holds the chosen `item`, its `value` and the `trigger` that opened the menu. Several buttons may share one menu; it opens by, and returns focus to, whichever button opened it. Use a menu for actions; to choose a value, use a segmented control or radio buttons.
 
 ## Behaviour in script
 

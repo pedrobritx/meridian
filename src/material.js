@@ -332,11 +332,17 @@ function wireField(well) {
 }
 
 /* ---------- Tabs: the ARIA tabs pattern with automatic activation ---------- */
+/** Keyboard navigation skips controls that cannot take focus: disabled, inert or not rendered. */
+function canFocus(el) {
+  if (el.disabled || el.closest('[inert]')) return false;
+  return typeof el.checkVisibility === 'function' ? el.checkVisibility({ visibilityProperty: true }) : el.getClientRects().length > 0;
+}
+
 function wireTabs(tabs) {
   if (tabs._wired) return; tabs._wired = true;
   const list = tabs.querySelector('[role="tablist"]'); if (!list) return;
   const all = () => [...list.querySelectorAll('[role="tab"]')];
-  const usable = () => all().filter(t => !t.disabled);
+  const usable = () => all().filter(canFocus);
   const ind = document.createElement('span'); ind.className = 'm-mat m-ind'; ind.setAttribute('aria-hidden', 'true');
   list.prepend(ind); addBody(ind);
   let moving = false;
@@ -386,8 +392,7 @@ function wireToolbar(bar) {
       const overlay = el.closest('[popover], dialog');   // skip controls in an overlay inside the bar, not a bar inside an overlay
       return !overlay || !bar.contains(overlay);
     });
-  const usable = el => !el.disabled && !el.closest('[inert]')
-    && (typeof el.checkVisibility === 'function' ? el.checkVisibility({ visibilityProperty: true }) : el.getClientRects().length > 0);
+  const usable = canFocus;
   const items = () => candidates().filter(usable);
   // The bar's one Tab stop must be a control that can take focus. Keep the current stop while it can;
   // otherwise move it to the first usable control. Hidden and disabled controls are skipped by the arrow keys too.
@@ -497,8 +502,8 @@ function wireMenuPopover(menu) {
   const state = { trigger: null, triggers: new Set(), openAt: 'first' };   // openAt: ArrowUp on the button opens at the last item
   const opener = () => state.trigger || state.triggers.values().next().value;
   if (!menu.getAttribute('role')) menu.setAttribute('role', 'menu');
-  const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(i => !i.disabled);
-  items().forEach(i => { i.tabIndex = -1; if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button'; });
+  const items = () => [...menu.querySelectorAll('[role^="menuitem"]')].filter(canFocus);
+  menu.querySelectorAll('[role^="menuitem"]').forEach(i => { i.tabIndex = -1; if (i.matches('button') && !i.hasAttribute('type')) i.type = 'button'; });   // all of them: a closed menu shows none
   state.focusItem = () => { (state.openAt === 'last' ? items().at(-1) : items()[0])?.focus(); state.openAt = 'first'; };
   let size = { width: 0, height: 0 };   // a closed menu has no size, so the last open size stands in for it
   const position = () => {

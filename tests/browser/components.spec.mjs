@@ -725,3 +725,36 @@ test('a menu is placed by its button before it is first painted', async ({ page 
   });
   expect(gap).toBeLessThanOrEqual(8);
 });
+
+test('menus and tabs skip hidden items', async ({ page }) => {
+  await open(page, 'motion=reduced');
+  await page.evaluate(async () => {
+    const { enhance } = await import('/src/material.js');
+    const host = document.createElement('div');
+    host.innerHTML = `<button class="m-mat m-glass" type="button" popovertarget="hide-menu">Actions</button>
+      <div class="m-menu" id="hide-menu" popover role="menu" aria-label="Actions">
+        <button class="m-menuitem" role="menuitem" hidden>Archive</button>
+        <button class="m-menuitem" role="menuitem">Rename</button>
+        <button class="m-menuitem" role="menuitem" style="display:none">Duplicate</button>
+        <button class="m-menuitem" role="menuitem">Delete</button></div>
+      <div class="m-tabs"><div class="m-mat m-quiet m-tablist" role="tablist" aria-label="Views">
+        <button class="m-tab" role="tab" aria-selected="true">Day</button>
+        <button class="m-tab" role="tab" aria-selected="false" hidden>Week</button>
+        <button class="m-tab" role="tab" aria-selected="false">Month</button></div></div>`;
+    document.querySelector('main').prepend(host); enhance(host);
+  });
+  const item = name => page.getByRole('menuitem', { name, exact: true, includeHidden: true });
+  expect(await page.locator('#hide-menu [hidden], .m-tab[hidden]').evaluateAll(els => els.map(el => getComputedStyle(el).display))).toEqual(['none', 'none']);
+  expect(await page.locator('#hide-menu [role="menuitem"]').evaluateAll(els => els.map(el => [el.tabIndex, el.type]))).toEqual([[-1, 'button'], [-1, 'button'], [-1, 'button'], [-1, 'button']]);
+  await page.getByRole('button', { name: 'Actions' }).click();
+  await expect(item('Rename')).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(item('Delete')).toBeFocused();
+  await page.keyboard.press('ArrowDown'); await expect(item('Rename')).toBeFocused();
+  await page.keyboard.press('a'); await expect(item('Rename')).toBeFocused();   // type-ahead ignores the hidden Archive
+  await page.keyboard.press('Escape');
+
+  const tab = name => page.getByRole('tab', { name, exact: true, includeHidden: true });
+  await tab('Day').focus();
+  await page.keyboard.press('ArrowRight'); await expect(tab('Month')).toBeFocused();
+  expect(await tab('Week').getAttribute('aria-selected')).toBe('false');
+});
