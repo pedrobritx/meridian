@@ -30,5 +30,5 @@ Decisions Pedro has made. Change them only with his agreement.
 - Tokens, documentation and recipes are edited in GitHub and pushed to Figma. Components and specs are designed in Figma and come to GitHub as pull requests on named versions.
 - When Figma and GitHub disagree, Figma's newer value wins if it passes the checks.
 - Figma holds static design and is reviewed first; motion and refraction are reviewed in the lab.
-- Three Figma files: library, website, and lab/archive.
+- Three Figma files: library, website, and lab/archive. The 1.0 library is described in [figma.md](figma.md).
 - The website lives at britx.studio/meridian, built with Vite and served by GitHub Pages. Its home is a "Get started" presentation; philosophy is written in the manner of Apple's Human Interface Guidelines and specifications in the manner of Material 3.
